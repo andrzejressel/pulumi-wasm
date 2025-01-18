@@ -30,6 +30,7 @@ pub mod get_key_ring_iam_policy {
         let key_ring_id_binding = args.key_ring_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getKeyRingIamPolicy:getKeyRingIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "keyRingId".into(),

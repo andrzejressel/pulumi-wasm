@@ -53,6 +53,7 @@ pub mod get_pipeline_definition {
         let pipeline_id_binding = args.pipeline_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:datapipeline/getPipelineDefinition:getPipelineDefinition".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "parameterValues".into(),

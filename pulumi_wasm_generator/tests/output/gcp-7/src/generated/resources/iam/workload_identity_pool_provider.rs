@@ -584,6 +584,7 @@ pub mod workload_identity_pool_provider {
             type_: "gcp:iam/workloadIdentityPoolProvider:WorkloadIdentityPoolProvider"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "attributeCondition".into(),

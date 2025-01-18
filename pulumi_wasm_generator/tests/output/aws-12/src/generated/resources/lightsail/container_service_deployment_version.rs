@@ -104,6 +104,7 @@ pub mod container_service_deployment_version {
             type_: "aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "containers".into(),

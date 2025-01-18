@@ -147,6 +147,7 @@ pub mod hci_marketplace_gallery_image {
             type_: "azure:stack/hciMarketplaceGalleryImage:HciMarketplaceGalleryImage"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customLocationId".into(),

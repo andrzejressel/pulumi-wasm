@@ -146,6 +146,7 @@ pub mod backup_policy_postgresql {
             type_: "azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backupRepeatingTimeIntervals".into(),

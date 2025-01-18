@@ -31,6 +31,7 @@ pub mod get_group_lookup {
         let group_key_binding = args.group_key.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudidentity/getGroupLookup:getGroupLookup".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "groupKey".into(),

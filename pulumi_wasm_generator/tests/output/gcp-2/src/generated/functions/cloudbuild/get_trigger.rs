@@ -81,6 +81,7 @@ pub mod get_trigger {
         let trigger_id_binding = args.trigger_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudbuild/getTrigger:getTrigger".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

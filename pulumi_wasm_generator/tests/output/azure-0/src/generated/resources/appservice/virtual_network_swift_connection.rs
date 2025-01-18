@@ -215,6 +215,7 @@ pub mod virtual_network_swift_connection {
             type_: "azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appServiceId".into(),

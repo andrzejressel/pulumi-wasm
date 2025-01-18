@@ -96,6 +96,7 @@ pub mod data_connector_dynamics_365 {
             type_: "azure:sentinel/dataConnectorDynamics365:DataConnectorDynamics365"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "logAnalyticsWorkspaceId".into(),

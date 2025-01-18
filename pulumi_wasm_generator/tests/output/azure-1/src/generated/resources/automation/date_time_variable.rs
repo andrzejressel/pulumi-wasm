@@ -98,6 +98,7 @@ pub mod date_time_variable {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/dateTimeVariable:DateTimeVariable".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "automationAccountName".into(),

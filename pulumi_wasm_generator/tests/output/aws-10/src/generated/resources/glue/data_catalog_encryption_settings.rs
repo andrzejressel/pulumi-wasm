@@ -80,6 +80,7 @@ pub mod data_catalog_encryption_settings {
             type_: "aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "catalogId".into(),

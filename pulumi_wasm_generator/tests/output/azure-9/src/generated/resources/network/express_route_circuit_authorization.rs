@@ -89,6 +89,7 @@ pub mod express_route_circuit_authorization {
             type_: "azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "expressRouteCircuitName".into(),

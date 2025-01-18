@@ -129,6 +129,7 @@ pub mod backend_address_pool_address {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backendAddressIpConfigurationId".into(),

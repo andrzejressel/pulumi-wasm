@@ -20,6 +20,7 @@ pub mod module_test {
         let request = register_interface::RegisterResourceRequest {
             type_: "example:index:moduleTest".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "mod1".into(),

@@ -85,6 +85,7 @@ pub mod route_calculation {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:location/routeCalculation:RouteCalculation".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "calculatorName".into(),

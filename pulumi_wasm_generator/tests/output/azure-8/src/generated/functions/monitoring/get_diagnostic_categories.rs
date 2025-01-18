@@ -30,6 +30,7 @@ pub mod get_diagnostic_categories {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:monitoring/getDiagnosticCategories:getDiagnosticCategories"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "resourceId".into(),

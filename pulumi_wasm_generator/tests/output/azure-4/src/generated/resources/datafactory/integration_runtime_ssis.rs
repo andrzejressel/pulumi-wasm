@@ -251,6 +251,7 @@ pub mod integration_runtime_ssis {
             type_: "azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "catalogInfo".into(),

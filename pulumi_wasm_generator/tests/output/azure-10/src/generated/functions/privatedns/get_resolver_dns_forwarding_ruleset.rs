@@ -39,6 +39,7 @@ pub mod get_resolver_dns_forwarding_ruleset {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:privatedns/getResolverDnsForwardingRuleset:getResolverDnsForwardingRuleset"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

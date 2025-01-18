@@ -370,6 +370,7 @@ pub mod launch_template {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/launchTemplate:LaunchTemplate".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "blockDeviceMappings".into(),

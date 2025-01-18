@@ -125,6 +125,7 @@ pub mod lication_load_balancer_subnet_association {
             type_: "azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationLoadBalancerId".into(),

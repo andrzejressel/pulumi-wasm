@@ -126,6 +126,7 @@ pub mod linked_service_key_vault {
             type_: "azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalProperties".into(),

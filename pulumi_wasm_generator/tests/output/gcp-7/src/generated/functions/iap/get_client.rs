@@ -30,6 +30,7 @@ pub mod get_client {
         let client_id_binding = args.client_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:iap/getClient:getClient".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "brand".into(),

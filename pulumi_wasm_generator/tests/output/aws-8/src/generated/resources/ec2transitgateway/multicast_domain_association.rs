@@ -78,6 +78,7 @@ pub mod multicast_domain_association {
             type_: "aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "subnetId".into(),

@@ -42,6 +42,7 @@ pub mod get_models {
         let by_provider_binding = args.by_provider.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:bedrockfoundation/getModels:getModels".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "byCustomizationType".into(),

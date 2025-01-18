@@ -116,6 +116,7 @@ pub mod environment_blueprint_configuration {
             type_: "aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "domainId".into(),

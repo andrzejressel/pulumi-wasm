@@ -159,6 +159,7 @@ pub mod lite_topic {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:pubsub/liteTopic:LiteTopic".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

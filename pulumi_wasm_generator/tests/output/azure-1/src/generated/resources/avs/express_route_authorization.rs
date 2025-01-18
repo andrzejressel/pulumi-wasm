@@ -87,6 +87,7 @@ pub mod express_route_authorization {
             type_: "azure:avs/expressRouteAuthorization:ExpressRouteAuthorization"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

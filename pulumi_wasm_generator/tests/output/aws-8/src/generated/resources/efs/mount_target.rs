@@ -97,6 +97,7 @@ pub mod mount_target {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:efs/mountTarget:MountTarget".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "fileSystemId".into(),

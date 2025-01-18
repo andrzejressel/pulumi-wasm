@@ -130,6 +130,7 @@ pub mod plan {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssmcontacts/plan:Plan".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "contactId".into(),

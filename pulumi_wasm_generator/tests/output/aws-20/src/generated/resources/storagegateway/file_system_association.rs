@@ -171,6 +171,7 @@ pub mod file_system_association {
             type_: "aws:storagegateway/fileSystemAssociation:FileSystemAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "auditDestinationArn".into(),

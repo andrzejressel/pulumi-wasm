@@ -229,6 +229,7 @@ pub mod data_lake_settings {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lakeformation/dataLakeSettings:DataLakeSettings".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "admins".into(),

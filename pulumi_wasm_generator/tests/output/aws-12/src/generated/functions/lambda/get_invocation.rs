@@ -36,6 +36,7 @@ pub mod get_invocation {
         let qualifier_binding = args.qualifier.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lambda/getInvocation:getInvocation".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "functionName".into(),

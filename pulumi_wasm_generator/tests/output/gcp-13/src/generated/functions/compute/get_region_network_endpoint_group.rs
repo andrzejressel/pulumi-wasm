@@ -76,6 +76,7 @@ pub mod get_region_network_endpoint_group {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getRegionNetworkEndpointGroup:getRegionNetworkEndpointGroup"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

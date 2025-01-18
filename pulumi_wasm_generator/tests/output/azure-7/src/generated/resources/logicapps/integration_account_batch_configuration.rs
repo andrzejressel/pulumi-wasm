@@ -115,6 +115,7 @@ pub mod integration_account_batch_configuration {
             type_: "azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "batchGroupName".into(),

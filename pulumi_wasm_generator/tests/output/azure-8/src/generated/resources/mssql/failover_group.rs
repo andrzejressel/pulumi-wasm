@@ -141,6 +141,7 @@ pub mod failover_group {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/failoverGroup:FailoverGroup".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "databases".into(),

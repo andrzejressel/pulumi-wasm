@@ -327,6 +327,7 @@ pub mod user_pool_client {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/userPoolClient:UserPoolClient".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessTokenValidity".into(),

@@ -93,6 +93,7 @@ pub mod subnet_nat_gateway_association {
             type_: "azure:network/subnetNatGatewayAssociation:SubnetNatGatewayAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "natGatewayId".into(),

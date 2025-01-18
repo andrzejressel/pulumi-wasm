@@ -94,6 +94,7 @@ pub mod flexible_server_firewall_rule {
             type_: "azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "endIpAddress".into(),

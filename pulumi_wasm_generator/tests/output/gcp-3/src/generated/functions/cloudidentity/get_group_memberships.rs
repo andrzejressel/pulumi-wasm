@@ -27,6 +27,7 @@ pub mod get_group_memberships {
         let group_binding = args.group.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudidentity/getGroupMemberships:getGroupMemberships".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "group".into(),

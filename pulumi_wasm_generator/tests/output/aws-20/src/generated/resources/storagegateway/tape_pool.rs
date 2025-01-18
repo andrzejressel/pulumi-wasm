@@ -85,6 +85,7 @@ pub mod tape_pool {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:storagegateway/tapePool:TapePool".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "poolName".into(),

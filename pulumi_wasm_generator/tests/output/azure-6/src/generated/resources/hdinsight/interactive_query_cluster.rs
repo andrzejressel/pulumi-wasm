@@ -346,6 +346,7 @@ pub mod interactive_query_cluster {
             type_: "azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterVersion".into(),

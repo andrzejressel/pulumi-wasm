@@ -86,6 +86,7 @@ pub mod nat_gateway_public_ip_association {
             type_: "azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "natGatewayId".into(),

@@ -52,6 +52,7 @@ pub mod get_role_management_policy {
         let scope_binding = args.scope.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:pim/getRoleManagementPolicy:getRoleManagementPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "roleDefinitionId".into(),

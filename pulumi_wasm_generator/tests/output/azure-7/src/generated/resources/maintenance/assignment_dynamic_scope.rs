@@ -61,6 +61,7 @@ pub mod assignment_dynamic_scope {
             type_: "azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filter".into(),

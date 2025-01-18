@@ -134,6 +134,7 @@ pub mod v_2_organization_notification_config {
             type_: "gcp:securitycenter/v2OrganizationNotificationConfig:V2OrganizationNotificationConfig"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "configId".into(),

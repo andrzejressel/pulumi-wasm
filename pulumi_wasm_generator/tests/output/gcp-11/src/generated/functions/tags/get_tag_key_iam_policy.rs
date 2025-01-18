@@ -28,6 +28,7 @@ pub mod get_tag_key_iam_policy {
         let tag_key_binding = args.tag_key.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:tags/getTagKeyIamPolicy:getTagKeyIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "tagKey".into(),

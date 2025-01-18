@@ -70,6 +70,7 @@ pub mod default_route_table_propagation {
             type_: "aws:ec2transitgateway/defaultRouteTablePropagation:DefaultRouteTablePropagation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "timeouts".into(),

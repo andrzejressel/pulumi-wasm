@@ -123,6 +123,7 @@ pub mod application_version {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticbeanstalk/applicationVersion:ApplicationVersion".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "application".into(),

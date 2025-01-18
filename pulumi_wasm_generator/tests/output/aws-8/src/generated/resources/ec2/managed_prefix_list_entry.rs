@@ -74,6 +74,7 @@ pub mod managed_prefix_list_entry {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cidr".into(),

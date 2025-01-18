@@ -137,6 +137,7 @@ pub mod app_check_recaptcha_v_3_config {
             type_: "gcp:firebase/appCheckRecaptchaV3Config:AppCheckRecaptchaV3Config"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appId".into(),

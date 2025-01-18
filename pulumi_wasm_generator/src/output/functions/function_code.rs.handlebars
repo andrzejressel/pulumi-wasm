@@ -54,6 +54,7 @@ pub fn invoke(
 
     let request = register_interface::ResourceInvokeRequest {
         token: "{{function.type}}".into(),
+        version: {{function.get_version}},
         object: Vec::from([
             {{#each function.input_properties}}
             register_interface::ObjectField { name: "{{name}}".into(), value: &{{arg_name}}_binding },

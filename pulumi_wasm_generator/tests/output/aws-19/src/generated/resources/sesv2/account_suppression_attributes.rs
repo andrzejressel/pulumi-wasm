@@ -52,6 +52,7 @@ pub mod account_suppression_attributes {
             type_: "aws:sesv2/accountSuppressionAttributes:AccountSuppressionAttributes"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "suppressedReasons".into(),

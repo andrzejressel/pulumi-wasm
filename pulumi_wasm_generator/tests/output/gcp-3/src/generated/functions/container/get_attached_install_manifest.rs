@@ -44,6 +44,7 @@ pub mod get_attached_install_manifest {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:container/getAttachedInstallManifest:getAttachedInstallManifest"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterId".into(),

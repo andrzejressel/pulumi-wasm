@@ -136,6 +136,7 @@ pub mod exadata_infrastructure {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:oracle/exadataInfrastructure:ExadataInfrastructure".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "computeCount".into(),

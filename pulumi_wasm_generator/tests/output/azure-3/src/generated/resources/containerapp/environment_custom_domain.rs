@@ -98,6 +98,7 @@ pub mod environment_custom_domain {
             type_: "azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "certificateBlobBase64".into(),

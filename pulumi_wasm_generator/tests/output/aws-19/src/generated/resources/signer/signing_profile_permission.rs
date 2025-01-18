@@ -107,6 +107,7 @@ pub mod signing_profile_permission {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:signer/signingProfilePermission:SigningProfilePermission".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "action".into(),

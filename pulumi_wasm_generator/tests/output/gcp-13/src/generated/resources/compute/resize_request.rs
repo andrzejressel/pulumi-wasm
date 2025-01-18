@@ -192,6 +192,7 @@ pub mod resize_request {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/resizeRequest:ResizeRequest".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

@@ -89,6 +89,7 @@ pub mod v_2_models_bot_version {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lex/v2modelsBotVersion:V2modelsBotVersion".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "botId".into(),

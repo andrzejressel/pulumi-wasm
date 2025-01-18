@@ -319,6 +319,7 @@ pub mod managed_instance_security_alert_policy {
             type_: "azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "disabledAlerts".into(),

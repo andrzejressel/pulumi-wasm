@@ -45,6 +45,7 @@ pub mod get_producer_data_shares {
         let status_binding = args.status.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshift/getProducerDataShares:getProducerDataShares".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dataShares".into(),

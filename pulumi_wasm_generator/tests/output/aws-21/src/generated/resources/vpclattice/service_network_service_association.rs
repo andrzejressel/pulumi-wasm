@@ -93,6 +93,7 @@ pub mod service_network_service_association {
             type_: "aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "serviceIdentifier".into(),

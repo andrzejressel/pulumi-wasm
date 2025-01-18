@@ -63,6 +63,7 @@ pub mod approval_rule_template_association {
             type_: "aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "approvalRuleTemplateName".into(),

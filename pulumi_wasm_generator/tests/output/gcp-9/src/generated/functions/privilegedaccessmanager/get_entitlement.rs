@@ -64,6 +64,7 @@ pub mod get_entitlement {
         let parent_binding = args.parent.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:privilegedaccessmanager/getEntitlement:getEntitlement".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "entitlementId".into(),

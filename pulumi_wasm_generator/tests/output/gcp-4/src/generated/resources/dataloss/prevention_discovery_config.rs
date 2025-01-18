@@ -141,6 +141,7 @@ pub mod prevention_discovery_config {
             type_: "gcp:dataloss/preventionDiscoveryConfig:PreventionDiscoveryConfig"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "actions".into(),

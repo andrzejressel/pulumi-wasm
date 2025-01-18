@@ -35,6 +35,7 @@ pub mod get_stream_key {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ivs/getStreamKey:getStreamKey".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "channelArn".into(),

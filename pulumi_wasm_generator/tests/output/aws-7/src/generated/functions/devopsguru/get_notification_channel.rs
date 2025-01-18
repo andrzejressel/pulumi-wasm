@@ -45,6 +45,7 @@ pub mod get_notification_channel {
         let sns_binding = args.sns.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:devopsguru/getNotificationChannel:getNotificationChannel".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

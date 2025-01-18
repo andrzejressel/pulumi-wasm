@@ -37,6 +37,7 @@ pub mod get_registry_token {
         let resource_group_name_binding = args.resource_group_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:containerservice/getRegistryToken:getRegistryToken".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "containerRegistryName".into(),

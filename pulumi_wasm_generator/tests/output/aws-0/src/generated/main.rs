@@ -380,6 +380,6 @@ interface register-interface {
 #[no_mangle]
 #[cfg(target_arch = "wasm32")]
 pub static PULUMI_WASM_PROVIDER_AWS: [u8; 45] = *b"{\"version\":\"6.66.2\",\"pluginDownloadURL\":null}";
-pub(crate) fn get_version() -> &'static str {
-    "6.66.2"
+pub(crate) fn get_version() -> String {
+    "6.66.2".to_string()
 }

@@ -69,6 +69,7 @@ pub mod license_grant_accepter {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "grantArn".into(),

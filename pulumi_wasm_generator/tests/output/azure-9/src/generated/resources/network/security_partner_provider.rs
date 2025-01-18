@@ -120,6 +120,7 @@ pub mod security_partner_provider {
             type_: "azure:network/securityPartnerProvider:SecurityPartnerProvider"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

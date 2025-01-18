@@ -134,6 +134,7 @@ pub mod backup_instance_mysql_flexible_server {
             type_: "azure:dataprotection/backupInstanceMysqlFlexibleServer:BackupInstanceMysqlFlexibleServer"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backupPolicyId".into(),

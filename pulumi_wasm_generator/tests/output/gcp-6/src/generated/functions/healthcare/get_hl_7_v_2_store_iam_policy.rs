@@ -30,6 +30,7 @@ pub mod get_hl_7_v_2_store_iam_policy {
         let hl7_v2_store_id_binding = args.hl7_v2_store_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:healthcare/getHl7V2StoreIamPolicy:getHl7V2StoreIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "hl7V2StoreId".into(),

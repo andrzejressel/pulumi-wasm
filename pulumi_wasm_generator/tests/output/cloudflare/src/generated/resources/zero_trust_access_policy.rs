@@ -154,6 +154,7 @@ pub mod zero_trust_access_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustAccessPolicy:ZeroTrustAccessPolicy".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

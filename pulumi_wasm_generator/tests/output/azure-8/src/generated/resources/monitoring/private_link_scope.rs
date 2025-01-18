@@ -87,6 +87,7 @@ pub mod private_link_scope {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/privateLinkScope:PrivateLinkScope".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "ingestionAccessMode".into(),

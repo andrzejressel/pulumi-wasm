@@ -43,6 +43,7 @@ pub mod get_crypto_key_versions {
         let filter_binding = args.filter.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getCryptoKeyVersions:getCryptoKeyVersions".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cryptoKey".into(),

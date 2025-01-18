@@ -49,6 +49,7 @@ pub mod get_scheduled_query_rules_log {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

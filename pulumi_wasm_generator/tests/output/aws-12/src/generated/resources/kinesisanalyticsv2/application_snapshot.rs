@@ -64,6 +64,7 @@ pub mod application_snapshot {
             type_: "aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationName".into(),

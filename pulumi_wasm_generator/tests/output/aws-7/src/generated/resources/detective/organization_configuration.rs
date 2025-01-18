@@ -56,6 +56,7 @@ pub mod organization_configuration {
             type_: "aws:detective/organizationConfiguration:OrganizationConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "autoEnable".into(),

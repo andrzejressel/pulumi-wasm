@@ -96,6 +96,7 @@ pub mod data_connector_office_365_project {
             type_: "azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "logAnalyticsWorkspaceId".into(),

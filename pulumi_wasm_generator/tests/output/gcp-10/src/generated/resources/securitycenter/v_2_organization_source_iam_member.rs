@@ -268,6 +268,7 @@ pub mod v_2_organization_source_iam_member {
             type_: "gcp:securitycenter/v2OrganizationSourceIamMember:V2OrganizationSourceIamMember"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "condition".into(),

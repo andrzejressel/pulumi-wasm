@@ -105,6 +105,7 @@ pub mod network_manager_security_admin_configuration {
             type_: "azure:network/networkManagerSecurityAdminConfiguration:NetworkManagerSecurityAdminConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applyOnNetworkIntentPolicyBasedServices".into(),

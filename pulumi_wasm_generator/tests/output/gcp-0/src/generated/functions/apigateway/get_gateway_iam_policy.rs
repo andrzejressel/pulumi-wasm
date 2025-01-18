@@ -41,6 +41,7 @@ pub mod get_gateway_iam_policy {
         let region_binding = args.region.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:apigateway/getGatewayIamPolicy:getGatewayIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "gateway".into(),

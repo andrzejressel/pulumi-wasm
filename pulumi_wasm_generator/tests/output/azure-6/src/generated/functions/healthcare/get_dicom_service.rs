@@ -44,6 +44,7 @@ pub mod get_dicom_service {
         let workspace_id_binding = args.workspace_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:healthcare/getDicomService:getDicomService".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

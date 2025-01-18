@@ -147,6 +147,7 @@ pub mod hci_virtual_hard_disk {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:stack/hciVirtualHardDisk:HciVirtualHardDisk".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "blockSizeInBytes".into(),

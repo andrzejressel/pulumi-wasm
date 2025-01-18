@@ -59,6 +59,7 @@ pub mod get_cloud_exadata_infrastructure {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:oracledatabase/getCloudExadataInfrastructure:getCloudExadataInfrastructure"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cloudExadataInfrastructureId".into(),

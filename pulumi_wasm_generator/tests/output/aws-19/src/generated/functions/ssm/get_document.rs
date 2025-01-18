@@ -39,6 +39,7 @@ pub mod get_document {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssm/getDocument:getDocument".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "documentFormat".into(),

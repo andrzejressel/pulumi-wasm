@@ -66,6 +66,7 @@ pub mod authorize_vpc_endpoint_access {
             type_: "aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "account".into(),

@@ -120,6 +120,7 @@ pub mod hci_extension {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:stack/hciExtension:HciExtension".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arcSettingId".into(),

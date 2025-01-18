@@ -29,6 +29,7 @@ pub mod get_default_service_account {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:bigquery/getDefaultServiceAccount:getDefaultServiceAccount"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

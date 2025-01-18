@@ -23,6 +23,7 @@ pub mod func_with_default_value {
         let b_binding = args.b.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "mypkg::funcWithDefaultValue".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "a".into(),

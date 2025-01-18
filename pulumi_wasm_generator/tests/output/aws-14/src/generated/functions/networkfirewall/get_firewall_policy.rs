@@ -46,6 +46,7 @@ pub mod get_firewall_policy {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:networkfirewall/getFirewallPolicy:getFirewallPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arn".into(),

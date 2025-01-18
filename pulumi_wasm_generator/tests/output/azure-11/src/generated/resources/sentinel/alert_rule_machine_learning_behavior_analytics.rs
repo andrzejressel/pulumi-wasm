@@ -97,6 +97,7 @@ pub mod alert_rule_machine_learning_behavior_analytics {
             type_: "azure:sentinel/alertRuleMachineLearningBehaviorAnalytics:AlertRuleMachineLearningBehaviorAnalytics"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "alertRuleTemplateGuid".into(),

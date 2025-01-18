@@ -66,6 +66,7 @@ pub mod get_cloud_formation_type {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudformation/getCloudFormationType:getCloudFormationType"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arn".into(),

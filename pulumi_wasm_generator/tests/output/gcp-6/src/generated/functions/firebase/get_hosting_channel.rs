@@ -40,6 +40,7 @@ pub mod get_hosting_channel {
         let site_id_binding = args.site_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:firebase/getHostingChannel:getHostingChannel".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "channelId".into(),

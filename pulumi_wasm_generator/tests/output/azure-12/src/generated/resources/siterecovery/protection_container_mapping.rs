@@ -94,6 +94,7 @@ pub mod protection_container_mapping {
             type_: "azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "automaticUpdate".into(),

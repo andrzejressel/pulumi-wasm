@@ -60,6 +60,7 @@ pub mod lambda_function_association {
             type_: "aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "functionArn".into(),

@@ -31,6 +31,7 @@ pub mod get_secrets {
         let filters_binding = args.filters.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:secretsmanager/getSecrets:getSecrets".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

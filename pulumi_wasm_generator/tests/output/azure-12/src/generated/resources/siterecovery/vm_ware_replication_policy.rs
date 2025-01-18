@@ -97,6 +97,7 @@ pub mod vm_ware_replication_policy {
             type_: "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationConsistentSnapshotFrequencyInMinutes".into(),

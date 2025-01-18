@@ -84,6 +84,7 @@ pub mod resource_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkfirewall/resourcePolicy:ResourcePolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "policy".into(),

@@ -41,6 +41,7 @@ pub mod get_project_settings {
         let project_binding = args.project.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:logging/getProjectSettings:getProjectSettings".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

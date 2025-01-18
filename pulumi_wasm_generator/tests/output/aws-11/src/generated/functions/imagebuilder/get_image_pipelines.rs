@@ -35,6 +35,7 @@ pub mod get_image_pipelines {
         let filters_binding = args.filters.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:imagebuilder/getImagePipelines:getImagePipelines".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

@@ -103,6 +103,7 @@ pub mod alert_rule_threat_intelligence {
             type_: "azure:sentinel/alertRuleThreatIntelligence:AlertRuleThreatIntelligence"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "alertRuleTemplateGuid".into(),

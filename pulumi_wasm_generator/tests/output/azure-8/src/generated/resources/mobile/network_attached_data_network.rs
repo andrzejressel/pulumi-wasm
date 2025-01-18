@@ -234,6 +234,7 @@ pub mod network_attached_data_network {
             type_: "azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dnsAddresses".into(),

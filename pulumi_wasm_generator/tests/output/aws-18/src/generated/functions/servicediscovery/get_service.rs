@@ -69,6 +69,7 @@ pub mod get_service {
         let tags_all_binding = args.tags_all.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicediscovery/getService:getService".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

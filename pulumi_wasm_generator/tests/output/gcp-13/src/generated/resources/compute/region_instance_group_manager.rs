@@ -472,6 +472,7 @@ pub mod region_instance_group_manager {
             type_: "gcp:compute/regionInstanceGroupManager:RegionInstanceGroupManager"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "allInstancesConfig".into(),

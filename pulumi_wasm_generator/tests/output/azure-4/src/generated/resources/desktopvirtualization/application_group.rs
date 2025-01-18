@@ -150,6 +150,7 @@ pub mod application_group {
             type_: "azure:desktopvirtualization/applicationGroup:ApplicationGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "defaultDesktopDisplayName".into(),

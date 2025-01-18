@@ -99,6 +99,7 @@ pub mod attached_network {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:devcenter/attachedNetwork:AttachedNetwork".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "devCenterId".into(),

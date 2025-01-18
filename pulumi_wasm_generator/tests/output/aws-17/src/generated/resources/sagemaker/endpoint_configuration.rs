@@ -140,6 +140,7 @@ pub mod endpoint_configuration {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/endpointConfiguration:EndpointConfiguration".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "asyncInferenceConfig".into(),

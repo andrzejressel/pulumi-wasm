@@ -210,6 +210,7 @@ pub mod workflow {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:workflows/workflow:Workflow".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "callLogLevel".into(),

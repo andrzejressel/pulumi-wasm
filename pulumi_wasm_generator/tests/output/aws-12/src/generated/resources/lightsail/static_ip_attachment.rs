@@ -65,6 +65,7 @@ pub mod static_ip_attachment {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/staticIpAttachment:StaticIpAttachment".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "instanceName".into(),

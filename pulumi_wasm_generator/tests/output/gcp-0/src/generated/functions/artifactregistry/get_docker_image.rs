@@ -60,6 +60,7 @@ pub mod get_docker_image {
         let repository_id_binding = args.repository_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:artifactregistry/getDockerImage:getDockerImage".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "imageName".into(),

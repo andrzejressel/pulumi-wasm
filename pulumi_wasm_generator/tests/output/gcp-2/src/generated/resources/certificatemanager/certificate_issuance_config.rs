@@ -216,6 +216,7 @@ pub mod certificate_issuance_config {
             type_: "gcp:certificatemanager/certificateIssuanceConfig:CertificateIssuanceConfig"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "certificateAuthorityConfig".into(),

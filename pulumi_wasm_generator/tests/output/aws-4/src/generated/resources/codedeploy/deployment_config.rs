@@ -144,6 +144,7 @@ pub mod deployment_config {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codedeploy/deploymentConfig:DeploymentConfig".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "computePlatform".into(),

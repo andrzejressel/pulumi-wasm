@@ -84,6 +84,7 @@ pub mod kinesis_streaming_destination {
             type_: "aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "approximateCreationDateTimePrecision".into(),

@@ -199,6 +199,7 @@ pub mod provisioned_product {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/provisionedProduct:ProvisionedProduct".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "acceptLanguage".into(),

@@ -92,6 +92,7 @@ pub mod data_connector_azure_security_center {
             type_: "azure:sentinel/dataConnectorAzureSecurityCenter:DataConnectorAzureSecurityCenter"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "logAnalyticsWorkspaceId".into(),

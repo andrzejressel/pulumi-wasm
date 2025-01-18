@@ -79,6 +79,7 @@ pub mod endpoint_service_private_dns_verification {
             type_: "aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "serviceId".into(),

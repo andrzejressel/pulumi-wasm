@@ -32,6 +32,7 @@ pub mod get_kms_secret_ciphertext {
         let plaintext_binding = args.plaintext.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getKMSSecretCiphertext:getKMSSecretCiphertext".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cryptoKey".into(),

@@ -214,6 +214,7 @@ pub mod configuration_set_event_destination {
             type_: "aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "configurationSetName".into(),

@@ -259,6 +259,7 @@ pub mod network_connection_monitor {
             type_: "azure:network/networkConnectionMonitor:NetworkConnectionMonitor"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "endpoints".into(),

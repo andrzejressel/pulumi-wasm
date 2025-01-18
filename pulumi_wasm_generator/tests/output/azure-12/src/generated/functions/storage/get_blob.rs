@@ -55,6 +55,7 @@ pub mod get_blob {
         let storage_container_name_binding = args.storage_container_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getBlob:getBlob".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "metadata".into(),

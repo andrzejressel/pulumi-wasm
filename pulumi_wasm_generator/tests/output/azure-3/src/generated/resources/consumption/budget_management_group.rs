@@ -153,6 +153,7 @@ pub mod budget_management_group {
             type_: "azure:consumption/budgetManagementGroup:BudgetManagementGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "amount".into(),

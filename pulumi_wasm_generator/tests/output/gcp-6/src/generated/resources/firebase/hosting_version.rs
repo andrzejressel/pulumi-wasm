@@ -324,6 +324,7 @@ pub mod hosting_version {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/hostingVersion:HostingVersion".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "config".into(),

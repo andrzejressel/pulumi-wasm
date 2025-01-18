@@ -51,6 +51,7 @@ pub mod get_database_instances {
         let zone_binding = args.zone.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:sql/getDatabaseInstances:getDatabaseInstances".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "databaseVersion".into(),

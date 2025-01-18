@@ -43,6 +43,7 @@ pub mod get_public_ipv_4_pool {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "poolId".into(),

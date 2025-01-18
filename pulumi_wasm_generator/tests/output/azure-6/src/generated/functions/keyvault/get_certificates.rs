@@ -37,6 +37,7 @@ pub mod get_certificates {
         let key_vault_id_binding = args.key_vault_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:keyvault/getCertificates:getCertificates".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "includePending".into(),

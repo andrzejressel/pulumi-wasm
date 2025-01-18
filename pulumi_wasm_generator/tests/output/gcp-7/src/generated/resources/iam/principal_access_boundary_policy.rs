@@ -142,6 +142,7 @@ pub mod principal_access_boundary_policy {
             type_: "gcp:iam/principalAccessBoundaryPolicy:PrincipalAccessBoundaryPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "annotations".into(),

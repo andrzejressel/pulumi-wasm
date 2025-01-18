@@ -227,6 +227,7 @@ pub mod netapp_volume_attachment {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:avs/netappVolumeAttachment:NetappVolumeAttachment".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

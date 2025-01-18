@@ -178,6 +178,7 @@ pub mod integration {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/integration:Integration".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalEncryptionContext".into(),

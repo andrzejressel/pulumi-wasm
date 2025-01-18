@@ -171,6 +171,7 @@ pub mod get_instance_template {
         let self_link_unique_binding = args.self_link_unique.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getInstanceTemplate:getInstanceTemplate".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filter".into(),

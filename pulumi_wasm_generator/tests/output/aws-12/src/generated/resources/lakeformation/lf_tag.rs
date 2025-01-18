@@ -61,6 +61,7 @@ pub mod lf_tag {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lakeformation/lfTag:LfTag".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "catalogId".into(),

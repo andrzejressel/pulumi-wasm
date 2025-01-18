@@ -77,6 +77,7 @@ pub mod get_authority {
         let project_binding = args.project.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:certificateauthority/getAuthority:getAuthority".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "certificateAuthorityId".into(),

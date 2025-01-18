@@ -122,6 +122,7 @@ pub mod v_2_queued_resource {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:tpu/v2QueuedResource:V2QueuedResource".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

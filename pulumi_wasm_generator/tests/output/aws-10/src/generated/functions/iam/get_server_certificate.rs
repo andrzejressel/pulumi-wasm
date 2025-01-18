@@ -50,6 +50,7 @@ pub mod get_server_certificate {
         let path_prefix_binding = args.path_prefix.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getServerCertificate:getServerCertificate".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "latest".into(),

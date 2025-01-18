@@ -256,6 +256,7 @@ pub mod volume_replication {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:netapp/volumeReplication:VolumeReplication".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "deleteDestinationVolume".into(),

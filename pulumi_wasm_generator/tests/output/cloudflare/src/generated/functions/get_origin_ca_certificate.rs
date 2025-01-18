@@ -33,6 +33,7 @@ pub mod get_origin_ca_certificate {
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getOriginCaCertificate:getOriginCaCertificate"
                 .into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "id".into(),

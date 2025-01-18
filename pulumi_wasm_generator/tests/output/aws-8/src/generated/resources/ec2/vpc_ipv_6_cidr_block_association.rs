@@ -95,6 +95,7 @@ pub mod vpc_ipv_6_cidr_block_association {
             type_: "aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "assignGeneratedIpv6CidrBlock".into(),

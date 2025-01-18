@@ -461,6 +461,7 @@ pub mod v_mware_cluster {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkeonprem/vMwareCluster:VMwareCluster".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "adminClusterMembership".into(),

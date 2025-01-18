@@ -28,6 +28,7 @@ pub mod get_broker_engine_types {
         let engine_type_binding = args.engine_type.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:mq/getBrokerEngineTypes:getBrokerEngineTypes".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "engineType".into(),

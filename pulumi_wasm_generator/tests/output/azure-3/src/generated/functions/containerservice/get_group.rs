@@ -48,6 +48,7 @@ pub mod get_group {
         let zones_binding = args.zones.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:containerservice/getGroup:getGroup".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -97,6 +97,7 @@ pub mod access_mutual_tls_certificate {
             type_: "cloudflare:index/accessMutualTlsCertificate:AccessMutualTlsCertificate"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

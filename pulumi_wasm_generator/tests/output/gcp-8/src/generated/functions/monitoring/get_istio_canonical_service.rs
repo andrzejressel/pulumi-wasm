@@ -64,6 +64,7 @@ pub mod get_istio_canonical_service {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:monitoring/getIstioCanonicalService:getIstioCanonicalService"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "canonicalService".into(),

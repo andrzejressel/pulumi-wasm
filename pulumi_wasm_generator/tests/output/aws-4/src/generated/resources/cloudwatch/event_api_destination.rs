@@ -92,6 +92,7 @@ pub mod event_api_destination {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventApiDestination:EventApiDestination".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "connectionArn".into(),

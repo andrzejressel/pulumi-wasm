@@ -154,6 +154,7 @@ pub mod application {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:desktopvirtualization/application:Application".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationGroupId".into(),

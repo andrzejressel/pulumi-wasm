@@ -114,6 +114,7 @@ pub mod queue_authorization_rule {
             type_: "azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "listen".into(),

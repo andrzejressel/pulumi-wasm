@@ -15,6 +15,7 @@ pub mod get_client_open_id_user_info {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:organizations/getClientOpenIdUserInfo:getClientOpenIdUserInfo"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([]),
             results: Vec::from([
                 register_interface::ResultField {

@@ -62,6 +62,7 @@ pub mod get_authorization_rule {
         let send_binding = args.send.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:eventhub/getAuthorizationRule:getAuthorizationRule".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "eventhubName".into(),

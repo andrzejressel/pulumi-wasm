@@ -41,6 +41,7 @@ pub mod get_ai_endpoint_iam_policy {
         let project_binding = args.project.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:vertex/getAiEndpointIamPolicy:getAiEndpointIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "endpoint".into(),

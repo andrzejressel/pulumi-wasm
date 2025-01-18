@@ -90,6 +90,7 @@ pub mod resource_provider_registration {
             type_: "azure:core/resourceProviderRegistration:ResourceProviderRegistration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "features".into(),

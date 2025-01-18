@@ -69,6 +69,7 @@ pub mod random_shuffle {
         let request = register_interface::RegisterResourceRequest {
             type_: "random:index/randomShuffle:RandomShuffle".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "inputs".into(),

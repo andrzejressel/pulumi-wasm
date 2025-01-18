@@ -41,6 +41,7 @@ pub mod get_project {
         let service_name_binding = args.service_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:databasemigration/getProject:getProject".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

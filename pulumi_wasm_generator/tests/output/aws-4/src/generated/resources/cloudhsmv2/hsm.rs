@@ -76,6 +76,7 @@ pub mod hsm {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudhsmv2/hsm:Hsm".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "availabilityZone".into(),

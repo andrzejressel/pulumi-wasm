@@ -42,6 +42,7 @@ pub mod get_encrypted_value {
         let plain_text_value_binding = args.plain_text_value.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:keyvault/getEncryptedValue:getEncryptedValue".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "algorithm".into(),

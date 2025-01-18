@@ -50,6 +50,7 @@ pub mod get_trigger_schedule {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:datafactory/getTriggerSchedule:getTriggerSchedule".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dataFactoryId".into(),

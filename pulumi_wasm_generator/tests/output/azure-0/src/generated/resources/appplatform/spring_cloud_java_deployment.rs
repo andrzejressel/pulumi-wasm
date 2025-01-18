@@ -125,6 +125,7 @@ pub mod spring_cloud_java_deployment {
             type_: "azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "environmentVariables".into(),

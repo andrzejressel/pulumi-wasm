@@ -43,6 +43,7 @@ pub mod get_sql_role_definition {
         let role_definition_id_binding = args.role_definition_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountName".into(),

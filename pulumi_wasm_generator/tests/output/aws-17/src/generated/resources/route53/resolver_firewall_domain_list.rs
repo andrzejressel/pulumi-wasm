@@ -72,6 +72,7 @@ pub mod resolver_firewall_domain_list {
             type_: "aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "domains".into(),

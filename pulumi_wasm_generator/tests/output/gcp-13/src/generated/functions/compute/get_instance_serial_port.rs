@@ -44,6 +44,7 @@ pub mod get_instance_serial_port {
         let zone_binding = args.zone.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getInstanceSerialPort:getInstanceSerialPort".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "instance".into(),

@@ -114,6 +114,7 @@ pub mod game_session_queue {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:gamelift/gameSessionQueue:GameSessionQueue".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customEventData".into(),

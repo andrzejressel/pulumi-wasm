@@ -33,6 +33,7 @@ pub mod get_mca_account_scope {
         let invoice_section_name_binding = args.invoice_section_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:billing/getMcaAccountScope:getMcaAccountScope".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "billingAccountName".into(),

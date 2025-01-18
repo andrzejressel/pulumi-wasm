@@ -185,6 +185,7 @@ pub mod organizations_policy_binding {
             type_: "gcp:iam/organizationsPolicyBinding:OrganizationsPolicyBinding"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "annotations".into(),

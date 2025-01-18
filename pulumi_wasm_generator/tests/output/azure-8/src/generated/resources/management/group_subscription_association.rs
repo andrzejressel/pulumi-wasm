@@ -68,6 +68,7 @@ pub mod group_subscription_association {
             type_: "azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "managementGroupId".into(),

@@ -104,6 +104,7 @@ pub mod repository_group {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gemini/repositoryGroup:RepositoryGroup".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "codeRepositoryIndex".into(),

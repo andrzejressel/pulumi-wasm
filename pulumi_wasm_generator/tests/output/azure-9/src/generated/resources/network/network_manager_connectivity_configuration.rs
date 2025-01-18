@@ -165,6 +165,7 @@ pub mod network_manager_connectivity_configuration {
             type_: "azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appliesToGroups".into(),

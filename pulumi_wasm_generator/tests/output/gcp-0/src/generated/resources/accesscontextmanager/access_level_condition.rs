@@ -229,6 +229,7 @@ pub mod access_level_condition {
             type_: "gcp:accesscontextmanager/accessLevelCondition:AccessLevelCondition"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessLevel".into(),

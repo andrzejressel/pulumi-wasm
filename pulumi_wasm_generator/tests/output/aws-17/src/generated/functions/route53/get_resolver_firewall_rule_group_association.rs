@@ -42,6 +42,7 @@ pub mod get_resolver_firewall_rule_group_association {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "firewallRuleGroupAssociationId".into(),

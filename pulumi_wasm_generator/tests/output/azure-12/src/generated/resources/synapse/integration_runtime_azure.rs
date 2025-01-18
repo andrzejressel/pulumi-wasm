@@ -134,6 +134,7 @@ pub mod integration_runtime_azure {
             type_: "azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "computeType".into(),

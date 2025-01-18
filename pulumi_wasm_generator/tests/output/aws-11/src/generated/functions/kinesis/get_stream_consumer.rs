@@ -37,6 +37,7 @@ pub mod get_stream_consumer {
         let stream_arn_binding = args.stream_arn.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kinesis/getStreamConsumer:getStreamConsumer".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arn".into(),

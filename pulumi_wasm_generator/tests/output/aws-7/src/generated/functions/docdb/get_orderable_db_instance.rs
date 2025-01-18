@@ -52,6 +52,7 @@ pub mod get_orderable_db_instance {
         let vpc_binding = args.vpc.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:docdb/getOrderableDbInstance:getOrderableDbInstance".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "engine".into(),

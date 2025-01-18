@@ -145,6 +145,7 @@ pub mod linked_service_cosmos_db {
             type_: "azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountEndpoint".into(),

@@ -30,6 +30,7 @@ pub mod get_dicom_store_iam_policy {
         let dicom_store_id_binding = args.dicom_store_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:healthcare/getDicomStoreIamPolicy:getDicomStoreIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dicomStoreId".into(),

@@ -112,6 +112,7 @@ pub mod findings_filter {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:macie/findingsFilter:FindingsFilter".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "action".into(),

@@ -50,6 +50,7 @@ pub mod get_backup_plan_association {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:backupdisasterrecovery/getBackupPlanAssociation:getBackupPlanAssociation"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backupPlanAssociationId".into(),

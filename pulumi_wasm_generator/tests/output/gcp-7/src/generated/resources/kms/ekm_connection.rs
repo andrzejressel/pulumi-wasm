@@ -129,6 +129,7 @@ pub mod ekm_connection {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:kms/ekmConnection:EkmConnection".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cryptoSpacePath".into(),

@@ -227,6 +227,7 @@ pub mod hosting_release {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/hostingRelease:HostingRelease".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "channelId".into(),

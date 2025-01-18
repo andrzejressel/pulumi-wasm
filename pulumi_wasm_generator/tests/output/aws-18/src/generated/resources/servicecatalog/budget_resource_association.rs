@@ -63,6 +63,7 @@ pub mod budget_resource_association {
             type_: "aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "budgetName".into(),

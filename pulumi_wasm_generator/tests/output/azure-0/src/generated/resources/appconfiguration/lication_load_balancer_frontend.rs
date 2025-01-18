@@ -82,6 +82,7 @@ pub mod lication_load_balancer_frontend {
             type_: "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationLoadBalancerId".into(),

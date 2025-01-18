@@ -70,6 +70,7 @@ pub mod fast_snapshot_restore {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ebs/fastSnapshotRestore:FastSnapshotRestore".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "availabilityZone".into(),

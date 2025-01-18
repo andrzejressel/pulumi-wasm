@@ -90,6 +90,7 @@ pub mod gremlin_database {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/gremlinDatabase:GremlinDatabase".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountName".into(),

@@ -119,6 +119,7 @@ pub mod permissions_boundary_attachment {
             type_: "aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "instanceArn".into(),

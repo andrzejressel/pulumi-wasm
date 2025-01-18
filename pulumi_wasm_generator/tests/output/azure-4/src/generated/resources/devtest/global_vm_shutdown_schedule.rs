@@ -160,6 +160,7 @@ pub mod global_vm_shutdown_schedule {
             type_: "azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dailyRecurrenceTime".into(),

@@ -185,6 +185,7 @@ pub mod cx_entity_type {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/cxEntityType:CxEntityType".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "autoExpansionMode".into(),

@@ -136,6 +136,7 @@ pub mod transfer_agent_pool {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/transferAgentPool:TransferAgentPool".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bandwidthLimit".into(),

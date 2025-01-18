@@ -133,6 +133,7 @@ pub mod instance_automated_backups_replication {
             type_: "aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "kmsKeyId".into(),

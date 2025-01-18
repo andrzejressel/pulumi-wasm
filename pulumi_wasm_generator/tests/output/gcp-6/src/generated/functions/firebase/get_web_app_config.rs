@@ -53,6 +53,7 @@ pub mod get_web_app_config {
         let web_app_id_binding = args.web_app_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:firebase/getWebAppConfig:getWebAppConfig".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

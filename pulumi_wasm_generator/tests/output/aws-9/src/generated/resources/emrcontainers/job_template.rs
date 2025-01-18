@@ -97,6 +97,7 @@ pub mod job_template {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:emrcontainers/jobTemplate:JobTemplate".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "jobTemplateData".into(),

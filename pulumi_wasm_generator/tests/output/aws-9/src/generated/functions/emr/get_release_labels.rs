@@ -29,6 +29,7 @@ pub mod get_release_labels {
         let filters_binding = args.filters.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:emr/getReleaseLabels:getReleaseLabels".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

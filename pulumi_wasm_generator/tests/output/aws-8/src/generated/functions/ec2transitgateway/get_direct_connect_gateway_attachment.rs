@@ -56,6 +56,7 @@ pub mod get_direct_connect_gateway_attachment {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dxGatewayId".into(),

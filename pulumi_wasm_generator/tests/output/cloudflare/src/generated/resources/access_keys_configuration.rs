@@ -37,6 +37,7 @@ pub mod access_keys_configuration {
             type_: "cloudflare:index/accessKeysConfiguration:AccessKeysConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

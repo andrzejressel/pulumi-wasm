@@ -123,6 +123,7 @@ pub mod protected_vm {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:backup/protectedVM:ProtectedVM".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backupPolicyId".into(),

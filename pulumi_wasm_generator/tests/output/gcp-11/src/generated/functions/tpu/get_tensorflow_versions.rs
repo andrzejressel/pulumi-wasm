@@ -32,6 +32,7 @@ pub mod get_tensorflow_versions {
         let zone_binding = args.zone.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:tpu/getTensorflowVersions:getTensorflowVersions".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

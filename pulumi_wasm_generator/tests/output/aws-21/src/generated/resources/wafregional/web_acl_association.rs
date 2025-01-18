@@ -114,6 +114,7 @@ pub mod web_acl_association {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:wafregional/webAclAssociation:WebAclAssociation".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "resourceArn".into(),

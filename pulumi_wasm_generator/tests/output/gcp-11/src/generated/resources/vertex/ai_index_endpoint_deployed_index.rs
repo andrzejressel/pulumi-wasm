@@ -365,6 +365,7 @@ pub mod ai_index_endpoint_deployed_index {
             type_: "gcp:vertex/aiIndexEndpointDeployedIndex:AiIndexEndpointDeployedIndex"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "automaticResources".into(),

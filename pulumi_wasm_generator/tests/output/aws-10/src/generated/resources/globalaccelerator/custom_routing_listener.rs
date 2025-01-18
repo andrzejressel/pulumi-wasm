@@ -83,6 +83,7 @@ pub mod custom_routing_listener {
             type_: "aws:globalaccelerator/customRoutingListener:CustomRoutingListener"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "acceleratorArn".into(),

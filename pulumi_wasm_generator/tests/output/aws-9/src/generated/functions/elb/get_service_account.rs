@@ -26,6 +26,7 @@ pub mod get_service_account {
         let region_binding = args.region.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:elb/getServiceAccount:getServiceAccount".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "region".into(),

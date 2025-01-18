@@ -83,6 +83,7 @@ pub mod account_rai_blocklist {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cognitive/accountRaiBlocklist:AccountRaiBlocklist".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cognitiveAccountId".into(),

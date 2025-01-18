@@ -32,6 +32,7 @@ pub mod get_data_catalog_encryption_settings {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "catalogId".into(),

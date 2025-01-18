@@ -36,6 +36,7 @@ pub mod get_application_providers {
         let application_providers_binding = args.application_providers.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssoadmin/getApplicationProviders:getApplicationProviders".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationProviders".into(),

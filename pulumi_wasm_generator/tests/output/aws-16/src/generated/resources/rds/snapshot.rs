@@ -122,6 +122,7 @@ pub mod snapshot {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/snapshot:Snapshot".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dbInstanceIdentifier".into(),

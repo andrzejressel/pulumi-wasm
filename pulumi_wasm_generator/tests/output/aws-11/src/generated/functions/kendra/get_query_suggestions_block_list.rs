@@ -67,6 +67,7 @@ pub mod get_query_suggestions_block_list {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "indexId".into(),

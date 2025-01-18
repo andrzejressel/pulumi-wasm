@@ -348,6 +348,7 @@ pub mod media_insights_pipeline_configuration {
             type_: "aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "elements".into(),

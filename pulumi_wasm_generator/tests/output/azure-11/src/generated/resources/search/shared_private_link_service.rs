@@ -113,6 +113,7 @@ pub mod shared_private_link_service {
             type_: "azure:search/sharedPrivateLinkService:SharedPrivateLinkService"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

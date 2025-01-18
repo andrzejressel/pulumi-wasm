@@ -61,6 +61,7 @@ pub mod control_tower_control {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:controltower/controlTowerControl:ControlTowerControl".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "controlIdentifier".into(),

@@ -214,6 +214,7 @@ pub mod gateway_security_policy_rule {
             type_: "gcp:networksecurity/gatewaySecurityPolicyRule:GatewaySecurityPolicyRule"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationMatcher".into(),

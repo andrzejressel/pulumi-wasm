@@ -138,6 +138,7 @@ pub mod service_custom_certificate {
             type_: "azure:signalr/serviceCustomCertificate:ServiceCustomCertificate"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customCertificateId".into(),

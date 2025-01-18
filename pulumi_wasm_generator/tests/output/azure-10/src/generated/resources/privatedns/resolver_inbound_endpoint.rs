@@ -124,6 +124,7 @@ pub mod resolver_inbound_endpoint {
             type_: "azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "ipConfigurations".into(),

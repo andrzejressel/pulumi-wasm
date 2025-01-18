@@ -49,6 +49,7 @@ pub mod image_block_public_access {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "state".into(),

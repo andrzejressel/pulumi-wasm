@@ -101,6 +101,7 @@ pub mod cache_access_policy_assignment {
             type_: "azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessPolicyName".into(),

@@ -149,6 +149,7 @@ pub mod scheduled_query_rules_alert {
             type_: "azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "action".into(),

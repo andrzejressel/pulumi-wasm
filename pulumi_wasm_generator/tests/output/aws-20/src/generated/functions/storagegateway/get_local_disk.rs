@@ -35,6 +35,7 @@ pub mod get_local_disk {
         let gateway_arn_binding = args.gateway_arn.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:storagegateway/getLocalDisk:getLocalDisk".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "diskNode".into(),

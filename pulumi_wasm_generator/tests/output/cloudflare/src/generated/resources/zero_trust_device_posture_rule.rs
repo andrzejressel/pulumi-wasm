@@ -118,6 +118,7 @@ pub mod zero_trust_device_posture_rule {
             type_: "cloudflare:index/zeroTrustDevicePostureRule:ZeroTrustDevicePostureRule"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

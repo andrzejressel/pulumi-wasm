@@ -62,6 +62,7 @@ pub mod get_thesaurus {
         let thesaurus_id_binding = args.thesaurus_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kendra/getThesaurus:getThesaurus".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "indexId".into(),

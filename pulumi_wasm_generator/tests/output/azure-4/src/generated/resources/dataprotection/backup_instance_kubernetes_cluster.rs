@@ -281,6 +281,7 @@ pub mod backup_instance_kubernetes_cluster {
             type_: "azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backupDatasourceParameters".into(),

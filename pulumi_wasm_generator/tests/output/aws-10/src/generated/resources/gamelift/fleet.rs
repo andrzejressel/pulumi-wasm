@@ -179,6 +179,7 @@ pub mod fleet {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:gamelift/fleet:Fleet".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "buildId".into(),

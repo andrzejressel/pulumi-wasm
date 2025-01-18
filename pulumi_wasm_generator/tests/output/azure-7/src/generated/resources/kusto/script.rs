@@ -155,6 +155,7 @@ pub mod script {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/script:Script".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "continueOnErrorsEnabled".into(),

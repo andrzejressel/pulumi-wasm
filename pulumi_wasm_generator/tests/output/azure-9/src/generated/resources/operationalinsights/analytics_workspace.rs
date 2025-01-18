@@ -199,6 +199,7 @@ pub mod analytics_workspace {
             type_: "azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "allowResourceOnlyPermissions".into(),

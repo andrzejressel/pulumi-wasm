@@ -249,6 +249,7 @@ pub mod threat_intelligence_indicator {
             type_: "azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "confidence".into(),

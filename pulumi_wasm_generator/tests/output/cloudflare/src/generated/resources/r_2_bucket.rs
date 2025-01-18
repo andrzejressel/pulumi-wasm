@@ -61,6 +61,7 @@ pub mod r_2_bucket {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/r2Bucket:R2Bucket".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

@@ -54,6 +54,7 @@ pub mod web_3_hostname {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/web3Hostname:Web3Hostname".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

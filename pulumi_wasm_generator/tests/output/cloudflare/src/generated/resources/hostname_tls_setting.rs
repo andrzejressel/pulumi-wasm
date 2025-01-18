@@ -70,6 +70,7 @@ pub mod hostname_tls_setting {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/hostnameTlsSetting:HostnameTlsSetting".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "hostname".into(),

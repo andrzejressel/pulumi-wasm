@@ -145,6 +145,7 @@ pub mod dataset_cosmos_db_api {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalProperties".into(),

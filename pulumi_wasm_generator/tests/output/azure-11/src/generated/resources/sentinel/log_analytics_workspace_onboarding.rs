@@ -86,6 +86,7 @@ pub mod log_analytics_workspace_onboarding {
             type_: "azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customerManagedKeyEnabled".into(),

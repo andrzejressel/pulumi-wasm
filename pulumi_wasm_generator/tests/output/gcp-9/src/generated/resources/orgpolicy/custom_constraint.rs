@@ -149,6 +149,7 @@ pub mod custom_constraint {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:orgpolicy/customConstraint:CustomConstraint".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "actionType".into(),

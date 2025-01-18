@@ -26,6 +26,7 @@ pub mod get_delegation_set {
         let id_binding = args.id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getDelegationSet:getDelegationSet".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "id".into(),

@@ -42,6 +42,7 @@ pub mod get_instance_type_offerings {
         let storage_type_binding = args.storage_type.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "engineType".into(),

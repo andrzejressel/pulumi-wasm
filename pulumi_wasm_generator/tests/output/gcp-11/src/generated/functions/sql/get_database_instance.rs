@@ -64,6 +64,7 @@ pub mod get_database_instance {
         let project_binding = args.project.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:sql/getDatabaseInstance:getDatabaseInstance".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

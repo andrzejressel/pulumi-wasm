@@ -127,6 +127,7 @@ pub mod endpoint_servicebus {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:digitaltwins/endpointServicebus:EndpointServicebus".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "deadLetterStorageSecret".into(),

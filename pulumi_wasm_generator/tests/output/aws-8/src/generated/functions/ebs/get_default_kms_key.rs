@@ -15,6 +15,7 @@ pub mod get_default_kms_key {
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ebs/getDefaultKmsKey:getDefaultKmsKey".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([]),
             results: Vec::from([
                 register_interface::ResultField {

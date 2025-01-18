@@ -58,6 +58,7 @@ pub mod get_autonomous_database {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:oracledatabase/getAutonomousDatabase:getAutonomousDatabase"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "autonomousDatabaseId".into(),

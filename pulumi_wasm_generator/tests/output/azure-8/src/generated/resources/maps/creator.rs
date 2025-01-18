@@ -91,6 +91,7 @@ pub mod creator {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:maps/creator:Creator".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

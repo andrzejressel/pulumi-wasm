@@ -113,6 +113,7 @@ pub mod secret_ciphertext {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:kms/secretCiphertext:SecretCiphertext".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalAuthenticatedData".into(),

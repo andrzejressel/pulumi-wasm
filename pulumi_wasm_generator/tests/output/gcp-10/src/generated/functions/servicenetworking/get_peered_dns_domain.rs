@@ -36,6 +36,7 @@ pub mod get_peered_dns_domain {
         let service_binding = args.service.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:servicenetworking/getPeeredDnsDomain:getPeeredDnsDomain".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

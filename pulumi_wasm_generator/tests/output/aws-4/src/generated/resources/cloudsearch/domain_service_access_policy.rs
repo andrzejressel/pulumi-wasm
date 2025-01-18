@@ -81,6 +81,7 @@ pub mod domain_service_access_policy {
             type_: "aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessPolicy".into(),

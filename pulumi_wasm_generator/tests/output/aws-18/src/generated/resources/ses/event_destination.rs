@@ -163,6 +163,7 @@ pub mod event_destination {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/eventDestination:EventDestination".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cloudwatchDestinations".into(),

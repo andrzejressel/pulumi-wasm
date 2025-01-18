@@ -413,6 +413,7 @@ pub mod pipeline_job {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/pipelineJob:PipelineJob".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backfillPipelineJob".into(),

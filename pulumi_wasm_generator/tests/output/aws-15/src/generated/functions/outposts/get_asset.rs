@@ -36,6 +36,7 @@ pub mod get_asset {
         let asset_id_binding = args.asset_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:outposts/getAsset:getAsset".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arn".into(),

@@ -48,6 +48,7 @@ pub mod get_permission_set {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssoadmin/getPermissionSet:getPermissionSet".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arn".into(),

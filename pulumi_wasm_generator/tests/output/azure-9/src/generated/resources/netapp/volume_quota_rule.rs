@@ -195,6 +195,7 @@ pub mod volume_quota_rule {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:netapp/volumeQuotaRule:VolumeQuotaRule".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

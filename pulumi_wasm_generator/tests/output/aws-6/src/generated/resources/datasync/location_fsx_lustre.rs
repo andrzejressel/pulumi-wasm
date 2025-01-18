@@ -81,6 +81,7 @@ pub mod location_fsx_lustre {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/locationFsxLustre:LocationFsxLustre".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "fsxFilesystemArn".into(),

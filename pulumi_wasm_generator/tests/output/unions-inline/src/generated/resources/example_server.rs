@@ -28,6 +28,7 @@ pub mod example_server {
         let request = register_interface::RegisterResourceRequest {
             type_: "example:index:ExampleServer".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "properties".into(),

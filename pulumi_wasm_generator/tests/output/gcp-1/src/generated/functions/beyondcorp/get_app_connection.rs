@@ -55,6 +55,7 @@ pub mod get_app_connection {
         let region_binding = args.region.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:beyondcorp/getAppConnection:getAppConnection".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -82,6 +82,7 @@ pub mod automanage_configuration_assignment {
             type_: "azure:arcmachine/automanageConfigurationAssignment:AutomanageConfigurationAssignment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arcMachineId".into(),

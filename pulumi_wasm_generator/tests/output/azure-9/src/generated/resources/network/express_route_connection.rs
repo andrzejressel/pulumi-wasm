@@ -189,6 +189,7 @@ pub mod express_route_connection {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/expressRouteConnection:ExpressRouteConnection".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "authorizationKey".into(),

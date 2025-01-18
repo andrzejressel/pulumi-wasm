@@ -28,6 +28,7 @@ pub mod get_domain_identity {
         let domain_binding = args.domain.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ses/getDomainIdentity:getDomainIdentity".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "domain".into(),

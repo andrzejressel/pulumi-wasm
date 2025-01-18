@@ -34,6 +34,7 @@ pub mod get_ca_certs {
         let project_binding = args.project.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:sql/getCaCerts:getCaCerts".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "instance".into(),

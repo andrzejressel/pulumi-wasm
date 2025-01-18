@@ -230,6 +230,7 @@ pub mod global_replication_group {
             type_: "aws:elasticache/globalReplicationGroup:GlobalReplicationGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "automaticFailoverEnabled".into(),

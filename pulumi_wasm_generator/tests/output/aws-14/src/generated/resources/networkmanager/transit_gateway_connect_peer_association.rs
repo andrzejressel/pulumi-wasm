@@ -77,6 +77,7 @@ pub mod transit_gateway_connect_peer_association {
             type_: "aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "deviceId".into(),

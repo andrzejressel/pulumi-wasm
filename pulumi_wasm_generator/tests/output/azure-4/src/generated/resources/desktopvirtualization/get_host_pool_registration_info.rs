@@ -80,6 +80,7 @@ pub mod get_host_pool_registration_info {
             type_: "azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "expirationDate".into(),

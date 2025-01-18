@@ -93,6 +93,7 @@ pub mod voice_connector_termination {
             type_: "aws:chime/voiceConnectorTermination:VoiceConnectorTermination"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "callingRegions".into(),

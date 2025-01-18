@@ -83,6 +83,7 @@ pub mod virtual_mfa_device {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/virtualMfaDevice:VirtualMfaDevice".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "path".into(),

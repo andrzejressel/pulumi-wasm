@@ -356,6 +356,7 @@ pub mod iam_audit_config {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:folder/iamAuditConfig:IamAuditConfig".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "auditLogConfigs".into(),

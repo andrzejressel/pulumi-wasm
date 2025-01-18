@@ -72,6 +72,7 @@ pub mod inbound_connection_accepter {
             type_: "aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "connectionId".into(),

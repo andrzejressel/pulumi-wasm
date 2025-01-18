@@ -183,6 +183,7 @@ pub mod http_health_check {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/httpHealthCheck:HttpHealthCheck".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "checkIntervalSec".into(),

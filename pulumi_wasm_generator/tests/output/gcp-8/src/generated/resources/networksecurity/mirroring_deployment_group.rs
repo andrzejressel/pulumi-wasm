@@ -154,6 +154,7 @@ pub mod mirroring_deployment_group {
             type_: "gcp:networksecurity/mirroringDeploymentGroup:MirroringDeploymentGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "labels".into(),

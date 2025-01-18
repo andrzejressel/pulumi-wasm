@@ -202,6 +202,7 @@ pub mod bucket_acl_v_2 {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketAclV2:BucketAclV2".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessControlPolicy".into(),

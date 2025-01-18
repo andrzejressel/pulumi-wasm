@@ -103,6 +103,7 @@ pub mod instance_profile {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/instanceProfile:InstanceProfile".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

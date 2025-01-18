@@ -48,6 +48,7 @@ pub mod get_namespace_disaster_recovery_config {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "aliasAuthorizationRuleId".into(),

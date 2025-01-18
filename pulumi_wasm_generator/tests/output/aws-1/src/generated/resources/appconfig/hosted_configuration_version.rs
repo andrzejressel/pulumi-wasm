@@ -126,6 +126,7 @@ pub mod hosted_configuration_version {
             type_: "aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationId".into(),

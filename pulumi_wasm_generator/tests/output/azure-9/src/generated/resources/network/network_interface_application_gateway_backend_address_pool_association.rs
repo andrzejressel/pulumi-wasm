@@ -49,6 +49,7 @@ pub mod network_interface_application_gateway_backend_address_pool_association {
             type_: "azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backendAddressPoolId".into(),

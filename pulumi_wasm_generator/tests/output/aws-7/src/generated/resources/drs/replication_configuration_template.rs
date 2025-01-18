@@ -172,6 +172,7 @@ pub mod replication_configuration_template {
             type_: "aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "associateDefaultSecurityGroup".into(),

@@ -54,6 +54,7 @@ pub mod cluster {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53recoverycontrol/cluster:Cluster".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

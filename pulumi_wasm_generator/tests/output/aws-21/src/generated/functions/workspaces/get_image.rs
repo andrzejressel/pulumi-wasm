@@ -32,6 +32,7 @@ pub mod get_image {
         let image_id_binding = args.image_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:workspaces/getImage:getImage".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "imageId".into(),

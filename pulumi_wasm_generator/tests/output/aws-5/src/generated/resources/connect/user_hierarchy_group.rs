@@ -109,6 +109,7 @@ pub mod user_hierarchy_group {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:connect/userHierarchyGroup:UserHierarchyGroup".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "instanceId".into(),

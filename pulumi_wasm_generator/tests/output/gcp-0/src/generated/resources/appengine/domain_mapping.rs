@@ -126,6 +126,7 @@ pub mod domain_mapping {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/domainMapping:DomainMapping".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "domainName".into(),

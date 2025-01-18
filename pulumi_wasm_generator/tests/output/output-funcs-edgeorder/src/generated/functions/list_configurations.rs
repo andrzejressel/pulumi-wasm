@@ -40,6 +40,7 @@ pub mod list_configurations {
         let skip_token_binding = args.skip_token.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "myedgeorder::listConfigurations".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "configurationFilters".into(),

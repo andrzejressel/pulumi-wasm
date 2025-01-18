@@ -38,6 +38,7 @@ pub mod get_dedicated_host_group {
         let resource_group_name_binding = args.resource_group_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:compute/getDedicatedHostGroup:getDedicatedHostGroup".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

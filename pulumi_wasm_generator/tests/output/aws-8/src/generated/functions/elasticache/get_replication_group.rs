@@ -63,6 +63,7 @@ pub mod get_replication_group {
         let replication_group_id_binding = args.replication_group_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:elasticache/getReplicationGroup:getReplicationGroup".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "replicationGroupId".into(),

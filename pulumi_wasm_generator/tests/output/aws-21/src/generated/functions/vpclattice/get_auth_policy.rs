@@ -35,6 +35,7 @@ pub mod get_auth_policy {
         let state_binding = args.state.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:vpclattice/getAuthPolicy:getAuthPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "policy".into(),

@@ -42,6 +42,7 @@ pub mod get_record_set {
         let type__binding = args.type_.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:dns/getRecordSet:getRecordSet".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "managedZone".into(),

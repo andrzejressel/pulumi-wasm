@@ -118,6 +118,7 @@ pub mod vpn_server_configuration_policy_group {
             type_: "azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "isDefault".into(),

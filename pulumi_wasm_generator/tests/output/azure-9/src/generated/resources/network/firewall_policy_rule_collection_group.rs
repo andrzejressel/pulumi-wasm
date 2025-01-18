@@ -178,6 +178,7 @@ pub mod firewall_policy_rule_collection_group {
             type_: "azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationRuleCollections".into(),

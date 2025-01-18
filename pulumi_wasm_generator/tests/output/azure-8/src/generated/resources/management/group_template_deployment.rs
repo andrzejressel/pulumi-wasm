@@ -203,6 +203,7 @@ pub mod group_template_deployment {
             type_: "azure:management/groupTemplateDeployment:GroupTemplateDeployment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "debugLevel".into(),

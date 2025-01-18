@@ -95,6 +95,7 @@ pub mod fleet_update_strategy {
             type_: "azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "kubernetesFleetManagerId".into(),

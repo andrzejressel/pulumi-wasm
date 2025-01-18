@@ -94,6 +94,7 @@ pub mod application_network_rule_set {
             type_: "azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applyToDevice".into(),

@@ -37,7 +37,3 @@ fn test_main() -> Result<()> {
     add_export("number", &number);
     Ok(())
 }
-
-#[link_section = "metadata"]
-#[no_mangle]
-pub static METADATA: [u8; 11] = *b"version:1.0";

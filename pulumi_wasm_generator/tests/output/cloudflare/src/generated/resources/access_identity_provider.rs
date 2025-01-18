@@ -146,6 +146,7 @@ pub mod access_identity_provider {
             type_: "cloudflare:index/accessIdentityProvider:AccessIdentityProvider"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

@@ -184,6 +184,7 @@ pub mod recommendation_preferences {
             type_: "aws:computeoptimizer/recommendationPreferences:RecommendationPreferences"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "enhancedInfrastructureMetrics".into(),

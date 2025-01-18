@@ -85,6 +85,7 @@ pub mod api_operation_tag {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/apiOperationTag:ApiOperationTag".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiOperationId".into(),

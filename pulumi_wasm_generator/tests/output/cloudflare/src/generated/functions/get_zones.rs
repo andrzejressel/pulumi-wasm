@@ -26,6 +26,7 @@ pub mod get_zones {
         let filter_binding = args.filter.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getZones:getZones".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filter".into(),

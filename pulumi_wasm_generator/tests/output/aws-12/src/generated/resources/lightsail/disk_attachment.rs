@@ -81,6 +81,7 @@ pub mod disk_attachment {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/disk_attachment:Disk_attachment".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "diskName".into(),

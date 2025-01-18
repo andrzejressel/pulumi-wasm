@@ -27,6 +27,7 @@ pub mod get_account_iam_policy {
         let billing_account_id_binding = args.billing_account_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:billing/getAccountIamPolicy:getAccountIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "billingAccountId".into(),

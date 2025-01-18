@@ -52,6 +52,7 @@ pub mod get_secret_version {
         let version_binding = args.version.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:monitoring/getSecretVersion:getSecretVersion".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "isSecretDataBase64".into(),

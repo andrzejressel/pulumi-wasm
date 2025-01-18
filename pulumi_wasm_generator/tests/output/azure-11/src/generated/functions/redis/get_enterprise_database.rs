@@ -38,6 +38,7 @@ pub mod get_enterprise_database {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:redis/getEnterpriseDatabase:getEnterpriseDatabase".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterId".into(),

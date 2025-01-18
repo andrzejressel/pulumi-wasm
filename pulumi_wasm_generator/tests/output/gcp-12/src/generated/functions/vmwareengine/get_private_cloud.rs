@@ -59,6 +59,7 @@ pub mod get_private_cloud {
         let project_binding = args.project.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:vmwareengine/getPrivateCloud:getPrivateCloud".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

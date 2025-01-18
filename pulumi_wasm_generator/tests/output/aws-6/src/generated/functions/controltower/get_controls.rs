@@ -25,6 +25,7 @@ pub mod get_controls {
         let target_identifier_binding = args.target_identifier.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:controltower/getControls:getControls".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "targetIdentifier".into(),

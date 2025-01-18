@@ -41,6 +41,7 @@ pub mod get_quicksight_group {
         let namespace_binding = args.namespace.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:quicksight/getQuicksightGroup:getQuicksightGroup".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "awsAccountId".into(),

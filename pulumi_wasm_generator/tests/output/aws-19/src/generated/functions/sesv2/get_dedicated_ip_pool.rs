@@ -39,6 +39,7 @@ pub mod get_dedicated_ip_pool {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:sesv2/getDedicatedIpPool:getDedicatedIpPool".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "poolName".into(),

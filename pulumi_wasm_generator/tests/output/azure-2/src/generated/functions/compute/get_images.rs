@@ -36,6 +36,7 @@ pub mod get_images {
         let tags_filter_binding = args.tags_filter.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:compute/getImages:getImages".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "resourceGroupName".into(),

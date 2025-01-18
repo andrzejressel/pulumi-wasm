@@ -160,6 +160,7 @@ pub mod stream_input_event_hub_v_2 {
             type_: "azure:streamanalytics/streamInputEventHubV2:StreamInputEventHubV2"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "authenticationMode".into(),

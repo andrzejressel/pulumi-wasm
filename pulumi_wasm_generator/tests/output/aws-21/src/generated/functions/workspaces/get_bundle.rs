@@ -50,6 +50,7 @@ pub mod get_bundle {
         let owner_binding = args.owner.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:workspaces/getBundle:getBundle".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bundleId".into(),

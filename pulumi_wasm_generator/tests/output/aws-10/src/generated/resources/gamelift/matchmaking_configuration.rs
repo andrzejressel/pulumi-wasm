@@ -143,6 +143,7 @@ pub mod matchmaking_configuration {
             type_: "aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "acceptanceRequired".into(),

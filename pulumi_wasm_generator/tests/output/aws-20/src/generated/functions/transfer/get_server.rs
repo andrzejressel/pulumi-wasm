@@ -55,6 +55,7 @@ pub mod get_server {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:transfer/getServer:getServer".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "serverId".into(),

@@ -53,6 +53,7 @@ pub mod get_capacity_block_offering {
         let start_date_range_binding = args.start_date_range.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "capacityDurationHours".into(),

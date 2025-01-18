@@ -99,6 +99,7 @@ pub mod integration_account_schema {
             type_: "azure:logicapps/integrationAccountSchema:IntegrationAccountSchema"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "content".into(),

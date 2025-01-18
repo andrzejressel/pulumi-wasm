@@ -296,6 +296,7 @@ pub mod region_target_http_proxy {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionTargetHttpProxy:RegionTargetHttpProxy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

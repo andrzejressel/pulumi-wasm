@@ -187,6 +187,7 @@ pub mod server_transparent_data_encryption {
             type_: "azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "autoRotationEnabled".into(),

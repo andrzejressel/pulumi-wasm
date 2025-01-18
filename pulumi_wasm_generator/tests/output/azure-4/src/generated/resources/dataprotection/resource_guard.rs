@@ -92,6 +92,7 @@ pub mod resource_guard {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dataprotection/resourceGuard:ResourceGuard".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

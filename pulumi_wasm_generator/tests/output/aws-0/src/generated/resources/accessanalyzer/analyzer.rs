@@ -107,6 +107,7 @@ pub mod analyzer {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:accessanalyzer/analyzer:Analyzer".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "analyzerName".into(),

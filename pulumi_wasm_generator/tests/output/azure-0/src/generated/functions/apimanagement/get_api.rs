@@ -66,6 +66,7 @@ pub mod get_api {
         let revision_binding = args.revision.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:apimanagement/getApi:getApi".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiManagementName".into(),

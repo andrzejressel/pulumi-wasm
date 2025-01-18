@@ -137,6 +137,7 @@ pub mod workbook {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appinsights/workbook:Workbook".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "category".into(),

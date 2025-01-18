@@ -36,6 +36,7 @@ pub mod get_addon_version {
         let most_recent_binding = args.most_recent.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:eks/getAddonVersion:getAddonVersion".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "addonName".into(),

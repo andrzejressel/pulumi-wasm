@@ -28,6 +28,7 @@ pub mod get_subscription_template_deployment {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -81,6 +81,7 @@ pub mod permission_set_inline_policy {
             type_: "aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "inlinePolicy".into(),

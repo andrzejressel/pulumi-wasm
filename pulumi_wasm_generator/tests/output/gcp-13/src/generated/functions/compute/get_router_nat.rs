@@ -68,6 +68,7 @@ pub mod get_router_nat {
         let router_binding = args.router.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getRouterNat:getRouterNat".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

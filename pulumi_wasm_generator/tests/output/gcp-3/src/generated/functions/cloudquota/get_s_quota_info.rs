@@ -67,6 +67,7 @@ pub mod get_s_quota_info {
         let service_binding = args.service.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudquota/getSQuotaInfo:getSQuotaInfo".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "parent".into(),

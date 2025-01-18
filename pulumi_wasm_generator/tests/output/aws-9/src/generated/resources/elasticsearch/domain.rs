@@ -378,6 +378,7 @@ pub mod domain {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticsearch/domain:Domain".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessPolicies".into(),

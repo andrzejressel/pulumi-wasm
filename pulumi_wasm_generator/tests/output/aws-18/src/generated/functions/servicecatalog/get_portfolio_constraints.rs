@@ -44,6 +44,7 @@ pub mod get_portfolio_constraints {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "acceptLanguage".into(),

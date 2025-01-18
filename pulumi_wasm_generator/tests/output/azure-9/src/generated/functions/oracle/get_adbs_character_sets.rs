@@ -27,6 +27,7 @@ pub mod get_adbs_character_sets {
         let location_binding = args.location.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

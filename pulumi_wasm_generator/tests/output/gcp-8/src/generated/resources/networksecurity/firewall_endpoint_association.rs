@@ -143,6 +143,7 @@ pub mod firewall_endpoint_association {
             type_: "gcp:networksecurity/firewallEndpointAssociation:FirewallEndpointAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "disabled".into(),

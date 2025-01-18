@@ -27,6 +27,7 @@ pub mod get_tag_values {
         let parent_binding = args.parent.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:tags/getTagValues:getTagValues".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "parent".into(),

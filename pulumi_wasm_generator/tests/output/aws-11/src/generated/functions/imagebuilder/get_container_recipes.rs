@@ -40,6 +40,7 @@ pub mod get_container_recipes {
         let owner_binding = args.owner.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:imagebuilder/getContainerRecipes:getContainerRecipes".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

@@ -156,6 +156,7 @@ pub mod function_app_hybrid_connection {
             type_: "azure:appservice/functionAppHybridConnection:FunctionAppHybridConnection"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "functionAppId".into(),

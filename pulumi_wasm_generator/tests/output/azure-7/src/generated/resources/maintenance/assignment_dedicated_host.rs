@@ -104,6 +104,7 @@ pub mod assignment_dedicated_host {
             type_: "azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dedicatedHostId".into(),

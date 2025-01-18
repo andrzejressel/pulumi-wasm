@@ -171,6 +171,7 @@ pub mod insights_report_config {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/insightsReportConfig:InsightsReportConfig".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "csvOptions".into(),

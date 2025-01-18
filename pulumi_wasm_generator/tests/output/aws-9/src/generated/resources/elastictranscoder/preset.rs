@@ -166,6 +166,7 @@ pub mod preset {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elastictranscoder/preset:Preset".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "audio".into(),

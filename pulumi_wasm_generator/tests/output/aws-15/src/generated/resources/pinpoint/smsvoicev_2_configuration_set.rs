@@ -82,6 +82,7 @@ pub mod smsvoicev_2_configuration_set {
             type_: "aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "defaultMessageType".into(),

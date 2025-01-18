@@ -44,6 +44,7 @@ pub mod get_tunnel_dest_group_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:iap/getTunnelDestGroupIamPolicy:getTunnelDestGroupIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "destGroup".into(),

@@ -51,6 +51,7 @@ pub mod get_resource_collection {
         let type__binding = args.type_.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:devopsguru/getResourceCollection:getResourceCollection".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cloudformations".into(),

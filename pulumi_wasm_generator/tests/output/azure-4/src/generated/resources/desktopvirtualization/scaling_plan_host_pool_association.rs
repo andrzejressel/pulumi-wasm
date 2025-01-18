@@ -131,6 +131,7 @@ pub mod scaling_plan_host_pool_association {
             type_: "azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "enabled".into(),

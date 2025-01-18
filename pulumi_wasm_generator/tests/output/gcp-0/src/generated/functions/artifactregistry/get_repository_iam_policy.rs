@@ -47,6 +47,7 @@ pub mod get_repository_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:artifactregistry/getRepositoryIamPolicy:getRepositoryIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

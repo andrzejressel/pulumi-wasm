@@ -33,6 +33,7 @@ pub mod get_named_query {
         let workgroup_binding = args.workgroup.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:athena/getNamedQuery:getNamedQuery".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

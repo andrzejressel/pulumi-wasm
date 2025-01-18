@@ -23,6 +23,7 @@ pub mod get_rate_based_rule {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:waf/getRateBasedRule:getRateBasedRule".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

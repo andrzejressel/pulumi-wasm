@@ -74,6 +74,7 @@ pub mod access_custom_page {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/accessCustomPage:AccessCustomPage".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

@@ -155,6 +155,7 @@ pub mod smart_detector_alert_rule {
             type_: "azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "actionGroup".into(),

@@ -119,6 +119,7 @@ pub mod spring_cloud_configuration_service {
             type_: "azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "generation".into(),

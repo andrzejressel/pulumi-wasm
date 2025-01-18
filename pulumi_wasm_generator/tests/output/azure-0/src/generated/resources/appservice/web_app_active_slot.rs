@@ -137,6 +137,7 @@ pub mod web_app_active_slot {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/webAppActiveSlot:WebAppActiveSlot".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "overwriteNetworkConfig".into(),

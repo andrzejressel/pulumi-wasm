@@ -113,6 +113,7 @@ pub mod workspace_network_outbound_rule_fqdn {
             type_: "azure:machinelearning/workspaceNetworkOutboundRuleFqdn:WorkspaceNetworkOutboundRuleFqdn"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "destinationFqdn".into(),

@@ -259,6 +259,7 @@ pub mod security_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/securityPolicy:SecurityPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "adaptiveProtectionConfig".into(),

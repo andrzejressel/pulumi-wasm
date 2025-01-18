@@ -371,6 +371,7 @@ pub mod crawler {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/crawler:Crawler".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "catalogTargets".into(),

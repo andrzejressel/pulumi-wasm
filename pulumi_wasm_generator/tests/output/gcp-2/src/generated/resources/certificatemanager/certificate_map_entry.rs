@@ -206,6 +206,7 @@ pub mod certificate_map_entry {
             type_: "gcp:certificatemanager/certificateMapEntry:CertificateMapEntry"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "certificates".into(),

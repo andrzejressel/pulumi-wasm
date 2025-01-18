@@ -30,6 +30,7 @@ pub mod get_fhir_store_iam_policy {
         let fhir_store_id_binding = args.fhir_store_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:healthcare/getFhirStoreIamPolicy:getFhirStoreIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "fhirStoreId".into(),

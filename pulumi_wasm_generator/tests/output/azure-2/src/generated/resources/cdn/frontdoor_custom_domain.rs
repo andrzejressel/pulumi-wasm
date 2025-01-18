@@ -168,6 +168,7 @@ pub mod frontdoor_custom_domain {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cdnFrontdoorProfileId".into(),

@@ -40,6 +40,7 @@ pub mod get_appregistry_attribute_group {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicecatalog/getAppregistryAttributeGroup:getAppregistryAttributeGroup"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arn".into(),

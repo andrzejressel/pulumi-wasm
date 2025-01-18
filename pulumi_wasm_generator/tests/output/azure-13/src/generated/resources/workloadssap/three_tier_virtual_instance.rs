@@ -113,6 +113,7 @@ pub mod three_tier_virtual_instance {
             type_: "azure:workloadssap/threeTierVirtualInstance:ThreeTierVirtualInstance"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appLocation".into(),

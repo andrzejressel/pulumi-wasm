@@ -110,6 +110,7 @@ pub mod storage_lens_configuration {
             type_: "aws:s3control/storageLensConfiguration:StorageLensConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

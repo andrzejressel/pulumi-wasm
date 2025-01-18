@@ -65,6 +65,7 @@ pub mod conditional_forwader {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directoryservice/conditionalForwader:ConditionalForwader".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "directoryId".into(),

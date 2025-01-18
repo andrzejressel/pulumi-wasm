@@ -97,6 +97,7 @@ pub mod core_network_policy_attachment {
             type_: "aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "coreNetworkId".into(),

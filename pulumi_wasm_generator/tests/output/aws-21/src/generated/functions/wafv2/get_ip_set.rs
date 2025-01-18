@@ -36,6 +36,7 @@ pub mod get_ip_set {
         let scope_binding = args.scope.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:wafv2/getIpSet:getIpSet".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

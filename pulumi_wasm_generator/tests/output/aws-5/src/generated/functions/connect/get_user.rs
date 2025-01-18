@@ -60,6 +60,7 @@ pub mod get_user {
         let user_id_binding = args.user_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:connect/getUser:getUser".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "instanceId".into(),

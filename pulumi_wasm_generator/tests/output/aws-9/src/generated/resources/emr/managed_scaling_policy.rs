@@ -85,6 +85,7 @@ pub mod managed_scaling_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:emr/managedScalingPolicy:ManagedScalingPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterId".into(),

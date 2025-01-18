@@ -31,6 +31,7 @@ pub mod get_event_source {
         let name_prefix_binding = args.name_prefix.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudwatch/getEventSource:getEventSource".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "namePrefix".into(),

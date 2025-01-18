@@ -143,6 +143,7 @@ pub mod alert_rule_ms_security_incident {
             type_: "azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "alertRuleTemplateGuid".into(),

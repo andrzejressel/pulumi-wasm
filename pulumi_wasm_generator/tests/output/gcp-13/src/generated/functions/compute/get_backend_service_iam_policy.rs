@@ -37,6 +37,7 @@ pub mod get_backend_service_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getBackendServiceIamPolicy:getBackendServiceIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

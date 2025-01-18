@@ -56,6 +56,7 @@ pub mod get_regional_secret_version_access {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:secretmanager/getRegionalSecretVersionAccess:getRegionalSecretVersionAccess"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "isSecretDataBase64".into(),

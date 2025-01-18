@@ -143,6 +143,7 @@ pub mod user {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticache/user:User".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessString".into(),

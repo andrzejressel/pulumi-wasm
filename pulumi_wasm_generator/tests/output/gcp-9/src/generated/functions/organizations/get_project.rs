@@ -39,6 +39,7 @@ pub mod get_project {
         let project_id_binding = args.project_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:organizations/getProject:getProject".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "projectId".into(),

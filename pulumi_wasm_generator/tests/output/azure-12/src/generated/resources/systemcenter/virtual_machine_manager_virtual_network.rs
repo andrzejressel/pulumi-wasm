@@ -116,6 +116,7 @@ pub mod virtual_machine_manager_virtual_network {
             type_: "azure:systemcenter/virtualMachineManagerVirtualNetwork:VirtualMachineManagerVirtualNetwork"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customLocationId".into(),

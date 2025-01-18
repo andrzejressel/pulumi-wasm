@@ -85,6 +85,7 @@ pub mod replicator {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:msk/replicator:Replicator".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

@@ -42,6 +42,7 @@ pub mod get_zone_iam_policy {
         let project_binding = args.project.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:dataplex/getZoneIamPolicy:getZoneIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dataplexZone".into(),

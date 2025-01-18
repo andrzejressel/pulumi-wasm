@@ -137,6 +137,7 @@ pub mod dataset_data_lake_gen_2 {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filePath".into(),

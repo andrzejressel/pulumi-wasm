@@ -28,6 +28,7 @@ pub mod get_sync_group {
         let storage_sync_id_binding = args.storage_sync_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getSyncGroup:getSyncGroup".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

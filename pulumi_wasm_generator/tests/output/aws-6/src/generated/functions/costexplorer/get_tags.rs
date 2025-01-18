@@ -59,6 +59,7 @@ pub mod get_tags {
         let time_period_binding = args.time_period.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:costexplorer/getTags:getTags".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filter".into(),

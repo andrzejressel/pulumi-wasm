@@ -48,6 +48,7 @@ pub mod get_sdk {
         let stage_name_binding = args.stage_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:apigateway/getSdk:getSdk".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "parameters".into(),

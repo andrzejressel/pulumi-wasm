@@ -71,6 +71,7 @@ pub mod default_object_acl {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/defaultObjectACL:DefaultObjectACL".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucket".into(),

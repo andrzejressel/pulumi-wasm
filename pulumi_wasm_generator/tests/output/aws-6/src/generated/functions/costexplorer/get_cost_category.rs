@@ -48,6 +48,7 @@ pub mod get_cost_category {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:costexplorer/getCostCategory:getCostCategory".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "costCategoryArn".into(),

@@ -38,6 +38,7 @@ pub mod get_kms_secret_asymmetric {
         let crypto_key_version_binding = args.crypto_key_version.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getKMSSecretAsymmetric:getKMSSecretAsymmetric".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "ciphertext".into(),

@@ -37,6 +37,7 @@ pub mod get_cluster {
         let parent_binding = args.parent.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:vmwareengine/getCluster:getCluster".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

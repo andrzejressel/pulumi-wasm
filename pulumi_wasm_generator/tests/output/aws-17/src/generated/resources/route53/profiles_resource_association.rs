@@ -100,6 +100,7 @@ pub mod profiles_resource_association {
             type_: "aws:route53/profilesResourceAssociation:ProfilesResourceAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

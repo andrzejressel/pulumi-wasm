@@ -163,6 +163,7 @@ pub mod scheduled_query_rules_log {
             type_: "azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "authorizedResourceIds".into(),

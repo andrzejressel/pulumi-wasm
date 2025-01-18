@@ -29,6 +29,7 @@ pub mod get_instance_profiles {
         let role_name_binding = args.role_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getInstanceProfiles:getInstanceProfiles".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "roleName".into(),

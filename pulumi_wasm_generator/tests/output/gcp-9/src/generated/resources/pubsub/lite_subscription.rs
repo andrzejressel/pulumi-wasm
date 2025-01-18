@@ -141,6 +141,7 @@ pub mod lite_subscription {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:pubsub/liteSubscription:LiteSubscription".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "deliveryConfig".into(),

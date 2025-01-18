@@ -201,6 +201,7 @@ pub mod policy_vm {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:backup/policyVM:PolicyVM".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backup".into(),

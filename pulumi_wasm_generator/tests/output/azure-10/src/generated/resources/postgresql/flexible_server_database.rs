@@ -92,6 +92,7 @@ pub mod flexible_server_database {
             type_: "azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "charset".into(),

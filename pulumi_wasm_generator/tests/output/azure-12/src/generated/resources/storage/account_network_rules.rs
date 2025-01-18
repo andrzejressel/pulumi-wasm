@@ -162,6 +162,7 @@ pub mod account_network_rules {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/accountNetworkRules:AccountNetworkRules".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bypasses".into(),

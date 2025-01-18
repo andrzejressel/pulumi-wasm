@@ -521,6 +521,7 @@ pub mod bare_metal_cluster {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkeonprem/bareMetalCluster:BareMetalCluster".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "adminClusterMembership".into(),

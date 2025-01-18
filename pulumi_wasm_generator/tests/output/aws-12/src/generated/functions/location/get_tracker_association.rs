@@ -28,6 +28,7 @@ pub mod get_tracker_association {
         let tracker_name_binding = args.tracker_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:location/getTrackerAssociation:getTrackerAssociation".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "consumerArn".into(),

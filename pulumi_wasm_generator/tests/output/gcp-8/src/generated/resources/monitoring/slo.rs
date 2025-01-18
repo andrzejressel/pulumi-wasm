@@ -414,6 +414,7 @@ pub mod slo {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:monitoring/slo:Slo".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "basicSli".into(),

@@ -95,6 +95,7 @@ pub mod authenticated_origin_pulls_certificate {
             type_: "cloudflare:index/authenticatedOriginPullsCertificate:AuthenticatedOriginPullsCertificate"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "certificate".into(),

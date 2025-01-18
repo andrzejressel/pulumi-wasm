@@ -115,6 +115,7 @@ pub mod flexible_server_virtual_endpoint {
             type_: "azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

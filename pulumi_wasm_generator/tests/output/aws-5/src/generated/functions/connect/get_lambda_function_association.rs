@@ -31,6 +31,7 @@ pub mod get_lambda_function_association {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "functionArn".into(),

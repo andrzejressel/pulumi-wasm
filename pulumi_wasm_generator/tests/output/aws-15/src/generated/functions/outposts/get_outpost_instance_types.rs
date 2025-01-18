@@ -25,6 +25,7 @@ pub mod get_outpost_instance_types {
         let arn_binding = args.arn.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arn".into(),

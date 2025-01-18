@@ -67,6 +67,7 @@ pub mod workspace_service_account {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "grafanaRole".into(),

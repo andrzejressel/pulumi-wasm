@@ -127,6 +127,7 @@ pub mod query_pack_query {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:operationalinsights/queryPackQuery:QueryPackQuery".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalSettingsJson".into(),

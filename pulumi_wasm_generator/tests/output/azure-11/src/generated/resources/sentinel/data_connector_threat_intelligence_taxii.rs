@@ -141,6 +141,7 @@ pub mod data_connector_threat_intelligence_taxii {
             type_: "azure:sentinel/dataConnectorThreatIntelligenceTaxii:DataConnectorThreatIntelligenceTaxii"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiRootUrl".into(),

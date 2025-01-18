@@ -137,6 +137,7 @@ pub mod access_level {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/accessLevel:AccessLevel".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "basic".into(),

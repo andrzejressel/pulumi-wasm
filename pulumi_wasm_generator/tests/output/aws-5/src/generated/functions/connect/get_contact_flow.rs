@@ -53,6 +53,7 @@ pub mod get_contact_flow {
         let type__binding = args.type_.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:connect/getContactFlow:getContactFlow".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "contactFlowId".into(),

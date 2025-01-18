@@ -103,6 +103,7 @@ pub mod get_object {
         let version_id_binding = args.version_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:s3/getObject:getObject".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucket".into(),

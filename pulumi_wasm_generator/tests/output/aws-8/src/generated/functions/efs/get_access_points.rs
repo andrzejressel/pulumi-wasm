@@ -27,6 +27,7 @@ pub mod get_access_points {
         let file_system_id_binding = args.file_system_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:efs/getAccessPoints:getAccessPoints".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "fileSystemId".into(),

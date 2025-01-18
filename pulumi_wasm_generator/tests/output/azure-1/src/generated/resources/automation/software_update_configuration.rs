@@ -183,6 +183,7 @@ pub mod software_update_configuration {
             type_: "azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "automationAccountId".into(),

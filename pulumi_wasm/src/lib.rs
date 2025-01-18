@@ -129,6 +129,7 @@ impl register_interface::Guest for Component {
             object,
             outputs,
             GLOBAL_BOOL.load(Ordering::SeqCst),
+            request.version.to_string(),
         );
 
         RegisterResourceResult {
@@ -165,6 +166,7 @@ impl register_interface::Guest for Component {
             object,
             outputs,
             GLOBAL_BOOL.load(Ordering::SeqCst),
+            request.version.to_string(),
         );
 
         ResourceInvokeResult {

@@ -79,6 +79,7 @@ pub mod ai_feature_store_entity_type_iam_policy {
             type_: "gcp:vertex/aiFeatureStoreEntityTypeIamPolicy:AiFeatureStoreEntityTypeIamPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "entitytype".into(),

@@ -42,6 +42,7 @@ pub mod get_outposts {
         let site_id_binding = args.site_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:outposts/getOutposts:getOutposts".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "availabilityZone".into(),

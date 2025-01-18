@@ -76,6 +76,7 @@ pub mod account_static_website {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/accountStaticWebsite:AccountStaticWebsite".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "error404Document".into(),

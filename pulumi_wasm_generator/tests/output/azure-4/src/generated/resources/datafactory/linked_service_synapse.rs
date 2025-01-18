@@ -190,6 +190,7 @@ pub mod linked_service_synapse {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalProperties".into(),

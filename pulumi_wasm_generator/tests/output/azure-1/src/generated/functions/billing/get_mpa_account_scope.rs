@@ -28,6 +28,7 @@ pub mod get_mpa_account_scope {
         let customer_name_binding = args.customer_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:billing/getMpaAccountScope:getMpaAccountScope".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "billingAccountName".into(),

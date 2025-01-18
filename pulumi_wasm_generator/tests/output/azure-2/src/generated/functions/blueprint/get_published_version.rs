@@ -43,6 +43,7 @@ pub mod get_published_version {
         let version_binding = args.version.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:blueprint/getPublishedVersion:getPublishedVersion".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "blueprintName".into(),

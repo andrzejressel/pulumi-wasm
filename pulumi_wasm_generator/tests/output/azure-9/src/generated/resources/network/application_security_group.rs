@@ -79,6 +79,7 @@ pub mod application_security_group {
             type_: "azure:network/applicationSecurityGroup:ApplicationSecurityGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

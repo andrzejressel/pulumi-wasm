@@ -39,6 +39,7 @@ pub mod get_credentials {
         let workgroup_name_binding = args.workgroup_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshiftserverless/getCredentials:getCredentials".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dbName".into(),

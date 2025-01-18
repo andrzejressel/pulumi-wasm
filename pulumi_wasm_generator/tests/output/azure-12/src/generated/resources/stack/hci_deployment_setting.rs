@@ -62,6 +62,7 @@ pub mod hci_deployment_setting {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:stack/hciDeploymentSetting:HciDeploymentSetting".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arcResourceIds".into(),

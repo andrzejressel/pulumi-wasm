@@ -95,6 +95,7 @@ pub mod bucket_public_access_block {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "blockPublicAcls".into(),

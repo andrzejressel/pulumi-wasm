@@ -98,6 +98,7 @@ pub mod static_route {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/staticRoute:StaticRoute".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

@@ -54,6 +54,7 @@ pub mod get_configuration_profile {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:appconfig/getConfigurationProfile:getConfigurationProfile"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationId".into(),

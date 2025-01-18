@@ -35,6 +35,7 @@ pub mod get_active_folder {
         let parent_binding = args.parent.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:organizations/getActiveFolder:getActiveFolder".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiMethod".into(),

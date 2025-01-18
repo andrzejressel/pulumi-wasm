@@ -62,6 +62,7 @@ pub mod get_group {
         let identity_store_id_binding = args.identity_store_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:identitystore/getGroup:getGroup".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "alternateIdentifier".into(),

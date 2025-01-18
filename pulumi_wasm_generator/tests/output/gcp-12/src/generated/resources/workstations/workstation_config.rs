@@ -783,6 +783,7 @@ pub mod workstation_config {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:workstations/workstationConfig:WorkstationConfig".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "allowedPorts".into(),

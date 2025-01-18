@@ -40,6 +40,7 @@ pub mod get_workgroup {
         let workgroup_name_binding = args.workgroup_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshiftserverless/getWorkgroup:getWorkgroup".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "workgroupName".into(),

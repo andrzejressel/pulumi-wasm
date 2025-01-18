@@ -56,6 +56,7 @@ pub mod get_query_log_config {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getQueryLogConfig:getQueryLogConfig".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

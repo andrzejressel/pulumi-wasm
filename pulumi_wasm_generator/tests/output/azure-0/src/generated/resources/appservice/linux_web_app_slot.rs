@@ -316,6 +316,7 @@ pub mod linux_web_app_slot {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/linuxWebAppSlot:LinuxWebAppSlot".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appServiceId".into(),

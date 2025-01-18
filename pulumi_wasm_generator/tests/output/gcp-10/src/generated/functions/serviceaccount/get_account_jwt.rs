@@ -40,6 +40,7 @@ pub mod get_account_jwt {
         let target_service_account_binding = args.target_service_account.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:serviceaccount/getAccountJwt:getAccountJwt".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "delegates".into(),

@@ -120,6 +120,7 @@ pub mod connection_service_principal {
             type_: "azure:automation/connectionServicePrincipal:ConnectionServicePrincipal"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationId".into(),

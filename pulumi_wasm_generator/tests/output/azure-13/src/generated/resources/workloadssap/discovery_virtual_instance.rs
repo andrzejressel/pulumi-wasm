@@ -133,6 +133,7 @@ pub mod discovery_virtual_instance {
             type_: "azure:workloadssap/discoveryVirtualInstance:DiscoveryVirtualInstance"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "centralServerVirtualMachineId".into(),

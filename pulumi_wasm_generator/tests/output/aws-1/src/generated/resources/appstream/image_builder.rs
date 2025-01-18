@@ -157,6 +157,7 @@ pub mod image_builder {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appstream/imageBuilder:ImageBuilder".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessEndpoints".into(),

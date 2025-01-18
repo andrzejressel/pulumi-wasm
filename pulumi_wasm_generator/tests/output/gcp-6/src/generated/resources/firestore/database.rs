@@ -379,6 +379,7 @@ pub mod database {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firestore/database:Database".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appEngineIntegrationMode".into(),

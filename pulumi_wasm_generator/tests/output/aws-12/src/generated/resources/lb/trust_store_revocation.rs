@@ -85,6 +85,7 @@ pub mod trust_store_revocation {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lb/trustStoreRevocation:TrustStoreRevocation".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "revocationsS3Bucket".into(),

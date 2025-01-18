@@ -131,6 +131,7 @@ pub mod event_hub_authorization_rule {
             type_: "azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "eventhubName".into(),

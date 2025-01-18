@@ -70,6 +70,7 @@ pub mod resolver_firewall_rule_group {
             type_: "aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

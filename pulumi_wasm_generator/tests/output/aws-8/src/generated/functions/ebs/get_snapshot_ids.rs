@@ -41,6 +41,7 @@ pub mod get_snapshot_ids {
         let restorable_by_user_ids_binding = args.restorable_by_user_ids.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ebs/getSnapshotIds:getSnapshotIds".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

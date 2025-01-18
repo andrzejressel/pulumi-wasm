@@ -29,6 +29,7 @@ pub mod get_access_policy_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:accesscontextmanager/getAccessPolicyIamPolicy:getAccessPolicyIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

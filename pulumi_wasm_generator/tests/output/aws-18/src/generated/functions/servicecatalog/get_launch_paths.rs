@@ -34,6 +34,7 @@ pub mod get_launch_paths {
         let product_id_binding = args.product_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicecatalog/getLaunchPaths:getLaunchPaths".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "acceptLanguage".into(),

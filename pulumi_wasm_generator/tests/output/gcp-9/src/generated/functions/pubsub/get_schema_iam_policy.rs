@@ -34,6 +34,7 @@ pub mod get_schema_iam_policy {
         let schema_binding = args.schema.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:pubsub/getSchemaIamPolicy:getSchemaIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

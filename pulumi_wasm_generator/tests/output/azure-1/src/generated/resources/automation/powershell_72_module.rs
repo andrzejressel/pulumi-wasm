@@ -99,6 +99,7 @@ pub mod powershell_72_module {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/powershell72Module:Powershell72Module".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "automationAccountId".into(),

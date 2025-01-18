@@ -25,6 +25,7 @@ pub mod get_state_machine_versions {
         let statemachine_arn_binding = args.statemachine_arn.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:sfn/getStateMachineVersions:getStateMachineVersions".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "statemachineArn".into(),

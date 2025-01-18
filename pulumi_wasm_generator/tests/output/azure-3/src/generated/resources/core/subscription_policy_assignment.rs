@@ -188,6 +188,7 @@ pub mod subscription_policy_assignment {
             type_: "azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

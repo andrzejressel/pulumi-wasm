@@ -42,6 +42,7 @@ pub mod get_dns_namespace {
         let type__binding = args.type_.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicediscovery/getDnsNamespace:getDnsNamespace".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

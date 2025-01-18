@@ -197,6 +197,7 @@ pub mod launch_configuration {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/launchConfiguration:LaunchConfiguration".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "associatePublicIpAddress".into(),

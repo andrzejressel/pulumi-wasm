@@ -36,6 +36,7 @@ pub mod get_table_iam_policy {
         let table_binding = args.table.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:bigtable/getTableIamPolicy:getTableIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "instance".into(),

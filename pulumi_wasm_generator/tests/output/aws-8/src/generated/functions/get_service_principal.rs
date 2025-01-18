@@ -33,6 +33,7 @@ pub mod get_service_principal {
         let service_name_binding = args.service_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:index/getServicePrincipal:getServicePrincipal".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "region".into(),

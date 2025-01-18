@@ -89,6 +89,7 @@ pub mod get_dev_environment {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:codecatalyst/getDevEnvironment:getDevEnvironment".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "alias".into(),

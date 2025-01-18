@@ -130,6 +130,7 @@ pub mod random_password {
         let request = register_interface::RegisterResourceRequest {
             type_: "random:index/randomPassword:RandomPassword".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "keepers".into(),

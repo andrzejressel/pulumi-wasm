@@ -117,6 +117,7 @@ pub mod repository_association {
             type_: "aws:codegurureviewer/repositoryAssociation:RepositoryAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "kmsKeyDetails".into(),

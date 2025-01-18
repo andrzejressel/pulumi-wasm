@@ -36,6 +36,7 @@ pub mod get_network_peering {
         let network_binding = args.network.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getNetworkPeering:getNetworkPeering".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -41,6 +41,7 @@ pub mod get_serverless_security_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

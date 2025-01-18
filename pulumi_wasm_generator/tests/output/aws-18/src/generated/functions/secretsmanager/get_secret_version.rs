@@ -43,6 +43,7 @@ pub mod get_secret_version {
         let version_stage_binding = args.version_stage.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:secretsmanager/getSecretVersion:getSecretVersion".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "secretId".into(),

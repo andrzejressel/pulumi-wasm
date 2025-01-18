@@ -112,6 +112,7 @@ pub mod registry_token {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/registryToken:RegistryToken".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "containerRegistryName".into(),

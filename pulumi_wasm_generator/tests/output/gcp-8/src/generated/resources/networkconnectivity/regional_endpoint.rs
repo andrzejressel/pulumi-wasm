@@ -221,6 +221,7 @@ pub mod regional_endpoint {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkconnectivity/regionalEndpoint:RegionalEndpoint".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessType".into(),

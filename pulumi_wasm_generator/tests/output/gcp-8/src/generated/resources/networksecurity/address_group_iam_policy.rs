@@ -111,6 +111,7 @@ pub mod address_group_iam_policy {
             type_: "gcp:networksecurity/addressGroupIamPolicy:AddressGroupIamPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

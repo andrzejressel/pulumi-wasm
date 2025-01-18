@@ -39,6 +39,7 @@ pub mod get_kms_secret {
         let crypto_key_binding = args.crypto_key.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getKMSSecret:getKMSSecret".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalAuthenticatedData".into(),

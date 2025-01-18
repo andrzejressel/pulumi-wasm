@@ -37,6 +37,7 @@ pub mod get_provisioning_artifacts {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "acceptLanguage".into(),

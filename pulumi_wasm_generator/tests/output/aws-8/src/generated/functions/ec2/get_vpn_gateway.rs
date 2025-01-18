@@ -62,6 +62,7 @@ pub mod get_vpn_gateway {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getVpnGateway:getVpnGateway".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "amazonSideAsn".into(),

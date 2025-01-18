@@ -50,6 +50,7 @@ pub mod get_quicksight_user {
         let user_name_binding = args.user_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:quicksight/getQuicksightUser:getQuicksightUser".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "awsAccountId".into(),

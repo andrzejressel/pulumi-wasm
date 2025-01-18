@@ -388,6 +388,7 @@ pub mod web_backend_service_iam_policy {
             type_: "gcp:iap/webBackendServiceIamPolicy:WebBackendServiceIamPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "policyData".into(),

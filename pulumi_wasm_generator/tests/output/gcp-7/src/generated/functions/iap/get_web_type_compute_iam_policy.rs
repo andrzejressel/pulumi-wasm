@@ -32,6 +32,7 @@ pub mod get_web_type_compute_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:iap/getWebTypeComputeIamPolicy:getWebTypeComputeIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

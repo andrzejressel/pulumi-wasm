@@ -30,6 +30,7 @@ pub mod get_endpoint {
         let endpoint_type_binding = args.endpoint_type.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iot/getEndpoint:getEndpoint".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "endpointType".into(),

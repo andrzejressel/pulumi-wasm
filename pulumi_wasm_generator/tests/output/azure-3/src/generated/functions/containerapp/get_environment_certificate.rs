@@ -45,6 +45,7 @@ pub mod get_environment_certificate {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "containerAppEnvironmentId".into(),

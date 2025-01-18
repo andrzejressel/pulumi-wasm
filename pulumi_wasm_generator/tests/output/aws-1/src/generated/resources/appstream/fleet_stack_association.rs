@@ -73,6 +73,7 @@ pub mod fleet_stack_association {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appstream/fleetStackAssociation:FleetStackAssociation".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "fleetName".into(),

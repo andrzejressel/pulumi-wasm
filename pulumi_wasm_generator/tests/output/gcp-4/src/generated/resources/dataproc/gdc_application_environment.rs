@@ -206,6 +206,7 @@ pub mod gdc_application_environment {
             type_: "gcp:dataproc/gdcApplicationEnvironment:GdcApplicationEnvironment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "annotations".into(),

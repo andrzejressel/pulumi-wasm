@@ -110,6 +110,7 @@ pub mod function_java_script_udf {
             type_: "azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "inputs".into(),

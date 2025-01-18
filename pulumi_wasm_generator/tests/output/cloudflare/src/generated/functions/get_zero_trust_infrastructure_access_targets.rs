@@ -72,6 +72,7 @@ pub mod get_zero_trust_infrastructure_access_targets {
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getZeroTrustInfrastructureAccessTargets:getZeroTrustInfrastructureAccessTargets"
                 .into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

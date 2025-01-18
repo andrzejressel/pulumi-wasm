@@ -155,6 +155,7 @@ pub mod app_connection {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/appConnection:AppConnection".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "authentication".into(),

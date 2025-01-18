@@ -47,6 +47,7 @@ pub mod get_certificate {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:dms/getCertificate:getCertificate".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "certificateId".into(),

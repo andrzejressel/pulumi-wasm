@@ -97,6 +97,7 @@ pub mod firewall_policy_association {
             type_: "gcp:compute/firewallPolicyAssociation:FirewallPolicyAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "attachmentTarget".into(),

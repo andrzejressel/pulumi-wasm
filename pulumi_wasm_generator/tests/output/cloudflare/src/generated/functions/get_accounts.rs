@@ -27,6 +27,7 @@ pub mod get_accounts {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getAccounts:getAccounts".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -195,6 +195,7 @@ pub mod stack_instances {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudformation/stackInstances:StackInstances".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accounts".into(),

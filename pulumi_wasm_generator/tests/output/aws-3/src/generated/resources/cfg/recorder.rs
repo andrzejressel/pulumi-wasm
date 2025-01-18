@@ -163,6 +163,7 @@ pub mod recorder {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/recorder:Recorder".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

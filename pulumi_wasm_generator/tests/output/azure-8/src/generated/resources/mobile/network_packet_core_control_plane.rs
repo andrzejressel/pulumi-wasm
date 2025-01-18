@@ -220,6 +220,7 @@ pub mod network_packet_core_control_plane {
             type_: "azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "controlPlaneAccessIpv4Address".into(),

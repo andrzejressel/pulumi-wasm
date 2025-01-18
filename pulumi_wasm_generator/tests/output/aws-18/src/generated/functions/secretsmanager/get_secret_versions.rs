@@ -36,6 +36,7 @@ pub mod get_secret_versions {
         let secret_id_binding = args.secret_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:secretsmanager/getSecretVersions:getSecretVersions".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "includeDeprecated".into(),

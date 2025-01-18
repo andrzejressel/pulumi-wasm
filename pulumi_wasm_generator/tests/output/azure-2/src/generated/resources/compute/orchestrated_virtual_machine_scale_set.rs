@@ -446,6 +446,7 @@ pub mod orchestrated_virtual_machine_scale_set {
             type_: "azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalCapabilities".into(),

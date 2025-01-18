@@ -154,6 +154,7 @@ pub(crate) struct AbstractResourceNode {
     outputs: HashSet<FieldName>,
     callbacks: Vec<Callback>,
     operation: ResourceRequestOperation,
+    version: String,
 }
 
 impl AbstractResourceNode {
@@ -164,6 +165,7 @@ impl AbstractResourceNode {
         inputs: HashMap<FieldName, NodeValue>,
         outputs: HashSet<FieldName>,
         callbacks: Vec<Callback>,
+        version: String,
     ) -> Self {
         Self {
             value,
@@ -172,6 +174,7 @@ impl AbstractResourceNode {
             inputs,
             outputs,
             callbacks,
+            version,
         }
     }
 
@@ -179,6 +182,7 @@ impl AbstractResourceNode {
         operation: ResourceRequestOperation,
         input_names: HashSet<FieldName>,
         outputs: HashSet<FieldName>,
+        version: String,
     ) -> Self {
         Self::create(
             NotYetCalculated,
@@ -187,6 +191,7 @@ impl AbstractResourceNode {
             HashMap::new(),
             outputs,
             Vec::new(),
+            version,
         )
     }
 
@@ -243,6 +248,7 @@ impl AbstractResourceNode {
         PerformResourceRequest {
             operation: self.operation.clone(),
             object,
+            version: self.version.clone(),
             expected_results: self.outputs.clone(),
         }
     }
@@ -398,6 +404,7 @@ mod tests {
                 )),
                 ["exists_nil".into(), "exists_int".into(), "not_exist".into()].into(),
                 HashSet::from(["output".into()]),
+                "1.0.0".into(),
             );
 
             let result = node.set_input("exists_nil".into(), Exists(Null));
@@ -419,6 +426,7 @@ mod tests {
                         RegisterResourceRequestOperation::new("type".into(), "name".into())
                     ),
                     expected_results: HashSet::from(["output".into()]),
+                    version: "1.0.0".into()
                 })
             );
         }

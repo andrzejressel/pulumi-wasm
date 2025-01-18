@@ -32,6 +32,7 @@ pub mod get_subscriptions {
         let display_name_prefix_binding = args.display_name_prefix.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:core/getSubscriptions:getSubscriptions".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "displayNameContains".into(),

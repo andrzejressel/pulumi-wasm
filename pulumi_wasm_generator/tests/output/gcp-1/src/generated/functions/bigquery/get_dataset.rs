@@ -69,6 +69,7 @@ pub mod get_dataset {
         let project_binding = args.project.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:bigquery/getDataset:getDataset".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "datasetId".into(),

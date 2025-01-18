@@ -92,6 +92,7 @@ pub mod identity_provider_twitter {
             type_: "azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiKey".into(),

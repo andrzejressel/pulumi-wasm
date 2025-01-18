@@ -45,6 +45,7 @@ pub mod get_virtual_cluster {
         let virtual_cluster_id_binding = args.virtual_cluster_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:emrcontainers/getVirtualCluster:getVirtualCluster".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "tags".into(),

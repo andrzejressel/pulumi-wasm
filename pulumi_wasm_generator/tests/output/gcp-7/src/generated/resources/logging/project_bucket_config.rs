@@ -223,6 +223,7 @@ pub mod project_bucket_config {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:logging/projectBucketConfig:ProjectBucketConfig".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucketId".into(),

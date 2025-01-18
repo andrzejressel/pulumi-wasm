@@ -78,6 +78,7 @@ pub mod environment_membership {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloud9/environmentMembership:EnvironmentMembership".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "environmentId".into(),

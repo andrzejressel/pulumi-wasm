@@ -85,6 +85,7 @@ pub mod log_metric_filter {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/logMetricFilter:LogMetricFilter".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "logGroupName".into(),

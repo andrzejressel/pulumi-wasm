@@ -33,6 +33,7 @@ pub mod get_group_template_deployment {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "managementGroupId".into(),

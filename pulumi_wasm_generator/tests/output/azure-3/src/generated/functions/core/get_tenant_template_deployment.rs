@@ -28,6 +28,7 @@ pub mod get_tenant_template_deployment {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -441,6 +441,7 @@ pub mod s_3_endpoint {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dms/s3Endpoint:S3Endpoint".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "addColumnName".into(),

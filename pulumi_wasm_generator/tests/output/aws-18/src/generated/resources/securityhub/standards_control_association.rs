@@ -79,6 +79,7 @@ pub mod standards_control_association {
             type_: "aws:securityhub/standardsControlAssociation:StandardsControlAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "associationStatus".into(),

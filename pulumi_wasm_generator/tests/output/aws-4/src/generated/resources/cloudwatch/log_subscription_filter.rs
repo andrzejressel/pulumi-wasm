@@ -86,6 +86,7 @@ pub mod log_subscription_filter {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "destinationArn".into(),

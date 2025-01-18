@@ -216,6 +216,7 @@ pub mod policy_tag_iam_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/policyTagIamPolicy:PolicyTagIamPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "policyData".into(),

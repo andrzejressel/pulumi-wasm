@@ -74,6 +74,7 @@ pub mod workers_domain {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/workersDomain:WorkersDomain".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

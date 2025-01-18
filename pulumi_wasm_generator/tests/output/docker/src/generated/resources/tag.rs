@@ -32,6 +32,7 @@ pub mod tag {
         let request = register_interface::RegisterResourceRequest {
             type_: "docker:index/tag:Tag".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "sourceImage".into(),

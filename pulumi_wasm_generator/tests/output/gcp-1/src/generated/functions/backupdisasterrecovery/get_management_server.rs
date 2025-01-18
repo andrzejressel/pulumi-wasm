@@ -37,6 +37,7 @@ pub mod get_management_server {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:backupdisasterrecovery/getManagementServer:getManagementServer"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

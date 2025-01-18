@@ -104,6 +104,7 @@ pub mod email_service_domain {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:communication/emailServiceDomain:EmailServiceDomain".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "domainManagement".into(),

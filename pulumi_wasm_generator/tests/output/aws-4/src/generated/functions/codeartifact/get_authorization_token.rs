@@ -37,6 +37,7 @@ pub mod get_authorization_token {
         let duration_seconds_binding = args.duration_seconds.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:codeartifact/getAuthorizationToken:getAuthorizationToken".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "domain".into(),

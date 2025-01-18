@@ -41,6 +41,7 @@ pub mod get_runtime_iam_policy {
         let runtime_name_binding = args.runtime_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:notebooks/getRuntimeIamPolicy:getRuntimeIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

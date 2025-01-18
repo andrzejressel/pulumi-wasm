@@ -115,6 +115,7 @@ pub mod service_network_settings {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/serviceNetworkSettings:ServiceNetworkSettings".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "networkSettings".into(),

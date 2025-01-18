@@ -200,6 +200,7 @@ pub mod nodejs_app_layer {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opsworks/nodejsAppLayer:NodejsAppLayer".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "autoAssignElasticIps".into(),

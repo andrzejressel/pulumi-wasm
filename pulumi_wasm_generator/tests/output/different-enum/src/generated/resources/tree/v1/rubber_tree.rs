@@ -67,6 +67,7 @@ pub mod rubber_tree {
         let request = register_interface::RegisterResourceRequest {
             type_: "plant:tree/v1:RubberTree".into(),
             name: name.to_string(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "container".into(),

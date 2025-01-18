@@ -46,6 +46,7 @@ pub mod get_voices {
         let voices_binding = args.voices.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:polly/getVoices:getVoices".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "engine".into(),

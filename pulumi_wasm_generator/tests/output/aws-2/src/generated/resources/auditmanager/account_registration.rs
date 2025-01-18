@@ -79,6 +79,7 @@ pub mod account_registration {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:auditmanager/accountRegistration:AccountRegistration".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "delegatedAdminAccount".into(),

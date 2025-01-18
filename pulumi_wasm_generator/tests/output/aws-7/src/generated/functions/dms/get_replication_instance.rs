@@ -59,6 +59,7 @@ pub mod get_replication_instance {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:dms/getReplicationInstance:getReplicationInstance".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "replicationInstanceId".into(),

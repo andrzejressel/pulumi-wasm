@@ -50,6 +50,7 @@ pub mod get_subnet {
         let virtual_network_name_binding = args.virtual_network_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getSubnet:getSubnet".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

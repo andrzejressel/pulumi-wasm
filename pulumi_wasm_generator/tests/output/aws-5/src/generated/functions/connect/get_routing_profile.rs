@@ -55,6 +55,7 @@ pub mod get_routing_profile {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:connect/getRoutingProfile:getRoutingProfile".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "instanceId".into(),

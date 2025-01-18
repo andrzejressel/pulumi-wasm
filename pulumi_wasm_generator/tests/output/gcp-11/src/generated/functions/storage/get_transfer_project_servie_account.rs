@@ -32,6 +32,7 @@ pub mod get_transfer_project_servie_account {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:storage/getTransferProjectServieAccount:getTransferProjectServieAccount"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

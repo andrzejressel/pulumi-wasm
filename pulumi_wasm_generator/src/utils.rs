@@ -185,3 +185,11 @@ pub(crate) fn reformat_code(code: &str) -> anyhow::Result<String> {
 pub(crate) fn get_main_version() -> &'static str {
     env!("CARGO_PKG_VERSION")
 }
+
+pub(crate) fn access_root(depth: usize) -> String {
+    if depth > 0 {
+        "super::".repeat(depth)
+    } else {
+        "self::".to_string()
+    }
+}

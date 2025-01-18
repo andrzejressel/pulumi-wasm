@@ -59,6 +59,7 @@ pub mod user_profile {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opsworks/userProfile:UserProfile".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "allowSelfManagement".into(),

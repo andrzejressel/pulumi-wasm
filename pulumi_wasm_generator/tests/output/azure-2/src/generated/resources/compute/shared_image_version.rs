@@ -188,6 +188,7 @@ pub mod shared_image_version {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/sharedImageVersion:SharedImageVersion".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "blobUri".into(),

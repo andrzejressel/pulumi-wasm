@@ -54,6 +54,7 @@ pub mod get_vocabulary {
         let vocabulary_id_binding = args.vocabulary_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:connect/getVocabulary:getVocabulary".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "instanceId".into(),

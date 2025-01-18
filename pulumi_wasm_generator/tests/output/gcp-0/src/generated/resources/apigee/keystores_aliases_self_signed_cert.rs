@@ -239,6 +239,7 @@ pub mod keystores_aliases_self_signed_cert {
             type_: "gcp:apigee/keystoresAliasesSelfSignedCert:KeystoresAliasesSelfSignedCert"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "alias".into(),

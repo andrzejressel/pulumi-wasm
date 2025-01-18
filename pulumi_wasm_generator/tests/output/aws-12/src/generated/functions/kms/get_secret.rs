@@ -26,6 +26,7 @@ pub mod get_secret {
         let secrets_binding = args.secrets.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kms/getSecret:getSecret".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "secrets".into(),

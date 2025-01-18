@@ -67,6 +67,7 @@ pub mod classification_export_configuration {
             type_: "aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "s3Destination".into(),

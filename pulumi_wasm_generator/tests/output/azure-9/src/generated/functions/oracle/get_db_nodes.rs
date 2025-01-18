@@ -27,6 +27,7 @@ pub mod get_db_nodes {
         let cloud_vm_cluster_id_binding = args.cloud_vm_cluster_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:oracle/getDbNodes:getDbNodes".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cloudVmClusterId".into(),

@@ -82,6 +82,7 @@ pub mod get_data_set {
         let tags_all_binding = args.tags_all.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:quicksight/getDataSet:getDataSet".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "awsAccountId".into(),

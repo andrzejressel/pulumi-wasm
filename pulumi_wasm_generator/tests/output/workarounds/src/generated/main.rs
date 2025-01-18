@@ -78,6 +78,6 @@ interface register-interface {
 #[no_mangle]
 #[cfg(target_arch = "wasm32")]
 pub static PULUMI_WASM_PROVIDER_EXAMPLE: [u8; 44] = *b"{\"version\":\"1.0.0\",\"pluginDownloadURL\":null}";
-pub(crate) fn get_version() -> &'static str {
-    "1.0.0"
+pub(crate) fn get_version() -> String {
+    "1.0.0".to_string()
 }

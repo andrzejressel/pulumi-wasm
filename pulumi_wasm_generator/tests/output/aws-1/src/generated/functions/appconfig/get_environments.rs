@@ -25,6 +25,7 @@ pub mod get_environments {
         let application_id_binding = args.application_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:appconfig/getEnvironments:getEnvironments".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationId".into(),

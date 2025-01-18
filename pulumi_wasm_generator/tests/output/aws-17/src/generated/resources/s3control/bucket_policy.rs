@@ -61,6 +61,7 @@ pub mod bucket_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3control/bucketPolicy:BucketPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucket".into(),

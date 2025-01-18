@@ -96,6 +96,7 @@ pub mod protection_health_check_association {
             type_: "aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "healthCheckArn".into(),

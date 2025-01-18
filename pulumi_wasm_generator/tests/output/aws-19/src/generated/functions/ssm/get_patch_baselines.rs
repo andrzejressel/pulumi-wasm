@@ -36,6 +36,7 @@ pub mod get_patch_baselines {
         let filters_binding = args.filters.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssm/getPatchBaselines:getPatchBaselines".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "defaultBaselines".into(),

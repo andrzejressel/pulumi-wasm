@@ -67,6 +67,7 @@ pub mod zone_hold {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zoneHold:ZoneHold".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "hold".into(),

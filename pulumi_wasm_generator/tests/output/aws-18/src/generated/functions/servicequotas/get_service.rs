@@ -25,6 +25,7 @@ pub mod get_service {
         let service_name_binding = args.service_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicequotas/getService:getService".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "serviceName".into(),

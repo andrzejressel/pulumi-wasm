@@ -218,6 +218,7 @@ pub mod key_vault {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/keyVault:KeyVault".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessPolicies".into(),

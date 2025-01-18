@@ -194,6 +194,7 @@ pub mod traffic_manager_nested_endpoint {
             type_: "azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customHeaders".into(),

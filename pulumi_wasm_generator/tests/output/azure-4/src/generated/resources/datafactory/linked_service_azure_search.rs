@@ -141,6 +141,7 @@ pub mod linked_service_azure_search {
             type_: "azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalProperties".into(),

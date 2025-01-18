@@ -102,6 +102,7 @@ pub mod instance_settings {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/instanceSettings:InstanceSettings".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "metadata".into(),

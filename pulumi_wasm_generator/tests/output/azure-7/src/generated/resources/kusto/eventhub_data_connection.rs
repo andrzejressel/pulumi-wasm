@@ -196,6 +196,7 @@ pub mod eventhub_data_connection {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/eventhubDataConnection:EventhubDataConnection".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterName".into(),

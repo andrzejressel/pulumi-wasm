@@ -26,6 +26,7 @@ pub mod func_with_secrets {
         let plaintext_binding = args.plaintext.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "mypkg::funcWithSecrets".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cryptoKey".into(),

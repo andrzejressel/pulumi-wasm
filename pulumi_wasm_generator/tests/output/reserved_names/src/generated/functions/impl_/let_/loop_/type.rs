@@ -22,6 +22,7 @@ pub mod type_ {
         let type__binding = args.type_.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "example:impl/let/loop:Type".into(),
+            version: super::super::super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "type".into(),

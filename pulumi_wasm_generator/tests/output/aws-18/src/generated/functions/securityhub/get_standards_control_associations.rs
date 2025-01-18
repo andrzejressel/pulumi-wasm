@@ -33,6 +33,7 @@ pub mod get_standards_control_associations {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "securityControlId".into(),

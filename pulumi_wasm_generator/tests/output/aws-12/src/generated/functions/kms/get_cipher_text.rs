@@ -39,6 +39,7 @@ pub mod get_cipher_text {
         let plaintext_binding = args.plaintext.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kms/getCipherText:getCipherText".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "context".into(),

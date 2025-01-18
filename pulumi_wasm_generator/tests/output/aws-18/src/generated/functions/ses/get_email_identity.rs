@@ -26,6 +26,7 @@ pub mod get_email_identity {
         let email_binding = args.email.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ses/getEmailIdentity:getEmailIdentity".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "email".into(),

@@ -34,6 +34,7 @@ pub mod get_serverless_vpc_endpoint {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "vpcEndpointId".into(),

@@ -100,6 +100,7 @@ pub mod hyper_v_replication_policy_association {
             type_: "azure:siterecovery/hyperVReplicationPolicyAssociation:HyperVReplicationPolicyAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "hypervSiteId".into(),

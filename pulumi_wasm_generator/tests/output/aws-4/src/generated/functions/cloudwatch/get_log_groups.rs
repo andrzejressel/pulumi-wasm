@@ -27,6 +27,7 @@ pub mod get_log_groups {
         let log_group_name_prefix_binding = args.log_group_name_prefix.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudwatch/getLogGroups:getLogGroups".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "logGroupNamePrefix".into(),

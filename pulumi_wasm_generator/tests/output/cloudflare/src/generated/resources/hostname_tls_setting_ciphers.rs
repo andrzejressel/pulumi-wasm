@@ -73,6 +73,7 @@ pub mod hostname_tls_setting_ciphers {
             type_: "cloudflare:index/hostnameTlsSettingCiphers:HostnameTlsSettingCiphers"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "hostname".into(),

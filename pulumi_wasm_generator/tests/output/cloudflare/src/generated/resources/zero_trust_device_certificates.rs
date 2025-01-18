@@ -60,6 +60,7 @@ pub mod zero_trust_device_certificates {
             type_: "cloudflare:index/zeroTrustDeviceCertificates:ZeroTrustDeviceCertificates"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "enabled".into(),

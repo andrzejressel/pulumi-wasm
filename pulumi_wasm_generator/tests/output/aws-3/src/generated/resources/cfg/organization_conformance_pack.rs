@@ -163,6 +163,7 @@ pub mod organization_conformance_pack {
             type_: "aws:cfg/organizationConformancePack:OrganizationConformancePack"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "deliveryS3Bucket".into(),

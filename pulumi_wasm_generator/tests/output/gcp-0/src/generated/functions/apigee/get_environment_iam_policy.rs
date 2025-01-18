@@ -32,6 +32,7 @@ pub mod get_environment_iam_policy {
         let org_id_binding = args.org_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:apigee/getEnvironmentIamPolicy:getEnvironmentIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "envId".into(),

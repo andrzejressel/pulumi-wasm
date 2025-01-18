@@ -107,6 +107,7 @@ pub mod hyper_v_replication_policy {
             type_: "azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationConsistentSnapshotFrequencyInHours".into(),

@@ -68,6 +68,7 @@ pub mod permission {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opsworks/permission:Permission".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "allowSsh".into(),

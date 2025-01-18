@@ -35,6 +35,7 @@ pub mod get_assets {
         let status_id_filters_binding = args.status_id_filters.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:outposts/getAssets:getAssets".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arn".into(),

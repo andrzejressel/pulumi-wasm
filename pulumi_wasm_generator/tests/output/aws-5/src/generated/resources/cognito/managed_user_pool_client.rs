@@ -272,6 +272,7 @@ pub mod managed_user_pool_client {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/managedUserPoolClient:ManagedUserPoolClient".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessTokenValidity".into(),

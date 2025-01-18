@@ -122,6 +122,7 @@ pub mod hybrid_connection_authorization_rule {
             type_: "azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "hybridConnectionName".into(),

@@ -153,6 +153,7 @@ pub mod location_tag_binding {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:tags/locationTagBinding:LocationTagBinding".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

@@ -41,6 +41,7 @@ pub mod get_inference_profile {
         let inference_profile_id_binding = args.inference_profile_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:bedrock/getInferenceProfile:getInferenceProfile".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "inferenceProfileId".into(),

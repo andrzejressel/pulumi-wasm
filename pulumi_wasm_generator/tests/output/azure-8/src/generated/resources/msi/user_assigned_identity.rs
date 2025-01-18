@@ -97,6 +97,7 @@ pub mod user_assigned_identity {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:msi/userAssignedIdentity:UserAssignedIdentity".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

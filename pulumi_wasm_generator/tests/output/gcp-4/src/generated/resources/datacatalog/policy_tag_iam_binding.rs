@@ -255,6 +255,7 @@ pub mod policy_tag_iam_binding {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/policyTagIamBinding:PolicyTagIamBinding".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "condition".into(),

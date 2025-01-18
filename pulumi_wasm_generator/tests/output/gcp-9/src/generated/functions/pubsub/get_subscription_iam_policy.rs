@@ -33,6 +33,7 @@ pub mod get_subscription_iam_policy {
         let subscription_binding = args.subscription.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:pubsub/getSubscriptionIamPolicy:getSubscriptionIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

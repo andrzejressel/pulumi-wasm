@@ -31,6 +31,7 @@ pub mod get_secrets {
         let key_vault_id_binding = args.key_vault_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:keyvault/getSecrets:getSecrets".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "keyVaultId".into(),

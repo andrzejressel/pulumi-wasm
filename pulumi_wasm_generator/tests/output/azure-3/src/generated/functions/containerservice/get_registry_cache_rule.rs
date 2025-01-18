@@ -35,6 +35,7 @@ pub mod get_registry_cache_rule {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:containerservice/getRegistryCacheRule:getRegistryCacheRule"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "containerRegistryId".into(),

@@ -146,6 +146,7 @@ pub mod key_signing_key {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/keySigningKey:KeySigningKey".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "hostedZoneId".into(),

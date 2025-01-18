@@ -113,6 +113,7 @@ pub mod zone_virtual_network_link {
             type_: "azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -74,6 +74,7 @@ pub mod project_default_network_tier {
             type_: "gcp:compute/projectDefaultNetworkTier:ProjectDefaultNetworkTier"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "networkTier".into(),

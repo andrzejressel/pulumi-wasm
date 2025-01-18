@@ -30,6 +30,7 @@ pub mod get_resolver_firewall_config {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverFirewallConfig:getResolverFirewallConfig"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "resourceId".into(),

@@ -27,6 +27,7 @@ pub mod function_1 {
         let type1_binding = args.type1.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "example:ns1:Function1".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "commonType".into(),

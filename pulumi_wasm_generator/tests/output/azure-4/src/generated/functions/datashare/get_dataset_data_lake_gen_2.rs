@@ -39,6 +39,7 @@ pub mod get_dataset_data_lake_gen_2 {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

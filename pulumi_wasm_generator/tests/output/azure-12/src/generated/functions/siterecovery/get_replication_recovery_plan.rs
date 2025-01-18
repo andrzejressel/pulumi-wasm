@@ -48,6 +48,7 @@ pub mod get_replication_recovery_plan {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -36,6 +36,7 @@ pub mod get_license_grants {
         let filters_binding = args.filters.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:licensemanager/getLicenseGrants:getLicenseGrants".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

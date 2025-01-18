@@ -56,6 +56,7 @@ pub mod get_certificate_authority {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:acmpca/getCertificateAuthority:getCertificateAuthority".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arn".into(),

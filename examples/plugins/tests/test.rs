@@ -36,7 +36,7 @@ fn test_integration() -> Result<(), anyhow::Error> {
     let str = str::from_utf8(stack)?;
 
     assert!(str.contains(
-        "GetRequiredPlugins: plugins=[name:\"random\" kind:\"resource\" version:\"4.15.0\"]"
+        "GetRequiredPlugins: plugins=[name:\"random\"  kind:\"resource\"  version:\"4.15.0\"]"
     ));
 
     Ok(())

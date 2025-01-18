@@ -153,6 +153,7 @@ pub mod project_environment_type {
             type_: "azure:devcenter/projectEnvironmentType:ProjectEnvironmentType"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "creatorRoleAssignmentRoles".into(),

@@ -103,6 +103,7 @@ pub mod federated_identity_credential {
             type_: "azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "audience".into(),

@@ -65,6 +65,7 @@ pub mod email_identity_feedback_attributes {
             type_: "aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "emailForwardingEnabled".into(),

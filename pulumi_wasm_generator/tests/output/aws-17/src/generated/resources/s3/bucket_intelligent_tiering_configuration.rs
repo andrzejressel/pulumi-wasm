@@ -116,6 +116,7 @@ pub mod bucket_intelligent_tiering_configuration {
             type_: "aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucket".into(),

@@ -141,6 +141,7 @@ pub mod endpoint_servicebus_queue {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/endpointServicebusQueue:EndpointServicebusQueue".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "authenticationType".into(),

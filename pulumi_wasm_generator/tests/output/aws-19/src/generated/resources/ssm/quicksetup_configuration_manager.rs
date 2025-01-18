@@ -93,6 +93,7 @@ pub mod quicksetup_configuration_manager {
             type_: "aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "configurationDefinition".into(),

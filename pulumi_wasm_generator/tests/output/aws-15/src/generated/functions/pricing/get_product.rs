@@ -34,6 +34,7 @@ pub mod get_product {
         let service_code_binding = args.service_code.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:pricing/getProduct:getProduct".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

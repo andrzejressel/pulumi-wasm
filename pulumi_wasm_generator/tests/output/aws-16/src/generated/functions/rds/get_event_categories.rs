@@ -25,6 +25,7 @@ pub mod get_event_categories {
         let source_type_binding = args.source_type.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:rds/getEventCategories:getEventCategories".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "sourceType".into(),

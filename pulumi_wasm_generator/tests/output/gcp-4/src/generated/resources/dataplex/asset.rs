@@ -201,6 +201,7 @@ pub mod asset {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataplex/asset:Asset".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dataplexZone".into(),

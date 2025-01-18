@@ -79,6 +79,7 @@ pub mod rest_api_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/restApiPolicy:RestApiPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "policy".into(),

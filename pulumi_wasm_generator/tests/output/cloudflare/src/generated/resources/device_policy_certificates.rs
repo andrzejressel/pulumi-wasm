@@ -60,6 +60,7 @@ pub mod device_policy_certificates {
             type_: "cloudflare:index/devicePolicyCertificates:DevicePolicyCertificates"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "enabled".into(),

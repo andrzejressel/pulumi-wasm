@@ -139,6 +139,7 @@ pub mod tag_rule {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:newrelic/tagRule:TagRule".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "activityLogEnabled".into(),

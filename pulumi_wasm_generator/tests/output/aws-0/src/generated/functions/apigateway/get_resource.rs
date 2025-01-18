@@ -32,6 +32,7 @@ pub mod get_resource {
         let rest_api_id_binding = args.rest_api_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:apigateway/getResource:getResource".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "path".into(),

@@ -42,6 +42,7 @@ pub mod get_bot_alias {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lex/getBotAlias:getBotAlias".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "botName".into(),

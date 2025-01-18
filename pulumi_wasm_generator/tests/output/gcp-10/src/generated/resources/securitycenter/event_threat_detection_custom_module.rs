@@ -125,6 +125,7 @@ pub mod event_threat_detection_custom_module {
             type_: "gcp:securitycenter/eventThreatDetectionCustomModule:EventThreatDetectionCustomModule"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "config".into(),

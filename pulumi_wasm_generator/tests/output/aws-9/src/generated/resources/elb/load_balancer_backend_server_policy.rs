@@ -90,6 +90,7 @@ pub mod load_balancer_backend_server_policy {
             type_: "aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "instancePort".into(),

@@ -76,6 +76,7 @@ pub mod get_volume {
         let security_style_binding = args.security_style.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:netapp/getVolume:getVolume".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountName".into(),

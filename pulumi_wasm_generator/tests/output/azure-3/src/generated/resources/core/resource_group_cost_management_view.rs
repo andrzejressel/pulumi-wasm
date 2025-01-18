@@ -143,6 +143,7 @@ pub mod resource_group_cost_management_view {
             type_: "azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accumulated".into(),

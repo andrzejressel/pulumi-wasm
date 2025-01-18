@@ -18,6 +18,7 @@ pub mod get_spot_datafeed_subscription {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([]),
             results: Vec::from([
                 register_interface::ResultField {

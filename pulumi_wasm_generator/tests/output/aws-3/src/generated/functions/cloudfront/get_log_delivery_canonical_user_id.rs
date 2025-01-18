@@ -26,6 +26,7 @@ pub mod get_log_delivery_canonical_user_id {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "region".into(),

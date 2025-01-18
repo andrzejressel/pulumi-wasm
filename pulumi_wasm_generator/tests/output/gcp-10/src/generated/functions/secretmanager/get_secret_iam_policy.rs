@@ -33,6 +33,7 @@ pub mod get_secret_iam_policy {
         let secret_id_binding = args.secret_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:secretmanager/getSecretIamPolicy:getSecretIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

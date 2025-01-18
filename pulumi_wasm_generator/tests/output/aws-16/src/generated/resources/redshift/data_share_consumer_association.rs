@@ -108,6 +108,7 @@ pub mod data_share_consumer_association {
             type_: "aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "allowWrites".into(),

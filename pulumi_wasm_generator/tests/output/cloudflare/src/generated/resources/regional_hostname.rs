@@ -66,6 +66,7 @@ pub mod regional_hostname {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/regionalHostname:RegionalHostname".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "hostname".into(),

@@ -38,6 +38,7 @@ pub mod delivery_pipeline_iam_policy {
             type_: "gcp:clouddeploy/deliveryPipelineIamPolicy:DeliveryPipelineIamPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

@@ -75,6 +75,7 @@ pub mod channel {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:mediapackage/channel:Channel".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "channelId".into(),

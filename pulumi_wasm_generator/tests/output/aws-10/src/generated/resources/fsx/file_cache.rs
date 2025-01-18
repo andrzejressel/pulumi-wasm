@@ -168,6 +168,7 @@ pub mod file_cache {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fsx/fileCache:FileCache".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "copyTagsToDataRepositoryAssociations".into(),

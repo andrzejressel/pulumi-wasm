@@ -32,6 +32,7 @@ pub mod get_organizational_unit_child_accounts {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "parentId".into(),

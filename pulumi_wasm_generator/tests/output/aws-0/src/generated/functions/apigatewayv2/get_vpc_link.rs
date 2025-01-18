@@ -39,6 +39,7 @@ pub mod get_vpc_link {
         let vpc_link_id_binding = args.vpc_link_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:apigatewayv2/getVpcLink:getVpcLink".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "tags".into(),

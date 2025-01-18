@@ -215,6 +215,7 @@ pub mod network_peering_routes_config {
             type_: "gcp:compute/networkPeeringRoutesConfig:NetworkPeeringRoutesConfig"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "exportCustomRoutes".into(),

@@ -120,6 +120,7 @@ pub mod spring_cloud_dev_tool_portal {
             type_: "azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationAcceleratorEnabled".into(),

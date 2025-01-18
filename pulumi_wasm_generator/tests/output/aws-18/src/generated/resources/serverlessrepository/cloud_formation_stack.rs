@@ -106,6 +106,7 @@ pub mod cloud_formation_stack {
             type_: "aws:serverlessrepository/cloudFormationStack:CloudFormationStack"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationId".into(),

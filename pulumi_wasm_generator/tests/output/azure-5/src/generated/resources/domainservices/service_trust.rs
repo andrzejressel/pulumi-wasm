@@ -81,6 +81,7 @@ pub mod service_trust {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:domainservices/serviceTrust:ServiceTrust".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "domainServiceId".into(),

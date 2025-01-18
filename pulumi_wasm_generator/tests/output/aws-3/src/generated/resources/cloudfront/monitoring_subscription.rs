@@ -70,6 +70,7 @@ pub mod monitoring_subscription {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/monitoringSubscription:MonitoringSubscription".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "distributionId".into(),

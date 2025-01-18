@@ -112,6 +112,7 @@ pub mod custom_hostname_binding {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/customHostnameBinding:CustomHostnameBinding".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appServiceName".into(),

@@ -54,6 +54,7 @@ pub mod get_router_configuration {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:directconnect/getRouterConfiguration:getRouterConfiguration"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "routerTypeIdentifier".into(),

@@ -52,6 +52,7 @@ pub mod get_experience {
         let index_id_binding = args.index_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kendra/getExperience:getExperience".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "experienceId".into(),

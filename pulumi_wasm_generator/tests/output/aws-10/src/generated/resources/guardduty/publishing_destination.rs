@@ -159,6 +159,7 @@ pub mod publishing_destination {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:guardduty/publishingDestination:PublishingDestination".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "destinationArn".into(),

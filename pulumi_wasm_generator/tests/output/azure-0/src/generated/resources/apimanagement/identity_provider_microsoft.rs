@@ -92,6 +92,7 @@ pub mod identity_provider_microsoft {
             type_: "azure:apimanagement/identityProviderMicrosoft:IdentityProviderMicrosoft"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiManagementName".into(),

@@ -23,6 +23,7 @@ pub mod get_ip_ranges {
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getIpRanges:getIpRanges".into(),
+            version: super::super::get_version(),
             object: Vec::from([]),
             results: Vec::from([
                 register_interface::ResultField {

@@ -156,6 +156,7 @@ pub mod app_check_app_attest_config {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/appCheckAppAttestConfig:AppCheckAppAttestConfig".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appId".into(),

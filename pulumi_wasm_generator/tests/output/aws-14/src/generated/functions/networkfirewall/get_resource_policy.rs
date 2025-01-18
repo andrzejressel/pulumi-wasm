@@ -25,6 +25,7 @@ pub mod get_resource_policy {
         let resource_arn_binding = args.resource_arn.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:networkfirewall/getResourcePolicy:getResourcePolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "resourceArn".into(),

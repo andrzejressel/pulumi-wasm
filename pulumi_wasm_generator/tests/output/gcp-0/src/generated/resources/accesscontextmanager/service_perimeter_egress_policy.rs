@@ -92,6 +92,7 @@ pub mod service_perimeter_egress_policy {
             type_: "gcp:accesscontextmanager/servicePerimeterEgressPolicy:ServicePerimeterEgressPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "egressFrom".into(),

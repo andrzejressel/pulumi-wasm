@@ -158,6 +158,7 @@ pub mod router_interface {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/routerInterface:RouterInterface".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "interconnectAttachment".into(),

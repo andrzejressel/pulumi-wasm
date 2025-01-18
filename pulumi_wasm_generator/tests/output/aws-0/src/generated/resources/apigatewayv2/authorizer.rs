@@ -164,6 +164,7 @@ pub mod authorizer {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigatewayv2/authorizer:Authorizer".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiId".into(),

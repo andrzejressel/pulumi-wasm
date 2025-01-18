@@ -30,6 +30,7 @@ pub mod get_group_transitive_memberships {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudidentity/getGroupTransitiveMemberships:getGroupTransitiveMemberships"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "group".into(),

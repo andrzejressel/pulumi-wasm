@@ -42,6 +42,7 @@ pub mod get_endpoint_connection {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:privatelink/getEndpointConnection:getEndpointConnection"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

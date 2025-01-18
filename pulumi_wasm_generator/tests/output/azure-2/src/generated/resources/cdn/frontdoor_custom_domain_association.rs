@@ -164,6 +164,7 @@ pub mod frontdoor_custom_domain_association {
             type_: "azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cdnFrontdoorCustomDomainId".into(),

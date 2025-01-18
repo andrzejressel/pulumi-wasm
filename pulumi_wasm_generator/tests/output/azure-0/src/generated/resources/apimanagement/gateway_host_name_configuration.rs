@@ -146,6 +146,7 @@ pub mod gateway_host_name_configuration {
             type_: "azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiManagementId".into(),

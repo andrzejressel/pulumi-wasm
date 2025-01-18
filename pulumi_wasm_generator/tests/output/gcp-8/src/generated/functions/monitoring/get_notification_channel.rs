@@ -74,6 +74,7 @@ pub mod get_notification_channel {
         let user_labels_binding = args.user_labels.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:monitoring/getNotificationChannel:getNotificationChannel".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "displayName".into(),

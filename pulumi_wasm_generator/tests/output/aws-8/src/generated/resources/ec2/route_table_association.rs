@@ -89,6 +89,7 @@ pub mod route_table_association {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/routeTableAssociation:RouteTableAssociation".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "gatewayId".into(),

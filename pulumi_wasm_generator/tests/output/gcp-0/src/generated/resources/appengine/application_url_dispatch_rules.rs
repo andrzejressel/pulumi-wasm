@@ -103,6 +103,7 @@ pub mod application_url_dispatch_rules {
             type_: "gcp:appengine/applicationUrlDispatchRules:ApplicationUrlDispatchRules"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dispatchRules".into(),

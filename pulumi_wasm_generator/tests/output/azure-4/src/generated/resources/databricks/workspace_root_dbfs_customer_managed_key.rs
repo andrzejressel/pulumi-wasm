@@ -154,6 +154,7 @@ pub mod workspace_root_dbfs_customer_managed_key {
             type_: "azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "keyVaultId".into(),

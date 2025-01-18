@@ -27,6 +27,7 @@ pub mod get_resource {
         let arn_binding = args.arn.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lakeformation/getResource:getResource".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arn".into(),

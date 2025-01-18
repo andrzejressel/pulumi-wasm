@@ -102,6 +102,7 @@ pub mod trigger_http_request {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/triggerHttpRequest:TriggerHttpRequest".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "logicAppId".into(),

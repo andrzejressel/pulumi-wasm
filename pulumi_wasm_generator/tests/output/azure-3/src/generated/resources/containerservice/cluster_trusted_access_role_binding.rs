@@ -154,6 +154,7 @@ pub mod cluster_trusted_access_role_binding {
             type_: "azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "kubernetesClusterId".into(),

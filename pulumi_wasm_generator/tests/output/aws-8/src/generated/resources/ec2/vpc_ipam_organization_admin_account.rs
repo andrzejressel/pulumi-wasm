@@ -61,6 +61,7 @@ pub mod vpc_ipam_organization_admin_account {
             type_: "aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "delegatedAdminAccountId".into(),

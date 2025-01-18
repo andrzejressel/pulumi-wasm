@@ -223,6 +223,7 @@ pub mod managed_instance_transparent_data_encryption {
             type_: "azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "autoRotationEnabled".into(),

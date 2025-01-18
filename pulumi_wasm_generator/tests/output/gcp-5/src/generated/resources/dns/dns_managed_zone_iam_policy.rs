@@ -236,6 +236,7 @@ pub mod dns_managed_zone_iam_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dns/dnsManagedZoneIamPolicy:DnsManagedZoneIamPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "managedZone".into(),

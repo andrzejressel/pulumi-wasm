@@ -28,6 +28,7 @@ pub mod get_bucket_iam_policy {
         let bucket_binding = args.bucket.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:storage/getBucketIamPolicy:getBucketIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucket".into(),
