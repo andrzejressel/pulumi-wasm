@@ -552,7 +552,7 @@ interface register-interface {
 #[link_section = "pulumi_wasm_provider::azure"]
 #[no_mangle]
 #[cfg(target_arch = "wasm32")]
-pub static PULUMI_WASM_PROVIDER_AZURE: [u8; 45] = *b"{\"version\":\"6.14.0\",\"pluginDownloadURL\":null}";
+static PULUMI_WASM_PROVIDER_AZURE: [u8; 45] = *b"{\"version\":\"6.14.0\",\"pluginDownloadURL\":null}";
 pub(crate) fn get_version() -> String {
     "6.14.0".to_string()
 }
