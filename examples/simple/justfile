@@ -6,6 +6,9 @@ pulumi_wasm := "../../target/wasm32-wasip1/release/pulumi_wasm.wasm"
 run:
     {{binary}} run --pulumi-wasm "{{pulumi_wasm}}" "{{wasm}}"
 
+plugins TEMP_FILE:
+    {{binary}} plugins "{{wasm}}" "{{TEMP_FILE}}"
+
 [windows]
 local-test:
     #!pwsh
