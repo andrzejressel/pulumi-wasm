@@ -117,6 +117,7 @@ pub mod open_zfs_snapshot {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fsx/openZfsSnapshot:OpenZfsSnapshot".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

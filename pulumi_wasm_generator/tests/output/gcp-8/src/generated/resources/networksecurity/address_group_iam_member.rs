@@ -147,6 +147,7 @@ pub mod address_group_iam_member {
             type_: "gcp:networksecurity/addressGroupIamMember:AddressGroupIamMember"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "condition".into(),

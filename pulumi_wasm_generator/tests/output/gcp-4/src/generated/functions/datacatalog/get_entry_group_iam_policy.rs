@@ -39,6 +39,7 @@ pub mod get_entry_group_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:datacatalog/getEntryGroupIamPolicy:getEntryGroupIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "entryGroup".into(),

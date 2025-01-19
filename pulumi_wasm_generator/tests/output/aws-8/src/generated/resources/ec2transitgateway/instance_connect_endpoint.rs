@@ -104,6 +104,7 @@ pub mod instance_connect_endpoint {
             type_: "aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "preserveClientIp".into(),

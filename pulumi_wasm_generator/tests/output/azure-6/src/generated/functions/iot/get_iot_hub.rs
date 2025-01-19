@@ -43,6 +43,7 @@ pub mod get_iot_hub {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:iot/getIotHub:getIotHub".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

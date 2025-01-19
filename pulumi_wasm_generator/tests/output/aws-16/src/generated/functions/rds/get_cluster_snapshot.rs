@@ -90,6 +90,7 @@ pub mod get_cluster_snapshot {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:rds/getClusterSnapshot:getClusterSnapshot".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dbClusterIdentifier".into(),

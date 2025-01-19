@@ -25,6 +25,7 @@ pub mod get_authorizers {
         let rest_api_id_binding = args.rest_api_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:apigateway/getAuthorizers:getAuthorizers".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "restApiId".into(),

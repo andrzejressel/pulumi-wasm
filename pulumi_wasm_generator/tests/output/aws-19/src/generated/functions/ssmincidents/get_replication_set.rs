@@ -40,6 +40,7 @@ pub mod get_replication_set {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssmincidents/getReplicationSet:getReplicationSet".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "tags".into(),

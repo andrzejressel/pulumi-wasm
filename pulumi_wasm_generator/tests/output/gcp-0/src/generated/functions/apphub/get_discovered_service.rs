@@ -44,6 +44,7 @@ pub mod get_discovered_service {
         let service_uri_binding = args.service_uri.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:apphub/getDiscoveredService:getDiscoveredService".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

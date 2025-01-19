@@ -150,6 +150,7 @@ pub mod dataset_sql_server_table {
             type_: "azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalProperties".into(),

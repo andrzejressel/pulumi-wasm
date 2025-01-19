@@ -155,6 +155,7 @@ pub mod managed_hardware_security_module_key {
             type_: "azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "curve".into(),

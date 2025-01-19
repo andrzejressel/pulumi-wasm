@@ -47,6 +47,7 @@ pub mod get_apple_app {
         let project_binding = args.project.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:firebase/getAppleApp:getAppleApp".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appId".into(),

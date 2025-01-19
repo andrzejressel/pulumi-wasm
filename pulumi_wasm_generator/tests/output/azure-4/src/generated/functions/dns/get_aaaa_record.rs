@@ -43,6 +43,7 @@ pub mod get_aaaa_record {
         let zone_name_binding = args.zone_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:dns/getAAAARecord:getAAAARecord".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

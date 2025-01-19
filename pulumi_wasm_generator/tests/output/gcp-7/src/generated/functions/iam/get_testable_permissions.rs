@@ -38,6 +38,7 @@ pub mod get_testable_permissions {
         let stages_binding = args.stages.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:iam/getTestablePermissions:getTestablePermissions".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customSupportLevel".into(),

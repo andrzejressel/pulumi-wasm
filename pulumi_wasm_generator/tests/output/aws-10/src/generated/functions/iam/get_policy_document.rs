@@ -61,6 +61,7 @@ pub mod get_policy_document {
         let version_binding = args.version.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getPolicyDocument:getPolicyDocument".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "overrideJson".into(),

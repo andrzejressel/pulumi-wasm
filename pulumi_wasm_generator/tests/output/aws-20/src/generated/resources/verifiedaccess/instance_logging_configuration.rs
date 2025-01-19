@@ -213,6 +213,7 @@ pub mod instance_logging_configuration {
             type_: "aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessLogs".into(),

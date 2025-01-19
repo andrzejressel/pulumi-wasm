@@ -123,6 +123,7 @@ pub mod load_balancer_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elb/loadBalancerPolicy:LoadBalancerPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "loadBalancerName".into(),

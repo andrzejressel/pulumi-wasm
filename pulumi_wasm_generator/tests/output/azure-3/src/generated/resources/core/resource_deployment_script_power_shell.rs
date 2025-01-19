@@ -214,6 +214,7 @@ pub mod resource_deployment_script_power_shell {
             type_: "azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cleanupPreference".into(),

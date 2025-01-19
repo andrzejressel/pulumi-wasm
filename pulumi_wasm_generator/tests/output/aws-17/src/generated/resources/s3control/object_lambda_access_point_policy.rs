@@ -93,6 +93,7 @@ pub mod object_lambda_access_point_policy {
             type_: "aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

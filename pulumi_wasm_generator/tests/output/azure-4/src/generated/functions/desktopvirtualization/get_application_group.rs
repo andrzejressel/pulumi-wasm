@@ -43,6 +43,7 @@ pub mod get_application_group {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:desktopvirtualization/getApplicationGroup:getApplicationGroup"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -78,6 +78,7 @@ pub mod zero_trust_access_custom_page {
             type_: "cloudflare:index/zeroTrustAccessCustomPage:ZeroTrustAccessCustomPage"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

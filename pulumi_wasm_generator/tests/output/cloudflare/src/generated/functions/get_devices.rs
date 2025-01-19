@@ -27,6 +27,7 @@ pub mod get_devices {
         let account_id_binding = args.account_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getDevices:getDevices".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

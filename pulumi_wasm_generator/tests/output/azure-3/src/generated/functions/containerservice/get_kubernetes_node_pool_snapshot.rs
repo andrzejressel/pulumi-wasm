@@ -34,6 +34,7 @@ pub mod get_kubernetes_node_pool_snapshot {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -89,6 +89,7 @@ pub mod channel_web_chat {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:bot/channelWebChat:ChannelWebChat".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "botName".into(),

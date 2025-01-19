@@ -1,4 +1,4 @@
-use crate::utils::{escape_rust_name, replace_multiple_dashes};
+use crate::utils::{access_root, escape_rust_name, replace_multiple_dashes};
 use anyhow::{Context, Result};
 use convert_case::Case;
 use convert_case::Case::UpperCamel;
@@ -38,12 +38,11 @@ impl Type {
             }
             Type::Ref(r) => match r {
                 Ref::Type(tpe) => {
-                    let prefix = if depth > 0 {
-                        "super::".repeat(depth)
-                    } else {
-                        "self::".to_string()
-                    };
-                    format!("{}types::{}", prefix, tpe.get_rust_absolute_name())
+                    format!(
+                        "{}types::{}",
+                        access_root(depth),
+                        tpe.get_rust_absolute_name()
+                    )
                 }
                 Ref::Archive => "String".to_string(), //FIXME
                 Ref::Asset => "String".to_string(),   //FIXME
@@ -182,6 +181,7 @@ pub(crate) struct Function {
 pub(crate) struct Package {
     pub(crate) name: String,
     pub(crate) display_name: Option<String>,
+    pub(crate) plugin_download_url: Option<String>,
     pub(crate) version: String,
     pub(crate) resources: BTreeMap<ElementId, Rc<Resource>>,
     pub(crate) functions: BTreeMap<ElementId, Rc<Function>>,
@@ -196,6 +196,7 @@ impl Package {
     pub(crate) fn new(
         name: String,
         display_name: Option<String>,
+        plugin_download_url: Option<String>,
         version: String,
         resources: BTreeMap<ElementId, Resource>,
         functions: BTreeMap<ElementId, Function>,
@@ -238,6 +239,7 @@ impl Package {
             name,
             display_name,
             version,
+            plugin_download_url,
             resources: new_resources,
             functions: new_function,
             types: all_types.clone(),

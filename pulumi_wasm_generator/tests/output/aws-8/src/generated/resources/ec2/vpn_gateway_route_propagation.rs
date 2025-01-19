@@ -55,6 +55,7 @@ pub mod vpn_gateway_route_propagation {
             type_: "aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "routeTableId".into(),

@@ -71,6 +71,7 @@ pub mod policy_table_association {
             type_: "aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "transitGatewayAttachmentId".into(),

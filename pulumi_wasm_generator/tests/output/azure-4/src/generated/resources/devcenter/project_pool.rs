@@ -171,6 +171,7 @@ pub mod project_pool {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:devcenter/projectPool:ProjectPool".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "devBoxDefinitionName".into(),

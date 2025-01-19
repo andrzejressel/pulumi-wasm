@@ -744,6 +744,7 @@ pub mod event_target {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventTarget:EventTarget".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appsyncTarget".into(),

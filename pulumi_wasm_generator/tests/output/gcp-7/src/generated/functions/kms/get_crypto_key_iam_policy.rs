@@ -27,6 +27,7 @@ pub mod get_crypto_key_iam_policy {
         let crypto_key_id_binding = args.crypto_key_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getCryptoKeyIamPolicy:getCryptoKeyIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cryptoKeyId".into(),

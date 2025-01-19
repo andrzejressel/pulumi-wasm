@@ -117,6 +117,7 @@ pub mod static_web_app_function_app_registration {
             type_: "azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "functionAppId".into(),

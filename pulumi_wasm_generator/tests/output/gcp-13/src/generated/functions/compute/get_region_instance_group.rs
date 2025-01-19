@@ -51,6 +51,7 @@ pub mod get_region_instance_group {
         let self_link_binding = args.self_link.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getRegionInstanceGroup:getRegionInstanceGroup".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

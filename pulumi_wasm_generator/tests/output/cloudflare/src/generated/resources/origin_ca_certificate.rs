@@ -91,6 +91,7 @@ pub mod origin_ca_certificate {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/originCaCertificate:OriginCaCertificate".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "csr".into(),

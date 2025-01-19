@@ -15,6 +15,7 @@ pub mod get_links {
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:oam/getLinks:getLinks".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([]),
             results: Vec::from([
                 register_interface::ResultField {

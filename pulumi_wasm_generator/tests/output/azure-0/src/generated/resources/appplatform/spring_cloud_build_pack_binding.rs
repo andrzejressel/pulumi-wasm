@@ -107,6 +107,7 @@ pub mod spring_cloud_build_pack_binding {
             type_: "azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bindingType".into(),

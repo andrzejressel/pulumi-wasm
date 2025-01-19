@@ -117,6 +117,7 @@ pub mod group_policy_remediation {
             type_: "azure:management/groupPolicyRemediation:GroupPolicyRemediation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "failurePercentage".into(),

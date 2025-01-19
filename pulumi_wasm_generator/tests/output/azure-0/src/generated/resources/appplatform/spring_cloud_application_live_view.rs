@@ -80,6 +80,7 @@ pub mod spring_cloud_application_live_view {
             type_: "azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

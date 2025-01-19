@@ -71,6 +71,7 @@ pub mod get_object_signed_url {
         let path_binding = args.path.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:storage/getObjectSignedUrl:getObjectSignedUrl".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucket".into(),

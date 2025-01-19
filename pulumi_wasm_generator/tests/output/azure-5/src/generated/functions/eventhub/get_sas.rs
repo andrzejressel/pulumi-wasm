@@ -30,6 +30,7 @@ pub mod get_sas {
         let expiry_binding = args.expiry.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:eventhub/getSas:getSas".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "connectionString".into(),

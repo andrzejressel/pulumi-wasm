@@ -17,6 +17,7 @@ pub mod get_uptime_check_i_ps {
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:monitoring/getUptimeCheckIPs:getUptimeCheckIPs".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([]),
             results: Vec::from([
                 register_interface::ResultField {

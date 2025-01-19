@@ -90,6 +90,7 @@ pub mod gateway_association_proposal {
             type_: "aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "allowedPrefixes".into(),

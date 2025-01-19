@@ -44,6 +44,7 @@ pub mod get_function {
         let stage_binding = args.stage.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudfront/getFunction:getFunction".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

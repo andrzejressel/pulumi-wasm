@@ -53,6 +53,7 @@ pub mod get_log_data_protection_policy_document {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

@@ -39,6 +39,7 @@ pub mod get_task_definition {
         let task_definition_binding = args.task_definition.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ecs/getTaskDefinition:getTaskDefinition".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "taskDefinition".into(),

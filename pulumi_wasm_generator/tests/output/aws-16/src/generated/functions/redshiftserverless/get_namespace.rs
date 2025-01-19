@@ -39,6 +39,7 @@ pub mod get_namespace {
         let namespace_name_binding = args.namespace_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshiftserverless/getNamespace:getNamespace".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "namespaceName".into(),

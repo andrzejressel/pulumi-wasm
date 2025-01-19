@@ -119,6 +119,7 @@ pub mod hosted_public_virtual_interface {
             type_: "aws:directconnect/hostedPublicVirtualInterface:HostedPublicVirtualInterface"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "addressFamily".into(),

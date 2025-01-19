@@ -123,6 +123,7 @@ pub mod oauth_idp_config {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:identityplatform/oauthIdpConfig:OauthIdpConfig".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clientId".into(),

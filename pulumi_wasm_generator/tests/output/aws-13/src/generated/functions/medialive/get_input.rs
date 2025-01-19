@@ -58,6 +58,7 @@ pub mod get_input {
         let id_binding = args.id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:medialive/getInput:getInput".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "id".into(),

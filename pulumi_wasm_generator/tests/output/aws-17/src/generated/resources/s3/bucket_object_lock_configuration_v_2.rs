@@ -120,6 +120,7 @@ pub mod bucket_object_lock_configuration_v_2 {
             type_: "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucket".into(),

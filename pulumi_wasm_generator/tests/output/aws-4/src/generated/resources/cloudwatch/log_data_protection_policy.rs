@@ -83,6 +83,7 @@ pub mod log_data_protection_policy {
             type_: "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "logGroupName".into(),

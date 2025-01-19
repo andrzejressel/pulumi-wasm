@@ -205,6 +205,7 @@ pub mod dicom_store {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/dicomStore:DicomStore".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dataset".into(),

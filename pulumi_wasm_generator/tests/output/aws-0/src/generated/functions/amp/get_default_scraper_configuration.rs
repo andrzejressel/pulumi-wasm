@@ -16,6 +16,7 @@ pub mod get_default_scraper_configuration {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([]),
             results: Vec::from([
                 register_interface::ResultField {

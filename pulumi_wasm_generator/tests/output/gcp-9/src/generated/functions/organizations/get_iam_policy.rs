@@ -48,6 +48,7 @@ pub mod get_iam_policy {
         let bindings_binding = args.bindings.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:organizations/getIAMPolicy:getIAMPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "auditConfigs".into(),

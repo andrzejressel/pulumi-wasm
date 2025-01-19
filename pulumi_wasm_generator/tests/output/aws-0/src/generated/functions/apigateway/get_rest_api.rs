@@ -51,6 +51,7 @@ pub mod get_rest_api {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:apigateway/getRestApi:getRestApi".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

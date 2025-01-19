@@ -47,6 +47,7 @@ pub mod get_netblock_ip_ranges {
         let range_type_binding = args.range_type.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getNetblockIPRanges:getNetblockIPRanges".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "rangeType".into(),

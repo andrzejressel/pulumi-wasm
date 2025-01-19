@@ -331,6 +331,7 @@ pub mod ai_endpoint {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vertex/aiEndpoint:AiEndpoint".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dedicatedEndpointEnabled".into(),

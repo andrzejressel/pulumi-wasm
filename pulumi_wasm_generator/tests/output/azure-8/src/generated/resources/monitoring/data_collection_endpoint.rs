@@ -108,6 +108,7 @@ pub mod data_collection_endpoint {
             type_: "azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

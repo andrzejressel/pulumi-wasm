@@ -159,6 +159,7 @@ pub mod vpc_service_controls {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:servicenetworking/vpcServiceControls:VpcServiceControls".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "enabled".into(),

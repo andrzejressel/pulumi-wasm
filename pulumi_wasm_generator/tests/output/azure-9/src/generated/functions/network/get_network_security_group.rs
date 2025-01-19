@@ -38,6 +38,7 @@ pub mod get_network_security_group {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

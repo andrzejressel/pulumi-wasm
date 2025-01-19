@@ -201,6 +201,7 @@ pub mod transfer_job {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/transferJob:TransferJob".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

@@ -96,6 +96,7 @@ pub mod data_connector_microsoft_defender_advanced_threat_protection {
             type_: "azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "logAnalyticsWorkspaceId".into(),

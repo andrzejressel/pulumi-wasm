@@ -31,6 +31,7 @@ pub mod get_managed_folder_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:storage/getManagedFolderIamPolicy:getManagedFolderIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucket".into(),

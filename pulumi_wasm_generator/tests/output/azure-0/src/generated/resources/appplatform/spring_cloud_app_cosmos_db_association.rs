@@ -165,6 +165,7 @@ pub mod spring_cloud_app_cosmos_db_association {
             type_: "azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiType".into(),

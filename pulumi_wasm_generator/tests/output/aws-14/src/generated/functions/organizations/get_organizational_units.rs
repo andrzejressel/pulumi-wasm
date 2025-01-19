@@ -28,6 +28,7 @@ pub mod get_organizational_units {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:organizations/getOrganizationalUnits:getOrganizationalUnits"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "parentId".into(),

@@ -147,6 +147,7 @@ pub mod studio {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:emr/studio:Studio".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "authMode".into(),

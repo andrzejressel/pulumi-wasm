@@ -82,6 +82,7 @@ pub mod services_account {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:graph/servicesAccount:ServicesAccount".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationId".into(),

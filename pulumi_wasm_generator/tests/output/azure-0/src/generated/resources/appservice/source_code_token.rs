@@ -66,6 +66,7 @@ pub mod source_code_token {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/sourceCodeToken:SourceCodeToken".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "token".into(),

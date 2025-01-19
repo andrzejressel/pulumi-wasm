@@ -131,6 +131,7 @@ pub mod database_principal_assignment {
             type_: "azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterName".into(),

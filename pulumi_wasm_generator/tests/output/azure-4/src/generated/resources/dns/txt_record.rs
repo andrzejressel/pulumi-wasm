@@ -101,6 +101,7 @@ pub mod txt_record {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dns/txtRecord:TxtRecord".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

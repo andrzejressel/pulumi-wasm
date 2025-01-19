@@ -44,6 +44,7 @@ pub mod get_volume_group_sap_hana {
         let resource_group_name_binding = args.resource_group_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:netapp/getVolumeGroupSapHana:getVolumeGroupSapHana".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountName".into(),

@@ -121,6 +121,7 @@ pub mod log_account_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/logAccountPolicy:LogAccountPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "policyDocument".into(),

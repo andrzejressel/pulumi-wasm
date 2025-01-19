@@ -49,6 +49,7 @@ pub mod get_service_quota {
         let service_code_binding = args.service_code.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicequotas/getServiceQuota:getServiceQuota".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "quotaCode".into(),

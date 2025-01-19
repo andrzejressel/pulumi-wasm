@@ -52,6 +52,7 @@ pub mod multi_region_access_point_policy {
             type_: "aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

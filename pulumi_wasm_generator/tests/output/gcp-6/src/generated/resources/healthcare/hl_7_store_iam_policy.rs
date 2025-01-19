@@ -168,6 +168,7 @@ pub mod hl_7_store_iam_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/hl7StoreIamPolicy:Hl7StoreIamPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "hl7V2StoreId".into(),

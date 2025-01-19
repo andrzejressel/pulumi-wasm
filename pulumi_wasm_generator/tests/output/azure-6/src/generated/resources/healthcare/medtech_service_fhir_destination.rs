@@ -171,6 +171,7 @@ pub mod medtech_service_fhir_destination {
             type_: "azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "destinationFhirMappingJson".into(),

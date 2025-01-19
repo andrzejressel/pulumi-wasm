@@ -42,6 +42,7 @@ pub mod get_subnetwork_iam_policy {
         let subnetwork_binding = args.subnetwork.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getSubnetworkIamPolicy:getSubnetworkIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

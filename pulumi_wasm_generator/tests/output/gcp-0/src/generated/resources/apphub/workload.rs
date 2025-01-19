@@ -129,6 +129,7 @@ pub mod workload {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apphub/workload:Workload".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationId".into(),

@@ -148,6 +148,7 @@ pub mod resource_collection {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:devopsguru/resourceCollection:ResourceCollection".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cloudformation".into(),

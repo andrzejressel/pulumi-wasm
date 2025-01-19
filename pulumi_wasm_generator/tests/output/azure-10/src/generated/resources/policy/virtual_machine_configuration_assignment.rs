@@ -154,6 +154,7 @@ pub mod virtual_machine_configuration_assignment {
             type_: "azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "configuration".into(),

@@ -97,6 +97,7 @@ pub mod ns_record {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dns/nsRecord:NsRecord".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

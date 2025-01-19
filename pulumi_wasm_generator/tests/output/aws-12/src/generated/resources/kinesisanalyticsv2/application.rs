@@ -367,6 +367,7 @@ pub mod application {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kinesisanalyticsv2/application:Application".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationConfiguration".into(),

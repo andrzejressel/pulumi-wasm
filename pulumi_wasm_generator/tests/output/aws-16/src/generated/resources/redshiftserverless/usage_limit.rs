@@ -83,6 +83,7 @@ pub mod usage_limit {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshiftserverless/usageLimit:UsageLimit".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "amount".into(),

@@ -81,6 +81,7 @@ pub mod workspace_service_account_token {
             type_: "aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

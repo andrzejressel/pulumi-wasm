@@ -77,6 +77,7 @@ pub mod access_policy_association {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:eks/accessPolicyAssociation:AccessPolicyAssociation".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessScope".into(),

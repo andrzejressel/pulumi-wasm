@@ -268,6 +268,7 @@ pub mod v_2_organization_source_iam_binding {
             type_: "gcp:securitycenter/v2OrganizationSourceIamBinding:V2OrganizationSourceIamBinding"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "condition".into(),

@@ -64,6 +64,7 @@ pub mod get_topic_authorization_rule {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:servicebus/getTopicAuthorizationRule:getTopicAuthorizationRule"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

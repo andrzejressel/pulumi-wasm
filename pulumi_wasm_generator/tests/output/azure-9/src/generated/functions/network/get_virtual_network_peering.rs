@@ -43,6 +43,7 @@ pub mod get_virtual_network_peering {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getVirtualNetworkPeering:getVirtualNetworkPeering"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

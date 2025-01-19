@@ -154,6 +154,7 @@ pub mod get_task_execution {
         let task_definition_binding = args.task_definition.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ecs/getTaskExecution:getTaskExecution".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "capacityProviderStrategies".into(),

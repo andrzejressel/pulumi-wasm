@@ -261,6 +261,7 @@ pub mod cluster_instance {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/clusterInstance:ClusterInstance".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applyImmediately".into(),

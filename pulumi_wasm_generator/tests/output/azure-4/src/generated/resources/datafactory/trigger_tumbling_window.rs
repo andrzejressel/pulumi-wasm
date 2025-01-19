@@ -198,6 +198,7 @@ pub mod trigger_tumbling_window {
             type_: "azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "activated".into(),

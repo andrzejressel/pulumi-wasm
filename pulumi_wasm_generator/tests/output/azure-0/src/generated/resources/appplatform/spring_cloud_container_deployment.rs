@@ -162,6 +162,7 @@ pub mod spring_cloud_container_deployment {
             type_: "azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "addonJson".into(),

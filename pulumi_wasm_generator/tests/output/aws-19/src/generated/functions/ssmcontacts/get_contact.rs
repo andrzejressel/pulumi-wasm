@@ -37,6 +37,7 @@ pub mod get_contact {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssmcontacts/getContact:getContact".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arn".into(),

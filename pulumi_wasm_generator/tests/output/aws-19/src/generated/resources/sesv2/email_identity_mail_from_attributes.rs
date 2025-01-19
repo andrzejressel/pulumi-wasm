@@ -72,6 +72,7 @@ pub mod email_identity_mail_from_attributes {
             type_: "aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "behaviorOnMxFailure".into(),

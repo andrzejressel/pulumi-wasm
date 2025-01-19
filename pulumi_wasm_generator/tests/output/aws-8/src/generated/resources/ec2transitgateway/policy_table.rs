@@ -62,6 +62,7 @@ pub mod policy_table {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/policyTable:PolicyTable".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "tags".into(),

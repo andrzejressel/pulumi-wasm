@@ -132,6 +132,7 @@ pub mod kx_volume {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:finspace/kxVolume:KxVolume".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "availabilityZones".into(),

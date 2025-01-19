@@ -44,6 +44,7 @@ pub mod get_certificate {
         let nginx_deployment_id_binding = args.nginx_deployment_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:nginx/getCertificate:getCertificate".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

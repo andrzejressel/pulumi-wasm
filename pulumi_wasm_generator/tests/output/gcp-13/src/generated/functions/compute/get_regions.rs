@@ -31,6 +31,7 @@ pub mod get_regions {
         let status_binding = args.status.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getRegions:getRegions".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

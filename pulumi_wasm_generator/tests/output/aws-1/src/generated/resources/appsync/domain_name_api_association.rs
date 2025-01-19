@@ -59,6 +59,7 @@ pub mod domain_name_api_association {
             type_: "aws:appsync/domainNameApiAssociation:DomainNameApiAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiId".into(),

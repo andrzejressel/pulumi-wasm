@@ -27,6 +27,7 @@ pub mod get_project {
         let filter_binding = args.filter.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:projects/getProject:getProject".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filter".into(),

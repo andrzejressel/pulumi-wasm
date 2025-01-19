@@ -259,6 +259,7 @@ pub mod flowlet_data_flow {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/flowletDataFlow:FlowletDataFlow".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "annotations".into(),

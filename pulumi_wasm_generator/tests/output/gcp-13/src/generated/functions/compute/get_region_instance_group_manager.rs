@@ -118,6 +118,7 @@ pub mod get_region_instance_group_manager {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getRegionInstanceGroupManager:getRegionInstanceGroupManager"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

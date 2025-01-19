@@ -47,6 +47,7 @@ pub mod get_rulesets {
         let zone_id_binding = args.zone_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getRulesets:getRulesets".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

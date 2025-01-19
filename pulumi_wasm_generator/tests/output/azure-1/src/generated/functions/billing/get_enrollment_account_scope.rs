@@ -31,6 +31,7 @@ pub mod get_enrollment_account_scope {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "billingAccountName".into(),

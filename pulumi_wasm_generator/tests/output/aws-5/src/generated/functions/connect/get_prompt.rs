@@ -32,6 +32,7 @@ pub mod get_prompt {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:connect/getPrompt:getPrompt".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "instanceId".into(),

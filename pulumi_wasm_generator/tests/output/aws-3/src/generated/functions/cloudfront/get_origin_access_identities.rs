@@ -32,6 +32,7 @@ pub mod get_origin_access_identities {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "comments".into(),

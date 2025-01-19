@@ -117,6 +117,7 @@ pub mod slot_custom_hostname_binding {
             type_: "azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appServiceSlotId".into(),

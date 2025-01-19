@@ -64,6 +64,7 @@ pub mod get_database {
         let server_id_binding = args.server_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:mssql/getDatabase:getDatabase".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

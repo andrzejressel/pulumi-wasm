@@ -75,6 +75,7 @@ pub mod access_log_subscription {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpclattice/accessLogSubscription:AccessLogSubscription".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "destinationArn".into(),

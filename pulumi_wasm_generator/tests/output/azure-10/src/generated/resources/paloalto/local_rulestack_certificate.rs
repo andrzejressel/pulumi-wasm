@@ -104,6 +104,7 @@ pub mod local_rulestack_certificate {
             type_: "azure:paloalto/localRulestackCertificate:LocalRulestackCertificate"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "auditComment".into(),

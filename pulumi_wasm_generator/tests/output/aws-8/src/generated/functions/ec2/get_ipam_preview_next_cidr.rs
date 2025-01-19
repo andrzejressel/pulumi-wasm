@@ -35,6 +35,7 @@ pub mod get_ipam_preview_next_cidr {
         let netmask_length_binding = args.netmask_length.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "disallowedCidrs".into(),

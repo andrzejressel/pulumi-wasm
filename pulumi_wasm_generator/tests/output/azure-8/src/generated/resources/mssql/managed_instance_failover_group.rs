@@ -193,6 +193,7 @@ pub mod managed_instance_failover_group {
             type_: "azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

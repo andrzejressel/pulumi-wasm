@@ -119,6 +119,7 @@ pub mod open_id_connect_provider {
             type_: "azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiManagementName".into(),

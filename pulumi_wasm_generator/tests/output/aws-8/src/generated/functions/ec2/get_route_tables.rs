@@ -45,6 +45,7 @@ pub mod get_route_tables {
         let vpc_id_binding = args.vpc_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getRouteTables:getRouteTables".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

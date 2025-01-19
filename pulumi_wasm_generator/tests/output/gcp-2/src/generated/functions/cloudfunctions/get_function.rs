@@ -105,6 +105,7 @@ pub mod get_function {
         let region_binding = args.region.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudfunctions/getFunction:getFunction".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

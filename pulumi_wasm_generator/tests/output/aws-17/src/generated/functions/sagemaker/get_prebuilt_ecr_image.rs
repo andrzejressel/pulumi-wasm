@@ -42,6 +42,7 @@ pub mod get_prebuilt_ecr_image {
         let repository_name_binding = args.repository_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:sagemaker/getPrebuiltEcrImage:getPrebuiltEcrImage".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dnsSuffix".into(),

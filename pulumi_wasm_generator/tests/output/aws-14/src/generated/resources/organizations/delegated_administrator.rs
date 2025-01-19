@@ -73,6 +73,7 @@ pub mod delegated_administrator {
             type_: "aws:organizations/delegatedAdministrator:DelegatedAdministrator"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

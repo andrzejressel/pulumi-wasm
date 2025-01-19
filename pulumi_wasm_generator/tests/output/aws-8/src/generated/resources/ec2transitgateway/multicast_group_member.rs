@@ -63,6 +63,7 @@ pub mod multicast_group_member {
             type_: "aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "groupIpAddress".into(),

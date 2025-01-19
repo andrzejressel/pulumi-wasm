@@ -388,6 +388,7 @@ pub mod windows_function_app_slot {
             type_: "azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appSettings".into(),

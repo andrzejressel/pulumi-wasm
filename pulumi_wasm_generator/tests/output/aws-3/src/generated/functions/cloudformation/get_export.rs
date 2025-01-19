@@ -27,6 +27,7 @@ pub mod get_export {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudformation/getExport:getExport".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

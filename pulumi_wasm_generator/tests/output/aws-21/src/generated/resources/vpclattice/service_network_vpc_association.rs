@@ -92,6 +92,7 @@ pub mod service_network_vpc_association {
             type_: "aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "securityGroupIds".into(),

@@ -41,6 +41,7 @@ pub mod get_parameters_by_path {
         let with_decryption_binding = args.with_decryption.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssm/getParametersByPath:getParametersByPath".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "path".into(),

@@ -471,6 +471,7 @@ pub mod event_source_mapping {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/eventSourceMapping:EventSourceMapping".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "amazonManagedKafkaEventSourceConfig".into(),

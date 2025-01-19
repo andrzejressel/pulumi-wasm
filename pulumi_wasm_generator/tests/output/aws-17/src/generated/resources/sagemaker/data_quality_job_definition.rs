@@ -199,6 +199,7 @@ pub mod data_quality_job_definition {
             type_: "aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dataQualityAppSpecification".into(),

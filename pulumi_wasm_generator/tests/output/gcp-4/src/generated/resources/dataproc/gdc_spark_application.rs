@@ -419,6 +419,7 @@ pub mod gdc_spark_application {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/gdcSparkApplication:GdcSparkApplication".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "annotations".into(),

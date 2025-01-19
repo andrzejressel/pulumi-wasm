@@ -32,6 +32,7 @@ pub mod get_access_policy {
         let scopes_binding = args.scopes.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:accesscontextmanager/getAccessPolicy:getAccessPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "parent".into(),

@@ -145,6 +145,7 @@ pub mod tenant_inbound_saml_config {
             type_: "gcp:identityplatform/tenantInboundSamlConfig:TenantInboundSamlConfig"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "displayName".into(),

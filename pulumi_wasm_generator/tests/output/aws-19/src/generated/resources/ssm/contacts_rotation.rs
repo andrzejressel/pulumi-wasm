@@ -188,6 +188,7 @@ pub mod contacts_rotation {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/contactsRotation:ContactsRotation".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "contactIds".into(),

@@ -41,6 +41,7 @@ pub mod get_organization_settings {
         let organization_binding = args.organization.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:logging/getOrganizationSettings:getOrganizationSettings".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "organization".into(),

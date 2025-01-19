@@ -162,6 +162,7 @@ pub mod region_ssl_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionSslPolicy:RegionSslPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customFeatures".into(),

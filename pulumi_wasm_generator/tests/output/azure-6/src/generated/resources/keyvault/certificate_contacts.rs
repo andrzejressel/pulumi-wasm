@@ -104,6 +104,7 @@ pub mod certificate_contacts {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/certificateContacts:CertificateContacts".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "contacts".into(),

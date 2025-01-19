@@ -145,6 +145,7 @@ pub mod kubernetes_cluster_extension {
             type_: "azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterId".into(),

@@ -63,6 +63,7 @@ pub mod get_listener_rule {
         let priority_binding = args.priority.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lb/getListenerRule:getListenerRule".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "actions".into(),

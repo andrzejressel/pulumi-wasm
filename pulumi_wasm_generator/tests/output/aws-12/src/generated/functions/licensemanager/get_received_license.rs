@@ -72,6 +72,7 @@ pub mod get_received_license {
         let license_arn_binding = args.license_arn.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:licensemanager/getReceivedLicense:getReceivedLicense".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "licenseArn".into(),

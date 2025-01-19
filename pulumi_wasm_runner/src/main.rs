@@ -9,10 +9,13 @@ use log4rs::Config;
 use pulumi_wasm_proto::grpc;
 use pulumi_wasm_runner_component_creator::source::{GithubPulumiWasmSource, PulumiWasmSource};
 use std::fs;
+use std::fs::File;
+use std::io::Write;
 use std::path::PathBuf;
 mod model;
 mod pulumi;
 mod pulumi_state;
+mod version_finder;
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
@@ -33,6 +36,10 @@ enum Command {
         )]
         debug: bool,
         program: PathBuf,
+    },
+    Plugins {
+        program: PathBuf,
+        destination: PathBuf,
     },
 }
 
@@ -107,6 +114,23 @@ async fn main() -> Result<(), Error> {
             pulumi.create_root_stack().await?;
             log::info!("Created root stack. Invoking main");
             pulumi.start().await?;
+        }
+        Command::Plugins {
+            program,
+            destination,
+        } => {
+            let program = fs::read(program)
+                .context(format!("Cannot read program {}", program.to_str().unwrap()))?;
+
+            let plugins = version_finder::extract_custom_section(&program);
+
+            let mut file = File::create(destination).context("Cannot create destination file")?;
+            file.write_all(
+                serde_json::to_string(&plugins)
+                    .context("Cannot serialize plugins")?
+                    .as_bytes(),
+            )
+            .context("Cannot write to destination file")?;
         }
     }
 

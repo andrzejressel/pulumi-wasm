@@ -34,6 +34,7 @@ pub mod get_account_public_access_block {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

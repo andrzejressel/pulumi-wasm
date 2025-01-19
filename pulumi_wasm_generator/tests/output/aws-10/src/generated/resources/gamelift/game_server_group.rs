@@ -232,6 +232,7 @@ pub mod game_server_group {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:gamelift/gameServerGroup:GameServerGroup".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "autoScalingPolicy".into(),

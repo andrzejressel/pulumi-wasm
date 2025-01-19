@@ -110,6 +110,7 @@ pub mod vpc_attachment_accepter {
             type_: "aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "tags".into(),

@@ -141,6 +141,7 @@ pub mod delegation_signer_record {
             type_: "aws:route53domains/delegationSignerRecord:DelegationSignerRecord"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "domainName".into(),

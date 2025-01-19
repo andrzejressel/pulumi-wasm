@@ -114,6 +114,7 @@ pub mod trusted_token_issuer {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clientToken".into(),

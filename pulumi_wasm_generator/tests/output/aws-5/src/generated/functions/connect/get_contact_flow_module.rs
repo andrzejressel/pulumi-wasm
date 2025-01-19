@@ -51,6 +51,7 @@ pub mod get_contact_flow_module {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:connect/getContactFlowModule:getContactFlowModule".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "contactFlowModuleId".into(),

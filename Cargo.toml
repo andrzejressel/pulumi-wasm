@@ -8,6 +8,7 @@ members = [
     "examples/docker",
     "examples/multiple_providers",
     "examples/simple",
+    "examples/plugins",
     "examples/typesystem",
     "providers/aws-mini",
     "providers/azure-mini",
@@ -89,3 +90,5 @@ proc-macro2 = "1.0.92"
 rinja = "0.3.5"
 tempfile = "3.14.0"
 pathdiff = "0.2.3"
+wat = "1.223.0"
+wasmparser = "0.223.0"

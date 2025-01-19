@@ -116,6 +116,7 @@ pub mod integration_account_assembly {
             type_: "azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "assemblyName".into(),

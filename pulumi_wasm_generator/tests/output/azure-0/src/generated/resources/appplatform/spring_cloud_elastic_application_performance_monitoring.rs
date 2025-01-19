@@ -106,6 +106,7 @@ pub mod spring_cloud_elastic_application_performance_monitoring {
             type_: "azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationPackages".into(),

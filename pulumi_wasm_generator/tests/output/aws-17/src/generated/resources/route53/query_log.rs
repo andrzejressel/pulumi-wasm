@@ -96,6 +96,7 @@ pub mod query_log {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/queryLog:QueryLog".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cloudwatchLogGroupArn".into(),

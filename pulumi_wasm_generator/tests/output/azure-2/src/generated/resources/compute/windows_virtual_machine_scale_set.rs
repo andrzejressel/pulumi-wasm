@@ -665,6 +665,7 @@ pub mod windows_virtual_machine_scale_set {
             type_: "azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalCapabilities".into(),

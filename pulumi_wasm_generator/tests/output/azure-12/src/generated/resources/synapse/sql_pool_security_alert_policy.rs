@@ -158,6 +158,7 @@ pub mod sql_pool_security_alert_policy {
             type_: "azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "disabledAlerts".into(),

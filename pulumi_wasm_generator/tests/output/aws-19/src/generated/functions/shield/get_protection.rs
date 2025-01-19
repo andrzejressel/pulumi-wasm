@@ -31,6 +31,7 @@ pub mod get_protection {
         let resource_arn_binding = args.resource_arn.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:shield/getProtection:getProtection".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "protectionId".into(),

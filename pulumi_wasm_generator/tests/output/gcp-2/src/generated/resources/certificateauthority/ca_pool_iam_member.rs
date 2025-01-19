@@ -426,6 +426,7 @@ pub mod ca_pool_iam_member {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificateauthority/caPoolIamMember:CaPoolIamMember".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "caPool".into(),

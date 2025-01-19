@@ -42,6 +42,7 @@ pub mod get_alias {
         let statemachine_arn_binding = args.statemachine_arn.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:sfn/getAlias:getAlias".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

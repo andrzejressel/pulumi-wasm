@@ -19,6 +19,7 @@ pub mod get_inference_profiles {
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:bedrock/getInferenceProfiles:getInferenceProfiles".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([]),
             results: Vec::from([
                 register_interface::ResultField {

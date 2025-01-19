@@ -114,6 +114,7 @@ pub mod configuration_policy_association {
             type_: "aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "policyId".into(),

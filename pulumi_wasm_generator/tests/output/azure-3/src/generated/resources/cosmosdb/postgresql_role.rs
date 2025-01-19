@@ -82,6 +82,7 @@ pub mod postgresql_role {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/postgresqlRole:PostgresqlRole".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterId".into(),

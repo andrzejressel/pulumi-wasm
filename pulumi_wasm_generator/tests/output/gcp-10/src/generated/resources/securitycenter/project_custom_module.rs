@@ -204,6 +204,7 @@ pub mod project_custom_module {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/projectCustomModule:ProjectCustomModule".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customConfig".into(),

@@ -28,6 +28,7 @@ pub mod get_resource_group {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:core/getResourceGroup:getResourceGroup".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

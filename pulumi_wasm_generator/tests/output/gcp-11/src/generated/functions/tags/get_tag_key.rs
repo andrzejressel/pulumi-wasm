@@ -39,6 +39,7 @@ pub mod get_tag_key {
         let short_name_binding = args.short_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:tags/getTagKey:getTagKey".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "parent".into(),

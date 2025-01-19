@@ -47,6 +47,7 @@ pub mod get_role_definition {
         let scope_binding = args.scope.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:authorization/getRoleDefinition:getRoleDefinition".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

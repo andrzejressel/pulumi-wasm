@@ -34,6 +34,7 @@ pub mod get_selection {
         let selection_id_binding = args.selection_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:backup/getSelection:getSelection".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "planId".into(),

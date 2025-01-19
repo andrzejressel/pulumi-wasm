@@ -28,6 +28,7 @@ pub mod get_tag_value_iam_policy {
         let tag_value_binding = args.tag_value.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:tags/getTagValueIamPolicy:getTagValueIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "tagValue".into(),

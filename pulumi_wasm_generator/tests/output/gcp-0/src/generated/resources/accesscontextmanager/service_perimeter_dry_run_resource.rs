@@ -108,6 +108,7 @@ pub mod service_perimeter_dry_run_resource {
             type_: "gcp:accesscontextmanager/servicePerimeterDryRunResource:ServicePerimeterDryRunResource"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "perimeterName".into(),

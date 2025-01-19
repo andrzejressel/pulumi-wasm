@@ -39,6 +39,7 @@ pub mod get_protection_container {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:siterecovery/getProtectionContainer:getProtectionContainer"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

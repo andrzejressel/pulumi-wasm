@@ -50,6 +50,7 @@ pub mod get_variables {
         let automation_account_id_binding = args.automation_account_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:automation/getVariables:getVariables".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "automationAccountId".into(),

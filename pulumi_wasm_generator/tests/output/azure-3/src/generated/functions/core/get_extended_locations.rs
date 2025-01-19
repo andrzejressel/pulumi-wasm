@@ -25,6 +25,7 @@ pub mod get_extended_locations {
         let location_binding = args.location.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:core/getExtendedLocations:getExtendedLocations".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

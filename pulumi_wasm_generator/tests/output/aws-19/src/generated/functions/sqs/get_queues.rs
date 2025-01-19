@@ -25,6 +25,7 @@ pub mod get_queues {
         let queue_name_prefix_binding = args.queue_name_prefix.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:sqs/getQueues:getQueues".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "queueNamePrefix".into(),

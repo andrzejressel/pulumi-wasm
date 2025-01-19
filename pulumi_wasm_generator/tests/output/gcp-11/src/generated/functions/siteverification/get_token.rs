@@ -42,6 +42,7 @@ pub mod get_token {
         let verification_method_binding = args.verification_method.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:siteverification/getToken:getToken".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "identifier".into(),

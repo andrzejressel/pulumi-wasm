@@ -52,6 +52,7 @@ pub mod get_instances {
         let instance_tags_binding = args.instance_tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getInstances:getInstances".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

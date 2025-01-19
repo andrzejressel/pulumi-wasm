@@ -49,6 +49,7 @@ pub mod get_certificate_data {
         let version_binding = args.version.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:keyvault/getCertificateData:getCertificateData".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "keyVaultId".into(),

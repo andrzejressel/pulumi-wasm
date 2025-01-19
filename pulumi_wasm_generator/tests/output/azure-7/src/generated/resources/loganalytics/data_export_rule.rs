@@ -113,6 +113,7 @@ pub mod data_export_rule {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:loganalytics/dataExportRule:DataExportRule".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "destinationResourceId".into(),

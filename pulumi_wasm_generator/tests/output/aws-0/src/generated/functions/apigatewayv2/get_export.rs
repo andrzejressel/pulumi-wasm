@@ -50,6 +50,7 @@ pub mod get_export {
         let stage_name_binding = args.stage_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:apigatewayv2/getExport:getExport".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiId".into(),

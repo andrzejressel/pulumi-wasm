@@ -214,6 +214,7 @@ pub mod repository_workflow_config {
             type_: "gcp:dataform/repositoryWorkflowConfig:RepositoryWorkflowConfig"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cronSchedule".into(),

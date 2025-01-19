@@ -42,6 +42,7 @@ pub mod model_package_group_policy {
             type_: "aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "modelPackageGroupName".into(),

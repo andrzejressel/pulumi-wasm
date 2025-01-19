@@ -44,6 +44,7 @@ pub mod get_resolver_endpoint {
         let resolver_endpoint_id_binding = args.resolver_endpoint_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverEndpoint:getResolverEndpoint".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

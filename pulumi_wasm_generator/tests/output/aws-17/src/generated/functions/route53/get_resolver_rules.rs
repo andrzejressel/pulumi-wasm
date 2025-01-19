@@ -47,6 +47,7 @@ pub mod get_resolver_rules {
         let share_status_binding = args.share_status.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverRules:getResolverRules".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "nameRegex".into(),

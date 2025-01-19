@@ -51,6 +51,7 @@ pub mod credential_user_managed_identity {
             type_: "azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "annotations".into(),

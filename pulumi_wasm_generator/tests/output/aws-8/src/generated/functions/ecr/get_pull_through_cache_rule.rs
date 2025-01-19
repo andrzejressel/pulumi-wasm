@@ -29,6 +29,7 @@ pub mod get_pull_through_cache_rule {
         let ecr_repository_prefix_binding = args.ecr_repository_prefix.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "ecrRepositoryPrefix".into(),

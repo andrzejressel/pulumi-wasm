@@ -49,6 +49,7 @@ pub mod get_compute_environment {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:batch/getComputeEnvironment:getComputeEnvironment".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "computeEnvironmentName".into(),

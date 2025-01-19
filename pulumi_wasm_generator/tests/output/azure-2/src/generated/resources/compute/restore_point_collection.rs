@@ -141,6 +141,7 @@ pub mod restore_point_collection {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/restorePointCollection:RestorePointCollection".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

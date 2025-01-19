@@ -18,6 +18,7 @@ pub mod func_with_const_input {
         let plain_input_binding = args.plain_input.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "mypkg::funcWithConstInput".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "plainInput".into(),

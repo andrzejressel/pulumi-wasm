@@ -145,6 +145,7 @@ pub mod v_2_folder_notification_config {
             type_: "gcp:securitycenter/v2FolderNotificationConfig:V2FolderNotificationConfig"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "configId".into(),

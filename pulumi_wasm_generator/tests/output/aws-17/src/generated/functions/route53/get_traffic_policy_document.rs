@@ -71,6 +71,7 @@ pub mod get_traffic_policy_document {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getTrafficPolicyDocument:getTrafficPolicyDocument"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "endpoints".into(),

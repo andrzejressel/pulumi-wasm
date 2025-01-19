@@ -33,6 +33,7 @@ pub mod get_scope_iam_policy {
         let scope_id_binding = args.scope_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:gkehub/getScopeIamPolicy:getScopeIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

@@ -86,6 +86,7 @@ pub mod domain_name_access_association {
             type_: "aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessAssociationSource".into(),

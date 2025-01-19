@@ -24,6 +24,7 @@ pub mod get_hosted_zone {
         let region_binding = args.region.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:elasticbeanstalk/getHostedZone:getHostedZone".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "region".into(),

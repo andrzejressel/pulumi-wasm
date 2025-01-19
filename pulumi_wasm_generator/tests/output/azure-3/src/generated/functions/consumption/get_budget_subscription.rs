@@ -48,6 +48,7 @@ pub mod get_budget_subscription {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:consumption/getBudgetSubscription:getBudgetSubscription"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

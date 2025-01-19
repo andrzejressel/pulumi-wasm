@@ -152,6 +152,7 @@ pub mod scheduled_action {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appautoscaling/scheduledAction:ScheduledAction".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "endTime".into(),

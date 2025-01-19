@@ -159,6 +159,7 @@ pub mod reference_input_mssql {
             type_: "azure:streamanalytics/referenceInputMssql:ReferenceInputMssql"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "database".into(),

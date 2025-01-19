@@ -121,6 +121,7 @@ pub mod network_manager_management_group_connection {
             type_: "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

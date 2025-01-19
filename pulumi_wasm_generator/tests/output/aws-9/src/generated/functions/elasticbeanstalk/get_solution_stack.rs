@@ -37,6 +37,7 @@ pub mod get_solution_stack {
         let name_regex_binding = args.name_regex.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:elasticbeanstalk/getSolutionStack:getSolutionStack".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "mostRecent".into(),

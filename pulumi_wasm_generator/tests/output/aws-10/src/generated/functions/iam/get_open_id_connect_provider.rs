@@ -40,6 +40,7 @@ pub mod get_open_id_connect_provider {
         let url_binding = args.url.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getOpenIdConnectProvider:getOpenIdConnectProvider".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arn".into(),

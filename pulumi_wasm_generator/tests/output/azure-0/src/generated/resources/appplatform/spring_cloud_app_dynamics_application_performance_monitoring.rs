@@ -148,6 +148,7 @@ pub mod spring_cloud_app_dynamics_application_performance_monitoring {
             type_: "azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "agentAccountAccessKey".into(),

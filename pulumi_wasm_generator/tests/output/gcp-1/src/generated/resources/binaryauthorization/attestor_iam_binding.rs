@@ -270,6 +270,7 @@ pub mod attestor_iam_binding {
             type_: "gcp:binaryauthorization/attestorIamBinding:AttestorIamBinding"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "attestor".into(),

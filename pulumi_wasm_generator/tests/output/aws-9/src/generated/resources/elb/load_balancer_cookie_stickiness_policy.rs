@@ -87,6 +87,7 @@ pub mod load_balancer_cookie_stickiness_policy {
             type_: "aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cookieExpirationPeriod".into(),

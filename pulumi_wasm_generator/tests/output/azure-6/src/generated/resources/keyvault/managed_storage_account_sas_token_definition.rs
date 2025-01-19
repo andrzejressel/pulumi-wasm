@@ -172,6 +172,7 @@ pub mod managed_storage_account_sas_token_definition {
             type_: "azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "managedStorageAccountId".into(),

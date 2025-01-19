@@ -25,6 +25,7 @@ pub mod get_credentials {
         let registry_id_binding = args.registry_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ecr/getCredentials:getCredentials".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "registryId".into(),

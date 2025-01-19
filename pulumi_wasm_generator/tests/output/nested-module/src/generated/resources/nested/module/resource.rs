@@ -21,6 +21,7 @@ pub mod resource {
         let request = register_interface::RegisterResourceRequest {
             type_: "foo:nested/module:Resource".into(),
             name: name.to_string(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bar".into(),

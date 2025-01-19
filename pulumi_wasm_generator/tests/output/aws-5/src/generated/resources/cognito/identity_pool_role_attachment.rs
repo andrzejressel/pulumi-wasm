@@ -56,6 +56,7 @@ pub mod identity_pool_role_attachment {
             type_: "aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "identityPoolId".into(),

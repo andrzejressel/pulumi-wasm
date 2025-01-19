@@ -76,7 +76,7 @@ pub(crate) fn generate_combined_code(package: &Package, result_path: &std::path:
         ),
         types::generate_module_imports(package),
         find_consts(package),
-        package.name.clone(),
+        package,
     )
     .unwrap();
 

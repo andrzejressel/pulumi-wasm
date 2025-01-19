@@ -73,6 +73,7 @@ pub mod custom_ssl {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/customSsl:CustomSsl".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customSslOptions".into(),

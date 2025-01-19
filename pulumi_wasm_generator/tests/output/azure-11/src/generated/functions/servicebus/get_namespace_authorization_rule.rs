@@ -51,6 +51,7 @@ pub mod get_namespace_authorization_rule {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -44,6 +44,7 @@ pub mod get_function_app_host_keys {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

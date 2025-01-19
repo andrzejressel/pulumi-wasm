@@ -149,6 +149,7 @@ pub mod private_connection {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datastream/privateConnection:PrivateConnection".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "createWithoutValidation".into(),

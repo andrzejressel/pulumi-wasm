@@ -154,6 +154,7 @@ pub mod hub {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkconnectivity/hub:Hub".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

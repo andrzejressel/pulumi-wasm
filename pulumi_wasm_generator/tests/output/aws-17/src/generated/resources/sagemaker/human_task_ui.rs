@@ -75,6 +75,7 @@ pub mod human_task_ui {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/humanTaskUI:HumanTaskUI".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "humanTaskUiName".into(),

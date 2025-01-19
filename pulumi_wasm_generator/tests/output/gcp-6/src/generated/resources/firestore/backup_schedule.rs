@@ -160,6 +160,7 @@ pub mod backup_schedule {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firestore/backupSchedule:BackupSchedule".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dailyRecurrence".into(),

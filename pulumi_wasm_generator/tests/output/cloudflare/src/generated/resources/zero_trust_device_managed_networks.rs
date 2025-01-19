@@ -83,6 +83,7 @@ pub mod zero_trust_device_managed_networks {
             type_: "cloudflare:index/zeroTrustDeviceManagedNetworks:ZeroTrustDeviceManagedNetworks"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

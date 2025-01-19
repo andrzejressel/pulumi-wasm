@@ -127,6 +127,7 @@ pub mod maintenance_window {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/maintenanceWindow:MaintenanceWindow".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "allowUnassociatedTargets".into(),

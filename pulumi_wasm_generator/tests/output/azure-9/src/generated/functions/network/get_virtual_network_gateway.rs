@@ -72,6 +72,7 @@ pub mod get_virtual_network_gateway {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

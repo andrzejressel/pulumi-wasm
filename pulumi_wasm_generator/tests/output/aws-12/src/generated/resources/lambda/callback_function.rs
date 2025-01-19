@@ -494,6 +494,7 @@ pub mod callback_function {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/callbackFunction:CallbackFunction".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "architectures".into(),

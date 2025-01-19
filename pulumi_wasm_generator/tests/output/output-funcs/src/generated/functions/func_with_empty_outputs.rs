@@ -17,6 +17,7 @@ pub mod func_with_empty_outputs {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "mypkg::funcWithEmptyOutputs".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

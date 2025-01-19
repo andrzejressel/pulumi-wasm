@@ -131,6 +131,7 @@ pub mod disk_resource_policy_attachment {
             type_: "gcp:compute/diskResourcePolicyAttachment:DiskResourcePolicyAttachment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "disk".into(),

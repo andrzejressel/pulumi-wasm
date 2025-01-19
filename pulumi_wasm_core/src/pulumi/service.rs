@@ -22,6 +22,7 @@ pub struct PerformResourceRequest {
     pub(crate) operation: ResourceRequestOperation,
     pub(crate) object: HashMap<FieldName, Option<Value>>,
     pub(crate) expected_results: HashSet<FieldName>,
+    pub(crate) version: String,
 }
 
 #[derive(Clone, Debug, PartialEq)]

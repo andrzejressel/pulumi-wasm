@@ -98,6 +98,7 @@ pub mod active_directory_administrator {
             type_: "azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "login".into(),

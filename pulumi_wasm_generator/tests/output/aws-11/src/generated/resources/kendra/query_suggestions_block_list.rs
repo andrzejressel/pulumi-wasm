@@ -98,6 +98,7 @@ pub mod query_suggestions_block_list {
             type_: "aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

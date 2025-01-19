@@ -66,6 +66,7 @@ pub mod application_assignment_configuration {
             type_: "aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationArn".into(),

@@ -29,6 +29,7 @@ pub mod get_delegated_services {
         let account_id_binding = args.account_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:organizations/getDelegatedServices:getDelegatedServices".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

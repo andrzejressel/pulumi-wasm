@@ -44,6 +44,7 @@ pub mod get_certificate_template_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:certificateauthority/getCertificateTemplateIamPolicy:getCertificateTemplateIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "certificateTemplate".into(),

@@ -146,6 +146,7 @@ pub mod database_extended_auditing_policy {
             type_: "azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "databaseId".into(),

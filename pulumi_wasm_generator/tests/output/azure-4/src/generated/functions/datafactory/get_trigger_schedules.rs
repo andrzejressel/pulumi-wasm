@@ -25,6 +25,7 @@ pub mod get_trigger_schedules {
         let data_factory_id_binding = args.data_factory_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:datafactory/getTriggerSchedules:getTriggerSchedules".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dataFactoryId".into(),

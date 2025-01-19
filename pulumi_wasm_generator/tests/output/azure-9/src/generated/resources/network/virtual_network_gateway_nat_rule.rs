@@ -172,6 +172,7 @@ pub mod virtual_network_gateway_nat_rule {
             type_: "azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "externalMappings".into(),

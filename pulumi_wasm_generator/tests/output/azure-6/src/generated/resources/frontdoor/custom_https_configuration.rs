@@ -139,6 +139,7 @@ pub mod custom_https_configuration {
             type_: "azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customHttpsConfiguration".into(),

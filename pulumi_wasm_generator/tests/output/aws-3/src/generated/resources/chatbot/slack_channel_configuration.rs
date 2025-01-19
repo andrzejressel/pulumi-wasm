@@ -129,6 +129,7 @@ pub mod slack_channel_configuration {
             type_: "aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "configurationName".into(),

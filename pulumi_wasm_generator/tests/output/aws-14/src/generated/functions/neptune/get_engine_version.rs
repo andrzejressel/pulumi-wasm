@@ -52,6 +52,7 @@ pub mod get_engine_version {
         let version_binding = args.version.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:neptune/getEngineVersion:getEngineVersion".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "engine".into(),

@@ -38,6 +38,7 @@ pub mod get_cluster {
         let cluster_state_binding = args.cluster_state.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudhsmv2/getCluster:getCluster".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterId".into(),

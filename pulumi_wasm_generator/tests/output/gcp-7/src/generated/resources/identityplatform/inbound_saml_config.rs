@@ -130,6 +130,7 @@ pub mod inbound_saml_config {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:identityplatform/inboundSamlConfig:InboundSamlConfig".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "displayName".into(),

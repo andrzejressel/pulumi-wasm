@@ -27,6 +27,7 @@ pub mod get_plan {
         let contact_id_binding = args.contact_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssmcontacts/getPlan:getPlan".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "contactId".into(),

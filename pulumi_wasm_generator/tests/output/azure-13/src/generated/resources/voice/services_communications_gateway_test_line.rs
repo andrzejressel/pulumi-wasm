@@ -101,6 +101,7 @@ pub mod services_communications_gateway_test_line {
             type_: "azure:voice/servicesCommunicationsGatewayTestLine:ServicesCommunicationsGatewayTestLine"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

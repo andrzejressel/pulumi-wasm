@@ -233,6 +233,7 @@ pub mod topic_iam_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:pubsub/topicIAMPolicy:TopicIAMPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "policyData".into(),

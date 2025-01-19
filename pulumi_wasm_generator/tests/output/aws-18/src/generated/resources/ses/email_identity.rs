@@ -48,6 +48,7 @@ pub mod email_identity {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/emailIdentity:EmailIdentity".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "email".into(),

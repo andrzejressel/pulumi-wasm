@@ -181,6 +181,7 @@ pub mod endpoint_cosmosdb_account {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "authenticationType".into(),

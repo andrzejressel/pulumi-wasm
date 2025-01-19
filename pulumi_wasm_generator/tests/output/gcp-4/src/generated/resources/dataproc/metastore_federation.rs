@@ -195,6 +195,7 @@ pub mod metastore_federation {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/metastoreFederation:MetastoreFederation".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backendMetastores".into(),

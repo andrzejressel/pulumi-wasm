@@ -107,6 +107,7 @@ pub mod service_perimeter_resource {
             type_: "gcp:accesscontextmanager/servicePerimeterResource:ServicePerimeterResource"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "perimeterName".into(),

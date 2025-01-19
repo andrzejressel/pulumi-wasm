@@ -62,6 +62,7 @@ pub mod get_theme {
         let theme_id_binding = args.theme_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:quicksight/getTheme:getTheme".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "awsAccountId".into(),

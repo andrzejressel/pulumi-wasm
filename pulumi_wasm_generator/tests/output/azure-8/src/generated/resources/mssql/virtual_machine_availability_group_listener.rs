@@ -111,6 +111,7 @@ pub mod virtual_machine_availability_group_listener {
             type_: "azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "availabilityGroupName".into(),

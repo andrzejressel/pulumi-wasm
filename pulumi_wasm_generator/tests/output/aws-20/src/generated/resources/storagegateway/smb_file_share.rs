@@ -242,6 +242,7 @@ pub mod smb_file_share {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:storagegateway/smbFileShare:SmbFileShare".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessBasedEnumeration".into(),

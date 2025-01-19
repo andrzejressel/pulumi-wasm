@@ -89,6 +89,7 @@ pub mod hybrid_runbook_worker_group {
             type_: "azure:automation/hybridRunbookWorkerGroup:HybridRunbookWorkerGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "automationAccountName".into(),

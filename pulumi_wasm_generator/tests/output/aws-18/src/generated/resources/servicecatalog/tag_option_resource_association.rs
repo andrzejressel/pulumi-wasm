@@ -71,6 +71,7 @@ pub mod tag_option_resource_association {
             type_: "aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "resourceId".into(),

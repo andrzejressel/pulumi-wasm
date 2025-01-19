@@ -25,6 +25,7 @@ pub mod get_slack_workspace {
         let slack_team_name_binding = args.slack_team_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:chatbot/getSlackWorkspace:getSlackWorkspace".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "slackTeamName".into(),

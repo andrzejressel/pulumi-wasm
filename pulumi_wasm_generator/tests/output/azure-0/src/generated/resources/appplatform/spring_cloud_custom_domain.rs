@@ -111,6 +111,7 @@ pub mod spring_cloud_custom_domain {
             type_: "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "certificateName".into(),

@@ -41,6 +41,7 @@ pub mod get_account_access_token {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:serviceaccount/getAccountAccessToken:getAccountAccessToken"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "delegates".into(),

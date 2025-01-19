@@ -41,6 +41,7 @@ pub mod get_service_tags {
         let service_binding = args.service.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getServiceTags:getServiceTags".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

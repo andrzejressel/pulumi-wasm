@@ -63,6 +63,7 @@ pub mod resolver_dns_sec_config {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "resourceId".into(),

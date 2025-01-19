@@ -99,6 +99,7 @@ pub mod workstation_config_iam_policy {
             type_: "gcp:workstations/workstationConfigIamPolicy:WorkstationConfigIamPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

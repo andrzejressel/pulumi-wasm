@@ -35,6 +35,7 @@ pub mod get_v_2_organization_source_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:securitycenter/getV2OrganizationSourceIamPolicy:getV2OrganizationSourceIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "organization".into(),

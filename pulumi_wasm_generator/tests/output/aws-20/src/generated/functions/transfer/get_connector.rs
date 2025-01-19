@@ -43,6 +43,7 @@ pub mod get_connector {
         let id_binding = args.id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:transfer/getConnector:getConnector".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "id".into(),

@@ -448,6 +448,7 @@ pub mod web_region_backend_service_iam_member {
             type_: "gcp:iap/webRegionBackendServiceIamMember:WebRegionBackendServiceIamMember"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "condition".into(),

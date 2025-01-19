@@ -202,6 +202,7 @@ pub mod regional_secret_version {
             type_: "gcp:secretmanager/regionalSecretVersion:RegionalSecretVersion"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "deletionPolicy".into(),

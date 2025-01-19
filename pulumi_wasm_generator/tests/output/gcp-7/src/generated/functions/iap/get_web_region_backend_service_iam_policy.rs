@@ -43,6 +43,7 @@ pub mod get_web_region_backend_service_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:iap/getWebRegionBackendServiceIamPolicy:getWebRegionBackendServiceIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

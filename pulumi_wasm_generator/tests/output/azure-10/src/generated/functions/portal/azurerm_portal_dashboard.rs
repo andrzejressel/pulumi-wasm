@@ -44,6 +44,7 @@ pub mod azurerm_portal_dashboard {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:portal/azurerm_portal_dashboard:azurerm_portal_dashboard"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dashboardProperties".into(),

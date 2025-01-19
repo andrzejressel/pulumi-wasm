@@ -58,6 +58,7 @@ pub mod get_share {
         let storage_account_name_binding = args.storage_account_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getShare:getShare".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "acls".into(),

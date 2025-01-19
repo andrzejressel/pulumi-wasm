@@ -33,6 +33,7 @@ pub mod get_repository {
         let repository_name_binding = args.repository_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:codecommit/getRepository:getRepository".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "repositoryName".into(),

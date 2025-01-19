@@ -43,6 +43,7 @@ pub mod get_subnet {
         let parent_binding = args.parent.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:vmwareengine/getSubnet:getSubnet".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

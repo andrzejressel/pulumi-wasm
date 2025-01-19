@@ -58,6 +58,7 @@ pub mod get_gateway_route {
         let virtual_gateway_name_binding = args.virtual_gateway_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:appmesh/getGatewayRoute:getGatewayRoute".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "meshName".into(),

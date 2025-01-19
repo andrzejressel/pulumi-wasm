@@ -64,6 +64,7 @@ pub mod domain_identity_verification {
             type_: "aws:ses/domainIdentityVerification:DomainIdentityVerification"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "domain".into(),

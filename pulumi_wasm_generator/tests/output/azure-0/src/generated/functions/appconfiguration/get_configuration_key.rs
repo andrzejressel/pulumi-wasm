@@ -48,6 +48,7 @@ pub mod get_configuration_key {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:appconfiguration/getConfigurationKey:getConfigurationKey"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "configurationStoreId".into(),

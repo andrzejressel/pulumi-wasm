@@ -221,6 +221,7 @@ pub mod cx_test_case {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/cxTestCase:CxTestCase".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "displayName".into(),

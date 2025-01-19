@@ -430,6 +430,7 @@ pub mod certificate_template_iam_member {
             type_: "gcp:certificateauthority/certificateTemplateIamMember:CertificateTemplateIamMember"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "certificateTemplate".into(),

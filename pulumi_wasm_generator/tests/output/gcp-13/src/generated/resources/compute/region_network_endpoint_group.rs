@@ -578,6 +578,7 @@ pub mod region_network_endpoint_group {
             type_: "gcp:compute/regionNetworkEndpointGroup:RegionNetworkEndpointGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appEngine".into(),

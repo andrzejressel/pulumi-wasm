@@ -58,6 +58,7 @@ pub mod get_route {
         let virtual_router_name_binding = args.virtual_router_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:appmesh/getRoute:getRoute".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "meshName".into(),

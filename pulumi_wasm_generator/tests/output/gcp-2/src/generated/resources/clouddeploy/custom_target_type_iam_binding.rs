@@ -50,6 +50,7 @@ pub mod custom_target_type_iam_binding {
             type_: "gcp:clouddeploy/customTargetTypeIamBinding:CustomTargetTypeIamBinding"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "condition".into(),

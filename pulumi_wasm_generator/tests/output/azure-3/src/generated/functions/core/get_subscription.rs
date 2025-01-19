@@ -38,6 +38,7 @@ pub mod get_subscription {
         let subscription_id_binding = args.subscription_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:core/getSubscription:getSubscription".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "subscriptionId".into(),

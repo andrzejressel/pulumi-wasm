@@ -42,6 +42,7 @@ pub mod get_management_group {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:managementgroups/getManagementGroup:getManagementGroup".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "displayName".into(),

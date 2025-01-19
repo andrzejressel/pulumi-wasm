@@ -122,6 +122,7 @@ pub mod replication_recovery_plan {
             type_: "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "azureToAzureSettings".into(),

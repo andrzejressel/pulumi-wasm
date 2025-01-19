@@ -115,6 +115,7 @@ pub mod flexible_server_active_directory_administrator {
             type_: "azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "objectId".into(),

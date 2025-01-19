@@ -73,6 +73,7 @@ pub mod instance_access_control_attributes {
             type_: "aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "attributes".into(),

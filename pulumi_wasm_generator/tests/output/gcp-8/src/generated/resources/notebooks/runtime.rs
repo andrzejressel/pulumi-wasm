@@ -296,6 +296,7 @@ pub mod runtime {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:notebooks/runtime:Runtime".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessConfig".into(),

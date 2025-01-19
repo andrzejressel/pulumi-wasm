@@ -137,6 +137,7 @@ pub mod engine_split_traffic {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/engineSplitTraffic:EngineSplitTraffic".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "migrateTraffic".into(),

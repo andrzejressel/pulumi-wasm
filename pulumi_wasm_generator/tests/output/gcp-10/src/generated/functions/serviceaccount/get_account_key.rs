@@ -39,6 +39,7 @@ pub mod get_account_key {
         let public_key_type_binding = args.public_key_type.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:serviceaccount/getAccountKey:getAccountKey".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -38,6 +38,7 @@ pub mod get_regions {
         let id_binding = args.id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:index/getRegions:getRegions".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "allRegions".into(),

@@ -108,6 +108,7 @@ pub mod certificate_issuer {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/certificateIssuer:CertificateIssuer".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

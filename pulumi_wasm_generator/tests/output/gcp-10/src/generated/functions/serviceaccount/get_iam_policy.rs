@@ -27,6 +27,7 @@ pub mod get_iam_policy {
         let service_account_id_binding = args.service_account_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:serviceaccount/getIamPolicy:getIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "serviceAccountId".into(),

@@ -227,6 +227,7 @@ pub mod service_azure_bot {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:bot/serviceAzureBot:ServiceAzureBot".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cmkKeyVaultKeyUrl".into(),

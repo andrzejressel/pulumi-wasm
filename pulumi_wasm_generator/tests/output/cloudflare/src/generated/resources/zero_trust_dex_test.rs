@@ -92,6 +92,7 @@ pub mod zero_trust_dex_test {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustDexTest:ZeroTrustDexTest".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

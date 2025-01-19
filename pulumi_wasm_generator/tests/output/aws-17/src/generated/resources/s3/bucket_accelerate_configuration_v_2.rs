@@ -80,6 +80,7 @@ pub mod bucket_accelerate_configuration_v_2 {
             type_: "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucket".into(),

@@ -778,3 +778,10 @@ interface register-interface {
         } }
     );
 }
+#[link_section = "pulumi_wasm_provider::cloudflare"]
+#[no_mangle]
+#[cfg(target_arch = "wasm32")]
+static PULUMI_WASM_PROVIDER_CLOUDFLARE: [u8; 45] = *b"{\"version\":\"5.43.1\",\"pluginDownloadURL\":null}";
+pub(crate) fn get_version() -> String {
+    "5.43.1".to_string()
+}

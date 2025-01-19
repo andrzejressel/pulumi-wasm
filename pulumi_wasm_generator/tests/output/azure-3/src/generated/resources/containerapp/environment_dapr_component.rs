@@ -152,6 +152,7 @@ pub mod environment_dapr_component {
             type_: "azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "componentType".into(),

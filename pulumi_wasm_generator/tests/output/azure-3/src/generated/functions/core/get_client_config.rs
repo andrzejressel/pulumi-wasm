@@ -21,6 +21,7 @@ pub mod get_client_config {
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:core/getClientConfig:getClientConfig".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([]),
             results: Vec::from([
                 register_interface::ResultField {

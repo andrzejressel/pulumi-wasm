@@ -96,6 +96,7 @@ pub mod customer_managed_policy_attachment {
             type_: "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customerManagedPolicyReference".into(),

@@ -310,6 +310,7 @@ pub mod system_topic_event_subscription {
             type_: "azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "advancedFilter".into(),

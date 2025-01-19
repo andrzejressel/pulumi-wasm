@@ -77,6 +77,7 @@ pub mod get_infrastructure_configuration {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arn".into(),

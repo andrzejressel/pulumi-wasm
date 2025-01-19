@@ -126,6 +126,7 @@ pub mod subnet_service_endpoint_storage_policy {
             type_: "azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "definitions".into(),

@@ -46,6 +46,7 @@ pub mod get_orchestrated_virtual_machine_scale_set {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -44,6 +44,7 @@ pub mod get_profiling_group {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:codeguruprofiler/getProfilingGroup:getProfilingGroup".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -147,6 +147,7 @@ pub mod zero_trust_dlp_profile {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustDlpProfile:ZeroTrustDlpProfile".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

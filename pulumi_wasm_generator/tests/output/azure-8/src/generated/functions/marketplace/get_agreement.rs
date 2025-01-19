@@ -35,6 +35,7 @@ pub mod get_agreement {
         let publisher_binding = args.publisher.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:marketplace/getAgreement:getAgreement".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "offer".into(),

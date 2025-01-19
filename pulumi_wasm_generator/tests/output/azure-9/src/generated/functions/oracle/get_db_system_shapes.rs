@@ -27,6 +27,7 @@ pub mod get_db_system_shapes {
         let location_binding = args.location.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:oracle/getDbSystemShapes:getDbSystemShapes".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

@@ -233,6 +233,7 @@ pub mod guardrail {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:bedrock/guardrail:Guardrail".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "blockedInputMessaging".into(),

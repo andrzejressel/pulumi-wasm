@@ -109,6 +109,7 @@ pub mod invocation_logging_configuration {
             type_: "aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "loggingConfig".into(),

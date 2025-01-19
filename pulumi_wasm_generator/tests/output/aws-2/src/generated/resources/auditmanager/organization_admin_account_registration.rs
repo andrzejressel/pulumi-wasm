@@ -56,6 +56,7 @@ pub mod organization_admin_account_registration {
             type_: "aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "adminAccountId".into(),

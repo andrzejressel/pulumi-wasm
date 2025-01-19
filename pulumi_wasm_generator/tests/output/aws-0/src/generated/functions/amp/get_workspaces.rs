@@ -29,6 +29,7 @@ pub mod get_workspaces {
         let alias_prefix_binding = args.alias_prefix.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:amp/getWorkspaces:getWorkspaces".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "aliasPrefix".into(),

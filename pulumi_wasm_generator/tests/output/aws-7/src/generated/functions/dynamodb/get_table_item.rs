@@ -49,6 +49,7 @@ pub mod get_table_item {
         let table_name_binding = args.table_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:dynamodb/getTableItem:getTableItem".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "expressionAttributeNames".into(),

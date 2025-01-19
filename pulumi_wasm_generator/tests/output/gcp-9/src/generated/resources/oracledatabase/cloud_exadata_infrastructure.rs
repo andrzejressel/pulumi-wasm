@@ -213,6 +213,7 @@ pub mod cloud_exadata_infrastructure {
             type_: "gcp:oracledatabase/cloudExadataInfrastructure:CloudExadataInfrastructure"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cloudExadataInfrastructureId".into(),

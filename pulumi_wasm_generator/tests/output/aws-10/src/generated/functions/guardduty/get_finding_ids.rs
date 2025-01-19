@@ -26,6 +26,7 @@ pub mod get_finding_ids {
         let detector_id_binding = args.detector_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:guardduty/getFindingIds:getFindingIds".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "detectorId".into(),

@@ -41,6 +41,7 @@ pub mod group_policies_exclusive {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "groupName".into(),

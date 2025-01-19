@@ -100,6 +100,7 @@ pub mod subnet_route_table_association {
             type_: "azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "routeTableId".into(),

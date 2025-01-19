@@ -183,6 +183,7 @@ pub mod implicit_data_disk_from_source {
             type_: "azure:compute/implicitDataDiskFromSource:ImplicitDataDiskFromSource"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "caching".into(),

@@ -115,6 +115,7 @@ pub mod document_ai_processor {
             type_: "gcp:essentialcontacts/documentAiProcessor:DocumentAiProcessor"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "displayName".into(),

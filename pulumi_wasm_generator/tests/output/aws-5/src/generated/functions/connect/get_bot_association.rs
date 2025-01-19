@@ -32,6 +32,7 @@ pub mod get_bot_association {
         let lex_bot_binding = args.lex_bot.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:connect/getBotAssociation:getBotAssociation".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "instanceId".into(),

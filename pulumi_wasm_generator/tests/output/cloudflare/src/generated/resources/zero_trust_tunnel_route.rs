@@ -60,6 +60,7 @@ pub mod zero_trust_tunnel_route {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustTunnelRoute:ZeroTrustTunnelRoute".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

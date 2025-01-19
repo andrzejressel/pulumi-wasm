@@ -35,6 +35,7 @@ pub mod get_database_instance_latest_recovery_time {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:sql/getDatabaseInstanceLatestRecoveryTime:getDatabaseInstanceLatestRecoveryTime"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "instance".into(),

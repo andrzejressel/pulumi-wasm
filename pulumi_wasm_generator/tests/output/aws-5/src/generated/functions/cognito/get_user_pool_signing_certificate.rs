@@ -28,6 +28,7 @@ pub mod get_user_pool_signing_certificate {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cognito/getUserPoolSigningCertificate:getUserPoolSigningCertificate"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "userPoolId".into(),

@@ -97,6 +97,7 @@ pub mod logging_configuration {
             type_: "aws:networkfirewall/loggingConfiguration:LoggingConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "firewallArn".into(),

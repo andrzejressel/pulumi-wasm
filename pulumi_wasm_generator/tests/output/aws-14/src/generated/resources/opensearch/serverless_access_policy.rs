@@ -154,6 +154,7 @@ pub mod serverless_access_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

@@ -196,6 +196,7 @@ pub mod ai_feature_group_feature {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vertex/aiFeatureGroupFeature:AiFeatureGroupFeature".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

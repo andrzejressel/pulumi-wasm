@@ -170,6 +170,7 @@ pub mod environment_ec_2 {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloud9/environmentEC2:EnvironmentEC2".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "automaticStopTimeMinutes".into(),

@@ -216,6 +216,7 @@ pub mod cloud_vm_cluster {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:oracle/cloudVmCluster:CloudVmCluster".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backupSubnetCidr".into(),

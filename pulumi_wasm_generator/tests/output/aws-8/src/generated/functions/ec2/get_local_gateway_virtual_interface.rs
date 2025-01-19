@@ -61,6 +61,7 @@ pub mod get_local_gateway_virtual_interface {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

@@ -103,6 +103,7 @@ pub mod hsm_configuration {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/hsmConfiguration:HsmConfiguration".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

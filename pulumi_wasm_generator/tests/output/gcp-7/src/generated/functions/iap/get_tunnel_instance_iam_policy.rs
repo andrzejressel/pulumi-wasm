@@ -41,6 +41,7 @@ pub mod get_tunnel_instance_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:iap/getTunnelInstanceIamPolicy:getTunnelInstanceIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "instance".into(),

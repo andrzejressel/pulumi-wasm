@@ -666,6 +666,7 @@ pub mod backup_plan {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkebackup/backupPlan:BackupPlan".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backupConfig".into(),

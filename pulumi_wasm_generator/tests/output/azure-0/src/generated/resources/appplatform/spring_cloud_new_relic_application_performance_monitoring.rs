@@ -143,6 +143,7 @@ pub mod spring_cloud_new_relic_application_performance_monitoring {
             type_: "azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "agentEnabled".into(),

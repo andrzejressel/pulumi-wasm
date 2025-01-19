@@ -237,6 +237,7 @@ pub mod metric_alert {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/metricAlert:MetricAlert".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "actions".into(),

@@ -77,6 +77,7 @@ pub mod zero_trust_tunnel_cloudflared {
             type_: "cloudflare:index/zeroTrustTunnelCloudflared:ZeroTrustTunnelCloudflared"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

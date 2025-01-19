@@ -33,6 +33,7 @@ pub mod get_templates {
         let templates_binding = args.templates.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicequotas/getTemplates:getTemplates".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "region".into(),

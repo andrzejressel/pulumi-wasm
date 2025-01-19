@@ -172,6 +172,7 @@ pub mod vpn_gateway_connection {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/vpnGatewayConnection:VpnGatewayConnection".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "internetSecurityEnabled".into(),

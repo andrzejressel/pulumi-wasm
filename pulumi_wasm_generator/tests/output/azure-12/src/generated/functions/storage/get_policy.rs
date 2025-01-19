@@ -27,6 +27,7 @@ pub mod get_policy {
         let storage_account_id_binding = args.storage_account_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getPolicy:getPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "storageAccountId".into(),

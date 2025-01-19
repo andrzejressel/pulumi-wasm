@@ -56,6 +56,7 @@ pub mod get_storage_container {
         let storage_account_name_binding = args.storage_account_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getStorageContainer:getStorageContainer".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "metadata".into(),

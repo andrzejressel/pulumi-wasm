@@ -28,6 +28,7 @@ pub mod get_policy_tag_iam_policy {
         let policy_tag_binding = args.policy_tag.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:datacatalog/getPolicyTagIamPolicy:getPolicyTagIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "policyTag".into(),

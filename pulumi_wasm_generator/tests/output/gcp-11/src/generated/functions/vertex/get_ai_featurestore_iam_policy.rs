@@ -44,6 +44,7 @@ pub mod get_ai_featurestore_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:vertex/getAiFeaturestoreIamPolicy:getAiFeaturestoreIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "featurestore".into(),

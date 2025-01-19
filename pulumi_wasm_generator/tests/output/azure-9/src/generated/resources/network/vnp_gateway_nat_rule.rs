@@ -140,6 +140,7 @@ pub mod vnp_gateway_nat_rule {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/vnpGatewayNatRule:VnpGatewayNatRule".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "externalMappings".into(),

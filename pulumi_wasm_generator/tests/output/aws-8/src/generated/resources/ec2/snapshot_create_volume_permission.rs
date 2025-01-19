@@ -59,6 +59,7 @@ pub mod snapshot_create_volume_permission {
             type_: "aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

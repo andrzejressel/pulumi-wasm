@@ -107,6 +107,7 @@ pub mod iot_hub_device_update_account {
             type_: "azure:iot/iotHubDeviceUpdateAccount:IotHubDeviceUpdateAccount"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "identity".into(),

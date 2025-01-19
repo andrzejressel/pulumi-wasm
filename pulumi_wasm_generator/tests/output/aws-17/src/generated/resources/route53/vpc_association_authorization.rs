@@ -95,6 +95,7 @@ pub mod vpc_association_authorization {
             type_: "aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "vpcId".into(),

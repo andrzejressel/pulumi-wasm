@@ -47,6 +47,7 @@ pub mod get_managed_hardware_security_module {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

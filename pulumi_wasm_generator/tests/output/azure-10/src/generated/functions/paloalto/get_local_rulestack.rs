@@ -36,6 +36,7 @@ pub mod get_local_rulestack {
         let resource_group_name_binding = args.resource_group_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:paloalto/getLocalRulestack:getLocalRulestack".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

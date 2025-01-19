@@ -102,6 +102,7 @@ pub mod hosted_private_virtual_interface_accepter {
             type_: "aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dxGatewayId".into(),

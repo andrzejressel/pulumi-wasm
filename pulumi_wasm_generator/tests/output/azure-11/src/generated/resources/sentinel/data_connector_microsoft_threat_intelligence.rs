@@ -109,6 +109,7 @@ pub mod data_connector_microsoft_threat_intelligence {
             type_: "azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "logAnalyticsWorkspaceId".into(),

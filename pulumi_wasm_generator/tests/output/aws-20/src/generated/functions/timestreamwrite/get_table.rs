@@ -52,6 +52,7 @@ pub mod get_table {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:timestreamwrite/getTable:getTable".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "databaseName".into(),

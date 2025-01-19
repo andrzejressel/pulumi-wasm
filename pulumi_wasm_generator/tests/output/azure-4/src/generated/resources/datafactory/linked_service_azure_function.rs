@@ -146,6 +146,7 @@ pub mod linked_service_azure_function {
             type_: "azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalProperties".into(),

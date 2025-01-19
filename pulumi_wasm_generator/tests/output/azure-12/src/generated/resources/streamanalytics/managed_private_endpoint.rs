@@ -102,6 +102,7 @@ pub mod managed_private_endpoint {
             type_: "azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -62,6 +62,7 @@ pub mod dedicated_ip_assignment {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/dedicatedIpAssignment:DedicatedIpAssignment".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "destinationPoolName".into(),

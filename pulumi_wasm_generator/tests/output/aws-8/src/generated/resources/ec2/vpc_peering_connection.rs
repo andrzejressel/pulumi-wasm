@@ -220,6 +220,7 @@ pub mod vpc_peering_connection {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcPeeringConnection:VpcPeeringConnection".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accepter".into(),

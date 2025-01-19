@@ -125,6 +125,7 @@ pub mod namespace {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshiftserverless/namespace:Namespace".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "adminPasswordSecretKmsKeyId".into(),

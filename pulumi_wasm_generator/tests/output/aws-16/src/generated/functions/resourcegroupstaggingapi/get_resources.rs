@@ -65,6 +65,7 @@ pub mod get_resources {
         let tag_filters_binding = args.tag_filters.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:resourcegroupstaggingapi/getResources:getResources".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "excludeCompliantResources".into(),

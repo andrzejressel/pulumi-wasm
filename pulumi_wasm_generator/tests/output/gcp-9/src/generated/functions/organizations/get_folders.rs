@@ -27,6 +27,7 @@ pub mod get_folders {
         let parent_id_binding = args.parent_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:organizations/getFolders:getFolders".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "parentId".into(),

@@ -206,6 +206,7 @@ pub mod resource_deployment_script_azure_cli {
             type_: "azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cleanupPreference".into(),

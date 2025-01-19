@@ -291,6 +291,7 @@ pub mod data_policy_iam_member {
             type_: "gcp:bigquerydatapolicy/dataPolicyIamMember:DataPolicyIamMember"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "condition".into(),

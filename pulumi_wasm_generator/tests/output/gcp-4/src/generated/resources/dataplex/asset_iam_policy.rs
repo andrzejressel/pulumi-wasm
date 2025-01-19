@@ -265,6 +265,7 @@ pub mod asset_iam_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataplex/assetIamPolicy:AssetIamPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "asset".into(),

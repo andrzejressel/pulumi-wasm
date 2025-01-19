@@ -41,6 +41,7 @@ pub mod get_folder_settings {
         let folder_binding = args.folder.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:logging/getFolderSettings:getFolderSettings".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "folder".into(),

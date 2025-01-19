@@ -49,6 +49,7 @@ pub mod get_managed_hardware_security_module_key {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "managedHsmId".into(),

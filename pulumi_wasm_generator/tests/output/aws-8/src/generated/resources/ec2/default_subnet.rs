@@ -149,6 +149,7 @@ pub mod default_subnet {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/defaultSubnet:DefaultSubnet".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "assignIpv6AddressOnCreation".into(),

@@ -203,6 +203,7 @@ pub mod backup_instance_postgresql {
             type_: "azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backupPolicyId".into(),

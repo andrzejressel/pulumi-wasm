@@ -25,6 +25,7 @@ pub mod get_node_groups {
         let cluster_name_binding = args.cluster_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:eks/getNodeGroups:getNodeGroups".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterName".into(),

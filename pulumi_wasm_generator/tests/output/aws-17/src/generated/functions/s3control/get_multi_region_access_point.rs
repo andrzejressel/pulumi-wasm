@@ -51,6 +51,7 @@ pub mod get_multi_region_access_point {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

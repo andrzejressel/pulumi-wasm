@@ -149,6 +149,7 @@ pub mod cluster_customer_managed_key {
             type_: "azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterId".into(),

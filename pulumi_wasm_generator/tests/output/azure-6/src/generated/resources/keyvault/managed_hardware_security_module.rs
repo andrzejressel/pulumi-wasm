@@ -166,6 +166,7 @@ pub mod managed_hardware_security_module {
             type_: "azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "adminObjectIds".into(),

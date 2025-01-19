@@ -58,6 +58,7 @@ pub mod get_resolver_rule {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverRule:getResolverRule".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "domainName".into(),

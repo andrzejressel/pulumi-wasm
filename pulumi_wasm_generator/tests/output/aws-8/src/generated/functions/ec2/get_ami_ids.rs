@@ -62,6 +62,7 @@ pub mod get_ami_ids {
         let sort_ascending_binding = args.sort_ascending.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getAmiIds:getAmiIds".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "executableUsers".into(),

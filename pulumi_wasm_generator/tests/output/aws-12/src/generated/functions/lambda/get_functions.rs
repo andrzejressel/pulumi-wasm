@@ -17,6 +17,7 @@ pub mod get_functions {
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lambda/getFunctions:getFunctions".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([]),
             results: Vec::from([
                 register_interface::ResultField {

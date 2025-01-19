@@ -364,6 +364,7 @@ pub mod tunnel_iam_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iap/tunnelIamPolicy:TunnelIamPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "policyData".into(),

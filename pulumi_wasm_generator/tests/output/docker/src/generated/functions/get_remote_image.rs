@@ -26,6 +26,7 @@ pub mod get_remote_image {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "docker:index/getRemoteImage:getRemoteImage".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

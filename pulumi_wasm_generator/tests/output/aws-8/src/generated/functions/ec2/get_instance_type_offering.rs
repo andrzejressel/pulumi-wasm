@@ -39,6 +39,7 @@ pub mod get_instance_type_offering {
         let preferred_instance_types_binding = args.preferred_instance_types.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

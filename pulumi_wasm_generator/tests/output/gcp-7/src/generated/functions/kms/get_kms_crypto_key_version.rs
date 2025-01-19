@@ -41,6 +41,7 @@ pub mod get_kms_crypto_key_version {
         let version_binding = args.version.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getKMSCryptoKeyVersion:getKMSCryptoKeyVersion".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cryptoKey".into(),

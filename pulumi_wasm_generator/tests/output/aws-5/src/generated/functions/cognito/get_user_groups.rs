@@ -27,6 +27,7 @@ pub mod get_user_groups {
         let user_pool_id_binding = args.user_pool_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cognito/getUserGroups:getUserGroups".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "userPoolId".into(),

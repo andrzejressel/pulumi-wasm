@@ -32,6 +32,7 @@ pub mod get_delegated_administrators {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "servicePrincipal".into(),

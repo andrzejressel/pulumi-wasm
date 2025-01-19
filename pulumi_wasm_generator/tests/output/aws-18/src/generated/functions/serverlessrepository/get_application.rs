@@ -37,6 +37,7 @@ pub mod get_application {
         let semantic_version_binding = args.semantic_version.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:serverlessrepository/getApplication:getApplication".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationId".into(),

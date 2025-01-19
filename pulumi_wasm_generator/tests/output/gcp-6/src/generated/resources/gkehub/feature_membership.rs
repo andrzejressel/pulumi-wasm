@@ -454,6 +454,7 @@ pub mod feature_membership {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkehub/featureMembership:FeatureMembership".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "configmanagement".into(),

@@ -195,6 +195,7 @@ pub mod linked_service_azure_blob_storage {
             type_: "azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalProperties".into(),

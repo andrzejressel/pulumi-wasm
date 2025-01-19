@@ -208,6 +208,7 @@ pub mod virtual_machine_scale_set_extension {
             type_: "azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "autoUpgradeMinorVersion".into(),

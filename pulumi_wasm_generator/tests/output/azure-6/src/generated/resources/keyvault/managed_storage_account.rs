@@ -216,6 +216,7 @@ pub mod managed_storage_account {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/managedStorageAccount:ManagedStorageAccount".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "keyVaultId".into(),

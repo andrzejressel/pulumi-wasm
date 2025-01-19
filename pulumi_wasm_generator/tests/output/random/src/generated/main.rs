@@ -81,3 +81,10 @@ interface register-interface {
         } }
     );
 }
+#[link_section = "pulumi_wasm_provider::random"]
+#[no_mangle]
+#[cfg(target_arch = "wasm32")]
+static PULUMI_WASM_PROVIDER_RANDOM: [u8; 45] = *b"{\"version\":\"4.15.0\",\"pluginDownloadURL\":null}";
+pub(crate) fn get_version() -> String {
+    "4.15.0".to_string()
+}

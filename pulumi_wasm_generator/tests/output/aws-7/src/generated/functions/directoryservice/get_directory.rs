@@ -62,6 +62,7 @@ pub mod get_directory {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:directoryservice/getDirectory:getDirectory".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "directoryId".into(),

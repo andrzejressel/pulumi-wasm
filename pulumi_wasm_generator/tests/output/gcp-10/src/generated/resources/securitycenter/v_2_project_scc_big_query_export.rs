@@ -191,6 +191,7 @@ pub mod v_2_project_scc_big_query_export {
             type_: "gcp:securitycenter/v2ProjectSccBigQueryExport:V2ProjectSccBigQueryExport"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bigQueryExportId".into(),

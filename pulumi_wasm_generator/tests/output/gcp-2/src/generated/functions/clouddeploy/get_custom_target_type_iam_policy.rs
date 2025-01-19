@@ -44,6 +44,7 @@ pub mod get_custom_target_type_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:clouddeploy/getCustomTargetTypeIamPolicy:getCustomTargetTypeIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

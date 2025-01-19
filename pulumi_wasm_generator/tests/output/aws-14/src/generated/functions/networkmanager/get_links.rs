@@ -49,6 +49,7 @@ pub mod get_links {
         let type__binding = args.type_.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:networkmanager/getLinks:getLinks".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "globalNetworkId".into(),

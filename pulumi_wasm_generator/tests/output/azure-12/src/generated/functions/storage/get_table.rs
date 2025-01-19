@@ -34,6 +34,7 @@ pub mod get_table {
         let storage_account_name_binding = args.storage_account_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getTable:getTable".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

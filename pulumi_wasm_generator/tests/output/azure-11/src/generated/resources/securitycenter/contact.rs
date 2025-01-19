@@ -79,6 +79,7 @@ pub mod contact {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:securitycenter/contact:Contact".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "alertNotifications".into(),

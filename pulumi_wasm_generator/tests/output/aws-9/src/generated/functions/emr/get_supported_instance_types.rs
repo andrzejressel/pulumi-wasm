@@ -42,6 +42,7 @@ pub mod get_supported_instance_types {
         let supported_instance_types_binding = args.supported_instance_types.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "releaseLabel".into(),

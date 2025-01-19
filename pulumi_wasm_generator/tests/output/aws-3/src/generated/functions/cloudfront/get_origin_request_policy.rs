@@ -48,6 +48,7 @@ pub mod get_origin_request_policy {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "id".into(),

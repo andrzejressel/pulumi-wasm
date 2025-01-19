@@ -50,6 +50,7 @@ pub mod get_connector {
         let region_binding = args.region.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:vpcaccess/getConnector:getConnector".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

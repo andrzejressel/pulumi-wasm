@@ -79,6 +79,7 @@ pub mod api {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/api:Api".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "configBundle".into(),

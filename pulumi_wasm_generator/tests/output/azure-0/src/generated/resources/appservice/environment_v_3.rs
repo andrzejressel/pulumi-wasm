@@ -198,6 +198,7 @@ pub mod environment_v_3 {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/environmentV3:EnvironmentV3".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "allowNewPrivateEndpointConnections".into(),

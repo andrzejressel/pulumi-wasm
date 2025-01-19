@@ -102,7 +102,7 @@ impl PulumiService for PulumiServiceImpl {
                     //     [("value".to_string(), register_resource_request::PropertyDependencies { urns: vec!["test".to_string()] })]
                     // ),
                     delete_before_replace: false,
-                    version: "".to_string(),
+                    version: request.version,
                     ignore_changes: vec![],
                     accept_secrets: true,
                     additional_secret_outputs: vec![],
@@ -137,9 +137,15 @@ impl PulumiService for PulumiServiceImpl {
 
                 let object = Self::create_protobuf_struct(request.object.clone());
 
-                let req = grpc::InvokeRequest {
+                let req = grpc::ResourceInvokeRequest {
                     tok: invoke.token,
                     args: Some(object),
+                    provider: "".to_string(),
+                    version: request.version,
+                    accept_resources: false,
+                    plugin_download_url: "".to_string(),
+                    plugin_checksums: Default::default(),
+                    source_position: None,
                 };
 
                 self.connector

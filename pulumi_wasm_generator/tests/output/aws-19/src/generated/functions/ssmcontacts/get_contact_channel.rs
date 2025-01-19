@@ -37,6 +37,7 @@ pub mod get_contact_channel {
         let arn_binding = args.arn.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssmcontacts/getContactChannel:getContactChannel".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "arn".into(),

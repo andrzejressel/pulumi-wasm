@@ -58,6 +58,7 @@ pub mod identity_pool_provider_principal_tag {
             type_: "aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "identityPoolId".into(),

@@ -144,6 +144,7 @@ pub mod get_instance {
         let zone_binding = args.zone.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getInstance:getInstance".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

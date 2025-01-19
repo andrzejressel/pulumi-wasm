@@ -30,6 +30,7 @@ pub mod get_email_identity_mail_from_attributes {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "emailIdentity".into(),

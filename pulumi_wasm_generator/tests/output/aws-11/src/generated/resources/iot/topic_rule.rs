@@ -300,6 +300,7 @@ pub mod topic_rule {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/topicRule:TopicRule".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cloudwatchAlarms".into(),

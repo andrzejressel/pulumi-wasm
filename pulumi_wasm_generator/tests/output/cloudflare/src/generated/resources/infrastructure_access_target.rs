@@ -101,6 +101,7 @@ pub mod infrastructure_access_target {
             type_: "cloudflare:index/infrastructureAccessTarget:InfrastructureAccessTarget"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

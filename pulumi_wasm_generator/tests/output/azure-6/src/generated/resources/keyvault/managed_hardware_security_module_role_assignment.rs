@@ -65,6 +65,7 @@ pub mod managed_hardware_security_module_role_assignment {
             type_: "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "managedHsmId".into(),

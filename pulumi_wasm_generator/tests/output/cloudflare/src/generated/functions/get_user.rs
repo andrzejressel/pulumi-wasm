@@ -17,6 +17,7 @@ pub mod get_user {
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getUser:getUser".into(),
+            version: super::super::get_version(),
             object: Vec::from([]),
             results: Vec::from([
                 register_interface::ResultField {

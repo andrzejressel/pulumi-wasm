@@ -33,6 +33,7 @@ pub mod get_authorization_token {
         let registry_id_binding = args.registry_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ecr/getAuthorizationToken:getAuthorizationToken".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "registryId".into(),

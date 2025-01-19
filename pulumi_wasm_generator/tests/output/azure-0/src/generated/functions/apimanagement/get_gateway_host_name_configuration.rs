@@ -49,6 +49,7 @@ pub mod get_gateway_host_name_configuration {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiManagementId".into(),

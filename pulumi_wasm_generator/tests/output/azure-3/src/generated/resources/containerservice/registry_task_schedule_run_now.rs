@@ -80,6 +80,7 @@ pub mod registry_task_schedule_run_now {
             type_: "azure:containerservice/registryTaskScheduleRunNow:RegistryTaskScheduleRunNow"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "containerRegistryTaskId".into(),

@@ -252,6 +252,7 @@ pub mod linked_service_azure_databricks {
             type_: "azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessToken".into(),

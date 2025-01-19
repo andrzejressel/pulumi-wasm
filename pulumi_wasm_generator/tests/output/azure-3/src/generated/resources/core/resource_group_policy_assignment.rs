@@ -191,6 +191,7 @@ pub mod resource_group_policy_assignment {
             type_: "azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

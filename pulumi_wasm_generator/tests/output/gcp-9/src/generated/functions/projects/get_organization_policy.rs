@@ -40,6 +40,7 @@ pub mod get_organization_policy {
         let project_binding = args.project.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:projects/getOrganizationPolicy:getOrganizationPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "constraint".into(),

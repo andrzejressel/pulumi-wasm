@@ -142,6 +142,7 @@ pub mod web_app {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/webApp:WebApp".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiKeyId".into(),

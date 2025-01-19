@@ -77,6 +77,7 @@ pub mod access_point_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3control/accessPointPolicy:AccessPointPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accessPointArn".into(),

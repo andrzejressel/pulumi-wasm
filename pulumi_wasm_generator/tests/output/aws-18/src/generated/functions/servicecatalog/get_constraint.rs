@@ -46,6 +46,7 @@ pub mod get_constraint {
         let id_binding = args.id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicecatalog/getConstraint:getConstraint".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "acceptLanguage".into(),

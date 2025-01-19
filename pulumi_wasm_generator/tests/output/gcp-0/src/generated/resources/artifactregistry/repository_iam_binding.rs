@@ -301,6 +301,7 @@ pub mod repository_iam_binding {
             type_: "gcp:artifactregistry/repositoryIamBinding:RepositoryIamBinding"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "condition".into(),

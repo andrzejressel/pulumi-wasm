@@ -32,6 +32,7 @@ pub mod get_v_2_accelerator_types {
         let zone_binding = args.zone.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:tpu/getV2AcceleratorTypes:getV2AcceleratorTypes".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

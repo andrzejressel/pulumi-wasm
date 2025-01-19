@@ -36,6 +36,7 @@ pub mod get_vpc_ipam_pool_cidrs {
         let ipam_pool_id_binding = args.ipam_pool_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

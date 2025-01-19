@@ -59,6 +59,7 @@ pub mod get_network_attached_data_network {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "mobileNetworkDataNetworkName".into(),

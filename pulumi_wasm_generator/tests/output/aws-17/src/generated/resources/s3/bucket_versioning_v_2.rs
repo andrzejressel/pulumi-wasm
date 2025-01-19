@@ -162,6 +162,7 @@ pub mod bucket_versioning_v_2 {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketVersioningV2:BucketVersioningV2".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucket".into(),

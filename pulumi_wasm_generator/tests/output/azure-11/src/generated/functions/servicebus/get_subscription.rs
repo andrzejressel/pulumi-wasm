@@ -60,6 +60,7 @@ pub mod get_subscription {
         let topic_name_binding = args.topic_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:servicebus/getSubscription:getSubscription".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

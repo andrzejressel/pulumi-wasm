@@ -206,6 +206,7 @@ pub mod next_generation_firewall_virtual_network_panorama {
             type_: "azure:paloalto/nextGenerationFirewallVirtualNetworkPanorama:NextGenerationFirewallVirtualNetworkPanorama"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "destinationNats".into(),

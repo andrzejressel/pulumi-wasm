@@ -93,6 +93,7 @@ pub mod data_connector_aws_cloud_trail {
             type_: "azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "awsRoleArn".into(),

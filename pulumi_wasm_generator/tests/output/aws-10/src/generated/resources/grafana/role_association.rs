@@ -84,6 +84,7 @@ pub mod role_association {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:grafana/roleAssociation:RoleAssociation".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "groupIds".into(),

@@ -102,6 +102,7 @@ pub mod kubernetes_fleet_manager {
             type_: "azure:containerservice/kubernetesFleetManager:KubernetesFleetManager"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "hubProfile".into(),

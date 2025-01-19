@@ -166,6 +166,7 @@ pub mod image_pipeline {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:imagebuilder/imagePipeline:ImagePipeline".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "containerRecipeArn".into(),

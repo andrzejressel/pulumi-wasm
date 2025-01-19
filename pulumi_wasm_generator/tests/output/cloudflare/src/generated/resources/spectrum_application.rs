@@ -140,6 +140,7 @@ pub mod spectrum_application {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/spectrumApplication:SpectrumApplication".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "argoSmartRouting".into(),

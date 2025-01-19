@@ -87,6 +87,7 @@ pub mod role_policies_exclusive {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/rolePoliciesExclusive:RolePoliciesExclusive".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "policyNames".into(),

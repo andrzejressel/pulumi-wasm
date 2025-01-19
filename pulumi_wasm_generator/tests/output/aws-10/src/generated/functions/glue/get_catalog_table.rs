@@ -80,6 +80,7 @@ pub mod get_catalog_table {
         let transaction_id_binding = args.transaction_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:glue/getCatalogTable:getCatalogTable".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "catalogId".into(),

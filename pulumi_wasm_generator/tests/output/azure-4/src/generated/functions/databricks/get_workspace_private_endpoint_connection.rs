@@ -39,6 +39,7 @@ pub mod get_workspace_private_endpoint_connection {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "privateEndpointId".into(),

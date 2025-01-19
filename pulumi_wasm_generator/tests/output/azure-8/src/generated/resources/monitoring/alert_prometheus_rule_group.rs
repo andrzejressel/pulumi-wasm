@@ -176,6 +176,7 @@ pub mod alert_prometheus_rule_group {
             type_: "azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterName".into(),

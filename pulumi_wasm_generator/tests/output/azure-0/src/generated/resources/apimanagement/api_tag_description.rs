@@ -105,6 +105,7 @@ pub mod api_tag_description {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/apiTagDescription:ApiTagDescription".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiTagId".into(),

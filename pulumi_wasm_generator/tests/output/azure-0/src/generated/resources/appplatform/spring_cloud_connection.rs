@@ -150,6 +150,7 @@ pub mod spring_cloud_connection {
             type_: "azure:appplatform/springCloudConnection:SpringCloudConnection"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "authentication".into(),

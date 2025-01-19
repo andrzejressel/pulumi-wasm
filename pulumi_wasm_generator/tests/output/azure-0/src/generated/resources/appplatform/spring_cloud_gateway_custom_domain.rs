@@ -91,6 +91,7 @@ pub mod spring_cloud_gateway_custom_domain {
             type_: "azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

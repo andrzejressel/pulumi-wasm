@@ -80,6 +80,7 @@ pub mod flowhook {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/flowhook:Flowhook".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "continueOnError".into(),

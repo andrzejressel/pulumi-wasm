@@ -433,3 +433,10 @@ interface register-interface {
         } }
     );
 }
+#[link_section = "pulumi_wasm_provider::aws"]
+#[no_mangle]
+#[cfg(target_arch = "wasm32")]
+static PULUMI_WASM_PROVIDER_AWS: [u8; 45] = *b"{\"version\":\"6.66.2\",\"pluginDownloadURL\":null}";
+pub(crate) fn get_version() -> String {
+    "6.66.2".to_string()
+}

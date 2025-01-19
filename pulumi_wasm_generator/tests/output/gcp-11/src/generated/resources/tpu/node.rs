@@ -259,6 +259,7 @@ pub mod node {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:tpu/node:Node".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "acceleratorType".into(),

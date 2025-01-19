@@ -35,6 +35,7 @@ pub mod get_custom_key_store {
         let custom_key_store_name_binding = args.custom_key_store_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kms/getCustomKeyStore:getCustomKeyStore".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customKeyStoreId".into(),

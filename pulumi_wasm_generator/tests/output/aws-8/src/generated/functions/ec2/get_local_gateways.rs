@@ -40,6 +40,7 @@ pub mod get_local_gateways {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getLocalGateways:getLocalGateways".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

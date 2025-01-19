@@ -400,6 +400,7 @@ pub mod windows_function_app {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/windowsFunctionApp:WindowsFunctionApp".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appSettings".into(),

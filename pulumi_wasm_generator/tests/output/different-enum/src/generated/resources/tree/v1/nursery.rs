@@ -31,6 +31,7 @@ pub mod nursery {
         let request = register_interface::RegisterResourceRequest {
             type_: "plant:tree/v1:Nursery".into(),
             name: name.to_string(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "sizes".into(),

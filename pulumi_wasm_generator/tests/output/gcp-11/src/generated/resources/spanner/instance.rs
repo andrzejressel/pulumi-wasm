@@ -253,6 +253,7 @@ pub mod instance {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:spanner/instance:Instance".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "autoscalingConfig".into(),

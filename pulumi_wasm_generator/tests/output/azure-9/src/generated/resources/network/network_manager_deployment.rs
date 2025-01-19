@@ -237,6 +237,7 @@ pub mod network_manager_deployment {
             type_: "azure:network/networkManagerDeployment:NetworkManagerDeployment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "configurationIds".into(),

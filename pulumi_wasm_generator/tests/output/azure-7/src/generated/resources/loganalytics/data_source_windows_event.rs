@@ -97,6 +97,7 @@ pub mod data_source_windows_event {
             type_: "azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "eventLogName".into(),

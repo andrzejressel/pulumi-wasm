@@ -466,6 +466,7 @@ pub mod app_engine_version_iam_binding {
             type_: "gcp:iap/appEngineVersionIamBinding:AppEngineVersionIamBinding"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appId".into(),

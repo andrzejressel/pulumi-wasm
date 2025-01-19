@@ -38,6 +38,7 @@ pub mod get_instance_type_offerings {
         let location_type_binding = args.location_type.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

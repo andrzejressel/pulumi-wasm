@@ -61,6 +61,7 @@ pub mod get_response_headers_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudfront/getResponseHeadersPolicy:getResponseHeadersPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "id".into(),

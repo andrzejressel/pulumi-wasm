@@ -134,6 +134,7 @@ pub mod backup_policy_kubernetes_cluster {
             type_: "azure:dataprotection/backupPolicyKubernetesCluster:BackupPolicyKubernetesCluster"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backupRepeatingTimeIntervals".into(),

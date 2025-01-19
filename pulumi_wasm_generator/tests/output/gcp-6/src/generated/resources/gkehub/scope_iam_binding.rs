@@ -267,6 +267,7 @@ pub mod scope_iam_binding {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkehub/scopeIamBinding:ScopeIamBinding".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "condition".into(),

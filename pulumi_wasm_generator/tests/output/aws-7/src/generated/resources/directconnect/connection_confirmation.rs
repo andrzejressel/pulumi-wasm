@@ -44,6 +44,7 @@ pub mod connection_confirmation {
             type_: "aws:directconnect/connectionConfirmation:ConnectionConfirmation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "connectionId".into(),

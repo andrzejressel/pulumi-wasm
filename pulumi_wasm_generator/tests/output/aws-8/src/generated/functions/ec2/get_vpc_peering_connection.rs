@@ -111,6 +111,7 @@ pub mod get_vpc_peering_connection {
         let vpc_id_binding = args.vpc_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getVpcPeeringConnection:getVpcPeeringConnection".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cidrBlock".into(),

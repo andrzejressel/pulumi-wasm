@@ -376,6 +376,7 @@ pub mod instance_from_machine_image {
             type_: "gcp:compute/instanceFromMachineImage:InstanceFromMachineImage"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "advancedMachineFeatures".into(),

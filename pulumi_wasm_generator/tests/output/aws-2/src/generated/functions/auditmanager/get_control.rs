@@ -49,6 +49,7 @@ pub mod get_control {
         let type__binding = args.type_.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:auditmanager/getControl:getControl".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "controlMappingSources".into(),

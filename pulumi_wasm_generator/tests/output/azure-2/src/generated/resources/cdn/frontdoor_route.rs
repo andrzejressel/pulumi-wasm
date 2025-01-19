@@ -284,6 +284,7 @@ pub mod frontdoor_route {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorRoute:FrontdoorRoute".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cache".into(),

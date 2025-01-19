@@ -35,6 +35,7 @@ pub mod get_tunnel_virtual_network {
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getTunnelVirtualNetwork:getTunnelVirtualNetwork"
                 .into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

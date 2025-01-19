@@ -47,6 +47,7 @@ pub mod get_bootstrap_brokers {
         let cluster_arn_binding = args.cluster_arn.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:msk/getBootstrapBrokers:getBootstrapBrokers".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterArn".into(),

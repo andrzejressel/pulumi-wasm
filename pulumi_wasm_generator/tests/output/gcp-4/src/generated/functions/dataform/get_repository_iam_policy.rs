@@ -41,6 +41,7 @@ pub mod get_repository_iam_policy {
         let repository_binding = args.repository.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:dataform/getRepositoryIamPolicy:getRepositoryIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

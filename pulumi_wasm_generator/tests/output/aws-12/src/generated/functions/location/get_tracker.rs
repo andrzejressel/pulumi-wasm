@@ -43,6 +43,7 @@ pub mod get_tracker {
         let tracker_name_binding = args.tracker_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:location/getTracker:getTracker".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "tags".into(),

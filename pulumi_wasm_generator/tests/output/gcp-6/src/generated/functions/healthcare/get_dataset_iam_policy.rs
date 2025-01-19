@@ -30,6 +30,7 @@ pub mod get_dataset_iam_policy {
         let dataset_id_binding = args.dataset_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:healthcare/getDatasetIamPolicy:getDatasetIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "datasetId".into(),

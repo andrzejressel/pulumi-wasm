@@ -111,6 +111,7 @@ pub mod code_repository {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/codeRepository:CodeRepository".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "codeRepositoryName".into(),

@@ -40,6 +40,7 @@ pub mod get_medtech_service {
         let workspace_id_binding = args.workspace_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:healthcare/getMedtechService:getMedtechService".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

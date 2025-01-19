@@ -195,6 +195,7 @@ pub mod document_classifier {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:comprehend/documentClassifier:DocumentClassifier".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dataAccessRoleArn".into(),

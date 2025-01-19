@@ -251,6 +251,7 @@ pub mod entry_type_iam_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataplex/entryTypeIamPolicy:EntryTypeIamPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "entryTypeId".into(),

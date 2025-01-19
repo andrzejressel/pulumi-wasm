@@ -91,6 +91,7 @@ pub mod voice_connector_termination_credentials {
             type_: "aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "credentials".into(),

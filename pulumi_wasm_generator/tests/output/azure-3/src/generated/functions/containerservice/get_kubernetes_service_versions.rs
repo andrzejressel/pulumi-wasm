@@ -42,6 +42,7 @@ pub mod get_kubernetes_service_versions {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "includePreview".into(),

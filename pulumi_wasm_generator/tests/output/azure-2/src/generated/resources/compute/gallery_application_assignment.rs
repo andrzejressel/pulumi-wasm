@@ -144,6 +144,7 @@ pub mod gallery_application_assignment {
             type_: "azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "configurationBlobUri".into(),

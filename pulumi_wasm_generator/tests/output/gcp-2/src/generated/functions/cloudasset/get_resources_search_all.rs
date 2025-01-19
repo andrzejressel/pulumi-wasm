@@ -37,6 +37,7 @@ pub mod get_resources_search_all {
         let scope_binding = args.scope.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudasset/getResourcesSearchAll:getResourcesSearchAll".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "assetTypes".into(),

@@ -96,6 +96,7 @@ pub mod data_connector_office_power_bi {
             type_: "azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "logAnalyticsWorkspaceId".into(),

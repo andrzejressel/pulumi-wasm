@@ -205,6 +205,7 @@ pub mod alert_rule_anomaly_duplicate {
             type_: "azure:sentinel/alertRuleAnomalyDuplicate:AlertRuleAnomalyDuplicate"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "builtInRuleId".into(),

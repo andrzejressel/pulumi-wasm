@@ -56,6 +56,7 @@ pub mod get_availability_zones {
         let state_binding = args.state.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:index/getAvailabilityZones:getAvailabilityZones".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "allAvailabilityZones".into(),

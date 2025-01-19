@@ -98,6 +98,7 @@ pub mod container_storage_account {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:backup/containerStorageAccount:ContainerStorageAccount".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "recoveryVaultName".into(),

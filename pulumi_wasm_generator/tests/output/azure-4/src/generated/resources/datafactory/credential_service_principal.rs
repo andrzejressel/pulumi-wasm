@@ -156,6 +156,7 @@ pub mod credential_service_principal {
             type_: "azure:datafactory/credentialServicePrincipal:CredentialServicePrincipal"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "annotations".into(),

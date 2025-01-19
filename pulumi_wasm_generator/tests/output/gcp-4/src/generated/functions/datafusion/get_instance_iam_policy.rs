@@ -42,6 +42,7 @@ pub mod get_instance_iam_policy {
         let region_binding = args.region.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:datafusion/getInstanceIamPolicy:getInstanceIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

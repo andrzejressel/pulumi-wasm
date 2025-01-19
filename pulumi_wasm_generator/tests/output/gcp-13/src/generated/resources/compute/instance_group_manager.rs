@@ -431,6 +431,7 @@ pub mod instance_group_manager {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/instanceGroupManager:InstanceGroupManager".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "allInstancesConfig".into(),

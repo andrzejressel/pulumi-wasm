@@ -118,6 +118,7 @@ pub mod tag_template {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/tagTemplate:TagTemplate".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "displayName".into(),

@@ -47,6 +47,7 @@ pub mod get_app_engine_version_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:iap/getAppEngineVersionIamPolicy:getAppEngineVersionIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appId".into(),

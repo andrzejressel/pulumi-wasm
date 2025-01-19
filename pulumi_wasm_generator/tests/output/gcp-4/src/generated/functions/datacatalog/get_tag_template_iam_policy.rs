@@ -39,6 +39,7 @@ pub mod get_tag_template_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:datacatalog/getTagTemplateIamPolicy:getTagTemplateIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

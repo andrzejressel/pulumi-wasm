@@ -81,6 +81,7 @@ pub mod cluster_snapshot {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/clusterSnapshot:ClusterSnapshot".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterIdentifier".into(),

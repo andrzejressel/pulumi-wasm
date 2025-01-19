@@ -39,6 +39,7 @@ pub mod get_connections {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:networkmanager/getConnections:getConnections".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "deviceId".into(),

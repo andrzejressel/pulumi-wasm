@@ -38,6 +38,7 @@ pub mod get_taxonomy_iam_policy {
         let taxonomy_binding = args.taxonomy.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:datacatalog/getTaxonomyIamPolicy:getTaxonomyIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

@@ -44,6 +44,7 @@ pub mod get_zone_dnssec {
         let zone_id_binding = args.zone_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getZoneDnssec:getZoneDnssec".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "zoneId".into(),

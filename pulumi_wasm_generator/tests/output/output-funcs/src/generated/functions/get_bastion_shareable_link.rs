@@ -32,6 +32,7 @@ pub mod get_bastion_shareable_link {
         let vms_binding = args.vms.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "mypkg::getBastionShareableLink".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bastionHostName".into(),

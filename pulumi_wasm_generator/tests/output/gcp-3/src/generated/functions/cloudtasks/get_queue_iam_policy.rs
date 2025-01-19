@@ -41,6 +41,7 @@ pub mod get_queue_iam_policy {
         let project_binding = args.project.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudtasks/getQueueIamPolicy:getQueueIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

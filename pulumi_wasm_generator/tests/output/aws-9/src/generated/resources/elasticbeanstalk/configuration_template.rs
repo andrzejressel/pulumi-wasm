@@ -106,6 +106,7 @@ pub mod configuration_template {
             type_: "aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "application".into(),

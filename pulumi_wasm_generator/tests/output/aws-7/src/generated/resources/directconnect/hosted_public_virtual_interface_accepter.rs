@@ -87,6 +87,7 @@ pub mod hosted_public_virtual_interface_accepter {
             type_: "aws:directconnect/hostedPublicVirtualInterfaceAccepter:HostedPublicVirtualInterfaceAccepter"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "tags".into(),

@@ -34,6 +34,7 @@ pub mod get_volume_snapshot {
         let volume_group_id_binding = args.volume_group_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

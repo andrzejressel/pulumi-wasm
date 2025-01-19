@@ -70,6 +70,7 @@ pub mod network_interface_attachment {
             type_: "aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "deviceIndex".into(),

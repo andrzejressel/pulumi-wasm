@@ -47,6 +47,7 @@ pub mod get_local_gateway_route_tables {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

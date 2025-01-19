@@ -25,6 +25,7 @@ pub mod get_gi_versions {
         let location_binding = args.location.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:oracle/getGiVersions:getGiVersions".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

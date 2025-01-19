@@ -203,6 +203,7 @@ pub mod mirroring_deployment {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networksecurity/mirroringDeployment:MirroringDeployment".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "forwardingRule".into(),

@@ -88,6 +88,7 @@ pub mod postgresql_node_configuration {
             type_: "azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterId".into(),

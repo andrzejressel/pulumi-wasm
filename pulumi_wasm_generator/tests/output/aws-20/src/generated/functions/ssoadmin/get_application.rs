@@ -45,6 +45,7 @@ pub mod get_application {
         let portal_options_binding = args.portal_options.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssoadmin/getApplication:getApplication".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationArn".into(),

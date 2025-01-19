@@ -45,6 +45,7 @@ pub mod get_reservation {
         let zone_binding = args.zone.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getReservation:getReservation".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

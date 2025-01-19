@@ -62,6 +62,7 @@ pub mod get_traffic_manager_profile {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getTrafficManagerProfile:getTrafficManagerProfile"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

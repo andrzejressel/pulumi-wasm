@@ -67,6 +67,7 @@ pub mod local_rulestack_outbound_trust_certificate_association {
             type_: "azure:paloalto/localRulestackOutboundTrustCertificateAssociation:LocalRulestackOutboundTrustCertificateAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "certificateId".into(),

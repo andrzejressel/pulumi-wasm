@@ -87,6 +87,7 @@ pub mod get_endpoint {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2clientvpn/getEndpoint:getEndpoint".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clientVpnEndpointId".into(),

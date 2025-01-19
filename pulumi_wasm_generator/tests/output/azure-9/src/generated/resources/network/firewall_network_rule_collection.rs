@@ -151,6 +151,7 @@ pub mod firewall_network_rule_collection {
             type_: "azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "action".into(),

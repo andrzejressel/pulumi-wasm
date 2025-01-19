@@ -74,6 +74,7 @@ pub mod get_ontap_storage_virtual_machine {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

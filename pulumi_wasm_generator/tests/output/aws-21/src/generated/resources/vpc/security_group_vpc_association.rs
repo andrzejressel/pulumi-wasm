@@ -69,6 +69,7 @@ pub mod security_group_vpc_association {
             type_: "aws:vpc/securityGroupVpcAssociation:SecurityGroupVpcAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "securityGroupId".into(),

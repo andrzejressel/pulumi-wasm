@@ -122,6 +122,7 @@ pub mod linked_service_postgresql {
             type_: "azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalProperties".into(),

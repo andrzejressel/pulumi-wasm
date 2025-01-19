@@ -207,6 +207,7 @@ pub mod gallery_application_version {
             type_: "azure:compute/galleryApplicationVersion:GalleryApplicationVersion"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "configFile".into(),

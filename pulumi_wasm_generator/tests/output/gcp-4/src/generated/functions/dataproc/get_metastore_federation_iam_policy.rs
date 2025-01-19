@@ -44,6 +44,7 @@ pub mod get_metastore_federation_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:dataproc/getMetastoreFederationIamPolicy:getMetastoreFederationIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "federationId".into(),

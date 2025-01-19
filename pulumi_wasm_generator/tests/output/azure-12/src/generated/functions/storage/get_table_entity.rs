@@ -35,6 +35,7 @@ pub mod get_table_entity {
         let storage_table_id_binding = args.storage_table_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getTableEntity:getTableEntity".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "partitionKey".into(),

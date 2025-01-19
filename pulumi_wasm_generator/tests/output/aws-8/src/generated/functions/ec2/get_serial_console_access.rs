@@ -15,6 +15,7 @@ pub mod get_serial_console_access {
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([]),
             results: Vec::from([
                 register_interface::ResultField {

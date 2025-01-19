@@ -15,6 +15,7 @@ pub mod get_account_alias {
         use std::collections::HashMap;
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getAccountAlias:getAccountAlias".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([]),
             results: Vec::from([
                 register_interface::ResultField {

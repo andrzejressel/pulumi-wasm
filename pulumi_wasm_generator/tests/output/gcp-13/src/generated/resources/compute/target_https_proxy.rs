@@ -547,6 +547,7 @@ pub mod target_https_proxy {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/targetHttpsProxy:TargetHttpsProxy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "certificateManagerCertificates".into(),

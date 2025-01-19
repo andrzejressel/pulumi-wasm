@@ -67,6 +67,7 @@ pub mod portal_tenant_configuration {
             type_: "azure:core/portalTenantConfiguration:PortalTenantConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "privateMarkdownStorageEnforced".into(),

@@ -159,6 +159,7 @@ pub mod mirroring_endpoint_group {
             type_: "gcp:networksecurity/mirroringEndpointGroup:MirroringEndpointGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "labels".into(),

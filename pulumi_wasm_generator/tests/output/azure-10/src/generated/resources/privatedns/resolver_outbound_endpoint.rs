@@ -118,6 +118,7 @@ pub mod resolver_outbound_endpoint {
             type_: "azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

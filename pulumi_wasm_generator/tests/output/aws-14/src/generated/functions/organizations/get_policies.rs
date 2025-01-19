@@ -25,6 +25,7 @@ pub mod get_policies {
         let filter_binding = args.filter.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:organizations/getPolicies:getPolicies".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filter".into(),

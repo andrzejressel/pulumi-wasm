@@ -174,6 +174,7 @@ pub mod vpn_server_configuration {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/vpnServerConfiguration:VpnServerConfiguration".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "azureActiveDirectoryAuthentications".into(),

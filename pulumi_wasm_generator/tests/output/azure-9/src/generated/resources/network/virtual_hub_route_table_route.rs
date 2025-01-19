@@ -169,6 +169,7 @@ pub mod virtual_hub_route_table_route {
             type_: "azure:network/virtualHubRouteTableRoute:VirtualHubRouteTableRoute"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "destinations".into(),

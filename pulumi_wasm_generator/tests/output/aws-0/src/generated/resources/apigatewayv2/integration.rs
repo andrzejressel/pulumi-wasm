@@ -267,6 +267,7 @@ pub mod integration {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigatewayv2/integration:Integration".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiId".into(),

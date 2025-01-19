@@ -40,6 +40,7 @@ pub mod get_vpn_gateway {
         let resource_group_name_binding = args.resource_group_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getVpnGateway:getVpnGateway".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

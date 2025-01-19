@@ -38,6 +38,7 @@ pub mod get_restorable_database_accounts {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

@@ -50,6 +50,7 @@ pub mod get_dns_zone {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:privatedns/getDnsZone:getDnsZone".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

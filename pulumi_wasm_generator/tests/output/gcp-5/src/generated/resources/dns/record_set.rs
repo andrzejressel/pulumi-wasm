@@ -390,6 +390,7 @@ pub mod record_set {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dns/recordSet:RecordSet".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "managedZone".into(),

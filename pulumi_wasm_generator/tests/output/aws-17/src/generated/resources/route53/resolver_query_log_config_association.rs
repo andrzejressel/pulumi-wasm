@@ -63,6 +63,7 @@ pub mod resolver_query_log_config_association {
             type_: "aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "resolverQueryLogConfigId".into(),

@@ -300,6 +300,7 @@ pub mod h_base_cluster {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:hdinsight/hBaseCluster:HBaseCluster".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterVersion".into(),

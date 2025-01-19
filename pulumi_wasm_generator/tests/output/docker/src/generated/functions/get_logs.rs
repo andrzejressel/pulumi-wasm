@@ -70,6 +70,7 @@ pub mod get_logs {
         let until_binding = args.until.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "docker:index/getLogs:getLogs".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "details".into(),

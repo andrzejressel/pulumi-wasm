@@ -45,6 +45,7 @@ pub mod get_log_view_iam_policy {
         let parent_binding = args.parent.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:logging/getLogViewIamPolicy:getLogViewIamPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucket".into(),

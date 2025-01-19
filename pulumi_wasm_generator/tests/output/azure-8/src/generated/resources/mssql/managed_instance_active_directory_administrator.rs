@@ -138,6 +138,7 @@ pub mod managed_instance_active_directory_administrator {
             type_: "azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "azureadAuthenticationOnly".into(),

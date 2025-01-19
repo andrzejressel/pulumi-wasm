@@ -46,6 +46,7 @@ pub mod get_portfolio {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicecatalog/getPortfolio:getPortfolio".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "acceptLanguage".into(),

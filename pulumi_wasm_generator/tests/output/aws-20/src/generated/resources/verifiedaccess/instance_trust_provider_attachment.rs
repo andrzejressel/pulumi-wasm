@@ -75,6 +75,7 @@ pub mod instance_trust_provider_attachment {
             type_: "aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "verifiedaccessInstanceId".into(),

@@ -58,6 +58,7 @@ pub mod url_normalization_settings {
             type_: "cloudflare:index/urlNormalizationSettings:UrlNormalizationSettings"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "scope".into(),

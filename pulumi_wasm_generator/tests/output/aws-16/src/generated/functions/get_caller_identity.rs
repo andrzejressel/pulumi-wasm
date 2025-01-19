@@ -28,6 +28,7 @@ pub mod get_caller_identity {
         let id_binding = args.id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:index/getCallerIdentity:getCallerIdentity".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "id".into(),

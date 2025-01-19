@@ -68,6 +68,7 @@ pub mod vpc_block_public_access_options {
             type_: "aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "internetGatewayBlockMode".into(),

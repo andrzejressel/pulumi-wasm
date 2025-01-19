@@ -142,6 +142,7 @@ pub mod vpc_peering_connection_accepter {
             type_: "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accepter".into(),

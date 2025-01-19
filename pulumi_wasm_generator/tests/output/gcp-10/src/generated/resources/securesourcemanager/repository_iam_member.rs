@@ -299,6 +299,7 @@ pub mod repository_iam_member {
             type_: "gcp:securesourcemanager/repositoryIamMember:RepositoryIamMember"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "condition".into(),

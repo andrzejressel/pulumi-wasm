@@ -164,6 +164,7 @@ pub mod dataset {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/dataset:Dataset".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "encryptionSpec".into(),

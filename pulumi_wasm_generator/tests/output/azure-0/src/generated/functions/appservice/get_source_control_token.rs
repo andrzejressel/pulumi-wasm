@@ -26,6 +26,7 @@ pub mod get_source_control_token {
         let type__binding = args.type_.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:appservice/getSourceControlToken:getSourceControlToken".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "type".into(),

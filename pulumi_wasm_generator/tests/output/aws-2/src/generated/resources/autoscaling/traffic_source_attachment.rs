@@ -59,6 +59,7 @@ pub mod traffic_source_attachment {
             type_: "aws:autoscaling/trafficSourceAttachment:TrafficSourceAttachment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "autoscalingGroupName".into(),

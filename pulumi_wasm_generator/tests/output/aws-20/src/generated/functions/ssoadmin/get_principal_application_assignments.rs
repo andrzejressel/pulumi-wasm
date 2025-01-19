@@ -55,6 +55,7 @@ pub mod get_principal_application_assignments {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "applicationAssignments".into(),

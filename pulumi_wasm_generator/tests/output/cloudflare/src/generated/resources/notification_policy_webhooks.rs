@@ -79,6 +79,7 @@ pub mod notification_policy_webhooks {
             type_: "cloudflare:index/notificationPolicyWebhooks:NotificationPolicyWebhooks"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

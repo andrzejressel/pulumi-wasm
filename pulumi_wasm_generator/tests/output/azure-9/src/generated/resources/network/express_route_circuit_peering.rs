@@ -231,6 +231,7 @@ pub mod express_route_circuit_peering {
             type_: "azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "expressRouteCircuitName".into(),

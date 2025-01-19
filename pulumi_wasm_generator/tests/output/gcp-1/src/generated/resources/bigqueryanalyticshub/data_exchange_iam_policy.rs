@@ -257,6 +257,7 @@ pub mod data_exchange_iam_policy {
             type_: "gcp:bigqueryanalyticshub/dataExchangeIamPolicy:DataExchangeIamPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dataExchangeId".into(),

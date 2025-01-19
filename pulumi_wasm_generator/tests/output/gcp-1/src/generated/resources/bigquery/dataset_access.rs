@@ -316,6 +316,7 @@ pub mod dataset_access {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/datasetAccess:DatasetAccess".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "authorizedDataset".into(),

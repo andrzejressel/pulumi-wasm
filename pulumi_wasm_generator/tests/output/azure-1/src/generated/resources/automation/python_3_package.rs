@@ -111,6 +111,7 @@ pub mod python_3_package {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/python3Package:Python3Package".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "automationAccountName".into(),

@@ -171,6 +171,7 @@ pub mod get_region_instance_template {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getRegionInstanceTemplate:getRegionInstanceTemplate"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filter".into(),

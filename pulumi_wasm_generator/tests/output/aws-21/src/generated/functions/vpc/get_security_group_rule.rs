@@ -55,6 +55,7 @@ pub mod get_security_group_rule {
         let security_group_rule_id_binding = args.security_group_rule_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:vpc/getSecurityGroupRule:getSecurityGroupRule".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

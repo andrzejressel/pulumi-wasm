@@ -20,6 +20,7 @@ pub mod pulumi_terraform_bridge_2801 {
         let request = register_interface::RegisterResourceRequest {
             type_: "example:index:PulumiTerraformBridge2801".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "type".into(),

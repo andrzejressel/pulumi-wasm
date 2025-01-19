@@ -163,6 +163,8 @@ pub(crate) struct Package {
     name: String,
     #[serde(rename = "displayName")]
     display_name: Option<String>,
+    #[serde(rename = "pluginDownloadURL")]
+    plugin_download_url: Option<String>,
     #[serde(default)]
     resources: PulumiMap<Resource>,
     version: Option<String>,
@@ -401,6 +403,7 @@ pub(crate) fn to_model(package: &Package) -> Result<crate::model::Package> {
     Ok(crate::model::Package::new(
         package.name.clone(),
         package.display_name.clone(),
+        package.plugin_download_url.clone(),
         package.version.clone().unwrap_or("0.0.1".to_string()),
         resources,
         functions,

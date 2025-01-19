@@ -47,6 +47,7 @@ pub mod get_transit_gateway_route_tables {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

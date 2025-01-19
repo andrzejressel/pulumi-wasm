@@ -54,6 +54,7 @@ pub mod get_security_policy {
         let self_link_binding = args.self_link.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getSecurityPolicy:getSecurityPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

@@ -53,6 +53,7 @@ pub mod get_ip_ranges {
         let url_binding = args.url.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:index/getIpRanges:getIpRanges".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "id".into(),

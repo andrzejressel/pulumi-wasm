@@ -85,6 +85,7 @@ pub mod network_manager_network_group {
             type_: "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

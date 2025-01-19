@@ -52,6 +52,7 @@ pub mod get_cluster_credentials {
         let duration_seconds_binding = args.duration_seconds.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshift/getClusterCredentials:getClusterCredentials".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "autoCreate".into(),

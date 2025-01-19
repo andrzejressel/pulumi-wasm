@@ -51,6 +51,7 @@ pub mod get_network_manager_connectivity_configuration {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

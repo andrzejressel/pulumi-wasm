@@ -92,6 +92,7 @@ pub mod app_cookie_stickiness_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cookieName".into(),

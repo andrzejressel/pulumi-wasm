@@ -119,6 +119,7 @@ pub mod scram_secret_association {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:msk/scramSecretAssociation:ScramSecretAssociation".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterArn".into(),

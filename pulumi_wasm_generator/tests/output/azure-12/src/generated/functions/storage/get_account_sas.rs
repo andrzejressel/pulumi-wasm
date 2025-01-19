@@ -79,6 +79,7 @@ pub mod get_account_sas {
         let start_binding = args.start.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getAccountSAS:getAccountSAS".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "connectionString".into(),

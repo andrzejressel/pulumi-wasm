@@ -39,6 +39,7 @@ pub mod get_user_ssh_key {
         let username_binding = args.username.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iam/getUserSshKey:getUserSshKey".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "encoding".into(),

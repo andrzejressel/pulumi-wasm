@@ -45,6 +45,7 @@ pub mod get_backend_address_pool {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:lb/getBackendAddressPool:getBackendAddressPool".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "loadbalancerId".into(),

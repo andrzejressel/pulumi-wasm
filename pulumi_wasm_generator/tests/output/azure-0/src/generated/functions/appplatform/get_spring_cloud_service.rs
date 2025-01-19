@@ -48,6 +48,7 @@ pub mod get_spring_cloud_service {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:appplatform/getSpringCloudService:getSpringCloudService"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

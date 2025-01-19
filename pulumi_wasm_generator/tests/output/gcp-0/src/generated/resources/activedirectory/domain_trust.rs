@@ -136,6 +136,7 @@ pub mod domain_trust {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:activedirectory/domainTrust:DomainTrust".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "domain".into(),

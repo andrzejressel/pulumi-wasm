@@ -134,6 +134,7 @@ pub mod backup_instance_blog_storage {
             type_: "azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backupPolicyId".into(),

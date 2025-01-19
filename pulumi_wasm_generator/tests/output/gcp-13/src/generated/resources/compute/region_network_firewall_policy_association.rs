@@ -143,6 +143,7 @@ pub mod region_network_firewall_policy_association {
             type_: "gcp:compute/regionNetworkFirewallPolicyAssociation:RegionNetworkFirewallPolicyAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "attachmentTarget".into(),

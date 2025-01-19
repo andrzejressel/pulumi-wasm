@@ -113,6 +113,7 @@ pub mod customer_gateway_association {
             type_: "aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customerGatewayArn".into(),

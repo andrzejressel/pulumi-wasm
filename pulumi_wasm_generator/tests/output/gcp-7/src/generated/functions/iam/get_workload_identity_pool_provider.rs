@@ -66,6 +66,7 @@ pub mod get_workload_identity_pool_provider {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:iam/getWorkloadIdentityPoolProvider:getWorkloadIdentityPoolProvider"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "project".into(),

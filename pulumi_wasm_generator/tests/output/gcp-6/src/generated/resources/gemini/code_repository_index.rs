@@ -138,6 +138,7 @@ pub mod code_repository_index {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gemini/codeRepositoryIndex:CodeRepositoryIndex".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "codeRepositoryIndexId".into(),

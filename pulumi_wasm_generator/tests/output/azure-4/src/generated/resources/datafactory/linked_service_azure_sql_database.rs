@@ -183,6 +183,7 @@ pub mod linked_service_azure_sql_database {
             type_: "azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalProperties".into(),

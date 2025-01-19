@@ -80,6 +80,7 @@ pub mod access_mutual_tls_hostname_settings {
             type_: "cloudflare:index/accessMutualTlsHostnameSettings:AccessMutualTlsHostnameSettings"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

@@ -255,6 +255,7 @@ pub mod zone_iam_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataplex/zoneIamPolicy:ZoneIamPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dataplexZone".into(),

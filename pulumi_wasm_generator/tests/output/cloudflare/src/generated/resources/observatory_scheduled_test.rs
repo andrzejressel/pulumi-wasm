@@ -72,6 +72,7 @@ pub mod observatory_scheduled_test {
             type_: "cloudflare:index/observatoryScheduledTest:ObservatoryScheduledTest"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "frequency".into(),

@@ -76,6 +76,7 @@ pub mod server_dns_alias {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/serverDnsAlias:ServerDnsAlias".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "mssqlServerId".into(),

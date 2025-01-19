@@ -99,6 +99,7 @@ pub mod appregistry_application {
             type_: "aws:servicecatalog/appregistryApplication:AppregistryApplication"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

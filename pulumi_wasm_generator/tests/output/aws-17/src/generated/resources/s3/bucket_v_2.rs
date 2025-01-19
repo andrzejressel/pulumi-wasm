@@ -253,6 +253,7 @@ pub mod bucket_v_2 {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketV2:BucketV2".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accelerationStatus".into(),

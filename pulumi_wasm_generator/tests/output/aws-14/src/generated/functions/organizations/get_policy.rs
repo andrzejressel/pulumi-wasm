@@ -35,6 +35,7 @@ pub mod get_policy {
         let policy_id_binding = args.policy_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:organizations/getPolicy:getPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "policyId".into(),

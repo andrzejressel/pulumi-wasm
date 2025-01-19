@@ -108,6 +108,7 @@ pub mod get_permissions {
         let table_with_columns_binding = args.table_with_columns.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lakeformation/getPermissions:getPermissions".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "catalogId".into(),

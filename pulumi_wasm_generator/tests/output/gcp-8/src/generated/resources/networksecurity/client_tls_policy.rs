@@ -189,6 +189,7 @@ pub mod client_tls_policy {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networksecurity/clientTlsPolicy:ClientTlsPolicy".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clientCertificate".into(),

@@ -134,6 +134,7 @@ pub mod resolver_virtual_network_link {
             type_: "azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dnsForwardingRulesetId".into(),

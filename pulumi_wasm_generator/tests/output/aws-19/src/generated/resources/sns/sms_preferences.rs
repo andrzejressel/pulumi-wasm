@@ -81,6 +81,7 @@ pub mod sms_preferences {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sns/smsPreferences:SmsPreferences".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "defaultSenderId".into(),

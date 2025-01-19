@@ -123,6 +123,7 @@ pub mod network_firewall_policy_association {
             type_: "gcp:compute/networkFirewallPolicyAssociation:NetworkFirewallPolicyAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "attachmentTarget".into(),

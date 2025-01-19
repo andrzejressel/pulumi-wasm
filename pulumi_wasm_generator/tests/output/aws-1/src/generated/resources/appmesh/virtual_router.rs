@@ -114,6 +114,7 @@ pub mod virtual_router {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appmesh/virtualRouter:VirtualRouter".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "meshName".into(),

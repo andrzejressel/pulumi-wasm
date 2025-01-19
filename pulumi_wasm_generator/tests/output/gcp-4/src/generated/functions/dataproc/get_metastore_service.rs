@@ -87,6 +87,7 @@ pub mod get_metastore_service {
         let service_id_binding = args.service_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:dataproc/getMetastoreService:getMetastoreService".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

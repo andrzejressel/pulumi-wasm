@@ -52,6 +52,7 @@ pub mod get_reserved_cache_node_offering {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cacheNodeType".into(),

@@ -67,6 +67,7 @@ pub mod api_shield_operation_schema_validation_settings {
             type_: "cloudflare:index/apiShieldOperationSchemaValidationSettings:ApiShieldOperationSchemaValidationSettings"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "mitigationAction".into(),

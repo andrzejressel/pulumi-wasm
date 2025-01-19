@@ -128,6 +128,7 @@ pub mod registry_webook {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/registryWebook:RegistryWebook".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "actions".into(),

@@ -131,6 +131,7 @@ pub mod flexible_server_configuration {
             type_: "azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

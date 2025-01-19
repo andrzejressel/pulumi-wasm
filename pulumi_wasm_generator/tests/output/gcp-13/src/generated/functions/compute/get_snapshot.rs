@@ -69,6 +69,7 @@ pub mod get_snapshot {
         let project_binding = args.project.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getSnapshot:getSnapshot".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filter".into(),

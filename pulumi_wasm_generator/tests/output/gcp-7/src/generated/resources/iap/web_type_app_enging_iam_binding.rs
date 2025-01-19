@@ -428,6 +428,7 @@ pub mod web_type_app_enging_iam_binding {
             type_: "gcp:iap/webTypeAppEngingIamBinding:WebTypeAppEngingIamBinding"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appId".into(),

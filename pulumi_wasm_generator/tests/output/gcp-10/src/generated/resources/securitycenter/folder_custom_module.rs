@@ -215,6 +215,7 @@ pub mod folder_custom_module {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/folderCustomModule:FolderCustomModule".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "customConfig".into(),

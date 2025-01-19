@@ -86,6 +86,7 @@ pub mod page_rule {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/pageRule:PageRule".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "actions".into(),

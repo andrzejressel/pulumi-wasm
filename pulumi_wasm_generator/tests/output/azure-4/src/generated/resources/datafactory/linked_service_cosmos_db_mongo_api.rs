@@ -143,6 +143,7 @@ pub mod linked_service_cosmos_db_mongo_api {
             type_: "azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalProperties".into(),

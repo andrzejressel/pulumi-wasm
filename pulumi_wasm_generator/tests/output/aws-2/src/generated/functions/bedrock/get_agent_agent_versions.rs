@@ -41,6 +41,7 @@ pub mod get_agent_agent_versions {
         let agent_version_summaries_binding = args.agent_version_summaries.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:bedrock/getAgentAgentVersions:getAgentAgentVersions".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "agentId".into(),

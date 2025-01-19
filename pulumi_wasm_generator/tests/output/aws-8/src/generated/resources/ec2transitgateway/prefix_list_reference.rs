@@ -107,6 +107,7 @@ pub mod prefix_list_reference {
             type_: "aws:ec2transitgateway/prefixListReference:PrefixListReference"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "blackhole".into(),

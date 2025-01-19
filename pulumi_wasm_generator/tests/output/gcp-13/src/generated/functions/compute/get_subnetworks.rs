@@ -39,6 +39,7 @@ pub mod get_subnetworks {
         let region_binding = args.region.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getSubnetworks:getSubnetworks".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filter".into(),

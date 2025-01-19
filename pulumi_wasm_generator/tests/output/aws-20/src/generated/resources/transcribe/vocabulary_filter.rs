@@ -92,6 +92,7 @@ pub mod vocabulary_filter {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:transcribe/vocabularyFilter:VocabularyFilter".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "languageCode".into(),

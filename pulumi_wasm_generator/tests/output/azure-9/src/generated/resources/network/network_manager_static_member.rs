@@ -106,6 +106,7 @@ pub mod network_manager_static_member {
             type_: "azure:network/networkManagerStaticMember:NetworkManagerStaticMember"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

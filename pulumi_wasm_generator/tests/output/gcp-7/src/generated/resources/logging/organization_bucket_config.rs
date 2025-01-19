@@ -121,6 +121,7 @@ pub mod organization_bucket_config {
             type_: "gcp:logging/organizationBucketConfig:OrganizationBucketConfig"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucketId".into(),

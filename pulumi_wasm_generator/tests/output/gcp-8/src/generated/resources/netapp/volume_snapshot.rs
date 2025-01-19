@@ -165,6 +165,7 @@ pub mod volume_snapshot {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:netapp/volumeSnapshot:VolumeSnapshot".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

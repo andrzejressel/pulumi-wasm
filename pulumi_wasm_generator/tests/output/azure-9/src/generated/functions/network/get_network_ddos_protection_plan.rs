@@ -37,6 +37,7 @@ pub mod get_network_ddos_protection_plan {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

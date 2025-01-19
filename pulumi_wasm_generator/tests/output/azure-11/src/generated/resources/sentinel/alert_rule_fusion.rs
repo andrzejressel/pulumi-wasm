@@ -102,6 +102,7 @@ pub mod alert_rule_fusion {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/alertRuleFusion:AlertRuleFusion".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "alertRuleTemplateGuid".into(),

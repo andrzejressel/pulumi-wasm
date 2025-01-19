@@ -56,6 +56,7 @@ pub fn create(
     let request = register_interface::RegisterResourceRequest {
         type_: "{{resource.type}}".into(),
         name: name.to_string(),
+        version: {{resource.get_version}},
         object: Vec::from([
             {{#each resource.input_properties}}
                 register_interface::ObjectField { name: "{{name}}".into(), value: &{{arg_name}}_binding },

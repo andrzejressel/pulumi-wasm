@@ -53,6 +53,7 @@ pub mod get_identity_pool {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cognito/getIdentityPool:getIdentityPool".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "identityPoolName".into(),

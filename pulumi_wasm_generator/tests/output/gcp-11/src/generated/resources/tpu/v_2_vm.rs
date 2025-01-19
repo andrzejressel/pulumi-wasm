@@ -367,6 +367,7 @@ pub mod v_2_vm {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:tpu/v2Vm:V2Vm".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "acceleratorConfig".into(),

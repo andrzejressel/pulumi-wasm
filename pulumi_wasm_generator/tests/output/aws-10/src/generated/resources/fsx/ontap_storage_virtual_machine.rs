@@ -150,6 +150,7 @@ pub mod ontap_storage_virtual_machine {
             type_: "aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "activeDirectoryConfiguration".into(),

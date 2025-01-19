@@ -28,6 +28,7 @@ pub mod get_data_shares {
         let data_shares_binding = args.data_shares.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshift/getDataShares:getDataShares".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dataShares".into(),

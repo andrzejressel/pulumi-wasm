@@ -58,6 +58,7 @@ pub mod get_managed_prefix_list {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getManagedPrefixList:getManagedPrefixList".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

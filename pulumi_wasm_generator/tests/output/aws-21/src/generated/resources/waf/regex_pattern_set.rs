@@ -57,6 +57,7 @@ pub mod regex_pattern_set {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:waf/regexPatternSet:RegexPatternSet".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

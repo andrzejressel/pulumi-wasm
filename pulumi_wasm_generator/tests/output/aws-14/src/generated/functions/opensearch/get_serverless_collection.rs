@@ -50,6 +50,7 @@ pub mod get_serverless_collection {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:opensearch/getServerlessCollection:getServerlessCollection"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "id".into(),

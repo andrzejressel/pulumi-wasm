@@ -174,6 +174,7 @@ pub mod configuration_feature {
             type_: "azure:appconfiguration/configurationFeature:ConfigurationFeature"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "configurationStoreId".into(),

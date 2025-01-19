@@ -57,6 +57,7 @@ pub mod organization_admin_account {
             type_: "aws:detective/organizationAdminAccount:OrganizationAdminAccount"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

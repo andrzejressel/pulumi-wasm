@@ -133,6 +133,7 @@ pub mod repository_group_iam_binding {
             type_: "gcp:gemini/repositoryGroupIamBinding:RepositoryGroupIamBinding"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "codeRepositoryIndex".into(),

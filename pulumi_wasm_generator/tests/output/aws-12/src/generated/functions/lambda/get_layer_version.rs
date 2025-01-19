@@ -63,6 +63,7 @@ pub mod get_layer_version {
         let version_binding = args.version.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lambda/getLayerVersion:getLayerVersion".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "compatibleArchitecture".into(),

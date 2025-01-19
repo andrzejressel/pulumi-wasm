@@ -60,6 +60,7 @@ pub mod get_engine_versions {
         let version_prefix_binding = args.version_prefix.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:container/getEngineVersions:getEngineVersions".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

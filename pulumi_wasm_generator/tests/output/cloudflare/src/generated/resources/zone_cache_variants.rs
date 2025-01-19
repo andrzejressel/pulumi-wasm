@@ -117,6 +117,7 @@ pub mod zone_cache_variants {
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zoneCacheVariants:ZoneCacheVariants".into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "avifs".into(),

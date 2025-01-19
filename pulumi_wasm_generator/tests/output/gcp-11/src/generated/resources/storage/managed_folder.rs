@@ -123,6 +123,7 @@ pub mod managed_folder {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/managedFolder:ManagedFolder".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucket".into(),

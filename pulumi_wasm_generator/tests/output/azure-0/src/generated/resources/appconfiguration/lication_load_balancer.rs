@@ -86,6 +86,7 @@ pub mod lication_load_balancer {
             type_: "azure:appconfiguration/licationLoadBalancer:LicationLoadBalancer"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "location".into(),

@@ -65,6 +65,7 @@ pub mod get_cluster_istio_service {
         let service_namespace_binding = args.service_namespace.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:monitoring/getClusterIstioService:getClusterIstioService".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterName".into(),

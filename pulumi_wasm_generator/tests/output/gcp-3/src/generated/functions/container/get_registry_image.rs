@@ -45,6 +45,7 @@ pub mod get_registry_image {
         let tag_binding = args.tag.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:container/getRegistryImage:getRegistryImage".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "digest".into(),

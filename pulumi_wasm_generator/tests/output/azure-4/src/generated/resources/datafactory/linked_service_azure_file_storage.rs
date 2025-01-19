@@ -162,6 +162,7 @@ pub mod linked_service_azure_file_storage {
             type_: "azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalProperties".into(),

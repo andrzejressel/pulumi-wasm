@@ -46,6 +46,7 @@ pub mod security_token_service_preferences {
             type_: "aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "globalEndpointTokenVersion".into(),

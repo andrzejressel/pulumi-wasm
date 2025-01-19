@@ -151,6 +151,7 @@ pub mod identity_provider_aadb_2_c {
             type_: "azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "allowedTenant".into(),

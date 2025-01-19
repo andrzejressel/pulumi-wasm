@@ -37,6 +37,7 @@ pub mod get_resolver_firewall_domain_list {
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "firewallDomainListId".into(),

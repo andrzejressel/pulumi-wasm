@@ -227,6 +227,7 @@ pub mod prevention_deidentify_template {
             type_: "gcp:dataloss/preventionDeidentifyTemplate:PreventionDeidentifyTemplate"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "deidentifyConfig".into(),

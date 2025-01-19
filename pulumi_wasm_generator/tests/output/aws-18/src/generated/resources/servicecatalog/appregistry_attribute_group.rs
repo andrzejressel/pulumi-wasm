@@ -85,6 +85,7 @@ pub mod appregistry_attribute_group {
             type_: "aws:servicecatalog/appregistryAttributeGroup:AppregistryAttributeGroup"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "attributes".into(),

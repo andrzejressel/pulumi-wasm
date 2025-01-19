@@ -85,6 +85,7 @@ pub mod vault_resource_guard_association {
             type_: "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "resourceGuardId".into(),

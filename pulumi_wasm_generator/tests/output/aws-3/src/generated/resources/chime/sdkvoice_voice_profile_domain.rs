@@ -90,6 +90,7 @@ pub mod sdkvoice_voice_profile_domain {
             type_: "aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "description".into(),

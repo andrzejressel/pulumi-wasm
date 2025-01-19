@@ -78,6 +78,7 @@ pub mod vpc_ipv_4_cidr_block_association {
             type_: "aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cidrBlock".into(),

@@ -107,6 +107,7 @@ pub mod location_fsx_ontap_file_system {
             type_: "aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "protocol".into(),

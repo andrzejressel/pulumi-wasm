@@ -61,6 +61,7 @@ pub mod get_certificate {
         let types_binding = args.types.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:acm/getCertificate:getCertificate".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "domain".into(),

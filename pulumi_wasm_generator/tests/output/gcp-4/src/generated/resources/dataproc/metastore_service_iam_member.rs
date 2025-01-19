@@ -293,6 +293,7 @@ pub mod metastore_service_iam_member {
             type_: "gcp:dataproc/metastoreServiceIamMember:MetastoreServiceIamMember"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "condition".into(),

@@ -52,6 +52,7 @@ pub mod get_app_service_plan {
         let resource_group_name_binding = args.resource_group_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:appservice/getAppServicePlan:getAppServicePlan".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

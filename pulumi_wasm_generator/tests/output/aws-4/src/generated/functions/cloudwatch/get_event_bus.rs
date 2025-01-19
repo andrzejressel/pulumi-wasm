@@ -29,6 +29,7 @@ pub mod get_event_bus {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudwatch/getEventBus:getEventBus".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

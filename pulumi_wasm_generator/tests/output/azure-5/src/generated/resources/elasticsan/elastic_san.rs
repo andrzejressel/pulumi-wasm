@@ -133,6 +133,7 @@ pub mod elastic_san {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:elasticsan/elasticSan:ElasticSan".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "baseSizeInTib".into(),

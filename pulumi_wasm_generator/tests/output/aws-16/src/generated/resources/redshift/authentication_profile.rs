@@ -60,6 +60,7 @@ pub mod authentication_profile {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/authenticationProfile:AuthenticationProfile".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "authenticationProfileContent".into(),

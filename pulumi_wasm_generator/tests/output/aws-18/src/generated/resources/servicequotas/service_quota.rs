@@ -82,6 +82,7 @@ pub mod service_quota {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicequotas/serviceQuota:ServiceQuota".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "quotaCode".into(),

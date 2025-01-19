@@ -36,6 +36,7 @@ pub mod get_volume_quota_rule {
         let volume_id_binding = args.volume_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

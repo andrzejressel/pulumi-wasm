@@ -87,6 +87,7 @@ pub mod transit_gateway_peering {
             type_: "aws:networkmanager/transitGatewayPeering:TransitGatewayPeering"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "coreNetworkId".into(),

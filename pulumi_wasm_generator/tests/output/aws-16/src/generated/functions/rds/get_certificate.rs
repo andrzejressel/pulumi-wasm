@@ -40,6 +40,7 @@ pub mod get_certificate {
         let latest_valid_till_binding = args.latest_valid_till.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:rds/getCertificate:getCertificate".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "id".into(),

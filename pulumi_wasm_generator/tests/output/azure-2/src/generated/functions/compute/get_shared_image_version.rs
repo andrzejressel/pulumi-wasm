@@ -72,6 +72,7 @@ pub mod get_shared_image_version {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:compute/getSharedImageVersion:getSharedImageVersion".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "galleryName".into(),

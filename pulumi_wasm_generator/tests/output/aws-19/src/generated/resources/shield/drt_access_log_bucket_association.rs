@@ -78,6 +78,7 @@ pub mod drt_access_log_bucket_association {
             type_: "aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "logBucket".into(),

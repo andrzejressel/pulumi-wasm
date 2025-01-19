@@ -130,6 +130,7 @@ pub mod aad_diagnostic_setting {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "enabledLogs".into(),

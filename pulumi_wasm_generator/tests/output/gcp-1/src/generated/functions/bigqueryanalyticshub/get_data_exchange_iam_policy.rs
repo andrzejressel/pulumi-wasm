@@ -43,6 +43,7 @@ pub mod get_data_exchange_iam_policy {
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:bigqueryanalyticshub/getDataExchangeIamPolicy:getDataExchangeIamPolicy"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dataExchangeId".into(),

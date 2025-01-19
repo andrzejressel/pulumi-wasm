@@ -137,6 +137,7 @@ pub mod backup_instance_postgresql_flexible_server {
             type_: "azure:dataprotection/backupInstancePostgresqlFlexibleServer:BackupInstancePostgresqlFlexibleServer"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backupPolicyId".into(),

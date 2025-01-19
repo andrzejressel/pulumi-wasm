@@ -135,6 +135,7 @@ pub mod default_supported_idp_config {
             type_: "gcp:identityplatform/defaultSupportedIdpConfig:DefaultSupportedIdpConfig"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clientId".into(),

@@ -110,6 +110,7 @@ pub mod network_interface_security_group_association {
             type_: "azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "networkInterfaceId".into(),

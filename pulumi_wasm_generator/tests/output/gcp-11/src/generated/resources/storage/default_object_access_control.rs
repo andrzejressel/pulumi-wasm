@@ -140,6 +140,7 @@ pub mod default_object_access_control {
             type_: "gcp:storage/defaultObjectAccessControl:DefaultObjectAccessControl"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucket".into(),

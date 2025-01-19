@@ -50,6 +50,7 @@ pub mod custom_target_type_iam_member {
             type_: "gcp:clouddeploy/customTargetTypeIamMember:CustomTargetTypeIamMember"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "condition".into(),

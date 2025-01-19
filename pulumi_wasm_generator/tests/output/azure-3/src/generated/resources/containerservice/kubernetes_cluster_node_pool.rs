@@ -407,6 +407,7 @@ pub mod kubernetes_cluster_node_pool {
             type_: "azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "autoScalingEnabled".into(),

@@ -118,6 +118,7 @@ pub mod integration_runtime_rule {
             type_: "azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "cleanupEnabled".into(),

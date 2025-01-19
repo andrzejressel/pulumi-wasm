@@ -117,6 +117,7 @@ pub mod lien {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:resourcemanager/lien:Lien".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "origin".into(),

@@ -100,6 +100,7 @@ pub mod hosted_transit_virtual_interface_acceptor {
             type_: "aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "dxGatewayId".into(),

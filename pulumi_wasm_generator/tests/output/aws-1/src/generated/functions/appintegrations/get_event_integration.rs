@@ -43,6 +43,7 @@ pub mod get_event_integration {
         let tags_binding = args.tags.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:appintegrations/getEventIntegration:getEventIntegration".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

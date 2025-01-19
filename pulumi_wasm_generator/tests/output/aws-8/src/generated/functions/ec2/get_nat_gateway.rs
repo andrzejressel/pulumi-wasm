@@ -74,6 +74,7 @@ pub mod get_nat_gateway {
         let vpc_id_binding = args.vpc_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getNatGateway:getNatGateway".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "filters".into(),

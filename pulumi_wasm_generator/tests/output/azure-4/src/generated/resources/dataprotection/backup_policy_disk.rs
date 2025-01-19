@@ -124,6 +124,7 @@ pub mod backup_policy_disk {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dataprotection/backupPolicyDisk:BackupPolicyDisk".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backupRepeatingTimeIntervals".into(),

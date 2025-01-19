@@ -49,6 +49,7 @@ pub mod get_network_packet_core_data_plane {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:mobile/getNetworkPacketCoreDataPlane:getNetworkPacketCoreDataPlane"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "mobileNetworkPacketCoreControlPlaneId".into(),

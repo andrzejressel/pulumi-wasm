@@ -812,10 +812,11 @@ impl Engine {
         inputs: HashMap<FieldName, OutputId>,
         outputs: HashSet<FieldName>,
         in_preview: bool,
+        version: String,
     ) -> (OutputId, HashMap<FieldName, OutputId>) {
         let operation =
             ResourceRequestOperation::Invoke(ResourceInvokeRequestOperation::new(token));
-        self.create_register_or_read_resource_node(operation, inputs, outputs, in_preview)
+        self.create_register_or_read_resource_node(operation, inputs, outputs, in_preview, version)
     }
 
     pub fn create_register_resource_node(
@@ -825,10 +826,11 @@ impl Engine {
         inputs: HashMap<FieldName, OutputId>,
         outputs: HashSet<FieldName>,
         in_preview: bool,
+        version: String,
     ) -> (OutputId, HashMap<FieldName, OutputId>) {
         let operation =
             ResourceRequestOperation::Register(RegisterResourceRequestOperation::new(r#type, name));
-        self.create_register_or_read_resource_node(operation, inputs, outputs, in_preview)
+        self.create_register_or_read_resource_node(operation, inputs, outputs, in_preview, version)
     }
 
     fn create_register_or_read_resource_node(
@@ -837,10 +839,15 @@ impl Engine {
         inputs: HashMap<FieldName, OutputId>,
         outputs: HashSet<FieldName>,
         in_preview: bool,
+        version: String,
     ) -> (OutputId, HashMap<FieldName, OutputId>) {
         let output_id = Uuid::now_v7().into();
-        let node =
-            AbstractResourceNode::new(operation, inputs.keys().cloned().collect(), outputs.clone());
+        let node = AbstractResourceNode::new(
+            operation,
+            inputs.keys().cloned().collect(),
+            outputs.clone(),
+            version,
+        );
         self.nodes
             .insert(output_id, EngineNode::RegisterResource(node).into());
 
@@ -1112,6 +1119,7 @@ mod tests {
                     HashMap::from([("input".into(), done_node_output_id)]),
                     ["output".into()].into(),
                     true,
+                    "1.0.0".into(),
                 );
 
             assert_eq!(output_fields.len(), 1);
@@ -1141,6 +1149,7 @@ mod tests {
                     vec![Callback::extract_field(
                         *output_fields.get(&"output".into()).unwrap()
                     )],
+                    "1.0.0".into()
                 )
             );
             assert_eq!(
@@ -1162,6 +1171,7 @@ mod tests {
                     HashMap::from([("input".into(), done_node_output_id)]),
                     ["output".into()].into(),
                     false,
+                    "1.0.0".into(),
                 );
 
             assert_eq!(output_fields.len(), 1);
@@ -1191,6 +1201,7 @@ mod tests {
                     vec![Callback::extract_field(
                         *output_fields.get(&"output".into()).unwrap()
                     )],
+                    "1.0.0".into()
                 )
             );
             assert_eq!(
@@ -1225,6 +1236,7 @@ mod tests {
                         ),
                         object: HashMap::from([("input".into(), Some(1.into()))]),
                         expected_results: HashSet::from(["output".into()]),
+                        version: "1.0.0".into(),
                     }),
                 )
                 .returning(|_, _| ());
@@ -1260,6 +1272,7 @@ mod tests {
                 HashMap::from([("input".into(), done_node_output_id)]),
                 ["output".into()].into(),
                 true,
+                "1.0.0".into(),
             );
             register_resource_node_output_id_once_cell
                 .set(register_resource_node_output_id)
@@ -1299,6 +1312,7 @@ mod tests {
                     HashMap::from([("input".into(), done_node_output_id)]),
                     ["output".into()].into(),
                     true,
+                    "1.0.0".into(),
                 );
 
             assert_eq!(output_fields.len(), 1);
@@ -1327,6 +1341,7 @@ mod tests {
                     vec![Callback::extract_field(
                         *output_fields.get(&"output".into()).unwrap()
                     )],
+                    "1.0.0".into()
                 )
             );
             assert_eq!(
@@ -1347,6 +1362,7 @@ mod tests {
                     HashMap::from([("input".into(), done_node_output_id)]),
                     ["output".into()].into(),
                     false,
+                    "1.0.0".into(),
                 );
 
             assert_eq!(output_fields.len(), 1);
@@ -1375,6 +1391,7 @@ mod tests {
                     vec![Callback::extract_field(
                         *output_fields.get(&"output".into()).unwrap()
                     )],
+                    "1.0.0".into()
                 )
             );
             assert_eq!(
@@ -1409,6 +1426,7 @@ mod tests {
                         ),
                         object: HashMap::from([("input".into(), Some(1.into()))]),
                         expected_results: HashSet::from(["output".into()]),
+                        version: "1.0.0".into(),
                     }),
                 )
                 .returning(|_, _| ());
@@ -1443,6 +1461,7 @@ mod tests {
                 HashMap::from([("input".into(), done_node_output_id)]),
                 ["output".into()].into(),
                 true,
+                "1.0.0".into(),
             );
             invoke_resource_node_output_id_once_cell
                 .set(invoke_resource_node_output_id)

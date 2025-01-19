@@ -146,6 +146,7 @@ pub mod linked_service_odata {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/linkedServiceOdata:LinkedServiceOdata".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalProperties".into(),

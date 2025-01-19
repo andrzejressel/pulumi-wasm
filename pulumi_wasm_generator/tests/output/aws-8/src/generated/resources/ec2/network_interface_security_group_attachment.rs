@@ -118,6 +118,7 @@ pub mod network_interface_security_group_attachment {
             type_: "aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "networkInterfaceId".into(),

@@ -274,6 +274,7 @@ pub mod volume_group_sap_hana {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:netapp/volumeGroupSapHana:VolumeGroupSapHana".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountName".into(),

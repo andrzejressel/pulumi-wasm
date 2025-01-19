@@ -60,6 +60,7 @@ pub mod function_recursion_config {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/functionRecursionConfig:FunctionRecursionConfig".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "functionName".into(),

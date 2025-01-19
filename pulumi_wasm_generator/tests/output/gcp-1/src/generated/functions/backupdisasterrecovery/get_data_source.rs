@@ -58,6 +58,7 @@ pub mod get_data_source {
         let project_binding = args.project.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:backupdisasterrecovery/getDataSource:getDataSource".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "backupVaultId".into(),

@@ -62,6 +62,7 @@ pub mod get_bucket_object_content {
         let name_binding = args.name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:storage/getBucketObjectContent:getBucketObjectContent".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucket".into(),

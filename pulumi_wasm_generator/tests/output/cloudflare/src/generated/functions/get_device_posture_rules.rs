@@ -40,6 +40,7 @@ pub mod get_device_posture_rules {
         let type__binding = args.type_.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getDevicePostureRules:getDevicePostureRules".into(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

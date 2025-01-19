@@ -40,6 +40,7 @@ pub mod get_orderable_cluster {
         let preferred_node_types_binding = args.preferred_node_types.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshift/getOrderableCluster:getOrderableCluster".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "clusterType".into(),

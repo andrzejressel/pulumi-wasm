@@ -114,6 +114,7 @@ pub mod dataset_kusto_database {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datashare/datasetKustoDatabase:DatasetKustoDatabase".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "kustoDatabaseId".into(),

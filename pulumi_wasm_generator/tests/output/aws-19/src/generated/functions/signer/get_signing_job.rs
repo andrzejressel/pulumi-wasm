@@ -59,6 +59,7 @@ pub mod get_signing_job {
         let job_id_binding = args.job_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:signer/getSigningJob:getSigningJob".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "jobId".into(),

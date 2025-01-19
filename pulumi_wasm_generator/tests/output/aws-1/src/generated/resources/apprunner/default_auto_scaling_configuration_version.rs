@@ -66,6 +66,7 @@ pub mod default_auto_scaling_configuration_version {
             type_: "aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "autoScalingConfigurationArn".into(),

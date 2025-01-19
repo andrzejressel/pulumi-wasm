@@ -47,6 +47,7 @@ pub mod get_product {
         let resource_group_name_binding = args.resource_group_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:apimanagement/getProduct:getProduct".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "apiManagementName".into(),

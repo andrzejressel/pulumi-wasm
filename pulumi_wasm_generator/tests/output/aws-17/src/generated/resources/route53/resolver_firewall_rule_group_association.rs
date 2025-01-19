@@ -99,6 +99,7 @@ pub mod resolver_firewall_rule_group_association {
             type_: "aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "firewallRuleGroupId".into(),

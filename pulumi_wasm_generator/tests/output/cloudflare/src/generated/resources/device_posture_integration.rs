@@ -96,6 +96,7 @@ pub mod device_posture_integration {
             type_: "cloudflare:index/devicePostureIntegration:DevicePostureIntegration"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "accountId".into(),

@@ -60,6 +60,7 @@ pub mod custom_hostname_fallback_origin {
             type_: "cloudflare:index/customHostnameFallbackOrigin:CustomHostnameFallbackOrigin"
                 .into(),
             name: name.to_string(),
+            version: super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "origin".into(),

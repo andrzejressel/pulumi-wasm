@@ -41,6 +41,7 @@ pub mod get_shared_access_policy {
         let resource_group_name_binding = args.resource_group_name.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:iot/getSharedAccessPolicy:getSharedAccessPolicy".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "iothubName".into(),

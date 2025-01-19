@@ -26,6 +26,7 @@ pub mod get_api_token_permission_groups {
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getApiTokenPermissionGroups:getApiTokenPermissionGroups"
                 .into(),
+            version: super::super::get_version(),
             object: Vec::from([]),
             results: Vec::from([
                 register_interface::ResultField {

@@ -1,5 +1,6 @@
 use crate::model::{ElementId, Type};
 use crate::output::get_register_interface;
+use crate::utils::access_root;
 use handlebars::Handlebars;
 use serde::Serialize;
 use serde_json::json;
@@ -36,17 +37,20 @@ struct Resource {
     function_name: String,
     description_lines: Vec<String>,
     register_interface: String,
+    get_version: String,
 }
 
 fn convert_resource(package: &crate::model::Package, element_id: &ElementId) -> Resource {
     let resource = package.resources.get(element_id).unwrap();
     let depth = element_id.namespace.len() + 1;
+    let get_version = format!("{}get_version()", access_root(depth));
     Resource {
         name: element_id.get_rust_namespace_name(),
         r#type: element_id.raw.clone(),
         package_name: element_id.get_rust_package_name(),
         register_interface: get_register_interface(element_id),
         struct_name: element_id.name.clone(),
+        get_version,
         function_name: element_id.get_rust_function_name(),
         description_lines: crate::utils::to_lines(
             resource.description.clone(),

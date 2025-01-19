@@ -598,6 +598,7 @@ pub mod ai_feature_online_store_featureview {
             type_: "gcp:vertex/aiFeatureOnlineStoreFeatureview:AiFeatureOnlineStoreFeatureview"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bigQuerySource".into(),

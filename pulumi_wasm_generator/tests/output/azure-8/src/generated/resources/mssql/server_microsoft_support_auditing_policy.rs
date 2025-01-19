@@ -234,6 +234,7 @@ pub mod server_microsoft_support_auditing_policy {
             type_: "azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "blobStorageEndpoint".into(),

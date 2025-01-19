@@ -76,6 +76,7 @@ pub mod get_key {
         let key_id_binding = args.key_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kms/getKey:getKey".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "grantTokens".into(),

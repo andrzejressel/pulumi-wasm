@@ -36,6 +36,7 @@ pub mod get_runtime_versions {
         let runtime_versions_binding = args.runtime_versions.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:synthetics/getRuntimeVersions:getRuntimeVersions".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "runtimeVersions".into(),

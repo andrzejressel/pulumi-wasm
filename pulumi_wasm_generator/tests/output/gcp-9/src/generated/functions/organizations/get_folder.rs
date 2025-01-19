@@ -42,6 +42,7 @@ pub mod get_folder {
         let lookup_organization_binding = args.lookup_organization.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:organizations/getFolder:getFolder".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "folder".into(),

@@ -81,6 +81,7 @@ pub mod iam_member_remove {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:projects/iamMemberRemove:IamMemberRemove".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "member".into(),

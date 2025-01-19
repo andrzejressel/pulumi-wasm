@@ -54,6 +54,7 @@ pub mod get_policy_assignment {
         let scope_id_binding = args.scope_id.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:policy/getPolicyAssignment:getPolicyAssignment".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

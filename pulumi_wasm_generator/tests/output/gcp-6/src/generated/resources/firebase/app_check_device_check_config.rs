@@ -151,6 +151,7 @@ pub mod app_check_device_check_config {
             type_: "gcp:firebase/appCheckDeviceCheckConfig:AppCheckDeviceCheckConfig"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "appId".into(),

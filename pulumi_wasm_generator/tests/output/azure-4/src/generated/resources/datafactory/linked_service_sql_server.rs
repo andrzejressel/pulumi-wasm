@@ -208,6 +208,7 @@ pub mod linked_service_sql_server {
             type_: "azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "additionalProperties".into(),

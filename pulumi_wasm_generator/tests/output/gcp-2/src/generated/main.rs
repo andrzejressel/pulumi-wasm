@@ -835,3 +835,10 @@ interface register-interface {
         } }
     );
 }
+#[link_section = "pulumi_wasm_provider::gcp"]
+#[no_mangle]
+#[cfg(target_arch = "wasm32")]
+static PULUMI_WASM_PROVIDER_GCP: [u8; 45] = *b"{\"version\":\"8.12.1\",\"pluginDownloadURL\":null}";
+pub(crate) fn get_version() -> String {
+    "8.12.1".to_string()
+}

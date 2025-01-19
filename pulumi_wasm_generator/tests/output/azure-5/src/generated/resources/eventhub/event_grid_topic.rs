@@ -149,6 +149,7 @@ pub mod event_grid_topic {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:eventhub/eventGridTopic:EventGridTopic".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "identity".into(),

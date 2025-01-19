@@ -141,6 +141,7 @@ pub mod transit_virtual_interface {
             type_: "aws:directconnect/transitVirtualInterface:TransitVirtualInterface"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "addressFamily".into(),

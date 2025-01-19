@@ -41,6 +41,7 @@ pub mod get_spot_price {
         let instance_type_binding = args.instance_type.get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getSpotPrice:getSpotPrice".into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "availabilityZone".into(),

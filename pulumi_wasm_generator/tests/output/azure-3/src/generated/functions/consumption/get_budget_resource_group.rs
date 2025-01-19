@@ -50,6 +50,7 @@ pub mod get_budget_resource_group {
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup"
                 .into(),
+            version: super::super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "name".into(),

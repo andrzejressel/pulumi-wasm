@@ -120,6 +120,7 @@ pub mod public_ip_prefix {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/publicIpPrefix:PublicIpPrefix".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "ipVersion".into(),

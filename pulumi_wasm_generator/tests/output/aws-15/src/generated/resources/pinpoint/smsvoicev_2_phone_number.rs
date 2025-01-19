@@ -138,6 +138,7 @@ pub mod smsvoicev_2_phone_number {
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "deletionProtectionEnabled".into(),

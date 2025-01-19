@@ -165,6 +165,7 @@ pub mod datastore_datalake_gen_2 {
             type_: "azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "authorityUrl".into(),

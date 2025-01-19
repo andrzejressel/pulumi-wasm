@@ -111,6 +111,7 @@ pub mod function_javascript_uda {
             type_: "azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "inputs".into(),

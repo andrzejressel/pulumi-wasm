@@ -266,6 +266,7 @@ pub mod backend_bucket {
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/backendBucket:BackendBucket".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "bucketName".into(),

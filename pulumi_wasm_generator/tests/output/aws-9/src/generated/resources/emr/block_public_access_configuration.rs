@@ -150,6 +150,7 @@ pub mod block_public_access_configuration {
             type_: "aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "blockPublicSecurityGroupRules".into(),

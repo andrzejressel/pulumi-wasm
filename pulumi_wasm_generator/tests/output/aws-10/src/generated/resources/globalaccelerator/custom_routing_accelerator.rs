@@ -118,6 +118,7 @@ pub mod custom_routing_accelerator {
             type_: "aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "attributes".into(),

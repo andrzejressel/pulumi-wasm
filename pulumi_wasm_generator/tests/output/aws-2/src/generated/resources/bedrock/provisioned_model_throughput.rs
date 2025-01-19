@@ -97,6 +97,7 @@ pub mod provisioned_model_throughput {
             type_: "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput"
                 .into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "commitmentDuration".into(),

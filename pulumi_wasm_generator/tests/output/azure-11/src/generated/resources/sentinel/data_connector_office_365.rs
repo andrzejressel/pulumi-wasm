@@ -117,6 +117,7 @@ pub mod data_connector_office_365 {
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365".into(),
             name: name.to_string(),
+            version: super::super::get_version(),
             object: Vec::from([
                 register_interface::ObjectField {
                     name: "exchangeEnabled".into(),
