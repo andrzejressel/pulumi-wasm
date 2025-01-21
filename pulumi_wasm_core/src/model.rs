@@ -8,21 +8,25 @@ pub(crate) enum MaybeNodeValue {
     Set(NodeValue),
 }
 
-impl From<Value> for MaybeNodeValue {
-    fn from(value: Value) -> Self {
-        Self::Set(value.into())
+impl MaybeNodeValue {
+    fn set(value: NodeValue) -> Self {
+        Self::Set(value)
+    }
+
+    pub(crate) fn set_value(value: Value, secret: bool) -> Self {
+        Self::Set(NodeValue::exists(value, secret))
     }
 }
 
 #[derive(Debug, PartialEq, Clone)]
 pub(crate) enum NodeValue {
     Nothing, // preview
-    Exists(Value),
+    Exists { value: Value, secret: bool },
 }
 
-impl From<Value> for NodeValue {
-    fn from(value: Value) -> Self {
-        Self::Exists(value)
+impl NodeValue {
+    pub(crate) fn exists(value: Value, secret: bool) -> Self {
+        Self::Exists { value, secret }
     }
 }
 

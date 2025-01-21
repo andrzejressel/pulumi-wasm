@@ -130,7 +130,7 @@ impl Engine {
                 }
             }
 
-            self.pulumi.register_outputs(value);
+            self.pulumi.register_outputs(value); //FIXME: Secrets
         }
 
         None
@@ -160,7 +160,10 @@ impl Engine {
                 match ndv {
                     MaybeNodeValue::NotYetCalculated => None,
                     MaybeNodeValue::Set(NodeValue::Nothing) => None,
-                    MaybeNodeValue::Set(NodeValue::Exists(v)) => Some(v),
+                    MaybeNodeValue::Set(NodeValue::Exists {
+                        value: v,
+                        secret: _,
+                    }) => Some(v), //TODO: Add secret padding
                 }
             }
         }
@@ -211,8 +214,7 @@ impl Engine {
 
         for (output_id, value) in native_function_results {
             let mut node = Self::get_native_function_free_mut(nodes, output_id);
-            let node_value: NodeValue = value.into();
-            node.set_value(node_value.clone());
+            let value = node.set_value(value);
             self.ready_foreign_function_ids.remove(&output_id);
 
             let mut sets = EngineView {
@@ -221,7 +223,7 @@ impl Engine {
                 pulumi: self.pulumi.deref(),
             };
 
-            Self::run_callbacks(node.get_callbacks(), &node_value, nodes, &mut sets);
+            Self::run_callbacks(node.get_callbacks(), &value, nodes, &mut sets);
         }
     }
 
@@ -309,10 +311,13 @@ impl Engine {
         node.set_argument(value.clone());
         match value {
             NodeValue::Nothing => {
-                node.set_value(NodeValue::Nothing);
+                node.set_nothing();
                 Self::run_callbacks(node.get_callbacks(), value, nodes, sets);
             }
-            Exists(_) => {
+            Exists {
+                value: _,
+                secret: _,
+            } => {
                 sets.ready_foreign_function_ids.insert(*output_id);
             }
         }
@@ -785,7 +790,7 @@ impl Engine {
 
     pub fn create_done_node(&mut self, value: Value) -> OutputId {
         let output_id = Uuid::now_v7().into();
-        let node = DoneNode::new(value);
+        let node = DoneNode::new(value, false);
         self.done_node_ids.push_back(output_id);
         self.nodes.insert(output_id, EngineNode::Done(node).into());
 
@@ -918,7 +923,7 @@ mod tests {
         assert_eq!(engine.done_node_ids, vec![output_id]);
         assert_eq!(
             engine.get_done(output_id).deref(),
-            &DoneNode::create(value, Vec::new())
+            &DoneNode::create(value, false, Vec::new())
         );
     }
 
@@ -935,7 +940,7 @@ mod tests {
 
         assert_eq!(
             engine.get_done(done_node_output_id).deref(),
-            &DoneNode::create(value, vec![Callback::NativeFunction(native_node_output_id)])
+            &DoneNode::create(value, false, vec![Callback::NativeFunction(native_node_output_id)])
         );
         assert_eq!(
             engine.get_native_function(native_node_output_id).deref(),
@@ -944,6 +949,7 @@ mod tests {
     }
 
     mod native_function {
+        use crate::model::MaybeNodeValue;
         use super::*;
 
         #[test]
@@ -988,7 +994,7 @@ mod tests {
                 engine
                     .get_native_function(native_node_output_id)
                     .get_value(),
-                &result_value.into()
+                &MaybeNodeValue::set_value(result_value, false)
             );
             assert_eq!(result, None);
         }
@@ -1012,7 +1018,7 @@ mod tests {
                 engine
                     .get_native_function(native_node_output_id)
                     .get_value(),
-                &result_value.into()
+                &MaybeNodeValue::set_value(result_value, false)
             );
             assert_eq!(result, None);
         }
@@ -1046,6 +1052,7 @@ mod tests {
 
     mod extract_field {
         use crate::model::MaybeNodeValue::Set;
+        use crate::model::NodeValue;
         use crate::model::NodeValue::Exists;
         use crate::nodes::Callback::NativeFunction;
         use crate::nodes::ExtractFieldNode;
@@ -1081,7 +1088,7 @@ mod tests {
                     .get_extract_field_mut(extract_field_node_output_id)
                     .deref(),
                 &ExtractFieldNode::create(
-                    Set(Exists(1.into())),
+                    Set(NodeValue::exists(1.into(), false)),
                     "key".into(),
                     vec![NativeFunction(native_function_node_output_id)],
                     true,
@@ -1099,14 +1106,13 @@ mod tests {
         use serde_json::Value;
 
         use crate::engine::Engine;
+        use crate::model::MaybeNodeValue;
         use crate::model::MaybeNodeValue::NotYetCalculated;
         use crate::nodes::{
             AbstractResourceNode, Callback, DoneNode, ExtractFieldNode,
             RegisterResourceRequestOperation, ResourceRequestOperation,
         };
-        use crate::pulumi::service::{
-            MockPulumiService, PerformResourceRequest, RegisterResourceResponse,
-        };
+        use crate::pulumi::service::{MockPulumiService, ObjectField, PerformResourceRequest, RegisterResourceResponse};
 
         #[test]
         fn should_create_required_nodes_during_preview() {
@@ -1127,6 +1133,7 @@ mod tests {
                 engine.get_done(done_node_output_id).deref(),
                 &DoneNode::create(
                     1.into(),
+                    false,
                     vec![Callback::create_resource(
                         register_resource_node_output_id,
                         "input".into(),
@@ -1179,6 +1186,7 @@ mod tests {
                 engine.get_done(done_node_output_id).deref(),
                 &DoneNode::create(
                     1.into(),
+                    false,
                     vec![Callback::create_resource(
                         register_resource_node_output_id,
                         "input".into(),
@@ -1234,7 +1242,7 @@ mod tests {
                         operation: ResourceRequestOperation::Register(
                             RegisterResourceRequestOperation::new("type".into(), "name".into()),
                         ),
-                        object: HashMap::from([("input".into(), Some(1.into()))]),
+                        object: HashMap::from([("input".into(), Some(ObjectField::new(1.into(), false)))]),
                         expected_results: HashSet::from(["output".into()]),
                         version: "1.0.0".into(),
                     }),
@@ -1281,7 +1289,7 @@ mod tests {
             assert_eq!(result, None);
 
             let output_node = engine.get_extract_field(*outputs.get(&"output".into()).unwrap());
-            assert_eq!(output_node.get_value(), &Value::Bool(true).into());
+            assert_eq!(output_node.get_value(), &MaybeNodeValue::set_value(true.into(), false));
         }
     }
     mod invoke_resource {
@@ -1293,14 +1301,13 @@ mod tests {
         use serde_json::Value;
 
         use crate::engine::Engine;
+        use crate::model::MaybeNodeValue;
         use crate::model::MaybeNodeValue::NotYetCalculated;
         use crate::nodes::{
             AbstractResourceNode, Callback, DoneNode, ExtractFieldNode,
             ResourceInvokeRequestOperation, ResourceRequestOperation,
         };
-        use crate::pulumi::service::{
-            MockPulumiService, PerformResourceRequest, RegisterResourceResponse,
-        };
+        use crate::pulumi::service::{MockPulumiService, ObjectField, PerformResourceRequest, RegisterResourceResponse};
 
         #[test]
         fn should_create_required_nodes_during_preview() {
@@ -1320,6 +1327,7 @@ mod tests {
                 engine.get_done(done_node_output_id).deref(),
                 &DoneNode::create(
                     1.into(),
+                    false,
                     vec![Callback::create_resource(
                         invoke_resource_node_output_id,
                         "input".into(),
@@ -1370,6 +1378,7 @@ mod tests {
                 engine.get_done(done_node_output_id).deref(),
                 &DoneNode::create(
                     1.into(),
+                    false,
                     vec![Callback::create_resource(
                         invoke_resource_node_output_id,
                         "input".into(),
@@ -1424,7 +1433,7 @@ mod tests {
                         operation: ResourceRequestOperation::Invoke(
                             ResourceInvokeRequestOperation::new("token".into()),
                         ),
-                        object: HashMap::from([("input".into(), Some(1.into()))]),
+                        object: HashMap::from([("input".into(), Some(ObjectField::new(1.into(), false)))]),
                         expected_results: HashSet::from(["output".into()]),
                         version: "1.0.0".into(),
                     }),
@@ -1470,7 +1479,7 @@ mod tests {
             assert_eq!(result, None);
 
             let output_node = engine.get_extract_field(*outputs.get(&"output".into()).unwrap());
-            assert_eq!(output_node.get_value(), &Value::Bool(true).into());
+            assert_eq!(output_node.get_value(), &MaybeNodeValue::set_value(true.into(), false));
         }
     }
 

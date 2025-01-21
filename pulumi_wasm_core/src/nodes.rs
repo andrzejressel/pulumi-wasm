@@ -1,7 +1,7 @@
 use crate::model::MaybeNodeValue::{NotYetCalculated, Set};
 use crate::model::NodeValue::Nothing;
 use crate::model::{FieldName, FunctionName, MaybeNodeValue, NodeValue, OutputId};
-use crate::pulumi::service::{PerformResourceRequest, RegisterResourceResponse};
+use crate::pulumi::service::{ObjectField, PerformResourceRequest, RegisterResourceResponse};
 use log::error;
 use serde_json::Value;
 use std::collections::{HashMap, HashSet};
@@ -38,14 +38,14 @@ pub(crate) struct DoneNode {
 }
 
 impl DoneNode {
-    pub(crate) fn create(value: Value, callbacks: Vec<Callback>) -> Self {
+    pub(crate) fn create(value: Value, secret: bool, callbacks: Vec<Callback>) -> Self {
         Self {
-            value: value.into(),
+            value: NodeValue::exists(value, secret),
             callbacks,
         }
     }
-    pub(crate) fn new(value: Value) -> Self {
-        DoneNode::create(value, Vec::new())
+    pub(crate) fn new(value: Value, secret: bool) -> Self {
+        DoneNode::create(value, secret, Vec::new())
     }
 
     pub(crate) fn get_value(&self) -> &NodeValue {
@@ -89,7 +89,7 @@ impl NativeFunctionNode {
                 error!("Argument is Nothing");
                 panic!("Argument is Nothing");
             }
-            Set(NodeValue::Exists(value)) => value,
+            Set(NodeValue::Exists { value, secret: _ }) => value,
         }
     }
 
@@ -105,8 +105,29 @@ impl NativeFunctionNode {
         self.argument = MaybeNodeValue::Set(value);
     }
 
-    pub(crate) fn set_value(&mut self, value: NodeValue) {
-        self.value = MaybeNodeValue::Set(value);
+    // Add test that checks if output is secret
+    pub(crate) fn set_value(&mut self, value: Value) -> NodeValue {
+        let node_value = NodeValue::Exists {
+            value,
+            secret: self.is_secret(),
+        };
+        self.value = MaybeNodeValue::Set(node_value.clone());
+        node_value
+    }
+
+    pub(crate) fn set_nothing(&mut self) {
+        self.value = MaybeNodeValue::Set(NodeValue::Nothing);
+    }
+
+    fn is_secret(&self) -> bool {
+        match &self.argument {
+            MaybeNodeValue::NotYetCalculated => {
+                error!("Argument is not yet calculated");
+                panic!("Argument is not yet calculated");
+            }
+            Set(NodeValue::Nothing) => { false }
+            Set(NodeValue::Exists { value: _, secret }) => *secret,
+        }
     }
 
     pub(crate) fn add_callback(&mut self, callback: Callback) {
@@ -221,7 +242,8 @@ impl AbstractResourceNode {
             .map(|(k, v)| (k.as_string().clone(), v.clone()))
             .collect();
         let val = Value::Object(map.into_iter().collect());
-        let node_value = NodeValue::Exists(val);
+        // Secret value does not matter - true value will be resolved in [ExtractFieldNode]
+        let node_value = NodeValue::exists(val, false);
 
         self.value = Set(node_value.clone());
         node_value
@@ -239,8 +261,8 @@ impl AbstractResourceNode {
                 NodeValue::Nothing => {
                     object.insert(name.clone(), None);
                 }
-                NodeValue::Exists(v) => {
-                    object.insert(name.clone(), Some(v.clone()));
+                NodeValue::Exists { value, secret } => {
+                    object.insert(name.clone(), Some(ObjectField::new(value.clone(), *secret)));
                 }
             };
         }
@@ -309,19 +331,24 @@ impl ExtractFieldNode {
                 panic!("Cannot extract field from Nothing");
             }
 
-            NodeValue::Exists(Value::Object(map)) => {
+            NodeValue::Exists{ value: Value::Object(map), secret: _ } => {
+                log::info!(
+                    "Extracting field: [{:?}] from map [{:?}]",
+                    self.field_name,
+                    map
+                );
                 let key: Value = self.field_name.as_string().clone().into();
                 let value = map.iter().find(|(k, _)| *k == &key).map(|(_, v)| v.clone());
                 let in_preview = self.in_preview;
                 let new_node_value = match value {
                     None if in_preview => NodeValue::Nothing,
-                    None => NodeValue::Exists(Value::Null),
-                    Some(v) => NodeValue::Exists(v),
+                    None => NodeValue::exists(Value::Null, false), //FIXME
+                    Some(v) => NodeValue::exists(v, false), //FIXME
                 };
                 self.value = Set(new_node_value.clone());
                 new_node_value
             }
-            NodeValue::Exists(_) => {
+            NodeValue::Exists { value: _, secret: _ } => {
                 error!("Cannot extract field from non-Map");
                 panic!("Cannot extract field from non-Map");
             }
@@ -332,7 +359,7 @@ impl ExtractFieldNode {
 #[derive(Debug, PartialEq)]
 pub(crate) struct CombineOutputsNode {
     value: MaybeNodeValue,
-    inputs: Vec<Option<Value>>,
+    inputs: Vec<Option<(Value, bool)>>,
     inputs_set: u32,
     callbacks: Vec<Callback>,
 }
@@ -350,7 +377,7 @@ impl CombineOutputsNode {
     pub(crate) fn set_node_value(&mut self, index: u32, value: NodeValue) -> Option<NodeValue> {
         self.inputs[index as usize] = match value {
             Nothing => None,
-            NodeValue::Exists(v) => Some(v),
+            NodeValue::Exists { value, secret } => Some((value, secret)),
         };
         self.inputs_set += 1;
         if self.inputs_set == self.inputs.len() as u32 {
@@ -358,8 +385,9 @@ impl CombineOutputsNode {
             let value: NodeValue = if set_inputs.len() != self.inputs.len() {
                 Nothing
             } else {
-                let list: Value = set_inputs.into();
-                list.clone().into()
+                let list: Value = set_inputs.iter().map(|(value, _)| value.clone()).collect::<Vec<_>>().into();
+                let secret = set_inputs.iter().any(|(_, secret)| *secret);
+                NodeValue::exists(list, secret)
             };
             self.value = Set(value.clone());
             Some(value)
@@ -384,15 +412,16 @@ impl CombineOutputsNode {
 mod tests {
     use std::collections::HashMap;
 
-    use crate::model::NodeValue::{Exists, Nothing};
+    use crate::model::NodeValue::Nothing;
     use crate::nodes::AbstractResourceNode;
     use serde_json::Value::Null;
 
     mod register_resource_node {
         use super::*;
+        use crate::model::NodeValue;
         use crate::nodes::ResourceRequestOperation::Register;
         use crate::nodes::{RegisterResourceRequestOperation, ResourceRequestOperation};
-        use crate::pulumi::service::PerformResourceRequest;
+        use crate::pulumi::service::{ObjectField, PerformResourceRequest};
         use std::collections::HashSet;
 
         #[test]
@@ -407,10 +436,10 @@ mod tests {
                 "1.0.0".into(),
             );
 
-            let result = node.set_input("exists_nil".into(), Exists(Null));
+            let result = node.set_input("exists_nil".into(), NodeValue::exists(Null, false));
             assert_eq!(result, None);
 
-            let result = node.set_input("exists_int".into(), Exists(2.into()));
+            let result = node.set_input("exists_int".into(), NodeValue::exists(2.into(), false));
             assert_eq!(result, None);
 
             let result = node.set_input("not_exist".into(), Nothing);
@@ -418,8 +447,8 @@ mod tests {
                 result,
                 Some(PerformResourceRequest {
                     object: HashMap::from([
-                        ("exists_nil".into(), Some(Null)),
-                        ("exists_int".into(), Some(2.into())),
+                        ("exists_nil".into(), Some(ObjectField::new(Null, false))),
+                        ("exists_int".into(), Some(ObjectField::new(2.into(), false))),
                         ("not_exist".into(), None),
                     ]),
                     operation: ResourceRequestOperation::Register(
@@ -435,6 +464,7 @@ mod tests {
     mod combine_outputs_node {
         use super::*;
         use crate::model::MaybeNodeValue::{NotYetCalculated, Set};
+        use crate::model::{MaybeNodeValue, NodeValue};
         use crate::nodes::CombineOutputsNode;
         use serde_json::json;
 
@@ -442,26 +472,39 @@ mod tests {
         fn set_inputs() {
             let mut node = CombineOutputsNode::new(2);
 
-            let result = node.set_node_value(0, Exists(0.into()));
+            let result = node.set_node_value(0, NodeValue::exists(0.into(), false));
             assert_eq!(result, None);
             assert_eq!(node.value, NotYetCalculated);
 
-            let result = node.set_node_value(1, Exists("123".into()));
-            assert_eq!(result, Some(json!([0, "123"]).into()));
-            assert_eq!(node.value, json!([0, "123"]).into());
+            let result = node.set_node_value(1, NodeValue::exists("123".into(), false));
+            assert_eq!(result, Some(NodeValue::exists(json!([0, "123"]).into(), false)));
+            assert_eq!(node.value, MaybeNodeValue::set_value(json!([0, "123"]).into(), false));
         }
 
         #[test]
         fn set_unknown_inputs() {
             let mut node = CombineOutputsNode::new(2);
 
-            let result = node.set_node_value(0, Exists(0.into()));
+            let result = node.set_node_value(0, NodeValue::exists(0.into(), false));
             assert_eq!(result, None);
             assert_eq!(node.get_value(), &NotYetCalculated);
 
             let result = node.set_node_value(1, Nothing);
             assert_eq!(result, Some(Nothing));
             assert_eq!(node.get_value(), &Set(Nothing));
+        }
+
+        #[test]
+        fn single_secret_causes_whole_result_to_be_false() {
+            let mut node = CombineOutputsNode::new(2);
+
+            let result = node.set_node_value(0, NodeValue::exists(0.into(), false));
+            assert_eq!(result, None);
+            assert_eq!(node.get_value(), &NotYetCalculated);
+
+            let result = node.set_node_value(1, NodeValue::exists("123".into(), true));
+            assert_eq!(result, Some(NodeValue::exists(json!([0, "123"]).into(), true)));
+            assert_eq!(node.get_value(), &Set(NodeValue::exists(json!([0, "123"]).into(), true)));
         }
     }
 }

@@ -86,7 +86,12 @@ impl PulumiService for PulumiServiceImpl {
                     );
                 }
 
-                let object = Self::create_protobuf_struct(request.object.clone());
+                let mut new_object = HashMap::new();
+                for (k, v) in request.object {
+                    new_object.insert(k, v.map(|f| f.value));
+                }
+
+                let object = Self::create_protobuf_struct(new_object); //FIXME
 
                 let req = grpc::RegisterResourceRequest {
                     r#type: register.r#type.clone(),
@@ -135,7 +140,12 @@ impl PulumiService for PulumiServiceImpl {
                     );
                 }
 
-                let object = Self::create_protobuf_struct(request.object.clone());
+                let mut new_object = HashMap::new();
+                for (k, v) in request.object {
+                    new_object.insert(k, v.map(|f| f.value));
+                }
+
+                let object = Self::create_protobuf_struct(new_object); //FIXME
 
                 let req = grpc::ResourceInvokeRequest {
                     tok: invoke.token,
