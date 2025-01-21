@@ -112,6 +112,11 @@ test-examples:
         -p pulumi_wasm_example_plugins \
         --cobertura --output-path covertura.xml --features example_test
 
+test-examples-aws:
+    cargo llvm-cov nextest \
+        -p pulumi_wasm_example_aws \
+        --cobertura --output-path covertura.xml --features example_test
+
 generator-tests:
     cargo nextest run --all-features -p pulumi_wasm_generator
 
