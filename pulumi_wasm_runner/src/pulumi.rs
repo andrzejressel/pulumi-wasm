@@ -10,7 +10,6 @@ use crate::pulumi::runner::component::pulumi_wasm_external::external_world::Regi
 use crate::pulumi::runner::Runner;
 use crate::pulumi_state::PulumiState;
 use anyhow::Error;
-use async_trait::async_trait;
 use log::info;
 use prost::Message;
 use pulumi_wasm_proto::grpc::ResourceInvokeRequest;
@@ -38,7 +37,6 @@ struct MyState {
     pulumi_project: String,
 }
 
-#[async_trait]
 impl Host for MyState {
     async fn is_in_preview(&mut self) -> wasmtime::Result<bool> {
         Ok(std::env::var("PULUMI_DRY_RUN")
@@ -52,20 +50,6 @@ impl Host for MyState {
         Ok(self.register_resource_outputs_async(request).await?)
     }
 
-    async fn register_resource(
-        &mut self,
-        request: external_world::RegisterResourceRequest,
-    ) -> wasmtime::Result<()> {
-        let b = RegisterResourceRequest::decode(&*(request.body)).unwrap();
-
-        info!("registering resource: {:?}", b);
-
-        self.pulumi_state
-            .send_register_resource_request(request.output_id.into(), b);
-
-        Ok(())
-    }
-
     async fn resource_invoke(
         &mut self,
         request: external_world::ResourceInvokeRequest,
@@ -76,6 +60,20 @@ impl Host for MyState {
 
         self.pulumi_state
             .send_resource_invoke_request(request.output_id.into(), b);
+
+        Ok(())
+    }
+
+    async fn register_resource(
+        &mut self,
+        request: external_world::RegisterResourceRequest,
+    ) -> wasmtime::Result<()> {
+        let b = RegisterResourceRequest::decode(&*(request.body)).unwrap();
+
+        info!("registering resource: {:?}", b);
+
+        self.pulumi_state
+            .send_register_resource_request(request.output_id.into(), b);
 
         Ok(())
     }
@@ -93,7 +91,6 @@ impl Host for MyState {
     }
 }
 
-#[async_trait]
 impl runner::component::pulumi_wasm_external::log::Host for MyState {
     async fn log(
         &mut self,

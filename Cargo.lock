@@ -2517,7 +2517,6 @@ name = "pulumi_wasm_runner"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "async-trait",
  "clap",
  "futures",
  "log",
