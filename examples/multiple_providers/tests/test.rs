@@ -1,8 +1,6 @@
 use anyhow::anyhow;
 use assert_cmd::prelude::*;
-use serde_json::Value;
-use std::process::Command;
-use std::str;
+use common::stack_utils::{init_stack, select_stack, up_stack, export_stack};
 
 #[test]
 #[cfg_attr(not(feature = "example_test"), ignore)]
@@ -17,60 +15,21 @@ fn test_integration() -> Result<(), anyhow::Error> {
         vec![]
     };
 
-    Command::new("pulumi")
-        .args(["stack", "init", "test"])
-        .env("PULUMI_CONFIG_PASSPHRASE", " ")
-        .envs(github_token_env_vars.clone())
-        .current_dir(".")
-        .output()?;
+    init_stack("test", github_token_env_vars.clone())?;
+    select_stack("test")?;
+    up_stack(github_token_env_vars)?;
 
-    Command::new("pulumi")
-        .args(["stack", "select", "test"])
-        .current_dir(".")
-        .assert()
-        .success();
+    let stack = export_stack()?;
 
-    Command::new("pulumi")
-        .args(["up", "-y"])
-        .current_dir(".")
-        .env("PULUMI_CONFIG_PASSPHRASE", " ")
-        .envs(github_token_env_vars)
-        .assert()
-        .success();
-
-    let binding = Command::new("pulumi")
-        .args(["stack", "output", "--json"])
-        .current_dir(".")
-        .env("PULUMI_CONFIG_PASSPHRASE", " ")
-        .assert()
-        .success();
-    let stack = &binding.get_output().stdout;
-
-    let stack: Value = serde_json::from_str(str::from_utf8(stack)?)?;
-
-    let result = stack
-        .pointer("/result")
-        .ok_or(anyhow!("Cannot find [result] in stack export"))?
-        .as_str()
-        .ok_or(anyhow!("[result] is not a string"))?;
-
-    let transformed_result = stack
-        .pointer("/transformed_result")
-        .ok_or(anyhow!("Cannot find [transformed_result] in stack export"))?
-        .as_str()
-        .ok_or(anyhow!("[transformed_result] is not a string"))?;
-
+    let result = stack.get_string("/result")?;
+    let transformed_result = stack.get_string("/transformed_result")?;
     let number = stack
+        .value
         .pointer("/number")
         .ok_or(anyhow!("Cannot find [number] in stack export"))?
         .as_i64()
         .ok_or(anyhow!("[number] is not a string"))?;
-
-    let logs = stack
-        .pointer("/logs")
-        .ok_or(anyhow!("Cannot find [logs] in stack export"))?
-        .as_str()
-        .ok_or(anyhow!("[logs] is not a string"))?;
+    let logs = stack.get_string("/logs")?;
 
     assert!(logs.contains("Hello World!"));
     assert_eq!(result.len(), 36);

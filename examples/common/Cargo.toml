@@ -1,0 +1,9 @@
+[package]
+name = "common"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+assert_cmd = "2.0.4"
+serde_json = "1.0.64"
+anyhow = "1.0.40"
