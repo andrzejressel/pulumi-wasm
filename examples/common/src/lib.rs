@@ -32,7 +32,7 @@ pub fn get_string(pointer: &str) -> &str {
 
 pub fn init_stack(
     stack_name: &str,
-    github_token_env_vars: Vec<(String, String)>,
+    github_token_env_vars: &Vec<(String, String)>,
 ) -> Result<(), anyhow::Error> {
     Command::new("pulumi")
         .args(["stack", "init", stack_name])
@@ -52,12 +52,12 @@ pub fn select_stack(stack_name: &str) -> Result<(), anyhow::Error> {
     Ok(())
 }
 
-pub fn up_stack(github_token_env_vars: Vec<(String, String)>) -> Result<(), anyhow::Error> {
+pub fn up_stack(github_token_env_vars: &Vec<(String, String)>) -> Result<(), anyhow::Error> {
     Command::new("pulumi")
         .args(["up", "-y"])
         .current_dir(".")
         .env("PULUMI_CONFIG_PASSPHRASE", " ")
-        .envs(github_token_env_vars)
+        .envs(github_token_env_vars.clone())
         .assert()
         .success();
     Ok(())

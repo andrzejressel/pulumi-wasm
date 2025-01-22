@@ -14,9 +14,9 @@ fn test_integration() -> Result<(), anyhow::Error> {
         vec![]
     };
 
-    init_stack("test", github_token_env_vars.clone())?;
+    init_stack("test", &github_token_env_vars)?;
     select_stack("test")?;
-    up_stack(github_token_env_vars)?;
+    up_stack(&github_token_env_vars)?;
 
     let stack = export_stack()?;
 
