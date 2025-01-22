@@ -31,6 +31,7 @@
       "matchPackageNames": [
         "wit-component",
         "wit-parser",
+        "wasmparser",
         "wasmprinter"
       ],
       "groupName": "wasm-tools"
