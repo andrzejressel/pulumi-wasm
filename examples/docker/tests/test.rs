@@ -1,6 +1,5 @@
 use anyhow::anyhow;
-use assert_cmd::prelude::*;
-use common::stack_utils::{init_stack, select_stack, up_stack, export_stack};
+use pulumi_wasm_examples_common::{export_stack, init_stack, select_stack, up_stack};
 
 #[test]
 #[cfg_attr(not(feature = "example_test"), ignore)]

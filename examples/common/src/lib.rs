@@ -2,6 +2,7 @@ use assert_cmd::prelude::*;
 use serde_json::Value;
 use std::process::Command;
 use std::str;
+use anyhow::anyhow;
 
 pub struct Stack {
     value: Value,
@@ -14,6 +15,14 @@ impl Stack {
             .ok_or(anyhow!("Cannot find [{}] in stack export", pointer))?
             .as_str()
             .ok_or(anyhow!("[{}] is not a string", pointer))
+    }
+
+    pub fn get_i64(&self, pointer: &str) -> Result<i64, anyhow::Error> {
+        self.value
+            .pointer(pointer)
+            .ok_or(anyhow!("Cannot find [{}] in stack export", pointer))?
+            .as_i64()
+            .ok_or(anyhow!("[{}] is not an i64", pointer))
     }
 }
 

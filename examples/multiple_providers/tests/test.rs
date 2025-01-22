@@ -1,6 +1,5 @@
 use anyhow::anyhow;
-use assert_cmd::prelude::*;
-use common::stack_utils::{init_stack, select_stack, up_stack, export_stack};
+use pulumi_wasm_examples_common::{export_stack, init_stack, select_stack, up_stack};
 
 #[test]
 #[cfg_attr(not(feature = "example_test"), ignore)]
@@ -23,12 +22,7 @@ fn test_integration() -> Result<(), anyhow::Error> {
 
     let result = stack.get_string("/result")?;
     let transformed_result = stack.get_string("/transformed_result")?;
-    let number = stack
-        .value
-        .pointer("/number")
-        .ok_or(anyhow!("Cannot find [number] in stack export"))?
-        .as_i64()
-        .ok_or(anyhow!("[number] is not a string"))?;
+    let number = stack.get_i64("/number")?;
     let logs = stack.get_string("/logs")?;
 
     assert!(logs.contains("Hello World!"));
