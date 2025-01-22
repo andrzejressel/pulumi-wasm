@@ -1,9 +1,9 @@
 use crate::model::MaybeNodeValue::{NotYetCalculated, Set};
 use crate::model::NodeValue::Nothing;
 use crate::model::{FieldName, FunctionName, MaybeNodeValue, NodeValue, OutputId};
-use crate::pulumi::service::{ObjectField, PerformResourceRequest, RegisterResourceResponse};
+use crate::pulumi::service::{PerformResourceRequest, RegisterResourceResponse};
 use log::error;
-use serde_json::Value;
+use serde_json::{json, Value};
 use std::collections::{HashMap, HashSet};
 
 #[derive(Clone, Debug, PartialEq)]
@@ -125,7 +125,7 @@ impl NativeFunctionNode {
                 error!("Argument is not yet calculated");
                 panic!("Argument is not yet calculated");
             }
-            Set(NodeValue::Nothing) => { false }
+            Set(NodeValue::Nothing) => false,
             Set(NodeValue::Exists { value: _, secret }) => *secret,
         }
     }
@@ -234,7 +234,6 @@ impl AbstractResourceNode {
         }
     }
 
-    //TODO: Write tests
     pub(crate) fn set_value(&mut self, value: &RegisterResourceResponse) -> NodeValue {
         let map: HashMap<String, Value> = value
             .outputs
@@ -262,7 +261,14 @@ impl AbstractResourceNode {
                     object.insert(name.clone(), None);
                 }
                 NodeValue::Exists { value, secret } => {
-                    object.insert(name.clone(), Some(ObjectField::new(value.clone(), *secret)));
+                    let mut value = value.clone();
+                    if *secret {
+                        value = json!({
+                            crate::constants::SPECIAL_SIG_KEY: crate::constants::SPECIAL_SECRET_SIG,
+                            crate::constants::SECRET_VALUE_NAME: value,
+                        });
+                    }
+                    object.insert(name.clone(), Some(value.clone()));
                 }
             };
         }
@@ -331,7 +337,10 @@ impl ExtractFieldNode {
                 panic!("Cannot extract field from Nothing");
             }
 
-            NodeValue::Exists{ value: Value::Object(map), secret: _ } => {
+            NodeValue::Exists {
+                value: Value::Object(map),
+                secret: _,
+            } => {
                 log::info!(
                     "Extracting field: [{:?}] from map [{:?}]",
                     self.field_name,
@@ -342,13 +351,29 @@ impl ExtractFieldNode {
                 let in_preview = self.in_preview;
                 let new_node_value = match value {
                     None if in_preview => NodeValue::Nothing,
-                    None => NodeValue::exists(Value::Null, false), //FIXME
-                    Some(v) => NodeValue::exists(v, false), //FIXME
+                    None => NodeValue::exists(Value::Null, false),
+                    Some(v) => {
+                        if v.is_object() && v.get(crate::constants::SPECIAL_SIG_KEY).is_some() {
+                            let secret = v
+                                .get(crate::constants::SPECIAL_SIG_KEY)
+                                .unwrap()
+                                .as_str()
+                                .unwrap()
+                                == crate::constants::SPECIAL_SECRET_SIG;
+                            let value = v.get(crate::constants::SECRET_VALUE_NAME).unwrap().clone();
+                            NodeValue::exists(value, secret)
+                        } else {
+                            NodeValue::exists(v.clone(), false)
+                        }
+                    }
                 };
                 self.value = Set(new_node_value.clone());
                 new_node_value
             }
-            NodeValue::Exists { value: _, secret: _ } => {
+            NodeValue::Exists {
+                value: _,
+                secret: _,
+            } => {
                 error!("Cannot extract field from non-Map");
                 panic!("Cannot extract field from non-Map");
             }
@@ -385,7 +410,11 @@ impl CombineOutputsNode {
             let value: NodeValue = if set_inputs.len() != self.inputs.len() {
                 Nothing
             } else {
-                let list: Value = set_inputs.iter().map(|(value, _)| value.clone()).collect::<Vec<_>>().into();
+                let list: Value = set_inputs
+                    .iter()
+                    .map(|(value, _)| value.clone())
+                    .collect::<Vec<_>>()
+                    .into();
                 let secret = set_inputs.iter().any(|(_, secret)| *secret);
                 NodeValue::exists(list, secret)
             };
@@ -421,7 +450,8 @@ mod tests {
         use crate::model::NodeValue;
         use crate::nodes::ResourceRequestOperation::Register;
         use crate::nodes::{RegisterResourceRequestOperation, ResourceRequestOperation};
-        use crate::pulumi::service::{ObjectField, PerformResourceRequest};
+        use crate::pulumi::service::PerformResourceRequest;
+        use serde_json::json;
         use std::collections::HashSet;
 
         #[test]
@@ -447,10 +477,42 @@ mod tests {
                 result,
                 Some(PerformResourceRequest {
                     object: HashMap::from([
-                        ("exists_nil".into(), Some(ObjectField::new(Null, false))),
-                        ("exists_int".into(), Some(ObjectField::new(2.into(), false))),
+                        ("exists_nil".into(), Some(Null)),
+                        ("exists_int".into(), Some(2.into())),
                         ("not_exist".into(), None),
                     ]),
+                    operation: ResourceRequestOperation::Register(
+                        RegisterResourceRequestOperation::new("type".into(), "name".into())
+                    ),
+                    expected_results: HashSet::from(["output".into()]),
+                    version: "1.0.0".into()
+                })
+            );
+        }
+
+        #[test]
+        fn should_serialize_secrets() {
+            let mut node = AbstractResourceNode::new(
+                Register(RegisterResourceRequestOperation::new(
+                    "type".into(),
+                    "name".into(),
+                )),
+                ["secret".into()].into(),
+                HashSet::from(["output".into()]),
+                "1.0.0".into(),
+            );
+
+            let result = node.set_input("secret".into(), NodeValue::exists(2.into(), true));
+            assert_eq!(
+                result,
+                Some(PerformResourceRequest {
+                    object: HashMap::from([(
+                        "secret".into(),
+                        Some(json!({
+                            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+                            "value": 2,
+                        }))
+                    )]),
                     operation: ResourceRequestOperation::Register(
                         RegisterResourceRequestOperation::new("type".into(), "name".into())
                     ),
@@ -477,8 +539,11 @@ mod tests {
             assert_eq!(node.value, NotYetCalculated);
 
             let result = node.set_node_value(1, NodeValue::exists("123".into(), false));
-            assert_eq!(result, Some(NodeValue::exists(json!([0, "123"]).into(), false)));
-            assert_eq!(node.value, MaybeNodeValue::set_value(json!([0, "123"]).into(), false));
+            assert_eq!(result, Some(NodeValue::exists(json!([0, "123"]), false)));
+            assert_eq!(
+                node.value,
+                MaybeNodeValue::set_value(json!([0, "123"]), false)
+            );
         }
 
         #[test]
@@ -503,8 +568,49 @@ mod tests {
             assert_eq!(node.get_value(), &NotYetCalculated);
 
             let result = node.set_node_value(1, NodeValue::exists("123".into(), true));
-            assert_eq!(result, Some(NodeValue::exists(json!([0, "123"]).into(), true)));
-            assert_eq!(node.get_value(), &Set(NodeValue::exists(json!([0, "123"]).into(), true)));
+            assert_eq!(result, Some(NodeValue::exists(json!([0, "123"]), true)));
+            assert_eq!(
+                node.get_value(),
+                &Set(NodeValue::exists(json!([0, "123"]), true))
+            );
+        }
+    }
+
+    mod extract_field_node {
+        use crate::model::{MaybeNodeValue, NodeValue};
+        use crate::nodes::ExtractFieldNode;
+        use serde_json::json;
+
+        #[test]
+        fn should_extract_field() {
+            let mut node = ExtractFieldNode::new("field".into(), false);
+            let value = NodeValue::exists(json!({"field": "value"}), false);
+            let result = node.extract_field(&value);
+            assert_eq!(result, NodeValue::exists("value".into(), false));
+            assert_eq!(
+                node.get_value(),
+                &MaybeNodeValue::Set(NodeValue::exists("value".into(), false))
+            );
+        }
+
+        #[test]
+        fn should_extract_secret_value() {
+            let mut node = ExtractFieldNode::new("field".into(), false);
+            let value = NodeValue::exists(
+                json!({
+                    "field": {
+                                "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+                                "value": "value",
+                            }
+                }),
+                false,
+            );
+            let result = node.extract_field(&value);
+            assert_eq!(result, NodeValue::exists("value".into(), true));
+            assert_eq!(
+                node.get_value(),
+                &MaybeNodeValue::Set(NodeValue::exists("value".into(), true))
+            );
         }
     }
 }

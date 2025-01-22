@@ -3,7 +3,7 @@ use std::collections::{HashMap, HashSet, VecDeque};
 use std::ops::Deref;
 
 use log::error;
-use serde_json::Value;
+use serde_json::{json, Value};
 use uuid::Uuid;
 
 use crate::model::NodeValue::Exists;
@@ -162,8 +162,15 @@ impl Engine {
                     MaybeNodeValue::Set(NodeValue::Nothing) => None,
                     MaybeNodeValue::Set(NodeValue::Exists {
                         value: v,
-                        secret: _,
-                    }) => Some(v), //TODO: Add secret padding
+                        secret: false,
+                    }) => Some(v),
+                    MaybeNodeValue::Set(NodeValue::Exists {
+                        value: v,
+                        secret: true,
+                    }) => Some(json!({
+                        crate::constants::SPECIAL_SIG_KEY: crate::constants::SPECIAL_SECRET_SIG,
+                        crate::constants::SECRET_VALUE_NAME: v
+                    })),
                 }
             }
         }
@@ -940,7 +947,11 @@ mod tests {
 
         assert_eq!(
             engine.get_done(done_node_output_id).deref(),
-            &DoneNode::create(value, false, vec![Callback::NativeFunction(native_node_output_id)])
+            &DoneNode::create(
+                value,
+                false,
+                vec![Callback::NativeFunction(native_node_output_id)]
+            )
         );
         assert_eq!(
             engine.get_native_function(native_node_output_id).deref(),
@@ -949,8 +960,8 @@ mod tests {
     }
 
     mod native_function {
-        use crate::model::MaybeNodeValue;
         use super::*;
+        use crate::model::MaybeNodeValue;
 
         #[test]
         fn run_return_native_functions() {
@@ -1053,7 +1064,7 @@ mod tests {
     mod extract_field {
         use crate::model::MaybeNodeValue::Set;
         use crate::model::NodeValue;
-        use crate::model::NodeValue::Exists;
+
         use crate::nodes::Callback::NativeFunction;
         use crate::nodes::ExtractFieldNode;
 
@@ -1103,7 +1114,6 @@ mod tests {
         use std::sync::{Arc, OnceLock};
 
         use mockall::predicate::{eq, function};
-        use serde_json::Value;
 
         use crate::engine::Engine;
         use crate::model::MaybeNodeValue;
@@ -1112,7 +1122,9 @@ mod tests {
             AbstractResourceNode, Callback, DoneNode, ExtractFieldNode,
             RegisterResourceRequestOperation, ResourceRequestOperation,
         };
-        use crate::pulumi::service::{MockPulumiService, ObjectField, PerformResourceRequest, RegisterResourceResponse};
+        use crate::pulumi::service::{
+            MockPulumiService, PerformResourceRequest, RegisterResourceResponse,
+        };
 
         #[test]
         fn should_create_required_nodes_during_preview() {
@@ -1242,7 +1254,7 @@ mod tests {
                         operation: ResourceRequestOperation::Register(
                             RegisterResourceRequestOperation::new("type".into(), "name".into()),
                         ),
-                        object: HashMap::from([("input".into(), Some(ObjectField::new(1.into(), false)))]),
+                        object: HashMap::from([("input".into(), Some(1.into()))]),
                         expected_results: HashSet::from(["output".into()]),
                         version: "1.0.0".into(),
                     }),
@@ -1289,7 +1301,10 @@ mod tests {
             assert_eq!(result, None);
 
             let output_node = engine.get_extract_field(*outputs.get(&"output".into()).unwrap());
-            assert_eq!(output_node.get_value(), &MaybeNodeValue::set_value(true.into(), false));
+            assert_eq!(
+                output_node.get_value(),
+                &MaybeNodeValue::set_value(true.into(), false)
+            );
         }
     }
     mod invoke_resource {
@@ -1298,7 +1313,6 @@ mod tests {
         use std::sync::{Arc, OnceLock};
 
         use mockall::predicate::{eq, function};
-        use serde_json::Value;
 
         use crate::engine::Engine;
         use crate::model::MaybeNodeValue;
@@ -1307,7 +1321,9 @@ mod tests {
             AbstractResourceNode, Callback, DoneNode, ExtractFieldNode,
             ResourceInvokeRequestOperation, ResourceRequestOperation,
         };
-        use crate::pulumi::service::{MockPulumiService, ObjectField, PerformResourceRequest, RegisterResourceResponse};
+        use crate::pulumi::service::{
+            MockPulumiService, PerformResourceRequest, RegisterResourceResponse,
+        };
 
         #[test]
         fn should_create_required_nodes_during_preview() {
@@ -1433,7 +1449,7 @@ mod tests {
                         operation: ResourceRequestOperation::Invoke(
                             ResourceInvokeRequestOperation::new("token".into()),
                         ),
-                        object: HashMap::from([("input".into(), Some(ObjectField::new(1.into(), false)))]),
+                        object: HashMap::from([("input".into(), Some(1.into()))]),
                         expected_results: HashSet::from(["output".into()]),
                         version: "1.0.0".into(),
                     }),
@@ -1479,7 +1495,10 @@ mod tests {
             assert_eq!(result, None);
 
             let output_node = engine.get_extract_field(*outputs.get(&"output".into()).unwrap());
-            assert_eq!(output_node.get_value(), &MaybeNodeValue::set_value(true.into(), false));
+            assert_eq!(
+                output_node.get_value(),
+                &MaybeNodeValue::set_value(true.into(), false)
+            );
         }
     }
 

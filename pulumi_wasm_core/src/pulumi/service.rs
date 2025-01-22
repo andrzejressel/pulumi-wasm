@@ -20,21 +20,9 @@ pub trait PulumiService {
 #[derive(Clone, Debug, PartialEq)]
 pub struct PerformResourceRequest {
     pub(crate) operation: ResourceRequestOperation,
-    pub(crate) object: HashMap<FieldName, Option<ObjectField>>,
+    pub(crate) object: HashMap<FieldName, Option<Value>>,
     pub(crate) expected_results: HashSet<FieldName>,
     pub(crate) version: String,
-}
-
-#[derive(Clone, Debug, PartialEq)]
-pub struct ObjectField {
-    pub(crate) value: Value,
-    pub(crate) secret: bool,
-}
-
-impl ObjectField {
-    pub(crate) fn new(value: Value, secret: bool) -> Self {
-        Self { value, secret }
-    }
 }
 
 #[derive(Clone, Debug, PartialEq)]

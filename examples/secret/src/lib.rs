@@ -1,10 +1,6 @@
 use anyhow::Error;
 use pulumi_wasm_providers_random::random_bytes;
-use pulumi_wasm_providers_random::random_string;
-use pulumi_wasm_providers_random::random_string::RandomStringArgs;
-use pulumi_wasm_rust::Output;
-use pulumi_wasm_rust::ToOutput;
-use pulumi_wasm_rust::{add_export, pulumi_combine, pulumi_format, pulumi_main};
+use pulumi_wasm_rust::{add_export, pulumi_main};
 
 #[pulumi_main]
 fn test_main() -> Result<(), Error> {
@@ -15,9 +11,9 @@ fn test_main() -> Result<(), Error> {
             .build_struct(),
     );
 
-    let a = secret.hex.map(|hex| 1);
+    let secret_mapped = secret.hex.map(|hex| 1);
 
-    add_export("secret", &secret.hex);
-    add_export("A", &a);
+    add_export("secret_output", &secret.hex);
+    add_export("secret_output_mapped", &secret_mapped);
     Ok(())
 }
