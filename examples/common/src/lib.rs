@@ -86,4 +86,3 @@ pub fn export_stack_secret() -> Result<Stack, anyhow::Error> {
     let stack: Value = serde_json::from_str(str::from_utf8(stack)?)?;
     Ok(Stack { value: stack })
 }
-

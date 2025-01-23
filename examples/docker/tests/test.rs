@@ -1,4 +1,3 @@
-use anyhow::anyhow;
 use pulumi_wasm_examples_common::{export_stack, init_stack, select_stack, up_stack};
 
 #[test]

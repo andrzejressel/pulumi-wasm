@@ -925,7 +925,7 @@ mod tests {
     fn create_done_node_create_node_in_map() {
         let mut engine = Engine::new(MockPulumiService::new());
         let value: Value = 1.into();
-        let output_id = engine.create_done_node(value.clone());
+        let output_id = engine.create_done_node(value.clone(), false);
 
         assert_eq!(engine.done_node_ids, vec![output_id]);
         assert_eq!(
@@ -938,7 +938,7 @@ mod tests {
     fn create_native_function_node_create_node_in_map() {
         let mut engine = Engine::new(MockPulumiService::new());
         let value: Value = 1.into();
-        let done_node_output_id = engine.create_done_node(value.clone());
+        let done_node_output_id = engine.create_done_node(value.clone(), false);
         let native_node_output_id =
             engine.create_native_function_node("func".into(), done_node_output_id);
 
@@ -967,7 +967,7 @@ mod tests {
         fn run_return_native_functions() {
             let mut engine = Engine::new(MockPulumiService::new());
             let value: Value = 1.into();
-            let done_node_output_id = engine.create_done_node(value.clone());
+            let done_node_output_id = engine.create_done_node(value.clone(), false);
             let native_node_output_id =
                 engine.create_native_function_node("func".into(), done_node_output_id);
 
@@ -990,7 +990,7 @@ mod tests {
         fn sets_native_function_results() {
             let mut engine = Engine::new(MockPulumiService::new());
             let value: Value = 1.into();
-            let done_node_output_id = engine.create_done_node(value.clone());
+            let done_node_output_id = engine.create_done_node(value.clone(), false);
             let native_node_output_id =
                 engine.create_native_function_node("func".into(), done_node_output_id);
             let result_value: Value = 2.into();
@@ -1014,7 +1014,7 @@ mod tests {
         fn native_function_passes_unknown_value_downstream() {
             let mut engine = Engine::new(MockPulumiService::new());
             let value: Value = 1.into();
-            let done_node_output_id = engine.create_done_node(value.clone());
+            let done_node_output_id = engine.create_done_node(value.clone(), false);
             let native_node_output_id =
                 engine.create_native_function_node("func".into(), done_node_output_id);
             let result_value: Value = 2.into();
@@ -1038,7 +1038,7 @@ mod tests {
         fn native_function_can_be_run_from_another_native_function() {
             let mut engine = Engine::new(MockPulumiService::new());
             let value: Value = 1.into();
-            let done_node_output_id = engine.create_done_node(value.clone());
+            let done_node_output_id = engine.create_done_node(value.clone(), false);
             let native_node_output_id_1 =
                 engine.create_native_function_node("func".into(), done_node_output_id);
             let native_node_output_id_2 =
@@ -1074,7 +1074,7 @@ mod tests {
         fn extract_field_extract_field_from_map() {
             let mut engine = Engine::new(MockPulumiService::new());
             let value = Value::Object([("key".into(), 1.into())].into_iter().collect());
-            let done_node_output_id = engine.create_done_node(value.clone());
+            let done_node_output_id = engine.create_done_node(value.clone(), false);
             let extract_field_node_output_id =
                 engine.create_extract_field("key".into(), done_node_output_id, true);
             let native_function_node_output_id =
@@ -1129,7 +1129,7 @@ mod tests {
         #[test]
         fn should_create_required_nodes_during_preview() {
             let mut engine = Engine::new(MockPulumiService::new());
-            let done_node_output_id = engine.create_done_node(1.into());
+            let done_node_output_id = engine.create_done_node(1.into(), false);
             let (register_resource_node_output_id, output_fields) = engine
                 .create_register_resource_node(
                     "type".into(),
@@ -1182,7 +1182,7 @@ mod tests {
         #[test]
         fn should_create_required_nodes_during_execution() {
             let mut engine = Engine::new(MockPulumiService::new());
-            let done_node_output_id = engine.create_done_node(1.into());
+            let done_node_output_id = engine.create_done_node(1.into(), false);
             let (register_resource_node_output_id, output_fields) = engine
                 .create_register_resource_node(
                     "type".into(),
@@ -1285,7 +1285,7 @@ mod tests {
                 });
 
             let mut engine = Engine::new(mock);
-            let done_node_output_id = engine.create_done_node(1.into());
+            let done_node_output_id = engine.create_done_node(1.into(), false);
             let (register_resource_node_output_id, outputs) = engine.create_register_resource_node(
                 "type".into(),
                 "name".into(),
@@ -1328,7 +1328,7 @@ mod tests {
         #[test]
         fn should_create_required_nodes_during_preview() {
             let mut engine = Engine::new(MockPulumiService::new());
-            let done_node_output_id = engine.create_done_node(1.into());
+            let done_node_output_id = engine.create_done_node(1.into(), false);
             let (invoke_resource_node_output_id, output_fields) = engine
                 .create_resource_invoke_node(
                     "token".into(),
@@ -1379,7 +1379,7 @@ mod tests {
         #[test]
         fn should_create_required_nodes_during_execution() {
             let mut engine = Engine::new(MockPulumiService::new());
-            let done_node_output_id = engine.create_done_node(1.into());
+            let done_node_output_id = engine.create_done_node(1.into(), false);
             let (invoke_resource_node_output_id, output_fields) = engine
                 .create_resource_invoke_node(
                     "token".into(),
@@ -1480,7 +1480,7 @@ mod tests {
                 });
 
             let mut engine = Engine::new(mock);
-            let done_node_output_id = engine.create_done_node(1.into());
+            let done_node_output_id = engine.create_done_node(1.into(), false);
             let (invoke_resource_node_output_id, outputs) = engine.create_resource_invoke_node(
                 "token".into(),
                 HashMap::from([("input".into(), done_node_output_id)]),
@@ -1509,8 +1509,8 @@ mod tests {
         #[test]
         fn combine_outputs_with_done_node() {
             let mut engine = Engine::new(MockPulumiService::new());
-            let value1 = engine.create_done_node("key".into());
-            let value2 = engine.create_done_node(1.into());
+            let value1 = engine.create_done_node("key".into(), false);
+            let value2 = engine.create_done_node(1.into(), false);
 
             let combined = engine.create_combine_outputs(vec![value1, value2]);
 
@@ -1548,7 +1548,7 @@ mod tests {
 
             let mut engine = Engine::new(mock);
 
-            let output_id = engine.create_done_node(1.into());
+            let output_id = engine.create_done_node(1.into(), false);
             engine.add_output("output".into(), output_id);
 
             let result = engine.run(HashMap::new());

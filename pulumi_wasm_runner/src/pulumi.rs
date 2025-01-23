@@ -44,10 +44,10 @@ impl Host for MyState {
             .unwrap_or_else(|_| false))
     }
     async fn get_root_resource(&mut self) -> wasmtime::Result<String> {
-        Ok(self.get_root_resource_async().await?)
+        self.get_root_resource_async().await
     }
     async fn register_resource_outputs(&mut self, request: Vec<u8>) -> wasmtime::Result<Vec<u8>> {
-        Ok(self.register_resource_outputs_async(request).await?)
+        self.register_resource_outputs_async(request).await
     }
 
     async fn resource_invoke(

@@ -617,7 +617,7 @@ world world-gcp {
 interface output-interface {
 
     resource output {
-        constructor(value: string);
+        constructor(value: string, secret: bool);
         map: func(function-name: string) -> output;
     }
     combine: func(outputs: list<borrow<output>>) -> output;

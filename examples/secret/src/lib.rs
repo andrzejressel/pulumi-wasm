@@ -15,8 +15,8 @@ fn test_main() -> Result<(), Error> {
     );
 
     let secret_mapped = secret.base64.map(|_| "mapped_secret".to_string());
-    let combined_with_secret = pulumi_combine!(non_secret, secret_mapped)
-        .map(|(a, b)| format!("[{}, \"{}\"]", a, b));
+    let combined_with_secret =
+        pulumi_combine!(non_secret, secret_mapped).map(|(a, b)| format!("[{}, \"{}\"]", a, b));
 
     add_export("secret_output", &secret.base64);
     add_export("secret_output_mapped", &secret_mapped);

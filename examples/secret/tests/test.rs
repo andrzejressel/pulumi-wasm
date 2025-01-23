@@ -1,7 +1,6 @@
-use anyhow::anyhow;
-use std::process::Command;
-use std::str;
-use pulumi_wasm_examples_common::{export_stack, export_stack_secret, init_stack, select_stack, up_stack};
+use pulumi_wasm_examples_common::{
+    export_stack, export_stack_secret, init_stack, select_stack, up_stack,
+};
 
 #[test]
 #[cfg_attr(not(feature = "example_test"), ignore)]
@@ -27,10 +26,16 @@ fn test_integration() -> Result<(), anyhow::Error> {
     assert_eq!(secret_stack.get_string("/secret_output")?.len(), 16);
 
     assert_eq!(stack.get_string("/secret_output_mapped")?, "[secret]");
-    assert_eq!(secret_stack.get_string("/secret_output_mapped")?, "mapped_secret");
+    assert_eq!(
+        secret_stack.get_string("/secret_output_mapped")?,
+        "mapped_secret"
+    );
 
     assert_eq!(stack.get_string("/combined_with_secret")?, "[secret]");
-    assert_eq!(secret_stack.get_string("/combined_with_secret")?, "[1, \"mapped_secret\"]");
+    assert_eq!(
+        secret_stack.get_string("/combined_with_secret")?,
+        "[1, \"mapped_secret\"]"
+    );
 
     assert_eq!(stack.get_string("/custom_secret")?, "[secret]");
     assert_eq!(secret_stack.get_string("/custom_secret")?, "42");
