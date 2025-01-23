@@ -67,7 +67,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload coverage data to codecov
-        uses: codecov/codecov-action@1e68e06f1dbfde0e4cefc87efeba9e4643565303 # v5
+        uses: codecov/codecov-action@5a605bd92782ce0810fa3b8acc235c921b497052 # v5
         with:
           files: covertura.xml
           fail_ci_if_error: true
@@ -119,7 +119,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload coverage data to codecov
-        uses: codecov/codecov-action@1e68e06f1dbfde0e4cefc87efeba9e4643565303 # v5
+        uses: codecov/codecov-action@5a605bd92782ce0810fa3b8acc235c921b497052 # v5
         with:
           files: covertura.xml
           fail_ci_if_error: true
@@ -165,7 +165,7 @@ jobs:
         if: runner.os == 'macOS'
       - run: pulumi version
       - run: pulumi login --local
-      - uses: actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a # v5
+      - uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5
         with:
           go-version: '^1.22.0'
           cache-dependency-path: "**/go.sum"
@@ -208,7 +208,7 @@ jobs:
         if: runner.os == 'macOS'
       - run: pulumi version
       - run: pulumi login --local
-      - uses: actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a # v5
+      - uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5
         with:
           go-version: '^1.22.0'
           cache-dependency-path: "**/go.sum"
@@ -267,7 +267,7 @@ jobs:
           timeout_minutes: 10
           max_attempts: 10
           command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
-      - uses: actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a # v5
+      - uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5
         with:
           go-version: '^1.22.0'
           cache-dependency-path: "**/go.sum"
@@ -289,7 +289,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload coverage data to codecov
-        uses: codecov/codecov-action@1e68e06f1dbfde0e4cefc87efeba9e4643565303 # v5
+        uses: codecov/codecov-action@5a605bd92782ce0810fa3b8acc235c921b497052 # v5
         with:
           files: covertura.xml
           fail_ci_if_error: true
@@ -352,7 +352,7 @@ jobs:
         timeout_minutes: 10
         max_attempts: 10
         command: docker pull public.ecr.aws/ubuntu/ubuntu:latest
-    - uses: actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a # v5
+    - uses: actions/setup-go@f111f3307d8850f501ac008e886eec1fd1932a34 # v5
       with:
         go-version: '^1.22.0'
         cache-dependency-path: "**/go.sum"
