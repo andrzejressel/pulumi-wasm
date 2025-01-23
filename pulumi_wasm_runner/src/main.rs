@@ -32,7 +32,7 @@ enum Command {
         #[clap(
             long,
             action,
-            help = "When set to true, WASM components with debug symbols will be used. Should be only used for debugging - it will massively increase execution time"
+            help = "When set to true, Wasm components with debug symbols will be used. Should be only used for debugging - it will massively increase execution time"
         )]
         debug: bool,
         program: PathBuf,

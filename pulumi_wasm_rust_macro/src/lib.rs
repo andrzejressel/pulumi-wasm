@@ -4,7 +4,7 @@ use proc_macro::TokenStream;
 use quote::quote;
 use syn::parse_macro_input;
 
-/// Marks function to be executed by Pulumi WASM Runner - basically makes it special `fn main()`
+/// Marks function to be executed by Pulumi Wasm Runner - basically makes it special `fn main()`
 /// ```rust,no_run
 /// use anyhow::{Context, Error, Result};
 /// use pulumi_wasm_rust::pulumi_main;

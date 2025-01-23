@@ -47,12 +47,12 @@ pub async fn create(
 
     let pulumi_wasm_version = pulumi_wasm_versions.iter().next().unwrap();
 
-    info!("Pulumi WASM version: {pulumi_wasm_version}");
+    info!("Pulumi Wasm version: {pulumi_wasm_version}");
 
     let pulumi_wasm = pulumi_wasm
         .get(pulumi_wasm_version, debug)
         .await
-        .context("Cannot obtain pulumi_wasm component WASM")?;
+        .context("Cannot obtain pulumi_wasm component Wasm")?;
 
     let pulumi_wasm =
         Package::from_bytes("pulumi_wasm", None, pulumi_wasm, graph.types_mut()).unwrap();
