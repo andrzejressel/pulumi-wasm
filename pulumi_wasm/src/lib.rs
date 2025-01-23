@@ -182,11 +182,11 @@ impl register_interface::Guest for Component {
 }
 
 impl GuestOutput for CustomOutputId {
-    fn new(value: String) -> CustomOutputId {
+    fn new(value: String, secret: bool) -> CustomOutputId {
         pulumi_wasm_common::setup_logger();
         let value = serde_json::from_str(&value).unwrap();
         let refcell: &RefCell<Engine> = &get_pulumi_engine();
-        let output_id = refcell.borrow_mut().create_done_node(value);
+        let output_id = refcell.borrow_mut().create_done_node(value, secret);
         output_id.into()
     }
 

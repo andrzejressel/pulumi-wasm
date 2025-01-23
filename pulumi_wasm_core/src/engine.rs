@@ -795,9 +795,9 @@ impl Engine {
         }
     }
 
-    pub fn create_done_node(&mut self, value: Value) -> OutputId {
+    pub fn create_done_node(&mut self, value: Value, secret: bool) -> OutputId {
         let output_id = Uuid::now_v7().into();
-        let node = DoneNode::new(value, false);
+        let node = DoneNode::new(value, secret);
         self.done_node_ids.push_back(output_id);
         self.nodes.insert(output_id, EngineNode::Done(node).into());
 

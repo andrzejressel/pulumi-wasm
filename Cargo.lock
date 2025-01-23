@@ -2364,11 +2364,9 @@ name = "pulumi_wasm_example_secret"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "assert_cmd",
- "predicates",
+ "pulumi_wasm_examples_common",
  "pulumi_wasm_providers_random",
  "pulumi_wasm_rust",
- "serde_json",
 ]
 
 [[package]]

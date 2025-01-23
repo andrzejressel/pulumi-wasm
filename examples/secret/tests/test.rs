@@ -1,107 +1,39 @@
 use anyhow::anyhow;
-use assert_cmd::prelude::*;
-use serde_json::Value;
 use std::process::Command;
 use std::str;
+use pulumi_wasm_examples_common::{export_stack, export_stack_secret, init_stack, select_stack, up_stack};
 
 #[test]
 #[cfg_attr(not(feature = "example_test"), ignore)]
 fn test_integration() -> Result<(), anyhow::Error> {
+    if std::env::var("GITHUB_ACTIONS").is_ok() && !cfg!(target_os = "linux") {
+        return Ok(());
+    }
+
     let github_token_env_vars = if let Ok(token) = std::env::var("GITHUB_TOKEN") {
         vec![("GITHUB_TOKEN".to_string(), token)]
     } else {
         vec![]
     };
 
-    Command::new("pulumi")
-        .args(["stack", "init", "test"])
-        .env("PULUMI_CONFIG_PASSPHRASE", " ")
-        .envs(github_token_env_vars.clone())
-        .current_dir(".")
-        .output()?;
+    init_stack("test", &github_token_env_vars)?;
+    select_stack("test")?;
+    up_stack(&github_token_env_vars)?;
 
-    Command::new("pulumi")
-        .args(["stack", "select", "test"])
-        .current_dir(".")
-        .assert()
-        .success();
+    let stack = export_stack()?;
+    let secret_stack = export_stack_secret()?;
 
-    Command::new("pulumi")
-        .args(["up", "-y"])
-        .current_dir(".")
-        .env("PULUMI_CONFIG_PASSPHRASE", " ")
-        .envs(github_token_env_vars)
-        .assert()
-        .success();
+    assert_eq!(stack.get_string("/secret_output")?, "[secret]");
+    assert_eq!(secret_stack.get_string("/secret_output")?.len(), 16);
 
-    let binding = Command::new("pulumi")
-        .args(["stack", "output", "--json"])
-        .current_dir(".")
-        .env("PULUMI_CONFIG_PASSPHRASE", " ")
-        .assert()
-        .success();
+    assert_eq!(stack.get_string("/secret_output_mapped")?, "[secret]");
+    assert_eq!(secret_stack.get_string("/secret_output_mapped")?, "mapped_secret");
 
-    let bindings_secrets = Command::new("pulumi")
-        .args(["stack", "output", "--json", "--show-secrets"])
-        .current_dir(".")
-        .env("PULUMI_CONFIG_PASSPHRASE", " ")
-        .assert()
-        .success();
+    assert_eq!(stack.get_string("/combined_with_secret")?, "[secret]");
+    assert_eq!(secret_stack.get_string("/combined_with_secret")?, "[1, \"mapped_secret\"]");
 
-    let stack = &binding.get_output().stdout;
-
-    let stack: Value = serde_json::from_str(str::from_utf8(stack)?)?;
-
-    println!("{:?}", stack);
-    // let result = stack
-    //     .pointer("/result")
-    //     .ok_or(anyhow!("Cannot find [result] in stack export"))?
-    //     .as_str()
-    //     .ok_or(anyhow!("[result] is not a string"))?;
-    //
-    // let transformed_result = stack
-    //     .pointer("/transformed_result")
-    //     .ok_or(anyhow!("Cannot find [transformed_result] in stack export"))?
-    //     .as_str()
-    //     .ok_or(anyhow!("[transformed_result] is not a string"))?;
-    //
-    // let number = stack
-    //     .pointer("/number")
-    //     .ok_or(anyhow!("Cannot find [number] in stack export"))?
-    //     .as_i64()
-    //     .ok_or(anyhow!("[number] is not a string"))?;
-    //
-    // let combined_string = stack
-    //     .pointer("/combined_string")
-    //     .ok_or(anyhow!("Cannot find [combined_string] in stack export"))?
-    //     .as_str()
-    //     .ok_or(anyhow!("[combined_string] is not a string"))?;
-    //
-    // let combined_2_string = stack
-    //     .pointer("/combined_2_string")
-    //     .ok_or(anyhow!("Cannot find [combined_2_string] in stack export"))?
-    //     .as_str()
-    //     .ok_or(anyhow!("[combined_2_string] is not a string"))?;
-    //
-    // let keepers = stack
-    //     .pointer("/keepers")
-    //     .ok_or(anyhow!("Cannot find [keepers] in stack export"))?
-    //     .as_str()
-    //     .ok_or(anyhow!("[keepers] is not a string"))?;
-    //
-    // let result_2 = stack
-    //     .pointer("/result_2")
-    //     .ok_or(anyhow!("Cannot find [result_2] in stack export"))?
-    //     .as_str()
-    //     .ok_or(anyhow!("[result_2] is not a string"))?;
-    //
-    // assert_eq!(result.len(), 36);
-    // assert_eq!(transformed_result, format!("Result: {}", result));
-    // assert_eq!(number, 0);
-    // assert_eq!(combined_string, "Values: (1, \"abc\")");
-    // assert_eq!(combined_2_string, "Values: (1, \"abc\")");
-    // assert_eq!(keepers, "Keepers: None");
-    // assert_eq!(result_2.len(), 13);
+    assert_eq!(stack.get_string("/custom_secret")?, "[secret]");
+    assert_eq!(secret_stack.get_string("/custom_secret")?, "42");
 
     Ok(())
 }
