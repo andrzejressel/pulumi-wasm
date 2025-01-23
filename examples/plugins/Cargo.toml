@@ -18,3 +18,4 @@ pulumi_wasm_providers_random.workspace = true
 
 [dev-dependencies]
 assert_cmd.workspace = true
+pulumi_wasm_examples_common.workspace = true

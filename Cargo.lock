@@ -966,15 +966,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0ce7134b9999ecaf8bcd65542e436736ef32ddca1b3e06094cb6ec5755203b80"
 
 [[package]]
-name = "float-cmp"
-version = "0.10.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b09cf3155332e944990140d967ff5eceb70df778b34f77d8075db46e4704e6d8"
-dependencies = [
- "num-traits",
-]
-
-[[package]]
 name = "fnv"
 version = "1.0.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1909,12 +1900,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "normalize-line-endings"
-version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "61807f77802ff30975e01f4f071c8ba10c022052f98b3294119f3e615d13e5be"
-
-[[package]]
 name = "num-modular"
 version = "0.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2178,10 +2163,7 @@ checksum = "a5d19ee57562043d37e82899fade9a22ebab7be9cef5026b07fda9cdd4293573"
 dependencies = [
  "anstyle",
  "difflib",
- "float-cmp",
- "normalize-line-endings",
  "predicates-core",
- "regex",
 ]
 
 [[package]]
@@ -2340,11 +2322,9 @@ name = "pulumi_wasm_example_dependencies"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "assert_cmd",
- "predicates",
+ "pulumi_wasm_examples_common",
  "pulumi_wasm_providers_random",
  "pulumi_wasm_rust",
- "serde_json",
 ]
 
 [[package]]
@@ -2352,11 +2332,9 @@ name = "pulumi_wasm_example_docker"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "assert_cmd",
- "predicates",
+ "pulumi_wasm_examples_common",
  "pulumi_wasm_providers_docker",
  "pulumi_wasm_rust",
- "serde_json",
 ]
 
 [[package]]
@@ -2364,12 +2342,10 @@ name = "pulumi_wasm_example_multiple_providers"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "assert_cmd",
- "predicates",
+ "pulumi_wasm_examples_common",
  "pulumi_wasm_providers_docker",
  "pulumi_wasm_providers_random",
  "pulumi_wasm_rust",
- "serde_json",
 ]
 
 [[package]]
@@ -2378,6 +2354,7 @@ version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
  "assert_cmd",
+ "pulumi_wasm_examples_common",
  "pulumi_wasm_providers_random",
  "pulumi_wasm_rust",
 ]
@@ -2387,11 +2364,9 @@ name = "pulumi_wasm_example_simple"
 version = "0.0.0-DEV"
 dependencies = [
  "anyhow",
- "assert_cmd",
- "predicates",
+ "pulumi_wasm_examples_common",
  "pulumi_wasm_providers_random",
  "pulumi_wasm_rust",
- "serde_json",
 ]
 
 [[package]]
@@ -2400,6 +2375,15 @@ version = "0.0.0-DEV"
 dependencies = [
  "pulumi_wasm_providers_typesystem",
  "pulumi_wasm_rust",
+ "serde_json",
+]
+
+[[package]]
+name = "pulumi_wasm_examples_common"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "assert_cmd",
  "serde_json",
 ]
 
