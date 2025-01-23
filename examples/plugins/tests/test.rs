@@ -1,7 +1,7 @@
 use assert_cmd::prelude::*;
+use pulumi_wasm_examples_common::{init_stack, select_stack};
 use std::process::Command;
 use std::str;
-use pulumi_wasm_examples_common::{init_stack, select_stack};
 
 #[test]
 #[cfg_attr(not(feature = "example_test"), ignore)]
