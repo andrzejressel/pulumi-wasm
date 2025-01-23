@@ -27,7 +27,7 @@ In Rust, it looks like this:
 #[link_section = "pulumi_wasm_provider::docker"]
 #[no_mangle]
 #[cfg(target_arch = "wasm32")]
-pub static PULUMI_Wasm_PROVIDER_DOCKER: [u8; 44] = *b"{\"version\":\"4.5.3\",\"pluginDownloadURL\":null}";
+pub static PULUMI_WASM_PROVIDER_DOCKER: [u8; 44] = *b"{\"version\":\"4.5.3\",\"pluginDownloadURL\":null}";
 ```
 
 Key is `pulumi_wasm_provider::<provider_name>` and value is JSON with required `version` and optional `pluginDownloadURL` fields.
