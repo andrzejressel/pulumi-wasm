@@ -8,7 +8,7 @@ New language should have the following features:
 - Generating glue code for providers
 
 `pulumi_wasm_rust` and `pulumi_wasm_macro` should be used as an example - combined they have about 100 LOC and they
-only create abstration over WASM calls.
+only create abstration over Wasm calls.
 
 ## Optional
 

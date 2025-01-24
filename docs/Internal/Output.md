@@ -2,7 +2,7 @@
 
 ## Types of Output
 
-Pulumi WASM has 5 types of outputs (represented as `EngineNode` in `engine.rs`):
+Pulumi Wasm has 5 types of outputs (represented as `EngineNode` in `engine.rs`):
 1. Done
 2. NativeFunction
 3. RegisterResource
@@ -33,8 +33,8 @@ Output that combines N outputs and returns array (in user facing code it should 
 
 One of Pulumi features is allowing transforming values in programming languages as opposed to 
 configuration language like in Terraform. While it's obvious how to do that when everything is written in one language
-in Pulumi WASM it's not the case - internals are written in Rust compiled to WASM, while user code
-can be written in any language that can be compiled to WASM. 
+in Pulumi Wasm it's not the case - internals are written in Rust compiled to Wasm, while user code
+can be written in any language that can be compiled to Wasm. 
 
 To handle it mapping value has 2 stages:
 
@@ -47,16 +47,16 @@ Simplified sequence diagram of this process:
 sequenceDiagram
     User --> User: Create function
     User --> User: Assign ID to function
-    User -> Pulumi_WASM: Map given output with function "ID"
+    User -> Pulumi_Wasm: Map given output with function "ID"
     Note left of User: Other computations
     
     loop While there are still outputs to map (1)
-    User -> Pulumi_WASM: Get output values with function ids
+    User -> Pulumi_Wasm: Get output values with function ids
     User --> User: Compute results
-    User -> Pulumi_WASM: Return values
+    User -> Pulumi_Wasm: Return values
     end
 ```
 
 (1) Outputs ready to be mapped are of type `Func` for which input is type `Done`
 
-Currently due to single threaded nature of WASM this operation is done at the end of the program.
+Currently due to single threaded nature of Wasm this operation is done at the end of the program.

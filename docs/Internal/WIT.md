@@ -35,7 +35,7 @@ Interface that allows registering of Pulumi resources. Used only by providers.
 
 ### External world
 
-Interface used as a substitute until WASM gets proper GRPC client support. 
+Interface used as a substitute until Wasm gets proper GRPC client support. 
 It is used by main `pulumi-wasm` component binary and is implemented by `pulumi-wasm-runner`.
 
 ## Worlds

@@ -1,4 +1,4 @@
-site_name: Pulumi WASM
+site_name: Pulumi Wasm
 repo_url: https://github.com/andrzejressel/pulumi-wasm
 theme:
   palette:
@@ -32,7 +32,7 @@ extra:
       make our documentation better.
 
 copyright: >
-  Copyright &copy; 2024 - 2025 Pulumi WASM project –
+  Copyright &copy; 2024 - 2025 Pulumi Wasm project –
   <a href="#__consent">Change cookie settings</a>
 
 markdown_extensions:
