@@ -74,3 +74,15 @@ pub fn export_stack() -> Result<Stack, anyhow::Error> {
     let stack: Value = serde_json::from_str(str::from_utf8(stack)?)?;
     Ok(Stack { value: stack })
 }
+
+pub fn export_stack_secret() -> Result<Stack, anyhow::Error> {
+    let binding = Command::new("pulumi")
+        .args(["stack", "output", "--json", "--show-secrets"])
+        .current_dir(".")
+        .env("PULUMI_CONFIG_PASSPHRASE", " ")
+        .assert()
+        .success();
+    let stack = &binding.get_output().stdout;
+    let stack: Value = serde_json::from_str(str::from_utf8(stack)?)?;
+    Ok(Stack { value: stack })
+}

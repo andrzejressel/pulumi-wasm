@@ -86,7 +86,7 @@ impl PulumiService for PulumiServiceImpl {
                     );
                 }
 
-                let object = Self::create_protobuf_struct(request.object.clone());
+                let object = Self::create_protobuf_struct(request.object);
 
                 let req = grpc::RegisterResourceRequest {
                     r#type: register.r#type.clone(),
@@ -135,7 +135,7 @@ impl PulumiService for PulumiServiceImpl {
                     );
                 }
 
-                let object = Self::create_protobuf_struct(request.object.clone());
+                let object = Self::create_protobuf_struct(request.object);
 
                 let req = grpc::ResourceInvokeRequest {
                     tok: invoke.token,

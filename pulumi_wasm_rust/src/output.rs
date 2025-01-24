@@ -180,7 +180,16 @@ impl<T> Output<T> {
 impl<T: Serialize> Output<T> {
     pub fn new(value: &T) -> Self {
         let binding = serde_json::to_string(&value).unwrap();
-        let resource = output_interface::Output::new(binding.as_str());
+        let resource = output_interface::Output::new(binding.as_str(), false);
+        Output {
+            phantom: PhantomData,
+            underlying_id: output_interface::Output::take_handle(&resource),
+        }
+    }
+
+    pub fn new_secret(value: &T) -> Self {
+        let binding = serde_json::to_string(&value).unwrap();
+        let resource = output_interface::Output::new(binding.as_str(), true);
         Output {
             phantom: PhantomData,
             underlying_id: output_interface::Output::take_handle(&resource),
