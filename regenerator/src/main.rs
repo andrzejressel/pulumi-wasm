@@ -78,7 +78,7 @@ fn main() {
         },
         Provider {
             name: "random",
-            version: "4.15.0",
+            version: "4.15.1",
         },
         Provider {
             name: "cloudflare",

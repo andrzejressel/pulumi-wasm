@@ -2360,6 +2360,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulumi_wasm_example_secret"
+version = "0.0.0-DEV"
+dependencies = [
+ "anyhow",
+ "pulumi_wasm_examples_common",
+ "pulumi_wasm_providers_random",
+ "pulumi_wasm_rust",
+]
+
+[[package]]
 name = "pulumi_wasm_example_simple"
 version = "0.0.0-DEV"
 dependencies = [

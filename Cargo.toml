@@ -8,6 +8,7 @@ members = [
     "examples/dependencies",
     "examples/docker",
     "examples/multiple_providers",
+    "examples/secret",
     "examples/simple",
     "examples/plugins",
     "examples/typesystem",

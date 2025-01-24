@@ -22,7 +22,7 @@ world world-random {
 interface output-interface {
 
     resource output {
-        constructor(value: string);
+        constructor(value: string, secret: bool);
         map: func(function-name: string) -> output;
     }
     combine: func(outputs: list<borrow<output>>) -> output;
@@ -84,7 +84,7 @@ interface register-interface {
 #[link_section = "pulumi_wasm_provider::random"]
 #[no_mangle]
 #[cfg(target_arch = "wasm32")]
-static PULUMI_WASM_PROVIDER_RANDOM: [u8; 45] = *b"{\"version\":\"4.15.0\",\"pluginDownloadURL\":null}";
+static PULUMI_WASM_PROVIDER_RANDOM: [u8; 45] = *b"{\"version\":\"4.15.1\",\"pluginDownloadURL\":null}";
 pub(crate) fn get_version() -> String {
-    "4.15.0".to_string()
+    "4.15.1".to_string()
 }

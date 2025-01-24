@@ -57,6 +57,7 @@ build-wasm-components:
     cargo component build -p pulumi_wasm_example_dependencies
     cargo component build -p pulumi_wasm_example_multiple_providers
     cargo component build -p pulumi_wasm_example_plugins
+    cargo component build -p pulumi_wasm_example_secret
 
 build-wasm-components-release:
     cargo build -p pulumi_wasm_runner --release
@@ -66,6 +67,7 @@ build-wasm-components-release:
     cargo component build -p pulumi_wasm_example_dependencies --release
     cargo component build -p pulumi_wasm_example_multiple_providers --release
     cargo component build -p pulumi_wasm_example_plugins --release
+    cargo component build -p pulumi_wasm_example_secret --release
 
 check:
     cargo fmt -- --check
@@ -110,6 +112,7 @@ test-examples:
         -p pulumi_wasm_example_multiple_providers \
         -p pulumi_wasm_example_typesystem \
         -p pulumi_wasm_example_plugins \
+        -p pulumi_wasm_example_secret \
         --cobertura --output-path covertura.xml --features example_test
 
 generator-tests:
