@@ -4,13 +4,13 @@ use pulumi_wasm_rust::{add_export, pulumi_combine, pulumi_main, Output};
 
 #[pulumi_main]
 fn test_main() -> Result<(), Error> {
-    let custom_secret = Output::new_secret(&"42");
+    let custom_secret = Output::new_secret(&10);
     let non_secret = Output::new(&1);
 
     let secret = random_bytes::create(
         "secret",
         random_bytes::RandomBytesArgs::builder()
-            .length(10)
+            .length(custom_secret)
             .build_struct(),
     );
 

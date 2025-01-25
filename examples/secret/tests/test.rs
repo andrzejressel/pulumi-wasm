@@ -38,7 +38,7 @@ fn test_integration() -> Result<(), anyhow::Error> {
     );
 
     assert_eq!(stack.get_string("/custom_secret")?, "[secret]");
-    assert_eq!(secret_stack.get_string("/custom_secret")?, "42");
+    assert_eq!(secret_stack.get_i64("/custom_secret")?, 10);
 
     Ok(())
 }
