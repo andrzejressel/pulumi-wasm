@@ -131,28 +131,28 @@
 /// ```
 ///
 pub mod custom_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomDomainArgs {
         /// The Binding type. Possible values include `Disabled` and `SniEnabled`.
         #[builder(into, default)]
-        pub certificate_binding_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_binding_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
         #[builder(into, default)]
-        pub container_app_environment_certificate_id: pulumi_wasm_rust::Output<
+        pub container_app_environment_certificate_id: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the Container App to which this Custom Domain should be bound. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub container_app_id: pulumi_wasm_rust::Output<String>,
+        pub container_app_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The fully qualified name of the Custom Domain. Must be the CN or a named SAN in the certificate specified by the `container_app_environment_certificate_id`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** The Custom Domain verification TXT record requires a prefix of `asuid.`, however, this must be trimmed from the `name` property here. See the [official docs](https://learn.microsoft.com/en-us/azure/container-apps/custom-domains-certificates) for more information.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CustomDomainResult {
@@ -179,15 +179,26 @@ pub mod custom_domain {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CustomDomainArgs) -> CustomDomainResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CustomDomainArgs,
+    ) -> CustomDomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_binding_type_binding = args.certificate_binding_type.get_inner();
+        let certificate_binding_type_binding = args
+            .certificate_binding_type
+            .get_output(context)
+            .get_inner();
         let container_app_environment_certificate_id_binding = args
             .container_app_environment_certificate_id
+            .get_output(context)
             .get_inner();
-        let container_app_id_binding = args.container_app_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let container_app_id_binding = args
+            .container_app_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerapp/customDomain:CustomDomain".into(),
             name: name.to_string(),
@@ -228,7 +239,7 @@ pub mod custom_domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

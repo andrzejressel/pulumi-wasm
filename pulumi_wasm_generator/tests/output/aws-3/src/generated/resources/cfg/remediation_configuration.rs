@@ -68,46 +68,46 @@
 /// $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
 /// ```
 pub mod remediation_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RemediationConfigurationArgs {
         /// Remediation is triggered automatically if `true`.
         #[builder(into, default)]
-        pub automatic: pulumi_wasm_rust::Output<Option<bool>>,
+        pub automatic: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the AWS Config rule.
         #[builder(into)]
-        pub config_rule_name: pulumi_wasm_rust::Output<String>,
+        pub config_rule_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block for execution controls. See below.
         #[builder(into, default)]
-        pub execution_controls: pulumi_wasm_rust::Output<
+        pub execution_controls: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cfg::RemediationConfigurationExecutionControls>,
         >,
         /// Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
         #[builder(into, default)]
-        pub maximum_automatic_attempts: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_automatic_attempts: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::cfg::RemediationConfigurationParameter>>,
         >,
         /// Type of resource.
         #[builder(into, default)]
-        pub resource_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
         #[builder(into, default)]
-        pub retry_attempt_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retry_attempt_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Target ID is the name of the public document.
         #[builder(into)]
-        pub target_id: pulumi_wasm_rust::Output<String>,
+        pub target_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Type of the target. Target executes remediation. For example, SSM document.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub target_type: pulumi_wasm_rust::Output<String>,
+        pub target_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Version of the target. For example, version of the SSM document
         #[builder(into, default)]
-        pub target_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RemediationConfigurationResult {
@@ -145,23 +145,34 @@ pub mod remediation_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RemediationConfigurationArgs,
     ) -> RemediationConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let automatic_binding = args.automatic.get_inner();
-        let config_rule_name_binding = args.config_rule_name.get_inner();
-        let execution_controls_binding = args.execution_controls.get_inner();
+        let automatic_binding = args.automatic.get_output(context).get_inner();
+        let config_rule_name_binding = args
+            .config_rule_name
+            .get_output(context)
+            .get_inner();
+        let execution_controls_binding = args
+            .execution_controls
+            .get_output(context)
+            .get_inner();
         let maximum_automatic_attempts_binding = args
             .maximum_automatic_attempts
+            .get_output(context)
             .get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let resource_type_binding = args.resource_type.get_inner();
-        let retry_attempt_seconds_binding = args.retry_attempt_seconds.get_inner();
-        let target_id_binding = args.target_id.get_inner();
-        let target_type_binding = args.target_type.get_inner();
-        let target_version_binding = args.target_version.get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let resource_type_binding = args.resource_type.get_output(context).get_inner();
+        let retry_attempt_seconds_binding = args
+            .retry_attempt_seconds
+            .get_output(context)
+            .get_inner();
+        let target_id_binding = args.target_id.get_output(context).get_inner();
+        let target_type_binding = args.target_type.get_output(context).get_inner();
+        let target_version_binding = args.target_version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/remediationConfiguration:RemediationConfiguration".into(),
             name: name.to_string(),
@@ -244,7 +255,7 @@ pub mod remediation_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

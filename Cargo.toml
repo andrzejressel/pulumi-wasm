@@ -28,7 +28,6 @@ members = [
     "pulumi_wasm_runner",
     "pulumi_wasm_runner_component_creator",
     "pulumi_wasm_rust",
-    "pulumi_wasm_rust_macro",
     "pulumi_wasm_wit",
     "regenerator",
 ]
@@ -43,7 +42,6 @@ pulumi_wasm_core = { version = "=0.0.0-DEV", path = "pulumi_wasm_core", registry
 pulumi_wasm_build = { version = "=0.0.0-DEV", path = "pulumi_wasm_build", registry = "cloudsmith" }
 pulumi_wasm_generator = { version = "=0.0.0-DEV", path = "pulumi_wasm_generator", registry = "cloudsmith" }
 pulumi_wasm_rust = { version = "=0.0.0-DEV", path = "pulumi_wasm_rust", registry = "cloudsmith" }
-pulumi_wasm_rust_macro = { version = "=0.0.0-DEV", path = "pulumi_wasm_rust_macro", registry = "cloudsmith" }
 pulumi_wasm_common = { version = "=0.0.0-DEV", path = "pulumi_wasm_common", registry = "cloudsmith" }
 pulumi_wasm_proto = { version = "=0.0.0-DEV", path = "pulumi_wasm_proto", registry = "cloudsmith" }
 pulumi_wasm_wit = { version = "=0.0.0-DEV", path = "pulumi_wasm_wit", registry = "cloudsmith" }
@@ -76,7 +74,6 @@ regex = "1.10.4"
 syn = { version = "2.0.60", features = ["full"] }
 quote = "1.0.36"
 assert_cmd = "2.0.14"
-predicates = "3.1.0"
 itertools = "0.14.0"
 handlebars = "6.0.0"
 convert_case = "0.7.0"

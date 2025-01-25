@@ -40,21 +40,21 @@
 /// $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
 /// ```
 pub mod voice_connector_organization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VoiceConnectorOrganizationArgs {
         /// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
         #[builder(into)]
-        pub routes: pulumi_wasm_rust::Output<
+        pub routes: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::chime::VoiceConnectorOrganizationRoute>,
         >,
         /// The Amazon Chime Voice Connector ID.
         #[builder(into)]
-        pub voice_connector_id: pulumi_wasm_rust::Output<String>,
+        pub voice_connector_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VoiceConnectorOrganizationResult {
@@ -72,14 +72,18 @@ pub mod voice_connector_organization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VoiceConnectorOrganizationArgs,
     ) -> VoiceConnectorOrganizationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let disabled_binding = args.disabled.get_inner();
-        let routes_binding = args.routes.get_inner();
-        let voice_connector_id_binding = args.voice_connector_id.get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let routes_binding = args.routes.get_output(context).get_inner();
+        let voice_connector_id_binding = args
+            .voice_connector_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization"
                 .into(),
@@ -111,7 +115,7 @@ pub mod voice_connector_organization {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

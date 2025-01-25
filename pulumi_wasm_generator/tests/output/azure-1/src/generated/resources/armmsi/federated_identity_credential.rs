@@ -45,28 +45,28 @@
 /// ```
 ///
 pub mod federated_identity_credential {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FederatedIdentityCredentialArgs {
         /// Specifies the audience for this Federated Identity Credential.
         #[builder(into)]
-        pub audience: pulumi_wasm_rust::Output<String>,
+        pub audience: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the issuer of this Federated Identity Credential.
         #[builder(into)]
-        pub issuer: pulumi_wasm_rust::Output<String>,
+        pub issuer: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of this Federated Identity Credential. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
         #[builder(into)]
-        pub parent_id: pulumi_wasm_rust::Output<String>,
+        pub parent_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the subject for this Federated Identity Credential.
         #[builder(into)]
-        pub subject: pulumi_wasm_rust::Output<String>,
+        pub subject: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FederatedIdentityCredentialResult {
@@ -88,17 +88,21 @@ pub mod federated_identity_credential {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FederatedIdentityCredentialArgs,
     ) -> FederatedIdentityCredentialResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let audience_binding = args.audience.get_inner();
-        let issuer_binding = args.issuer.get_inner();
-        let name_binding = args.name.get_inner();
-        let parent_id_binding = args.parent_id.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let subject_binding = args.subject.get_inner();
+        let audience_binding = args.audience.get_output(context).get_inner();
+        let issuer_binding = args.issuer.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parent_id_binding = args.parent_id.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let subject_binding = args.subject.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential"
                 .into(),
@@ -151,7 +155,7 @@ pub mod federated_identity_credential {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

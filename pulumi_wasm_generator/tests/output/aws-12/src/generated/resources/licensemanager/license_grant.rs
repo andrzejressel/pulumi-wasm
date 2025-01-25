@@ -27,22 +27,22 @@
 /// $ pulumi import aws:licensemanager/licenseGrant:LicenseGrant test arn:aws:license-manager::123456789011:grant:g-01d313393d9e443d8664cc054db1e089
 /// ```
 pub mod license_grant {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LicenseGrantArgs {
         /// A list of the allowed operations for the grant. This is a subset of the allowed operations on the license.
         #[builder(into)]
-        pub allowed_operations: pulumi_wasm_rust::Output<Vec<String>>,
+        pub allowed_operations: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The ARN of the license to grant.
         #[builder(into)]
-        pub license_arn: pulumi_wasm_rust::Output<String>,
+        pub license_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Name of the grant.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The target account for the grant in the form of the ARN for an account principal of the root user.
         #[builder(into)]
-        pub principal: pulumi_wasm_rust::Output<String>,
+        pub principal: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LicenseGrantResult {
@@ -69,13 +69,20 @@ pub mod license_grant {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LicenseGrantArgs) -> LicenseGrantResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LicenseGrantArgs,
+    ) -> LicenseGrantResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allowed_operations_binding = args.allowed_operations.get_inner();
-        let license_arn_binding = args.license_arn.get_inner();
-        let name_binding = args.name.get_inner();
-        let principal_binding = args.principal.get_inner();
+        let allowed_operations_binding = args
+            .allowed_operations
+            .get_output(context)
+            .get_inner();
+        let license_arn_binding = args.license_arn.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let principal_binding = args.principal.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:licensemanager/licenseGrant:LicenseGrant".into(),
             name: name.to_string(),
@@ -128,7 +135,7 @@ pub mod license_grant {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

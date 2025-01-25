@@ -398,7 +398,7 @@
 /// ```
 ///
 pub mod region_network_endpoint_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionNetworkEndpointGroupArgs {
@@ -406,27 +406,27 @@ pub mod region_network_endpoint_group {
         /// Only one of cloud_run, app_engine, cloud_function or serverless_deployment may be set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub app_engine: pulumi_wasm_rust::Output<
+        pub app_engine: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::RegionNetworkEndpointGroupAppEngine>,
         >,
         /// This field is only used for SERVERLESS NEGs.
         /// Only one of cloud_run, app_engine, cloud_function or serverless_deployment may be set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloud_function: pulumi_wasm_rust::Output<
+        pub cloud_function: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::RegionNetworkEndpointGroupCloudFunction>,
         >,
         /// This field is only used for SERVERLESS NEGs.
         /// Only one of cloud_run, app_engine, cloud_function or serverless_deployment may be set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloud_run: pulumi_wasm_rust::Output<
+        pub cloud_run: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::RegionNetworkEndpointGroupCloudRun>,
         >,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the resource; provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -435,43 +435,43 @@ pub mod region_network_endpoint_group {
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// This field is only used for PSC and INTERNET NEGs.
         /// The URL of the network to which all network endpoints in the NEG belong. Uses
         /// "default" project network if unspecified.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::Output<Option<String>>,
+        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Type of network endpoints in this network endpoint group. Defaults to SERVERLESS.
         /// Default value is `SERVERLESS`.
         /// Possible values are: `SERVERLESS`, `PRIVATE_SERVICE_CONNECT`, `INTERNET_IP_PORT`, `INTERNET_FQDN_PORT`, `GCE_VM_IP_PORTMAP`.
         #[builder(into, default)]
-        pub network_endpoint_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_endpoint_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// This field is only used for PSC NEGs.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub psc_data: pulumi_wasm_rust::Output<
+        pub psc_data: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::RegionNetworkEndpointGroupPscData>,
         >,
         /// This field is only used for PSC and INTERNET NEGs.
         /// The target service url used to set up private service connection to
         /// a Google API or a PSC Producer Service Attachment.
         #[builder(into, default)]
-        pub psc_target_service: pulumi_wasm_rust::Output<Option<String>>,
+        pub psc_target_service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A reference to the region where the regional NEGs reside.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_wasm_rust::InputOrOutput<String>,
         /// This field is only used for SERVERLESS NEGs.
         /// Only one of cloudRun, appEngine, cloudFunction or serverlessDeployment may be set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub serverless_deployment: pulumi_wasm_rust::Output<
+        pub serverless_deployment: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::RegionNetworkEndpointGroupServerlessDeployment,
             >,
@@ -479,7 +479,7 @@ pub mod region_network_endpoint_group {
         /// This field is only used for PSC NEGs.
         /// Optional URL of the subnetwork to which all network endpoints in the NEG belong.
         #[builder(into, default)]
-        pub subnetwork: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnetwork: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RegionNetworkEndpointGroupResult {
@@ -556,24 +556,34 @@ pub mod region_network_endpoint_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RegionNetworkEndpointGroupArgs,
     ) -> RegionNetworkEndpointGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_engine_binding = args.app_engine.get_inner();
-        let cloud_function_binding = args.cloud_function.get_inner();
-        let cloud_run_binding = args.cloud_run.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
-        let network_endpoint_type_binding = args.network_endpoint_type.get_inner();
-        let project_binding = args.project.get_inner();
-        let psc_data_binding = args.psc_data.get_inner();
-        let psc_target_service_binding = args.psc_target_service.get_inner();
-        let region_binding = args.region.get_inner();
-        let serverless_deployment_binding = args.serverless_deployment.get_inner();
-        let subnetwork_binding = args.subnetwork.get_inner();
+        let app_engine_binding = args.app_engine.get_output(context).get_inner();
+        let cloud_function_binding = args.cloud_function.get_output(context).get_inner();
+        let cloud_run_binding = args.cloud_run.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let network_endpoint_type_binding = args
+            .network_endpoint_type
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let psc_data_binding = args.psc_data.get_output(context).get_inner();
+        let psc_target_service_binding = args
+            .psc_target_service
+            .get_output(context)
+            .get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let serverless_deployment_binding = args
+            .serverless_deployment
+            .get_output(context)
+            .get_inner();
+        let subnetwork_binding = args.subnetwork.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionNetworkEndpointGroup:RegionNetworkEndpointGroup"
                 .into(),
@@ -678,7 +688,7 @@ pub mod region_network_endpoint_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

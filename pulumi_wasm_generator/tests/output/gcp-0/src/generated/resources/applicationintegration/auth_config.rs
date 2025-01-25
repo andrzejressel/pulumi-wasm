@@ -69,14 +69,14 @@
 /// ```
 ///
 pub mod auth_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthConfigArgs {
         /// Raw client certificate
         /// Structure is documented below.
         #[builder(into, default)]
-        pub client_certificate: pulumi_wasm_rust::Output<
+        pub client_certificate: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::applicationintegration::AuthConfigClientCertificate,
             >,
@@ -84,39 +84,41 @@ pub mod auth_config {
         /// Raw auth credentials.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub decrypted_credential: pulumi_wasm_rust::Output<
+        pub decrypted_credential: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::applicationintegration::AuthConfigDecryptedCredential,
             >,
         >,
         /// A description of the auth config.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the auth config.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// User can define the time to receive notification after which the auth config becomes invalid. Support up to 30 days. Support granularity in hours.
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: "3.5s".
         #[builder(into, default)]
-        pub expiry_notification_durations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub expiry_notification_durations: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Location in which client needs to be provisioned.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// User provided expiry time to override. For the example of Salesforce, username/password credentials can be valid for 6 months depending on the instance settings.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
         #[builder(into, default)]
-        pub override_valid_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub override_valid_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The visibility of the auth config.
         /// Possible values are: `PRIVATE`, `CLIENT_VISIBLE`.
         #[builder(into, default)]
-        pub visibility: pulumi_wasm_rust::Output<Option<String>>,
+        pub visibility: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AuthConfigResult {
@@ -186,20 +188,34 @@ pub mod auth_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AuthConfigArgs) -> AuthConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AuthConfigArgs,
+    ) -> AuthConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let client_certificate_binding = args.client_certificate.get_inner();
-        let decrypted_credential_binding = args.decrypted_credential.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
+        let client_certificate_binding = args
+            .client_certificate
+            .get_output(context)
+            .get_inner();
+        let decrypted_credential_binding = args
+            .decrypted_credential
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
         let expiry_notification_durations_binding = args
             .expiry_notification_durations
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let override_valid_time_binding = args.override_valid_time.get_inner();
-        let project_binding = args.project.get_inner();
-        let visibility_binding = args.visibility.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let override_valid_time_binding = args
+            .override_valid_time
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let visibility_binding = args.visibility.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:applicationintegration/authConfig:AuthConfig".into(),
             name: name.to_string(),
@@ -305,7 +321,7 @@ pub mod auth_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

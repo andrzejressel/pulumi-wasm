@@ -81,42 +81,42 @@
 /// ```
 ///
 pub mod contact_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContactProfileArgs {
         /// Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         #[builder(into)]
-        pub auto_tracking: pulumi_wasm_rust::Output<String>,
+        pub auto_tracking: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         #[builder(into, default)]
-        pub event_hub_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_hub_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub links: pulumi_wasm_rust::Output<
+        pub links: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::orbital::ContactProfileLink>,
         >,
         /// The location where the contact profile exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Maximum elevation of the antenna during the contact in decimal degrees.
         #[builder(into, default)]
-        pub minimum_elevation_degrees: pulumi_wasm_rust::Output<Option<f64>>,
+        pub minimum_elevation_degrees: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         #[builder(into)]
-        pub minimum_variable_contact_duration: pulumi_wasm_rust::Output<String>,
+        pub minimum_variable_contact_duration: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the contact profile. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub network_configuration_subnet_id: pulumi_wasm_rust::Output<String>,
+        pub network_configuration_subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -151,25 +151,35 @@ pub mod contact_profile {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ContactProfileArgs) -> ContactProfileResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ContactProfileArgs,
+    ) -> ContactProfileResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_tracking_binding = args.auto_tracking.get_inner();
-        let event_hub_uri_binding = args.event_hub_uri.get_inner();
-        let links_binding = args.links.get_inner();
-        let location_binding = args.location.get_inner();
+        let auto_tracking_binding = args.auto_tracking.get_output(context).get_inner();
+        let event_hub_uri_binding = args.event_hub_uri.get_output(context).get_inner();
+        let links_binding = args.links.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let minimum_elevation_degrees_binding = args
             .minimum_elevation_degrees
+            .get_output(context)
             .get_inner();
         let minimum_variable_contact_duration_binding = args
             .minimum_variable_contact_duration
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let network_configuration_subnet_id_binding = args
             .network_configuration_subnet_id
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:orbital/contactProfile:ContactProfile".into(),
             name: name.to_string(),
@@ -249,7 +259,7 @@ pub mod contact_profile {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

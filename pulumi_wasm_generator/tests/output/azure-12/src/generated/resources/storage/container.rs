@@ -38,7 +38,7 @@
 /// ```
 ///
 pub mod container {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContainerArgs {
@@ -46,29 +46,31 @@ pub mod container {
         ///
         /// > **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         #[builder(into, default)]
-        pub container_access_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub container_access_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub default_encryption_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_encryption_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub encryption_scope_override_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub encryption_scope_override_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A mapping of MetaData for this Container. All metadata keys should be lowercase.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the Container which should be created within the Storage Account. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         #[builder(into, default)]
-        pub storage_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
         #[builder(into, default)]
-        pub storage_account_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ContainerResult {
@@ -103,18 +105,35 @@ pub mod container {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ContainerArgs) -> ContainerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ContainerArgs,
+    ) -> ContainerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let container_access_type_binding = args.container_access_type.get_inner();
-        let default_encryption_scope_binding = args.default_encryption_scope.get_inner();
+        let container_access_type_binding = args
+            .container_access_type
+            .get_output(context)
+            .get_inner();
+        let default_encryption_scope_binding = args
+            .default_encryption_scope
+            .get_output(context)
+            .get_inner();
         let encryption_scope_override_enabled_binding = args
             .encryption_scope_override_enabled
+            .get_output(context)
             .get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
-        let storage_account_name_binding = args.storage_account_name.get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
+        let storage_account_name_binding = args
+            .storage_account_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/container:Container".into(),
             name: name.to_string(),
@@ -182,7 +201,7 @@ pub mod container {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

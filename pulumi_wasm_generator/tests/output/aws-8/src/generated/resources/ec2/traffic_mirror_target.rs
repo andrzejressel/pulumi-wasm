@@ -42,27 +42,29 @@
 /// $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
 /// ```
 pub mod traffic_mirror_target {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrafficMirrorTargetArgs {
         /// A description of the traffic mirror session.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The VPC Endpoint Id of the Gateway Load Balancer that is associated with the target.
         #[builder(into, default)]
-        pub gateway_load_balancer_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub gateway_load_balancer_endpoint_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The network interface ID that is associated with the target.
         #[builder(into, default)]
-        pub network_interface_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_interface_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
         #[builder(into, default)]
-        pub network_load_balancer_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_load_balancer_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         ///
         /// **NOTE:** Either `network_interface_id` or `network_load_balancer_arn` should be specified and both should not be specified together
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -96,20 +98,26 @@ pub mod traffic_mirror_target {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TrafficMirrorTargetArgs,
     ) -> TrafficMirrorTargetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let gateway_load_balancer_endpoint_id_binding = args
             .gateway_load_balancer_endpoint_id
+            .get_output(context)
             .get_inner();
-        let network_interface_id_binding = args.network_interface_id.get_inner();
+        let network_interface_id_binding = args
+            .network_interface_id
+            .get_output(context)
+            .get_inner();
         let network_load_balancer_arn_binding = args
             .network_load_balancer_arn
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/trafficMirrorTarget:TrafficMirrorTarget".into(),
             name: name.to_string(),
@@ -163,7 +171,7 @@ pub mod traffic_mirror_target {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

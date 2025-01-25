@@ -38,27 +38,27 @@
 /// $ pulumi import aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:file-system/fs-08e04cd442c1bb94a
 /// ```
 pub mod fsx_open_zfs_file_system {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FsxOpenZfsFileSystemArgs {
         /// The Amazon Resource Name (ARN) for the FSx for OpenZfs file system.
         #[builder(into)]
-        pub fsx_filesystem_arn: pulumi_wasm_rust::Output<String>,
+        pub fsx_filesystem_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of protocol that DataSync uses to access your file system. See below.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::Output<
+        pub protocol: pulumi_wasm_rust::InputOrOutput<
             super::super::types::datasync::FsxOpenZfsFileSystemProtocol,
         >,
         /// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
         #[builder(into)]
-        pub security_group_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_group_arns: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
         #[builder(into, default)]
-        pub subdirectory: pulumi_wasm_rust::Output<Option<String>>,
+        pub subdirectory: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -94,16 +94,23 @@ pub mod fsx_open_zfs_file_system {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FsxOpenZfsFileSystemArgs,
     ) -> FsxOpenZfsFileSystemResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let fsx_filesystem_arn_binding = args.fsx_filesystem_arn.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let security_group_arns_binding = args.security_group_arns.get_inner();
-        let subdirectory_binding = args.subdirectory.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let fsx_filesystem_arn_binding = args
+            .fsx_filesystem_arn
+            .get_output(context)
+            .get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let security_group_arns_binding = args
+            .security_group_arns
+            .get_output(context)
+            .get_inner();
+        let subdirectory_binding = args.subdirectory.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem".into(),
             name: name.to_string(),
@@ -160,7 +167,7 @@ pub mod fsx_open_zfs_file_system {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -33,43 +33,45 @@
 /// ```
 ///
 pub mod provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProviderArgs {
         /// The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Attestation Provider. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         #[builder(into, default)]
-        pub open_enclave_policy_base64: pulumi_wasm_rust::Output<Option<String>>,
+        pub open_enclave_policy_base64: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
         #[builder(into, default)]
-        pub policy_signing_certificate_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_signing_certificate_data: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The name of the Resource Group where the attestation provider should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         ///
         /// > [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
         #[builder(into, default)]
-        pub sev_snp_policy_base64: pulumi_wasm_rust::Output<Option<String>>,
+        pub sev_snp_policy_base64: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         #[builder(into, default)]
-        pub sgx_enclave_policy_base64: pulumi_wasm_rust::Output<Option<String>>,
+        pub sgx_enclave_policy_base64: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Attestation Provider.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
         #[builder(into, default)]
-        pub tpm_policy_base64: pulumi_wasm_rust::Output<Option<String>>,
+        pub tpm_policy_base64: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ProviderResult {
@@ -106,24 +108,40 @@ pub mod provider {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProviderArgs) -> ProviderResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProviderArgs,
+    ) -> ProviderResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let open_enclave_policy_base64_binding = args
             .open_enclave_policy_base64
+            .get_output(context)
             .get_inner();
         let policy_signing_certificate_data_binding = args
             .policy_signing_certificate_data
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sev_snp_policy_base64_binding = args.sev_snp_policy_base64.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sev_snp_policy_base64_binding = args
+            .sev_snp_policy_base64
+            .get_output(context)
+            .get_inner();
         let sgx_enclave_policy_base64_binding = args
             .sgx_enclave_policy_base64
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tpm_policy_base64_binding = args.tpm_policy_base64.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tpm_policy_base64_binding = args
+            .tpm_policy_base64
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:attestation/provider:Provider".into(),
             name: name.to_string(),
@@ -202,7 +220,7 @@ pub mod provider {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

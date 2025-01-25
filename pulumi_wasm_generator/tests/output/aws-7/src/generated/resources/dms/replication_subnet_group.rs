@@ -69,22 +69,24 @@
 /// $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
 /// ```
 pub mod replication_subnet_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicationSubnetGroupArgs {
         /// Description for the subnet group.
         #[builder(into)]
-        pub replication_subnet_group_description: pulumi_wasm_rust::Output<String>,
+        pub replication_subnet_group_description: pulumi_wasm_rust::InputOrOutput<
+            String,
+        >,
         /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         #[builder(into)]
-        pub replication_subnet_group_id: pulumi_wasm_rust::Output<String>,
+        pub replication_subnet_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
         #[builder(into)]
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -113,6 +115,7 @@ pub mod replication_subnet_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ReplicationSubnetGroupArgs,
     ) -> ReplicationSubnetGroupResult {
@@ -120,12 +123,14 @@ pub mod replication_subnet_group {
         use std::collections::HashMap;
         let replication_subnet_group_description_binding = args
             .replication_subnet_group_description
+            .get_output(context)
             .get_inner();
         let replication_subnet_group_id_binding = args
             .replication_subnet_group_id
+            .get_output(context)
             .get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dms/replicationSubnetGroup:ReplicationSubnetGroup".into(),
             name: name.to_string(),
@@ -172,7 +177,7 @@ pub mod replication_subnet_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

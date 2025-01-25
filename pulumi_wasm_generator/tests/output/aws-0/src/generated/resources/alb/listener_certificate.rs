@@ -41,16 +41,16 @@
 /// $ pulumi import aws:alb/listenerCertificate:ListenerCertificate example arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b_arn:aws:iam::123456789012:server-certificate/tf-acc-test-6453083910015726063
 /// ```
 pub mod listener_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListenerCertificateArgs {
         /// The ARN of the certificate to attach to the listener.
         #[builder(into)]
-        pub certificate_arn: pulumi_wasm_rust::Output<String>,
+        pub certificate_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ARN of the listener to which to attach the certificate.
         #[builder(into)]
-        pub listener_arn: pulumi_wasm_rust::Output<String>,
+        pub listener_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ListenerCertificateResult {
@@ -64,13 +64,17 @@ pub mod listener_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ListenerCertificateArgs,
     ) -> ListenerCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_arn_binding = args.certificate_arn.get_inner();
-        let listener_arn_binding = args.listener_arn.get_inner();
+        let certificate_arn_binding = args
+            .certificate_arn
+            .get_output(context)
+            .get_inner();
+        let listener_arn_binding = args.listener_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:alb/listenerCertificate:ListenerCertificate".into(),
             name: name.to_string(),
@@ -94,7 +98,7 @@ pub mod listener_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

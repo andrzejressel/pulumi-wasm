@@ -27,19 +27,19 @@
 /// $ pulumi import aws:apprunner/customDomainAssociation:CustomDomainAssociation example example.com,arn:aws:apprunner:us-east-1:123456789012:service/example-app/8fe1e10304f84fd2b0df550fe98a71fa
 /// ```
 pub mod custom_domain_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomDomainAssociationArgs {
         /// Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
         #[builder(into, default)]
-        pub enable_www_subdomain: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_www_subdomain: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// ARN of the App Runner service.
         #[builder(into)]
-        pub service_arn: pulumi_wasm_rust::Output<String>,
+        pub service_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CustomDomainAssociationResult {
@@ -65,14 +65,18 @@ pub mod custom_domain_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CustomDomainAssociationArgs,
     ) -> CustomDomainAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_inner();
-        let enable_www_subdomain_binding = args.enable_www_subdomain.get_inner();
-        let service_arn_binding = args.service_arn.get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let enable_www_subdomain_binding = args
+            .enable_www_subdomain
+            .get_output(context)
+            .get_inner();
+        let service_arn_binding = args.service_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apprunner/customDomainAssociation:CustomDomainAssociation"
                 .into(),
@@ -113,7 +117,7 @@ pub mod custom_domain_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

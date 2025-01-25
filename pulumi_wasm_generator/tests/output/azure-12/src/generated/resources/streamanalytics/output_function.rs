@@ -83,34 +83,34 @@
 /// ```
 ///
 pub mod output_function {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OutputFunctionArgs {
         /// The API key for the Function.
         #[builder(into)]
-        pub api_key: pulumi_wasm_rust::Output<String>,
+        pub api_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// The maximum number of events in each batch that's sent to the function. Defaults to `100`.
         #[builder(into, default)]
-        pub batch_max_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub batch_max_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The maximum batch size in bytes that's sent to the function. Defaults to `262144` (256 kB).
         #[builder(into, default)]
-        pub batch_max_in_bytes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub batch_max_in_bytes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name of the Function App.
         #[builder(into)]
-        pub function_app: pulumi_wasm_rust::Output<String>,
+        pub function_app: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the function in the Function App.
         #[builder(into)]
-        pub function_name: pulumi_wasm_rust::Output<String>,
+        pub function_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Stream Analytics Output. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Stream Analytics Output should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_name: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OutputFunctionResult {
@@ -135,18 +135,32 @@ pub mod output_function {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: OutputFunctionArgs) -> OutputFunctionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: OutputFunctionArgs,
+    ) -> OutputFunctionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_key_binding = args.api_key.get_inner();
-        let batch_max_count_binding = args.batch_max_count.get_inner();
-        let batch_max_in_bytes_binding = args.batch_max_in_bytes.get_inner();
-        let function_app_binding = args.function_app.get_inner();
-        let function_name_binding = args.function_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let api_key_binding = args.api_key.get_output(context).get_inner();
+        let batch_max_count_binding = args
+            .batch_max_count
+            .get_output(context)
+            .get_inner();
+        let batch_max_in_bytes_binding = args
+            .batch_max_in_bytes
+            .get_output(context)
+            .get_inner();
+        let function_app_binding = args.function_app.get_output(context).get_inner();
+        let function_name_binding = args.function_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let stream_analytics_job_name_binding = args
             .stream_analytics_job_name
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/outputFunction:OutputFunction".into(),
@@ -213,7 +227,7 @@ pub mod output_function {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

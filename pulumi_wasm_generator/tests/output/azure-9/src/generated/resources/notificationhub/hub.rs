@@ -45,7 +45,7 @@
 /// ```
 ///
 pub mod hub {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HubArgs {
@@ -53,36 +53,36 @@ pub mod hub {
         ///
         /// > **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
         #[builder(into, default)]
-        pub apns_credential: pulumi_wasm_rust::Output<
+        pub apns_credential: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::notificationhub::HubApnsCredential>,
         >,
         /// A `browser_credential` block as defined below.
         #[builder(into, default)]
-        pub browser_credential: pulumi_wasm_rust::Output<
+        pub browser_credential: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::notificationhub::HubBrowserCredential>,
         >,
         /// A `gcm_credential` block as defined below.
         ///
         /// > **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
         #[builder(into, default)]
-        pub gcm_credential: pulumi_wasm_rust::Output<
+        pub gcm_credential: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::notificationhub::HubGcmCredential>,
         >,
         /// The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name to use for this Notification Hub. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub namespace_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -121,17 +121,30 @@ pub mod hub {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HubArgs) -> HubResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HubArgs,
+    ) -> HubResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let apns_credential_binding = args.apns_credential.get_inner();
-        let browser_credential_binding = args.browser_credential.get_inner();
-        let gcm_credential_binding = args.gcm_credential.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let namespace_name_binding = args.namespace_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let apns_credential_binding = args
+            .apns_credential
+            .get_output(context)
+            .get_inner();
+        let browser_credential_binding = args
+            .browser_credential
+            .get_output(context)
+            .get_inner();
+        let gcm_credential_binding = args.gcm_credential.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:notificationhub/hub:Hub".into(),
             name: name.to_string(),
@@ -197,7 +210,7 @@ pub mod hub {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

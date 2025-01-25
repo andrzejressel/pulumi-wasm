@@ -80,34 +80,36 @@
 /// where `11111111-1111-1111-1111-111111111111` is the `object_id`.
 ///
 pub mod access_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessPolicyArgs {
         /// The object ID of an Application in Azure Active Directory. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub application_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub application_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
         #[builder(into, default)]
-        pub certificate_permissions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub certificate_permissions: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
         #[builder(into, default)]
-        pub key_permissions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub key_permissions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the id of the Key Vault resource. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub object_id: pulumi_wasm_rust::Output<String>,
+        pub object_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
         #[builder(into, default)]
-        pub secret_permissions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub secret_permissions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
         #[builder(into, default)]
-        pub storage_permissions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub storage_permissions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccessPolicyResult {
@@ -132,17 +134,33 @@ pub mod access_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccessPolicyArgs) -> AccessPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccessPolicyArgs,
+    ) -> AccessPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_inner();
-        let certificate_permissions_binding = args.certificate_permissions.get_inner();
-        let key_permissions_binding = args.key_permissions.get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_inner();
-        let object_id_binding = args.object_id.get_inner();
-        let secret_permissions_binding = args.secret_permissions.get_inner();
-        let storage_permissions_binding = args.storage_permissions.get_inner();
-        let tenant_id_binding = args.tenant_id.get_inner();
+        let application_id_binding = args.application_id.get_output(context).get_inner();
+        let certificate_permissions_binding = args
+            .certificate_permissions
+            .get_output(context)
+            .get_inner();
+        let key_permissions_binding = args
+            .key_permissions
+            .get_output(context)
+            .get_inner();
+        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
+        let object_id_binding = args.object_id.get_output(context).get_inner();
+        let secret_permissions_binding = args
+            .secret_permissions
+            .get_output(context)
+            .get_inner();
+        let storage_permissions_binding = args
+            .storage_permissions
+            .get_output(context)
+            .get_inner();
+        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/accessPolicy:AccessPolicy".into(),
             name: name.to_string(),
@@ -208,7 +226,7 @@ pub mod access_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

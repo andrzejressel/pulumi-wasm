@@ -527,51 +527,51 @@
 /// ```
 ///
 pub mod workstation_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkstationConfigArgs {
         /// A list of port ranges specifying single ports or ranges of ports that are externally accessible in the workstation. Allowed ports must be one of 22, 80, or within range 1024-65535. If not specified defaults to ports 22, 80, and ports 1024-65535.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub allowed_ports: pulumi_wasm_rust::Output<
+        pub allowed_ports: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::workstations::WorkstationConfigAllowedPort>>,
         >,
         /// Client-specified annotations. This is distinct from labels.
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Container that will be run for each workstation using this configuration when that workstation is started.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub container: pulumi_wasm_rust::Output<
+        pub container: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::workstations::WorkstationConfigContainer>,
         >,
         /// Disables support for plain TCP connections in the workstation. By default the service supports TCP connections via a websocket relay. Setting this option to true disables that relay, which prevents the usage of services that require plain tcp connections, such as ssh. When enabled, all communication must occur over https or wss.
         #[builder(into, default)]
-        pub disable_tcp_connections: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_tcp_connections: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Human-readable name for this resource.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to enable Linux `auditd` logging on the workstation. When enabled, a service account must also be specified that has `logging.buckets.write` permission on the project. Operating system audit logging is distinct from Cloud Audit Logs.
         #[builder(into, default)]
-        pub enable_audit_agent: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_audit_agent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Encrypts resources of this workstation configuration using a customer-managed encryption key.
         /// If specified, the boot disk of the Compute Engine instance and the persistent disk are encrypted using this encryption key. If this field is not set, the disks are encrypted using a generated key. Customer-managed encryption keys do not protect disk metadata.
         /// If the customer-managed encryption key is rotated, when the workstation instance is stopped, the system attempts to recreate the persistent disk with the new version of the key. Be sure to keep older versions of the key until the persistent disk is recreated. Otherwise, data on the persistent disk will be lost.
         /// If the encryption key is revoked, the workstation session will automatically be stopped within 7 hours.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub encryption_key: pulumi_wasm_rust::Output<
+        pub encryption_key: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::workstations::WorkstationConfigEncryptionKey>,
         >,
         /// Ephemeral directories which won't persist across workstation sessions.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub ephemeral_directories: pulumi_wasm_rust::Output<
+        pub ephemeral_directories: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::workstations::WorkstationConfigEphemeralDirectory,
@@ -581,18 +581,18 @@ pub mod workstation_config {
         /// Runtime host for a workstation.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub host: pulumi_wasm_rust::Output<
+        pub host: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::workstations::WorkstationConfigHost>,
         >,
         /// How long to wait before automatically stopping an instance that hasn't recently received any user traffic. A value of 0 indicates that this instance should never time out from idleness. Defaults to 20 minutes.
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: "3.5s".
         #[builder(into, default)]
-        pub idle_timeout: pulumi_wasm_rust::Output<Option<String>>,
+        pub idle_timeout: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Client-specified labels that are applied to the resource and that are also propagated to the underlying Compute Engine resources.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the workstation cluster config should reside.
@@ -600,14 +600,14 @@ pub mod workstation_config {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Maximum number of workstations under this configuration a user can have workstations.workstation.use permission on. Only enforced on CreateWorkstation API calls on the user issuing the API request.
         #[builder(into, default)]
-        pub max_usable_workstations: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_usable_workstations: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Directories to persist across workstation sessions.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub persistent_directories: pulumi_wasm_rust::Output<
+        pub persistent_directories: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::workstations::WorkstationConfigPersistentDirectory,
@@ -617,11 +617,11 @@ pub mod workstation_config {
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Readiness checks to be performed on a workstation.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub readiness_checks: pulumi_wasm_rust::Output<
+        pub readiness_checks: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::workstations::WorkstationConfigReadinessCheck>,
             >,
@@ -629,17 +629,17 @@ pub mod workstation_config {
         /// Specifies the zones used to replicate the VM and disk resources within the region. If set, exactly two zones within the workstation cluster's region must be specified—for example, `['us-central1-a', 'us-central1-f']`.
         /// If this field is empty, two default zones within the region are used. Immutable after the workstation configuration is created.
         #[builder(into, default)]
-        pub replica_zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub replica_zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// How long to wait before automatically stopping a workstation after it was started. A value of 0 indicates that workstations using this configuration should never time out from running duration. Must be greater than 0 and less than 24 hours if `encryption_key` is set. Defaults to 12 hours.
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: "3.5s".
         #[builder(into, default)]
-        pub running_timeout: pulumi_wasm_rust::Output<Option<String>>,
+        pub running_timeout: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the parent workstation cluster.
         #[builder(into)]
-        pub workstation_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub workstation_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID to be assigned to the workstation cluster config.
         #[builder(into)]
-        pub workstation_config_id: pulumi_wasm_rust::Output<String>,
+        pub workstation_config_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkstationConfigResult {
@@ -757,29 +757,60 @@ pub mod workstation_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkstationConfigArgs) -> WorkstationConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkstationConfigArgs,
+    ) -> WorkstationConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allowed_ports_binding = args.allowed_ports.get_inner();
-        let annotations_binding = args.annotations.get_inner();
-        let container_binding = args.container.get_inner();
-        let disable_tcp_connections_binding = args.disable_tcp_connections.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enable_audit_agent_binding = args.enable_audit_agent.get_inner();
-        let encryption_key_binding = args.encryption_key.get_inner();
-        let ephemeral_directories_binding = args.ephemeral_directories.get_inner();
-        let host_binding = args.host.get_inner();
-        let idle_timeout_binding = args.idle_timeout.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let max_usable_workstations_binding = args.max_usable_workstations.get_inner();
-        let persistent_directories_binding = args.persistent_directories.get_inner();
-        let project_binding = args.project.get_inner();
-        let readiness_checks_binding = args.readiness_checks.get_inner();
-        let replica_zones_binding = args.replica_zones.get_inner();
-        let running_timeout_binding = args.running_timeout.get_inner();
-        let workstation_cluster_id_binding = args.workstation_cluster_id.get_inner();
-        let workstation_config_id_binding = args.workstation_config_id.get_inner();
+        let allowed_ports_binding = args.allowed_ports.get_output(context).get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let container_binding = args.container.get_output(context).get_inner();
+        let disable_tcp_connections_binding = args
+            .disable_tcp_connections
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enable_audit_agent_binding = args
+            .enable_audit_agent
+            .get_output(context)
+            .get_inner();
+        let encryption_key_binding = args.encryption_key.get_output(context).get_inner();
+        let ephemeral_directories_binding = args
+            .ephemeral_directories
+            .get_output(context)
+            .get_inner();
+        let host_binding = args.host.get_output(context).get_inner();
+        let idle_timeout_binding = args.idle_timeout.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let max_usable_workstations_binding = args
+            .max_usable_workstations
+            .get_output(context)
+            .get_inner();
+        let persistent_directories_binding = args
+            .persistent_directories
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let readiness_checks_binding = args
+            .readiness_checks
+            .get_output(context)
+            .get_inner();
+        let replica_zones_binding = args.replica_zones.get_output(context).get_inner();
+        let running_timeout_binding = args
+            .running_timeout
+            .get_output(context)
+            .get_inner();
+        let workstation_cluster_id_binding = args
+            .workstation_cluster_id
+            .get_output(context)
+            .get_inner();
+        let workstation_config_id_binding = args
+            .workstation_config_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:workstations/workstationConfig:WorkstationConfig".into(),
             name: name.to_string(),
@@ -956,7 +987,7 @@ pub mod workstation_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

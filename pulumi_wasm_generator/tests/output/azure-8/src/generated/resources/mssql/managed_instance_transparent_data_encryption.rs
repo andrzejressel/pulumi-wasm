@@ -183,19 +183,19 @@
 /// ```
 ///
 pub mod managed_instance_transparent_data_encryption {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedInstanceTransparentDataEncryptionArgs {
         /// When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes.
         #[builder(into, default)]
-        pub auto_rotation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_rotation_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         #[builder(into, default)]
-        pub key_vault_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_vault_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub managed_instance_id: pulumi_wasm_rust::Output<String>,
+        pub managed_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ManagedInstanceTransparentDataEncryptionResult {
@@ -211,14 +211,24 @@ pub mod managed_instance_transparent_data_encryption {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ManagedInstanceTransparentDataEncryptionArgs,
     ) -> ManagedInstanceTransparentDataEncryptionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_rotation_enabled_binding = args.auto_rotation_enabled.get_inner();
-        let key_vault_key_id_binding = args.key_vault_key_id.get_inner();
-        let managed_instance_id_binding = args.managed_instance_id.get_inner();
+        let auto_rotation_enabled_binding = args
+            .auto_rotation_enabled
+            .get_output(context)
+            .get_inner();
+        let key_vault_key_id_binding = args
+            .key_vault_key_id
+            .get_output(context)
+            .get_inner();
+        let managed_instance_id_binding = args
+            .managed_instance_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption"
                 .into(),
@@ -250,7 +260,7 @@ pub mod managed_instance_transparent_data_encryption {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -36,20 +36,20 @@
 /// $ pulumi import aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
 /// ```
 pub mod custom_routing_endpoint_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomRoutingEndpointGroupArgs {
         /// The port ranges and protocols for all endpoints in a custom routing endpoint group to accept client traffic on. Fields documented below.
         #[builder(into)]
-        pub destination_configurations: pulumi_wasm_rust::Output<
+        pub destination_configurations: pulumi_wasm_rust::InputOrOutput<
             Vec<
                 super::super::types::globalaccelerator::CustomRoutingEndpointGroupDestinationConfiguration,
             >,
         >,
         /// The list of endpoint objects. Fields documented below.
         #[builder(into, default)]
-        pub endpoint_configurations: pulumi_wasm_rust::Output<
+        pub endpoint_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::globalaccelerator::CustomRoutingEndpointGroupEndpointConfiguration,
@@ -58,10 +58,10 @@ pub mod custom_routing_endpoint_group {
         >,
         /// The name of the AWS Region where the custom routing endpoint group is located.
         #[builder(into, default)]
-        pub endpoint_group_region: pulumi_wasm_rust::Output<Option<String>>,
+        pub endpoint_group_region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of the custom routing listener.
         #[builder(into)]
-        pub listener_arn: pulumi_wasm_rust::Output<String>,
+        pub listener_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CustomRoutingEndpointGroupResult {
@@ -91,6 +91,7 @@ pub mod custom_routing_endpoint_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CustomRoutingEndpointGroupArgs,
     ) -> CustomRoutingEndpointGroupResult {
@@ -98,10 +99,17 @@ pub mod custom_routing_endpoint_group {
         use std::collections::HashMap;
         let destination_configurations_binding = args
             .destination_configurations
+            .get_output(context)
             .get_inner();
-        let endpoint_configurations_binding = args.endpoint_configurations.get_inner();
-        let endpoint_group_region_binding = args.endpoint_group_region.get_inner();
-        let listener_arn_binding = args.listener_arn.get_inner();
+        let endpoint_configurations_binding = args
+            .endpoint_configurations
+            .get_output(context)
+            .get_inner();
+        let endpoint_group_region_binding = args
+            .endpoint_group_region
+            .get_output(context)
+            .get_inner();
+        let listener_arn_binding = args.listener_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup"
                 .into(),
@@ -143,7 +151,7 @@ pub mod custom_routing_endpoint_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

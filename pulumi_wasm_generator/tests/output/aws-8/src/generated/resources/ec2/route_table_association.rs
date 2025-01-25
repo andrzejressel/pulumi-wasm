@@ -50,19 +50,19 @@
 /// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
 /// ```
 pub mod route_table_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteTableAssociationArgs {
         /// The gateway ID to create an association. Conflicts with `subnet_id`.
         #[builder(into, default)]
-        pub gateway_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the routing table to associate with.
         #[builder(into)]
-        pub route_table_id: pulumi_wasm_rust::Output<String>,
+        pub route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The subnet ID to create an association. Conflicts with `gateway_id`.
         #[builder(into, default)]
-        pub subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RouteTableAssociationResult {
@@ -78,14 +78,15 @@ pub mod route_table_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RouteTableAssociationArgs,
     ) -> RouteTableAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let gateway_id_binding = args.gateway_id.get_inner();
-        let route_table_id_binding = args.route_table_id.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
+        let gateway_id_binding = args.gateway_id.get_output(context).get_inner();
+        let route_table_id_binding = args.route_table_id.get_output(context).get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/routeTableAssociation:RouteTableAssociation".into(),
             name: name.to_string(),
@@ -116,7 +117,7 @@ pub mod route_table_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

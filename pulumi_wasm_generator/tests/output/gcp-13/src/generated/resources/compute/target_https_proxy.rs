@@ -333,7 +333,7 @@
 /// ```
 ///
 pub mod target_https_proxy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetHttpsProxyArgs {
@@ -343,7 +343,7 @@ pub mod target_https_proxy {
         /// sslCertificates and certificateManagerCertificates fields can not be defined together.
         /// Accepted format is `//certificatemanager.googleapis.com/projects/{project}/locations/{location}/certificates/{resourceName}` or just the self_link `projects/{project}/locations/{location}/certificates/{resourceName}`
         #[builder(into, default)]
-        pub certificate_manager_certificates: pulumi_wasm_rust::Output<
+        pub certificate_manager_certificates: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// A reference to the CertificateMap resource uri that identifies a certificate map
@@ -351,10 +351,10 @@ pub mod target_https_proxy {
         /// For INTERNAL_MANAGED, use certificate_manager_certificates instead.
         /// Accepted format is `//certificatemanager.googleapis.com/projects/{project}/locations/{location}/certificateMaps/{resourceName}`.
         #[builder(into, default)]
-        pub certificate_map: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_map: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies how long to keep a connection open, after completing a response,
         /// while there is no matching traffic (in seconds). If an HTTP keepalive is
         /// not specified, a default value will be used. For Global
@@ -365,7 +365,7 @@ pub mod target_https_proxy {
         /// maximum allowed value is 600 seconds. For Global external HTTP(S) load
         /// balancer (classic), this option is not available publicly.
         #[builder(into, default)]
-        pub http_keep_alive_timeout_sec: pulumi_wasm_rust::Output<Option<i32>>,
+        pub http_keep_alive_timeout_sec: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -374,15 +374,15 @@ pub mod target_https_proxy {
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// This field only applies when the forwarding rule that references
         /// this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
         #[builder(into, default)]
-        pub proxy_bind: pulumi_wasm_rust::Output<Option<bool>>,
+        pub proxy_bind: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the QUIC override policy for this resource. This determines
         /// whether the load balancer will attempt to negotiate QUIC with clients
         /// or not. Can specify one of NONE, ENABLE, or DISABLE. If NONE is
@@ -390,7 +390,7 @@ pub mod target_https_proxy {
         /// Default value is `NONE`.
         /// Possible values are: `NONE`, `ENABLE`, `DISABLE`.
         #[builder(into, default)]
-        pub quic_override: pulumi_wasm_rust::Output<Option<String>>,
+        pub quic_override: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A URL referring to a networksecurity.ServerTlsPolicy
         /// resource that describes how the proxy should authenticate inbound
         /// traffic. serverTlsPolicy only applies to a global TargetHttpsProxy
@@ -405,31 +405,31 @@ pub mod target_https_proxy {
         /// receive a resourceInUseByAnotherResource error. Use lifecycle.create_before_destroy
         /// within the ServerTlsPolicy resource to avoid this.
         #[builder(into, default)]
-        pub server_tls_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub server_tls_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// URLs to SslCertificate resources that are used to authenticate connections between users and the load balancer.
         /// Currently, you may specify up to 15 SSL certificates. sslCertificates do not apply when the load balancing scheme is set to INTERNAL_SELF_MANAGED.
         /// sslCertificates and certificateManagerCertificates can not be defined together.
         #[builder(into, default)]
-        pub ssl_certificates: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ssl_certificates: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A reference to the SslPolicy resource that will be associated with
         /// the TargetHttpsProxy resource. If not set, the TargetHttpsProxy
         /// resource will not have any SSL policy configured.
         #[builder(into, default)]
-        pub ssl_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub ssl_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether TLS 1.3 0-RTT Data (“Early Data”) should be accepted for this service.
         /// Early Data allows a TLS resumption handshake to include the initial application payload
         /// (a HTTP request) alongside the handshake, reducing the effective round trips to “zero”.
         /// This applies to TLS 1.3 connections over TCP (HTTP/2) as well as over UDP (QUIC/h3).
         /// Possible values are: `STRICT`, `PERMISSIVE`, `DISABLED`.
         #[builder(into, default)]
-        pub tls_early_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub tls_early_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A reference to the UrlMap resource that defines the mapping from URL
         /// to the BackendService.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub url_map: pulumi_wasm_rust::Output<String>,
+        pub url_map: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TargetHttpsProxyResult {
@@ -524,26 +524,41 @@ pub mod target_https_proxy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TargetHttpsProxyArgs) -> TargetHttpsProxyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TargetHttpsProxyArgs,
+    ) -> TargetHttpsProxyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let certificate_manager_certificates_binding = args
             .certificate_manager_certificates
+            .get_output(context)
             .get_inner();
-        let certificate_map_binding = args.certificate_map.get_inner();
-        let description_binding = args.description.get_inner();
+        let certificate_map_binding = args
+            .certificate_map
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let http_keep_alive_timeout_sec_binding = args
             .http_keep_alive_timeout_sec
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let proxy_bind_binding = args.proxy_bind.get_inner();
-        let quic_override_binding = args.quic_override.get_inner();
-        let server_tls_policy_binding = args.server_tls_policy.get_inner();
-        let ssl_certificates_binding = args.ssl_certificates.get_inner();
-        let ssl_policy_binding = args.ssl_policy.get_inner();
-        let tls_early_data_binding = args.tls_early_data.get_inner();
-        let url_map_binding = args.url_map.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let proxy_bind_binding = args.proxy_bind.get_output(context).get_inner();
+        let quic_override_binding = args.quic_override.get_output(context).get_inner();
+        let server_tls_policy_binding = args
+            .server_tls_policy
+            .get_output(context)
+            .get_inner();
+        let ssl_certificates_binding = args
+            .ssl_certificates
+            .get_output(context)
+            .get_inner();
+        let ssl_policy_binding = args.ssl_policy.get_output(context).get_inner();
+        let tls_early_data_binding = args.tls_early_data.get_output(context).get_inner();
+        let url_map_binding = args.url_map.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/targetHttpsProxy:TargetHttpsProxy".into(),
             name: name.to_string(),
@@ -653,7 +668,7 @@ pub mod target_https_proxy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

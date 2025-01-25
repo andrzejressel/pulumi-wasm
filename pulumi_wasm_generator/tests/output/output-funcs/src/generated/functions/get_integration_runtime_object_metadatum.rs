@@ -1,20 +1,20 @@
 pub mod get_integration_runtime_object_metadatum {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetIntegrationRuntimeObjectMetadatumArgs {
         /// The factory name.
         #[builder(into)]
-        pub factory_name: pulumi_wasm_rust::Output<String>,
+        pub factory_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The integration runtime name.
         #[builder(into)]
-        pub integration_runtime_name: pulumi_wasm_rust::Output<String>,
+        pub integration_runtime_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Metadata path.
         #[builder(into, default)]
-        pub metadata_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub metadata_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource group name.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetIntegrationRuntimeObjectMetadatumResult {
@@ -39,14 +39,21 @@ pub mod get_integration_runtime_object_metadatum {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetIntegrationRuntimeObjectMetadatumArgs,
     ) -> GetIntegrationRuntimeObjectMetadatumResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let factory_name_binding = args.factory_name.get_inner();
-        let integration_runtime_name_binding = args.integration_runtime_name.get_inner();
-        let metadata_path_binding = args.metadata_path.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let factory_name_binding = args.factory_name.get_output(context).get_inner();
+        let integration_runtime_name_binding = args
+            .integration_runtime_name
+            .get_output(context)
+            .get_inner();
+        let metadata_path_binding = args.metadata_path.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "mypkg::getIntegrationRuntimeObjectMetadatum".into(),
             version: super::super::get_version(),
@@ -77,7 +84,7 @@ pub mod get_integration_runtime_object_metadatum {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

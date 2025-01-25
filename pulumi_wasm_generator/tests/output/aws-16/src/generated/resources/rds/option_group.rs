@@ -54,36 +54,36 @@
 /// $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
 /// ```
 pub mod option_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OptionGroupArgs {
         /// Specifies the name of the engine that this option group should be associated with.
         #[builder(into)]
-        pub engine_name: pulumi_wasm_rust::Output<String>,
+        pub engine_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the major version of the engine that this option group should be associated with.
         #[builder(into)]
-        pub major_engine_version: pulumi_wasm_rust::Output<String>,
+        pub major_engine_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Description of the option group. Defaults to "Managed by Pulumi".
         #[builder(into, default)]
-        pub option_group_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub option_group_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The options to apply. See `option` Block below for more details.
         #[builder(into, default)]
-        pub options: pulumi_wasm_rust::Output<
+        pub options: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::rds::OptionGroupOption>>,
         >,
         /// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
         #[builder(into, default)]
-        pub skip_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -120,17 +120,27 @@ pub mod option_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: OptionGroupArgs) -> OptionGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: OptionGroupArgs,
+    ) -> OptionGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let engine_name_binding = args.engine_name.get_inner();
-        let major_engine_version_binding = args.major_engine_version.get_inner();
-        let name_binding = args.name.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let option_group_description_binding = args.option_group_description.get_inner();
-        let options_binding = args.options.get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let engine_name_binding = args.engine_name.get_output(context).get_inner();
+        let major_engine_version_binding = args
+            .major_engine_version
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let option_group_description_binding = args
+            .option_group_description
+            .get_output(context)
+            .get_inner();
+        let options_binding = args.options.get_output(context).get_inner();
+        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/optionGroup:OptionGroup".into(),
             name: name.to_string(),
@@ -202,7 +212,7 @@ pub mod option_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

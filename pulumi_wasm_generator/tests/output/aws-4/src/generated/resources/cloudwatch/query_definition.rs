@@ -28,19 +28,19 @@
 /// $ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
 /// ```
 pub mod query_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct QueryDefinitionArgs {
         /// Specific log groups to use with the query.
         #[builder(into, default)]
-        pub log_group_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub log_group_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the query.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
         #[builder(into)]
-        pub query_string: pulumi_wasm_rust::Output<String>,
+        pub query_string: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct QueryDefinitionResult {
@@ -57,12 +57,19 @@ pub mod query_definition {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: QueryDefinitionArgs) -> QueryDefinitionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: QueryDefinitionArgs,
+    ) -> QueryDefinitionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let log_group_names_binding = args.log_group_names.get_inner();
-        let name_binding = args.name.get_inner();
-        let query_string_binding = args.query_string.get_inner();
+        let log_group_names_binding = args
+            .log_group_names
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let query_string_binding = args.query_string.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/queryDefinition:QueryDefinition".into(),
             name: name.to_string(),
@@ -96,7 +103,7 @@ pub mod query_definition {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

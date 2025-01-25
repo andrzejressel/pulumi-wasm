@@ -52,7 +52,7 @@
 /// $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
 /// ```
 pub mod subnet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubnetArgs {
@@ -60,66 +60,70 @@ pub mod subnet {
         /// that network interfaces created in the specified subnet should be
         /// assigned an IPv6 address. Default is `false`
         #[builder(into, default)]
-        pub assign_ipv6_address_on_creation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub assign_ipv6_address_on_creation: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// AZ for the subnet.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         #[builder(into, default)]
-        pub availability_zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IPv4 CIDR block for the subnet.
         #[builder(into, default)]
-        pub cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The customer owned IPv4 address pool. Typically used with the `map_customer_owned_ip_on_launch` argument. The `outpost_arn` argument must be specified when configured.
         #[builder(into, default)]
-        pub customer_owned_ipv4_pool: pulumi_wasm_rust::Output<Option<String>>,
+        pub customer_owned_ipv4_pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
         #[builder(into, default)]
-        pub enable_dns64: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_dns64: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
         #[builder(into, default)]
-        pub enable_lni_at_device_index: pulumi_wasm_rust::Output<Option<i32>>,
+        pub enable_lni_at_device_index: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
         #[builder(into, default)]
-        pub enable_resource_name_dns_a_record_on_launch: pulumi_wasm_rust::Output<
+        pub enable_resource_name_dns_a_record_on_launch: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
         #[builder(into, default)]
-        pub enable_resource_name_dns_aaaa_record_on_launch: pulumi_wasm_rust::Output<
+        pub enable_resource_name_dns_aaaa_record_on_launch: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The IPv6 network range for the subnet,
         /// in CIDR notation. The subnet size must use a /64 prefix length.
         #[builder(into, default)]
-        pub ipv6_cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv6_cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether to create an IPv6-only subnet. Default: `false`.
         #[builder(into, default)]
-        pub ipv6_native: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ipv6_native: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
         #[builder(into, default)]
-        pub map_customer_owned_ip_on_launch: pulumi_wasm_rust::Output<Option<bool>>,
+        pub map_customer_owned_ip_on_launch: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specify true to indicate
         /// that instances launched into the subnet should be assigned
         /// a public IP address. Default is `false`.
         #[builder(into, default)]
-        pub map_public_ip_on_launch: pulumi_wasm_rust::Output<Option<bool>>,
+        pub map_public_ip_on_launch: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Amazon Resource Name (ARN) of the Outpost.
         #[builder(into, default)]
-        pub outpost_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub outpost_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
         #[builder(into, default)]
-        pub private_dns_hostname_type_on_launch: pulumi_wasm_rust::Output<
+        pub private_dns_hostname_type_on_launch: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The VPC ID.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubnetResult {
@@ -183,38 +187,63 @@ pub mod subnet {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SubnetArgs) -> SubnetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SubnetArgs,
+    ) -> SubnetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let assign_ipv6_address_on_creation_binding = args
             .assign_ipv6_address_on_creation
+            .get_output(context)
             .get_inner();
-        let availability_zone_binding = args.availability_zone.get_inner();
-        let availability_zone_id_binding = args.availability_zone_id.get_inner();
-        let cidr_block_binding = args.cidr_block.get_inner();
-        let customer_owned_ipv4_pool_binding = args.customer_owned_ipv4_pool.get_inner();
-        let enable_dns64_binding = args.enable_dns64.get_inner();
+        let availability_zone_binding = args
+            .availability_zone
+            .get_output(context)
+            .get_inner();
+        let availability_zone_id_binding = args
+            .availability_zone_id
+            .get_output(context)
+            .get_inner();
+        let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
+        let customer_owned_ipv4_pool_binding = args
+            .customer_owned_ipv4_pool
+            .get_output(context)
+            .get_inner();
+        let enable_dns64_binding = args.enable_dns64.get_output(context).get_inner();
         let enable_lni_at_device_index_binding = args
             .enable_lni_at_device_index
+            .get_output(context)
             .get_inner();
         let enable_resource_name_dns_a_record_on_launch_binding = args
             .enable_resource_name_dns_a_record_on_launch
+            .get_output(context)
             .get_inner();
         let enable_resource_name_dns_aaaa_record_on_launch_binding = args
             .enable_resource_name_dns_aaaa_record_on_launch
+            .get_output(context)
             .get_inner();
-        let ipv6_cidr_block_binding = args.ipv6_cidr_block.get_inner();
-        let ipv6_native_binding = args.ipv6_native.get_inner();
+        let ipv6_cidr_block_binding = args
+            .ipv6_cidr_block
+            .get_output(context)
+            .get_inner();
+        let ipv6_native_binding = args.ipv6_native.get_output(context).get_inner();
         let map_customer_owned_ip_on_launch_binding = args
             .map_customer_owned_ip_on_launch
+            .get_output(context)
             .get_inner();
-        let map_public_ip_on_launch_binding = args.map_public_ip_on_launch.get_inner();
-        let outpost_arn_binding = args.outpost_arn.get_inner();
+        let map_public_ip_on_launch_binding = args
+            .map_public_ip_on_launch
+            .get_output(context)
+            .get_inner();
+        let outpost_arn_binding = args.outpost_arn.get_output(context).get_inner();
         let private_dns_hostname_type_on_launch_binding = args
             .private_dns_hostname_type_on_launch
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/subnet:Subnet".into(),
             name: name.to_string(),
@@ -355,7 +384,7 @@ pub mod subnet {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

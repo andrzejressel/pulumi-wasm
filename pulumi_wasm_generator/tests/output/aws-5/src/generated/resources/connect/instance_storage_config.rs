@@ -163,19 +163,19 @@
 /// $ pulumi import aws:connect/instanceStorageConfig:InstanceStorageConfig example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5:CHAT_TRANSCRIPTS
 /// ```
 pub mod instance_storage_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceStorageConfigArgs {
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
         #[builder(into)]
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the storage configuration options for the Connect Instance. Documented below.
         #[builder(into)]
-        pub storage_config: pulumi_wasm_rust::Output<
+        pub storage_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::connect::InstanceStorageConfigStorageConfig,
         >,
     }
@@ -197,14 +197,15 @@ pub mod instance_storage_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: InstanceStorageConfigArgs,
     ) -> InstanceStorageConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let instance_id_binding = args.instance_id.get_inner();
-        let resource_type_binding = args.resource_type.get_inner();
-        let storage_config_binding = args.storage_config.get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let resource_type_binding = args.resource_type.get_output(context).get_inner();
+        let storage_config_binding = args.storage_config.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:connect/instanceStorageConfig:InstanceStorageConfig".into(),
             name: name.to_string(),
@@ -238,7 +239,7 @@ pub mod instance_storage_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

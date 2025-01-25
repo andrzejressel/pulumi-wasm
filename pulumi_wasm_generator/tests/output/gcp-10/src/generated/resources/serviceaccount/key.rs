@@ -83,13 +83,13 @@
 /// This resource does not support import.
 ///
 pub mod key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeyArgs {
         /// Arbitrary map of values that, when changed, will trigger a new key to be generated.
         #[builder(into, default)]
-        pub keepers: pulumi_wasm_rust::Output<
+        pub keepers: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The algorithm used to generate the key. KEY_ALG_RSA_2048 is the default algorithm.
@@ -97,16 +97,16 @@ pub mod key {
         /// [ServiceAccountPrivateKeyType](https://cloud.google.com/iam/reference/rest/v1/projects.serviceAccounts.keys#ServiceAccountKeyAlgorithm)
         /// (only used on create)
         #[builder(into, default)]
-        pub key_algorithm: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_algorithm: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The output format of the private key. TYPE_GOOGLE_CREDENTIALS_FILE is the default output format.
         #[builder(into, default)]
-        pub private_key_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_key_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Public key data to create a service account key for given service account. The expected format for this field is a base64 encoded X509_PEM and it conflicts with `public_key_type` and `private_key_type`.
         #[builder(into, default)]
-        pub public_key_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_key_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The output format of the public key requested. TYPE_X509_PEM_FILE is the default output format.
         #[builder(into, default)]
-        pub public_key_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_key_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Service account id of the Key. This can be a string in the format
         /// `{ACCOUNT}` or `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. If the `{ACCOUNT}`-only syntax is used, either
         /// the **full** email address of the service account or its name can be specified as a value, in which case the project will
@@ -114,7 +114,7 @@ pub mod key {
         /// syntax is used, the `{ACCOUNT}` specified can be the full email address of the service account or the service account's
         /// unique id. Substituting `-` as a wildcard for the `{PROJECT_ID}` will infer the project from the account.
         #[builder(into)]
-        pub service_account_id: pulumi_wasm_rust::Output<String>,
+        pub service_account_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct KeyResult {
@@ -157,15 +157,31 @@ pub mod key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: KeyArgs) -> KeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: KeyArgs,
+    ) -> KeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let keepers_binding = args.keepers.get_inner();
-        let key_algorithm_binding = args.key_algorithm.get_inner();
-        let private_key_type_binding = args.private_key_type.get_inner();
-        let public_key_data_binding = args.public_key_data.get_inner();
-        let public_key_type_binding = args.public_key_type.get_inner();
-        let service_account_id_binding = args.service_account_id.get_inner();
+        let keepers_binding = args.keepers.get_output(context).get_inner();
+        let key_algorithm_binding = args.key_algorithm.get_output(context).get_inner();
+        let private_key_type_binding = args
+            .private_key_type
+            .get_output(context)
+            .get_inner();
+        let public_key_data_binding = args
+            .public_key_data
+            .get_output(context)
+            .get_inner();
+        let public_key_type_binding = args
+            .public_key_type
+            .get_output(context)
+            .get_inner();
+        let service_account_id_binding = args
+            .service_account_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:serviceaccount/key:Key".into(),
             name: name.to_string(),
@@ -232,7 +248,7 @@ pub mod key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

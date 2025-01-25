@@ -25,13 +25,13 @@
 /// ```
 ///
 pub mod region_instance_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionInstanceTemplateArgs {
         /// Configure Nested Virtualisation and Simultaneous Hyper Threading on this VM. Structure is documented below
         #[builder(into, default)]
-        pub advanced_machine_features: pulumi_wasm_rust::Output<
+        pub advanced_machine_features: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::RegionInstanceTemplateAdvancedMachineFeatures,
             >,
@@ -39,31 +39,31 @@ pub mod region_instance_template {
         /// Whether to allow sending and receiving of
         /// packets with non-matching source or destination IPs. This defaults to false.
         #[builder(into, default)]
-        pub can_ip_forward: pulumi_wasm_rust::Output<Option<bool>>,
+        pub can_ip_forward: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Enable [Confidential Mode](https://cloud.google.com/compute/confidential-vm/docs/about-cvm) on this VM. Structure is documented below
         #[builder(into, default)]
-        pub confidential_instance_config: pulumi_wasm_rust::Output<
+        pub confidential_instance_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::RegionInstanceTemplateConfidentialInstanceConfig,
             >,
         >,
         /// A brief description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Disks to attach to instances created from this template.
         /// This can be specified multiple times for multiple disks. Structure is
         /// documented below.
         #[builder(into)]
-        pub disks: pulumi_wasm_rust::Output<
+        pub disks: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::compute::RegionInstanceTemplateDisk>,
         >,
         /// Enable [Virtual Displays](https://cloud.google.com/compute/docs/instances/enable-instance-virtual-display#verify_display_driver) on this instance.
         /// **Note**: `allow_stopping_for_update` must be set to true in order to update this field.
         #[builder(into, default)]
-        pub enable_display: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_display: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// List of the type and count of accelerator cards attached to the instance. Structure documented below.
         #[builder(into, default)]
-        pub guest_accelerators: pulumi_wasm_rust::Output<
+        pub guest_accelerators: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::compute::RegionInstanceTemplateGuestAccelerator>,
             >,
@@ -71,17 +71,17 @@ pub mod region_instance_template {
         /// A brief description to use for instances
         /// created from this template.
         #[builder(into, default)]
-        pub instance_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Action to be taken when a customer's encryption key is revoked. Supports `STOP` and `NONE`, with `NONE` being the default.
         #[builder(into, default)]
-        pub key_revocation_action_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_revocation_action_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A set of key/value label pairs to assign to instances
         /// created from this template.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The machine type to create.
@@ -90,11 +90,11 @@ pub mod region_instance_template {
         ///
         /// - - -
         #[builder(into)]
-        pub machine_type: pulumi_wasm_rust::Output<String>,
+        pub machine_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Metadata key/value pairs to make available from
         /// within instances created from this template.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An alternative to using the
@@ -102,13 +102,13 @@ pub mod region_instance_template {
         /// This replaces the startup-script metadata key on the created instance and
         /// thus the two mechanisms are not allowed to be used simultaneously.
         #[builder(into, default)]
-        pub metadata_startup_script: pulumi_wasm_rust::Output<Option<String>>,
+        pub metadata_startup_script: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies a minimum CPU platform. Applicable values are the friendly names of CPU platforms, such as
         /// `Intel Haswell` or `Intel Skylake`. See the complete list [here](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
         #[builder(into, default)]
-        pub min_cpu_platform: pulumi_wasm_rust::Output<Option<String>>,
+        pub min_cpu_platform: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the specified
         /// prefix. Conflicts with `name`. Max length is 54 characters.
         /// Prefixes with lengths longer than 37 characters will use a shortened
@@ -119,12 +119,12 @@ pub mod region_instance_template {
         /// Resulting name for a `name_prefix` 38 - 54 characters:
         /// `name_prefix` + YYmmdd + 3 digit incremental counter
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Networks to attach to instances created from
         /// this template. This can be specified multiple times for multiple networks.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub network_interfaces: pulumi_wasm_rust::Output<
+        pub network_interfaces: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::compute::RegionInstanceTemplateNetworkInterface>,
             >,
@@ -136,62 +136,62 @@ pub mod region_instance_template {
         /// in `guest-os-features`, and `network_interface.0.nic-type` must be `GVNIC`
         /// in order for this setting to take effect.
         #[builder(into, default)]
-        pub network_performance_config: pulumi_wasm_rust::Output<
+        pub network_performance_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::RegionInstanceTemplateNetworkPerformanceConfig,
             >,
         >,
         /// Beta key/value pair represents partner metadata assigned to instance template where key represent a defined namespace and value is a json string represent the entries associted with the namespace.
         #[builder(into, default)]
-        pub partner_metadata: pulumi_wasm_rust::Output<
+        pub partner_metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Region in which the resource belongs.
         /// If region is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the reservations that this instance can consume from.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub reservation_affinity: pulumi_wasm_rust::Output<
+        pub reservation_affinity: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::RegionInstanceTemplateReservationAffinity,
             >,
         >,
         /// A set of key/value resource manager tag pairs to bind to the instance. Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/456.
         #[builder(into, default)]
-        pub resource_manager_tags: pulumi_wasm_rust::Output<
+        pub resource_manager_tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// - A list of self_links of resource policies to attach to the instance. Modifying this list will cause the instance to recreate. Currently a max of 1 resource policy is supported.
         #[builder(into, default)]
-        pub resource_policies: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_policies: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The scheduling strategy to use. More details about
         /// this configuration option are detailed below.
         #[builder(into, default)]
-        pub scheduling: pulumi_wasm_rust::Output<
+        pub scheduling: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::RegionInstanceTemplateScheduling>,
         >,
         /// Service account to attach to the instance. Structure is documented below.
         #[builder(into, default)]
-        pub service_account: pulumi_wasm_rust::Output<
+        pub service_account: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::RegionInstanceTemplateServiceAccount>,
         >,
         /// Enable [Shielded VM](https://cloud.google.com/security/shielded-cloud/shielded-vm) on this instance. Shielded VM provides verifiable integrity to prevent against malware and rootkits. Defaults to disabled. Structure is documented below.
         /// **Note**: `shielded_instance_config` can only be used with boot images with shielded vm support. See the complete list [here](https://cloud.google.com/compute/docs/images#shielded-images).
         #[builder(into, default)]
-        pub shielded_instance_config: pulumi_wasm_rust::Output<
+        pub shielded_instance_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::RegionInstanceTemplateShieldedInstanceConfig,
             >,
         >,
         /// Tags to attach to the instance.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct RegionInstanceTemplateResult {
@@ -348,6 +348,7 @@ pub mod region_instance_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RegionInstanceTemplateArgs,
     ) -> RegionInstanceTemplateResult {
@@ -355,40 +356,77 @@ pub mod region_instance_template {
         use std::collections::HashMap;
         let advanced_machine_features_binding = args
             .advanced_machine_features
+            .get_output(context)
             .get_inner();
-        let can_ip_forward_binding = args.can_ip_forward.get_inner();
+        let can_ip_forward_binding = args.can_ip_forward.get_output(context).get_inner();
         let confidential_instance_config_binding = args
             .confidential_instance_config
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let disks_binding = args.disks.get_inner();
-        let enable_display_binding = args.enable_display.get_inner();
-        let guest_accelerators_binding = args.guest_accelerators.get_inner();
-        let instance_description_binding = args.instance_description.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let disks_binding = args.disks.get_output(context).get_inner();
+        let enable_display_binding = args.enable_display.get_output(context).get_inner();
+        let guest_accelerators_binding = args
+            .guest_accelerators
+            .get_output(context)
+            .get_inner();
+        let instance_description_binding = args
+            .instance_description
+            .get_output(context)
+            .get_inner();
         let key_revocation_action_type_binding = args
             .key_revocation_action_type
+            .get_output(context)
             .get_inner();
-        let labels_binding = args.labels.get_inner();
-        let machine_type_binding = args.machine_type.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let metadata_startup_script_binding = args.metadata_startup_script.get_inner();
-        let min_cpu_platform_binding = args.min_cpu_platform.get_inner();
-        let name_binding = args.name.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let network_interfaces_binding = args.network_interfaces.get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let machine_type_binding = args.machine_type.get_output(context).get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let metadata_startup_script_binding = args
+            .metadata_startup_script
+            .get_output(context)
+            .get_inner();
+        let min_cpu_platform_binding = args
+            .min_cpu_platform
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let network_interfaces_binding = args
+            .network_interfaces
+            .get_output(context)
+            .get_inner();
         let network_performance_config_binding = args
             .network_performance_config
+            .get_output(context)
             .get_inner();
-        let partner_metadata_binding = args.partner_metadata.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let reservation_affinity_binding = args.reservation_affinity.get_inner();
-        let resource_manager_tags_binding = args.resource_manager_tags.get_inner();
-        let resource_policies_binding = args.resource_policies.get_inner();
-        let scheduling_binding = args.scheduling.get_inner();
-        let service_account_binding = args.service_account.get_inner();
-        let shielded_instance_config_binding = args.shielded_instance_config.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let partner_metadata_binding = args
+            .partner_metadata
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let reservation_affinity_binding = args
+            .reservation_affinity
+            .get_output(context)
+            .get_inner();
+        let resource_manager_tags_binding = args
+            .resource_manager_tags
+            .get_output(context)
+            .get_inner();
+        let resource_policies_binding = args
+            .resource_policies
+            .get_output(context)
+            .get_inner();
+        let scheduling_binding = args.scheduling.get_output(context).get_inner();
+        let service_account_binding = args
+            .service_account
+            .get_output(context)
+            .get_inner();
+        let shielded_instance_config_binding = args
+            .shielded_instance_config
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionInstanceTemplate:RegionInstanceTemplate".into(),
             name: name.to_string(),
@@ -612,7 +650,7 @@ pub mod region_instance_template {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

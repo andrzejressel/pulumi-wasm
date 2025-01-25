@@ -66,36 +66,36 @@
 /// $ pulumi import aws:dynamodb/tableExport:TableExport example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
 /// ```
 pub mod table_export {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableExportArgs {
         /// Format for the exported data. Valid values are `DYNAMODB_JSON` or `ION`. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html#S3DataExport.Output_Data) for more information on these export formats. Default is `DYNAMODB_JSON`.
         #[builder(into, default)]
-        pub export_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub export_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Time in RFC3339 format from which to export table data. The table export will be a snapshot of the table's state at this point in time. Omitting this value will result in a snapshot from the current time.
         #[builder(into, default)]
-        pub export_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub export_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
         #[builder(into)]
-        pub s3_bucket: pulumi_wasm_rust::Output<String>,
+        pub s3_bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the AWS account that owns the bucket the export will be stored in.
         #[builder(into, default)]
-        pub s3_bucket_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_bucket_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.
         #[builder(into, default)]
-        pub s3_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Type of encryption used on the bucket where export data will be stored. Valid values are: `AES256`, `KMS`.
         #[builder(into, default)]
-        pub s3_sse_algorithm: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_sse_algorithm: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).
         #[builder(into, default)]
-        pub s3_sse_kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_sse_kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN associated with the table to export.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub table_arn: pulumi_wasm_rust::Output<String>,
+        pub table_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TableExportResult {
@@ -136,17 +136,30 @@ pub mod table_export {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TableExportArgs) -> TableExportResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TableExportArgs,
+    ) -> TableExportResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let export_format_binding = args.export_format.get_inner();
-        let export_time_binding = args.export_time.get_inner();
-        let s3_bucket_binding = args.s3_bucket.get_inner();
-        let s3_bucket_owner_binding = args.s3_bucket_owner.get_inner();
-        let s3_prefix_binding = args.s3_prefix.get_inner();
-        let s3_sse_algorithm_binding = args.s3_sse_algorithm.get_inner();
-        let s3_sse_kms_key_id_binding = args.s3_sse_kms_key_id.get_inner();
-        let table_arn_binding = args.table_arn.get_inner();
+        let export_format_binding = args.export_format.get_output(context).get_inner();
+        let export_time_binding = args.export_time.get_output(context).get_inner();
+        let s3_bucket_binding = args.s3_bucket.get_output(context).get_inner();
+        let s3_bucket_owner_binding = args
+            .s3_bucket_owner
+            .get_output(context)
+            .get_inner();
+        let s3_prefix_binding = args.s3_prefix.get_output(context).get_inner();
+        let s3_sse_algorithm_binding = args
+            .s3_sse_algorithm
+            .get_output(context)
+            .get_inner();
+        let s3_sse_kms_key_id_binding = args
+            .s3_sse_kms_key_id
+            .get_output(context)
+            .get_inner();
+        let table_arn_binding = args.table_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dynamodb/tableExport:TableExport".into(),
             name: name.to_string(),
@@ -233,7 +246,7 @@ pub mod table_export {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

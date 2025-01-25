@@ -49,48 +49,48 @@
 /// ```
 ///
 pub mod schedule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ScheduleArgs {
         /// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub automation_account_name: pulumi_wasm_rust::Output<String>,
+        pub automation_account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A description for this Schedule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The end time of the schedule.
         #[builder(into, default)]
-        pub expiry_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub expiry_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
         #[builder(into)]
-        pub frequency: pulumi_wasm_rust::Output<String>,
+        pub frequency: pulumi_wasm_rust::InputOrOutput<String>,
         /// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
         #[builder(into, default)]
-        pub interval: pulumi_wasm_rust::Output<Option<i32>>,
+        pub interval: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
         #[builder(into, default)]
-        pub month_days: pulumi_wasm_rust::Output<Option<Vec<i32>>>,
+        pub month_days: pulumi_wasm_rust::InputOrOutput<Option<Vec<i32>>>,
         /// One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         #[builder(into, default)]
-        pub monthly_occurrence: pulumi_wasm_rust::Output<
+        pub monthly_occurrence: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::automation::ScheduleMonthlyOccurrence>,
         >,
         /// Specifies the name of the Schedule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         #[builder(into, default)]
-        pub start_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub start_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         #[builder(into, default)]
-        pub timezone: pulumi_wasm_rust::Output<Option<String>>,
+        pub timezone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         #[builder(into, default)]
-        pub week_days: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub week_days: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ScheduleResult {
@@ -125,21 +125,34 @@ pub mod schedule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ScheduleArgs) -> ScheduleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ScheduleArgs,
+    ) -> ScheduleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding = args.automation_account_name.get_inner();
-        let description_binding = args.description.get_inner();
-        let expiry_time_binding = args.expiry_time.get_inner();
-        let frequency_binding = args.frequency.get_inner();
-        let interval_binding = args.interval.get_inner();
-        let month_days_binding = args.month_days.get_inner();
-        let monthly_occurrence_binding = args.monthly_occurrence.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let start_time_binding = args.start_time.get_inner();
-        let timezone_binding = args.timezone.get_inner();
-        let week_days_binding = args.week_days.get_inner();
+        let automation_account_name_binding = args
+            .automation_account_name
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let expiry_time_binding = args.expiry_time.get_output(context).get_inner();
+        let frequency_binding = args.frequency.get_output(context).get_inner();
+        let interval_binding = args.interval.get_output(context).get_inner();
+        let month_days_binding = args.month_days.get_output(context).get_inner();
+        let monthly_occurrence_binding = args
+            .monthly_occurrence
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let start_time_binding = args.start_time.get_output(context).get_inner();
+        let timezone_binding = args.timezone.get_output(context).get_inner();
+        let week_days_binding = args.week_days.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/schedule:Schedule".into(),
             name: name.to_string(),
@@ -233,7 +246,7 @@ pub mod schedule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,25 +1,25 @@
 pub mod get_resource_share {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetResourceShareArgs {
         /// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ram::GetResourceShareFilter>>,
         >,
         /// Name of the resource share to retrieve.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
         #[builder(into)]
-        pub resource_owner: pulumi_wasm_rust::Output<String>,
+        pub resource_owner: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
         #[builder(into, default)]
-        pub resource_share_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_share_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Tags attached to the resource share.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -48,14 +48,20 @@ pub mod get_resource_share {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetResourceShareArgs) -> GetResourceShareResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetResourceShareArgs,
+    ) -> GetResourceShareResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_owner_binding = args.resource_owner.get_inner();
-        let resource_share_status_binding = args.resource_share_status.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_owner_binding = args.resource_owner.get_output(context).get_inner();
+        let resource_share_status_binding = args
+            .resource_share_status
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ram/getResourceShare:getResourceShare".into(),
             version: super::super::super::get_version(),
@@ -114,7 +120,7 @@ pub mod get_resource_share {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

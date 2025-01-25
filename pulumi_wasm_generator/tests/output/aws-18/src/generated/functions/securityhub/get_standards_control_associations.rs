@@ -1,11 +1,11 @@
 pub mod get_standards_control_associations {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetStandardsControlAssociationsArgs {
         /// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
         #[builder(into)]
-        pub security_control_id: pulumi_wasm_rust::Output<String>,
+        pub security_control_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetStandardsControlAssociationsResult {
@@ -25,11 +25,15 @@ pub mod get_standards_control_associations {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetStandardsControlAssociationsArgs,
     ) -> GetStandardsControlAssociationsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let security_control_id_binding = args.security_control_id.get_inner();
+        let security_control_id_binding = args
+            .security_control_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations"
                 .into(),
@@ -52,7 +56,7 @@ pub mod get_standards_control_associations {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

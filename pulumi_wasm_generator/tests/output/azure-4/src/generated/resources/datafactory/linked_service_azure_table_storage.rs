@@ -43,7 +43,7 @@
 /// ```
 ///
 pub mod linked_service_azure_table_storage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedServiceAzureTableStorageArgs {
@@ -51,30 +51,30 @@ pub mod linked_service_azure_table_storage {
         ///
         /// The following supported arguments are specific to Azure Table Storage Linked Service:
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The connection string to an Azure Storage Account.
         #[builder(into)]
-        pub connection_string: pulumi_wasm_rust::Output<String>,
+        pub connection_string: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description for the Data Factory Linked Service.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub integration_runtime_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_runtime_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of parameters to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -108,19 +108,32 @@ pub mod linked_service_azure_table_storage {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LinkedServiceAzureTableStorageArgs,
     ) -> LinkedServiceAzureTableStorageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let additional_properties_binding = args.additional_properties.get_inner();
-        let annotations_binding = args.annotations.get_inner();
-        let connection_string_binding = args.connection_string.get_inner();
-        let data_factory_id_binding = args.data_factory_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let integration_runtime_name_binding = args.integration_runtime_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let parameters_binding = args.parameters.get_inner();
+        let additional_properties_binding = args
+            .additional_properties
+            .get_output(context)
+            .get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let connection_string_binding = args
+            .connection_string
+            .get_output(context)
+            .get_inner();
+        let data_factory_id_binding = args
+            .data_factory_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let integration_runtime_name_binding = args
+            .integration_runtime_name
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage"
                 .into(),
@@ -187,7 +200,7 @@ pub mod linked_service_azure_table_storage {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

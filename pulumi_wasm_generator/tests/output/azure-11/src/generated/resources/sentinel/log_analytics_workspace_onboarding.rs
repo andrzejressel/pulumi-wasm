@@ -42,7 +42,7 @@
 /// ```
 ///
 pub mod log_analytics_workspace_onboarding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogAnalyticsWorkspaceOnboardingArgs {
@@ -52,10 +52,10 @@ pub mod log_analytics_workspace_onboarding {
         ///
         /// > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
         #[builder(into, default)]
-        pub customer_managed_key_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub customer_managed_key_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LogAnalyticsWorkspaceOnboardingResult {
@@ -73,6 +73,7 @@ pub mod log_analytics_workspace_onboarding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LogAnalyticsWorkspaceOnboardingArgs,
     ) -> LogAnalyticsWorkspaceOnboardingResult {
@@ -80,8 +81,9 @@ pub mod log_analytics_workspace_onboarding {
         use std::collections::HashMap;
         let customer_managed_key_enabled_binding = args
             .customer_managed_key_enabled
+            .get_output(context)
             .get_inner();
-        let workspace_id_binding = args.workspace_id.get_inner();
+        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding"
                 .into(),
@@ -106,7 +108,7 @@ pub mod log_analytics_workspace_onboarding {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

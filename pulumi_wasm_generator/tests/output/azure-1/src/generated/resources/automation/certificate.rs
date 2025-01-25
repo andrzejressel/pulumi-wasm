@@ -43,28 +43,28 @@
 /// ```
 ///
 pub mod certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateArgs {
         /// The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub automation_account_name: pulumi_wasm_rust::Output<String>,
+        pub automation_account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Base64 encoded value of the certificate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub base64: pulumi_wasm_rust::Output<String>,
+        pub base64: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of this Automation Certificate.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The is exportable flag of the certificate.
         #[builder(into, default)]
-        pub exportable: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exportable: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the Certificate. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CertificateResult {
@@ -87,15 +87,25 @@ pub mod certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CertificateArgs) -> CertificateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CertificateArgs,
+    ) -> CertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding = args.automation_account_name.get_inner();
-        let base64_binding = args.base64.get_inner();
-        let description_binding = args.description.get_inner();
-        let exportable_binding = args.exportable.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let automation_account_name_binding = args
+            .automation_account_name
+            .get_output(context)
+            .get_inner();
+        let base64_binding = args.base64.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let exportable_binding = args.exportable.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/certificate:Certificate".into(),
             name: name.to_string(),
@@ -150,7 +160,7 @@ pub mod certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -133,33 +133,33 @@
 /// ```
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// RBAC policy that will be applied and managed by GEC.
         /// Structure is documented below.
         #[builder(into)]
-        pub authorization: pulumi_wasm_rust::Output<
+        pub authorization: pulumi_wasm_rust::InputOrOutput<
             super::super::types::edgecontainer::ClusterAuthorization,
         >,
         /// The configuration of the cluster control plane.
         #[builder(into, default)]
-        pub control_plane: pulumi_wasm_rust::Output<
+        pub control_plane: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::edgecontainer::ClusterControlPlane>,
         >,
         /// Remote control plane disk encryption options. This field is only used when enabling CMEK support.
         #[builder(into, default)]
-        pub control_plane_encryption: pulumi_wasm_rust::Output<
+        pub control_plane_encryption: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::edgecontainer::ClusterControlPlaneEncryption>,
         >,
         /// The default maximum number of pods per node used if a maximum value is not specified explicitly for a node pool in this
         /// cluster. If unspecified, the Kubernetes default value will be used.
         #[builder(into, default)]
-        pub default_max_pods_per_node: pulumi_wasm_rust::Output<Option<i32>>,
+        pub default_max_pods_per_node: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Address pools for cluster data plane external load balancing.
         #[builder(into, default)]
-        pub external_load_balancer_ipv4_address_pools: pulumi_wasm_rust::Output<
+        pub external_load_balancer_ipv4_address_pools: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Fleet related configuration.
@@ -168,50 +168,50 @@ pub mod cluster {
         /// consistent policies across your systems.
         /// Structure is documented below.
         #[builder(into)]
-        pub fleet: pulumi_wasm_rust::Output<
+        pub fleet: pulumi_wasm_rust::InputOrOutput<
             super::super::types::edgecontainer::ClusterFleet,
         >,
         /// User-defined labels for the edgecloud cluster. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Cluster-wide maintenance policy configuration.
         #[builder(into, default)]
-        pub maintenance_policy: pulumi_wasm_rust::Output<
+        pub maintenance_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::edgecontainer::ClusterMaintenancePolicy>,
         >,
         /// The GDCE cluster name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Fleet related configuration.
         /// Fleets are a Google Cloud concept for logically organizing clusters,
         /// letting you use and manage multi-cluster capabilities and apply
         /// consistent policies across your systems.
         /// Structure is documented below.
         #[builder(into)]
-        pub networking: pulumi_wasm_rust::Output<
+        pub networking: pulumi_wasm_rust::InputOrOutput<
             super::super::types::edgecontainer::ClusterNetworking,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The release channel a cluster is subscribed to. Possible values: ["RELEASE_CHANNEL_UNSPECIFIED", "NONE", "REGULAR"]
         #[builder(into, default)]
-        pub release_channel: pulumi_wasm_rust::Output<Option<String>>,
+        pub release_channel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Config that customers are allowed to define for GDCE system add-ons.
         #[builder(into, default)]
-        pub system_addons_config: pulumi_wasm_rust::Output<
+        pub system_addons_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::edgecontainer::ClusterSystemAddonsConfig>,
         >,
         /// (Output)
         /// The target version of the cluster.
         #[builder(into, default)]
-        pub target_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ClusterResult {
@@ -315,28 +315,46 @@ pub mod cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ClusterArgs) -> ClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ClusterArgs,
+    ) -> ClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authorization_binding = args.authorization.get_inner();
-        let control_plane_binding = args.control_plane.get_inner();
-        let control_plane_encryption_binding = args.control_plane_encryption.get_inner();
+        let authorization_binding = args.authorization.get_output(context).get_inner();
+        let control_plane_binding = args.control_plane.get_output(context).get_inner();
+        let control_plane_encryption_binding = args
+            .control_plane_encryption
+            .get_output(context)
+            .get_inner();
         let default_max_pods_per_node_binding = args
             .default_max_pods_per_node
+            .get_output(context)
             .get_inner();
         let external_load_balancer_ipv4_address_pools_binding = args
             .external_load_balancer_ipv4_address_pools
+            .get_output(context)
             .get_inner();
-        let fleet_binding = args.fleet.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let maintenance_policy_binding = args.maintenance_policy.get_inner();
-        let name_binding = args.name.get_inner();
-        let networking_binding = args.networking.get_inner();
-        let project_binding = args.project.get_inner();
-        let release_channel_binding = args.release_channel.get_inner();
-        let system_addons_config_binding = args.system_addons_config.get_inner();
-        let target_version_binding = args.target_version.get_inner();
+        let fleet_binding = args.fleet.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let maintenance_policy_binding = args
+            .maintenance_policy
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let networking_binding = args.networking.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let release_channel_binding = args
+            .release_channel
+            .get_output(context)
+            .get_inner();
+        let system_addons_config_binding = args
+            .system_addons_config
+            .get_output(context)
+            .get_inner();
+        let target_version_binding = args.target_version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:edgecontainer/cluster:Cluster".into(),
             name: name.to_string(),
@@ -484,7 +502,7 @@ pub mod cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

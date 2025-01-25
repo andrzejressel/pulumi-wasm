@@ -37,21 +37,21 @@
 /// $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
 /// ```
 pub mod field_level_encryption_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FieldLevelEncryptionProfileArgs {
         /// An optional comment about the Field Level Encryption Profile.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
         #[builder(into)]
-        pub encryption_entities: pulumi_wasm_rust::Output<
+        pub encryption_entities: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudfront::FieldLevelEncryptionProfileEncryptionEntities,
         >,
         /// The name of the Field Level Encryption Profile.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FieldLevelEncryptionProfileResult {
@@ -73,14 +73,18 @@ pub mod field_level_encryption_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FieldLevelEncryptionProfileArgs,
     ) -> FieldLevelEncryptionProfileResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_inner();
-        let encryption_entities_binding = args.encryption_entities.get_inner();
-        let name_binding = args.name.get_inner();
+        let comment_binding = args.comment.get_output(context).get_inner();
+        let encryption_entities_binding = args
+            .encryption_entities
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile"
                 .into(),
@@ -118,7 +122,7 @@ pub mod field_level_encryption_profile {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

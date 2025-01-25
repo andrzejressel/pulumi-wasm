@@ -56,31 +56,31 @@
 /// ```
 ///
 pub mod tag_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TagTemplateArgs {
         /// The display name for this template.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Set of tag template field IDs and the settings for the field. This set is an exhaustive list of the allowed fields. This set must contain at least one field and at most 500 fields. The change of field_id will be resulting in re-creating of field. The change of primitive_type will be resulting in re-creating of field, however if the field is a required, you cannot update it.
         /// Structure is documented below.
         #[builder(into)]
-        pub fields: pulumi_wasm_rust::Output<
+        pub fields: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::datacatalog::TagTemplateField>,
         >,
         /// This confirms the deletion of any possible tags using this template. Must be set to true in order to delete the tag
         /// template.
         #[builder(into, default)]
-        pub force_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Template location region.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The id of the tag template to create.
         #[builder(into)]
-        pub tag_template_id: pulumi_wasm_rust::Output<String>,
+        pub tag_template_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TagTemplateResult {
@@ -106,15 +106,22 @@ pub mod tag_template {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TagTemplateArgs) -> TagTemplateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TagTemplateArgs,
+    ) -> TagTemplateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_inner();
-        let fields_binding = args.fields.get_inner();
-        let force_delete_binding = args.force_delete.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let tag_template_id_binding = args.tag_template_id.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let fields_binding = args.fields.get_output(context).get_inner();
+        let force_delete_binding = args.force_delete.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let tag_template_id_binding = args
+            .tag_template_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/tagTemplate:TagTemplate".into(),
             name: name.to_string(),
@@ -169,7 +176,7 @@ pub mod tag_template {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

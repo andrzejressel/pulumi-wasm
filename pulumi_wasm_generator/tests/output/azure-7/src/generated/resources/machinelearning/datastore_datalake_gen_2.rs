@@ -77,42 +77,42 @@
 /// ```
 ///
 pub mod datastore_datalake_gen_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatastoreDatalakeGen2Args {
         /// An URL used for authentication.
         #[builder(into, default)]
-        pub authority_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub authority_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The object ID of the Service Principal.
         #[builder(into, default)]
-        pub client_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The secret of the Service Principal.
         #[builder(into, default)]
-        pub client_secret: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_secret: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
         #[builder(into, default)]
-        pub service_data_identity: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_data_identity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into)]
-        pub storage_container_id: pulumi_wasm_rust::Output<String>,
+        pub storage_container_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Tenant which the Service Principal belongs to.
         #[builder(into, default)]
-        pub tenant_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub tenant_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DatastoreDatalakeGen2Result {
@@ -146,21 +146,28 @@ pub mod datastore_datalake_gen_2 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DatastoreDatalakeGen2Args,
     ) -> DatastoreDatalakeGen2Result {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authority_url_binding = args.authority_url.get_inner();
-        let client_id_binding = args.client_id.get_inner();
-        let client_secret_binding = args.client_secret.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let service_data_identity_binding = args.service_data_identity.get_inner();
-        let storage_container_id_binding = args.storage_container_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tenant_id_binding = args.tenant_id.get_inner();
-        let workspace_id_binding = args.workspace_id.get_inner();
+        let authority_url_binding = args.authority_url.get_output(context).get_inner();
+        let client_id_binding = args.client_id.get_output(context).get_inner();
+        let client_secret_binding = args.client_secret.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let service_data_identity_binding = args
+            .service_data_identity
+            .get_output(context)
+            .get_inner();
+        let storage_container_id_binding = args
+            .storage_container_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
+        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2"
                 .into(),
@@ -244,7 +251,7 @@ pub mod datastore_datalake_gen_2 {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

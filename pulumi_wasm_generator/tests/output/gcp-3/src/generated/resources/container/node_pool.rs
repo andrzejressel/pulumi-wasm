@@ -119,21 +119,21 @@
 /// ```
 ///
 pub mod node_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NodePoolArgs {
         /// Configuration required by cluster autoscaler to adjust
         /// the size of the node pool to the current cluster usage. Structure is documented below.
         #[builder(into, default)]
-        pub autoscaling: pulumi_wasm_rust::Output<
+        pub autoscaling: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::NodePoolAutoscaling>,
         >,
         /// The cluster to create the node pool for. Cluster must be present in `location` provided for clusters. May be specified in the format `projects/{{project}}/locations/{{location}}/clusters/{{cluster}}` or as just the name of the cluster.
         ///
         /// - - -
         #[builder(into)]
-        pub cluster: pulumi_wasm_rust::Output<String>,
+        pub cluster: pulumi_wasm_rust::InputOrOutput<String>,
         /// The initial number of nodes for the pool. In
         /// regional or multi-zonal clusters, this is the number of nodes per zone. Changing
         /// this will force recreation of the resource. WARNING: Resizing your node pool manually
@@ -142,16 +142,16 @@ pub mod node_pool {
         /// need this value, don't set it.  If you do need it, you can use a lifecycle block to
         /// ignore subsqeuent changes to this field.
         #[builder(into, default)]
-        pub initial_node_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub initial_node_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The location (region or zone) of the cluster.
         ///
         /// - - -
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Node management configuration, wherein auto-repair and
         /// auto-upgrade is configured. Structure is documented below.
         #[builder(into, default)]
-        pub management: pulumi_wasm_rust::Output<
+        pub management: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::NodePoolManagement>,
         >,
         /// The maximum number of pods per node in this node pool.
@@ -160,32 +160,32 @@ pub mod node_pool {
         /// See the [official documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr)
         /// for more information.
         #[builder(into, default)]
-        pub max_pods_per_node: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_pods_per_node: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name of the node pool. If left blank, the provider will
         /// auto-generate a unique name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name for the node pool beginning
         /// with the specified prefix. Conflicts with `name`.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The network configuration of the pool. Such as
         /// configuration for [Adding Pod IP address ranges](https://cloud.google.com/kubernetes-engine/docs/how-to/multi-pod-cidr)) to the node pool. Or enabling private nodes. Structure is
         /// documented below
         #[builder(into, default)]
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::NodePoolNetworkConfig>,
         >,
         /// Parameters used in creating the node pool. See
         /// gcp.container.Cluster for schema.
         #[builder(into, default)]
-        pub node_config: pulumi_wasm_rust::Output<
+        pub node_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::NodePoolNodeConfig>,
         >,
         /// The number of nodes per instance group. This field can be used to
         /// update the number of nodes per instance group but should not be used alongside `autoscaling`.
         #[builder(into, default)]
-        pub node_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub node_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The list of zones in which the node pool's nodes should be located. Nodes must
         /// be in the region of their regional cluster or in the same region as their
         /// cluster's zone for zonal clusters. If unspecified, the cluster-level
@@ -195,27 +195,27 @@ pub mod node_pool {
         /// upon being unset. You must manually reconcile the list of zones with your
         /// cluster.
         #[builder(into, default)]
-        pub node_locations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub node_locations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies a custom placement policy for the
         /// nodes.
         #[builder(into, default)]
-        pub placement_policy: pulumi_wasm_rust::Output<
+        pub placement_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::NodePoolPlacementPolicy>,
         >,
         /// The ID of the project in which to create the node pool. If blank,
         /// the provider-configured project will be used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies node pool-level settings of queued provisioning.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub queued_provisioning: pulumi_wasm_rust::Output<
+        pub queued_provisioning: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::NodePoolQueuedProvisioning>,
         >,
         /// Specify node upgrade settings to change how GKE upgrades nodes.
         /// The maximum number of nodes upgraded simultaneously is limited to 20. Structure is documented below.
         #[builder(into, default)]
-        pub upgrade_settings: pulumi_wasm_rust::Output<
+        pub upgrade_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::NodePoolUpgradeSettings>,
         >,
         /// The Kubernetes version for the nodes in this pool. Note that if this field
@@ -225,7 +225,7 @@ pub mod node_pool {
         /// when fuzzy versions are used. See the `gcp.container.getEngineVersions` data source's
         /// `version_prefix` field to approximate fuzzy versions in a provider-compatible way.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NodePoolResult {
@@ -325,26 +325,45 @@ pub mod node_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NodePoolArgs) -> NodePoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NodePoolArgs,
+    ) -> NodePoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let autoscaling_binding = args.autoscaling.get_inner();
-        let cluster_binding = args.cluster.get_inner();
-        let initial_node_count_binding = args.initial_node_count.get_inner();
-        let location_binding = args.location.get_inner();
-        let management_binding = args.management.get_inner();
-        let max_pods_per_node_binding = args.max_pods_per_node.get_inner();
-        let name_binding = args.name.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let network_config_binding = args.network_config.get_inner();
-        let node_config_binding = args.node_config.get_inner();
-        let node_count_binding = args.node_count.get_inner();
-        let node_locations_binding = args.node_locations.get_inner();
-        let placement_policy_binding = args.placement_policy.get_inner();
-        let project_binding = args.project.get_inner();
-        let queued_provisioning_binding = args.queued_provisioning.get_inner();
-        let upgrade_settings_binding = args.upgrade_settings.get_inner();
-        let version_binding = args.version.get_inner();
+        let autoscaling_binding = args.autoscaling.get_output(context).get_inner();
+        let cluster_binding = args.cluster.get_output(context).get_inner();
+        let initial_node_count_binding = args
+            .initial_node_count
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let management_binding = args.management.get_output(context).get_inner();
+        let max_pods_per_node_binding = args
+            .max_pods_per_node
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let network_config_binding = args.network_config.get_output(context).get_inner();
+        let node_config_binding = args.node_config.get_output(context).get_inner();
+        let node_count_binding = args.node_count.get_output(context).get_inner();
+        let node_locations_binding = args.node_locations.get_output(context).get_inner();
+        let placement_policy_binding = args
+            .placement_policy
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let queued_provisioning_binding = args
+            .queued_provisioning
+            .get_output(context)
+            .get_inner();
+        let upgrade_settings_binding = args
+            .upgrade_settings
+            .get_output(context)
+            .get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:container/nodePool:NodePool".into(),
             name: name.to_string(),
@@ -482,7 +501,7 @@ pub mod node_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

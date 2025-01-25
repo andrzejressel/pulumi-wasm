@@ -63,24 +63,24 @@
 /// ```
 ///
 pub mod access_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessPolicyArgs {
         /// The parent of this AccessPolicy in the Cloud Resource Hierarchy.
         /// Format: 'organizations/{{organization_id}}'
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// Folder or project on which this policy is applicable.
         /// Format: 'folders/{{folder_id}}' or 'projects/{{project_number}}'
         #[builder(into, default)]
-        pub scopes: pulumi_wasm_rust::Output<Option<String>>,
+        pub scopes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Human readable title. Does not affect behavior.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub title: pulumi_wasm_rust::Output<String>,
+        pub title: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccessPolicyResult {
@@ -106,12 +106,16 @@ pub mod access_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccessPolicyArgs) -> AccessPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccessPolicyArgs,
+    ) -> AccessPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let parent_binding = args.parent.get_inner();
-        let scopes_binding = args.scopes.get_inner();
-        let title_binding = args.title.get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let scopes_binding = args.scopes.get_output(context).get_inner();
+        let title_binding = args.title.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/accessPolicy:AccessPolicy".into(),
             name: name.to_string(),
@@ -151,7 +155,7 @@ pub mod access_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

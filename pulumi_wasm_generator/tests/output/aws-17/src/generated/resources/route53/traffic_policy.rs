@@ -28,21 +28,21 @@
 /// $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1
 /// ```
 pub mod traffic_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrafficPolicyArgs {
         /// Comment for the traffic policy.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Policy document. This is a JSON formatted string. For more information about building Route53 traffic policy documents, see the [AWS Route53 Traffic Policy document format](https://docs.aws.amazon.com/Route53/latest/APIReference/api-policies-traffic-policy-document-format.html)
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub document: pulumi_wasm_rust::Output<String>,
+        pub document: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the traffic policy.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TrafficPolicyResult {
@@ -63,12 +63,16 @@ pub mod traffic_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TrafficPolicyArgs) -> TrafficPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TrafficPolicyArgs,
+    ) -> TrafficPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_inner();
-        let document_binding = args.document.get_inner();
-        let name_binding = args.name.get_inner();
+        let comment_binding = args.comment.get_output(context).get_inner();
+        let document_binding = args.document.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/trafficPolicy:TrafficPolicy".into(),
             name: name.to_string(),
@@ -105,7 +109,7 @@ pub mod traffic_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -40,67 +40,67 @@
 /// $ pulumi import aws:ec2/ami:Ami example ami-12345678
 /// ```
 pub mod ami {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AmiArgs {
         /// Machine architecture for created instances. Defaults to "x86_64".
         #[builder(into, default)]
-        pub architecture: pulumi_wasm_rust::Output<Option<String>>,
+        pub architecture: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         #[builder(into, default)]
-        pub boot_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub boot_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         #[builder(into, default)]
-        pub deprecation_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub deprecation_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Longer, human-readable description for the AMI.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Nested block describing an EBS block device that should be
         /// attached to created instances. The structure of this block is described below.
         #[builder(into, default)]
-        pub ebs_block_devices: pulumi_wasm_rust::Output<
+        pub ebs_block_devices: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::AmiEbsBlockDevice>>,
         >,
         /// Whether enhanced networking with ENA is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub ena_support: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ena_support: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Nested block describing an ephemeral block device that
         /// should be attached to created instances. The structure of this block is described below.
         #[builder(into, default)]
-        pub ephemeral_block_devices: pulumi_wasm_rust::Output<
+        pub ephemeral_block_devices: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::AmiEphemeralBlockDevice>>,
         >,
         #[builder(into, default)]
-        pub image_location: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         #[builder(into, default)]
-        pub imds_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub imds_support: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub kernel_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kernel_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Region-unique name for the AMI.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub ramdisk_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub ramdisk_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         #[builder(into, default)]
-        pub root_device_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub root_device_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub sriov_net_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub sriov_net_support: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         #[builder(into, default)]
-        pub tpm_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub tpm_support: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Keyword to choose what virtualization mode created instances
         /// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
         /// changes the set of further arguments that are required, as described below.
         #[builder(into, default)]
-        pub virtualization_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtualization_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AmiResult {
@@ -174,26 +174,48 @@ pub mod ami {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AmiArgs) -> AmiResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AmiArgs,
+    ) -> AmiResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let architecture_binding = args.architecture.get_inner();
-        let boot_mode_binding = args.boot_mode.get_inner();
-        let deprecation_time_binding = args.deprecation_time.get_inner();
-        let description_binding = args.description.get_inner();
-        let ebs_block_devices_binding = args.ebs_block_devices.get_inner();
-        let ena_support_binding = args.ena_support.get_inner();
-        let ephemeral_block_devices_binding = args.ephemeral_block_devices.get_inner();
-        let image_location_binding = args.image_location.get_inner();
-        let imds_support_binding = args.imds_support.get_inner();
-        let kernel_id_binding = args.kernel_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let ramdisk_id_binding = args.ramdisk_id.get_inner();
-        let root_device_name_binding = args.root_device_name.get_inner();
-        let sriov_net_support_binding = args.sriov_net_support.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tpm_support_binding = args.tpm_support.get_inner();
-        let virtualization_type_binding = args.virtualization_type.get_inner();
+        let architecture_binding = args.architecture.get_output(context).get_inner();
+        let boot_mode_binding = args.boot_mode.get_output(context).get_inner();
+        let deprecation_time_binding = args
+            .deprecation_time
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let ebs_block_devices_binding = args
+            .ebs_block_devices
+            .get_output(context)
+            .get_inner();
+        let ena_support_binding = args.ena_support.get_output(context).get_inner();
+        let ephemeral_block_devices_binding = args
+            .ephemeral_block_devices
+            .get_output(context)
+            .get_inner();
+        let image_location_binding = args.image_location.get_output(context).get_inner();
+        let imds_support_binding = args.imds_support.get_output(context).get_inner();
+        let kernel_id_binding = args.kernel_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let ramdisk_id_binding = args.ramdisk_id.get_output(context).get_inner();
+        let root_device_name_binding = args
+            .root_device_name
+            .get_output(context)
+            .get_inner();
+        let sriov_net_support_binding = args
+            .sriov_net_support
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tpm_support_binding = args.tpm_support.get_output(context).get_inner();
+        let virtualization_type_binding = args
+            .virtualization_type
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/ami:Ami".into(),
             name: name.to_string(),
@@ -358,7 +380,7 @@ pub mod ami {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

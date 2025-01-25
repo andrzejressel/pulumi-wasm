@@ -26,28 +26,28 @@
 /// ```
 ///
 pub mod sharedflow_deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedflowDeploymentArgs {
         /// The resource ID of the environment.
         #[builder(into)]
-        pub environment: pulumi_wasm_rust::Output<String>,
+        pub environment: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Apigee Organization associated with the Sharedflow
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Revision of the Sharedflow to be deployed.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub revision: pulumi_wasm_rust::Output<String>,
+        pub revision: pulumi_wasm_rust::InputOrOutput<String>,
         /// The service account represents the identity of the deployed proxy, and determines what permissions it has. The format must be {ACCOUNT_ID}@{PROJECT}.iam.gserviceaccount.com.
         #[builder(into, default)]
-        pub service_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Id of the Sharedflow to be deployed.
         #[builder(into)]
-        pub sharedflow_id: pulumi_wasm_rust::Output<String>,
+        pub sharedflow_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SharedflowDeploymentResult {
@@ -70,16 +70,20 @@ pub mod sharedflow_deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SharedflowDeploymentArgs,
     ) -> SharedflowDeploymentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let environment_binding = args.environment.get_inner();
-        let org_id_binding = args.org_id.get_inner();
-        let revision_binding = args.revision.get_inner();
-        let service_account_binding = args.service_account.get_inner();
-        let sharedflow_id_binding = args.sharedflow_id.get_inner();
+        let environment_binding = args.environment.get_output(context).get_inner();
+        let org_id_binding = args.org_id.get_output(context).get_inner();
+        let revision_binding = args.revision.get_output(context).get_inner();
+        let service_account_binding = args
+            .service_account
+            .get_output(context)
+            .get_inner();
+        let sharedflow_id_binding = args.sharedflow_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/sharedflowDeployment:SharedflowDeployment".into(),
             name: name.to_string(),
@@ -124,7 +128,7 @@ pub mod sharedflow_deployment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

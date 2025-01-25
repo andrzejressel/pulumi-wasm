@@ -91,52 +91,54 @@
 /// ```
 ///
 pub mod eventhub_data_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventhubDataConnectionArgs {
         /// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub compression: pulumi_wasm_rust::Output<Option<String>>,
+        pub compression: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub consumer_group: pulumi_wasm_rust::Output<String>,
+        pub consumer_group: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, and `W3CLOGFILE`.
         #[builder(into, default)]
-        pub data_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
         #[builder(into, default)]
-        pub database_routing_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub database_routing_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of system properties for the Event Hub.
         #[builder(into, default)]
-        pub event_system_properties: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub event_system_properties: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub eventhub_id: pulumi_wasm_rust::Output<String>,
+        pub eventhub_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
         #[builder(into, default)]
-        pub identity_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub identity_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         #[builder(into, default)]
-        pub mapping_rule_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub mapping_rule_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
         #[builder(into, default)]
-        pub table_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub table_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EventhubDataConnectionResult {
@@ -174,25 +176,38 @@ pub mod eventhub_data_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EventhubDataConnectionArgs,
     ) -> EventhubDataConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding = args.cluster_name.get_inner();
-        let compression_binding = args.compression.get_inner();
-        let consumer_group_binding = args.consumer_group.get_inner();
-        let data_format_binding = args.data_format.get_inner();
-        let database_name_binding = args.database_name.get_inner();
-        let database_routing_type_binding = args.database_routing_type.get_inner();
-        let event_system_properties_binding = args.event_system_properties.get_inner();
-        let eventhub_id_binding = args.eventhub_id.get_inner();
-        let identity_id_binding = args.identity_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let mapping_rule_name_binding = args.mapping_rule_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let table_name_binding = args.table_name.get_inner();
+        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
+        let compression_binding = args.compression.get_output(context).get_inner();
+        let consumer_group_binding = args.consumer_group.get_output(context).get_inner();
+        let data_format_binding = args.data_format.get_output(context).get_inner();
+        let database_name_binding = args.database_name.get_output(context).get_inner();
+        let database_routing_type_binding = args
+            .database_routing_type
+            .get_output(context)
+            .get_inner();
+        let event_system_properties_binding = args
+            .event_system_properties
+            .get_output(context)
+            .get_inner();
+        let eventhub_id_binding = args.eventhub_id.get_output(context).get_inner();
+        let identity_id_binding = args.identity_id.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let mapping_rule_name_binding = args
+            .mapping_rule_name
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let table_name_binding = args.table_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/eventhubDataConnection:EventhubDataConnection".into(),
             name: name.to_string(),
@@ -300,7 +315,7 @@ pub mod eventhub_data_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

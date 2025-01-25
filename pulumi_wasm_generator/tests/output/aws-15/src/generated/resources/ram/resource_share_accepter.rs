@@ -42,13 +42,13 @@
 /// $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
 /// ```
 pub mod resource_share_accepter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceShareAccepterArgs {
         /// The ARN of the resource share.
         #[builder(into)]
-        pub share_arn: pulumi_wasm_rust::Output<String>,
+        pub share_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResourceShareAccepterResult {
@@ -74,12 +74,13 @@ pub mod resource_share_accepter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ResourceShareAccepterArgs,
     ) -> ResourceShareAccepterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let share_arn_binding = args.share_arn.get_inner();
+        let share_arn_binding = args.share_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ram/resourceShareAccepter:ResourceShareAccepter".into(),
             name: name.to_string(),
@@ -117,7 +118,7 @@ pub mod resource_share_accepter {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

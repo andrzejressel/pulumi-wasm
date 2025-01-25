@@ -48,7 +48,7 @@
 /// ```
 ///
 pub mod alert_rule_anomaly_built_in {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AlertRuleAnomalyBuiltInArgs {
@@ -56,19 +56,19 @@ pub mod alert_rule_anomaly_built_in {
         ///
         /// > **Note:** One of `name` or `display_name` block must be specified.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should the Built-in Anomaly Alert Rule be enabled?
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The ID of the Log Analytics Workspace. Changing this forces a new Built-in Anomaly Alert Rule to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
         #[builder(into)]
-        pub mode: pulumi_wasm_rust::Output<String>,
+        pub mode: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Name of the built-in Anomaly Alert Rule.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AlertRuleAnomalyBuiltInResult {
@@ -134,18 +134,20 @@ pub mod alert_rule_anomaly_built_in {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AlertRuleAnomalyBuiltInArgs,
     ) -> AlertRuleAnomalyBuiltInResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_inner();
-        let enabled_binding = args.enabled.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
+            .get_output(context)
             .get_inner();
-        let mode_binding = args.mode.get_inner();
-        let name_binding = args.name.get_inner();
+        let mode_binding = args.mode.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn"
                 .into(),
@@ -227,7 +229,7 @@ pub mod alert_rule_anomaly_built_in {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

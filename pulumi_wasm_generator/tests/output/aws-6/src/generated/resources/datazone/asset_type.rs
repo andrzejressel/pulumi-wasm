@@ -29,31 +29,31 @@
 /// $ pulumi import aws:datazone/assetType:AssetType example domain-id-12345678,example
 /// ```
 pub mod asset_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssetTypeArgs {
         /// The description of the custom asset type.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
         #[builder(into)]
-        pub domain_identifier: pulumi_wasm_rust::Output<String>,
+        pub domain_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The metadata forms that are to be attached to the custom asset type.
         #[builder(into, default)]
-        pub forms_inputs: pulumi_wasm_rust::Output<
+        pub forms_inputs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::datazone::AssetTypeFormsInput>>,
         >,
         /// The name of the custom asset type.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The unique identifier of the Amazon DataZone project that owns the custom asset type.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub owning_project_identifier: pulumi_wasm_rust::Output<String>,
+        pub owning_project_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datazone::AssetTypeTimeouts>,
         >,
     }
@@ -87,17 +87,25 @@ pub mod asset_type {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AssetTypeArgs) -> AssetTypeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AssetTypeArgs,
+    ) -> AssetTypeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let domain_identifier_binding = args.domain_identifier.get_inner();
-        let forms_inputs_binding = args.forms_inputs.get_inner();
-        let name_binding = args.name.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let domain_identifier_binding = args
+            .domain_identifier
+            .get_output(context)
+            .get_inner();
+        let forms_inputs_binding = args.forms_inputs.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let owning_project_identifier_binding = args
             .owning_project_identifier
+            .get_output(context)
             .get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datazone/assetType:AssetType".into(),
             name: name.to_string(),
@@ -158,7 +166,7 @@ pub mod asset_type {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

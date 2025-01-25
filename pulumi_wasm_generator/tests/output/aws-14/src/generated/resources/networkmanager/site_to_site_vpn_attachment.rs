@@ -27,23 +27,23 @@
 /// $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
 /// ```
 pub mod site_to_site_vpn_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SiteToSiteVpnAttachmentArgs {
         /// The ID of a core network for the VPN attachment.
         #[builder(into)]
-        pub core_network_id: pulumi_wasm_rust::Output<String>,
+        pub core_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ARN of the site-to-site VPN connection.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub vpn_connection_arn: pulumi_wasm_rust::Output<String>,
+        pub vpn_connection_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SiteToSiteVpnAttachmentResult {
@@ -85,14 +85,21 @@ pub mod site_to_site_vpn_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SiteToSiteVpnAttachmentArgs,
     ) -> SiteToSiteVpnAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let core_network_id_binding = args.core_network_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpn_connection_arn_binding = args.vpn_connection_arn.get_inner();
+        let core_network_id_binding = args
+            .core_network_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpn_connection_arn_binding = args
+            .vpn_connection_arn
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment"
                 .into(),
@@ -154,7 +161,7 @@ pub mod site_to_site_vpn_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

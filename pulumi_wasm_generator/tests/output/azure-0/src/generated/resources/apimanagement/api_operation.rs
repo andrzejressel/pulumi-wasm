@@ -42,51 +42,51 @@
 /// ```
 ///
 pub mod api_operation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiOperationArgs {
         /// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_name: pulumi_wasm_rust::Output<String>,
+        pub api_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A description for this API Operation, which may include HTML formatting tags.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Display Name for this API Management Operation.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
         #[builder(into)]
-        pub method: pulumi_wasm_rust::Output<String>,
+        pub method: pulumi_wasm_rust::InputOrOutput<String>,
         /// A unique identifier for this API Operation. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub operation_id: pulumi_wasm_rust::Output<String>,
+        pub operation_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `request` block as defined below.
         #[builder(into, default)]
-        pub request: pulumi_wasm_rust::Output<
+        pub request: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ApiOperationRequest>,
         >,
         /// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `response` blocks as defined below.
         #[builder(into, default)]
-        pub responses: pulumi_wasm_rust::Output<
+        pub responses: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::ApiOperationResponse>>,
         >,
         /// One or more `template_parameter` blocks as defined below. Required if `url_template` contains one or more parameters.
         #[builder(into, default)]
-        pub template_parameters: pulumi_wasm_rust::Output<
+        pub template_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::apimanagement::ApiOperationTemplateParameter>,
             >,
         >,
         /// The relative URL Template identifying the target resource for this operation, which may include parameters.
         #[builder(into)]
-        pub url_template: pulumi_wasm_rust::Output<String>,
+        pub url_template: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApiOperationResult {
@@ -125,20 +125,33 @@ pub mod api_operation {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApiOperationArgs) -> ApiOperationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApiOperationArgs,
+    ) -> ApiOperationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args.api_management_name.get_inner();
-        let api_name_binding = args.api_name.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let method_binding = args.method.get_inner();
-        let operation_id_binding = args.operation_id.get_inner();
-        let request_binding = args.request.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let responses_binding = args.responses.get_inner();
-        let template_parameters_binding = args.template_parameters.get_inner();
-        let url_template_binding = args.url_template.get_inner();
+        let api_management_name_binding = args
+            .api_management_name
+            .get_output(context)
+            .get_inner();
+        let api_name_binding = args.api_name.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let method_binding = args.method.get_output(context).get_inner();
+        let operation_id_binding = args.operation_id.get_output(context).get_inner();
+        let request_binding = args.request.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let responses_binding = args.responses.get_output(context).get_inner();
+        let template_parameters_binding = args
+            .template_parameters
+            .get_output(context)
+            .get_inner();
+        let url_template_binding = args.url_template.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/apiOperation:ApiOperation".into(),
             name: name.to_string(),
@@ -225,7 +238,7 @@ pub mod api_operation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

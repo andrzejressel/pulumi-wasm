@@ -50,7 +50,7 @@
 /// $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
 /// ```
 pub mod default_patch_baseline {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultPatchBaselineArgs {
@@ -58,7 +58,7 @@ pub mod default_patch_baseline {
         /// Can be an ID or an ARN.
         /// When specifying an AWS-provided patch baseline, must be the ARN.
         #[builder(into)]
-        pub baseline_id: pulumi_wasm_rust::Output<String>,
+        pub baseline_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The operating system the patch baseline applies to.
         /// Valid values are
         /// `AMAZON_LINUX`,
@@ -75,7 +75,7 @@ pub mod default_patch_baseline {
         /// `UBUNTU`, and
         /// `WINDOWS`.
         #[builder(into)]
-        pub operating_system: pulumi_wasm_rust::Output<String>,
+        pub operating_system: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DefaultPatchBaselineResult {
@@ -105,13 +105,17 @@ pub mod default_patch_baseline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DefaultPatchBaselineArgs,
     ) -> DefaultPatchBaselineResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let baseline_id_binding = args.baseline_id.get_inner();
-        let operating_system_binding = args.operating_system.get_inner();
+        let baseline_id_binding = args.baseline_id.get_output(context).get_inner();
+        let operating_system_binding = args
+            .operating_system
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/defaultPatchBaseline:DefaultPatchBaseline".into(),
             name: name.to_string(),
@@ -135,7 +139,7 @@ pub mod default_patch_baseline {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

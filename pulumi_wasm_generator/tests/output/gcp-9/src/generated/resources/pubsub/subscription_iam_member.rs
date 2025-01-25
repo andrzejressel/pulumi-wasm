@@ -127,12 +127,12 @@
 /// ```
 ///
 pub mod subscription_iam_member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriptionIAMMemberArgs {
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pubsub::SubscriptionIamMemberCondition>,
         >,
         /// Identities that will be granted the privilege in `role`.
@@ -144,19 +144,19 @@ pub mod subscription_iam_member {
         /// * **group:{emailid}**: An email address that represents a Google group. For example, admins@example.com.
         /// * **domain:{domain}**: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
         #[builder(into)]
-        pub member: pulumi_wasm_rust::Output<String>,
+        pub member: pulumi_wasm_rust::InputOrOutput<String>,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The role that should be applied. Only one
         /// `gcp.pubsub.SubscriptionIAMBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_wasm_rust::InputOrOutput<String>,
         /// The subscription name or id to bind to attach IAM policy to.
         #[builder(into)]
-        pub subscription: pulumi_wasm_rust::Output<String>,
+        pub subscription: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubscriptionIAMMemberResult {
@@ -189,16 +189,17 @@ pub mod subscription_iam_member {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SubscriptionIAMMemberArgs,
     ) -> SubscriptionIAMMemberResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_inner();
-        let member_binding = args.member.get_inner();
-        let project_binding = args.project.get_inner();
-        let role_binding = args.role.get_inner();
-        let subscription_binding = args.subscription.get_inner();
+        let condition_binding = args.condition.get_output(context).get_inner();
+        let member_binding = args.member.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let role_binding = args.role.get_output(context).get_inner();
+        let subscription_binding = args.subscription.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:pubsub/subscriptionIAMMember:SubscriptionIAMMember".into(),
             name: name.to_string(),
@@ -246,7 +247,7 @@ pub mod subscription_iam_member {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

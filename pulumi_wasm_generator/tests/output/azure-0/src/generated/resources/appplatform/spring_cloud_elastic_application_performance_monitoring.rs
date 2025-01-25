@@ -48,28 +48,28 @@
 /// ```
 ///
 pub mod spring_cloud_elastic_application_performance_monitoring {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudElasticApplicationPerformanceMonitoringArgs {
         /// Specifies a list of the packages which should be used to determine whether a stack trace frame is an in-app frame or a library frame. This is a comma separated list of package names.
         #[builder(into)]
-        pub application_packages: pulumi_wasm_rust::Output<Vec<String>>,
+        pub application_packages: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Specifies whether the Spring Cloud Application Performance Monitoring resource for Application Insights is enabled globally. Defaults to `false`.
         #[builder(into, default)]
-        pub globally_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub globally_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name which should be used for this Spring Cloud Application Performance Monitoring resource for Elastic. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the server URL. The URL must be fully qualified, including protocol (http or https) and port.
         #[builder(into)]
-        pub server_url: pulumi_wasm_rust::Output<String>,
+        pub server_url: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the service name which is used to keep all the errors and transactions of your service together and is the primary filter in the Elastic APM user interface.
         #[builder(into)]
-        pub service_name: pulumi_wasm_rust::Output<String>,
+        pub service_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Spring Cloud Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub spring_cloud_service_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_service_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudElasticApplicationPerformanceMonitoringResult {
@@ -91,17 +91,27 @@ pub mod spring_cloud_elastic_application_performance_monitoring {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SpringCloudElasticApplicationPerformanceMonitoringArgs,
     ) -> SpringCloudElasticApplicationPerformanceMonitoringResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_packages_binding = args.application_packages.get_inner();
-        let globally_enabled_binding = args.globally_enabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let server_url_binding = args.server_url.get_inner();
-        let service_name_binding = args.service_name.get_inner();
-        let spring_cloud_service_id_binding = args.spring_cloud_service_id.get_inner();
+        let application_packages_binding = args
+            .application_packages
+            .get_output(context)
+            .get_inner();
+        let globally_enabled_binding = args
+            .globally_enabled
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let server_url_binding = args.server_url.get_output(context).get_inner();
+        let service_name_binding = args.service_name.get_output(context).get_inner();
+        let spring_cloud_service_id_binding = args
+            .spring_cloud_service_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring"
                 .into(),
@@ -154,7 +164,7 @@ pub mod spring_cloud_elastic_application_performance_monitoring {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

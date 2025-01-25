@@ -77,45 +77,45 @@
 /// $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
 /// ```
 pub mod function {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionArgs {
         /// ID of the associated AppSync API.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         #[builder(into, default)]
-        pub code: pulumi_wasm_rust::Output<Option<String>>,
+        pub code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Function data source name.
         #[builder(into)]
-        pub data_source: pulumi_wasm_rust::Output<String>,
+        pub data_source: pulumi_wasm_rust::InputOrOutput<String>,
         /// Function description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         #[builder(into, default)]
-        pub function_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub function_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         #[builder(into, default)]
-        pub max_batch_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_batch_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Function name. The function name does not have to be unique.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         #[builder(into, default)]
-        pub request_mapping_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_mapping_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Function response mapping template.
         #[builder(into, default)]
-        pub response_mapping_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub response_mapping_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
         #[builder(into, default)]
-        pub runtime: pulumi_wasm_rust::Output<
+        pub runtime: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appsync::FunctionRuntime>,
         >,
         /// Describes a Sync configuration for a resolver. See `sync_config` Block for details.
         #[builder(into, default)]
-        pub sync_config: pulumi_wasm_rust::Output<
+        pub sync_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appsync::FunctionSyncConfig>,
         >,
     }
@@ -156,22 +156,33 @@ pub mod function {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FunctionArgs) -> FunctionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FunctionArgs,
+    ) -> FunctionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_inner();
-        let code_binding = args.code.get_inner();
-        let data_source_binding = args.data_source.get_inner();
-        let description_binding = args.description.get_inner();
-        let function_version_binding = args.function_version.get_inner();
-        let max_batch_size_binding = args.max_batch_size.get_inner();
-        let name_binding = args.name.get_inner();
-        let request_mapping_template_binding = args.request_mapping_template.get_inner();
+        let api_id_binding = args.api_id.get_output(context).get_inner();
+        let code_binding = args.code.get_output(context).get_inner();
+        let data_source_binding = args.data_source.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let function_version_binding = args
+            .function_version
+            .get_output(context)
+            .get_inner();
+        let max_batch_size_binding = args.max_batch_size.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let request_mapping_template_binding = args
+            .request_mapping_template
+            .get_output(context)
+            .get_inner();
         let response_mapping_template_binding = args
             .response_mapping_template
+            .get_output(context)
             .get_inner();
-        let runtime_binding = args.runtime.get_inner();
-        let sync_config_binding = args.sync_config.get_inner();
+        let runtime_binding = args.runtime.get_output(context).get_inner();
+        let sync_config_binding = args.sync_config.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appsync/function:Function".into(),
             name: name.to_string(),
@@ -264,7 +275,7 @@ pub mod function {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

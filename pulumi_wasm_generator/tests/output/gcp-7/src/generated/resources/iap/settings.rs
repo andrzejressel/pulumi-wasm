@@ -99,20 +99,20 @@
 /// ```
 ///
 pub mod settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SettingsArgs {
         /// Top level wrapper for all access related setting in IAP.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub access_settings: pulumi_wasm_rust::Output<
+        pub access_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iap::SettingsAccessSettings>,
         >,
         /// Top level wrapper for all application related settings in IAP.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub application_settings: pulumi_wasm_rust::Output<
+        pub application_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iap::SettingsApplicationSettings>,
         >,
         /// The resource name of the IAP protected resource. Name can have below resources:
@@ -131,7 +131,7 @@ pub mod settings {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SettingsResult {
@@ -166,12 +166,22 @@ pub mod settings {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SettingsArgs) -> SettingsResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SettingsArgs,
+    ) -> SettingsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_settings_binding = args.access_settings.get_inner();
-        let application_settings_binding = args.application_settings.get_inner();
-        let name_binding = args.name.get_inner();
+        let access_settings_binding = args
+            .access_settings
+            .get_output(context)
+            .get_inner();
+        let application_settings_binding = args
+            .application_settings
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iap/settings:Settings".into(),
             name: name.to_string(),
@@ -202,7 +212,7 @@ pub mod settings {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -97,34 +97,34 @@
 /// $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
 /// ```
 pub mod scheduled_action {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ScheduledActionArgs {
         /// The description of the scheduled action.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to enable the scheduled action. Default is `true` .
         #[builder(into, default)]
-        pub enable: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         #[builder(into, default)]
-        pub end_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IAM role to assume to run the scheduled action.
         #[builder(into)]
-        pub iam_role: pulumi_wasm_rust::Output<String>,
+        pub iam_role: pulumi_wasm_rust::InputOrOutput<String>,
         /// The scheduled action name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
         #[builder(into)]
-        pub schedule: pulumi_wasm_rust::Output<String>,
+        pub schedule: pulumi_wasm_rust::InputOrOutput<String>,
         /// The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         #[builder(into, default)]
-        pub start_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub start_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Target action. Documented below.
         #[builder(into)]
-        pub target_action: pulumi_wasm_rust::Output<
+        pub target_action: pulumi_wasm_rust::InputOrOutput<
             super::super::types::redshift::ScheduledActionTargetAction,
         >,
     }
@@ -153,17 +153,21 @@ pub mod scheduled_action {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ScheduledActionArgs) -> ScheduledActionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ScheduledActionArgs,
+    ) -> ScheduledActionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let enable_binding = args.enable.get_inner();
-        let end_time_binding = args.end_time.get_inner();
-        let iam_role_binding = args.iam_role.get_inner();
-        let name_binding = args.name.get_inner();
-        let schedule_binding = args.schedule.get_inner();
-        let start_time_binding = args.start_time.get_inner();
-        let target_action_binding = args.target_action.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enable_binding = args.enable.get_output(context).get_inner();
+        let end_time_binding = args.end_time.get_output(context).get_inner();
+        let iam_role_binding = args.iam_role.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let schedule_binding = args.schedule.get_output(context).get_inner();
+        let start_time_binding = args.start_time.get_output(context).get_inner();
+        let target_action_binding = args.target_action.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/scheduledAction:ScheduledAction".into(),
             name: name.to_string(),
@@ -229,7 +233,7 @@ pub mod scheduled_action {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

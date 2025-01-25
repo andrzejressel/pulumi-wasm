@@ -3,13 +3,15 @@ use pulumi_wasm_providers_docker::container;
 use pulumi_wasm_providers_docker::container::ContainerArgs;
 use pulumi_wasm_providers_random::random_string;
 use pulumi_wasm_providers_random::random_string::RandomStringArgs;
-use pulumi_wasm_rust::Output;
 use pulumi_wasm_rust::{add_export, pulumi_main};
+use pulumi_wasm_rust::{Output, PulumiContext};
 
-#[pulumi_main]
-fn test_main() -> Result<()> {
-    let length: Output<i32> = Output::new(&12).map(|i: i32| i * 3);
+pulumi_main!();
+
+fn main(context: &PulumiContext) -> Result<()> {
+    let length: Output<i32> = Output::new(context, &12).map(|i: i32| i * 3);
     let random_string = random_string::create(
+        context,
         "test",
         RandomStringArgs::builder().length(length).build_struct(),
     );
@@ -21,6 +23,7 @@ fn test_main() -> Result<()> {
     let number = random_string.min_upper.map(|i| i * 2);
 
     let cont = container::create(
+        context,
         "container",
         ContainerArgs::builder()
             .attach(true)

@@ -1,28 +1,30 @@
 pub mod role_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoleAssignmentArgs {
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::Output<Option<String>>,
+        pub condition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub condition_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub condition_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub delegated_managed_identity_resource_id: pulumi_wasm_rust::Output<
+        pub delegated_managed_identity_resource_id: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub principal_id: pulumi_wasm_rust::Output<String>,
+        pub principal_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub role_definition_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_definition_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub role_definition_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_definition_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub skip_service_principal_aad_check: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_service_principal_aad_check: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
     }
     #[allow(dead_code)]
     pub struct RoleAssignmentResult {
@@ -43,21 +45,36 @@ pub mod role_assignment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RoleAssignmentArgs) -> RoleAssignmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RoleAssignmentArgs,
+    ) -> RoleAssignmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_inner();
-        let condition_version_binding = args.condition_version.get_inner();
+        let condition_binding = args.condition.get_output(context).get_inner();
+        let condition_version_binding = args
+            .condition_version
+            .get_output(context)
+            .get_inner();
         let delegated_managed_identity_resource_id_binding = args
             .delegated_managed_identity_resource_id
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let principal_id_binding = args.principal_id.get_inner();
-        let role_definition_id_binding = args.role_definition_id.get_inner();
-        let role_definition_name_binding = args.role_definition_name.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let principal_id_binding = args.principal_id.get_output(context).get_inner();
+        let role_definition_id_binding = args
+            .role_definition_id
+            .get_output(context)
+            .get_inner();
+        let role_definition_name_binding = args
+            .role_definition_name
+            .get_output(context)
+            .get_inner();
         let skip_service_principal_aad_check_binding = args
             .skip_service_principal_aad_check
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:marketplace/roleAssignment:RoleAssignment".into(),
@@ -134,7 +151,7 @@ pub mod role_assignment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

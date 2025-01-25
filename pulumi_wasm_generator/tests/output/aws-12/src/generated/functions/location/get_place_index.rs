@@ -1,14 +1,14 @@
 pub mod get_place_index {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPlaceIndexArgs {
         /// Name of the place index resource.
         #[builder(into)]
-        pub index_name: pulumi_wasm_rust::Output<String>,
+        pub index_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags for the place index.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -40,11 +40,14 @@ pub mod get_place_index {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetPlaceIndexArgs) -> GetPlaceIndexResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetPlaceIndexArgs,
+    ) -> GetPlaceIndexResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let index_name_binding = args.index_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let index_name_binding = args.index_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:location/getPlaceIndex:getPlaceIndex".into(),
             version: super::super::super::get_version(),
@@ -88,7 +91,7 @@ pub mod get_place_index {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

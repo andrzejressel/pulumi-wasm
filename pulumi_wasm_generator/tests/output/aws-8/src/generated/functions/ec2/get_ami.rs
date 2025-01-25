@@ -1,26 +1,26 @@
 pub mod get_ami {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAmiArgs {
         /// Limit search to users with *explicit* launch permission on
         /// the image. Valid items are the numeric account ID or `self`.
         #[builder(into, default)]
-        pub executable_users: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub executable_users: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// One or more name/value pairs to filter off of. There are
         /// several valid keys, for a full reference, check out
         /// [describe-images in the AWS CLI reference][1].
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetAmiFilter>>,
         >,
         /// If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
         #[builder(into, default)]
-        pub include_deprecated: pulumi_wasm_rust::Output<Option<bool>>,
+        pub include_deprecated: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If more than one result is returned, use the most
         /// recent AMI.
         #[builder(into, default)]
-        pub most_recent: pulumi_wasm_rust::Output<Option<bool>>,
+        pub most_recent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Regex string to apply to the AMI list returned
         /// by AWS. This allows more advanced filtering not supported from the AWS API. This
         /// filtering is done locally on what AWS returns, and could have a performance
@@ -32,15 +32,15 @@ pub mod get_ami {
         /// a single AMI ID only, or use `most_recent` to choose the most recent one. If
         /// you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
         #[builder(into, default)]
-        pub name_regex: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_regex: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
         #[builder(into, default)]
-        pub owners: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub owners: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Any tags assigned to the image.
         /// * `tags.#.key` - Key name of the tag.
         /// * `tags.#.value` - Value of the tag.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -142,16 +142,25 @@ pub mod get_ami {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAmiArgs) -> GetAmiResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAmiArgs,
+    ) -> GetAmiResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let executable_users_binding = args.executable_users.get_inner();
-        let filters_binding = args.filters.get_inner();
-        let include_deprecated_binding = args.include_deprecated.get_inner();
-        let most_recent_binding = args.most_recent.get_inner();
-        let name_regex_binding = args.name_regex.get_inner();
-        let owners_binding = args.owners.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let executable_users_binding = args
+            .executable_users
+            .get_output(context)
+            .get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let include_deprecated_binding = args
+            .include_deprecated
+            .get_output(context)
+            .get_inner();
+        let most_recent_binding = args.most_recent.get_output(context).get_inner();
+        let name_regex_binding = args.name_regex.get_output(context).get_inner();
+        let owners_binding = args.owners.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getAmi:getAmi".into(),
             version: super::super::super::get_version(),
@@ -305,7 +314,7 @@ pub mod get_ami {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,14 +1,14 @@
 pub mod get_enterprise_database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetEnterpriseDatabaseArgs {
         /// The resource ID of Redis Enterprise Cluster which hosts the Redis Enterprise Database instance.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Redis Enterprise Database.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetEnterpriseDatabaseResult {
@@ -31,11 +31,14 @@ pub mod get_enterprise_database {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetEnterpriseDatabaseArgs) -> GetEnterpriseDatabaseResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetEnterpriseDatabaseArgs,
+    ) -> GetEnterpriseDatabaseResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding = args.cluster_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:redis/getEnterpriseDatabase:getEnterpriseDatabase".into(),
             version: super::super::super::get_version(),
@@ -73,7 +76,7 @@ pub mod get_enterprise_database {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

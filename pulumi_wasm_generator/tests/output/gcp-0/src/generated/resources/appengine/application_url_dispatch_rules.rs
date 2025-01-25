@@ -65,18 +65,18 @@
 /// ```
 ///
 pub mod application_url_dispatch_rules {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationUrlDispatchRulesArgs {
         /// Rules to match an HTTP request and dispatch that request to a service.
         /// Structure is documented below.
         #[builder(into)]
-        pub dispatch_rules: pulumi_wasm_rust::Output<
+        pub dispatch_rules: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::appengine::ApplicationUrlDispatchRulesDispatchRule>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ApplicationUrlDispatchRulesResult {
@@ -92,13 +92,14 @@ pub mod application_url_dispatch_rules {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ApplicationUrlDispatchRulesArgs,
     ) -> ApplicationUrlDispatchRulesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dispatch_rules_binding = args.dispatch_rules.get_inner();
-        let project_binding = args.project.get_inner();
+        let dispatch_rules_binding = args.dispatch_rules.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/applicationUrlDispatchRules:ApplicationUrlDispatchRules"
                 .into(),
@@ -123,7 +124,7 @@ pub mod application_url_dispatch_rules {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

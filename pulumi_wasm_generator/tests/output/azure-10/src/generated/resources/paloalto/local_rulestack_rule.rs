@@ -55,77 +55,77 @@
 /// ```
 ///
 pub mod local_rulestack_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LocalRulestackRuleArgs {
         /// The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`.
         #[builder(into)]
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies a list of Applications.
         #[builder(into)]
-        pub applications: pulumi_wasm_rust::Output<Vec<String>>,
+        pub applications: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The comment for Audit purposes.
         #[builder(into, default)]
-        pub audit_comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub audit_comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `category` block as defined below.
         #[builder(into, default)]
-        pub category: pulumi_wasm_rust::Output<
+        pub category: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::paloalto::LocalRulestackRuleCategory>,
         >,
         /// The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`.
         #[builder(into, default)]
-        pub decryption_rule_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub decryption_rule_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description for the rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `destination` blocks as defined below.
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::Output<
+        pub destination: pulumi_wasm_rust::InputOrOutput<
             super::super::types::paloalto::LocalRulestackRuleDestination,
         >,
         /// Should this Rule be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the certificate for inbound inspection. Only valid when `decryption_rule_type` is set to `SSLInboundInspection`.
         #[builder(into, default)]
-        pub inspection_certificate_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub inspection_certificate_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should Logging be enabled? Defaults to `false`.
         #[builder(into, default)]
-        pub logging_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub logging_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name which should be used for this Palo Alto Local Rulestack Rule.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should the inverse of the Destination configuration be used. Defaults to `false`.
         #[builder(into, default)]
-        pub negate_destination: pulumi_wasm_rust::Output<Option<bool>>,
+        pub negate_destination: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Should the inverse of the Source configuration be used. Defaults to `false`.
         #[builder(into, default)]
-        pub negate_source: pulumi_wasm_rust::Output<Option<bool>>,
+        pub negate_source: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
         ///
         /// > **NOTE:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
         ///
         /// > **NOTE** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
         #[builder(into, default)]
-        pub protocol_ports: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub protocol_ports: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
         #[builder(into)]
-        pub rulestack_id: pulumi_wasm_rust::Output<String>,
+        pub rulestack_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `source` blocks as defined below.
         #[builder(into)]
-        pub source: pulumi_wasm_rust::Output<
+        pub source: pulumi_wasm_rust::InputOrOutput<
             super::super::types::paloalto::LocalRulestackRuleSource,
         >,
         /// A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -186,30 +186,44 @@ pub mod local_rulestack_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LocalRulestackRuleArgs) -> LocalRulestackRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LocalRulestackRuleArgs,
+    ) -> LocalRulestackRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_inner();
-        let applications_binding = args.applications.get_inner();
-        let audit_comment_binding = args.audit_comment.get_inner();
-        let category_binding = args.category.get_inner();
-        let decryption_rule_type_binding = args.decryption_rule_type.get_inner();
-        let description_binding = args.description.get_inner();
-        let destination_binding = args.destination.get_inner();
-        let enabled_binding = args.enabled.get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
+        let applications_binding = args.applications.get_output(context).get_inner();
+        let audit_comment_binding = args.audit_comment.get_output(context).get_inner();
+        let category_binding = args.category.get_output(context).get_inner();
+        let decryption_rule_type_binding = args
+            .decryption_rule_type
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let destination_binding = args.destination.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
         let inspection_certificate_id_binding = args
             .inspection_certificate_id
+            .get_output(context)
             .get_inner();
-        let logging_enabled_binding = args.logging_enabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let negate_destination_binding = args.negate_destination.get_inner();
-        let negate_source_binding = args.negate_source.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let protocol_ports_binding = args.protocol_ports.get_inner();
-        let rulestack_id_binding = args.rulestack_id.get_inner();
-        let source_binding = args.source.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let logging_enabled_binding = args
+            .logging_enabled
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let negate_destination_binding = args
+            .negate_destination
+            .get_output(context)
+            .get_inner();
+        let negate_source_binding = args.negate_source.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let protocol_ports_binding = args.protocol_ports.get_output(context).get_inner();
+        let rulestack_id_binding = args.rulestack_id.get_output(context).get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:paloalto/localRulestackRule:LocalRulestackRule".into(),
             name: name.to_string(),
@@ -352,7 +366,7 @@ pub mod local_rulestack_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

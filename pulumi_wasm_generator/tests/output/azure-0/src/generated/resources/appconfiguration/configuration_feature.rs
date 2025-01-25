@@ -54,44 +54,44 @@
 /// ```
 ///
 pub mod configuration_feature {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationFeatureArgs {
         /// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub configuration_store_id: pulumi_wasm_rust::Output<String>,
+        pub configuration_store_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of the App Configuration Feature.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The status of the App Configuration Feature. By default, this is set to false.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::Output<Option<String>>,
+        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub key: pulumi_wasm_rust::Output<Option<String>>,
+        pub key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The label of the App Configuration Feature. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub label: pulumi_wasm_rust::Output<Option<String>>,
+        pub label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should this App Configuration Feature be Locked to prevent changes?
         #[builder(into, default)]
-        pub locked: pulumi_wasm_rust::Output<Option<bool>>,
+        pub locked: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the App Configuration Feature. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A number representing the value of the percentage required to enable this feature.
         #[builder(into, default)]
-        pub percentage_filter_value: pulumi_wasm_rust::Output<Option<f64>>,
+        pub percentage_filter_value: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `targeting_filter` block as defined below.
         #[builder(into, default)]
-        pub targeting_filters: pulumi_wasm_rust::Output<
+        pub targeting_filters: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::appconfiguration::ConfigurationFeatureTargetingFilter,
@@ -100,7 +100,7 @@ pub mod configuration_feature {
         >,
         /// A `timewindow_filter` block as defined below.
         #[builder(into, default)]
-        pub timewindow_filters: pulumi_wasm_rust::Output<
+        pub timewindow_filters: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::appconfiguration::ConfigurationFeatureTimewindowFilter,
@@ -153,23 +153,36 @@ pub mod configuration_feature {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ConfigurationFeatureArgs,
     ) -> ConfigurationFeatureResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let configuration_store_id_binding = args.configuration_store_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let etag_binding = args.etag.get_inner();
-        let key_binding = args.key.get_inner();
-        let label_binding = args.label.get_inner();
-        let locked_binding = args.locked.get_inner();
-        let name_binding = args.name.get_inner();
-        let percentage_filter_value_binding = args.percentage_filter_value.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let targeting_filters_binding = args.targeting_filters.get_inner();
-        let timewindow_filters_binding = args.timewindow_filters.get_inner();
+        let configuration_store_id_binding = args
+            .configuration_store_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let etag_binding = args.etag.get_output(context).get_inner();
+        let key_binding = args.key.get_output(context).get_inner();
+        let label_binding = args.label.get_output(context).get_inner();
+        let locked_binding = args.locked.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let percentage_filter_value_binding = args
+            .percentage_filter_value
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let targeting_filters_binding = args
+            .targeting_filters
+            .get_output(context)
+            .get_inner();
+        let timewindow_filters_binding = args
+            .timewindow_filters
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appconfiguration/configurationFeature:ConfigurationFeature"
                 .into(),
@@ -264,7 +277,7 @@ pub mod configuration_feature {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

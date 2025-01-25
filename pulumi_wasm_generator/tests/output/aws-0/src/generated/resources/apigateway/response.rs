@@ -28,29 +28,29 @@
 /// $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
 /// ```
 pub mod response {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResponseArgs {
         /// Map of parameters (paths, query strings and headers) of the Gateway Response.
         #[builder(into, default)]
-        pub response_parameters: pulumi_wasm_rust::Output<
+        pub response_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of templates used to transform the response body.
         #[builder(into, default)]
-        pub response_templates: pulumi_wasm_rust::Output<
+        pub response_templates: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Response type of the associated GatewayResponse.
         #[builder(into)]
-        pub response_type: pulumi_wasm_rust::Output<String>,
+        pub response_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// String identifier of the associated REST API.
         #[builder(into)]
-        pub rest_api_id: pulumi_wasm_rust::Output<String>,
+        pub rest_api_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// HTTP status code of the Gateway Response.
         #[builder(into, default)]
-        pub status_code: pulumi_wasm_rust::Output<Option<String>>,
+        pub status_code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ResponseResult {
@@ -73,14 +73,24 @@ pub mod response {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ResponseArgs) -> ResponseResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ResponseArgs,
+    ) -> ResponseResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let response_parameters_binding = args.response_parameters.get_inner();
-        let response_templates_binding = args.response_templates.get_inner();
-        let response_type_binding = args.response_type.get_inner();
-        let rest_api_id_binding = args.rest_api_id.get_inner();
-        let status_code_binding = args.status_code.get_inner();
+        let response_parameters_binding = args
+            .response_parameters
+            .get_output(context)
+            .get_inner();
+        let response_templates_binding = args
+            .response_templates
+            .get_output(context)
+            .get_inner();
+        let response_type_binding = args.response_type.get_output(context).get_inner();
+        let rest_api_id_binding = args.rest_api_id.get_output(context).get_inner();
+        let status_code_binding = args.status_code.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/response:Response".into(),
             name: name.to_string(),
@@ -125,7 +135,7 @@ pub mod response {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

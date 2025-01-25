@@ -59,78 +59,78 @@
 /// ```
 ///
 pub mod worker_script {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkerScriptArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub analytics_engine_bindings: pulumi_wasm_rust::Output<
+        pub analytics_engine_bindings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptAnalyticsEngineBinding>>,
         >,
         /// The date to use for the compatibility flag.
         #[builder(into, default)]
-        pub compatibility_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub compatibility_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Compatibility flags used for Worker Scripts.
         #[builder(into, default)]
-        pub compatibility_flags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub compatibility_flags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The script content.
         #[builder(into)]
-        pub content: pulumi_wasm_rust::Output<String>,
+        pub content: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub d1_database_bindings: pulumi_wasm_rust::Output<
+        pub d1_database_bindings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptD1DatabaseBinding>>,
         >,
         /// Name of the Workers for Platforms dispatch namespace.
         #[builder(into, default)]
-        pub dispatch_namespace: pulumi_wasm_rust::Output<Option<String>>,
+        pub dispatch_namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub hyperdrive_config_bindings: pulumi_wasm_rust::Output<
+        pub hyperdrive_config_bindings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptHyperdriveConfigBinding>>,
         >,
         #[builder(into, default)]
-        pub kv_namespace_bindings: pulumi_wasm_rust::Output<
+        pub kv_namespace_bindings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptKvNamespaceBinding>>,
         >,
         /// Enabling allows Worker events to be sent to a defined Logpush destination.
         #[builder(into, default)]
-        pub logpush: pulumi_wasm_rust::Output<Option<bool>>,
+        pub logpush: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to upload Worker as a module.
         #[builder(into, default)]
-        pub module: pulumi_wasm_rust::Output<Option<bool>>,
+        pub module: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name for the script. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub placements: pulumi_wasm_rust::Output<
+        pub placements: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptPlacement>>,
         >,
         #[builder(into, default)]
-        pub plain_text_bindings: pulumi_wasm_rust::Output<
+        pub plain_text_bindings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptPlainTextBinding>>,
         >,
         #[builder(into, default)]
-        pub queue_bindings: pulumi_wasm_rust::Output<
+        pub queue_bindings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptQueueBinding>>,
         >,
         #[builder(into, default)]
-        pub r2_bucket_bindings: pulumi_wasm_rust::Output<
+        pub r2_bucket_bindings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptR2BucketBinding>>,
         >,
         #[builder(into, default)]
-        pub secret_text_bindings: pulumi_wasm_rust::Output<
+        pub secret_text_bindings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptSecretTextBinding>>,
         >,
         #[builder(into, default)]
-        pub service_bindings: pulumi_wasm_rust::Output<
+        pub service_bindings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptServiceBinding>>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         #[builder(into, default)]
-        pub webassembly_bindings: pulumi_wasm_rust::Output<
+        pub webassembly_bindings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptWebassemblyBinding>>,
         >,
     }
@@ -191,33 +191,69 @@ pub mod worker_script {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkerScriptArgs) -> WorkerScriptResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkerScriptArgs,
+    ) -> WorkerScriptResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
         let analytics_engine_bindings_binding = args
             .analytics_engine_bindings
+            .get_output(context)
             .get_inner();
-        let compatibility_date_binding = args.compatibility_date.get_inner();
-        let compatibility_flags_binding = args.compatibility_flags.get_inner();
-        let content_binding = args.content.get_inner();
-        let d1_database_bindings_binding = args.d1_database_bindings.get_inner();
-        let dispatch_namespace_binding = args.dispatch_namespace.get_inner();
+        let compatibility_date_binding = args
+            .compatibility_date
+            .get_output(context)
+            .get_inner();
+        let compatibility_flags_binding = args
+            .compatibility_flags
+            .get_output(context)
+            .get_inner();
+        let content_binding = args.content.get_output(context).get_inner();
+        let d1_database_bindings_binding = args
+            .d1_database_bindings
+            .get_output(context)
+            .get_inner();
+        let dispatch_namespace_binding = args
+            .dispatch_namespace
+            .get_output(context)
+            .get_inner();
         let hyperdrive_config_bindings_binding = args
             .hyperdrive_config_bindings
+            .get_output(context)
             .get_inner();
-        let kv_namespace_bindings_binding = args.kv_namespace_bindings.get_inner();
-        let logpush_binding = args.logpush.get_inner();
-        let module_binding = args.module.get_inner();
-        let name_binding = args.name.get_inner();
-        let placements_binding = args.placements.get_inner();
-        let plain_text_bindings_binding = args.plain_text_bindings.get_inner();
-        let queue_bindings_binding = args.queue_bindings.get_inner();
-        let r2_bucket_bindings_binding = args.r2_bucket_bindings.get_inner();
-        let secret_text_bindings_binding = args.secret_text_bindings.get_inner();
-        let service_bindings_binding = args.service_bindings.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let webassembly_bindings_binding = args.webassembly_bindings.get_inner();
+        let kv_namespace_bindings_binding = args
+            .kv_namespace_bindings
+            .get_output(context)
+            .get_inner();
+        let logpush_binding = args.logpush.get_output(context).get_inner();
+        let module_binding = args.module.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let placements_binding = args.placements.get_output(context).get_inner();
+        let plain_text_bindings_binding = args
+            .plain_text_bindings
+            .get_output(context)
+            .get_inner();
+        let queue_bindings_binding = args.queue_bindings.get_output(context).get_inner();
+        let r2_bucket_bindings_binding = args
+            .r2_bucket_bindings
+            .get_output(context)
+            .get_inner();
+        let secret_text_bindings_binding = args
+            .secret_text_bindings
+            .get_output(context)
+            .get_inner();
+        let service_bindings_binding = args
+            .service_bindings
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let webassembly_bindings_binding = args
+            .webassembly_bindings
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/workerScript:WorkerScript".into(),
             name: name.to_string(),
@@ -367,7 +403,7 @@ pub mod worker_script {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -63,63 +63,65 @@
 /// ```
 ///
 pub mod fhir_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FhirServiceArgs {
         /// A list of the access policies of the service instance.
         #[builder(into, default)]
-        pub access_policy_object_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub access_policy_object_ids: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// An `authentication` block as defined below.
         #[builder(into)]
-        pub authentication: pulumi_wasm_rust::Output<
+        pub authentication: pulumi_wasm_rust::InputOrOutput<
             super::super::types::healthcare::FhirServiceAuthentication,
         >,
         /// Specifies the name of the storage account which the operation configuration information is exported to.
         #[builder(into, default)]
-        pub configuration_export_storage_account_name: pulumi_wasm_rust::Output<
+        pub configuration_export_storage_account_name: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// A list of azure container registry settings used for convert data operation of the service instance.
         #[builder(into, default)]
-        pub container_registry_login_server_urls: pulumi_wasm_rust::Output<
+        pub container_registry_login_server_urls: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// A `cors` block as defined below.
         #[builder(into, default)]
-        pub cors: pulumi_wasm_rust::Output<
+        pub cors: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::healthcare::FhirServiceCors>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::healthcare::FhirServiceIdentity>,
         >,
         /// Specifies the kind of the Healthcare FHIR Service. Possible values are: `fhir-Stu3` and `fhir-R4`. Defaults to `fhir-R4`. Changing this forces a new Healthcare FHIR Service to be created.
         #[builder(into, default)]
-        pub kind: pulumi_wasm_rust::Output<Option<String>>,
+        pub kind: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `oci_artifact` objects as defined below to describe [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export).
         #[builder(into, default)]
-        pub oci_artifacts: pulumi_wasm_rust::Output<
+        pub oci_artifacts: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::healthcare::FhirServiceOciArtifact>>,
         >,
         /// Specifies the name of the Resource Group in which to create the Healthcare FHIR Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the Healthcare FHIR Service.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FhirServiceResult {
@@ -170,26 +172,38 @@ pub mod fhir_service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FhirServiceArgs) -> FhirServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FhirServiceArgs,
+    ) -> FhirServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_policy_object_ids_binding = args.access_policy_object_ids.get_inner();
-        let authentication_binding = args.authentication.get_inner();
+        let access_policy_object_ids_binding = args
+            .access_policy_object_ids
+            .get_output(context)
+            .get_inner();
+        let authentication_binding = args.authentication.get_output(context).get_inner();
         let configuration_export_storage_account_name_binding = args
             .configuration_export_storage_account_name
+            .get_output(context)
             .get_inner();
         let container_registry_login_server_urls_binding = args
             .container_registry_login_server_urls
+            .get_output(context)
             .get_inner();
-        let cors_binding = args.cors.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let kind_binding = args.kind.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let oci_artifacts_binding = args.oci_artifacts.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let workspace_id_binding = args.workspace_id.get_inner();
+        let cors_binding = args.cors.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let kind_binding = args.kind.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let oci_artifacts_binding = args.oci_artifacts.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:healthcare/fhirService:FhirService".into(),
             name: name.to_string(),
@@ -293,7 +307,7 @@ pub mod fhir_service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -215,18 +215,18 @@
 /// ```
 ///
 pub mod route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteArgs {
         /// An optional description of this resource. Provide this property
         /// when you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The destination range of outgoing packets that this route applies to.
         /// Only IPv4 is supported.
         #[builder(into)]
-        pub dest_range: pulumi_wasm_rust::Output<String>,
+        pub dest_range: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035.  Specifically, the name must be 1-63 characters long and
@@ -235,13 +235,13 @@ pub mod route {
         /// characters must be a dash, lowercase letter, or digit, except the
         /// last character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The network that this route applies to.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_wasm_rust::InputOrOutput<String>,
         /// URL to a gateway that should handle matching packets.
         /// Currently, you can only specify the internet gateway, using a full or
         /// partial valid URL:
@@ -250,7 +250,7 @@ pub mod route {
         /// * `global/gateways/default-internet-gateway`
         /// * The string `default-internet-gateway`.
         #[builder(into, default)]
-        pub next_hop_gateway: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_gateway: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IP address or URL to a forwarding rule of type
         /// loadBalancingScheme=INTERNAL that should handle matching
         /// packets.
@@ -265,7 +265,7 @@ pub mod route {
         /// Note that this can only be used when the destinationRange is
         /// a public (non-RFC 1918) IP CIDR range.
         #[builder(into, default)]
-        pub next_hop_ilb: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_ilb: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// URL to an instance that should handle matching packets.
         /// You can specify this as a full or partial URL. For example:
         /// * `https://www.googleapis.com/compute/v1/projects/project/zones/zone/instances/instance`
@@ -273,33 +273,33 @@ pub mod route {
         /// * `zones/zone/instances/instance`
         /// * Just the instance name, with the zone in `next_hop_instance_zone`.
         #[builder(into, default)]
-        pub next_hop_instance: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_instance: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// (Optional when `next_hop_instance` is
         /// specified)  The zone of the instance specified in
         /// `next_hop_instance`.  Omit if `next_hop_instance` is specified as
         /// a URL.
         #[builder(into, default)]
-        pub next_hop_instance_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_instance_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Network IP address of an instance that should handle matching packets.
         #[builder(into, default)]
-        pub next_hop_ip: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// URL to a VpnTunnel that should handle matching packets.
         #[builder(into, default)]
-        pub next_hop_vpn_tunnel: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_vpn_tunnel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The priority of this route. Priority is used to break ties in cases
         /// where there is more than one matching route of equal prefix length.
         /// In the case of two routes with equal prefix length, the one with the
         /// lowest-numbered priority value wins.
         /// Default value is 1000. Valid range is 0 through 65535.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of instance tags to which this route applies.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct RouteResult {
@@ -388,22 +388,38 @@ pub mod route {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RouteArgs) -> RouteResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RouteArgs,
+    ) -> RouteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let dest_range_binding = args.dest_range.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
-        let next_hop_gateway_binding = args.next_hop_gateway.get_inner();
-        let next_hop_ilb_binding = args.next_hop_ilb.get_inner();
-        let next_hop_instance_binding = args.next_hop_instance.get_inner();
-        let next_hop_instance_zone_binding = args.next_hop_instance_zone.get_inner();
-        let next_hop_ip_binding = args.next_hop_ip.get_inner();
-        let next_hop_vpn_tunnel_binding = args.next_hop_vpn_tunnel.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let project_binding = args.project.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let dest_range_binding = args.dest_range.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let next_hop_gateway_binding = args
+            .next_hop_gateway
+            .get_output(context)
+            .get_inner();
+        let next_hop_ilb_binding = args.next_hop_ilb.get_output(context).get_inner();
+        let next_hop_instance_binding = args
+            .next_hop_instance
+            .get_output(context)
+            .get_inner();
+        let next_hop_instance_zone_binding = args
+            .next_hop_instance_zone
+            .get_output(context)
+            .get_inner();
+        let next_hop_ip_binding = args.next_hop_ip.get_output(context).get_inner();
+        let next_hop_vpn_tunnel_binding = args
+            .next_hop_vpn_tunnel
+            .get_output(context)
+            .get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/route:Route".into(),
             name: name.to_string(),
@@ -519,7 +535,7 @@ pub mod route {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

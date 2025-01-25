@@ -144,73 +144,73 @@
 /// Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 ///
 pub mod gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GatewayArgs {
         /// Gateway activation key during resource creation. Conflicts with `gateway_ip_address`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         #[builder(into, default)]
-        pub activation_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub activation_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
         #[builder(into, default)]
-        pub average_download_rate_limit_in_bits_per_sec: pulumi_wasm_rust::Output<
+        pub average_download_rate_limit_in_bits_per_sec: pulumi_wasm_rust::InputOrOutput<
             Option<i32>,
         >,
         /// The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
         #[builder(into, default)]
-        pub average_upload_rate_limit_in_bits_per_sec: pulumi_wasm_rust::Output<
+        pub average_upload_rate_limit_in_bits_per_sec: pulumi_wasm_rust::InputOrOutput<
             Option<i32>,
         >,
         /// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         #[builder(into, default)]
-        pub cloudwatch_log_group_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub cloudwatch_log_group_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         #[builder(into, default)]
-        pub gateway_ip_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub gateway_ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the gateway.
         #[builder(into)]
-        pub gateway_name: pulumi_wasm_rust::Output<String>,
+        pub gateway_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
         #[builder(into)]
-        pub gateway_timezone: pulumi_wasm_rust::Output<String>,
+        pub gateway_timezone: pulumi_wasm_rust::InputOrOutput<String>,
         /// Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
         #[builder(into, default)]
-        pub gateway_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub gateway_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         #[builder(into, default)]
-        pub gateway_vpc_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub gateway_vpc_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         #[builder(into, default)]
-        pub maintenance_start_time: pulumi_wasm_rust::Output<
+        pub maintenance_start_time: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storagegateway::GatewayMaintenanceStartTime>,
         >,
         /// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         #[builder(into, default)]
-        pub medium_changer_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub medium_changer_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         #[builder(into, default)]
-        pub smb_active_directory_settings: pulumi_wasm_rust::Output<
+        pub smb_active_directory_settings: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::storagegateway::GatewaySmbActiveDirectorySettings,
             >,
         >,
         /// Specifies whether the shares on this gateway appear when listing shares.
         #[builder(into, default)]
-        pub smb_file_share_visibility: pulumi_wasm_rust::Output<Option<bool>>,
+        pub smb_file_share_visibility: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         #[builder(into, default)]
-        pub smb_guest_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub smb_guest_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         #[builder(into, default)]
-        pub smb_security_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub smb_security_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
         #[builder(into, default)]
-        pub tape_drive_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub tape_drive_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GatewayResult {
@@ -283,34 +283,69 @@ pub mod gateway {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GatewayArgs) -> GatewayResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GatewayArgs,
+    ) -> GatewayResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let activation_key_binding = args.activation_key.get_inner();
+        let activation_key_binding = args.activation_key.get_output(context).get_inner();
         let average_download_rate_limit_in_bits_per_sec_binding = args
             .average_download_rate_limit_in_bits_per_sec
+            .get_output(context)
             .get_inner();
         let average_upload_rate_limit_in_bits_per_sec_binding = args
             .average_upload_rate_limit_in_bits_per_sec
+            .get_output(context)
             .get_inner();
-        let cloudwatch_log_group_arn_binding = args.cloudwatch_log_group_arn.get_inner();
-        let gateway_ip_address_binding = args.gateway_ip_address.get_inner();
-        let gateway_name_binding = args.gateway_name.get_inner();
-        let gateway_timezone_binding = args.gateway_timezone.get_inner();
-        let gateway_type_binding = args.gateway_type.get_inner();
-        let gateway_vpc_endpoint_binding = args.gateway_vpc_endpoint.get_inner();
-        let maintenance_start_time_binding = args.maintenance_start_time.get_inner();
-        let medium_changer_type_binding = args.medium_changer_type.get_inner();
+        let cloudwatch_log_group_arn_binding = args
+            .cloudwatch_log_group_arn
+            .get_output(context)
+            .get_inner();
+        let gateway_ip_address_binding = args
+            .gateway_ip_address
+            .get_output(context)
+            .get_inner();
+        let gateway_name_binding = args.gateway_name.get_output(context).get_inner();
+        let gateway_timezone_binding = args
+            .gateway_timezone
+            .get_output(context)
+            .get_inner();
+        let gateway_type_binding = args.gateway_type.get_output(context).get_inner();
+        let gateway_vpc_endpoint_binding = args
+            .gateway_vpc_endpoint
+            .get_output(context)
+            .get_inner();
+        let maintenance_start_time_binding = args
+            .maintenance_start_time
+            .get_output(context)
+            .get_inner();
+        let medium_changer_type_binding = args
+            .medium_changer_type
+            .get_output(context)
+            .get_inner();
         let smb_active_directory_settings_binding = args
             .smb_active_directory_settings
+            .get_output(context)
             .get_inner();
         let smb_file_share_visibility_binding = args
             .smb_file_share_visibility
+            .get_output(context)
             .get_inner();
-        let smb_guest_password_binding = args.smb_guest_password.get_inner();
-        let smb_security_strategy_binding = args.smb_security_strategy.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tape_drive_type_binding = args.tape_drive_type.get_inner();
+        let smb_guest_password_binding = args
+            .smb_guest_password
+            .get_output(context)
+            .get_inner();
+        let smb_security_strategy_binding = args
+            .smb_security_strategy
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tape_drive_type_binding = args
+            .tape_drive_type
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:storagegateway/gateway:Gateway".into(),
             name: name.to_string(),
@@ -460,7 +495,7 @@ pub mod gateway {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

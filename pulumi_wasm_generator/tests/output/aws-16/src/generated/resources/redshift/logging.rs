@@ -47,27 +47,27 @@
 /// $ pulumi import aws:redshift/logging:Logging example cluster-id-12345678
 /// ```
 pub mod logging {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoggingArgs {
         /// Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
         #[builder(into, default)]
-        pub bucket_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub bucket_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of the source cluster.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Log destination type. Valid values are `s3` and `cloudwatch`.
         #[builder(into, default)]
-        pub log_destination_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub log_destination_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
         #[builder(into, default)]
-        pub log_exports: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub log_exports: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Prefix applied to the log file names.
         #[builder(into, default)]
-        pub s3_key_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_key_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LoggingResult {
@@ -88,14 +88,24 @@ pub mod logging {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LoggingArgs) -> LoggingResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LoggingArgs,
+    ) -> LoggingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_name_binding = args.bucket_name.get_inner();
-        let cluster_identifier_binding = args.cluster_identifier.get_inner();
-        let log_destination_type_binding = args.log_destination_type.get_inner();
-        let log_exports_binding = args.log_exports.get_inner();
-        let s3_key_prefix_binding = args.s3_key_prefix.get_inner();
+        let bucket_name_binding = args.bucket_name.get_output(context).get_inner();
+        let cluster_identifier_binding = args
+            .cluster_identifier
+            .get_output(context)
+            .get_inner();
+        let log_destination_type_binding = args
+            .log_destination_type
+            .get_output(context)
+            .get_inner();
+        let log_exports_binding = args.log_exports.get_output(context).get_inner();
+        let s3_key_prefix_binding = args.s3_key_prefix.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/logging:Logging".into(),
             name: name.to_string(),
@@ -140,7 +150,7 @@ pub mod logging {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

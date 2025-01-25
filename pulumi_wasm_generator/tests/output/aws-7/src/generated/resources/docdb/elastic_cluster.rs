@@ -31,57 +31,59 @@
 /// $ pulumi import aws:docdb/elasticCluster:ElasticCluster example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
 /// ```
 pub mod elastic_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ElasticClusterArgs {
         /// Name of the Elastic DocumentDB cluster administrator
         #[builder(into)]
-        pub admin_user_name: pulumi_wasm_rust::Output<String>,
+        pub admin_user_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
         #[builder(into)]
-        pub admin_user_password: pulumi_wasm_rust::Output<String>,
+        pub admin_user_password: pulumi_wasm_rust::InputOrOutput<String>,
         /// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
         #[builder(into)]
-        pub auth_type: pulumi_wasm_rust::Output<String>,
+        pub auth_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         #[builder(into, default)]
-        pub backup_retention_period: pulumi_wasm_rust::Output<Option<f64>>,
+        pub backup_retention_period: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the Elastic DocumentDB cluster
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         #[builder(into, default)]
-        pub preferred_backup_window: pulumi_wasm_rust::Output<Option<String>>,
+        pub preferred_backup_window: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
         #[builder(into, default)]
-        pub preferred_maintenance_window: pulumi_wasm_rust::Output<Option<String>>,
+        pub preferred_maintenance_window: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         #[builder(into)]
-        pub shard_capacity: pulumi_wasm_rust::Output<i32>,
+        pub shard_capacity: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Number of shards assigned to the elastic cluster. Maximum is 32
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub shard_count: pulumi_wasm_rust::Output<i32>,
+        pub shard_count: pulumi_wasm_rust::InputOrOutput<i32>,
         /// IDs of subnets in which the Elastic DocumentDB Cluster operates.
         #[builder(into, default)]
-        pub subnet_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::docdb::ElasticClusterTimeouts>,
         >,
         /// List of VPC security groups to associate with the Elastic DocumentDB Cluster
         #[builder(into, default)]
-        pub vpc_security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub vpc_security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ElasticClusterResult {
@@ -130,25 +132,45 @@ pub mod elastic_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ElasticClusterArgs) -> ElasticClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ElasticClusterArgs,
+    ) -> ElasticClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let admin_user_name_binding = args.admin_user_name.get_inner();
-        let admin_user_password_binding = args.admin_user_password.get_inner();
-        let auth_type_binding = args.auth_type.get_inner();
-        let backup_retention_period_binding = args.backup_retention_period.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let preferred_backup_window_binding = args.preferred_backup_window.get_inner();
+        let admin_user_name_binding = args
+            .admin_user_name
+            .get_output(context)
+            .get_inner();
+        let admin_user_password_binding = args
+            .admin_user_password
+            .get_output(context)
+            .get_inner();
+        let auth_type_binding = args.auth_type.get_output(context).get_inner();
+        let backup_retention_period_binding = args
+            .backup_retention_period
+            .get_output(context)
+            .get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let preferred_backup_window_binding = args
+            .preferred_backup_window
+            .get_output(context)
+            .get_inner();
         let preferred_maintenance_window_binding = args
             .preferred_maintenance_window
+            .get_output(context)
             .get_inner();
-        let shard_capacity_binding = args.shard_capacity.get_inner();
-        let shard_count_binding = args.shard_count.get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
-        let vpc_security_group_ids_binding = args.vpc_security_group_ids.get_inner();
+        let shard_capacity_binding = args.shard_capacity.get_output(context).get_inner();
+        let shard_count_binding = args.shard_count.get_output(context).get_inner();
+        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let vpc_security_group_ids_binding = args
+            .vpc_security_group_ids
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:docdb/elasticCluster:ElasticCluster".into(),
             name: name.to_string(),
@@ -265,7 +287,7 @@ pub mod elastic_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

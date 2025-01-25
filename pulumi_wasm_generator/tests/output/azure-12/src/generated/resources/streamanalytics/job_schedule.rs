@@ -110,7 +110,7 @@
 /// ```
 ///
 pub mod job_schedule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobScheduleArgs {
@@ -118,13 +118,13 @@ pub mod job_schedule {
         ///
         /// > **Note:** Setting `start_mode` to `LastOutputEventTime` is only possible if the job had been previously started and produced output.
         #[builder(into)]
-        pub start_mode: pulumi_wasm_rust::Output<String>,
+        pub start_mode: pulumi_wasm_rust::InputOrOutput<String>,
         /// The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime`
         #[builder(into, default)]
-        pub start_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub start_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Stream Analytics Job that should be scheduled or started. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_id: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct JobScheduleResult {
@@ -143,12 +143,19 @@ pub mod job_schedule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: JobScheduleArgs) -> JobScheduleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: JobScheduleArgs,
+    ) -> JobScheduleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let start_mode_binding = args.start_mode.get_inner();
-        let start_time_binding = args.start_time.get_inner();
-        let stream_analytics_job_id_binding = args.stream_analytics_job_id.get_inner();
+        let start_mode_binding = args.start_mode.get_output(context).get_inner();
+        let start_time_binding = args.start_time.get_output(context).get_inner();
+        let stream_analytics_job_id_binding = args
+            .stream_analytics_job_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/jobSchedule:JobSchedule".into(),
             name: name.to_string(),
@@ -182,7 +189,7 @@ pub mod job_schedule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

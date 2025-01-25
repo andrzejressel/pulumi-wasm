@@ -54,113 +54,117 @@
 /// ```
 ///
 pub mod linux_web_app_slot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinuxWebAppSlotArgs {
         /// The ID of the Linux Web App this Deployment Slot will be part of.
         #[builder(into)]
-        pub app_service_id: pulumi_wasm_rust::Output<String>,
+        pub app_service_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of key-value pairs of App Settings.
         #[builder(into, default)]
-        pub app_settings: pulumi_wasm_rust::Output<
+        pub app_settings: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An `auth_settings` block as defined below.
         #[builder(into, default)]
-        pub auth_settings: pulumi_wasm_rust::Output<
+        pub auth_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appservice::LinuxWebAppSlotAuthSettings>,
         >,
         /// An `auth_settings_v2` block as defined below.
         #[builder(into, default)]
-        pub auth_settings_v2: pulumi_wasm_rust::Output<
+        pub auth_settings_v2: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appservice::LinuxWebAppSlotAuthSettingsV2>,
         >,
         /// A `backup` block as defined below.
         #[builder(into, default)]
-        pub backup: pulumi_wasm_rust::Output<
+        pub backup: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appservice::LinuxWebAppSlotBackup>,
         >,
         /// Should Client Affinity be enabled?
         #[builder(into, default)]
-        pub client_affinity_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub client_affinity_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Should Client Certificates be enabled?
         #[builder(into, default)]
-        pub client_certificate_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub client_certificate_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Paths to exclude when using client certificates, separated by ;
         #[builder(into, default)]
-        pub client_certificate_exclusion_paths: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_certificate_exclusion_paths: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
         #[builder(into, default)]
-        pub client_certificate_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_certificate_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `connection_string` blocks as defined below.
         #[builder(into, default)]
-        pub connection_strings: pulumi_wasm_rust::Output<
+        pub connection_strings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::appservice::LinuxWebAppSlotConnectionString>>,
         >,
         /// Should the Linux Web App be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub ftp_publish_basic_authentication_enabled: pulumi_wasm_rust::Output<
+        pub ftp_publish_basic_authentication_enabled: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Should the Linux Web App require HTTPS connections. Defaults to `false`.
         #[builder(into, default)]
-        pub https_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub https_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appservice::LinuxWebAppSlotIdentity>,
         >,
         /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         #[builder(into, default)]
-        pub key_vault_reference_identity_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_vault_reference_identity_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A `logs` block as defined below.
         #[builder(into, default)]
-        pub logs: pulumi_wasm_rust::Output<
+        pub logs: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appservice::LinuxWebAppSlotLogs>,
         >,
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should public network access be enabled for the Web App. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used.
         ///
         /// > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Linux Web App.
         #[builder(into, default)]
-        pub service_plan_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_plan_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `site_config` block as defined below.
         #[builder(into)]
-        pub site_config: pulumi_wasm_rust::Output<
+        pub site_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::appservice::LinuxWebAppSlotSiteConfig,
         >,
         /// One or more `storage_account` blocks as defined below.
         #[builder(into, default)]
-        pub storage_accounts: pulumi_wasm_rust::Output<
+        pub storage_accounts: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::appservice::LinuxWebAppSlotStorageAccount>>,
         >,
         /// A mapping of tags that should be assigned to the Linux Web App.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub virtual_network_subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_network_subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         ///
         /// > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         #[builder(into, default)]
-        pub webdeploy_publish_basic_authentication_enabled: pulumi_wasm_rust::Output<
+        pub webdeploy_publish_basic_authentication_enabled: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         ///
         /// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         #[builder(into, default)]
-        pub zip_deploy_file: pulumi_wasm_rust::Output<Option<String>>,
+        pub zip_deploy_file: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LinuxWebAppSlotResult {
@@ -271,48 +275,80 @@ pub mod linux_web_app_slot {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LinuxWebAppSlotArgs) -> LinuxWebAppSlotResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LinuxWebAppSlotArgs,
+    ) -> LinuxWebAppSlotResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_service_id_binding = args.app_service_id.get_inner();
-        let app_settings_binding = args.app_settings.get_inner();
-        let auth_settings_binding = args.auth_settings.get_inner();
-        let auth_settings_v2_binding = args.auth_settings_v2.get_inner();
-        let backup_binding = args.backup.get_inner();
-        let client_affinity_enabled_binding = args.client_affinity_enabled.get_inner();
+        let app_service_id_binding = args.app_service_id.get_output(context).get_inner();
+        let app_settings_binding = args.app_settings.get_output(context).get_inner();
+        let auth_settings_binding = args.auth_settings.get_output(context).get_inner();
+        let auth_settings_v2_binding = args
+            .auth_settings_v2
+            .get_output(context)
+            .get_inner();
+        let backup_binding = args.backup.get_output(context).get_inner();
+        let client_affinity_enabled_binding = args
+            .client_affinity_enabled
+            .get_output(context)
+            .get_inner();
         let client_certificate_enabled_binding = args
             .client_certificate_enabled
+            .get_output(context)
             .get_inner();
         let client_certificate_exclusion_paths_binding = args
             .client_certificate_exclusion_paths
+            .get_output(context)
             .get_inner();
-        let client_certificate_mode_binding = args.client_certificate_mode.get_inner();
-        let connection_strings_binding = args.connection_strings.get_inner();
-        let enabled_binding = args.enabled.get_inner();
+        let client_certificate_mode_binding = args
+            .client_certificate_mode
+            .get_output(context)
+            .get_inner();
+        let connection_strings_binding = args
+            .connection_strings
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
         let ftp_publish_basic_authentication_enabled_binding = args
             .ftp_publish_basic_authentication_enabled
+            .get_output(context)
             .get_inner();
-        let https_only_binding = args.https_only.get_inner();
-        let identity_binding = args.identity.get_inner();
+        let https_only_binding = args.https_only.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
         let key_vault_reference_identity_id_binding = args
             .key_vault_reference_identity_id
+            .get_output(context)
             .get_inner();
-        let logs_binding = args.logs.get_inner();
-        let name_binding = args.name.get_inner();
+        let logs_binding = args.logs.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
-        let service_plan_id_binding = args.service_plan_id.get_inner();
-        let site_config_binding = args.site_config.get_inner();
-        let storage_accounts_binding = args.storage_accounts.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let service_plan_id_binding = args
+            .service_plan_id
+            .get_output(context)
+            .get_inner();
+        let site_config_binding = args.site_config.get_output(context).get_inner();
+        let storage_accounts_binding = args
+            .storage_accounts
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let virtual_network_subnet_id_binding = args
             .virtual_network_subnet_id
+            .get_output(context)
             .get_inner();
         let webdeploy_publish_basic_authentication_enabled_binding = args
             .webdeploy_publish_basic_authentication_enabled
+            .get_output(context)
             .get_inner();
-        let zip_deploy_file_binding = args.zip_deploy_file.get_inner();
+        let zip_deploy_file_binding = args
+            .zip_deploy_file
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/linuxWebAppSlot:LinuxWebAppSlot".into(),
             name: name.to_string(),
@@ -527,7 +563,7 @@ pub mod linux_web_app_slot {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

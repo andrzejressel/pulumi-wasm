@@ -69,36 +69,36 @@
 /// ```
 ///
 pub mod response_policy_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResponsePolicyRuleArgs {
         /// Answer this query with a behavior rather than DNS data. Acceptable values are 'behaviorUnspecified', and 'bypassResponsePolicy'
         #[builder(into, default)]
-        pub behavior: pulumi_wasm_rust::Output<Option<String>>,
+        pub behavior: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The DNS name (wildcard or exact) to apply this rule to. Must be unique within the Response Policy Rule.
         #[builder(into)]
-        pub dns_name: pulumi_wasm_rust::Output<String>,
+        pub dns_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Answer this query directly with DNS data. These ResourceRecordSets override any other DNS behavior for the matched name;
         /// in particular they override private zones, the public internet, and GCP internal DNS. No SOA nor NS types are allowed.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub local_data: pulumi_wasm_rust::Output<
+        pub local_data: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dns::ResponsePolicyRuleLocalData>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifies the response policy addressed by this request.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub response_policy: pulumi_wasm_rust::Output<String>,
+        pub response_policy: pulumi_wasm_rust::InputOrOutput<String>,
         /// An identifier for this rule. Must be unique with the ResponsePolicy.
         #[builder(into)]
-        pub rule_name: pulumi_wasm_rust::Output<String>,
+        pub rule_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResponsePolicyRuleResult {
@@ -127,15 +127,22 @@ pub mod response_policy_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ResponsePolicyRuleArgs) -> ResponsePolicyRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ResponsePolicyRuleArgs,
+    ) -> ResponsePolicyRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let behavior_binding = args.behavior.get_inner();
-        let dns_name_binding = args.dns_name.get_inner();
-        let local_data_binding = args.local_data.get_inner();
-        let project_binding = args.project.get_inner();
-        let response_policy_binding = args.response_policy.get_inner();
-        let rule_name_binding = args.rule_name.get_inner();
+        let behavior_binding = args.behavior.get_output(context).get_inner();
+        let dns_name_binding = args.dns_name.get_output(context).get_inner();
+        let local_data_binding = args.local_data.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let response_policy_binding = args
+            .response_policy
+            .get_output(context)
+            .get_inner();
+        let rule_name_binding = args.rule_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dns/responsePolicyRule:ResponsePolicyRule".into(),
             name: name.to_string(),
@@ -187,7 +194,7 @@ pub mod response_policy_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

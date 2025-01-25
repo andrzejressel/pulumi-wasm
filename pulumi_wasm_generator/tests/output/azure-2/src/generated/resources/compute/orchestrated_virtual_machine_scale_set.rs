@@ -42,13 +42,13 @@
 /// ```
 ///
 pub mod orchestrated_virtual_machine_scale_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrchestratedVirtualMachineScaleSetArgs {
         /// An `additional_capabilities` block as defined below.
         #[builder(into, default)]
-        pub additional_capabilities: pulumi_wasm_rust::Output<
+        pub additional_capabilities: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::OrchestratedVirtualMachineScaleSetAdditionalCapabilities,
             >,
@@ -57,14 +57,14 @@ pub mod orchestrated_virtual_machine_scale_set {
         ///
         /// > **Note:** To enable the `automatic_instance_repair`, the Orchestrated Virtual Machine Scale Set must have a valid [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         #[builder(into, default)]
-        pub automatic_instance_repair: pulumi_wasm_rust::Output<
+        pub automatic_instance_repair: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair,
             >,
         >,
         /// A `boot_diagnostics` block as defined below.
         #[builder(into, default)]
-        pub boot_diagnostics: pulumi_wasm_rust::Output<
+        pub boot_diagnostics: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::OrchestratedVirtualMachineScaleSetBootDiagnostics,
             >,
@@ -75,10 +75,12 @@ pub mod orchestrated_virtual_machine_scale_set {
         ///
         /// > **Note:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
         #[builder(into, default)]
-        pub capacity_reservation_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub capacity_reservation_group_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// One or more `data_disk` blocks as defined below.
         #[builder(into, default)]
-        pub data_disks: pulumi_wasm_rust::Output<
+        pub data_disks: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::compute::OrchestratedVirtualMachineScaleSetDataDisk,
@@ -87,18 +89,18 @@ pub mod orchestrated_virtual_machine_scale_set {
         >,
         /// Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
         #[builder(into, default)]
-        pub encryption_at_host_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub encryption_at_host_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub eviction_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub eviction_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
         ///
         /// > **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
         #[builder(into, default)]
-        pub extension_operations_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub extension_operations_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// One or more `extension` blocks as defined below
         #[builder(into, default)]
-        pub extensions: pulumi_wasm_rust::Output<
+        pub extensions: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::compute::OrchestratedVirtualMachineScaleSetExtension,
@@ -107,32 +109,32 @@ pub mod orchestrated_virtual_machine_scale_set {
         >,
         /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         #[builder(into, default)]
-        pub extensions_time_budget: pulumi_wasm_rust::Output<Option<String>>,
+        pub extensions_time_budget: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::OrchestratedVirtualMachineScaleSetIdentity,
             >,
         >,
         /// The number of Virtual Machines in the Virtual Machine Scale Set.
         #[builder(into, default)]
-        pub instances: pulumi_wasm_rust::Output<Option<i32>>,
+        pub instances: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         #[builder(into, default)]
-        pub license_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub license_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
         #[builder(into, default)]
-        pub max_bid_price: pulumi_wasm_rust::Output<Option<f64>>,
+        pub max_bid_price: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `network_interface` blocks as defined below.
         #[builder(into, default)]
-        pub network_interfaces: pulumi_wasm_rust::Output<
+        pub network_interfaces: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::compute::OrchestratedVirtualMachineScaleSetNetworkInterface,
@@ -141,98 +143,100 @@ pub mod orchestrated_virtual_machine_scale_set {
         >,
         /// An `os_disk` block as defined below.
         #[builder(into, default)]
-        pub os_disk: pulumi_wasm_rust::Output<
+        pub os_disk: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::OrchestratedVirtualMachineScaleSetOsDisk,
             >,
         >,
         /// An `os_profile` block as defined below.
         #[builder(into, default)]
-        pub os_profile: pulumi_wasm_rust::Output<
+        pub os_profile: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::OrchestratedVirtualMachineScaleSetOsProfile,
             >,
         >,
         /// A `plan` block as documented below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub plan: pulumi_wasm_rust::Output<
+        pub plan: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::OrchestratedVirtualMachineScaleSetPlan>,
         >,
         /// Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
         ///
         /// > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         #[builder(into)]
-        pub platform_fault_domain_count: pulumi_wasm_rust::Output<i32>,
+        pub platform_fault_domain_count: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<String>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// a `priority_mix` block as defined below
         #[builder(into, default)]
-        pub priority_mix: pulumi_wasm_rust::Output<
+        pub priority_mix: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::OrchestratedVirtualMachineScaleSetPriorityMix,
             >,
         >,
         /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub proximity_placement_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub proximity_placement_group_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
         ///
         /// > **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
         #[builder(into, default)]
-        pub single_placement_group: pulumi_wasm_rust::Output<Option<bool>>,
+        pub single_placement_group: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
         #[builder(into, default)]
-        pub sku_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `sku_profile` block as defined below. Changing this forces a new resource to be created.
         ///
         /// > **Note:** If `sku_profile` is specified the `sku_name` must be set to `Mix`.
         #[builder(into, default)]
-        pub sku_profile: pulumi_wasm_rust::Output<
+        pub sku_profile: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::OrchestratedVirtualMachineScaleSetSkuProfile,
             >,
         >,
         /// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         #[builder(into, default)]
-        pub source_image_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_image_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `source_image_reference` block as defined below.
         #[builder(into, default)]
-        pub source_image_reference: pulumi_wasm_rust::Output<
+        pub source_image_reference: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::OrchestratedVirtualMachineScaleSetSourceImageReference,
             >,
         >,
         /// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `termination_notification` block as defined below.
         #[builder(into, default)]
-        pub termination_notification: pulumi_wasm_rust::Output<
+        pub termination_notification: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::OrchestratedVirtualMachineScaleSetTerminationNotification,
             >,
         >,
         /// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         #[builder(into, default)]
-        pub user_data_base64: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_data_base64: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** This can only be set to `true` when one or more `zones` are configured.
         #[builder(into, default)]
-        pub zone_balance: pulumi_wasm_rust::Output<Option<bool>>,
+        pub zone_balance: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies a list of Availability Zones across which the Virtual Machine Scale Set will create instances.
         ///
         /// > **Note:** Updating `zones` to remove an existing zone forces a new Virtual Machine Scale Set to be created.
         ///
         /// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct OrchestratedVirtualMachineScaleSetResult {
@@ -390,58 +394,98 @@ pub mod orchestrated_virtual_machine_scale_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OrchestratedVirtualMachineScaleSetArgs,
     ) -> OrchestratedVirtualMachineScaleSetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let additional_capabilities_binding = args.additional_capabilities.get_inner();
+        let additional_capabilities_binding = args
+            .additional_capabilities
+            .get_output(context)
+            .get_inner();
         let automatic_instance_repair_binding = args
             .automatic_instance_repair
+            .get_output(context)
             .get_inner();
-        let boot_diagnostics_binding = args.boot_diagnostics.get_inner();
+        let boot_diagnostics_binding = args
+            .boot_diagnostics
+            .get_output(context)
+            .get_inner();
         let capacity_reservation_group_id_binding = args
             .capacity_reservation_group_id
+            .get_output(context)
             .get_inner();
-        let data_disks_binding = args.data_disks.get_inner();
+        let data_disks_binding = args.data_disks.get_output(context).get_inner();
         let encryption_at_host_enabled_binding = args
             .encryption_at_host_enabled
+            .get_output(context)
             .get_inner();
-        let eviction_policy_binding = args.eviction_policy.get_inner();
+        let eviction_policy_binding = args
+            .eviction_policy
+            .get_output(context)
+            .get_inner();
         let extension_operations_enabled_binding = args
             .extension_operations_enabled
+            .get_output(context)
             .get_inner();
-        let extensions_binding = args.extensions.get_inner();
-        let extensions_time_budget_binding = args.extensions_time_budget.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let instances_binding = args.instances.get_inner();
-        let license_type_binding = args.license_type.get_inner();
-        let location_binding = args.location.get_inner();
-        let max_bid_price_binding = args.max_bid_price.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_interfaces_binding = args.network_interfaces.get_inner();
-        let os_disk_binding = args.os_disk.get_inner();
-        let os_profile_binding = args.os_profile.get_inner();
-        let plan_binding = args.plan.get_inner();
+        let extensions_binding = args.extensions.get_output(context).get_inner();
+        let extensions_time_budget_binding = args
+            .extensions_time_budget
+            .get_output(context)
+            .get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let instances_binding = args.instances.get_output(context).get_inner();
+        let license_type_binding = args.license_type.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let max_bid_price_binding = args.max_bid_price.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_interfaces_binding = args
+            .network_interfaces
+            .get_output(context)
+            .get_inner();
+        let os_disk_binding = args.os_disk.get_output(context).get_inner();
+        let os_profile_binding = args.os_profile.get_output(context).get_inner();
+        let plan_binding = args.plan.get_output(context).get_inner();
         let platform_fault_domain_count_binding = args
             .platform_fault_domain_count
+            .get_output(context)
             .get_inner();
-        let priority_binding = args.priority.get_inner();
-        let priority_mix_binding = args.priority_mix.get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let priority_mix_binding = args.priority_mix.get_output(context).get_inner();
         let proximity_placement_group_id_binding = args
             .proximity_placement_group_id
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let single_placement_group_binding = args.single_placement_group.get_inner();
-        let sku_name_binding = args.sku_name.get_inner();
-        let sku_profile_binding = args.sku_profile.get_inner();
-        let source_image_id_binding = args.source_image_id.get_inner();
-        let source_image_reference_binding = args.source_image_reference.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let termination_notification_binding = args.termination_notification.get_inner();
-        let user_data_base64_binding = args.user_data_base64.get_inner();
-        let zone_balance_binding = args.zone_balance.get_inner();
-        let zones_binding = args.zones.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let single_placement_group_binding = args
+            .single_placement_group
+            .get_output(context)
+            .get_inner();
+        let sku_name_binding = args.sku_name.get_output(context).get_inner();
+        let sku_profile_binding = args.sku_profile.get_output(context).get_inner();
+        let source_image_id_binding = args
+            .source_image_id
+            .get_output(context)
+            .get_inner();
+        let source_image_reference_binding = args
+            .source_image_reference
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let termination_notification_binding = args
+            .termination_notification
+            .get_output(context)
+            .get_inner();
+        let user_data_base64_binding = args
+            .user_data_base64
+            .get_output(context)
+            .get_inner();
+        let zone_balance_binding = args.zone_balance.get_output(context).get_inner();
+        let zones_binding = args.zones.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet"
                 .into(),
@@ -700,7 +744,7 @@ pub mod orchestrated_virtual_machine_scale_set {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -119,7 +119,7 @@
 /// ```
 ///
 pub mod workspace_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceKeyArgs {
@@ -127,18 +127,18 @@ pub mod workspace_key {
         ///
         /// > **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys.
         #[builder(into)]
-        pub active: pulumi_wasm_rust::Output<bool>,
+        pub active: pulumi_wasm_rust::InputOrOutput<bool>,
         /// Specifies the name of the workspace key. Should match the name of the key in the synapse workspace.
         #[builder(into)]
-        pub customer_managed_key_name: pulumi_wasm_rust::Output<String>,
+        pub customer_managed_key_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption
         #[builder(into, default)]
-        pub customer_managed_key_versionless_id: pulumi_wasm_rust::Output<
+        pub customer_managed_key_versionless_id: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the Synapse Workspace where the encryption key should be configured.
         #[builder(into)]
-        pub synapse_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub synapse_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkspaceKeyResult {
@@ -159,17 +159,26 @@ pub mod workspace_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkspaceKeyArgs) -> WorkspaceKeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkspaceKeyArgs,
+    ) -> WorkspaceKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let active_binding = args.active.get_inner();
+        let active_binding = args.active.get_output(context).get_inner();
         let customer_managed_key_name_binding = args
             .customer_managed_key_name
+            .get_output(context)
             .get_inner();
         let customer_managed_key_versionless_id_binding = args
             .customer_managed_key_versionless_id
+            .get_output(context)
             .get_inner();
-        let synapse_workspace_id_binding = args.synapse_workspace_id.get_inner();
+        let synapse_workspace_id_binding = args
+            .synapse_workspace_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/workspaceKey:WorkspaceKey".into(),
             name: name.to_string(),
@@ -207,7 +216,7 @@ pub mod workspace_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

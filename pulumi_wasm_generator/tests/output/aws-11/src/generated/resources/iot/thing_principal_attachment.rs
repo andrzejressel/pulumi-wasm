@@ -25,16 +25,16 @@
 ///       thing: ${example.name}
 /// ```
 pub mod thing_principal_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ThingPrincipalAttachmentArgs {
         /// The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         #[builder(into)]
-        pub principal: pulumi_wasm_rust::Output<String>,
+        pub principal: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the thing.
         #[builder(into)]
-        pub thing: pulumi_wasm_rust::Output<String>,
+        pub thing: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ThingPrincipalAttachmentResult {
@@ -48,13 +48,14 @@ pub mod thing_principal_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ThingPrincipalAttachmentArgs,
     ) -> ThingPrincipalAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let principal_binding = args.principal.get_inner();
-        let thing_binding = args.thing.get_inner();
+        let principal_binding = args.principal.get_output(context).get_inner();
+        let thing_binding = args.thing.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment".into(),
             name: name.to_string(),
@@ -78,7 +79,7 @@ pub mod thing_principal_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

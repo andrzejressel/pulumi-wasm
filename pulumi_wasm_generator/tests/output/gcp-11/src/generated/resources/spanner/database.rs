@@ -80,7 +80,7 @@
 /// ```
 ///
 pub mod database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatabaseArgs {
@@ -88,23 +88,23 @@ pub mod database {
         /// If it is not provided, "GOOGLE_STANDARD_SQL" will be used.
         /// Possible values are: `GOOGLE_STANDARD_SQL`, `POSTGRESQL`.
         #[builder(into, default)]
-        pub database_dialect: pulumi_wasm_rust::Output<Option<String>>,
+        pub database_dialect: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An optional list of DDL statements to run inside the newly created
         /// database. Statements can create tables, indexes, etc. These statements
         /// execute atomically with the creation of the database: if there is an
         /// error in any statement, the database is not created.
         #[builder(into, default)]
-        pub ddls: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ddls: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Whether or not to allow the provider to destroy the instance. Unless this field is set to false
         /// in state, a `destroy` or `update` that would delete the instance will fail.
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub enable_drop_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_drop_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Encryption configuration for the database
         /// Structure is documented below.
         #[builder(into, default)]
-        pub encryption_config: pulumi_wasm_rust::Output<
+        pub encryption_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::spanner::DatabaseEncryptionConfig>,
         >,
         /// The instance to create the database on.
@@ -112,22 +112,22 @@ pub mod database {
         ///
         /// - - -
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
         /// A unique identifier for the database, which cannot be changed after the
         /// instance is created. Values are of the form `[a-z][-_a-z0-9]*[a-z0-9]`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The retention period for the database. The retention period must be between 1 hour
         /// and 7 days, and can be specified in days, hours, minutes, or seconds. For example,
         /// the values 1d, 24h, 1440m, and 86400s are equivalent. Default value is 1h.
         /// If this property is used, you must avoid adding new DDL statements to `ddl` that
         /// update the database's version_retention_period.
         #[builder(into, default)]
-        pub version_retention_period: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_retention_period: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DatabaseResult {
@@ -173,18 +173,37 @@ pub mod database {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DatabaseArgs) -> DatabaseResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DatabaseArgs,
+    ) -> DatabaseResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let database_dialect_binding = args.database_dialect.get_inner();
-        let ddls_binding = args.ddls.get_inner();
-        let deletion_protection_binding = args.deletion_protection.get_inner();
-        let enable_drop_protection_binding = args.enable_drop_protection.get_inner();
-        let encryption_config_binding = args.encryption_config.get_inner();
-        let instance_binding = args.instance.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let version_retention_period_binding = args.version_retention_period.get_inner();
+        let database_dialect_binding = args
+            .database_dialect
+            .get_output(context)
+            .get_inner();
+        let ddls_binding = args.ddls.get_output(context).get_inner();
+        let deletion_protection_binding = args
+            .deletion_protection
+            .get_output(context)
+            .get_inner();
+        let enable_drop_protection_binding = args
+            .enable_drop_protection
+            .get_output(context)
+            .get_inner();
+        let encryption_config_binding = args
+            .encryption_config
+            .get_output(context)
+            .get_inner();
+        let instance_binding = args.instance.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let version_retention_period_binding = args
+            .version_retention_period
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:spanner/database:Database".into(),
             name: name.to_string(),
@@ -260,7 +279,7 @@ pub mod database {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

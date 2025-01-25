@@ -78,24 +78,24 @@
 /// $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
 /// ```
 pub mod key_signing_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeySigningKeyArgs {
         /// Identifier of the Route 53 Hosted Zone.
         #[builder(into)]
-        pub hosted_zone_id: pulumi_wasm_rust::Output<String>,
+        pub hosted_zone_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key. This must be unique for each key-signing key (KSK) in a single hosted zone. This key must be in the `us-east-1` Region and meet certain requirements, which are described in the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-cmk-requirements.html) and [Route 53 API Reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html).
         #[builder(into)]
-        pub key_management_service_arn: pulumi_wasm_rust::Output<String>,
+        pub key_management_service_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the key-signing key (KSK). Must be unique for each key-singing key in the same hosted zone.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Status of the key-signing key (KSK). Valid values: `ACTIVE`, `INACTIVE`. Defaults to `ACTIVE`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct KeySigningKeyResult {
@@ -134,15 +134,20 @@ pub mod key_signing_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: KeySigningKeyArgs) -> KeySigningKeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: KeySigningKeyArgs,
+    ) -> KeySigningKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let hosted_zone_id_binding = args.hosted_zone_id.get_inner();
+        let hosted_zone_id_binding = args.hosted_zone_id.get_output(context).get_inner();
         let key_management_service_arn_binding = args
             .key_management_service_arn
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let status_binding = args.status.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/keySigningKey:KeySigningKey".into(),
             name: name.to_string(),
@@ -210,7 +215,7 @@ pub mod key_signing_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

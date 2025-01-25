@@ -78,38 +78,38 @@
 /// $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
 /// ```
 pub mod inventory {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InventoryArgs {
         /// Name of the source bucket that inventory lists the objects for.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// Contains information about where to publish the inventory results (documented below).
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::Output<
+        pub destination: pulumi_wasm_rust::InputOrOutput<
             super::super::types::s3::InventoryDestination,
         >,
         /// Specifies whether the inventory is enabled or disabled.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3::InventoryFilter>,
         >,
         /// Object versions to include in the inventory list. Valid values: `All`, `Current`.
         #[builder(into)]
-        pub included_object_versions: pulumi_wasm_rust::Output<String>,
+        pub included_object_versions: pulumi_wasm_rust::InputOrOutput<String>,
         /// Unique identifier of the inventory configuration for the bucket.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         #[builder(into, default)]
-        pub optional_fields: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub optional_fields: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the schedule for generating inventory results (documented below).
         #[builder(into)]
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_wasm_rust::InputOrOutput<
             super::super::types::s3::InventorySchedule,
         >,
     }
@@ -142,17 +142,27 @@ pub mod inventory {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InventoryArgs) -> InventoryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InventoryArgs,
+    ) -> InventoryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let destination_binding = args.destination.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let filter_binding = args.filter.get_inner();
-        let included_object_versions_binding = args.included_object_versions.get_inner();
-        let name_binding = args.name.get_inner();
-        let optional_fields_binding = args.optional_fields.get_inner();
-        let schedule_binding = args.schedule.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let destination_binding = args.destination.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
+        let included_object_versions_binding = args
+            .included_object_versions
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let optional_fields_binding = args
+            .optional_fields
+            .get_output(context)
+            .get_inner();
+        let schedule_binding = args.schedule.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/inventory:Inventory".into(),
             name: name.to_string(),
@@ -218,7 +228,7 @@ pub mod inventory {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

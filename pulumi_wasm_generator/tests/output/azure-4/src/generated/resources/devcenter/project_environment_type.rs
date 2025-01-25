@@ -61,38 +61,40 @@
 /// ```
 ///
 pub mod project_environment_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectEnvironmentTypeArgs {
         /// A list of roles to assign to the environment creator.
         #[builder(into, default)]
-        pub creator_role_assignment_roles: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub creator_role_assignment_roles: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The ID of the subscription that the Environment Type will be mapped to. The environment's resources will be deployed into this subscription.
         #[builder(into)]
-        pub deployment_target_id: pulumi_wasm_rust::Output<String>,
+        pub deployment_target_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub dev_center_project_id: pulumi_wasm_rust::Output<String>,
+        pub dev_center_project_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// An `identity` block as defined below.
         #[builder(into)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             super::super::types::devcenter::ProjectEnvironmentTypeIdentity,
         >,
         /// The Azure Region where the Dev Center Project Environment Type should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Dev Center Project Environment Type. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Dev Center Project Environment Type.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `user_role_assignment` block as defined below.
         #[builder(into, default)]
-        pub user_role_assignments: pulumi_wasm_rust::Output<
+        pub user_role_assignments: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::devcenter::ProjectEnvironmentTypeUserRoleAssignment,
@@ -134,6 +136,7 @@ pub mod project_environment_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ProjectEnvironmentTypeArgs,
     ) -> ProjectEnvironmentTypeResult {
@@ -141,14 +144,24 @@ pub mod project_environment_type {
         use std::collections::HashMap;
         let creator_role_assignment_roles_binding = args
             .creator_role_assignment_roles
+            .get_output(context)
             .get_inner();
-        let deployment_target_id_binding = args.deployment_target_id.get_inner();
-        let dev_center_project_id_binding = args.dev_center_project_id.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let user_role_assignments_binding = args.user_role_assignments.get_inner();
+        let deployment_target_id_binding = args
+            .deployment_target_id
+            .get_output(context)
+            .get_inner();
+        let dev_center_project_id_binding = args
+            .dev_center_project_id
+            .get_output(context)
+            .get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let user_role_assignments_binding = args
+            .user_role_assignments
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:devcenter/projectEnvironmentType:ProjectEnvironmentType"
                 .into(),
@@ -215,7 +228,7 @@ pub mod project_environment_type {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

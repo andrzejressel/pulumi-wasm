@@ -97,7 +97,7 @@
 /// ```
 ///
 pub mod region_commitment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionCommitmentArgs {
@@ -106,24 +106,24 @@ pub mod region_commitment {
         /// If the field is set to true, the commitment will be automatically renewed for either
         /// one or three years according to the terms of the existing commitment.
         #[builder(into, default)]
-        pub auto_renew: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_renew: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The category of the commitment. Category MACHINE specifies commitments composed of
         /// machine resources such as VCPU or MEMORY, listed in resources. Category LICENSE
         /// specifies commitments composed of software licenses, listed in licenseResources.
         /// Note that only MACHINE commitments should have a Type specified.
         /// Possible values are: `LICENSE`, `MACHINE`.
         #[builder(into, default)]
-        pub category: pulumi_wasm_rust::Output<Option<String>>,
+        pub category: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the already existing reservations to attach to the Commitment.
         #[builder(into, default)]
-        pub existing_reservations: pulumi_wasm_rust::Output<Option<String>>,
+        pub existing_reservations: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The license specification required as part of a license commitment.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub license_resource: pulumi_wasm_rust::Output<
+        pub license_resource: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::RegionCommitmentLicenseResource>,
         >,
         /// Name of the resource. The name must be 1-63 characters long and match
@@ -132,7 +132,7 @@ pub mod region_commitment {
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The plan for this commitment, which determines duration and discount rate.
         /// The currently supported plans are TWELVE_MONTH (1 year), and THIRTY_SIX_MONTH (3 years).
         /// Possible values are: `TWELVE_MONTH`, `THIRTY_SIX_MONTH`.
@@ -140,19 +140,19 @@ pub mod region_commitment {
         ///
         /// - - -
         #[builder(into)]
-        pub plan: pulumi_wasm_rust::Output<String>,
+        pub plan: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// URL of the region where this commitment may be used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of commitment amounts for particular resources.
         /// Note that VCPU and MEMORY resource commitments must occur together.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub resources: pulumi_wasm_rust::Output<
+        pub resources: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RegionCommitmentResource>>,
         >,
         /// The type of commitment, which affects the discount rate and the eligible resources.
@@ -161,7 +161,7 @@ pub mod region_commitment {
         /// `GENERAL_PURPOSE_T2D`, `GENERAL_PURPOSE_C3`, `COMPUTE_OPTIMIZED_C2`, `COMPUTE_OPTIMIZED_C2D` and
         /// `GRAPHICS_OPTIMIZED_G2`
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RegionCommitmentResult {
@@ -235,20 +235,30 @@ pub mod region_commitment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RegionCommitmentArgs) -> RegionCommitmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RegionCommitmentArgs,
+    ) -> RegionCommitmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_renew_binding = args.auto_renew.get_inner();
-        let category_binding = args.category.get_inner();
-        let description_binding = args.description.get_inner();
-        let existing_reservations_binding = args.existing_reservations.get_inner();
-        let license_resource_binding = args.license_resource.get_inner();
-        let name_binding = args.name.get_inner();
-        let plan_binding = args.plan.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let resources_binding = args.resources.get_inner();
-        let type__binding = args.type_.get_inner();
+        let auto_renew_binding = args.auto_renew.get_output(context).get_inner();
+        let category_binding = args.category.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let existing_reservations_binding = args
+            .existing_reservations
+            .get_output(context)
+            .get_inner();
+        let license_resource_binding = args
+            .license_resource
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let plan_binding = args.plan.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let resources_binding = args.resources.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionCommitment:RegionCommitment".into(),
             name: name.to_string(),
@@ -356,7 +366,7 @@ pub mod region_commitment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

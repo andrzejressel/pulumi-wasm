@@ -32,28 +32,28 @@
 /// $ pulumi import aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment example attachment-1a2b3c4d5e6f7g
 /// ```
 pub mod dx_gateway_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DxGatewayAttachmentArgs {
         /// ID of the Cloud WAN core network to which the Direct Connect gateway attachment should be attached.
         #[builder(into)]
-        pub core_network_id: pulumi_wasm_rust::Output<String>,
+        pub core_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN of the Direct Connect gateway attachment.
         #[builder(into)]
-        pub direct_connect_gateway_arn: pulumi_wasm_rust::Output<String>,
+        pub direct_connect_gateway_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more core network edge locations to associate with the Direct Connect gateway attachment.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub edge_locations: pulumi_wasm_rust::Output<Vec<String>>,
+        pub edge_locations: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::networkmanager::DxGatewayAttachmentTimeouts>,
         >,
     }
@@ -97,18 +97,23 @@ pub mod dx_gateway_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DxGatewayAttachmentArgs,
     ) -> DxGatewayAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let core_network_id_binding = args.core_network_id.get_inner();
+        let core_network_id_binding = args
+            .core_network_id
+            .get_output(context)
+            .get_inner();
         let direct_connect_gateway_arn_binding = args
             .direct_connect_gateway_arn
+            .get_output(context)
             .get_inner();
-        let edge_locations_binding = args.edge_locations.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let edge_locations_binding = args.edge_locations.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment".into(),
             name: name.to_string(),
@@ -177,7 +182,7 @@ pub mod dx_gateway_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

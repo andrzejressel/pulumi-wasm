@@ -42,41 +42,41 @@
 /// $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
 /// ```
 pub mod cluster_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterInstanceArgs {
         /// Specifies whether any database modifications
         /// are applied immediately, or during the next maintenance window. Default is`false`.
         #[builder(into, default)]
-        pub apply_immediately: pulumi_wasm_rust::Output<Option<bool>>,
+        pub apply_immediately: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
         #[builder(into, default)]
-        pub auto_minor_version_upgrade: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_minor_version_upgrade: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The identifier of the certificate authority (CA) certificate for the DB instance.
         #[builder(into, default)]
-        pub ca_cert_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub ca_cert_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The identifier of the `aws.docdb.Cluster` in which to launch this instance.
         #[builder(into)]
-        pub cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Copy all DB instance `tags` to snapshots. Default is `false`.
         #[builder(into, default)]
-        pub copy_tags_to_snapshot: pulumi_wasm_rust::Output<Option<bool>>,
+        pub copy_tags_to_snapshot: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         #[builder(into, default)]
-        pub enable_performance_insights: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_performance_insights: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         #[builder(into, default)]
-        pub engine: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         #[builder(into, default)]
-        pub identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         #[builder(into, default)]
-        pub identifier_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub identifier_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
         /// DocumentDB currently supports the below instance classes.
         /// Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
@@ -102,20 +102,24 @@ pub mod cluster_instance {
         /// - db.t4g.medium
         /// - db.t3.medium
         #[builder(into)]
-        pub instance_class: pulumi_wasm_rust::Output<String>,
+        pub instance_class: pulumi_wasm_rust::InputOrOutput<String>,
         /// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
         #[builder(into, default)]
-        pub performance_insights_kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub performance_insights_kms_key_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The window to perform maintenance in.
         /// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         #[builder(into, default)]
-        pub preferred_maintenance_window: pulumi_wasm_rust::Output<Option<String>>,
+        pub preferred_maintenance_window: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         #[builder(into, default)]
-        pub promotion_tier: pulumi_wasm_rust::Output<Option<i32>>,
+        pub promotion_tier: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -208,32 +212,58 @@ pub mod cluster_instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ClusterInstanceArgs) -> ClusterInstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ClusterInstanceArgs,
+    ) -> ClusterInstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let apply_immediately_binding = args.apply_immediately.get_inner();
+        let apply_immediately_binding = args
+            .apply_immediately
+            .get_output(context)
+            .get_inner();
         let auto_minor_version_upgrade_binding = args
             .auto_minor_version_upgrade
+            .get_output(context)
             .get_inner();
-        let availability_zone_binding = args.availability_zone.get_inner();
-        let ca_cert_identifier_binding = args.ca_cert_identifier.get_inner();
-        let cluster_identifier_binding = args.cluster_identifier.get_inner();
-        let copy_tags_to_snapshot_binding = args.copy_tags_to_snapshot.get_inner();
+        let availability_zone_binding = args
+            .availability_zone
+            .get_output(context)
+            .get_inner();
+        let ca_cert_identifier_binding = args
+            .ca_cert_identifier
+            .get_output(context)
+            .get_inner();
+        let cluster_identifier_binding = args
+            .cluster_identifier
+            .get_output(context)
+            .get_inner();
+        let copy_tags_to_snapshot_binding = args
+            .copy_tags_to_snapshot
+            .get_output(context)
+            .get_inner();
         let enable_performance_insights_binding = args
             .enable_performance_insights
+            .get_output(context)
             .get_inner();
-        let engine_binding = args.engine.get_inner();
-        let identifier_binding = args.identifier.get_inner();
-        let identifier_prefix_binding = args.identifier_prefix.get_inner();
-        let instance_class_binding = args.instance_class.get_inner();
+        let engine_binding = args.engine.get_output(context).get_inner();
+        let identifier_binding = args.identifier.get_output(context).get_inner();
+        let identifier_prefix_binding = args
+            .identifier_prefix
+            .get_output(context)
+            .get_inner();
+        let instance_class_binding = args.instance_class.get_output(context).get_inner();
         let performance_insights_kms_key_id_binding = args
             .performance_insights_kms_key_id
+            .get_output(context)
             .get_inner();
         let preferred_maintenance_window_binding = args
             .preferred_maintenance_window
+            .get_output(context)
             .get_inner();
-        let promotion_tier_binding = args.promotion_tier.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let promotion_tier_binding = args.promotion_tier.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:docdb/clusterInstance:ClusterInstance".into(),
             name: name.to_string(),
@@ -384,7 +414,7 @@ pub mod cluster_instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -31,55 +31,55 @@
 /// ```
 ///
 pub mod spectrum_application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpectrumApplicationArgs {
         /// Enables Argo Smart Routing.
         #[builder(into, default)]
-        pub argo_smart_routing: pulumi_wasm_rust::Output<Option<bool>>,
+        pub argo_smart_routing: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name and type of DNS record for the Spectrum application.
         #[builder(into)]
-        pub dns: pulumi_wasm_rust::Output<super::types::SpectrumApplicationDns>,
+        pub dns: pulumi_wasm_rust::InputOrOutput<super::types::SpectrumApplicationDns>,
         /// The anycast edge IP configuration for the hostname of this application.
         #[builder(into, default)]
-        pub edge_ips: pulumi_wasm_rust::Output<
+        pub edge_ips: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::SpectrumApplicationEdgeIps>,
         >,
         /// Enables the IP Firewall for this application.
         #[builder(into, default)]
-        pub ip_firewall: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ip_firewall: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of destination addresses to the origin. e.g. `tcp://192.0.2.1:22`.
         #[builder(into, default)]
-        pub origin_directs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub origin_directs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A destination DNS addresses to the origin.
         #[builder(into, default)]
-        pub origin_dns: pulumi_wasm_rust::Output<
+        pub origin_dns: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::SpectrumApplicationOriginDns>,
         >,
         /// Origin port to proxy traffice to. Conflicts with `origin_port_range`.
         #[builder(into, default)]
-        pub origin_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub origin_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Origin port range to proxy traffice to. When using a range, the protocol field must also specify a range, e.g. `tcp/22-23`. Conflicts with `origin_port`.
         #[builder(into, default)]
-        pub origin_port_range: pulumi_wasm_rust::Output<
+        pub origin_port_range: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::SpectrumApplicationOriginPortRange>,
         >,
         /// The port configuration at Cloudflare's edge. e.g. `tcp/22`.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
         /// Enables a proxy protocol to the origin. Available values: `off`, `v1`, `v2`, `simple`.
         #[builder(into, default)]
-        pub proxy_protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub proxy_protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// TLS configuration option for Cloudflare to connect to your origin. Available values: `off`, `flexible`, `full`, `strict`.
         #[builder(into, default)]
-        pub tls: pulumi_wasm_rust::Output<Option<String>>,
+        pub tls: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Sets application type. Available values: `direct`, `http`, `https`.
         #[builder(into, default)]
-        pub traffic_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub traffic_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The zone identifier to target for the resource.
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpectrumApplicationResult {
@@ -119,24 +119,31 @@ pub mod spectrum_application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SpectrumApplicationArgs,
     ) -> SpectrumApplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let argo_smart_routing_binding = args.argo_smart_routing.get_inner();
-        let dns_binding = args.dns.get_inner();
-        let edge_ips_binding = args.edge_ips.get_inner();
-        let ip_firewall_binding = args.ip_firewall.get_inner();
-        let origin_directs_binding = args.origin_directs.get_inner();
-        let origin_dns_binding = args.origin_dns.get_inner();
-        let origin_port_binding = args.origin_port.get_inner();
-        let origin_port_range_binding = args.origin_port_range.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let proxy_protocol_binding = args.proxy_protocol.get_inner();
-        let tls_binding = args.tls.get_inner();
-        let traffic_type_binding = args.traffic_type.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let argo_smart_routing_binding = args
+            .argo_smart_routing
+            .get_output(context)
+            .get_inner();
+        let dns_binding = args.dns.get_output(context).get_inner();
+        let edge_ips_binding = args.edge_ips.get_output(context).get_inner();
+        let ip_firewall_binding = args.ip_firewall.get_output(context).get_inner();
+        let origin_directs_binding = args.origin_directs.get_output(context).get_inner();
+        let origin_dns_binding = args.origin_dns.get_output(context).get_inner();
+        let origin_port_binding = args.origin_port.get_output(context).get_inner();
+        let origin_port_range_binding = args
+            .origin_port_range
+            .get_output(context)
+            .get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let proxy_protocol_binding = args.proxy_protocol.get_output(context).get_inner();
+        let tls_binding = args.tls.get_output(context).get_inner();
+        let traffic_type_binding = args.traffic_type.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/spectrumApplication:SpectrumApplication".into(),
             name: name.to_string(),
@@ -237,7 +244,7 @@ pub mod spectrum_application {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

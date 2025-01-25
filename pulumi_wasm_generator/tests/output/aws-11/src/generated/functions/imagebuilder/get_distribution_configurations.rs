@@ -1,11 +1,11 @@
 pub mod get_distribution_configurations {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDistributionConfigurationsArgs {
         /// Configuration block(s) for filtering. Detailed below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::imagebuilder::GetDistributionConfigurationsFilter,
@@ -34,11 +34,12 @@ pub mod get_distribution_configurations {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetDistributionConfigurationsArgs,
     ) -> GetDistributionConfigurationsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:imagebuilder/getDistributionConfigurations:getDistributionConfigurations"
                 .into(),
@@ -64,7 +65,7 @@ pub mod get_distribution_configurations {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

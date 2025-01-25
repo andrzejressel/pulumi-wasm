@@ -80,32 +80,32 @@
 /// ```
 ///
 pub mod access_identity_provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessIdentityProviderArgs {
         /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Provider configuration from the [developer documentation](https://developers.cloudflare.com/access/configuring-identity-providers/).
         #[builder(into, default)]
-        pub configs: pulumi_wasm_rust::Output<
+        pub configs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::AccessIdentityProviderConfig>>,
         >,
         /// Friendly name of the Access Identity Provider configuration.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration for SCIM settings for a given IDP.
         #[builder(into, default)]
-        pub scim_configs: pulumi_wasm_rust::Output<
+        pub scim_configs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::AccessIdentityProviderScimConfig>>,
         >,
         /// The provider type to use. Available values: `azureAD`, `centrify`, `facebook`, `github`, `google`, `google-apps`, `linkedin`, `oidc`, `okta`, `onelogin`, `onetimepin`, `pingone`, `saml`, `yandex`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. Conflicts with `account_id`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AccessIdentityProviderResult {
@@ -131,17 +131,18 @@ pub mod access_identity_provider {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AccessIdentityProviderArgs,
     ) -> AccessIdentityProviderResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let configs_binding = args.configs.get_inner();
-        let name_binding = args.name.get_inner();
-        let scim_configs_binding = args.scim_configs.get_inner();
-        let type__binding = args.type_.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let configs_binding = args.configs.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let scim_configs_binding = args.scim_configs.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/accessIdentityProvider:AccessIdentityProvider"
                 .into(),
@@ -194,7 +195,7 @@ pub mod access_identity_provider {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

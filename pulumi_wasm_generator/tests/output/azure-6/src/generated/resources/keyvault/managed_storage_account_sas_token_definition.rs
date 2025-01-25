@@ -106,30 +106,30 @@
 /// ```
 ///
 pub mod managed_storage_account_sas_token_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedStorageAccountSasTokenDefinitionArgs {
         /// The ID of the Managed Storage Account.
         #[builder(into)]
-        pub managed_storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub managed_storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this SAS Definition.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
         #[builder(into)]
-        pub sas_template_uri: pulumi_wasm_rust::Output<String>,
+        pub sas_template_uri: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
         #[builder(into)]
-        pub sas_type: pulumi_wasm_rust::Output<String>,
+        pub sas_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         #[builder(into)]
-        pub validity_period: pulumi_wasm_rust::Output<String>,
+        pub validity_period: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ManagedStorageAccountSasTokenDefinitionResult {
@@ -155,6 +155,7 @@ pub mod managed_storage_account_sas_token_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ManagedStorageAccountSasTokenDefinitionArgs,
     ) -> ManagedStorageAccountSasTokenDefinitionResult {
@@ -162,12 +163,19 @@ pub mod managed_storage_account_sas_token_definition {
         use std::collections::HashMap;
         let managed_storage_account_id_binding = args
             .managed_storage_account_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let sas_template_uri_binding = args.sas_template_uri.get_inner();
-        let sas_type_binding = args.sas_type.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let validity_period_binding = args.validity_period.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let sas_template_uri_binding = args
+            .sas_template_uri
+            .get_output(context)
+            .get_inner();
+        let sas_type_binding = args.sas_type.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let validity_period_binding = args
+            .validity_period
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition"
                 .into(),
@@ -223,7 +231,7 @@ pub mod managed_storage_account_sas_token_definition {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

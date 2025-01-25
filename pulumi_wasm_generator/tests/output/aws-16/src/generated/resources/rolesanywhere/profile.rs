@@ -38,34 +38,34 @@
 /// $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
 /// ```
 pub mod profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProfileArgs {
         /// The number of seconds the vended session credentials are valid for. Defaults to 3600.
         #[builder(into, default)]
-        pub duration_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub duration_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Whether or not the Profile is enabled.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of managed policy ARNs that apply to the vended session credentials.
         #[builder(into, default)]
-        pub managed_policy_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub managed_policy_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the Profile.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether instance properties are required in [CreateSession](https://docs.aws.amazon.com/rolesanywhere/latest/APIReference/API_CreateSession.html) requests with this profile.
         #[builder(into, default)]
-        pub require_instance_properties: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_instance_properties: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of IAM roles that this profile can assume
         #[builder(into, default)]
-        pub role_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub role_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A session policy that applies to the trust boundary of the vended session credentials.
         #[builder(into, default)]
-        pub session_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub session_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -100,19 +100,30 @@ pub mod profile {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProfileArgs) -> ProfileResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProfileArgs,
+    ) -> ProfileResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let duration_seconds_binding = args.duration_seconds.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let managed_policy_arns_binding = args.managed_policy_arns.get_inner();
-        let name_binding = args.name.get_inner();
+        let duration_seconds_binding = args
+            .duration_seconds
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let managed_policy_arns_binding = args
+            .managed_policy_arns
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let require_instance_properties_binding = args
             .require_instance_properties
+            .get_output(context)
             .get_inner();
-        let role_arns_binding = args.role_arns.get_inner();
-        let session_policy_binding = args.session_policy.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let role_arns_binding = args.role_arns.get_output(context).get_inner();
+        let session_policy_binding = args.session_policy.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rolesanywhere/profile:Profile".into(),
             name: name.to_string(),
@@ -184,7 +195,7 @@ pub mod profile {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

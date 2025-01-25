@@ -160,35 +160,35 @@
 /// ```
 ///
 pub mod developer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeveloperArgs {
         /// Developer attributes (name/value pairs). The custom attribute limit is 18.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub attributes: pulumi_wasm_rust::Output<
+        pub attributes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::apigee::DeveloperAttribute>>,
         >,
         /// Email address of the developer. This value is used to uniquely identify the developer in Apigee hybrid. Note that the email address has to be in lowercase only..
         #[builder(into)]
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_wasm_rust::InputOrOutput<String>,
         /// First name of the developer.
         #[builder(into)]
-        pub first_name: pulumi_wasm_rust::Output<String>,
+        pub first_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Last name of the developer.
         #[builder(into)]
-        pub last_name: pulumi_wasm_rust::Output<String>,
+        pub last_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Apigee Organization associated with the Apigee instance,
         /// in the format `organizations/{{org_name}}`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// User name of the developer. Not used by Apigee hybrid.
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DeveloperResult {
@@ -224,15 +224,19 @@ pub mod developer {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DeveloperArgs) -> DeveloperResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DeveloperArgs,
+    ) -> DeveloperResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attributes_binding = args.attributes.get_inner();
-        let email_binding = args.email.get_inner();
-        let first_name_binding = args.first_name.get_inner();
-        let last_name_binding = args.last_name.get_inner();
-        let org_id_binding = args.org_id.get_inner();
-        let user_name_binding = args.user_name.get_inner();
+        let attributes_binding = args.attributes.get_output(context).get_inner();
+        let email_binding = args.email.get_output(context).get_inner();
+        let first_name_binding = args.first_name.get_output(context).get_inner();
+        let last_name_binding = args.last_name.get_output(context).get_inner();
+        let org_id_binding = args.org_id.get_output(context).get_inner();
+        let user_name_binding = args.user_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/developer:Developer".into(),
             name: name.to_string(),
@@ -296,7 +300,7 @@ pub mod developer {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

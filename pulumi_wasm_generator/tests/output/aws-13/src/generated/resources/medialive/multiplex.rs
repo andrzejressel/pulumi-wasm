@@ -37,29 +37,29 @@
 /// $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
 /// ```
 pub mod multiplex {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MultiplexArgs {
         /// A list of availability zones. You must specify exactly two.
         #[builder(into)]
-        pub availability_zones: pulumi_wasm_rust::Output<Vec<String>>,
+        pub availability_zones: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Multiplex settings. See Multiplex Settings for more details.
         #[builder(into, default)]
-        pub multiplex_settings: pulumi_wasm_rust::Output<
+        pub multiplex_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::medialive::MultiplexMultiplexSettings>,
         >,
         /// name of Multiplex.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to start the Multiplex. Defaults to `false`.
         #[builder(into, default)]
-        pub start_multiplex: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start_multiplex: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -91,14 +91,27 @@ pub mod multiplex {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MultiplexArgs) -> MultiplexResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MultiplexArgs,
+    ) -> MultiplexResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let availability_zones_binding = args.availability_zones.get_inner();
-        let multiplex_settings_binding = args.multiplex_settings.get_inner();
-        let name_binding = args.name.get_inner();
-        let start_multiplex_binding = args.start_multiplex.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let availability_zones_binding = args
+            .availability_zones
+            .get_output(context)
+            .get_inner();
+        let multiplex_settings_binding = args
+            .multiplex_settings
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let start_multiplex_binding = args
+            .start_multiplex
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:medialive/multiplex:Multiplex".into(),
             name: name.to_string(),
@@ -149,7 +162,7 @@ pub mod multiplex {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

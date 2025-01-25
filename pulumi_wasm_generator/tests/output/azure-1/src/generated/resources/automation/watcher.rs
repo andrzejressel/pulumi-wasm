@@ -64,42 +64,42 @@
 /// ```
 ///
 pub mod watcher {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WatcherArgs {
         /// The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
         #[builder(into)]
-        pub automation_account_id: pulumi_wasm_rust::Output<String>,
+        pub automation_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A description of this Automation Watcher.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A string of etag assigned to this Automation Watcher.
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::Output<Option<String>>,
+        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specify the frequency at which the watcher is invoked.
         #[builder(into)]
-        pub execution_frequency_in_seconds: pulumi_wasm_rust::Output<i32>,
+        pub execution_frequency_in_seconds: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The Azure Region where the Automation Watcher should exist. Changing this forces a new Automation Watcher to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Automation Watcher. Changing this forces a new Automation Watcher to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created.
         #[builder(into)]
-        pub script_name: pulumi_wasm_rust::Output<String>,
+        pub script_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created.
         #[builder(into, default)]
-        pub script_parameters: pulumi_wasm_rust::Output<
+        pub script_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specify the name of the Hybrid work group the watcher will run on.
         #[builder(into)]
-        pub script_run_on: pulumi_wasm_rust::Output<String>,
+        pub script_run_on: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Automation Watcher.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -136,21 +136,32 @@ pub mod watcher {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WatcherArgs) -> WatcherResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WatcherArgs,
+    ) -> WatcherResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let automation_account_id_binding = args.automation_account_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let etag_binding = args.etag.get_inner();
+        let automation_account_id_binding = args
+            .automation_account_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let etag_binding = args.etag.get_output(context).get_inner();
         let execution_frequency_in_seconds_binding = args
             .execution_frequency_in_seconds
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let script_name_binding = args.script_name.get_inner();
-        let script_parameters_binding = args.script_parameters.get_inner();
-        let script_run_on_binding = args.script_run_on.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let script_name_binding = args.script_name.get_output(context).get_inner();
+        let script_parameters_binding = args
+            .script_parameters
+            .get_output(context)
+            .get_inner();
+        let script_run_on_binding = args.script_run_on.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/watcher:Watcher".into(),
             name: name.to_string(),
@@ -233,7 +244,7 @@ pub mod watcher {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

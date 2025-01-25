@@ -181,25 +181,25 @@
 /// ```
 ///
 pub mod network_manager_deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkManagerDeploymentArgs {
         /// A list of Network Manager Configuration IDs which should be aligned with `scope_access`.
         #[builder(into)]
-        pub configuration_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub configuration_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Specifies the location which the configurations will be deployed to. Changing this forces a new Network Manager Deployment to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Deployment to be created.
         #[builder(into)]
-        pub network_manager_id: pulumi_wasm_rust::Output<String>,
+        pub network_manager_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
         #[builder(into)]
-        pub scope_access: pulumi_wasm_rust::Output<String>,
+        pub scope_access: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of key values pairs that can be used to keep the deployment up with the Network Manager configurations and rules.
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -223,16 +223,23 @@ pub mod network_manager_deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NetworkManagerDeploymentArgs,
     ) -> NetworkManagerDeploymentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let configuration_ids_binding = args.configuration_ids.get_inner();
-        let location_binding = args.location.get_inner();
-        let network_manager_id_binding = args.network_manager_id.get_inner();
-        let scope_access_binding = args.scope_access.get_inner();
-        let triggers_binding = args.triggers.get_inner();
+        let configuration_ids_binding = args
+            .configuration_ids
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let network_manager_id_binding = args
+            .network_manager_id
+            .get_output(context)
+            .get_inner();
+        let scope_access_binding = args.scope_access.get_output(context).get_inner();
+        let triggers_binding = args.triggers.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkManagerDeployment:NetworkManagerDeployment"
                 .into(),
@@ -278,7 +285,7 @@ pub mod network_manager_deployment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

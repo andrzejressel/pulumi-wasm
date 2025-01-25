@@ -25,22 +25,22 @@
 /// ```
 ///
 pub mod zone_hold {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZoneHoldArgs {
         /// Enablement status of the zone hold.
         #[builder(into)]
-        pub hold: pulumi_wasm_rust::Output<bool>,
+        pub hold: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The RFC3339 compatible timestamp when to automatically re-enable the zone hold.
         #[builder(into, default)]
-        pub hold_after: pulumi_wasm_rust::Output<Option<String>>,
+        pub hold_after: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to extend to block any subdomain of the given zone.
         #[builder(into, default)]
-        pub include_subdomains: pulumi_wasm_rust::Output<Option<bool>>,
+        pub include_subdomains: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The zone identifier to target for the resource.
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZoneHoldResult {
@@ -57,13 +57,20 @@ pub mod zone_hold {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ZoneHoldArgs) -> ZoneHoldResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ZoneHoldArgs,
+    ) -> ZoneHoldResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let hold_binding = args.hold.get_inner();
-        let hold_after_binding = args.hold_after.get_inner();
-        let include_subdomains_binding = args.include_subdomains.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let hold_binding = args.hold.get_output(context).get_inner();
+        let hold_after_binding = args.hold_after.get_output(context).get_inner();
+        let include_subdomains_binding = args
+            .include_subdomains
+            .get_output(context)
+            .get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zoneHold:ZoneHold".into(),
             name: name.to_string(),
@@ -101,7 +108,7 @@ pub mod zone_hold {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -68,19 +68,19 @@
 ///   cloud9PublicIp: ${cloud9Eip.publicIp}
 /// ```
 pub mod environment_ec_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentEC2Args {
         /// The number of minutes until the running instance is shut down after the environment has last been used.
         #[builder(into, default)]
-        pub automatic_stop_time_minutes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub automatic_stop_time_minutes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The connection type used for connecting to an Amazon EC2 environment. Valid values are `CONNECT_SSH` and `CONNECT_SSM`. For more information please refer [AWS documentation for Cloud9](https://docs.aws.amazon.com/cloud9/latest/user-guide/ec2-ssm.html).
         #[builder(into, default)]
-        pub connection_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub connection_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description of the environment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
         /// * `amazonlinux-2-x86_64`
         /// * `amazonlinux-2023-x86_64`
@@ -91,22 +91,22 @@ pub mod environment_ec_2 {
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64`
         /// * `resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64`
         #[builder(into)]
-        pub image_id: pulumi_wasm_rust::Output<String>,
+        pub image_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of instance to connect to the environment, e.g., `t2.micro`.
         #[builder(into)]
-        pub instance_type: pulumi_wasm_rust::Output<String>,
+        pub instance_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the environment.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         #[builder(into, default)]
-        pub owner_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub owner_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
         #[builder(into, default)]
-        pub subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -153,20 +153,28 @@ pub mod environment_ec_2 {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EnvironmentEC2Args) -> EnvironmentEC2Result {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EnvironmentEC2Args,
+    ) -> EnvironmentEC2Result {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let automatic_stop_time_minutes_binding = args
             .automatic_stop_time_minutes
+            .get_output(context)
             .get_inner();
-        let connection_type_binding = args.connection_type.get_inner();
-        let description_binding = args.description.get_inner();
-        let image_id_binding = args.image_id.get_inner();
-        let instance_type_binding = args.instance_type.get_inner();
-        let name_binding = args.name.get_inner();
-        let owner_arn_binding = args.owner_arn.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let connection_type_binding = args
+            .connection_type
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let image_id_binding = args.image_id.get_output(context).get_inner();
+        let instance_type_binding = args.instance_type.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let owner_arn_binding = args.owner_arn.get_output(context).get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloud9/environmentEC2:EnvironmentEC2".into(),
             name: name.to_string(),
@@ -248,7 +256,7 @@ pub mod environment_ec_2 {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -30,48 +30,52 @@
 /// $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
 /// ```
 pub mod image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ImageArgs {
         /// Amazon Resource Name (ARN) of the container recipe.
         #[builder(into, default)]
-        pub container_recipe_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub container_recipe_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         #[builder(into, default)]
-        pub distribution_configuration_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub distribution_configuration_arn: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Whether additional information about the image being created is collected. Defaults to `true`.
         #[builder(into, default)]
-        pub enhanced_image_metadata_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enhanced_image_metadata_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         #[builder(into, default)]
-        pub execution_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub execution_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of the image recipe.
         #[builder(into, default)]
-        pub image_recipe_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_recipe_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block with image scanning configuration. Detailed below.
         #[builder(into, default)]
-        pub image_scanning_configuration: pulumi_wasm_rust::Output<
+        pub image_scanning_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::imagebuilder::ImageImageScanningConfiguration>,
         >,
         /// Configuration block with image tests configuration. Detailed below.
         #[builder(into, default)]
-        pub image_tests_configuration: pulumi_wasm_rust::Output<
+        pub image_tests_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::imagebuilder::ImageImageTestsConfiguration>,
         >,
         /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub infrastructure_configuration_arn: pulumi_wasm_rust::Output<String>,
+        pub infrastructure_configuration_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block with the workflow configuration. Detailed below.
         #[builder(into, default)]
-        pub workflows: pulumi_wasm_rust::Output<
+        pub workflows: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::imagebuilder::ImageWorkflow>>,
         >,
     }
@@ -132,29 +136,44 @@ pub mod image {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ImageArgs) -> ImageResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ImageArgs,
+    ) -> ImageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let container_recipe_arn_binding = args.container_recipe_arn.get_inner();
+        let container_recipe_arn_binding = args
+            .container_recipe_arn
+            .get_output(context)
+            .get_inner();
         let distribution_configuration_arn_binding = args
             .distribution_configuration_arn
+            .get_output(context)
             .get_inner();
         let enhanced_image_metadata_enabled_binding = args
             .enhanced_image_metadata_enabled
+            .get_output(context)
             .get_inner();
-        let execution_role_binding = args.execution_role.get_inner();
-        let image_recipe_arn_binding = args.image_recipe_arn.get_inner();
+        let execution_role_binding = args.execution_role.get_output(context).get_inner();
+        let image_recipe_arn_binding = args
+            .image_recipe_arn
+            .get_output(context)
+            .get_inner();
         let image_scanning_configuration_binding = args
             .image_scanning_configuration
+            .get_output(context)
             .get_inner();
         let image_tests_configuration_binding = args
             .image_tests_configuration
+            .get_output(context)
             .get_inner();
         let infrastructure_configuration_arn_binding = args
             .infrastructure_configuration_arn
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let workflows_binding = args.workflows.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let workflows_binding = args.workflows.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:imagebuilder/image:Image".into(),
             name: name.to_string(),
@@ -258,7 +277,7 @@ pub mod image {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

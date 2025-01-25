@@ -1,14 +1,14 @@
 pub mod get_budget_resource_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBudgetResourceGroupArgs {
         /// The name of this Consumption Budget.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the subscription.
         #[builder(into)]
-        pub resource_group_id: pulumi_wasm_rust::Output<String>,
+        pub resource_group_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetBudgetResourceGroupResult {
@@ -42,11 +42,17 @@ pub mod get_budget_resource_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetBudgetResourceGroupArgs) -> GetBudgetResourceGroupResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetBudgetResourceGroupArgs,
+    ) -> GetBudgetResourceGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let resource_group_id_binding = args.resource_group_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_id_binding = args
+            .resource_group_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup"
                 .into(),
@@ -88,7 +94,7 @@ pub mod get_budget_resource_group {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

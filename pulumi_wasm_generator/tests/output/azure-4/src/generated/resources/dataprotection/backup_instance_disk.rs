@@ -72,28 +72,28 @@
 /// ```
 ///
 pub mod backup_instance_disk {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupInstanceDiskArgs {
         /// The ID of the Backup Policy.
         #[builder(into)]
-        pub backup_policy_id: pulumi_wasm_rust::Output<String>,
+        pub backup_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the source Disk. Changing this forces a new Backup Instance Disk to be created.
         #[builder(into)]
-        pub disk_id: pulumi_wasm_rust::Output<String>,
+        pub disk_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Azure Region where the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Backup Instance Disk. Changing this forces a new Backup Instance Disk to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where snapshots are stored. Changing this forces a new Backup Instance Disk to be created.
         #[builder(into)]
-        pub snapshot_resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub snapshot_resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Backup Vault within which the Backup Instance Disk should exist. Changing this forces a new Backup Instance Disk to be created.
         #[builder(into)]
-        pub vault_id: pulumi_wasm_rust::Output<String>,
+        pub vault_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackupInstanceDiskResult {
@@ -114,17 +114,25 @@ pub mod backup_instance_disk {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BackupInstanceDiskArgs) -> BackupInstanceDiskResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BackupInstanceDiskArgs,
+    ) -> BackupInstanceDiskResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backup_policy_id_binding = args.backup_policy_id.get_inner();
-        let disk_id_binding = args.disk_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
+        let backup_policy_id_binding = args
+            .backup_policy_id
+            .get_output(context)
+            .get_inner();
+        let disk_id_binding = args.disk_id.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let snapshot_resource_group_name_binding = args
             .snapshot_resource_group_name
+            .get_output(context)
             .get_inner();
-        let vault_id_binding = args.vault_id.get_inner();
+        let vault_id_binding = args.vault_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dataprotection/backupInstanceDisk:BackupInstanceDisk".into(),
             name: name.to_string(),
@@ -176,7 +184,7 @@ pub mod backup_instance_disk {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

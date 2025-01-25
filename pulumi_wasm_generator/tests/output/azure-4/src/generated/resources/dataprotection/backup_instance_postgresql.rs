@@ -139,30 +139,30 @@
 /// ```
 ///
 pub mod backup_instance_postgresql {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupInstancePostgresqlArgs {
         /// The ID of the Backup Policy.
         #[builder(into)]
-        pub backup_policy_id: pulumi_wasm_rust::Output<String>,
+        pub backup_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID or versionless ID of the key vault secret which stores the connection string of the database.
         #[builder(into, default)]
-        pub database_credential_key_vault_secret_id: pulumi_wasm_rust::Output<
+        pub database_credential_key_vault_secret_id: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         #[builder(into)]
-        pub database_id: pulumi_wasm_rust::Output<String>,
+        pub database_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created.
         #[builder(into)]
-        pub vault_id: pulumi_wasm_rust::Output<String>,
+        pub vault_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackupInstancePostgresqlResult {
@@ -186,19 +186,24 @@ pub mod backup_instance_postgresql {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BackupInstancePostgresqlArgs,
     ) -> BackupInstancePostgresqlResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backup_policy_id_binding = args.backup_policy_id.get_inner();
+        let backup_policy_id_binding = args
+            .backup_policy_id
+            .get_output(context)
+            .get_inner();
         let database_credential_key_vault_secret_id_binding = args
             .database_credential_key_vault_secret_id
+            .get_output(context)
             .get_inner();
-        let database_id_binding = args.database_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let vault_id_binding = args.vault_id.get_inner();
+        let database_id_binding = args.database_id.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let vault_id_binding = args.vault_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql"
                 .into(),
@@ -251,7 +256,7 @@ pub mod backup_instance_postgresql {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

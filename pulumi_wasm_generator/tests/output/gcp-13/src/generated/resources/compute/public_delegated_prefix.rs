@@ -70,22 +70,22 @@
 /// ```
 ///
 pub mod public_delegated_prefix {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PublicDelegatedPrefixArgs {
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IPv4 address range, in CIDR format, represented by this public advertised prefix.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub ip_cidr_range: pulumi_wasm_rust::Output<String>,
+        pub ip_cidr_range: pulumi_wasm_rust::InputOrOutput<String>,
         /// If true, the prefix will be live migrated.
         #[builder(into, default)]
-        pub is_live_migration: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_live_migration: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the resource. The name must be 1-63 characters long, and
         /// comply with RFC1035. Specifically, the name must be 1-63 characters
         /// long and match the regular expression `a-z?`
@@ -93,17 +93,17 @@ pub mod public_delegated_prefix {
         /// following characters must be a dash, lowercase letter, or digit,
         /// except the last character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URL of parent prefix. Either PublicAdvertisedPrefix or PublicDelegatedPrefix.
         #[builder(into)]
-        pub parent_prefix: pulumi_wasm_rust::Output<String>,
+        pub parent_prefix: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A region where the prefix will reside.
         #[builder(into)]
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PublicDelegatedPrefixResult {
@@ -138,18 +138,22 @@ pub mod public_delegated_prefix {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PublicDelegatedPrefixArgs,
     ) -> PublicDelegatedPrefixResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let ip_cidr_range_binding = args.ip_cidr_range.get_inner();
-        let is_live_migration_binding = args.is_live_migration.get_inner();
-        let name_binding = args.name.get_inner();
-        let parent_prefix_binding = args.parent_prefix.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let ip_cidr_range_binding = args.ip_cidr_range.get_output(context).get_inner();
+        let is_live_migration_binding = args
+            .is_live_migration
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parent_prefix_binding = args.parent_prefix.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/publicDelegatedPrefix:PublicDelegatedPrefix".into(),
             name: name.to_string(),
@@ -211,7 +215,7 @@ pub mod public_delegated_prefix {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

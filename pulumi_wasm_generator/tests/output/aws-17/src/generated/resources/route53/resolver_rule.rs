@@ -61,32 +61,32 @@
 /// $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
 /// ```
 pub mod resolver_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverRuleArgs {
         /// DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
         /// This argument should only be specified for `FORWARD` type rules.
         #[builder(into, default)]
-        pub resolver_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub resolver_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         #[builder(into)]
-        pub rule_type: pulumi_wasm_rust::Output<String>,
+        pub rule_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block(s) indicating the IPs that you want Resolver to forward DNS queries to (documented below).
         /// This argument should only be specified for `FORWARD` type rules.
         #[builder(into, default)]
-        pub target_ips: pulumi_wasm_rust::Output<
+        pub target_ips: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::route53::ResolverRuleTargetIp>>,
         >,
     }
@@ -126,15 +126,22 @@ pub mod resolver_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ResolverRuleArgs) -> ResolverRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ResolverRuleArgs,
+    ) -> ResolverRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let resolver_endpoint_id_binding = args.resolver_endpoint_id.get_inner();
-        let rule_type_binding = args.rule_type.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_ips_binding = args.target_ips.get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resolver_endpoint_id_binding = args
+            .resolver_endpoint_id
+            .get_output(context)
+            .get_inner();
+        let rule_type_binding = args.rule_type.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_ips_binding = args.target_ips.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/resolverRule:ResolverRule".into(),
             name: name.to_string(),
@@ -198,7 +205,7 @@ pub mod resolver_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

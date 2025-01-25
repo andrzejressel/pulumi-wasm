@@ -313,10 +313,10 @@ impl Pulumi {
         Ok(())
     }
 
-    pub async fn start(&mut self) -> Result<(), Error> {
+    pub async fn start(&mut self, in_preview: bool) -> Result<(), Error> {
         self.plugin
             .component_pulumi_wasm_external_pulumi_main()
-            .call_main(&mut self.store)
+            .call_main(&mut self.store, in_preview)
             .await?;
 
         Ok(())

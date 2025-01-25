@@ -64,221 +64,229 @@
 /// ```
 ///
 pub mod container {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContainerArgs {
         /// If `true` attach to the container after its creation and waits the end of its execution. Defaults to `false`.
         #[builder(into, default)]
-        pub attach: pulumi_wasm_rust::Output<Option<bool>>,
+        pub attach: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Add or drop certrain linux capabilities.
         #[builder(into, default)]
-        pub capabilities: pulumi_wasm_rust::Output<
+        pub capabilities: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ContainerCapabilities>,
         >,
         /// Cgroup namespace mode to use for the container. Possible values are: `private`, `host`.
         #[builder(into, default)]
-        pub cgroupns_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub cgroupns_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The command to use to start the container. For example, to run `/usr/bin/myprogram -f baz.conf` set the command to be `["/usr/bin/myprogram","-f","baz.con"]`.
         #[builder(into, default)]
-        pub command: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub command: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The total number of milliseconds to wait for the container to reach status 'running'
         #[builder(into, default)]
-        pub container_read_refresh_timeout_milliseconds: pulumi_wasm_rust::Output<
+        pub container_read_refresh_timeout_milliseconds: pulumi_wasm_rust::InputOrOutput<
             Option<i32>,
         >,
         /// A comma-separated list or hyphen-separated range of CPUs a container can use, e.g. `0-1`.
         #[builder(into, default)]
-        pub cpu_set: pulumi_wasm_rust::Output<Option<String>>,
+        pub cpu_set: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// CPU shares (relative weight) for the container.
         #[builder(into, default)]
-        pub cpu_shares: pulumi_wasm_rust::Output<Option<i32>>,
+        pub cpu_shares: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// If defined will attempt to stop the container before destroying. Container will be destroyed after `n` seconds or on successful stop.
         #[builder(into, default)]
-        pub destroy_grace_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub destroy_grace_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Bind devices to the container.
         #[builder(into, default)]
-        pub devices: pulumi_wasm_rust::Output<
+        pub devices: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::ContainerDevice>>,
         >,
         /// DNS servers to use.
         #[builder(into, default)]
-        pub dns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// DNS options used by the DNS provider(s), see `resolv.conf` documentation for valid list of options.
         #[builder(into, default)]
-        pub dns_opts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns_opts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// DNS search domains that are used when bare unqualified hostnames are used inside of the container.
         #[builder(into, default)]
-        pub dns_searches: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns_searches: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Domain name of the container.
         #[builder(into, default)]
-        pub domainname: pulumi_wasm_rust::Output<Option<String>>,
+        pub domainname: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The command to use as the Entrypoint for the container. The Entrypoint allows you to configure a container to run as an executable. For example, to run `/usr/bin/myprogram` when starting a container, set the entrypoint to be `"/usr/bin/myprogra"]`.
         #[builder(into, default)]
-        pub entrypoints: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub entrypoints: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Environment variables to set in the form of `KEY=VALUE`, e.g. `DEBUG=0`
         #[builder(into, default)]
-        pub envs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub envs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// GPU devices to add to the container. Currently, only the value `all` is supported. Passing any other value will result in unexpected behavior.
         #[builder(into, default)]
-        pub gpus: pulumi_wasm_rust::Output<Option<String>>,
+        pub gpus: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Additional groups for the container user
         #[builder(into, default)]
-        pub group_adds: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub group_adds: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A test to perform to check that the container is healthy
         #[builder(into, default)]
-        pub healthcheck: pulumi_wasm_rust::Output<
+        pub healthcheck: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ContainerHealthcheck>,
         >,
         /// Hostname of the container.
         #[builder(into, default)]
-        pub hostname: pulumi_wasm_rust::Output<Option<String>>,
+        pub hostname: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Hostname to add
         #[builder(into, default)]
-        pub hosts: pulumi_wasm_rust::Output<Option<Vec<super::types::ContainerHost>>>,
+        pub hosts: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<super::types::ContainerHost>>,
+        >,
         /// The ID of the image to back this container. The easiest way to get this value is to use the `docker.RemoteImage` resource as is shown in the example.
         #[builder(into)]
-        pub image: pulumi_wasm_rust::Output<String>,
+        pub image: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configured whether an init process should be injected for this container. If unset this will default to the `dockerd` defaults.
         #[builder(into, default)]
-        pub init: pulumi_wasm_rust::Output<Option<bool>>,
+        pub init: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// IPC sharing mode for the container. Possible values are: `none`, `private`, `shareable`, `container:<name|id>` or `host`.
         #[builder(into, default)]
-        pub ipc_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipc_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User-defined key/value metadata.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<Option<Vec<super::types::ContainerLabel>>>,
+        pub labels: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<super::types::ContainerLabel>>,
+        >,
         /// The logging driver to use for the container.
         #[builder(into, default)]
-        pub log_driver: pulumi_wasm_rust::Output<Option<String>>,
+        pub log_driver: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key/value pairs to use as options for the logging driver.
         #[builder(into, default)]
-        pub log_opts: pulumi_wasm_rust::Output<
+        pub log_opts: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Save the container logs (`attach` must be enabled). Defaults to `false`.
         #[builder(into, default)]
-        pub logs: pulumi_wasm_rust::Output<Option<bool>>,
+        pub logs: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The maximum amount of times to an attempt a restart when `restart` is set to 'on-failure'.
         #[builder(into, default)]
-        pub max_retry_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_retry_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The memory limit for the container in MBs.
         #[builder(into, default)]
-        pub memory: pulumi_wasm_rust::Output<Option<i32>>,
+        pub memory: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The total memory limit (memory + swap) for the container in MBs. This setting may compute to `-1` after `pulumi up` if the target host doesn't support memory swap, when that is the case docker will use a soft limitation.
         #[builder(into, default)]
-        pub memory_swap: pulumi_wasm_rust::Output<Option<i32>>,
+        pub memory_swap: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specification for mounts to be added to containers created as part of the service.
         #[builder(into, default)]
-        pub mounts: pulumi_wasm_rust::Output<Option<Vec<super::types::ContainerMount>>>,
+        pub mounts: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<super::types::ContainerMount>>,
+        >,
         /// If `true`, then the Docker container will be kept running. If `false`, then as long as the container exists, Terraform
         /// assumes it is successful. Defaults to `true`.
         #[builder(into, default)]
-        pub must_run: pulumi_wasm_rust::Output<Option<bool>>,
+        pub must_run: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name or id of the network to use. You can use `name` or `id` attribute from a `docker.Network` resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Network mode of the container.
         #[builder(into, default)]
-        pub network_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The networks the container is attached to
         #[builder(into, default)]
-        pub networks_advanced: pulumi_wasm_rust::Output<
+        pub networks_advanced: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::ContainerNetworksAdvanced>>,
         >,
         /// he PID (Process) Namespace mode for the container. Either `container:<name|id>` or `host`.
         #[builder(into, default)]
-        pub pid_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub pid_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Publish a container's port(s) to the host.
         #[builder(into, default)]
-        pub ports: pulumi_wasm_rust::Output<Option<Vec<super::types::ContainerPort>>>,
+        pub ports: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<super::types::ContainerPort>>,
+        >,
         /// If `true`, the container runs in privileged mode.
         #[builder(into, default)]
-        pub privileged: pulumi_wasm_rust::Output<Option<bool>>,
+        pub privileged: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Publish all ports of the container.
         #[builder(into, default)]
-        pub publish_all_ports: pulumi_wasm_rust::Output<Option<bool>>,
+        pub publish_all_ports: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether the mount should be read-only.
         #[builder(into, default)]
-        pub read_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub read_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If `true`, it will remove anonymous volumes associated with the container. Defaults to `true`.
         #[builder(into, default)]
-        pub remove_volumes: pulumi_wasm_rust::Output<Option<bool>>,
+        pub remove_volumes: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The restart policy for the container. Must be one of 'no', 'on-failure', 'always', 'unless-stopped'. Defaults to `no`.
         #[builder(into, default)]
-        pub restart: pulumi_wasm_rust::Output<Option<String>>,
+        pub restart: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If `true`, then the container will be automatically removed when it exits. Defaults to `false`.
         #[builder(into, default)]
-        pub rm: pulumi_wasm_rust::Output<Option<bool>>,
+        pub rm: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Runtime to use for the container.
         #[builder(into, default)]
-        pub runtime: pulumi_wasm_rust::Output<Option<String>>,
+        pub runtime: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of string values to customize labels for MLS systems, such as SELinux. See https://docs.docker.com/engine/reference/run/#security-configuration.
         #[builder(into, default)]
-        pub security_opts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub security_opts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Size of `/dev/shm` in MBs.
         #[builder(into, default)]
-        pub shm_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub shm_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// If `true`, then the Docker container will be started after creation. If `false`, then the container is only created. Defaults to `true`.
         #[builder(into, default)]
-        pub start: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If `true`, keep STDIN open even if not attached (`docker run -i`). Defaults to `false`.
         #[builder(into, default)]
-        pub stdin_open: pulumi_wasm_rust::Output<Option<bool>>,
+        pub stdin_open: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Signal to stop a container (default `SIGTERM`).
         #[builder(into, default)]
-        pub stop_signal: pulumi_wasm_rust::Output<Option<String>>,
+        pub stop_signal: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Timeout (in seconds) to stop a container.
         #[builder(into, default)]
-        pub stop_timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub stop_timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Key/value pairs for the storage driver options, e.g. `size`: `120G`
         #[builder(into, default)]
-        pub storage_opts: pulumi_wasm_rust::Output<
+        pub storage_opts: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of kernel parameters (sysctls) to set in the container.
         #[builder(into, default)]
-        pub sysctls: pulumi_wasm_rust::Output<
+        pub sysctls: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of container directories which should be replaced by `tmpfs mounts`, and their corresponding mount options.
         #[builder(into, default)]
-        pub tmpfs: pulumi_wasm_rust::Output<
+        pub tmpfs: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// If `true`, allocate a pseudo-tty (`docker run -t`). Defaults to `false`.
         #[builder(into, default)]
-        pub tty: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tty: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Ulimit options to add.
         #[builder(into, default)]
-        pub ulimits: pulumi_wasm_rust::Output<
+        pub ulimits: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::ContainerUlimit>>,
         >,
         /// Specifies files to upload to the container before starting it. Only one of `content` or `content_base64` can be set and at least one of them has to be set.
         #[builder(into, default)]
-        pub uploads: pulumi_wasm_rust::Output<
+        pub uploads: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::ContainerUpload>>,
         >,
         /// User used for run the first process. Format is `user` or `user:group` which user and group can be passed literraly or by name.
         #[builder(into, default)]
-        pub user: pulumi_wasm_rust::Output<Option<String>>,
+        pub user: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Sets the usernamespace mode for the container when usernamespace remapping option is enabled.
         #[builder(into, default)]
-        pub userns_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub userns_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Spec for mounting volumes in the container.
         #[builder(into, default)]
-        pub volumes: pulumi_wasm_rust::Output<
+        pub volumes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::ContainerVolume>>,
         >,
         /// If `true`, then the Docker container is waited for being healthy state after creation. If `false`, then the container health state is not checked. Defaults to `false`.
         #[builder(into, default)]
-        pub wait: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The timeout in seconds to wait the container to be healthy after creation. Defaults to `60`.
         #[builder(into, default)]
-        pub wait_timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub wait_timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The working directory for commands to run in.
         #[builder(into, default)]
-        pub working_dir: pulumi_wasm_rust::Output<Option<String>>,
+        pub working_dir: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ContainerResult {
@@ -446,73 +454,90 @@ pub mod container {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ContainerArgs) -> ContainerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ContainerArgs,
+    ) -> ContainerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attach_binding = args.attach.get_inner();
-        let capabilities_binding = args.capabilities.get_inner();
-        let cgroupns_mode_binding = args.cgroupns_mode.get_inner();
-        let command_binding = args.command.get_inner();
+        let attach_binding = args.attach.get_output(context).get_inner();
+        let capabilities_binding = args.capabilities.get_output(context).get_inner();
+        let cgroupns_mode_binding = args.cgroupns_mode.get_output(context).get_inner();
+        let command_binding = args.command.get_output(context).get_inner();
         let container_read_refresh_timeout_milliseconds_binding = args
             .container_read_refresh_timeout_milliseconds
+            .get_output(context)
             .get_inner();
-        let cpu_set_binding = args.cpu_set.get_inner();
-        let cpu_shares_binding = args.cpu_shares.get_inner();
-        let destroy_grace_seconds_binding = args.destroy_grace_seconds.get_inner();
-        let devices_binding = args.devices.get_inner();
-        let dns_binding = args.dns.get_inner();
-        let dns_opts_binding = args.dns_opts.get_inner();
-        let dns_searches_binding = args.dns_searches.get_inner();
-        let domainname_binding = args.domainname.get_inner();
-        let entrypoints_binding = args.entrypoints.get_inner();
-        let envs_binding = args.envs.get_inner();
-        let gpus_binding = args.gpus.get_inner();
-        let group_adds_binding = args.group_adds.get_inner();
-        let healthcheck_binding = args.healthcheck.get_inner();
-        let hostname_binding = args.hostname.get_inner();
-        let hosts_binding = args.hosts.get_inner();
-        let image_binding = args.image.get_inner();
-        let init_binding = args.init.get_inner();
-        let ipc_mode_binding = args.ipc_mode.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let log_driver_binding = args.log_driver.get_inner();
-        let log_opts_binding = args.log_opts.get_inner();
-        let logs_binding = args.logs.get_inner();
-        let max_retry_count_binding = args.max_retry_count.get_inner();
-        let memory_binding = args.memory.get_inner();
-        let memory_swap_binding = args.memory_swap.get_inner();
-        let mounts_binding = args.mounts.get_inner();
-        let must_run_binding = args.must_run.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_mode_binding = args.network_mode.get_inner();
-        let networks_advanced_binding = args.networks_advanced.get_inner();
-        let pid_mode_binding = args.pid_mode.get_inner();
-        let ports_binding = args.ports.get_inner();
-        let privileged_binding = args.privileged.get_inner();
-        let publish_all_ports_binding = args.publish_all_ports.get_inner();
-        let read_only_binding = args.read_only.get_inner();
-        let remove_volumes_binding = args.remove_volumes.get_inner();
-        let restart_binding = args.restart.get_inner();
-        let rm_binding = args.rm.get_inner();
-        let runtime_binding = args.runtime.get_inner();
-        let security_opts_binding = args.security_opts.get_inner();
-        let shm_size_binding = args.shm_size.get_inner();
-        let start_binding = args.start.get_inner();
-        let stdin_open_binding = args.stdin_open.get_inner();
-        let stop_signal_binding = args.stop_signal.get_inner();
-        let stop_timeout_binding = args.stop_timeout.get_inner();
-        let storage_opts_binding = args.storage_opts.get_inner();
-        let sysctls_binding = args.sysctls.get_inner();
-        let tmpfs_binding = args.tmpfs.get_inner();
-        let tty_binding = args.tty.get_inner();
-        let ulimits_binding = args.ulimits.get_inner();
-        let uploads_binding = args.uploads.get_inner();
-        let user_binding = args.user.get_inner();
-        let userns_mode_binding = args.userns_mode.get_inner();
-        let volumes_binding = args.volumes.get_inner();
-        let wait_binding = args.wait.get_inner();
-        let wait_timeout_binding = args.wait_timeout.get_inner();
-        let working_dir_binding = args.working_dir.get_inner();
+        let cpu_set_binding = args.cpu_set.get_output(context).get_inner();
+        let cpu_shares_binding = args.cpu_shares.get_output(context).get_inner();
+        let destroy_grace_seconds_binding = args
+            .destroy_grace_seconds
+            .get_output(context)
+            .get_inner();
+        let devices_binding = args.devices.get_output(context).get_inner();
+        let dns_binding = args.dns.get_output(context).get_inner();
+        let dns_opts_binding = args.dns_opts.get_output(context).get_inner();
+        let dns_searches_binding = args.dns_searches.get_output(context).get_inner();
+        let domainname_binding = args.domainname.get_output(context).get_inner();
+        let entrypoints_binding = args.entrypoints.get_output(context).get_inner();
+        let envs_binding = args.envs.get_output(context).get_inner();
+        let gpus_binding = args.gpus.get_output(context).get_inner();
+        let group_adds_binding = args.group_adds.get_output(context).get_inner();
+        let healthcheck_binding = args.healthcheck.get_output(context).get_inner();
+        let hostname_binding = args.hostname.get_output(context).get_inner();
+        let hosts_binding = args.hosts.get_output(context).get_inner();
+        let image_binding = args.image.get_output(context).get_inner();
+        let init_binding = args.init.get_output(context).get_inner();
+        let ipc_mode_binding = args.ipc_mode.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let log_driver_binding = args.log_driver.get_output(context).get_inner();
+        let log_opts_binding = args.log_opts.get_output(context).get_inner();
+        let logs_binding = args.logs.get_output(context).get_inner();
+        let max_retry_count_binding = args
+            .max_retry_count
+            .get_output(context)
+            .get_inner();
+        let memory_binding = args.memory.get_output(context).get_inner();
+        let memory_swap_binding = args.memory_swap.get_output(context).get_inner();
+        let mounts_binding = args.mounts.get_output(context).get_inner();
+        let must_run_binding = args.must_run.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_mode_binding = args.network_mode.get_output(context).get_inner();
+        let networks_advanced_binding = args
+            .networks_advanced
+            .get_output(context)
+            .get_inner();
+        let pid_mode_binding = args.pid_mode.get_output(context).get_inner();
+        let ports_binding = args.ports.get_output(context).get_inner();
+        let privileged_binding = args.privileged.get_output(context).get_inner();
+        let publish_all_ports_binding = args
+            .publish_all_ports
+            .get_output(context)
+            .get_inner();
+        let read_only_binding = args.read_only.get_output(context).get_inner();
+        let remove_volumes_binding = args.remove_volumes.get_output(context).get_inner();
+        let restart_binding = args.restart.get_output(context).get_inner();
+        let rm_binding = args.rm.get_output(context).get_inner();
+        let runtime_binding = args.runtime.get_output(context).get_inner();
+        let security_opts_binding = args.security_opts.get_output(context).get_inner();
+        let shm_size_binding = args.shm_size.get_output(context).get_inner();
+        let start_binding = args.start.get_output(context).get_inner();
+        let stdin_open_binding = args.stdin_open.get_output(context).get_inner();
+        let stop_signal_binding = args.stop_signal.get_output(context).get_inner();
+        let stop_timeout_binding = args.stop_timeout.get_output(context).get_inner();
+        let storage_opts_binding = args.storage_opts.get_output(context).get_inner();
+        let sysctls_binding = args.sysctls.get_output(context).get_inner();
+        let tmpfs_binding = args.tmpfs.get_output(context).get_inner();
+        let tty_binding = args.tty.get_output(context).get_inner();
+        let ulimits_binding = args.ulimits.get_output(context).get_inner();
+        let uploads_binding = args.uploads.get_output(context).get_inner();
+        let user_binding = args.user.get_output(context).get_inner();
+        let userns_mode_binding = args.userns_mode.get_output(context).get_inner();
+        let volumes_binding = args.volumes.get_output(context).get_inner();
+        let wait_binding = args.wait.get_output(context).get_inner();
+        let wait_timeout_binding = args.wait_timeout.get_output(context).get_inner();
+        let working_dir_binding = args.working_dir.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "docker:index/container:Container".into(),
             name: name.to_string(),
@@ -968,7 +993,7 @@ pub mod container {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

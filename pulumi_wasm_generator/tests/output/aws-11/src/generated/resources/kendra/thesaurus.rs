@@ -25,28 +25,28 @@
 /// $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
 /// ```
 pub mod thesaurus {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ThesaurusArgs {
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The identifier of the index for a thesaurus.
         #[builder(into)]
-        pub index_id: pulumi_wasm_rust::Output<String>,
+        pub index_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name for the thesaurus.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The S3 path where your thesaurus file sits in S3. Detailed below.
         #[builder(into)]
-        pub source_s3_path: pulumi_wasm_rust::Output<
+        pub source_s3_path: pulumi_wasm_rust::InputOrOutput<
             super::super::types::kendra::ThesaurusSourceS3Path,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -80,15 +80,19 @@ pub mod thesaurus {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ThesaurusArgs) -> ThesaurusResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ThesaurusArgs,
+    ) -> ThesaurusResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let index_id_binding = args.index_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let source_s3_path_binding = args.source_s3_path.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let index_id_binding = args.index_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let source_s3_path_binding = args.source_s3_path.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kendra/thesaurus:Thesaurus".into(),
             name: name.to_string(),
@@ -152,7 +156,7 @@ pub mod thesaurus {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

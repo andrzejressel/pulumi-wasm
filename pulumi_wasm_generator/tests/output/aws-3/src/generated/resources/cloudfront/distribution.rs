@@ -217,73 +217,75 @@
 /// $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
 /// ```
 pub mod distribution {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DistributionArgs {
         #[builder(into, default)]
-        pub aliases: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub aliases: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub continuous_deployment_policy_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub continuous_deployment_policy_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         #[builder(into, default)]
-        pub custom_error_responses: pulumi_wasm_rust::Output<
+        pub custom_error_responses: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::cloudfront::DistributionCustomErrorResponse>>,
         >,
         #[builder(into)]
-        pub default_cache_behavior: pulumi_wasm_rust::Output<
+        pub default_cache_behavior: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudfront::DistributionDefaultCacheBehavior,
         >,
         #[builder(into, default)]
-        pub default_root_object: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_root_object: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// `true` if any of the AWS accounts listed as trusted signers have active CloudFront key pairs
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         #[builder(into, default)]
-        pub http_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub http_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub is_ipv6_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_ipv6_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub logging_config: pulumi_wasm_rust::Output<
+        pub logging_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudfront::DistributionLoggingConfig>,
         >,
         #[builder(into, default)]
-        pub ordered_cache_behaviors: pulumi_wasm_rust::Output<
+        pub ordered_cache_behaviors: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::cloudfront::DistributionOrderedCacheBehavior>,
             >,
         >,
         #[builder(into, default)]
-        pub origin_groups: pulumi_wasm_rust::Output<
+        pub origin_groups: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::cloudfront::DistributionOriginGroup>>,
         >,
         #[builder(into)]
-        pub origins: pulumi_wasm_rust::Output<
+        pub origins: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::cloudfront::DistributionOrigin>,
         >,
         #[builder(into, default)]
-        pub price_class: pulumi_wasm_rust::Output<Option<String>>,
+        pub price_class: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub restrictions: pulumi_wasm_rust::Output<
+        pub restrictions: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudfront::DistributionRestrictions,
         >,
         #[builder(into, default)]
-        pub retain_on_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub retain_on_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub staging: pulumi_wasm_rust::Output<Option<bool>>,
+        pub staging: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into)]
-        pub viewer_certificate: pulumi_wasm_rust::Output<
+        pub viewer_certificate: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudfront::DistributionViewerCertificate,
         >,
         #[builder(into, default)]
-        pub wait_for_deployment: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_for_deployment: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub web_acl_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub web_acl_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DistributionResult {
@@ -362,32 +364,61 @@ pub mod distribution {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DistributionArgs) -> DistributionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DistributionArgs,
+    ) -> DistributionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aliases_binding = args.aliases.get_inner();
-        let comment_binding = args.comment.get_inner();
+        let aliases_binding = args.aliases.get_output(context).get_inner();
+        let comment_binding = args.comment.get_output(context).get_inner();
         let continuous_deployment_policy_id_binding = args
             .continuous_deployment_policy_id
+            .get_output(context)
             .get_inner();
-        let custom_error_responses_binding = args.custom_error_responses.get_inner();
-        let default_cache_behavior_binding = args.default_cache_behavior.get_inner();
-        let default_root_object_binding = args.default_root_object.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let http_version_binding = args.http_version.get_inner();
-        let is_ipv6_enabled_binding = args.is_ipv6_enabled.get_inner();
-        let logging_config_binding = args.logging_config.get_inner();
-        let ordered_cache_behaviors_binding = args.ordered_cache_behaviors.get_inner();
-        let origin_groups_binding = args.origin_groups.get_inner();
-        let origins_binding = args.origins.get_inner();
-        let price_class_binding = args.price_class.get_inner();
-        let restrictions_binding = args.restrictions.get_inner();
-        let retain_on_delete_binding = args.retain_on_delete.get_inner();
-        let staging_binding = args.staging.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let viewer_certificate_binding = args.viewer_certificate.get_inner();
-        let wait_for_deployment_binding = args.wait_for_deployment.get_inner();
-        let web_acl_id_binding = args.web_acl_id.get_inner();
+        let custom_error_responses_binding = args
+            .custom_error_responses
+            .get_output(context)
+            .get_inner();
+        let default_cache_behavior_binding = args
+            .default_cache_behavior
+            .get_output(context)
+            .get_inner();
+        let default_root_object_binding = args
+            .default_root_object
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let http_version_binding = args.http_version.get_output(context).get_inner();
+        let is_ipv6_enabled_binding = args
+            .is_ipv6_enabled
+            .get_output(context)
+            .get_inner();
+        let logging_config_binding = args.logging_config.get_output(context).get_inner();
+        let ordered_cache_behaviors_binding = args
+            .ordered_cache_behaviors
+            .get_output(context)
+            .get_inner();
+        let origin_groups_binding = args.origin_groups.get_output(context).get_inner();
+        let origins_binding = args.origins.get_output(context).get_inner();
+        let price_class_binding = args.price_class.get_output(context).get_inner();
+        let restrictions_binding = args.restrictions.get_output(context).get_inner();
+        let retain_on_delete_binding = args
+            .retain_on_delete
+            .get_output(context)
+            .get_inner();
+        let staging_binding = args.staging.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let viewer_certificate_binding = args
+            .viewer_certificate
+            .get_output(context)
+            .get_inner();
+        let wait_for_deployment_binding = args
+            .wait_for_deployment
+            .get_output(context)
+            .get_inner();
+        let web_acl_id_binding = args.web_acl_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/distribution:Distribution".into(),
             name: name.to_string(),
@@ -577,7 +608,7 @@ pub mod distribution {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -11,30 +11,30 @@
 /// $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
 /// ```
 pub mod proxy_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProxyEndpointArgs {
         /// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
         #[builder(into)]
-        pub db_proxy_endpoint_name: pulumi_wasm_rust::Output<String>,
+        pub db_proxy_endpoint_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the DB proxy associated with the DB proxy endpoint that you create.
         #[builder(into)]
-        pub db_proxy_name: pulumi_wasm_rust::Output<String>,
+        pub db_proxy_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
         #[builder(into, default)]
-        pub target_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more VPC security group IDs to associate with the new proxy.
         #[builder(into, default)]
-        pub vpc_security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub vpc_security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// One or more VPC subnet IDs to associate with the new proxy.
         #[builder(into)]
-        pub vpc_subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub vpc_subnet_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct ProxyEndpointResult {
@@ -68,15 +68,25 @@ pub mod proxy_endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProxyEndpointArgs) -> ProxyEndpointResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProxyEndpointArgs,
+    ) -> ProxyEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let db_proxy_endpoint_name_binding = args.db_proxy_endpoint_name.get_inner();
-        let db_proxy_name_binding = args.db_proxy_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_role_binding = args.target_role.get_inner();
-        let vpc_security_group_ids_binding = args.vpc_security_group_ids.get_inner();
-        let vpc_subnet_ids_binding = args.vpc_subnet_ids.get_inner();
+        let db_proxy_endpoint_name_binding = args
+            .db_proxy_endpoint_name
+            .get_output(context)
+            .get_inner();
+        let db_proxy_name_binding = args.db_proxy_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_role_binding = args.target_role.get_output(context).get_inner();
+        let vpc_security_group_ids_binding = args
+            .vpc_security_group_ids
+            .get_output(context)
+            .get_inner();
+        let vpc_subnet_ids_binding = args.vpc_subnet_ids.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/proxyEndpoint:ProxyEndpoint".into(),
             name: name.to_string(),
@@ -143,7 +153,7 @@ pub mod proxy_endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

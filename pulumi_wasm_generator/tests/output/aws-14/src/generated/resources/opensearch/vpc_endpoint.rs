@@ -32,16 +32,16 @@
 /// $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
 /// ```
 pub mod vpc_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcEndpointArgs {
         /// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
         #[builder(into)]
-        pub domain_arn: pulumi_wasm_rust::Output<String>,
+        pub domain_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Options to specify the subnets and security groups for the endpoint.
         #[builder(into)]
-        pub vpc_options: pulumi_wasm_rust::Output<
+        pub vpc_options: pulumi_wasm_rust::InputOrOutput<
             super::super::types::opensearch::VpcEndpointVpcOptions,
         >,
     }
@@ -60,11 +60,15 @@ pub mod vpc_endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VpcEndpointArgs) -> VpcEndpointResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VpcEndpointArgs,
+    ) -> VpcEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_arn_binding = args.domain_arn.get_inner();
-        let vpc_options_binding = args.vpc_options.get_inner();
+        let domain_arn_binding = args.domain_arn.get_output(context).get_inner();
+        let vpc_options_binding = args.vpc_options.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opensearch/vpcEndpoint:VpcEndpoint".into(),
             name: name.to_string(),
@@ -91,7 +95,7 @@ pub mod vpc_endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

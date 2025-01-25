@@ -146,40 +146,40 @@
 /// $ pulumi import aws:ec2/securityGroupRule:SecurityGroupRule rule_name sg-656c65616e6f72_ingress_tcp_80_80_self_2001:db8::/48
 /// ```
 pub mod security_group_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecurityGroupRuleArgs {
         /// List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         #[builder(into, default)]
-        pub cidr_blocks: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub cidr_blocks: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Description of the rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Start port (or ICMP type number if protocol is "icmp" or "icmpv6").
         #[builder(into)]
-        pub from_port: pulumi_wasm_rust::Output<i32>,
+        pub from_port: pulumi_wasm_rust::InputOrOutput<i32>,
         /// List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         #[builder(into, default)]
-        pub ipv6_cidr_blocks: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ipv6_cidr_blocks: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of Prefix List IDs.
         #[builder(into, default)]
-        pub prefix_list_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub prefix_list_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
         /// Security group to apply this rule to.
         #[builder(into)]
-        pub security_group_id: pulumi_wasm_rust::Output<String>,
+        pub security_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
         #[builder(into, default)]
-        pub self_: pulumi_wasm_rust::Output<Option<bool>>,
+        pub self_: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         #[builder(into, default)]
-        pub source_security_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_security_group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// End port (or ICMP code if protocol is "icmp").
         #[builder(into)]
-        pub to_port: pulumi_wasm_rust::Output<i32>,
+        pub to_port: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Type of rule being created. Valid options are `ingress` (inbound)
         /// or `egress` (outbound).
         ///
@@ -187,7 +187,7 @@ pub mod security_group_rule {
         ///
         /// > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SecurityGroupRuleResult {
@@ -225,20 +225,36 @@ pub mod security_group_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SecurityGroupRuleArgs) -> SecurityGroupRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SecurityGroupRuleArgs,
+    ) -> SecurityGroupRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cidr_blocks_binding = args.cidr_blocks.get_inner();
-        let description_binding = args.description.get_inner();
-        let from_port_binding = args.from_port.get_inner();
-        let ipv6_cidr_blocks_binding = args.ipv6_cidr_blocks.get_inner();
-        let prefix_list_ids_binding = args.prefix_list_ids.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let security_group_id_binding = args.security_group_id.get_inner();
-        let self__binding = args.self_.get_inner();
-        let source_security_group_id_binding = args.source_security_group_id.get_inner();
-        let to_port_binding = args.to_port.get_inner();
-        let type__binding = args.type_.get_inner();
+        let cidr_blocks_binding = args.cidr_blocks.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let from_port_binding = args.from_port.get_output(context).get_inner();
+        let ipv6_cidr_blocks_binding = args
+            .ipv6_cidr_blocks
+            .get_output(context)
+            .get_inner();
+        let prefix_list_ids_binding = args
+            .prefix_list_ids
+            .get_output(context)
+            .get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let security_group_id_binding = args
+            .security_group_id
+            .get_output(context)
+            .get_inner();
+        let self__binding = args.self_.get_output(context).get_inner();
+        let source_security_group_id_binding = args
+            .source_security_group_id
+            .get_output(context)
+            .get_inner();
+        let to_port_binding = args.to_port.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/securityGroupRule:SecurityGroupRule".into(),
             name: name.to_string(),
@@ -328,7 +344,7 @@ pub mod security_group_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

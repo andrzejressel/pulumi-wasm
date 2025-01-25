@@ -31,16 +31,16 @@
 /// $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 /// ```
 pub mod user_policy_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserPolicyAttachmentArgs {
         /// The ARN of the policy you want to apply
         #[builder(into)]
-        pub policy_arn: pulumi_wasm_rust::Output<String>,
+        pub policy_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The user the policy should be applied to
         #[builder(into)]
-        pub user: pulumi_wasm_rust::Output<String>,
+        pub user: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserPolicyAttachmentResult {
@@ -54,13 +54,14 @@ pub mod user_policy_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: UserPolicyAttachmentArgs,
     ) -> UserPolicyAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let policy_arn_binding = args.policy_arn.get_inner();
-        let user_binding = args.user.get_inner();
+        let policy_arn_binding = args.policy_arn.get_output(context).get_inner();
+        let user_binding = args.user.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/userPolicyAttachment:UserPolicyAttachment".into(),
             name: name.to_string(),
@@ -84,7 +85,7 @@ pub mod user_policy_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

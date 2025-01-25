@@ -24,14 +24,14 @@
 /// $ pulumi import aws:s3tables/tableBucket:TableBucket example arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket
 /// ```
 pub mod table_bucket {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableBucketArgs {
         /// A single table bucket maintenance configuration block.
         /// See `maintenance_configuration` below
         #[builder(into, default)]
-        pub maintenance_configuration: pulumi_wasm_rust::Output<
+        pub maintenance_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3tables::TableBucketMaintenanceConfiguration>,
         >,
         /// Name of the table bucket.
@@ -41,7 +41,7 @@ pub mod table_bucket {
         ///
         /// The following argument is optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TableBucketResult {
@@ -68,13 +68,18 @@ pub mod table_bucket {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TableBucketArgs) -> TableBucketResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TableBucketArgs,
+    ) -> TableBucketResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let maintenance_configuration_binding = args
             .maintenance_configuration
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3tables/tableBucket:TableBucket".into(),
             name: name.to_string(),
@@ -107,7 +112,7 @@ pub mod table_bucket {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

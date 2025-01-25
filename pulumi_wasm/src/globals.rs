@@ -12,6 +12,7 @@ pub(crate) fn get_pulumi_engine() -> Rc<RefCell<Engine>> {
         e.get_or_init(|| {
             Rc::new(RefCell::new(Engine::new(PulumiServiceImpl::new(
                 PulumiConnectorImpl {},
+                true,
             ))))
         })
         .clone()

@@ -67,46 +67,46 @@
 /// ```
 ///
 pub mod integration_account_agreement {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationAccountAgreementArgs {
         /// The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
         #[builder(into)]
-        pub agreement_type: pulumi_wasm_rust::Output<String>,
+        pub agreement_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The content of the Logic App Integration Account Agreement.
         #[builder(into)]
-        pub content: pulumi_wasm_rust::Output<String>,
+        pub content: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `guest_identity` block as documented below.
         #[builder(into)]
-        pub guest_identity: pulumi_wasm_rust::Output<
+        pub guest_identity: pulumi_wasm_rust::InputOrOutput<
             super::super::types::logicapps::IntegrationAccountAgreementGuestIdentity,
         >,
         /// The name of the guest Logic App Integration Account Partner.
         #[builder(into)]
-        pub guest_partner_name: pulumi_wasm_rust::Output<String>,
+        pub guest_partner_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `host_identity` block as documented below.
         #[builder(into)]
-        pub host_identity: pulumi_wasm_rust::Output<
+        pub host_identity: pulumi_wasm_rust::InputOrOutput<
             super::super::types::logicapps::IntegrationAccountAgreementHostIdentity,
         >,
         /// The name of the host Logic App Integration Account Partner.
         #[builder(into)]
-        pub host_partner_name: pulumi_wasm_rust::Output<String>,
+        pub host_partner_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub integration_account_name: pulumi_wasm_rust::Output<String>,
+        pub integration_account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The metadata of the Logic App Integration Account Agreement.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name which should be used for this Logic App Integration Account Agreement. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Logic App Integration Account Agreement should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IntegrationAccountAgreementResult {
@@ -142,21 +142,34 @@ pub mod integration_account_agreement {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IntegrationAccountAgreementArgs,
     ) -> IntegrationAccountAgreementResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let agreement_type_binding = args.agreement_type.get_inner();
-        let content_binding = args.content.get_inner();
-        let guest_identity_binding = args.guest_identity.get_inner();
-        let guest_partner_name_binding = args.guest_partner_name.get_inner();
-        let host_identity_binding = args.host_identity.get_inner();
-        let host_partner_name_binding = args.host_partner_name.get_inner();
-        let integration_account_name_binding = args.integration_account_name.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let agreement_type_binding = args.agreement_type.get_output(context).get_inner();
+        let content_binding = args.content.get_output(context).get_inner();
+        let guest_identity_binding = args.guest_identity.get_output(context).get_inner();
+        let guest_partner_name_binding = args
+            .guest_partner_name
+            .get_output(context)
+            .get_inner();
+        let host_identity_binding = args.host_identity.get_output(context).get_inner();
+        let host_partner_name_binding = args
+            .host_partner_name
+            .get_output(context)
+            .get_inner();
+        let integration_account_name_binding = args
+            .integration_account_name
+            .get_output(context)
+            .get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement"
                 .into(),
@@ -237,7 +250,7 @@ pub mod integration_account_agreement {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

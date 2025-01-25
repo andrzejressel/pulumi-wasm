@@ -79,23 +79,23 @@
 /// $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
 /// ```
 pub mod continuous_deployment_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContinuousDeploymentPolicyArgs {
         /// Whether this continuous deployment policy is enabled.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// CloudFront domain name of the staging distribution. See `staging_distribution_dns_names`.
         #[builder(into, default)]
-        pub staging_distribution_dns_names: pulumi_wasm_rust::Output<
+        pub staging_distribution_dns_names: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::cloudfront::ContinuousDeploymentPolicyStagingDistributionDnsNames,
             >,
         >,
         /// Parameters for routing production traffic from primary to staging distributions. See `traffic_config`.
         #[builder(into, default)]
-        pub traffic_config: pulumi_wasm_rust::Output<
+        pub traffic_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::cloudfront::ContinuousDeploymentPolicyTrafficConfig,
             >,
@@ -127,16 +127,18 @@ pub mod continuous_deployment_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ContinuousDeploymentPolicyArgs,
     ) -> ContinuousDeploymentPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let enabled_binding = args.enabled.get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
         let staging_distribution_dns_names_binding = args
             .staging_distribution_dns_names
+            .get_output(context)
             .get_inner();
-        let traffic_config_binding = args.traffic_config.get_inner();
+        let traffic_config_binding = args.traffic_config.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy"
                 .into(),
@@ -174,7 +176,7 @@ pub mod continuous_deployment_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

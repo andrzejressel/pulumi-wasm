@@ -79,37 +79,37 @@
 /// $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
 /// ```
 pub mod webhook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebhookArgs {
         /// The type of authentication  to use. One of `IP`, `GITHUB_HMAC`, or `UNAUTHENTICATED`.
         #[builder(into)]
-        pub authentication: pulumi_wasm_rust::Output<String>,
+        pub authentication: pulumi_wasm_rust::InputOrOutput<String>,
         /// An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         #[builder(into, default)]
-        pub authentication_configuration: pulumi_wasm_rust::Output<
+        pub authentication_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codepipeline::WebhookAuthenticationConfiguration>,
         >,
         /// One or more `filter` blocks. Filter blocks are documented below.
         #[builder(into)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::codepipeline::WebhookFilter>,
         >,
         /// The name of the webhook.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         #[builder(into)]
-        pub target_action: pulumi_wasm_rust::Output<String>,
+        pub target_action: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the pipeline.
         #[builder(into)]
-        pub target_pipeline: pulumi_wasm_rust::Output<String>,
+        pub target_pipeline: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WebhookResult {
@@ -146,18 +146,26 @@ pub mod webhook {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WebhookArgs) -> WebhookResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WebhookArgs,
+    ) -> WebhookResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authentication_binding = args.authentication.get_inner();
+        let authentication_binding = args.authentication.get_output(context).get_inner();
         let authentication_configuration_binding = args
             .authentication_configuration
+            .get_output(context)
             .get_inner();
-        let filters_binding = args.filters.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_action_binding = args.target_action.get_inner();
-        let target_pipeline_binding = args.target_pipeline.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_action_binding = args.target_action.get_output(context).get_inner();
+        let target_pipeline_binding = args
+            .target_pipeline
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codepipeline/webhook:Webhook".into(),
             name: name.to_string(),
@@ -225,7 +233,7 @@ pub mod webhook {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

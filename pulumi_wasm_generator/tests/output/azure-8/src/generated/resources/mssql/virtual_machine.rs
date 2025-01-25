@@ -39,72 +39,78 @@
 /// ```
 ///
 pub mod virtual_machine {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualMachineArgs {
         /// An `assessment` block as defined below.
         #[builder(into, default)]
-        pub assessment: pulumi_wasm_rust::Output<
+        pub assessment: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::mssql::VirtualMachineAssessment>,
         >,
         /// An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
         #[builder(into, default)]
-        pub auto_backup: pulumi_wasm_rust::Output<
+        pub auto_backup: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::mssql::VirtualMachineAutoBackup>,
         >,
         /// An `auto_patching` block as defined below.
         #[builder(into, default)]
-        pub auto_patching: pulumi_wasm_rust::Output<
+        pub auto_patching: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::mssql::VirtualMachineAutoPatching>,
         >,
         /// An `key_vault_credential` block as defined below.
         #[builder(into, default)]
-        pub key_vault_credential: pulumi_wasm_rust::Output<
+        pub key_vault_credential: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::mssql::VirtualMachineKeyVaultCredential>,
         >,
         /// Should R Services be enabled?
         #[builder(into, default)]
-        pub r_services_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub r_services_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The SQL Server port. Defaults to `1433`.
         #[builder(into, default)]
-        pub sql_connectivity_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub sql_connectivity_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`.
         #[builder(into, default)]
-        pub sql_connectivity_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub sql_connectivity_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The SQL Server sysadmin login password.
         #[builder(into, default)]
-        pub sql_connectivity_update_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub sql_connectivity_update_password: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The SQL Server sysadmin login to create.
         #[builder(into, default)]
-        pub sql_connectivity_update_username: pulumi_wasm_rust::Output<Option<String>>,
+        pub sql_connectivity_update_username: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A `sql_instance` block as defined below.
         #[builder(into, default)]
-        pub sql_instance: pulumi_wasm_rust::Output<
+        pub sql_instance: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::mssql::VirtualMachineSqlInstance>,
         >,
         /// The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub sql_license_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub sql_license_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to.
         #[builder(into, default)]
-        pub sql_virtual_machine_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub sql_virtual_machine_group_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// An `storage_configuration` block as defined below.
         #[builder(into, default)]
-        pub storage_configuration: pulumi_wasm_rust::Output<
+        pub storage_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::mssql::VirtualMachineStorageConfiguration>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Virtual Machine. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `wsfc_domain_credential` block as defined below
         #[builder(into, default)]
-        pub wsfc_domain_credential: pulumi_wasm_rust::Output<
+        pub wsfc_domain_credential: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::mssql::VirtualMachineWsfcDomainCredential>,
         >,
     }
@@ -163,31 +169,62 @@ pub mod virtual_machine {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VirtualMachineArgs) -> VirtualMachineResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VirtualMachineArgs,
+    ) -> VirtualMachineResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let assessment_binding = args.assessment.get_inner();
-        let auto_backup_binding = args.auto_backup.get_inner();
-        let auto_patching_binding = args.auto_patching.get_inner();
-        let key_vault_credential_binding = args.key_vault_credential.get_inner();
-        let r_services_enabled_binding = args.r_services_enabled.get_inner();
-        let sql_connectivity_port_binding = args.sql_connectivity_port.get_inner();
-        let sql_connectivity_type_binding = args.sql_connectivity_type.get_inner();
+        let assessment_binding = args.assessment.get_output(context).get_inner();
+        let auto_backup_binding = args.auto_backup.get_output(context).get_inner();
+        let auto_patching_binding = args.auto_patching.get_output(context).get_inner();
+        let key_vault_credential_binding = args
+            .key_vault_credential
+            .get_output(context)
+            .get_inner();
+        let r_services_enabled_binding = args
+            .r_services_enabled
+            .get_output(context)
+            .get_inner();
+        let sql_connectivity_port_binding = args
+            .sql_connectivity_port
+            .get_output(context)
+            .get_inner();
+        let sql_connectivity_type_binding = args
+            .sql_connectivity_type
+            .get_output(context)
+            .get_inner();
         let sql_connectivity_update_password_binding = args
             .sql_connectivity_update_password
+            .get_output(context)
             .get_inner();
         let sql_connectivity_update_username_binding = args
             .sql_connectivity_update_username
+            .get_output(context)
             .get_inner();
-        let sql_instance_binding = args.sql_instance.get_inner();
-        let sql_license_type_binding = args.sql_license_type.get_inner();
+        let sql_instance_binding = args.sql_instance.get_output(context).get_inner();
+        let sql_license_type_binding = args
+            .sql_license_type
+            .get_output(context)
+            .get_inner();
         let sql_virtual_machine_group_id_binding = args
             .sql_virtual_machine_group_id
+            .get_output(context)
             .get_inner();
-        let storage_configuration_binding = args.storage_configuration.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let virtual_machine_id_binding = args.virtual_machine_id.get_inner();
-        let wsfc_domain_credential_binding = args.wsfc_domain_credential.get_inner();
+        let storage_configuration_binding = args
+            .storage_configuration
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let virtual_machine_id_binding = args
+            .virtual_machine_id
+            .get_output(context)
+            .get_inner();
+        let wsfc_domain_credential_binding = args
+            .wsfc_domain_credential
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/virtualMachine:VirtualMachine".into(),
             name: name.to_string(),
@@ -309,7 +346,7 @@ pub mod virtual_machine {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

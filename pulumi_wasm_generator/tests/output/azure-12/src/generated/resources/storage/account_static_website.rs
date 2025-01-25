@@ -37,19 +37,19 @@
 /// ```
 ///
 pub mod account_static_website {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountStaticWebsiteArgs {
         /// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
         #[builder(into, default)]
-        pub error404_document: pulumi_wasm_rust::Output<Option<String>>,
+        pub error404_document: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html.
         #[builder(into, default)]
-        pub index_document: pulumi_wasm_rust::Output<Option<String>>,
+        pub index_document: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Storage Account to set Static Website on. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccountStaticWebsiteResult {
@@ -65,14 +65,21 @@ pub mod account_static_website {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AccountStaticWebsiteArgs,
     ) -> AccountStaticWebsiteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let error404_document_binding = args.error404_document.get_inner();
-        let index_document_binding = args.index_document.get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
+        let error404_document_binding = args
+            .error404_document
+            .get_output(context)
+            .get_inner();
+        let index_document_binding = args.index_document.get_output(context).get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/accountStaticWebsite:AccountStaticWebsite".into(),
             name: name.to_string(),
@@ -103,7 +110,7 @@ pub mod account_static_website {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

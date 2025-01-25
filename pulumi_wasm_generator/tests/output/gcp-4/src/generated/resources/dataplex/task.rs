@@ -203,55 +203,55 @@
 /// ```
 ///
 pub mod task {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TaskArgs {
         /// User-provided description of the task.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User friendly display name.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for the cluster
         /// Structure is documented below.
         #[builder(into)]
-        pub execution_spec: pulumi_wasm_rust::Output<
+        pub execution_spec: pulumi_wasm_rust::InputOrOutput<
             super::super::types::dataplex::TaskExecutionSpec,
         >,
         /// User-defined labels for the task. **Note**: This field is non-authoritative, and will only manage the labels present in
         /// your configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The lake in which the task will be created in.
         #[builder(into, default)]
-        pub lake: pulumi_wasm_rust::Output<Option<String>>,
+        pub lake: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location in which the task will be created in.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A service with manual scaling runs continuously, allowing you to perform complex initialization and rely on the state of
         /// its memory over time.
         #[builder(into, default)]
-        pub notebook: pulumi_wasm_rust::Output<
+        pub notebook: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataplex::TaskNotebook>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A service with manual scaling runs continuously, allowing you to perform complex initialization and rely on the state of
         /// its memory over time.
         #[builder(into, default)]
-        pub spark: pulumi_wasm_rust::Output<
+        pub spark: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataplex::TaskSpark>,
         >,
         /// The task Id of the task.
         #[builder(into, default)]
-        pub task_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub task_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for the cluster
         /// Structure is documented below.
         #[builder(into)]
-        pub trigger_spec: pulumi_wasm_rust::Output<
+        pub trigger_spec: pulumi_wasm_rust::InputOrOutput<
             super::super::types::dataplex::TaskTriggerSpec,
         >,
     }
@@ -326,20 +326,24 @@ pub mod task {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TaskArgs) -> TaskResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TaskArgs,
+    ) -> TaskResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let execution_spec_binding = args.execution_spec.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let lake_binding = args.lake.get_inner();
-        let location_binding = args.location.get_inner();
-        let notebook_binding = args.notebook.get_inner();
-        let project_binding = args.project.get_inner();
-        let spark_binding = args.spark.get_inner();
-        let task_id_binding = args.task_id.get_inner();
-        let trigger_spec_binding = args.trigger_spec.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let execution_spec_binding = args.execution_spec.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let lake_binding = args.lake.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let notebook_binding = args.notebook.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let spark_binding = args.spark.get_output(context).get_inner();
+        let task_id_binding = args.task_id.get_output(context).get_inner();
+        let trigger_spec_binding = args.trigger_spec.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataplex/task:Task".into(),
             name: name.to_string(),
@@ -450,7 +454,7 @@ pub mod task {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

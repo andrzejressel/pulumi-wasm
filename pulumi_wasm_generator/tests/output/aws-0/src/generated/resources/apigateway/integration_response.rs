@@ -69,40 +69,40 @@
 /// $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
 /// ```
 pub mod integration_response {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationResponseArgs {
         /// How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         #[builder(into, default)]
-        pub content_handling: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_handling: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         #[builder(into)]
-        pub http_method: pulumi_wasm_rust::Output<String>,
+        pub http_method: pulumi_wasm_rust::InputOrOutput<String>,
         /// API resource ID.
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         #[builder(into, default)]
-        pub response_parameters: pulumi_wasm_rust::Output<
+        pub response_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of templates used to transform the integration response body.
         #[builder(into, default)]
-        pub response_templates: pulumi_wasm_rust::Output<
+        pub response_templates: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ID of the associated REST API.
         #[builder(into)]
-        pub rest_api: pulumi_wasm_rust::Output<String>,
+        pub rest_api: pulumi_wasm_rust::InputOrOutput<String>,
         /// Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
         #[builder(into, default)]
-        pub selection_pattern: pulumi_wasm_rust::Output<Option<String>>,
+        pub selection_pattern: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// HTTP status code.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub status_code: pulumi_wasm_rust::Output<String>,
+        pub status_code: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IntegrationResponseResult {
@@ -134,19 +134,32 @@ pub mod integration_response {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IntegrationResponseArgs,
     ) -> IntegrationResponseResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let content_handling_binding = args.content_handling.get_inner();
-        let http_method_binding = args.http_method.get_inner();
-        let resource_id_binding = args.resource_id.get_inner();
-        let response_parameters_binding = args.response_parameters.get_inner();
-        let response_templates_binding = args.response_templates.get_inner();
-        let rest_api_binding = args.rest_api.get_inner();
-        let selection_pattern_binding = args.selection_pattern.get_inner();
-        let status_code_binding = args.status_code.get_inner();
+        let content_handling_binding = args
+            .content_handling
+            .get_output(context)
+            .get_inner();
+        let http_method_binding = args.http_method.get_output(context).get_inner();
+        let resource_id_binding = args.resource_id.get_output(context).get_inner();
+        let response_parameters_binding = args
+            .response_parameters
+            .get_output(context)
+            .get_inner();
+        let response_templates_binding = args
+            .response_templates
+            .get_output(context)
+            .get_inner();
+        let rest_api_binding = args.rest_api.get_output(context).get_inner();
+        let selection_pattern_binding = args
+            .selection_pattern
+            .get_output(context)
+            .get_inner();
+        let status_code_binding = args.status_code.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/integrationResponse:IntegrationResponse".into(),
             name: name.to_string(),
@@ -212,7 +225,7 @@ pub mod integration_response {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

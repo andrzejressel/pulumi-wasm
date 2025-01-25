@@ -68,51 +68,61 @@
 /// $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:123456789012:app/GCM/gcm_application
 /// ```
 pub mod platform_application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PlatformApplicationArgs {
         /// The bundle identifier that's assigned to your iOS app. May only include alphanumeric characters, hyphens (-), and periods (.).
         #[builder(into, default)]
-        pub apple_platform_bundle_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub apple_platform_bundle_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The identifier that's assigned to your Apple developer account team. Must be 10 alphanumeric characters.
         #[builder(into, default)]
-        pub apple_platform_team_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub apple_platform_team_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         #[builder(into, default)]
-        pub event_delivery_failure_topic_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_delivery_failure_topic_arn: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
         #[builder(into, default)]
-        pub event_endpoint_created_topic_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_endpoint_created_topic_arn: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
         #[builder(into, default)]
-        pub event_endpoint_deleted_topic_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_endpoint_deleted_topic_arn: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
         #[builder(into, default)]
-        pub event_endpoint_updated_topic_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_endpoint_updated_topic_arn: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         #[builder(into, default)]
-        pub failure_feedback_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub failure_feedback_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The friendly name for the SNS platform application
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         #[builder(into)]
-        pub platform: pulumi_wasm_rust::Output<String>,
+        pub platform: pulumi_wasm_rust::InputOrOutput<String>,
         /// Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         #[builder(into)]
-        pub platform_credential: pulumi_wasm_rust::Output<String>,
+        pub platform_credential: pulumi_wasm_rust::InputOrOutput<String>,
         /// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         #[builder(into, default)]
-        pub platform_principal: pulumi_wasm_rust::Output<Option<String>>,
+        pub platform_principal: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         #[builder(into, default)]
-        pub success_feedback_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub success_feedback_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The sample rate percentage (0-100) of successfully delivered messages.
         ///
         /// The following attributes are needed only when using APNS token credentials:
         #[builder(into, default)]
-        pub success_feedback_sample_rate: pulumi_wasm_rust::Output<Option<String>>,
+        pub success_feedback_sample_rate: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct PlatformApplicationResult {
@@ -152,37 +162,57 @@ pub mod platform_application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PlatformApplicationArgs,
     ) -> PlatformApplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let apple_platform_bundle_id_binding = args.apple_platform_bundle_id.get_inner();
-        let apple_platform_team_id_binding = args.apple_platform_team_id.get_inner();
+        let apple_platform_bundle_id_binding = args
+            .apple_platform_bundle_id
+            .get_output(context)
+            .get_inner();
+        let apple_platform_team_id_binding = args
+            .apple_platform_team_id
+            .get_output(context)
+            .get_inner();
         let event_delivery_failure_topic_arn_binding = args
             .event_delivery_failure_topic_arn
+            .get_output(context)
             .get_inner();
         let event_endpoint_created_topic_arn_binding = args
             .event_endpoint_created_topic_arn
+            .get_output(context)
             .get_inner();
         let event_endpoint_deleted_topic_arn_binding = args
             .event_endpoint_deleted_topic_arn
+            .get_output(context)
             .get_inner();
         let event_endpoint_updated_topic_arn_binding = args
             .event_endpoint_updated_topic_arn
+            .get_output(context)
             .get_inner();
         let failure_feedback_role_arn_binding = args
             .failure_feedback_role_arn
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let platform_binding = args.platform.get_inner();
-        let platform_credential_binding = args.platform_credential.get_inner();
-        let platform_principal_binding = args.platform_principal.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let platform_binding = args.platform.get_output(context).get_inner();
+        let platform_credential_binding = args
+            .platform_credential
+            .get_output(context)
+            .get_inner();
+        let platform_principal_binding = args
+            .platform_principal
+            .get_output(context)
+            .get_inner();
         let success_feedback_role_arn_binding = args
             .success_feedback_role_arn
+            .get_output(context)
             .get_inner();
         let success_feedback_sample_rate_binding = args
             .success_feedback_sample_rate
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sns/platformApplication:PlatformApplication".into(),
@@ -287,7 +317,7 @@ pub mod platform_application {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

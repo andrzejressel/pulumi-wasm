@@ -142,29 +142,29 @@
 /// $ pulumi import aws:alb/listenerRule:ListenerRule front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener-rule/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b
 /// ```
 pub mod listener_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListenerRuleArgs {
         /// An Action block. Action blocks are documented below.
         #[builder(into)]
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::alb::ListenerRuleAction>,
         >,
         /// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
         #[builder(into)]
-        pub conditions: pulumi_wasm_rust::Output<
+        pub conditions: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::alb::ListenerRuleCondition>,
         >,
         /// The ARN of the listener to which to attach the rule.
         #[builder(into)]
-        pub listener_arn: pulumi_wasm_rust::Output<String>,
+        pub listener_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -197,14 +197,18 @@ pub mod listener_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ListenerRuleArgs) -> ListenerRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ListenerRuleArgs,
+    ) -> ListenerRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_inner();
-        let conditions_binding = args.conditions.get_inner();
-        let listener_arn_binding = args.listener_arn.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let actions_binding = args.actions.get_output(context).get_inner();
+        let conditions_binding = args.conditions.get_output(context).get_inner();
+        let listener_arn_binding = args.listener_arn.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:alb/listenerRule:ListenerRule".into(),
             name: name.to_string(),
@@ -255,7 +259,7 @@ pub mod listener_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

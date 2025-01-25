@@ -37,19 +37,19 @@
 /// $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
 /// ```
 pub mod cluster_capacity_providers {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterCapacityProvidersArgs {
         /// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         #[builder(into, default)]
-        pub capacity_providers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub capacity_providers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of the ECS cluster to manage capacity providers for.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Set of capacity provider strategies to use by default for the cluster. Detailed below.
         #[builder(into, default)]
-        pub default_capacity_provider_strategies: pulumi_wasm_rust::Output<
+        pub default_capacity_provider_strategies: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::ecs::ClusterCapacityProvidersDefaultCapacityProviderStrategy,
@@ -77,15 +77,20 @@ pub mod cluster_capacity_providers {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ClusterCapacityProvidersArgs,
     ) -> ClusterCapacityProvidersResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let capacity_providers_binding = args.capacity_providers.get_inner();
-        let cluster_name_binding = args.cluster_name.get_inner();
+        let capacity_providers_binding = args
+            .capacity_providers
+            .get_output(context)
+            .get_inner();
+        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
         let default_capacity_provider_strategies_binding = args
             .default_capacity_provider_strategies
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecs/clusterCapacityProviders:ClusterCapacityProviders".into(),
@@ -117,7 +122,7 @@ pub mod cluster_capacity_providers {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -93,24 +93,24 @@
 /// You cannot import Target Group Attachments.
 ///
 pub mod target_group_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetGroupAttachmentArgs {
         /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The port on which targets receive traffic.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ARN of the target group with which to register targets.
         #[builder(into)]
-        pub target_group_arn: pulumi_wasm_rust::Output<String>,
+        pub target_group_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub target_id: pulumi_wasm_rust::Output<String>,
+        pub target_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TargetGroupAttachmentResult {
@@ -130,15 +130,22 @@ pub mod target_group_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TargetGroupAttachmentArgs,
     ) -> TargetGroupAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args.availability_zone.get_inner();
-        let port_binding = args.port.get_inner();
-        let target_group_arn_binding = args.target_group_arn.get_inner();
-        let target_id_binding = args.target_id.get_inner();
+        let availability_zone_binding = args
+            .availability_zone
+            .get_output(context)
+            .get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let target_group_arn_binding = args
+            .target_group_arn
+            .get_output(context)
+            .get_inner();
+        let target_id_binding = args.target_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lb/targetGroupAttachment:TargetGroupAttachment".into(),
             name: name.to_string(),
@@ -176,7 +183,7 @@ pub mod target_group_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

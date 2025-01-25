@@ -36,13 +36,13 @@
 /// $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
 /// ```
 pub mod invite_accepter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InviteAccepterArgs {
         /// The account ID of the master Security Hub account whose invitation you're accepting.
         #[builder(into)]
-        pub master_id: pulumi_wasm_rust::Output<String>,
+        pub master_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct InviteAccepterResult {
@@ -55,10 +55,14 @@ pub mod invite_accepter {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InviteAccepterArgs) -> InviteAccepterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InviteAccepterArgs,
+    ) -> InviteAccepterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let master_id_binding = args.master_id.get_inner();
+        let master_id_binding = args.master_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/inviteAccepter:InviteAccepter".into(),
             name: name.to_string(),
@@ -78,7 +82,7 @@ pub mod invite_accepter {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

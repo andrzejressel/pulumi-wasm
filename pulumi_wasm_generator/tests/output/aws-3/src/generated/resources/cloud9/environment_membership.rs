@@ -37,19 +37,19 @@
 /// $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
 /// ```
 pub mod environment_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentMembershipArgs {
         /// The ID of the environment that contains the environment member you want to add.
         #[builder(into)]
-        pub environment_id: pulumi_wasm_rust::Output<String>,
+        pub environment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         #[builder(into)]
-        pub permissions: pulumi_wasm_rust::Output<String>,
+        pub permissions: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the environment member you want to add.
         #[builder(into)]
-        pub user_arn: pulumi_wasm_rust::Output<String>,
+        pub user_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentMembershipResult {
@@ -67,14 +67,15 @@ pub mod environment_membership {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EnvironmentMembershipArgs,
     ) -> EnvironmentMembershipResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let environment_id_binding = args.environment_id.get_inner();
-        let permissions_binding = args.permissions.get_inner();
-        let user_arn_binding = args.user_arn.get_inner();
+        let environment_id_binding = args.environment_id.get_output(context).get_inner();
+        let permissions_binding = args.permissions.get_output(context).get_inner();
+        let user_arn_binding = args.user_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloud9/environmentMembership:EnvironmentMembership".into(),
             name: name.to_string(),
@@ -108,7 +109,7 @@ pub mod environment_membership {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -26,22 +26,22 @@
 /// ```
 ///
 pub mod notification_policy_webhooks {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NotificationPolicyWebhooksArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the webhook destination.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// An optional secret can be provided that will be passed in the `cf-webhook-auth` header when dispatching a webhook notification. Secrets are not returned in any API response body. Refer to the [documentation](https://api.cloudflare.com/#notification-webhooks-create-webhook) for more details.
         #[builder(into, default)]
-        pub secret: pulumi_wasm_rust::Output<Option<String>>,
+        pub secret: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URL of the webhook destinations. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub url: pulumi_wasm_rust::Output<Option<String>>,
+        pub url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NotificationPolicyWebhooksResult {
@@ -66,15 +66,16 @@ pub mod notification_policy_webhooks {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NotificationPolicyWebhooksArgs,
     ) -> NotificationPolicyWebhooksResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let secret_binding = args.secret.get_inner();
-        let url_binding = args.url.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let secret_binding = args.secret.get_output(context).get_inner();
+        let url_binding = args.url.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/notificationPolicyWebhooks:NotificationPolicyWebhooks"
                 .into(),
@@ -125,7 +126,7 @@ pub mod notification_policy_webhooks {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

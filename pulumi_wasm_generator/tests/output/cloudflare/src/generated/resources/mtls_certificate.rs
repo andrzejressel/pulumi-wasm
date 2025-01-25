@@ -31,25 +31,25 @@
 /// ```
 ///
 pub mod mtls_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MtlsCertificateArgs {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether this is a CA or leaf certificate. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub ca: pulumi_wasm_rust::Output<bool>,
+        pub ca: pulumi_wasm_rust::InputOrOutput<bool>,
         /// Certificate you intend to use with mTLS-enabled services. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub certificates: pulumi_wasm_rust::Output<String>,
+        pub certificates: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional unique name for the certificate. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The certificate's private key. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub private_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MtlsCertificateResult {
@@ -78,14 +78,18 @@ pub mod mtls_certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MtlsCertificateArgs) -> MtlsCertificateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MtlsCertificateArgs,
+    ) -> MtlsCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let ca_binding = args.ca.get_inner();
-        let certificates_binding = args.certificates.get_inner();
-        let name_binding = args.name.get_inner();
-        let private_key_binding = args.private_key.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let ca_binding = args.ca.get_output(context).get_inner();
+        let certificates_binding = args.certificates.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let private_key_binding = args.private_key.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/mtlsCertificate:MtlsCertificate".into(),
             name: name.to_string(),
@@ -145,7 +149,7 @@ pub mod mtls_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

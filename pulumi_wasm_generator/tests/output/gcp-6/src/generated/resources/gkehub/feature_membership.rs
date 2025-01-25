@@ -376,40 +376,40 @@
 /// ```
 ///
 pub mod feature_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FeatureMembershipArgs {
         /// Config Management-specific spec. Structure is documented below.
         #[builder(into, default)]
-        pub configmanagement: pulumi_wasm_rust::Output<
+        pub configmanagement: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkehub::FeatureMembershipConfigmanagement>,
         >,
         /// The name of the feature
         #[builder(into)]
-        pub feature: pulumi_wasm_rust::Output<String>,
+        pub feature: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location of the feature
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the membership
         #[builder(into)]
-        pub membership: pulumi_wasm_rust::Output<String>,
+        pub membership: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location of the membership, for example, "us-central1". Default is "global".
         #[builder(into, default)]
-        pub membership_location: pulumi_wasm_rust::Output<Option<String>>,
+        pub membership_location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Service mesh specific spec. Structure is documented below.
         #[builder(into, default)]
-        pub mesh: pulumi_wasm_rust::Output<
+        pub mesh: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkehub::FeatureMembershipMesh>,
         >,
         /// Policy Controller-specific spec. Structure is documented below.
         #[builder(into, default)]
-        pub policycontroller: pulumi_wasm_rust::Output<
+        pub policycontroller: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkehub::FeatureMembershipPolicycontroller>,
         >,
         /// The project of the feature
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FeatureMembershipResult {
@@ -440,17 +440,30 @@ pub mod feature_membership {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FeatureMembershipArgs) -> FeatureMembershipResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FeatureMembershipArgs,
+    ) -> FeatureMembershipResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let configmanagement_binding = args.configmanagement.get_inner();
-        let feature_binding = args.feature.get_inner();
-        let location_binding = args.location.get_inner();
-        let membership_binding = args.membership.get_inner();
-        let membership_location_binding = args.membership_location.get_inner();
-        let mesh_binding = args.mesh.get_inner();
-        let policycontroller_binding = args.policycontroller.get_inner();
-        let project_binding = args.project.get_inner();
+        let configmanagement_binding = args
+            .configmanagement
+            .get_output(context)
+            .get_inner();
+        let feature_binding = args.feature.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let membership_binding = args.membership.get_output(context).get_inner();
+        let membership_location_binding = args
+            .membership_location
+            .get_output(context)
+            .get_inner();
+        let mesh_binding = args.mesh.get_output(context).get_inner();
+        let policycontroller_binding = args
+            .policycontroller
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkehub/featureMembership:FeatureMembership".into(),
             name: name.to_string(),
@@ -516,7 +529,7 @@ pub mod feature_membership {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -206,42 +206,42 @@
 /// $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
 /// ```
 pub mod rule_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RuleGroupArgs {
         /// The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         #[builder(into)]
-        pub capacity: pulumi_wasm_rust::Output<i32>,
+        pub capacity: pulumi_wasm_rust::InputOrOutput<i32>,
         /// A friendly description of the rule group.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// KMS encryption configuration settings. See Encryption Configuration below for details.
         #[builder(into, default)]
-        pub encryption_configuration: pulumi_wasm_rust::Output<
+        pub encryption_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::networkfirewall::RuleGroupEncryptionConfiguration,
             >,
         >,
         /// A friendly name of the rule group.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         #[builder(into, default)]
-        pub rule_group: pulumi_wasm_rust::Output<
+        pub rule_group: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::networkfirewall::RuleGroupRuleGroup>,
         >,
         /// The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         #[builder(into, default)]
-        pub rules: pulumi_wasm_rust::Output<Option<String>>,
+        pub rules: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RuleGroupResult {
@@ -282,17 +282,24 @@ pub mod rule_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RuleGroupArgs) -> RuleGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RuleGroupArgs,
+    ) -> RuleGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let capacity_binding = args.capacity.get_inner();
-        let description_binding = args.description.get_inner();
-        let encryption_configuration_binding = args.encryption_configuration.get_inner();
-        let name_binding = args.name.get_inner();
-        let rule_group_binding = args.rule_group.get_inner();
-        let rules_binding = args.rules.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let type__binding = args.type_.get_inner();
+        let capacity_binding = args.capacity.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let encryption_configuration_binding = args
+            .encryption_configuration
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let rule_group_binding = args.rule_group.get_output(context).get_inner();
+        let rules_binding = args.rules.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkfirewall/ruleGroup:RuleGroup".into(),
             name: name.to_string(),
@@ -367,7 +374,7 @@ pub mod rule_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

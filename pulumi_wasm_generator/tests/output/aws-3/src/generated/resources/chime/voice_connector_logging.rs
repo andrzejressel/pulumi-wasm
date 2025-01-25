@@ -33,19 +33,19 @@
 /// $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
 /// ```
 pub mod voice_connector_logging {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VoiceConnectorLoggingArgs {
         /// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
         #[builder(into, default)]
-        pub enable_media_metric_logs: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_media_metric_logs: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
         #[builder(into, default)]
-        pub enable_sip_logs: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_sip_logs: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Amazon Chime Voice Connector ID.
         #[builder(into)]
-        pub voice_connector_id: pulumi_wasm_rust::Output<String>,
+        pub voice_connector_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VoiceConnectorLoggingResult {
@@ -61,14 +61,24 @@ pub mod voice_connector_logging {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VoiceConnectorLoggingArgs,
     ) -> VoiceConnectorLoggingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let enable_media_metric_logs_binding = args.enable_media_metric_logs.get_inner();
-        let enable_sip_logs_binding = args.enable_sip_logs.get_inner();
-        let voice_connector_id_binding = args.voice_connector_id.get_inner();
+        let enable_media_metric_logs_binding = args
+            .enable_media_metric_logs
+            .get_output(context)
+            .get_inner();
+        let enable_sip_logs_binding = args
+            .enable_sip_logs
+            .get_output(context)
+            .get_inner();
+        let voice_connector_id_binding = args
+            .voice_connector_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chime/voiceConnectorLogging:VoiceConnectorLogging".into(),
             name: name.to_string(),
@@ -99,7 +109,7 @@ pub mod voice_connector_logging {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -91,19 +91,19 @@
 /// ```
 ///
 pub mod scaling_plan_host_pool_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ScalingPlanHostPoolAssociationArgs {
         /// Should the Scaling Plan be enabled on this Host Pool.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The resource ID for the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub host_pool_id: pulumi_wasm_rust::Output<String>,
+        pub host_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource ID for the Virtual Desktop Scaling Plan. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub scaling_plan_id: pulumi_wasm_rust::Output<String>,
+        pub scaling_plan_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ScalingPlanHostPoolAssociationResult {
@@ -119,14 +119,18 @@ pub mod scaling_plan_host_pool_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ScalingPlanHostPoolAssociationArgs,
     ) -> ScalingPlanHostPoolAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let enabled_binding = args.enabled.get_inner();
-        let host_pool_id_binding = args.host_pool_id.get_inner();
-        let scaling_plan_id_binding = args.scaling_plan_id.get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let host_pool_id_binding = args.host_pool_id.get_output(context).get_inner();
+        let scaling_plan_id_binding = args
+            .scaling_plan_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation"
                 .into(),
@@ -158,7 +162,7 @@ pub mod scaling_plan_host_pool_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

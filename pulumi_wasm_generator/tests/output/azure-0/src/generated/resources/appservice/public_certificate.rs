@@ -52,25 +52,25 @@
 /// ```
 ///
 pub mod public_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PublicCertificateArgs {
         /// The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
         #[builder(into)]
-        pub app_service_name: pulumi_wasm_rust::Output<String>,
+        pub app_service_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
         #[builder(into)]
-        pub blob: pulumi_wasm_rust::Output<String>,
+        pub blob: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
         #[builder(into)]
-        pub certificate_location: pulumi_wasm_rust::Output<String>,
+        pub certificate_location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
         #[builder(into)]
-        pub certificate_name: pulumi_wasm_rust::Output<String>,
+        pub certificate_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PublicCertificateResult {
@@ -91,14 +91,30 @@ pub mod public_certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PublicCertificateArgs) -> PublicCertificateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PublicCertificateArgs,
+    ) -> PublicCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_service_name_binding = args.app_service_name.get_inner();
-        let blob_binding = args.blob.get_inner();
-        let certificate_location_binding = args.certificate_location.get_inner();
-        let certificate_name_binding = args.certificate_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let app_service_name_binding = args
+            .app_service_name
+            .get_output(context)
+            .get_inner();
+        let blob_binding = args.blob.get_output(context).get_inner();
+        let certificate_location_binding = args
+            .certificate_location
+            .get_output(context)
+            .get_inner();
+        let certificate_name_binding = args
+            .certificate_name
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/publicCertificate:PublicCertificate".into(),
             name: name.to_string(),
@@ -146,7 +162,7 @@ pub mod public_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

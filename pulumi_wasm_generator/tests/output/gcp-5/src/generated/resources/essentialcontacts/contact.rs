@@ -48,25 +48,27 @@
 /// ```
 ///
 pub mod contact {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContactArgs {
         /// The email address to send notifications to. This does not need to be a Google account.
         #[builder(into)]
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_wasm_rust::InputOrOutput<String>,
         /// The preferred language for notifications, as a ISO 639-1 language code. See Supported languages for a list of supported languages.
         #[builder(into)]
-        pub language_tag: pulumi_wasm_rust::Output<String>,
+        pub language_tag: pulumi_wasm_rust::InputOrOutput<String>,
         /// The categories of notifications that the contact will receive communications for.
         #[builder(into)]
-        pub notification_category_subscriptions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub notification_category_subscriptions: pulumi_wasm_rust::InputOrOutput<
+            Vec<String>,
+        >,
         /// The resource to save this contact for. Format: organizations/{organization_id}, folders/{folder_id} or projects/{project_id}
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ContactResult {
@@ -88,15 +90,20 @@ pub mod contact {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ContactArgs) -> ContactResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ContactArgs,
+    ) -> ContactResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let email_binding = args.email.get_inner();
-        let language_tag_binding = args.language_tag.get_inner();
+        let email_binding = args.email.get_output(context).get_inner();
+        let language_tag_binding = args.language_tag.get_output(context).get_inner();
         let notification_category_subscriptions_binding = args
             .notification_category_subscriptions
+            .get_output(context)
             .get_inner();
-        let parent_binding = args.parent.get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:essentialcontacts/contact:Contact".into(),
             name: name.to_string(),
@@ -137,7 +144,7 @@ pub mod contact {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

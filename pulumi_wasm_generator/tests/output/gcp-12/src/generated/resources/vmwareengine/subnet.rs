@@ -56,25 +56,25 @@
 /// ```
 ///
 pub mod subnet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubnetArgs {
         /// The IP address range of the subnet in CIDR format.
         #[builder(into)]
-        pub ip_cidr_range: pulumi_wasm_rust::Output<String>,
+        pub ip_cidr_range: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the subnet. For userDefined subnets, this name should be in the format of "service-n",
         /// where n ranges from 1 to 5.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource name of the private cloud to create a new subnet in.
         /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
         /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubnetResult {
@@ -123,12 +123,16 @@ pub mod subnet {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SubnetArgs) -> SubnetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SubnetArgs,
+    ) -> SubnetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let ip_cidr_range_binding = args.ip_cidr_range.get_inner();
-        let name_binding = args.name.get_inner();
-        let parent_binding = args.parent.get_inner();
+        let ip_cidr_range_binding = args.ip_cidr_range.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vmwareengine/subnet:Subnet".into(),
             name: name.to_string(),
@@ -189,7 +193,7 @@ pub mod subnet {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

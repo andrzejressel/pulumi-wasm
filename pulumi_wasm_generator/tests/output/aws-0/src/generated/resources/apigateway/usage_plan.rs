@@ -8,36 +8,36 @@
 /// $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
 /// ```
 pub mod usage_plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UsagePlanArgs {
         /// Associated API stages of the usage plan.
         #[builder(into, default)]
-        pub api_stages: pulumi_wasm_rust::Output<
+        pub api_stages: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::apigateway::UsagePlanApiStage>>,
         >,
         /// Description of a usage plan.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the usage plan.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
         #[builder(into, default)]
-        pub product_code: pulumi_wasm_rust::Output<Option<String>>,
+        pub product_code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Quota of the usage plan.
         #[builder(into, default)]
-        pub quota_settings: pulumi_wasm_rust::Output<
+        pub quota_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apigateway::UsagePlanQuotaSettings>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Throttling limits of the usage plan.
         #[builder(into, default)]
-        pub throttle_settings: pulumi_wasm_rust::Output<
+        pub throttle_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apigateway::UsagePlanThrottleSettings>,
         >,
     }
@@ -75,16 +75,23 @@ pub mod usage_plan {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UsagePlanArgs) -> UsagePlanResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UsagePlanArgs,
+    ) -> UsagePlanResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_stages_binding = args.api_stages.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let product_code_binding = args.product_code.get_inner();
-        let quota_settings_binding = args.quota_settings.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let throttle_settings_binding = args.throttle_settings.get_inner();
+        let api_stages_binding = args.api_stages.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let product_code_binding = args.product_code.get_output(context).get_inner();
+        let quota_settings_binding = args.quota_settings.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let throttle_settings_binding = args
+            .throttle_settings
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/usagePlan:UsagePlan".into(),
             name: name.to_string(),
@@ -149,7 +156,7 @@ pub mod usage_plan {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

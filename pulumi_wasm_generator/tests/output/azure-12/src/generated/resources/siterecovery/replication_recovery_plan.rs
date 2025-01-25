@@ -12,13 +12,13 @@
 /// ```
 ///
 pub mod replication_recovery_plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicationRecoveryPlanArgs {
         /// An `azure_to_azure_settings` block as defined below.
         #[builder(into, default)]
-        pub azure_to_azure_settings: pulumi_wasm_rust::Output<
+        pub azure_to_azure_settings: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::siterecovery::ReplicationRecoveryPlanAzureToAzureSettings,
             >,
@@ -27,7 +27,7 @@ pub mod replication_recovery_plan {
         ///
         /// > **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
         #[builder(into)]
-        pub boot_recovery_groups: pulumi_wasm_rust::Output<
+        pub boot_recovery_groups: pulumi_wasm_rust::InputOrOutput<
             Vec<
                 super::super::types::siterecovery::ReplicationRecoveryPlanBootRecoveryGroup,
             >,
@@ -36,28 +36,28 @@ pub mod replication_recovery_plan {
         ///
         /// > **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
         #[builder(into)]
-        pub failover_recovery_group: pulumi_wasm_rust::Output<
+        pub failover_recovery_group: pulumi_wasm_rust::InputOrOutput<
             super::super::types::siterecovery::ReplicationRecoveryPlanFailoverRecoveryGroup,
         >,
         /// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the vault that should be updated. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_id: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// One `shutdown_recovery_group` block as defined below.
         ///
         /// > **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
         #[builder(into)]
-        pub shutdown_recovery_group: pulumi_wasm_rust::Output<
+        pub shutdown_recovery_group: pulumi_wasm_rust::InputOrOutput<
             super::super::types::siterecovery::ReplicationRecoveryPlanShutdownRecoveryGroup,
         >,
         /// ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
         #[builder(into)]
-        pub source_recovery_fabric_id: pulumi_wasm_rust::Output<String>,
+        pub source_recovery_fabric_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of target fabric to recover. Changing this forces a new Replication Plan to be created.
         #[builder(into)]
-        pub target_recovery_fabric_id: pulumi_wasm_rust::Output<String>,
+        pub target_recovery_fabric_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ReplicationRecoveryPlanResult {
@@ -101,22 +101,40 @@ pub mod replication_recovery_plan {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ReplicationRecoveryPlanArgs,
     ) -> ReplicationRecoveryPlanResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let azure_to_azure_settings_binding = args.azure_to_azure_settings.get_inner();
-        let boot_recovery_groups_binding = args.boot_recovery_groups.get_inner();
-        let failover_recovery_group_binding = args.failover_recovery_group.get_inner();
-        let name_binding = args.name.get_inner();
-        let recovery_vault_id_binding = args.recovery_vault_id.get_inner();
-        let shutdown_recovery_group_binding = args.shutdown_recovery_group.get_inner();
+        let azure_to_azure_settings_binding = args
+            .azure_to_azure_settings
+            .get_output(context)
+            .get_inner();
+        let boot_recovery_groups_binding = args
+            .boot_recovery_groups
+            .get_output(context)
+            .get_inner();
+        let failover_recovery_group_binding = args
+            .failover_recovery_group
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let recovery_vault_id_binding = args
+            .recovery_vault_id
+            .get_output(context)
+            .get_inner();
+        let shutdown_recovery_group_binding = args
+            .shutdown_recovery_group
+            .get_output(context)
+            .get_inner();
         let source_recovery_fabric_id_binding = args
             .source_recovery_fabric_id
+            .get_output(context)
             .get_inner();
         let target_recovery_fabric_id_binding = args
             .target_recovery_fabric_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan"
@@ -184,7 +202,7 @@ pub mod replication_recovery_plan {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -26,34 +26,34 @@
 /// You cannot import this resource.
 ///
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
         /// The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The email address of the user that you want to register.
         #[builder(into)]
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ARN of the IAM user or role that you are registering with Amazon QuickSight.
         #[builder(into, default)]
-        pub iam_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub iam_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iam_arn` must also be specified.
         #[builder(into)]
-        pub identity_type: pulumi_wasm_rust::Output<String>,
+        pub identity_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
         #[builder(into, default)]
-        pub namespace: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
         #[builder(into, default)]
-        pub session_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub session_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identity_type` set to `QUICKSIGHT`.
         #[builder(into, default)]
-        pub user_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
         #[builder(into)]
-        pub user_role: pulumi_wasm_rust::Output<String>,
+        pub user_role: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserResult {
@@ -80,17 +80,21 @@ pub mod user {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UserArgs) -> UserResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UserArgs,
+    ) -> UserResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_inner();
-        let email_binding = args.email.get_inner();
-        let iam_arn_binding = args.iam_arn.get_inner();
-        let identity_type_binding = args.identity_type.get_inner();
-        let namespace_binding = args.namespace.get_inner();
-        let session_name_binding = args.session_name.get_inner();
-        let user_name_binding = args.user_name.get_inner();
-        let user_role_binding = args.user_role.get_inner();
+        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
+        let email_binding = args.email.get_output(context).get_inner();
+        let iam_arn_binding = args.iam_arn.get_output(context).get_inner();
+        let identity_type_binding = args.identity_type.get_output(context).get_inner();
+        let namespace_binding = args.namespace.get_output(context).get_inner();
+        let session_name_binding = args.session_name.get_output(context).get_inner();
+        let user_name_binding = args.user_name.get_output(context).get_inner();
+        let user_role_binding = args.user_role.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/user:User".into(),
             name: name.to_string(),
@@ -159,7 +163,7 @@ pub mod user {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

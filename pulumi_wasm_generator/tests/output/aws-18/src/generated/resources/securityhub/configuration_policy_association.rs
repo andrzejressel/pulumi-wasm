@@ -80,16 +80,16 @@
 /// $ pulumi import aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation example_account_association 123456789012
 /// ```
 pub mod configuration_policy_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationPolicyAssociationArgs {
         /// The universally unique identifier (UUID) of the configuration policy.
         #[builder(into)]
-        pub policy_id: pulumi_wasm_rust::Output<String>,
+        pub policy_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
         #[builder(into)]
-        pub target_id: pulumi_wasm_rust::Output<String>,
+        pub target_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConfigurationPolicyAssociationResult {
@@ -103,13 +103,14 @@ pub mod configuration_policy_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ConfigurationPolicyAssociationArgs,
     ) -> ConfigurationPolicyAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let policy_id_binding = args.policy_id.get_inner();
-        let target_id_binding = args.target_id.get_inner();
+        let policy_id_binding = args.policy_id.get_output(context).get_inner();
+        let target_id_binding = args.target_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation"
                 .into(),
@@ -134,7 +135,7 @@ pub mod configuration_policy_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

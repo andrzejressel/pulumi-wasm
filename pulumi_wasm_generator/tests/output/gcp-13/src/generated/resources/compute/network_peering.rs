@@ -49,35 +49,39 @@
 /// ```
 ///
 pub mod network_peering {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkPeeringArgs {
         /// Whether to export the custom routes to the peer network. Defaults to `false`.
         #[builder(into, default)]
-        pub export_custom_routes: pulumi_wasm_rust::Output<Option<bool>>,
+        pub export_custom_routes: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether subnet routes with public IP range are exported. The default value is true, all subnet routes are exported. The IPv4 special-use ranges (https://en.wikipedia.org/wiki/IPv4#Special_addresses) are always exported to peers and are not controlled by this field.
         #[builder(into, default)]
-        pub export_subnet_routes_with_public_ip: pulumi_wasm_rust::Output<Option<bool>>,
+        pub export_subnet_routes_with_public_ip: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Whether to import the custom routes from the peer network. Defaults to `false`.
         #[builder(into, default)]
-        pub import_custom_routes: pulumi_wasm_rust::Output<Option<bool>>,
+        pub import_custom_routes: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether subnet routes with public IP range are imported. The default value is false. The IPv4 special-use ranges (https://en.wikipedia.org/wiki/IPv4#Special_addresses) are always imported from peers and are not controlled by this field.
         #[builder(into, default)]
-        pub import_subnet_routes_with_public_ip: pulumi_wasm_rust::Output<Option<bool>>,
+        pub import_subnet_routes_with_public_ip: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Name of the peering.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The primary network of the peering.
         #[builder(into)]
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_wasm_rust::InputOrOutput<String>,
         /// The peer network in the peering. The peer network
         /// may belong to a different project.
         #[builder(into)]
-        pub peer_network: pulumi_wasm_rust::Output<String>,
+        pub peer_network: pulumi_wasm_rust::InputOrOutput<String>,
         /// Which IP version(s) of traffic and routes are allowed to be imported or exported between peer networks. The default value is IPV4_ONLY. Possible values: ["IPV4_ONLY", "IPV4_IPV6"].
         #[builder(into, default)]
-        pub stack_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub stack_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NetworkPeeringResult {
@@ -108,21 +112,33 @@ pub mod network_peering {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NetworkPeeringArgs) -> NetworkPeeringResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NetworkPeeringArgs,
+    ) -> NetworkPeeringResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let export_custom_routes_binding = args.export_custom_routes.get_inner();
+        let export_custom_routes_binding = args
+            .export_custom_routes
+            .get_output(context)
+            .get_inner();
         let export_subnet_routes_with_public_ip_binding = args
             .export_subnet_routes_with_public_ip
+            .get_output(context)
             .get_inner();
-        let import_custom_routes_binding = args.import_custom_routes.get_inner();
+        let import_custom_routes_binding = args
+            .import_custom_routes
+            .get_output(context)
+            .get_inner();
         let import_subnet_routes_with_public_ip_binding = args
             .import_subnet_routes_with_public_ip
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
-        let peer_network_binding = args.peer_network.get_inner();
-        let stack_type_binding = args.stack_type.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let peer_network_binding = args.peer_network.get_output(context).get_inner();
+        let stack_type_binding = args.stack_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/networkPeering:NetworkPeering".into(),
             name: name.to_string(),
@@ -194,7 +210,7 @@ pub mod network_peering {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

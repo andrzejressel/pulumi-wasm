@@ -40,27 +40,27 @@
 /// $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
 /// ```
 pub mod workflow {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkflowArgs {
         /// A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         #[builder(into, default)]
-        pub default_run_properties: pulumi_wasm_rust::Output<
+        pub default_run_properties: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Description of the workflow.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
         #[builder(into, default)]
-        pub max_concurrent_runs: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_concurrent_runs: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name you assign to this workflow.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -91,14 +91,24 @@ pub mod workflow {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkflowArgs) -> WorkflowResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkflowArgs,
+    ) -> WorkflowResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let default_run_properties_binding = args.default_run_properties.get_inner();
-        let description_binding = args.description.get_inner();
-        let max_concurrent_runs_binding = args.max_concurrent_runs.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let default_run_properties_binding = args
+            .default_run_properties
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let max_concurrent_runs_binding = args
+            .max_concurrent_runs
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/workflow:Workflow".into(),
             name: name.to_string(),
@@ -149,7 +159,7 @@ pub mod workflow {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -229,46 +229,46 @@
 /// ```
 ///
 pub mod tls_inspection_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TlsInspectionPolicyArgs {
         /// A CA pool resource used to issue interception certificates.
         #[builder(into)]
-        pub ca_pool: pulumi_wasm_rust::Output<String>,
+        pub ca_pool: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of custom TLS cipher suites selected. This field is valid only if the selected tls_feature_profile is CUSTOM. The compute.SslPoliciesService.ListAvailableFeatures method returns the set of features that can be specified in this list. Note that Secure Web Proxy does not yet honor this field.
         #[builder(into, default)]
-        pub custom_tls_features: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub custom_tls_features: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Free-text description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If FALSE (the default), use our default set of public CAs in addition to any CAs specified in trustConfig. These public CAs are currently based on the Mozilla Root Program and are subject to change over time. If TRUE, do not accept our default set of public CAs. Only CAs specified in trustConfig will be accepted.
         #[builder(into, default)]
-        pub exclude_public_ca_set: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exclude_public_ca_set: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The location of the tls inspection policy.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Minimum TLS version that the firewall should use when negotiating connections with both clients and servers. If this is not set, then the default value is to allow the broadest set of clients and servers (TLS 1.0 or higher). Setting this to more restrictive values may improve security, but may also prevent the firewall from connecting to some clients or servers. Note that Secure Web Proxy does not yet honor this field.
         /// Possible values are: `TLS_VERSION_UNSPECIFIED`, `TLS_1_0`, `TLS_1_1`, `TLS_1_2`, `TLS_1_3`.
         #[builder(into, default)]
-        pub min_tls_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub min_tls_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Short name of the TlsInspectionPolicy resource to be created.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The selected Profile. If this is not set, then the default value is to allow the broadest set of clients and servers (\"PROFILE_COMPATIBLE\"). Setting this to more restrictive values may improve security, but may also prevent the TLS inspection proxy from connecting to some clients or servers. Note that Secure Web Proxy does not yet honor this field.
         /// Possible values are: `PROFILE_UNSPECIFIED`, `PROFILE_COMPATIBLE`, `PROFILE_MODERN`, `PROFILE_RESTRICTED`, `PROFILE_CUSTOM`.
         #[builder(into, default)]
-        pub tls_feature_profile: pulumi_wasm_rust::Output<Option<String>>,
+        pub tls_feature_profile: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A TrustConfig resource used when making a connection to the TLS server. This is a relative resource path following the form \"projects/{project}/locations/{location}/trustConfigs/{trust_config}\". This is necessary to intercept TLS connections to servers with certificates signed by a private CA or self-signed certificates. Trust config and the TLS inspection policy must be in the same region. Note that Secure Web Proxy does not yet honor this field.
         #[builder(into, default)]
-        pub trust_config: pulumi_wasm_rust::Output<Option<String>>,
+        pub trust_config: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TlsInspectionPolicyResult {
@@ -308,21 +308,34 @@ pub mod tls_inspection_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TlsInspectionPolicyArgs,
     ) -> TlsInspectionPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let ca_pool_binding = args.ca_pool.get_inner();
-        let custom_tls_features_binding = args.custom_tls_features.get_inner();
-        let description_binding = args.description.get_inner();
-        let exclude_public_ca_set_binding = args.exclude_public_ca_set.get_inner();
-        let location_binding = args.location.get_inner();
-        let min_tls_version_binding = args.min_tls_version.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let tls_feature_profile_binding = args.tls_feature_profile.get_inner();
-        let trust_config_binding = args.trust_config.get_inner();
+        let ca_pool_binding = args.ca_pool.get_output(context).get_inner();
+        let custom_tls_features_binding = args
+            .custom_tls_features
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let exclude_public_ca_set_binding = args
+            .exclude_public_ca_set
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let min_tls_version_binding = args
+            .min_tls_version
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let tls_feature_profile_binding = args
+            .tls_feature_profile
+            .get_output(context)
+            .get_inner();
+        let trust_config_binding = args.trust_config.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networksecurity/tlsInspectionPolicy:TlsInspectionPolicy".into(),
             name: name.to_string(),
@@ -408,7 +421,7 @@ pub mod tls_inspection_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

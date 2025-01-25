@@ -52,46 +52,46 @@
 /// $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
 /// ```
 pub mod experiment_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExperimentTemplateArgs {
         /// Action to be performed during an experiment. See below.
         #[builder(into)]
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::fis::ExperimentTemplateAction>,
         >,
         /// Description for the experiment template.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_wasm_rust::InputOrOutput<String>,
         /// The experiment options for the experiment template. See experiment_options below for more details!
         #[builder(into, default)]
-        pub experiment_options: pulumi_wasm_rust::Output<
+        pub experiment_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::fis::ExperimentTemplateExperimentOptions>,
         >,
         /// The configuration for experiment logging. See below.
         #[builder(into, default)]
-        pub log_configuration: pulumi_wasm_rust::Output<
+        pub log_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::fis::ExperimentTemplateLogConfiguration>,
         >,
         /// ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// When an ongoing experiment should be stopped. See below.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub stop_conditions: pulumi_wasm_rust::Output<
+        pub stop_conditions: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::fis::ExperimentTemplateStopCondition>,
         >,
         /// Key-value mapping of tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Target of an action. See below.
         #[builder(into, default)]
-        pub targets: pulumi_wasm_rust::Output<
+        pub targets: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::fis::ExperimentTemplateTarget>>,
         >,
     }
@@ -135,17 +135,30 @@ pub mod experiment_template {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ExperimentTemplateArgs) -> ExperimentTemplateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ExperimentTemplateArgs,
+    ) -> ExperimentTemplateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_inner();
-        let description_binding = args.description.get_inner();
-        let experiment_options_binding = args.experiment_options.get_inner();
-        let log_configuration_binding = args.log_configuration.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let stop_conditions_binding = args.stop_conditions.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let targets_binding = args.targets.get_inner();
+        let actions_binding = args.actions.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let experiment_options_binding = args
+            .experiment_options
+            .get_output(context)
+            .get_inner();
+        let log_configuration_binding = args
+            .log_configuration
+            .get_output(context)
+            .get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let stop_conditions_binding = args
+            .stop_conditions
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let targets_binding = args.targets.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fis/experimentTemplate:ExperimentTemplate".into(),
             name: name.to_string(),
@@ -214,7 +227,7 @@ pub mod experiment_template {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

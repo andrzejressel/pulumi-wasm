@@ -26,46 +26,48 @@
 /// $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
 /// ```
 pub mod vpc_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcAttachmentArgs {
         /// Whether Appliance Mode support is enabled. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. Valid values: `disable`, `enable`. Default value: `disable`.
         #[builder(into, default)]
-        pub appliance_mode_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub appliance_mode_support: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         #[builder(into, default)]
-        pub dns_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub dns_support: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         #[builder(into, default)]
-        pub ipv6_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv6_support: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
         #[builder(into, default)]
-        pub security_group_referencing_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_group_referencing_support: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Identifiers of EC2 Subnets.
         #[builder(into)]
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         #[builder(into, default)]
-        pub transit_gateway_default_route_table_association: pulumi_wasm_rust::Output<
+        pub transit_gateway_default_route_table_association: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         #[builder(into, default)]
-        pub transit_gateway_default_route_table_propagation: pulumi_wasm_rust::Output<
+        pub transit_gateway_default_route_table_propagation: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Identifier of EC2 Transit Gateway.
         #[builder(into)]
-        pub transit_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifier of EC2 VPC.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcAttachmentResult {
@@ -106,25 +108,38 @@ pub mod vpc_attachment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VpcAttachmentArgs) -> VpcAttachmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VpcAttachmentArgs,
+    ) -> VpcAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let appliance_mode_support_binding = args.appliance_mode_support.get_inner();
-        let dns_support_binding = args.dns_support.get_inner();
-        let ipv6_support_binding = args.ipv6_support.get_inner();
+        let appliance_mode_support_binding = args
+            .appliance_mode_support
+            .get_output(context)
+            .get_inner();
+        let dns_support_binding = args.dns_support.get_output(context).get_inner();
+        let ipv6_support_binding = args.ipv6_support.get_output(context).get_inner();
         let security_group_referencing_support_binding = args
             .security_group_referencing_support
+            .get_output(context)
             .get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let transit_gateway_default_route_table_association_binding = args
             .transit_gateway_default_route_table_association
+            .get_output(context)
             .get_inner();
         let transit_gateway_default_route_table_propagation_binding = args
             .transit_gateway_default_route_table_propagation
+            .get_output(context)
             .get_inner();
-        let transit_gateway_id_binding = args.transit_gateway_id.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let transit_gateway_id_binding = args
+            .transit_gateway_id
+            .get_output(context)
+            .get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/vpcAttachment:VpcAttachment".into(),
             name: name.to_string(),
@@ -210,7 +225,7 @@ pub mod vpc_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

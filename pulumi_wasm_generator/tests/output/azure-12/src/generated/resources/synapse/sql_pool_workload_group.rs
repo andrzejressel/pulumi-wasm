@@ -68,34 +68,40 @@
 /// ```
 ///
 pub mod sql_pool_workload_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlPoolWorkloadGroupArgs {
         /// The workload group importance level. Defaults to `normal`.
         #[builder(into, default)]
-        pub importance: pulumi_wasm_rust::Output<Option<String>>,
+        pub importance: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The workload group cap percentage resource.
         #[builder(into)]
-        pub max_resource_percent: pulumi_wasm_rust::Output<i32>,
+        pub max_resource_percent: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The workload group request maximum grant percentage. Defaults to `3`.
         #[builder(into, default)]
-        pub max_resource_percent_per_request: pulumi_wasm_rust::Output<Option<f64>>,
+        pub max_resource_percent_per_request: pulumi_wasm_rust::InputOrOutput<
+            Option<f64>,
+        >,
         /// The workload group minimum percentage resource.
         #[builder(into)]
-        pub min_resource_percent: pulumi_wasm_rust::Output<i32>,
+        pub min_resource_percent: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The workload group request minimum grant percentage.
         #[builder(into, default)]
-        pub min_resource_percent_per_request: pulumi_wasm_rust::Output<Option<f64>>,
+        pub min_resource_percent_per_request: pulumi_wasm_rust::InputOrOutput<
+            Option<f64>,
+        >,
         /// The name which should be used for this Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The workload group query execution timeout.
         #[builder(into, default)]
-        pub query_execution_timeout_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub query_execution_timeout_in_seconds: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// The ID of the Synapse SQL Pool. Changing this forces a new Synapse SQL Pool Workload Group to be created.
         #[builder(into)]
-        pub sql_pool_id: pulumi_wasm_rust::Output<String>,
+        pub sql_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SqlPoolWorkloadGroupResult {
@@ -121,25 +127,35 @@ pub mod sql_pool_workload_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SqlPoolWorkloadGroupArgs,
     ) -> SqlPoolWorkloadGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let importance_binding = args.importance.get_inner();
-        let max_resource_percent_binding = args.max_resource_percent.get_inner();
+        let importance_binding = args.importance.get_output(context).get_inner();
+        let max_resource_percent_binding = args
+            .max_resource_percent
+            .get_output(context)
+            .get_inner();
         let max_resource_percent_per_request_binding = args
             .max_resource_percent_per_request
+            .get_output(context)
             .get_inner();
-        let min_resource_percent_binding = args.min_resource_percent.get_inner();
+        let min_resource_percent_binding = args
+            .min_resource_percent
+            .get_output(context)
+            .get_inner();
         let min_resource_percent_per_request_binding = args
             .min_resource_percent_per_request
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let query_execution_timeout_in_seconds_binding = args
             .query_execution_timeout_in_seconds
+            .get_output(context)
             .get_inner();
-        let sql_pool_id_binding = args.sql_pool_id.get_inner();
+        let sql_pool_id_binding = args.sql_pool_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup".into(),
             name: name.to_string(),
@@ -205,7 +221,7 @@ pub mod sql_pool_workload_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

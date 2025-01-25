@@ -29,16 +29,16 @@
 /// $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
 /// ```
 pub mod route_table_propagation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteTablePropagationArgs {
         /// Identifier of EC2 Transit Gateway Attachment.
         #[builder(into)]
-        pub transit_gateway_attachment_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_attachment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifier of EC2 Transit Gateway Route Table.
         #[builder(into)]
-        pub transit_gateway_route_table_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RouteTablePropagationResult {
@@ -56,6 +56,7 @@ pub mod route_table_propagation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RouteTablePropagationArgs,
     ) -> RouteTablePropagationResult {
@@ -63,9 +64,11 @@ pub mod route_table_propagation {
         use std::collections::HashMap;
         let transit_gateway_attachment_id_binding = args
             .transit_gateway_attachment_id
+            .get_output(context)
             .get_inner();
         let transit_gateway_route_table_id_binding = args
             .transit_gateway_route_table_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation"
@@ -97,7 +100,7 @@ pub mod route_table_propagation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -25,16 +25,16 @@
 /// }
 /// ```
 pub mod snapshot_create_volume_permission {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotCreateVolumePermissionArgs {
         /// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A snapshot ID
         #[builder(into)]
-        pub snapshot_id: pulumi_wasm_rust::Output<String>,
+        pub snapshot_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SnapshotCreateVolumePermissionResult {
@@ -48,13 +48,14 @@ pub mod snapshot_create_volume_permission {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SnapshotCreateVolumePermissionArgs,
     ) -> SnapshotCreateVolumePermissionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let snapshot_id_binding = args.snapshot_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let snapshot_id_binding = args.snapshot_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/snapshotCreateVolumePermission:SnapshotCreateVolumePermission"
                 .into(),
@@ -79,7 +80,7 @@ pub mod snapshot_create_volume_permission {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

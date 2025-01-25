@@ -36,18 +36,18 @@
 /// $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
 /// ```
 pub mod drt_access_log_bucket_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DrtAccessLogBucketAssociationArgs {
         /// The Amazon S3 bucket that contains the logs that you want to share.
         #[builder(into)]
-        pub log_bucket: pulumi_wasm_rust::Output<String>,
+        pub log_bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Role Arn association used for allowing Shield DRT Access.
         #[builder(into)]
-        pub role_arn_association_id: pulumi_wasm_rust::Output<String>,
+        pub role_arn_association_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::shield::DrtAccessLogBucketAssociationTimeouts>,
         >,
     }
@@ -66,14 +66,18 @@ pub mod drt_access_log_bucket_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DrtAccessLogBucketAssociationArgs,
     ) -> DrtAccessLogBucketAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let log_bucket_binding = args.log_bucket.get_inner();
-        let role_arn_association_id_binding = args.role_arn_association_id.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let log_bucket_binding = args.log_bucket.get_output(context).get_inner();
+        let role_arn_association_id_binding = args
+            .role_arn_association_id
+            .get_output(context)
+            .get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation"
                 .into(),
@@ -105,7 +109,7 @@ pub mod drt_access_log_bucket_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

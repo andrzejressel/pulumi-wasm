@@ -41,27 +41,27 @@
 /// $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
 /// ```
 pub mod event_bus {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventBusArgs {
         /// Event bus description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Partner event source that the new event bus will be matched with. Must match `name`.
         #[builder(into, default)]
-        pub event_source_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_source_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
         #[builder(into, default)]
-        pub kms_key_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -92,14 +92,24 @@ pub mod event_bus {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EventBusArgs) -> EventBusResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EventBusArgs,
+    ) -> EventBusResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let event_source_name_binding = args.event_source_name.get_inner();
-        let kms_key_identifier_binding = args.kms_key_identifier.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let event_source_name_binding = args
+            .event_source_name
+            .get_output(context)
+            .get_inner();
+        let kms_key_identifier_binding = args
+            .kms_key_identifier
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventBus:EventBus".into(),
             name: name.to_string(),
@@ -150,7 +160,7 @@ pub mod event_bus {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

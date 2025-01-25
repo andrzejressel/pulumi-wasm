@@ -11,47 +11,47 @@
 /// ```
 ///
 pub mod single_node_virtual_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SingleNodeVirtualInstanceArgs {
         /// The Geo-Location where the SAP system is to be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub app_location: pulumi_wasm_rust::Output<String>,
+        pub app_location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The environment type for the SAP Single Node Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub environment: pulumi_wasm_rust::Output<String>,
+        pub environment: pulumi_wasm_rust::InputOrOutput<String>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::workloadssap::SingleNodeVirtualInstanceIdentity>,
         >,
         /// The Azure Region where the SAP Single Node Virtual Instance should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the managed Resource Group for the SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub managed_resource_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub managed_resource_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this SAP Single Node Virtual Instance. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the SAP Single Node Virtual Instance should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The fully qualified domain name for the SAP system. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub sap_fqdn: pulumi_wasm_rust::Output<String>,
+        pub sap_fqdn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The SAP Product type for the SAP Single Node Virtual Instance. Possible values are `ECC`, `Other` and `S4HANA`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub sap_product: pulumi_wasm_rust::Output<String>,
+        pub sap_product: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `single_server_configuration` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub single_server_configuration: pulumi_wasm_rust::Output<
+        pub single_server_configuration: pulumi_wasm_rust::InputOrOutput<
             super::super::types::workloadssap::SingleNodeVirtualInstanceSingleServerConfiguration,
         >,
         /// A mapping of tags which should be assigned to the SAP Single Node Virtual Instance.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -91,26 +91,32 @@ pub mod single_node_virtual_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SingleNodeVirtualInstanceArgs,
     ) -> SingleNodeVirtualInstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_location_binding = args.app_location.get_inner();
-        let environment_binding = args.environment.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
+        let app_location_binding = args.app_location.get_output(context).get_inner();
+        let environment_binding = args.environment.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let managed_resource_group_name_binding = args
             .managed_resource_group_name
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sap_fqdn_binding = args.sap_fqdn.get_inner();
-        let sap_product_binding = args.sap_product.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sap_fqdn_binding = args.sap_fqdn.get_output(context).get_inner();
+        let sap_product_binding = args.sap_product.get_output(context).get_inner();
         let single_server_configuration_binding = args
             .single_server_configuration
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:workloadssap/singleNodeVirtualInstance:SingleNodeVirtualInstance"
                 .into(),
@@ -198,7 +204,7 @@ pub mod single_node_virtual_instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

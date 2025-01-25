@@ -32,22 +32,22 @@
 /// $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-xxxxxxxx
 /// ```
 pub mod vpc_ipv_4_cidr_block_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcIpv4CidrBlockAssociationArgs {
         /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
         #[builder(into, default)]
-        pub cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         #[builder(into, default)]
-        pub ipv4_ipam_pool_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv4_ipam_pool_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
         #[builder(into, default)]
-        pub ipv4_netmask_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub ipv4_netmask_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the VPC to make the association with.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcIpv4CidrBlockAssociationResult {
@@ -65,15 +65,22 @@ pub mod vpc_ipv_4_cidr_block_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpcIpv4CidrBlockAssociationArgs,
     ) -> VpcIpv4CidrBlockAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cidr_block_binding = args.cidr_block.get_inner();
-        let ipv4_ipam_pool_id_binding = args.ipv4_ipam_pool_id.get_inner();
-        let ipv4_netmask_length_binding = args.ipv4_netmask_length.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
+        let ipv4_ipam_pool_id_binding = args
+            .ipv4_ipam_pool_id
+            .get_output(context)
+            .get_inner();
+        let ipv4_netmask_length_binding = args
+            .ipv4_netmask_length
+            .get_output(context)
+            .get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation"
                 .into(),
@@ -112,7 +119,7 @@ pub mod vpc_ipv_4_cidr_block_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -80,34 +80,34 @@
 /// ```
 ///
 pub mod sql_pool_workload_classifier {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlPoolWorkloadClassifierArgs {
         /// Specifies the session context value that a request can be classified against.
         #[builder(into, default)]
-        pub context: pulumi_wasm_rust::Output<Option<String>>,
+        pub context: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The workload classifier end time for classification. It's of the `HH:MM` format in UTC time zone.
         #[builder(into, default)]
-        pub end_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
         #[builder(into, default)]
-        pub importance: pulumi_wasm_rust::Output<Option<String>>,
+        pub importance: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the label value that a request can be classified against.
         #[builder(into, default)]
-        pub label: pulumi_wasm_rust::Output<Option<String>>,
+        pub label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The workload classifier member name used to classified against.
         #[builder(into)]
-        pub member_name: pulumi_wasm_rust::Output<String>,
+        pub member_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Synapse SQL Pool Workload Classifier. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
         #[builder(into, default)]
-        pub start_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub start_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         #[builder(into)]
-        pub workload_group_id: pulumi_wasm_rust::Output<String>,
+        pub workload_group_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SqlPoolWorkloadClassifierResult {
@@ -133,19 +133,23 @@ pub mod sql_pool_workload_classifier {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SqlPoolWorkloadClassifierArgs,
     ) -> SqlPoolWorkloadClassifierResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let context_binding = args.context.get_inner();
-        let end_time_binding = args.end_time.get_inner();
-        let importance_binding = args.importance.get_inner();
-        let label_binding = args.label.get_inner();
-        let member_name_binding = args.member_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let start_time_binding = args.start_time.get_inner();
-        let workload_group_id_binding = args.workload_group_id.get_inner();
+        let context_binding = args.context.get_output(context).get_inner();
+        let end_time_binding = args.end_time.get_output(context).get_inner();
+        let importance_binding = args.importance.get_output(context).get_inner();
+        let label_binding = args.label.get_output(context).get_inner();
+        let member_name_binding = args.member_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let start_time_binding = args.start_time.get_output(context).get_inner();
+        let workload_group_id_binding = args
+            .workload_group_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier"
                 .into(),
@@ -212,7 +216,7 @@ pub mod sql_pool_workload_classifier {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

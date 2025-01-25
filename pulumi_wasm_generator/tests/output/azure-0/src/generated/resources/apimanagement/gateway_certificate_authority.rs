@@ -63,22 +63,22 @@
 /// ```
 ///
 pub mod gateway_certificate_authority {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GatewayCertificateAuthorityArgs {
         /// The ID of the API Management Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the API Management Certificate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub certificate_name: pulumi_wasm_rust::Output<String>,
+        pub certificate_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the API Management Gateway. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub gateway_name: pulumi_wasm_rust::Output<String>,
+        pub gateway_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether the API Management Gateway Certificate Authority is trusted.
         #[builder(into, default)]
-        pub is_trusted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_trusted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GatewayCertificateAuthorityResult {
@@ -96,15 +96,22 @@ pub mod gateway_certificate_authority {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: GatewayCertificateAuthorityArgs,
     ) -> GatewayCertificateAuthorityResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding = args.api_management_id.get_inner();
-        let certificate_name_binding = args.certificate_name.get_inner();
-        let gateway_name_binding = args.gateway_name.get_inner();
-        let is_trusted_binding = args.is_trusted.get_inner();
+        let api_management_id_binding = args
+            .api_management_id
+            .get_output(context)
+            .get_inner();
+        let certificate_name_binding = args
+            .certificate_name
+            .get_output(context)
+            .get_inner();
+        let gateway_name_binding = args.gateway_name.get_output(context).get_inner();
+        let is_trusted_binding = args.is_trusted.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority"
                 .into(),
@@ -143,7 +150,7 @@ pub mod gateway_certificate_authority {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

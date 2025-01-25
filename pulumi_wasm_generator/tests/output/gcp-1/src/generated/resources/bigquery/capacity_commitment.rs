@@ -57,7 +57,7 @@
 /// ```
 ///
 pub mod capacity_commitment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CapacityCommitmentArgs {
@@ -66,35 +66,35 @@ pub mod capacity_commitment {
         /// cannot be a dash. Max length is 64 characters. NOTE: this ID won't be kept if the capacity commitment is split
         /// or merged.
         #[builder(into, default)]
-        pub capacity_commitment_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub capacity_commitment_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The edition type. Valid values are STANDARD, ENTERPRISE, ENTERPRISE_PLUS
         #[builder(into, default)]
-        pub edition: pulumi_wasm_rust::Output<Option<String>>,
+        pub edition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If true, fail the request if another project in the organization has a capacity commitment.
         #[builder(into, default)]
-        pub enforce_single_admin_project_per_org: pulumi_wasm_rust::Output<
+        pub enforce_single_admin_project_per_org: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The geographic location where the transfer config should reside.
         /// Examples: US, EU, asia-northeast1. The default value is US.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Capacity commitment plan. Valid values are at https://cloud.google.com/bigquery/docs/reference/reservations/rpc/google.cloud.bigquery.reservation.v1#commitmentplan
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub plan: pulumi_wasm_rust::Output<String>,
+        pub plan: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The plan this capacity commitment is converted to after commitmentEndTime passes. Once the plan is changed, committed period is extended according to commitment plan. Only applicable for some commitment plans.
         #[builder(into, default)]
-        pub renewal_plan: pulumi_wasm_rust::Output<Option<String>>,
+        pub renewal_plan: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Number of slots in this commitment.
         #[builder(into)]
-        pub slot_count: pulumi_wasm_rust::Output<i32>,
+        pub slot_count: pulumi_wasm_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct CapacityCommitmentResult {
@@ -137,19 +137,27 @@ pub mod capacity_commitment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CapacityCommitmentArgs) -> CapacityCommitmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CapacityCommitmentArgs,
+    ) -> CapacityCommitmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let capacity_commitment_id_binding = args.capacity_commitment_id.get_inner();
-        let edition_binding = args.edition.get_inner();
+        let capacity_commitment_id_binding = args
+            .capacity_commitment_id
+            .get_output(context)
+            .get_inner();
+        let edition_binding = args.edition.get_output(context).get_inner();
         let enforce_single_admin_project_per_org_binding = args
             .enforce_single_admin_project_per_org
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let plan_binding = args.plan.get_inner();
-        let project_binding = args.project.get_inner();
-        let renewal_plan_binding = args.renewal_plan.get_inner();
-        let slot_count_binding = args.slot_count.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let plan_binding = args.plan.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let renewal_plan_binding = args.renewal_plan.get_output(context).get_inner();
+        let slot_count_binding = args.slot_count.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/capacityCommitment:CapacityCommitment".into(),
             name: name.to_string(),
@@ -227,7 +235,7 @@ pub mod capacity_commitment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

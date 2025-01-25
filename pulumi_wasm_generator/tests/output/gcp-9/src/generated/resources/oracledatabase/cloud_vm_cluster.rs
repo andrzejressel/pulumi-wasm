@@ -152,16 +152,16 @@
 /// ```
 ///
 pub mod cloud_vm_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CloudVmClusterArgs {
         /// CIDR range of the backup subnet.
         #[builder(into)]
-        pub backup_subnet_cidr: pulumi_wasm_rust::Output<String>,
+        pub backup_subnet_cidr: pulumi_wasm_rust::InputOrOutput<String>,
         /// Network settings. CIDR to use for cluster IP allocation.
         #[builder(into)]
-        pub cidr: pulumi_wasm_rust::Output<String>,
+        pub cidr: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the VM Cluster to create. This value is restricted
         /// to (^a-z?$) and must be a maximum of 63
         /// characters in length. The value must start with a letter and end with
@@ -170,39 +170,39 @@ pub mod cloud_vm_cluster {
         ///
         /// - - -
         #[builder(into)]
-        pub cloud_vm_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cloud_vm_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// User friendly name for this resource.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Exadata Infrastructure resource on which VM cluster
         /// resource is created, in the following format:
         /// projects/{project}/locations/{region}/cloudExadataInfrastuctures/{cloud_extradata_infrastructure}
         #[builder(into)]
-        pub exadata_infrastructure: pulumi_wasm_rust::Output<String>,
+        pub exadata_infrastructure: pulumi_wasm_rust::InputOrOutput<String>,
         /// Labels or tags associated with the VM Cluster.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. See documentation for resource type `oracledatabase.googleapis.com/DbNode`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the VPC network.
         /// Format: projects/{project}/global/networks/{network}
         #[builder(into)]
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Various properties and settings associated with Exadata VM cluster.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub properties: pulumi_wasm_rust::Output<
+        pub properties: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::oracledatabase::CloudVmClusterProperties>,
         >,
     }
@@ -268,20 +268,36 @@ pub mod cloud_vm_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CloudVmClusterArgs) -> CloudVmClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CloudVmClusterArgs,
+    ) -> CloudVmClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backup_subnet_cidr_binding = args.backup_subnet_cidr.get_inner();
-        let cidr_binding = args.cidr.get_inner();
-        let cloud_vm_cluster_id_binding = args.cloud_vm_cluster_id.get_inner();
-        let deletion_protection_binding = args.deletion_protection.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let exadata_infrastructure_binding = args.exadata_infrastructure.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let network_binding = args.network.get_inner();
-        let project_binding = args.project.get_inner();
-        let properties_binding = args.properties.get_inner();
+        let backup_subnet_cidr_binding = args
+            .backup_subnet_cidr
+            .get_output(context)
+            .get_inner();
+        let cidr_binding = args.cidr.get_output(context).get_inner();
+        let cloud_vm_cluster_id_binding = args
+            .cloud_vm_cluster_id
+            .get_output(context)
+            .get_inner();
+        let deletion_protection_binding = args
+            .deletion_protection
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let exadata_infrastructure_binding = args
+            .exadata_infrastructure
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let properties_binding = args.properties.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:oracledatabase/cloudVmCluster:CloudVmCluster".into(),
             name: name.to_string(),
@@ -383,7 +399,7 @@ pub mod cloud_vm_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

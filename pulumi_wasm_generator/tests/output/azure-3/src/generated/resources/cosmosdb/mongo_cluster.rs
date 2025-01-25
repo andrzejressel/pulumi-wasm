@@ -70,62 +70,62 @@
 /// ```
 ///
 pub mod mongo_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MongoClusterArgs {
         /// The Password associated with the `administrator_username` for the MongoDB Cluster.
         #[builder(into, default)]
-        pub administrator_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub administrator_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub administrator_username: pulumi_wasm_rust::Output<Option<String>>,
+        pub administrator_username: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
         #[builder(into, default)]
-        pub compute_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub compute_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
         ///
         /// > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
         #[builder(into, default)]
-        pub create_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub create_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The high availability mode for the MongoDB Cluster. Possibles values are `Disabled` and `ZoneRedundantPreferred`.
         #[builder(into, default)]
-        pub high_availability_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub high_availability_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The supported Azure location where the MongoDB Cluster exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The preview features that can be enabled on the MongoDB Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub preview_features: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub preview_features: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Public Network Access setting for the MongoDB Cluster. Possibles values are `Disabled` and `Enabled`. Defaults to `Enabled`.
         #[builder(into, default)]
-        pub public_network_access: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_network_access: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Number of shards to provision on the MongoDB Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub shard_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub shard_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The location of the source MongoDB Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub source_location: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the replication source MongoDB Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub source_server_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_server_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The size of the data disk space for the MongoDB Cluster.
         #[builder(into, default)]
-        pub storage_size_in_gb: pulumi_wasm_rust::Output<Option<i32>>,
+        pub storage_size_in_gb: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A mapping of tags to assign to the MongoDB Cluster.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The version for the MongoDB Cluster. Possibles values are `5.0`, `6.0` and `7.0`.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MongoClusterResult {
@@ -170,25 +170,56 @@ pub mod mongo_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MongoClusterArgs) -> MongoClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MongoClusterArgs,
+    ) -> MongoClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let administrator_password_binding = args.administrator_password.get_inner();
-        let administrator_username_binding = args.administrator_username.get_inner();
-        let compute_tier_binding = args.compute_tier.get_inner();
-        let create_mode_binding = args.create_mode.get_inner();
-        let high_availability_mode_binding = args.high_availability_mode.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let preview_features_binding = args.preview_features.get_inner();
-        let public_network_access_binding = args.public_network_access.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let shard_count_binding = args.shard_count.get_inner();
-        let source_location_binding = args.source_location.get_inner();
-        let source_server_id_binding = args.source_server_id.get_inner();
-        let storage_size_in_gb_binding = args.storage_size_in_gb.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let version_binding = args.version.get_inner();
+        let administrator_password_binding = args
+            .administrator_password
+            .get_output(context)
+            .get_inner();
+        let administrator_username_binding = args
+            .administrator_username
+            .get_output(context)
+            .get_inner();
+        let compute_tier_binding = args.compute_tier.get_output(context).get_inner();
+        let create_mode_binding = args.create_mode.get_output(context).get_inner();
+        let high_availability_mode_binding = args
+            .high_availability_mode
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let preview_features_binding = args
+            .preview_features
+            .get_output(context)
+            .get_inner();
+        let public_network_access_binding = args
+            .public_network_access
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let shard_count_binding = args.shard_count.get_output(context).get_inner();
+        let source_location_binding = args
+            .source_location
+            .get_output(context)
+            .get_inner();
+        let source_server_id_binding = args
+            .source_server_id
+            .get_output(context)
+            .get_inner();
+        let storage_size_in_gb_binding = args
+            .storage_size_in_gb
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/mongoCluster:MongoCluster".into(),
             name: name.to_string(),
@@ -310,7 +341,7 @@ pub mod mongo_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

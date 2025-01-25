@@ -98,34 +98,34 @@
 /// $ pulumi import aws:wafregional/webAcl:WebAcl wafacl a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 /// ```
 pub mod web_acl {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebAclArgs {
         /// The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
         #[builder(into)]
-        pub default_action: pulumi_wasm_rust::Output<
+        pub default_action: pulumi_wasm_rust::InputOrOutput<
             super::super::types::wafregional::WebAclDefaultAction,
         >,
         /// Configuration block to enable WAF logging. Detailed below.
         #[builder(into, default)]
-        pub logging_configuration: pulumi_wasm_rust::Output<
+        pub logging_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::wafregional::WebAclLoggingConfiguration>,
         >,
         /// The name or description for the Amazon CloudWatch metric of this web ACL.
         #[builder(into)]
-        pub metric_name: pulumi_wasm_rust::Output<String>,
+        pub metric_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name or description of the web ACL.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Set of configuration blocks containing rules for the web ACL. Detailed below.
         #[builder(into, default)]
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::wafregional::WebAclRule>>,
         >,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -162,15 +162,22 @@ pub mod web_acl {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WebAclArgs) -> WebAclResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WebAclArgs,
+    ) -> WebAclResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let default_action_binding = args.default_action.get_inner();
-        let logging_configuration_binding = args.logging_configuration.get_inner();
-        let metric_name_binding = args.metric_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let rules_binding = args.rules.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let default_action_binding = args.default_action.get_output(context).get_inner();
+        let logging_configuration_binding = args
+            .logging_configuration
+            .get_output(context)
+            .get_inner();
+        let metric_name_binding = args.metric_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let rules_binding = args.rules.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:wafregional/webAcl:WebAcl".into(),
             name: name.to_string(),
@@ -228,7 +235,7 @@ pub mod web_acl {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

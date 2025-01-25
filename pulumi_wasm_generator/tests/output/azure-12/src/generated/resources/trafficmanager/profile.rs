@@ -45,37 +45,37 @@
 /// ```
 ///
 pub mod profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProfileArgs {
         /// This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
         #[builder(into)]
-        pub dns_config: pulumi_wasm_rust::Output<
+        pub dns_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::trafficmanager::ProfileDnsConfig,
         >,
         /// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
         ///
         /// > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         #[builder(into, default)]
-        pub max_return: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_return: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
         #[builder(into)]
-        pub monitor_config: pulumi_wasm_rust::Output<
+        pub monitor_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::trafficmanager::ProfileMonitorConfig,
         >,
         /// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         #[builder(into, default)]
-        pub profile_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub profile_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
@@ -86,10 +86,10 @@ pub mod profile {
         /// * `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
         /// * `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
         #[builder(into)]
-        pub traffic_routing_method: pulumi_wasm_rust::Output<String>,
+        pub traffic_routing_method: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indicates whether Traffic View is enabled for the Traffic Manager profile.
         #[builder(into, default)]
-        pub traffic_view_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub traffic_view_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ProfileResult {
@@ -132,18 +132,31 @@ pub mod profile {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProfileArgs) -> ProfileResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProfileArgs,
+    ) -> ProfileResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dns_config_binding = args.dns_config.get_inner();
-        let max_return_binding = args.max_return.get_inner();
-        let monitor_config_binding = args.monitor_config.get_inner();
-        let name_binding = args.name.get_inner();
-        let profile_status_binding = args.profile_status.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let traffic_routing_method_binding = args.traffic_routing_method.get_inner();
-        let traffic_view_enabled_binding = args.traffic_view_enabled.get_inner();
+        let dns_config_binding = args.dns_config.get_output(context).get_inner();
+        let max_return_binding = args.max_return.get_output(context).get_inner();
+        let monitor_config_binding = args.monitor_config.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let profile_status_binding = args.profile_status.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let traffic_routing_method_binding = args
+            .traffic_routing_method
+            .get_output(context)
+            .get_inner();
+        let traffic_view_enabled_binding = args
+            .traffic_view_enabled
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:trafficmanager/profile:Profile".into(),
             name: name.to_string(),
@@ -219,7 +232,7 @@ pub mod profile {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

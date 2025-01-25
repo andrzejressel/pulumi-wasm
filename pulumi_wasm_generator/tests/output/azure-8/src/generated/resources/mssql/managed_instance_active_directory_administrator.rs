@@ -84,25 +84,25 @@
 /// ```
 ///
 pub mod managed_instance_active_directory_administrator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedInstanceActiveDirectoryAdministratorArgs {
         /// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         #[builder(into, default)]
-        pub azuread_authentication_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub azuread_authentication_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The login name of the principal to set as the Managed Instance Administrator.
         #[builder(into)]
-        pub login_username: pulumi_wasm_rust::Output<String>,
+        pub login_username: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub managed_instance_id: pulumi_wasm_rust::Output<String>,
+        pub managed_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Object ID of the principal to set as the Managed Instance Administrator.
         #[builder(into)]
-        pub object_id: pulumi_wasm_rust::Output<String>,
+        pub object_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Azure Active Directory Tenant ID.
         #[builder(into)]
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ManagedInstanceActiveDirectoryAdministratorResult {
@@ -122,6 +122,7 @@ pub mod managed_instance_active_directory_administrator {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ManagedInstanceActiveDirectoryAdministratorArgs,
     ) -> ManagedInstanceActiveDirectoryAdministratorResult {
@@ -129,11 +130,15 @@ pub mod managed_instance_active_directory_administrator {
         use std::collections::HashMap;
         let azuread_authentication_only_binding = args
             .azuread_authentication_only
+            .get_output(context)
             .get_inner();
-        let login_username_binding = args.login_username.get_inner();
-        let managed_instance_id_binding = args.managed_instance_id.get_inner();
-        let object_id_binding = args.object_id.get_inner();
-        let tenant_id_binding = args.tenant_id.get_inner();
+        let login_username_binding = args.login_username.get_output(context).get_inner();
+        let managed_instance_id_binding = args
+            .managed_instance_id
+            .get_output(context)
+            .get_inner();
+        let object_id_binding = args.object_id.get_output(context).get_inner();
+        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator"
                 .into(),
@@ -179,7 +184,7 @@ pub mod managed_instance_active_directory_administrator {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -246,7 +246,7 @@
 /// ```
 ///
 pub mod tag {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TagArgs {
@@ -254,23 +254,23 @@ pub mod tag {
         /// column based on that schema. For attaching a tag to a nested column, use '.' to separate the column names. Example:
         /// 'outer_column.inner_column'
         #[builder(into, default)]
-        pub column: pulumi_wasm_rust::Output<Option<String>>,
+        pub column: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// This maps the ID of a tag field to the value of and additional information about that field.
         /// Valid field IDs are defined by the tag's template. A tag must have at least 1 field and at most 500 fields.
         /// Structure is documented below.
         #[builder(into)]
-        pub fields: pulumi_wasm_rust::Output<
+        pub fields: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::datacatalog::TagField>,
         >,
         /// The name of the parent this tag is attached to. This can be the name of an entry or an entry group. If an entry group,
         /// the tag will be attached to all entries in that group.
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource name of the tag template that this tag uses. Example:
         /// projects/{project_id}/locations/{location}/tagTemplates/{tagTemplateId}
         /// This field cannot be modified after creation.
         #[builder(into)]
-        pub template: pulumi_wasm_rust::Output<String>,
+        pub template: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TagResult {
@@ -303,13 +303,17 @@ pub mod tag {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TagArgs) -> TagResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TagArgs,
+    ) -> TagResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let column_binding = args.column.get_inner();
-        let fields_binding = args.fields.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let template_binding = args.template.get_inner();
+        let column_binding = args.column.get_output(context).get_inner();
+        let fields_binding = args.fields.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let template_binding = args.template.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/tag:Tag".into(),
             name: name.to_string(),
@@ -353,7 +357,7 @@ pub mod tag {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -35,41 +35,41 @@
 /// }
 /// ```
 pub mod dev_environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DevEnvironmentArgs {
         #[builder(into, default)]
-        pub alias: pulumi_wasm_rust::Output<Option<String>>,
+        pub alias: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Information about the integrated development environment (IDE) configured for a Dev Environment.
         #[builder(into)]
-        pub ides: pulumi_wasm_rust::Output<
+        pub ides: pulumi_wasm_rust::InputOrOutput<
             super::super::types::codecatalyst::DevEnvironmentIdes,
         >,
         /// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         #[builder(into, default)]
-        pub inactivity_timeout_minutes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub inactivity_timeout_minutes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub instance_type: pulumi_wasm_rust::Output<String>,
+        pub instance_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Information about the amount of storage allocated to the Dev Environment.
         #[builder(into)]
-        pub persistent_storage: pulumi_wasm_rust::Output<
+        pub persistent_storage: pulumi_wasm_rust::InputOrOutput<
             super::super::types::codecatalyst::DevEnvironmentPersistentStorage,
         >,
         /// The name of the project in the space.
         #[builder(into)]
-        pub project_name: pulumi_wasm_rust::Output<String>,
+        pub project_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The source repository that contains the branch to clone into the Dev Environment.
         #[builder(into, default)]
-        pub repositories: pulumi_wasm_rust::Output<
+        pub repositories: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::codecatalyst::DevEnvironmentRepository>>,
         >,
         /// The name of the space.
         #[builder(into)]
-        pub space_name: pulumi_wasm_rust::Output<String>,
+        pub space_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DevEnvironmentResult {
@@ -101,19 +101,27 @@ pub mod dev_environment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DevEnvironmentArgs) -> DevEnvironmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DevEnvironmentArgs,
+    ) -> DevEnvironmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_inner();
-        let ides_binding = args.ides.get_inner();
+        let alias_binding = args.alias.get_output(context).get_inner();
+        let ides_binding = args.ides.get_output(context).get_inner();
         let inactivity_timeout_minutes_binding = args
             .inactivity_timeout_minutes
+            .get_output(context)
             .get_inner();
-        let instance_type_binding = args.instance_type.get_inner();
-        let persistent_storage_binding = args.persistent_storage.get_inner();
-        let project_name_binding = args.project_name.get_inner();
-        let repositories_binding = args.repositories.get_inner();
-        let space_name_binding = args.space_name.get_inner();
+        let instance_type_binding = args.instance_type.get_output(context).get_inner();
+        let persistent_storage_binding = args
+            .persistent_storage
+            .get_output(context)
+            .get_inner();
+        let project_name_binding = args.project_name.get_output(context).get_inner();
+        let repositories_binding = args.repositories.get_output(context).get_inner();
+        let space_name_binding = args.space_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codecatalyst/devEnvironment:DevEnvironment".into(),
             name: name.to_string(),
@@ -179,7 +187,7 @@ pub mod dev_environment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

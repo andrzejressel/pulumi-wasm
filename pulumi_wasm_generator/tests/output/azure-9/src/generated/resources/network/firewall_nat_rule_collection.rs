@@ -82,28 +82,28 @@
 /// ```
 ///
 pub mod firewall_nat_rule_collection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FirewallNatRuleCollectionArgs {
         /// Specifies the action the rule will apply to matching traffic. Possible values are `Dnat` and `Snat`.
         #[builder(into)]
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Firewall in which the NAT Rule Collection should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub azure_firewall_name: pulumi_wasm_rust::Output<String>,
+        pub azure_firewall_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the NAT Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `rule` blocks as defined below.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::network::FirewallNatRuleCollectionRule>,
         >,
     }
@@ -129,17 +129,24 @@ pub mod firewall_nat_rule_collection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FirewallNatRuleCollectionArgs,
     ) -> FirewallNatRuleCollectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_inner();
-        let azure_firewall_name_binding = args.azure_firewall_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let rules_binding = args.rules.get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
+        let azure_firewall_name_binding = args
+            .azure_firewall_name
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let rules_binding = args.rules.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/firewallNatRuleCollection:FirewallNatRuleCollection"
                 .into(),
@@ -192,7 +199,7 @@ pub mod firewall_nat_rule_collection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

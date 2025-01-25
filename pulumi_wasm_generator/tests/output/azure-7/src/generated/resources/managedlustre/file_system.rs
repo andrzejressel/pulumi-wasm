@@ -53,7 +53,7 @@
 /// ```
 ///
 pub mod file_system {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FileSystemArgs {
@@ -61,50 +61,50 @@ pub mod file_system {
         ///
         /// > **NOTE:** Removing `encryption_key` forces a new resource to be created.
         #[builder(into, default)]
-        pub encryption_key: pulumi_wasm_rust::Output<
+        pub encryption_key: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::managedlustre::FileSystemEncryptionKey>,
         >,
         /// A `hsm_setting` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub hsm_setting: pulumi_wasm_rust::Output<
+        pub hsm_setting: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::managedlustre::FileSystemHsmSetting>,
         >,
         /// An `identity` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::managedlustre::FileSystemIdentity>,
         >,
         /// The Azure Region where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `maintenance_window` block as defined below.
         #[builder(into)]
-        pub maintenance_window: pulumi_wasm_rust::Output<
+        pub maintenance_window: pulumi_wasm_rust::InputOrOutput<
             super::super::types::managedlustre::FileSystemMaintenanceWindow,
         >,
         /// The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Azure Managed Lustre File System should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The SKU name for the Azure Managed Lustre File System. Possible values are `AMLFS-Durable-Premium-40`, `AMLFS-Durable-Premium-125`, `AMLFS-Durable-Premium-250` and `AMLFS-Durable-Premium-500`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The size of the Azure Managed Lustre File System in TiB. The valid values for this field are dependant on which `sku_name` has been defined in the configuration file. For more information on the valid values for this field please see the [product documentation](https://learn.microsoft.com/azure/azure-managed-lustre/create-file-system-resource-manager#file-system-type-and-size-options). Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_capacity_in_tb: pulumi_wasm_rust::Output<i32>,
+        pub storage_capacity_in_tb: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The resource ID of the Subnet that is used for managing the Azure Managed Lustre file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the Virtual Network's address space. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Azure Managed Lustre File System.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of availability zones for the Azure Managed Lustre File System. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub zones: pulumi_wasm_rust::Output<Vec<String>>,
+        pub zones: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct FileSystemResult {
@@ -151,21 +151,34 @@ pub mod file_system {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FileSystemArgs) -> FileSystemResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FileSystemArgs,
+    ) -> FileSystemResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let encryption_key_binding = args.encryption_key.get_inner();
-        let hsm_setting_binding = args.hsm_setting.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let maintenance_window_binding = args.maintenance_window.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_name_binding = args.sku_name.get_inner();
-        let storage_capacity_in_tb_binding = args.storage_capacity_in_tb.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let zones_binding = args.zones.get_inner();
+        let encryption_key_binding = args.encryption_key.get_output(context).get_inner();
+        let hsm_setting_binding = args.hsm_setting.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let maintenance_window_binding = args
+            .maintenance_window
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_name_binding = args.sku_name.get_output(context).get_inner();
+        let storage_capacity_in_tb_binding = args
+            .storage_capacity_in_tb
+            .get_output(context)
+            .get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let zones_binding = args.zones.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:managedlustre/fileSystem:FileSystem".into(),
             name: name.to_string(),
@@ -262,7 +275,7 @@ pub mod file_system {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

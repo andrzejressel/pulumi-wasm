@@ -62,24 +62,26 @@
 /// $ pulumi import aws:guardduty/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
 /// ```
 pub mod organization_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationConfigurationArgs {
         /// *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         #[builder(into, default)]
-        pub auto_enable: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_enable: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
         #[builder(into, default)]
-        pub auto_enable_organization_members: pulumi_wasm_rust::Output<Option<String>>,
+        pub auto_enable_organization_members: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Configuration for the collected datasources.
         #[builder(into, default)]
-        pub datasources: pulumi_wasm_rust::Output<
+        pub datasources: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::guardduty::OrganizationConfigurationDatasources>,
         >,
         /// The detector ID of the GuardDuty account.
         #[builder(into)]
-        pub detector_id: pulumi_wasm_rust::Output<String>,
+        pub detector_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OrganizationConfigurationResult {
@@ -99,17 +101,19 @@ pub mod organization_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OrganizationConfigurationArgs,
     ) -> OrganizationConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_enable_binding = args.auto_enable.get_inner();
+        let auto_enable_binding = args.auto_enable.get_output(context).get_inner();
         let auto_enable_organization_members_binding = args
             .auto_enable_organization_members
+            .get_output(context)
             .get_inner();
-        let datasources_binding = args.datasources.get_inner();
-        let detector_id_binding = args.detector_id.get_inner();
+        let datasources_binding = args.datasources.get_output(context).get_inner();
+        let detector_id_binding = args.detector_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:guardduty/organizationConfiguration:OrganizationConfiguration"
                 .into(),
@@ -148,7 +152,7 @@ pub mod organization_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

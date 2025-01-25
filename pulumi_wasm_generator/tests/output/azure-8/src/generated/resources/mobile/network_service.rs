@@ -70,35 +70,35 @@
 /// ```
 ///
 pub mod network_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkServiceArgs {
         /// Specifies the Azure Region where the Mobile Network Service should exist. Changing this forces a new Mobile Network Service to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
         #[builder(into)]
-        pub mobile_network_id: pulumi_wasm_rust::Output<String>,
+        pub mobile_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name which should be used for this Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
         #[builder(into)]
-        pub pcc_rules: pulumi_wasm_rust::Output<
+        pub pcc_rules: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::mobile::NetworkServicePccRule>,
         >,
         /// A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network. Must be between `0` and `255`.
         #[builder(into)]
-        pub service_precedence: pulumi_wasm_rust::Output<i32>,
+        pub service_precedence: pulumi_wasm_rust::InputOrOutput<i32>,
         /// A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
         #[builder(into, default)]
-        pub service_qos_policy: pulumi_wasm_rust::Output<
+        pub service_qos_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::mobile::NetworkServiceServiceQosPolicy>,
         >,
         /// A mapping of tags which should be assigned to the Mobile Network Service.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -129,16 +129,29 @@ pub mod network_service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NetworkServiceArgs) -> NetworkServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NetworkServiceArgs,
+    ) -> NetworkServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let mobile_network_id_binding = args.mobile_network_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let pcc_rules_binding = args.pcc_rules.get_inner();
-        let service_precedence_binding = args.service_precedence.get_inner();
-        let service_qos_policy_binding = args.service_qos_policy.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let mobile_network_id_binding = args
+            .mobile_network_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let pcc_rules_binding = args.pcc_rules.get_output(context).get_inner();
+        let service_precedence_binding = args
+            .service_precedence
+            .get_output(context)
+            .get_inner();
+        let service_qos_policy_binding = args
+            .service_qos_policy
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mobile/networkService:NetworkService".into(),
             name: name.to_string(),
@@ -197,7 +210,7 @@ pub mod network_service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

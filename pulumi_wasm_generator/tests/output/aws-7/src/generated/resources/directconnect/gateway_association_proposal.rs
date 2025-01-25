@@ -38,22 +38,22 @@
 /// The `aws_dx_gateway_association_proposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
 ///
 pub mod gateway_association_proposal {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GatewayAssociationProposalArgs {
         /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
         #[builder(into, default)]
-        pub allowed_prefixes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub allowed_prefixes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         #[builder(into)]
-        pub associated_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub associated_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Direct Connect Gateway identifier.
         #[builder(into)]
-        pub dx_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub dx_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// AWS Account identifier of the Direct Connect Gateway's owner.
         #[builder(into)]
-        pub dx_gateway_owner_account_id: pulumi_wasm_rust::Output<String>,
+        pub dx_gateway_owner_account_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GatewayAssociationProposalResult {
@@ -75,16 +75,24 @@ pub mod gateway_association_proposal {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: GatewayAssociationProposalArgs,
     ) -> GatewayAssociationProposalResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allowed_prefixes_binding = args.allowed_prefixes.get_inner();
-        let associated_gateway_id_binding = args.associated_gateway_id.get_inner();
-        let dx_gateway_id_binding = args.dx_gateway_id.get_inner();
+        let allowed_prefixes_binding = args
+            .allowed_prefixes
+            .get_output(context)
+            .get_inner();
+        let associated_gateway_id_binding = args
+            .associated_gateway_id
+            .get_output(context)
+            .get_inner();
+        let dx_gateway_id_binding = args.dx_gateway_id.get_output(context).get_inner();
         let dx_gateway_owner_account_id_binding = args
             .dx_gateway_owner_account_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal"
@@ -130,7 +138,7 @@ pub mod gateway_association_proposal {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

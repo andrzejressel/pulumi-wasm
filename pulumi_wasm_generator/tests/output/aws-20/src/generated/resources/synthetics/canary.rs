@@ -34,76 +34,76 @@
 /// $ pulumi import aws:synthetics/canary:Canary some some-canary
 /// ```
 pub mod canary {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CanaryArgs {
         /// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         #[builder(into, default)]
-        pub artifact_config: pulumi_wasm_rust::Output<
+        pub artifact_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::synthetics::CanaryArtifactConfig>,
         >,
         /// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
         #[builder(into)]
-        pub artifact_s3_location: pulumi_wasm_rust::Output<String>,
+        pub artifact_s3_location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         #[builder(into, default)]
-        pub delete_lambda: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_lambda: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         #[builder(into)]
-        pub execution_role_arn: pulumi_wasm_rust::Output<String>,
+        pub execution_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         #[builder(into, default)]
-        pub failure_retention_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub failure_retention_period: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
         #[builder(into)]
-        pub handler: pulumi_wasm_rust::Output<String>,
+        pub handler: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block for individual canary runs. Detailed below.
         #[builder(into, default)]
-        pub run_config: pulumi_wasm_rust::Output<
+        pub run_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::synthetics::CanaryRunConfig>,
         >,
         /// Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
         #[builder(into)]
-        pub runtime_version: pulumi_wasm_rust::Output<String>,
+        pub runtime_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
         #[builder(into, default)]
-        pub s3_bucket: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_bucket: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// S3 key of your script. **Conflicts with `zip_file`.**
         #[builder(into, default)]
-        pub s3_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// S3 version ID of your script. **Conflicts with `zip_file`.**
         #[builder(into, default)]
-        pub s3_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_wasm_rust::InputOrOutput<
             super::super::types::synthetics::CanarySchedule,
         >,
         /// Whether to run or stop the canary.
         #[builder(into, default)]
-        pub start_canary: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start_canary: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         #[builder(into, default)]
-        pub success_retention_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub success_retention_period: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub vpc_config: pulumi_wasm_rust::Output<
+        pub vpc_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::synthetics::CanaryVpcConfig>,
         >,
         /// ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         #[builder(into, default)]
-        pub zip_file: pulumi_wasm_rust::Output<Option<String>>,
+        pub zip_file: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CanaryResult {
@@ -176,27 +176,49 @@ pub mod canary {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CanaryArgs) -> CanaryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CanaryArgs,
+    ) -> CanaryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let artifact_config_binding = args.artifact_config.get_inner();
-        let artifact_s3_location_binding = args.artifact_s3_location.get_inner();
-        let delete_lambda_binding = args.delete_lambda.get_inner();
-        let execution_role_arn_binding = args.execution_role_arn.get_inner();
-        let failure_retention_period_binding = args.failure_retention_period.get_inner();
-        let handler_binding = args.handler.get_inner();
-        let name_binding = args.name.get_inner();
-        let run_config_binding = args.run_config.get_inner();
-        let runtime_version_binding = args.runtime_version.get_inner();
-        let s3_bucket_binding = args.s3_bucket.get_inner();
-        let s3_key_binding = args.s3_key.get_inner();
-        let s3_version_binding = args.s3_version.get_inner();
-        let schedule_binding = args.schedule.get_inner();
-        let start_canary_binding = args.start_canary.get_inner();
-        let success_retention_period_binding = args.success_retention_period.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_config_binding = args.vpc_config.get_inner();
-        let zip_file_binding = args.zip_file.get_inner();
+        let artifact_config_binding = args
+            .artifact_config
+            .get_output(context)
+            .get_inner();
+        let artifact_s3_location_binding = args
+            .artifact_s3_location
+            .get_output(context)
+            .get_inner();
+        let delete_lambda_binding = args.delete_lambda.get_output(context).get_inner();
+        let execution_role_arn_binding = args
+            .execution_role_arn
+            .get_output(context)
+            .get_inner();
+        let failure_retention_period_binding = args
+            .failure_retention_period
+            .get_output(context)
+            .get_inner();
+        let handler_binding = args.handler.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let run_config_binding = args.run_config.get_output(context).get_inner();
+        let runtime_version_binding = args
+            .runtime_version
+            .get_output(context)
+            .get_inner();
+        let s3_bucket_binding = args.s3_bucket.get_output(context).get_inner();
+        let s3_key_binding = args.s3_key.get_output(context).get_inner();
+        let s3_version_binding = args.s3_version.get_output(context).get_inner();
+        let schedule_binding = args.schedule.get_output(context).get_inner();
+        let start_canary_binding = args.start_canary.get_output(context).get_inner();
+        let success_retention_period_binding = args
+            .success_retention_period
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_config_binding = args.vpc_config.get_output(context).get_inner();
+        let zip_file_binding = args.zip_file.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:synthetics/canary:Canary".into(),
             name: name.to_string(),
@@ -350,7 +372,7 @@ pub mod canary {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

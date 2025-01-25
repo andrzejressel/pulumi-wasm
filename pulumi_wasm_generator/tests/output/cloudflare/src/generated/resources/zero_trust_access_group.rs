@@ -15,30 +15,30 @@
 /// ```
 ///
 pub mod zero_trust_access_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustAccessGroupArgs {
         /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub excludes: pulumi_wasm_rust::Output<
+        pub excludes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::ZeroTrustAccessGroupExclude>>,
         >,
         #[builder(into)]
-        pub includes: pulumi_wasm_rust::Output<
+        pub includes: pulumi_wasm_rust::InputOrOutput<
             Vec<super::types::ZeroTrustAccessGroupInclude>,
         >,
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub requires: pulumi_wasm_rust::Output<
+        pub requires: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::ZeroTrustAccessGroupRequire>>,
         >,
         /// The zone identifier to target for the resource. Conflicts with `account_id`.
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustAccessGroupResult {
@@ -62,17 +62,18 @@ pub mod zero_trust_access_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ZeroTrustAccessGroupArgs,
     ) -> ZeroTrustAccessGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let excludes_binding = args.excludes.get_inner();
-        let includes_binding = args.includes.get_inner();
-        let name_binding = args.name.get_inner();
-        let requires_binding = args.requires.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let excludes_binding = args.excludes.get_output(context).get_inner();
+        let includes_binding = args.includes.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let requires_binding = args.requires.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustAccessGroup:ZeroTrustAccessGroup".into(),
             name: name.to_string(),
@@ -124,7 +125,7 @@ pub mod zero_trust_access_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -27,22 +27,22 @@
 /// $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
 /// ```
 pub mod identity_notification_topic {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IdentityNotificationTopicArgs {
         /// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
         #[builder(into)]
-        pub identity: pulumi_wasm_rust::Output<String>,
+        pub identity: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
         #[builder(into, default)]
-        pub include_original_headers: pulumi_wasm_rust::Output<Option<bool>>,
+        pub include_original_headers: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
         #[builder(into)]
-        pub notification_type: pulumi_wasm_rust::Output<String>,
+        pub notification_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
         #[builder(into, default)]
-        pub topic_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub topic_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct IdentityNotificationTopicResult {
@@ -60,15 +60,22 @@ pub mod identity_notification_topic {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IdentityNotificationTopicArgs,
     ) -> IdentityNotificationTopicResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let identity_binding = args.identity.get_inner();
-        let include_original_headers_binding = args.include_original_headers.get_inner();
-        let notification_type_binding = args.notification_type.get_inner();
-        let topic_arn_binding = args.topic_arn.get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let include_original_headers_binding = args
+            .include_original_headers
+            .get_output(context)
+            .get_inner();
+        let notification_type_binding = args
+            .notification_type
+            .get_output(context)
+            .get_inner();
+        let topic_arn_binding = args.topic_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/identityNotificationTopic:IdentityNotificationTopic".into(),
             name: name.to_string(),
@@ -106,7 +113,7 @@ pub mod identity_notification_topic {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

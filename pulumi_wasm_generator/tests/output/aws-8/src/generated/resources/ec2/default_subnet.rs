@@ -28,48 +28,52 @@
 /// $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
 /// ```
 pub mod default_subnet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultSubnetArgs {
         #[builder(into, default)]
-        pub assign_ipv6_address_on_creation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub assign_ipv6_address_on_creation: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// is required
         /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
         /// * The default value for `map_public_ip_on_launch` is `true`
         ///
         /// This resource supports the following additional arguments:
         #[builder(into)]
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub customer_owned_ipv4_pool: pulumi_wasm_rust::Output<Option<String>>,
+        pub customer_owned_ipv4_pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub enable_dns64: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_dns64: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub enable_resource_name_dns_a_record_on_launch: pulumi_wasm_rust::Output<
+        pub enable_resource_name_dns_a_record_on_launch: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         #[builder(into, default)]
-        pub enable_resource_name_dns_aaaa_record_on_launch: pulumi_wasm_rust::Output<
+        pub enable_resource_name_dns_aaaa_record_on_launch: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Whether destroying the resource deletes the default subnet. Default: `false`
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub ipv6_cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv6_cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub ipv6_native: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ipv6_native: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub map_customer_owned_ip_on_launch: pulumi_wasm_rust::Output<Option<bool>>,
+        pub map_customer_owned_ip_on_launch: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         #[builder(into, default)]
-        pub map_public_ip_on_launch: pulumi_wasm_rust::Output<Option<bool>>,
+        pub map_public_ip_on_launch: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub private_dns_hostname_type_on_launch: pulumi_wasm_rust::Output<
+        pub private_dns_hostname_type_on_launch: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -120,32 +124,53 @@ pub mod default_subnet {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DefaultSubnetArgs) -> DefaultSubnetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DefaultSubnetArgs,
+    ) -> DefaultSubnetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let assign_ipv6_address_on_creation_binding = args
             .assign_ipv6_address_on_creation
+            .get_output(context)
             .get_inner();
-        let availability_zone_binding = args.availability_zone.get_inner();
-        let customer_owned_ipv4_pool_binding = args.customer_owned_ipv4_pool.get_inner();
-        let enable_dns64_binding = args.enable_dns64.get_inner();
+        let availability_zone_binding = args
+            .availability_zone
+            .get_output(context)
+            .get_inner();
+        let customer_owned_ipv4_pool_binding = args
+            .customer_owned_ipv4_pool
+            .get_output(context)
+            .get_inner();
+        let enable_dns64_binding = args.enable_dns64.get_output(context).get_inner();
         let enable_resource_name_dns_a_record_on_launch_binding = args
             .enable_resource_name_dns_a_record_on_launch
+            .get_output(context)
             .get_inner();
         let enable_resource_name_dns_aaaa_record_on_launch_binding = args
             .enable_resource_name_dns_aaaa_record_on_launch
+            .get_output(context)
             .get_inner();
-        let force_destroy_binding = args.force_destroy.get_inner();
-        let ipv6_cidr_block_binding = args.ipv6_cidr_block.get_inner();
-        let ipv6_native_binding = args.ipv6_native.get_inner();
+        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
+        let ipv6_cidr_block_binding = args
+            .ipv6_cidr_block
+            .get_output(context)
+            .get_inner();
+        let ipv6_native_binding = args.ipv6_native.get_output(context).get_inner();
         let map_customer_owned_ip_on_launch_binding = args
             .map_customer_owned_ip_on_launch
+            .get_output(context)
             .get_inner();
-        let map_public_ip_on_launch_binding = args.map_public_ip_on_launch.get_inner();
+        let map_public_ip_on_launch_binding = args
+            .map_public_ip_on_launch
+            .get_output(context)
+            .get_inner();
         let private_dns_hostname_type_on_launch_binding = args
             .private_dns_hostname_type_on_launch
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/defaultSubnet:DefaultSubnet".into(),
             name: name.to_string(),
@@ -276,7 +301,7 @@ pub mod default_subnet {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

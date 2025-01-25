@@ -103,44 +103,44 @@
 /// $ pulumi import aws:cloudformation/stackInstances:StackInstances example example,SELF,OU
 /// ```
 pub mod stack_instances {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StackInstancesArgs {
         /// Accounts where you want to create stack instances in the specified `regions`. You can specify either `accounts` or `deployment_targets`, but not both.
         #[builder(into, default)]
-        pub accounts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub accounts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         #[builder(into, default)]
-        pub call_as: pulumi_wasm_rust::Output<Option<String>>,
+        pub call_as: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
         #[builder(into, default)]
-        pub deployment_targets: pulumi_wasm_rust::Output<
+        pub deployment_targets: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudformation::StackInstancesDeploymentTargets>,
         >,
         /// Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
         #[builder(into, default)]
-        pub operation_preferences: pulumi_wasm_rust::Output<
+        pub operation_preferences: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::cloudformation::StackInstancesOperationPreferences,
             >,
         >,
         /// Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
         #[builder(into, default)]
-        pub parameter_overrides: pulumi_wasm_rust::Output<
+        pub parameter_overrides: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Regions where you want to create stack instances in the specified `accounts`.
         #[builder(into, default)]
-        pub regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
         #[builder(into, default)]
-        pub retain_stacks: pulumi_wasm_rust::Output<Option<bool>>,
+        pub retain_stacks: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the stack set.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub stack_set_name: pulumi_wasm_rust::Output<String>,
+        pub stack_set_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct StackInstancesResult {
@@ -181,17 +181,30 @@ pub mod stack_instances {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StackInstancesArgs) -> StackInstancesResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StackInstancesArgs,
+    ) -> StackInstancesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accounts_binding = args.accounts.get_inner();
-        let call_as_binding = args.call_as.get_inner();
-        let deployment_targets_binding = args.deployment_targets.get_inner();
-        let operation_preferences_binding = args.operation_preferences.get_inner();
-        let parameter_overrides_binding = args.parameter_overrides.get_inner();
-        let regions_binding = args.regions.get_inner();
-        let retain_stacks_binding = args.retain_stacks.get_inner();
-        let stack_set_name_binding = args.stack_set_name.get_inner();
+        let accounts_binding = args.accounts.get_output(context).get_inner();
+        let call_as_binding = args.call_as.get_output(context).get_inner();
+        let deployment_targets_binding = args
+            .deployment_targets
+            .get_output(context)
+            .get_inner();
+        let operation_preferences_binding = args
+            .operation_preferences
+            .get_output(context)
+            .get_inner();
+        let parameter_overrides_binding = args
+            .parameter_overrides
+            .get_output(context)
+            .get_inner();
+        let regions_binding = args.regions.get_output(context).get_inner();
+        let retain_stacks_binding = args.retain_stacks.get_output(context).get_inner();
+        let stack_set_name_binding = args.stack_set_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudformation/stackInstances:StackInstances".into(),
             name: name.to_string(),
@@ -263,7 +276,7 @@ pub mod stack_instances {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

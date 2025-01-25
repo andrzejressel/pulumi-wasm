@@ -1,17 +1,17 @@
 pub mod get_zone_virtual_network_link {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetZoneVirtualNetworkLinkArgs {
         /// The name of the Private DNS Zone Virtual Network Link.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Private DNS zone (without a terminating dot).
         #[builder(into)]
-        pub private_dns_zone_name: pulumi_wasm_rust::Output<String>,
+        pub private_dns_zone_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the resource group where the Private DNS Zone exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetZoneVirtualNetworkLinkResult {
@@ -32,13 +32,20 @@ pub mod get_zone_virtual_network_link {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetZoneVirtualNetworkLinkArgs,
     ) -> GetZoneVirtualNetworkLinkResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let private_dns_zone_name_binding = args.private_dns_zone_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let private_dns_zone_name_binding = args
+            .private_dns_zone_name
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink"
                 .into(),
@@ -81,7 +88,7 @@ pub mod get_zone_virtual_network_link {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

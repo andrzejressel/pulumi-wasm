@@ -28,21 +28,21 @@
 /// $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
 /// ```
 pub mod documentation_part {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DocumentationPartArgs {
         /// Location of the targeted API entity of the to-be-created documentation part. See below.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<
+        pub location: pulumi_wasm_rust::InputOrOutput<
             super::super::types::apigateway::DocumentationPartLocation,
         >,
         /// Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
         #[builder(into)]
-        pub properties: pulumi_wasm_rust::Output<String>,
+        pub properties: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the associated Rest API
         #[builder(into)]
-        pub rest_api_id: pulumi_wasm_rust::Output<String>,
+        pub rest_api_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DocumentationPartResult {
@@ -61,12 +61,16 @@ pub mod documentation_part {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DocumentationPartArgs) -> DocumentationPartResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DocumentationPartArgs,
+    ) -> DocumentationPartResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let properties_binding = args.properties.get_inner();
-        let rest_api_id_binding = args.rest_api_id.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let properties_binding = args.properties.get_output(context).get_inner();
+        let rest_api_id_binding = args.rest_api_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/documentationPart:DocumentationPart".into(),
             name: name.to_string(),
@@ -100,7 +104,7 @@ pub mod documentation_part {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

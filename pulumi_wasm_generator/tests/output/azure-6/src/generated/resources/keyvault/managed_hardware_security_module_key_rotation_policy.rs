@@ -37,22 +37,22 @@
 /// ```
 ///
 pub mod managed_hardware_security_module_key_rotation_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedHardwareSecurityModuleKeyRotationPolicyArgs {
         /// Specify the expiration duration on a newly rotated key as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `P28D`.
         #[builder(into)]
-        pub expire_after: pulumi_wasm_rust::Output<String>,
+        pub expire_after: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Managed HSM Key. Changing this forces a new Managed HSM Key rotation policy to be created.
         #[builder(into)]
-        pub managed_hsm_key_id: pulumi_wasm_rust::Output<String>,
+        pub managed_hsm_key_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Rotate automatically at a duration after key creation as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
         #[builder(into, default)]
-        pub time_after_creation: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_after_creation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Rotate automatically at a duration before key expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Exactly one of `time_after_creation` or `time_before_expiry` should be specified.
         #[builder(into, default)]
-        pub time_before_expiry: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_before_expiry: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ManagedHardwareSecurityModuleKeyRotationPolicyResult {
@@ -70,15 +70,25 @@ pub mod managed_hardware_security_module_key_rotation_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ManagedHardwareSecurityModuleKeyRotationPolicyArgs,
     ) -> ManagedHardwareSecurityModuleKeyRotationPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let expire_after_binding = args.expire_after.get_inner();
-        let managed_hsm_key_id_binding = args.managed_hsm_key_id.get_inner();
-        let time_after_creation_binding = args.time_after_creation.get_inner();
-        let time_before_expiry_binding = args.time_before_expiry.get_inner();
+        let expire_after_binding = args.expire_after.get_output(context).get_inner();
+        let managed_hsm_key_id_binding = args
+            .managed_hsm_key_id
+            .get_output(context)
+            .get_inner();
+        let time_after_creation_binding = args
+            .time_after_creation
+            .get_output(context)
+            .get_inner();
+        let time_before_expiry_binding = args
+            .time_before_expiry
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/managedHardwareSecurityModuleKeyRotationPolicy:ManagedHardwareSecurityModuleKeyRotationPolicy"
                 .into(),
@@ -117,7 +127,7 @@ pub mod managed_hardware_security_module_key_rotation_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,22 +1,22 @@
 pub mod catalog {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CatalogArgs {
         #[builder(into, default)]
-        pub catalog_adogit: pulumi_wasm_rust::Output<
+        pub catalog_adogit: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::devcenter::CatalogCatalogAdogit>,
         >,
         #[builder(into, default)]
-        pub catalog_github: pulumi_wasm_rust::Output<
+        pub catalog_github: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::devcenter::CatalogCatalogGithub>,
         >,
         #[builder(into)]
-        pub dev_center_id: pulumi_wasm_rust::Output<String>,
+        pub dev_center_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CatalogResult {
@@ -34,14 +34,21 @@ pub mod catalog {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CatalogArgs) -> CatalogResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CatalogArgs,
+    ) -> CatalogResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let catalog_adogit_binding = args.catalog_adogit.get_inner();
-        let catalog_github_binding = args.catalog_github.get_inner();
-        let dev_center_id_binding = args.dev_center_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let catalog_adogit_binding = args.catalog_adogit.get_output(context).get_inner();
+        let catalog_github_binding = args.catalog_github.get_output(context).get_inner();
+        let dev_center_id_binding = args.dev_center_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:devcenter/catalog:Catalog".into(),
             name: name.to_string(),
@@ -86,7 +93,7 @@ pub mod catalog {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

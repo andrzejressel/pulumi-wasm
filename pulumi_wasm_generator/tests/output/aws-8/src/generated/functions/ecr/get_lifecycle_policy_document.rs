@@ -1,10 +1,10 @@
 pub mod get_lifecycle_policy_document {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetLifecyclePolicyDocumentArgs {
         #[builder(into, default)]
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ecr::GetLifecyclePolicyDocumentRule>>,
         >,
     }
@@ -23,11 +23,12 @@ pub mod get_lifecycle_policy_document {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetLifecyclePolicyDocumentArgs,
     ) -> GetLifecyclePolicyDocumentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let rules_binding = args.rules.get_inner();
+        let rules_binding = args.rules.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument"
                 .into(),
@@ -50,7 +51,7 @@ pub mod get_lifecycle_policy_document {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

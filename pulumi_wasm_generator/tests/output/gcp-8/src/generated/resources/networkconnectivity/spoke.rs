@@ -380,27 +380,27 @@
 /// ```
 ///
 pub mod spoke {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpokeArgs {
         /// An optional description of the spoke.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Immutable. The URI of the hub that this spoke is attached to.
         #[builder(into)]
-        pub hub: pulumi_wasm_rust::Output<String>,
+        pub hub: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional labels in key:value format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A collection of VLAN attachment resources. These resources should be redundant attachments that all advertise the same prefixes to Google Cloud. Alternatively, in active/passive configurations, all attachments should be capable of advertising the same prefixes.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub linked_interconnect_attachments: pulumi_wasm_rust::Output<
+        pub linked_interconnect_attachments: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::networkconnectivity::SpokeLinkedInterconnectAttachments,
             >,
@@ -408,7 +408,7 @@ pub mod spoke {
         /// Producer VPC network that is associated with the spoke.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub linked_producer_vpc_network: pulumi_wasm_rust::Output<
+        pub linked_producer_vpc_network: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::networkconnectivity::SpokeLinkedProducerVpcNetwork,
             >,
@@ -416,7 +416,7 @@ pub mod spoke {
         /// The URIs of linked Router appliance resources
         /// Structure is documented below.
         #[builder(into, default)]
-        pub linked_router_appliance_instances: pulumi_wasm_rust::Output<
+        pub linked_router_appliance_instances: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::networkconnectivity::SpokeLinkedRouterApplianceInstances,
             >,
@@ -424,13 +424,13 @@ pub mod spoke {
         /// VPC network that is associated with the spoke.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub linked_vpc_network: pulumi_wasm_rust::Output<
+        pub linked_vpc_network: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::networkconnectivity::SpokeLinkedVpcNetwork>,
         >,
         /// The URIs of linked VPN tunnel resources
         /// Structure is documented below.
         #[builder(into, default)]
-        pub linked_vpn_tunnels: pulumi_wasm_rust::Output<
+        pub linked_vpn_tunnels: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::networkconnectivity::SpokeLinkedVpnTunnels>,
         >,
         /// The location for the resource
@@ -438,14 +438,14 @@ pub mod spoke {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Immutable. The name of the spoke. Spoke names must be unique.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SpokeResult {
@@ -522,26 +522,39 @@ pub mod spoke {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SpokeArgs) -> SpokeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SpokeArgs,
+    ) -> SpokeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let hub_binding = args.hub.get_inner();
-        let labels_binding = args.labels.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let hub_binding = args.hub.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
         let linked_interconnect_attachments_binding = args
             .linked_interconnect_attachments
+            .get_output(context)
             .get_inner();
         let linked_producer_vpc_network_binding = args
             .linked_producer_vpc_network
+            .get_output(context)
             .get_inner();
         let linked_router_appliance_instances_binding = args
             .linked_router_appliance_instances
+            .get_output(context)
             .get_inner();
-        let linked_vpc_network_binding = args.linked_vpc_network.get_inner();
-        let linked_vpn_tunnels_binding = args.linked_vpn_tunnels.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
+        let linked_vpc_network_binding = args
+            .linked_vpc_network
+            .get_output(context)
+            .get_inner();
+        let linked_vpn_tunnels_binding = args
+            .linked_vpn_tunnels
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkconnectivity/spoke:Spoke".into(),
             name: name.to_string(),
@@ -646,7 +659,7 @@ pub mod spoke {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

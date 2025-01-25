@@ -29,38 +29,40 @@
 /// ```
 ///
 pub mod availability_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AvailabilitySetArgs {
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub managed: pulumi_wasm_rust::Output<Option<bool>>,
+        pub managed: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the availability set. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         #[builder(into, default)]
-        pub platform_fault_domain_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub platform_fault_domain_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The number of Update Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         #[builder(into, default)]
-        pub platform_update_domain_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub platform_update_domain_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub proximity_placement_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub proximity_placement_group_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -93,23 +95,33 @@ pub mod availability_set {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AvailabilitySetArgs) -> AvailabilitySetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AvailabilitySetArgs,
+    ) -> AvailabilitySetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let managed_binding = args.managed.get_inner();
-        let name_binding = args.name.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let managed_binding = args.managed.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let platform_fault_domain_count_binding = args
             .platform_fault_domain_count
+            .get_output(context)
             .get_inner();
         let platform_update_domain_count_binding = args
             .platform_update_domain_count
+            .get_output(context)
             .get_inner();
         let proximity_placement_group_id_binding = args
             .proximity_placement_group_id
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/availabilitySet:AvailabilitySet".into(),
             name: name.to_string(),
@@ -175,7 +187,7 @@ pub mod availability_set {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

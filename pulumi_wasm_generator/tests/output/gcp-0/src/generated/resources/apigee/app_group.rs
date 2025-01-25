@@ -162,39 +162,39 @@
 /// ```
 ///
 pub mod app_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppGroupArgs {
         /// A list of attributes
         /// Structure is documented below.
         #[builder(into, default)]
-        pub attributes: pulumi_wasm_rust::Output<
+        pub attributes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::apigee::AppGroupAttribute>>,
         >,
         /// Channel identifier identifies the owner maintaining this grouping.
         #[builder(into, default)]
-        pub channel_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub channel_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A reference to the associated storefront/marketplace.
         #[builder(into, default)]
-        pub channel_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub channel_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// App group name displayed in the UI
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the AppGroup. Characters you can use in the name are restricted to: A-Z0-9._-$ %.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Apigee Organization associated with the Apigee app group,
         /// in the format `organizations/{{org_name}}`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Valid values are active or inactive. Note that the status of the AppGroup should be updated via UpdateAppGroupRequest by setting the action as active or inactive.
         /// Possible values are: `active`, `inactive`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AppGroupResult {
@@ -233,16 +233,20 @@ pub mod app_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AppGroupArgs) -> AppGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AppGroupArgs,
+    ) -> AppGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attributes_binding = args.attributes.get_inner();
-        let channel_id_binding = args.channel_id.get_inner();
-        let channel_uri_binding = args.channel_uri.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let org_id_binding = args.org_id.get_inner();
-        let status_binding = args.status.get_inner();
+        let attributes_binding = args.attributes.get_output(context).get_inner();
+        let channel_id_binding = args.channel_id.get_output(context).get_inner();
+        let channel_uri_binding = args.channel_uri.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let org_id_binding = args.org_id.get_output(context).get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/appGroup:AppGroup".into(),
             name: name.to_string(),
@@ -313,7 +317,7 @@ pub mod app_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

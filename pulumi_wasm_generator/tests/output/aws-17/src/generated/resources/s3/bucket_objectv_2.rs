@@ -181,91 +181,95 @@
 /// $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
 /// ```
 pub mod bucket_objectv_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketObjectv2Args {
         /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
         #[builder(into, default)]
-        pub acl: pulumi_wasm_rust::Output<Option<String>>,
+        pub acl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         #[builder(into, default)]
-        pub bucket_key_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub bucket_key_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         #[builder(into, default)]
-        pub cache_control: pulumi_wasm_rust::Output<Option<String>>,
+        pub cache_control: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates the algorithm used to create the checksum for the object. If a value is specified and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `CRC32`, `CRC32C`, `SHA1`, `SHA256`.
         #[builder(into, default)]
-        pub checksum_algorithm: pulumi_wasm_rust::Output<Option<String>>,
+        pub checksum_algorithm: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
         #[builder(into, default)]
-        pub content: pulumi_wasm_rust::Output<Option<String>>,
+        pub content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
         #[builder(into, default)]
-        pub content_base64: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_base64: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         #[builder(into, default)]
-        pub content_disposition: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_disposition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         #[builder(into, default)]
-        pub content_encoding: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_encoding: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Language the content is in e.g., en-US or en-GB.
         #[builder(into, default)]
-        pub content_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         #[builder(into, default)]
-        pub content_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"`, also if an object is larger than 16 MB, the AWS Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest (see `source_hash` instead).
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::Output<Option<String>>,
+        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the object once it is in the bucket.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub key: pulumi_wasm_rust::Output<Option<String>>,
+        pub key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         #[builder(into, default)]
-        pub object_lock_legal_hold_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub object_lock_legal_hold_status: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         #[builder(into, default)]
-        pub object_lock_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub object_lock_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         #[builder(into, default)]
-        pub object_lock_retain_until_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub object_lock_retain_until_date: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Override provider-level configuration options. See Override Provider below for more details.
         #[builder(into, default)]
-        pub override_provider: pulumi_wasm_rust::Output<
+        pub override_provider: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3::BucketObjectv2OverrideProvider>,
         >,
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         #[builder(into, default)]
-        pub server_side_encryption: pulumi_wasm_rust::Output<Option<String>>,
+        pub server_side_encryption: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Path to a file that will be read and uploaded as raw bytes for the object content.
         #[builder(into, default)]
-        pub source: pulumi_wasm_rust::Output<Option<String>>,
+        pub source: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
         #[builder(into, default)]
-        pub source_hash: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_hash: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         #[builder(into, default)]
-        pub storage_class: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_class: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
@@ -274,7 +278,7 @@ pub mod bucket_objectv_2 {
         ///
         /// > **Note:** The provider ignores all leading `/`s in the object's `key` and treats multiple `/`s in the rest of the object's `key` as a single `/`, so values of `/index.html` and `index.html` correspond to the same S3 object as do `first//second///third//` and `first/second/third/`.
         #[builder(into, default)]
-        pub website_redirect: pulumi_wasm_rust::Output<Option<String>>,
+        pub website_redirect: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BucketObjectv2Result {
@@ -363,39 +367,72 @@ pub mod bucket_objectv_2 {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BucketObjectv2Args) -> BucketObjectv2Result {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BucketObjectv2Args,
+    ) -> BucketObjectv2Result {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let acl_binding = args.acl.get_inner();
-        let bucket_binding = args.bucket.get_inner();
-        let bucket_key_enabled_binding = args.bucket_key_enabled.get_inner();
-        let cache_control_binding = args.cache_control.get_inner();
-        let checksum_algorithm_binding = args.checksum_algorithm.get_inner();
-        let content_binding = args.content.get_inner();
-        let content_base64_binding = args.content_base64.get_inner();
-        let content_disposition_binding = args.content_disposition.get_inner();
-        let content_encoding_binding = args.content_encoding.get_inner();
-        let content_language_binding = args.content_language.get_inner();
-        let content_type_binding = args.content_type.get_inner();
-        let etag_binding = args.etag.get_inner();
-        let force_destroy_binding = args.force_destroy.get_inner();
-        let key_binding = args.key.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let metadata_binding = args.metadata.get_inner();
+        let acl_binding = args.acl.get_output(context).get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let bucket_key_enabled_binding = args
+            .bucket_key_enabled
+            .get_output(context)
+            .get_inner();
+        let cache_control_binding = args.cache_control.get_output(context).get_inner();
+        let checksum_algorithm_binding = args
+            .checksum_algorithm
+            .get_output(context)
+            .get_inner();
+        let content_binding = args.content.get_output(context).get_inner();
+        let content_base64_binding = args.content_base64.get_output(context).get_inner();
+        let content_disposition_binding = args
+            .content_disposition
+            .get_output(context)
+            .get_inner();
+        let content_encoding_binding = args
+            .content_encoding
+            .get_output(context)
+            .get_inner();
+        let content_language_binding = args
+            .content_language
+            .get_output(context)
+            .get_inner();
+        let content_type_binding = args.content_type.get_output(context).get_inner();
+        let etag_binding = args.etag.get_output(context).get_inner();
+        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
+        let key_binding = args.key.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
         let object_lock_legal_hold_status_binding = args
             .object_lock_legal_hold_status
+            .get_output(context)
             .get_inner();
-        let object_lock_mode_binding = args.object_lock_mode.get_inner();
+        let object_lock_mode_binding = args
+            .object_lock_mode
+            .get_output(context)
+            .get_inner();
         let object_lock_retain_until_date_binding = args
             .object_lock_retain_until_date
+            .get_output(context)
             .get_inner();
-        let override_provider_binding = args.override_provider.get_inner();
-        let server_side_encryption_binding = args.server_side_encryption.get_inner();
-        let source_binding = args.source.get_inner();
-        let source_hash_binding = args.source_hash.get_inner();
-        let storage_class_binding = args.storage_class.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let website_redirect_binding = args.website_redirect.get_inner();
+        let override_provider_binding = args
+            .override_provider
+            .get_output(context)
+            .get_inner();
+        let server_side_encryption_binding = args
+            .server_side_encryption
+            .get_output(context)
+            .get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
+        let source_hash_binding = args.source_hash.get_output(context).get_inner();
+        let storage_class_binding = args.storage_class.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let website_redirect_binding = args
+            .website_redirect
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketObjectv2:BucketObjectv2".into(),
             name: name.to_string(),
@@ -608,7 +645,7 @@ pub mod bucket_objectv_2 {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

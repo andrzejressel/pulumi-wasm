@@ -17,22 +17,22 @@
 /// }
 /// ```
 pub mod vpc_network_performance_metric_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcNetworkPerformanceMetricSubscriptionArgs {
         /// The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::Output<String>,
+        pub destination: pulumi_wasm_rust::InputOrOutput<String>,
         /// The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         #[builder(into, default)]
-        pub metric: pulumi_wasm_rust::Output<Option<String>>,
+        pub metric: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         #[builder(into)]
-        pub source: pulumi_wasm_rust::Output<String>,
+        pub source: pulumi_wasm_rust::InputOrOutput<String>,
         /// The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         #[builder(into, default)]
-        pub statistic: pulumi_wasm_rust::Output<Option<String>>,
+        pub statistic: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VpcNetworkPerformanceMetricSubscriptionResult {
@@ -52,15 +52,16 @@ pub mod vpc_network_performance_metric_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpcNetworkPerformanceMetricSubscriptionArgs,
     ) -> VpcNetworkPerformanceMetricSubscriptionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let destination_binding = args.destination.get_inner();
-        let metric_binding = args.metric.get_inner();
-        let source_binding = args.source.get_inner();
-        let statistic_binding = args.statistic.get_inner();
+        let destination_binding = args.destination.get_output(context).get_inner();
+        let metric_binding = args.metric.get_output(context).get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
+        let statistic_binding = args.statistic.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcNetworkPerformanceMetricSubscription:VpcNetworkPerformanceMetricSubscription"
                 .into(),
@@ -102,7 +103,7 @@ pub mod vpc_network_performance_metric_subscription {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

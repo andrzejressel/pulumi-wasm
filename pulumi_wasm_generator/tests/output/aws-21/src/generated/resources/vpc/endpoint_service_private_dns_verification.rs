@@ -29,7 +29,7 @@
 /// You cannot import this resource.
 ///
 pub mod endpoint_service_private_dns_verification {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointServicePrivateDnsVerificationArgs {
@@ -37,16 +37,16 @@ pub mod endpoint_service_private_dns_verification {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub service_id: pulumi_wasm_rust::Output<String>,
+        pub service_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::vpc::EndpointServicePrivateDnsVerificationTimeouts,
             >,
         >,
         /// Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
         #[builder(into, default)]
-        pub wait_for_verification: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_for_verification: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct EndpointServicePrivateDnsVerificationResult {
@@ -67,14 +67,18 @@ pub mod endpoint_service_private_dns_verification {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EndpointServicePrivateDnsVerificationArgs,
     ) -> EndpointServicePrivateDnsVerificationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let service_id_binding = args.service_id.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
-        let wait_for_verification_binding = args.wait_for_verification.get_inner();
+        let service_id_binding = args.service_id.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let wait_for_verification_binding = args
+            .wait_for_verification
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpc/endpointServicePrivateDnsVerification:EndpointServicePrivateDnsVerification"
                 .into(),
@@ -106,7 +110,7 @@ pub mod endpoint_service_private_dns_verification {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

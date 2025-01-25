@@ -218,27 +218,27 @@
 /// ```
 ///
 pub mod uptime_check_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UptimeCheckConfigArgs {
         /// The checker type to use for the check. If the monitored resource type is `servicedirectory_service`, `checker_type` must be set to `VPC_CHECKERS`.
         /// Possible values are: `STATIC_IP_CHECKERS`, `VPC_CHECKERS`.
         #[builder(into, default)]
-        pub checker_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub checker_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The expected content on the page the check is run against. Currently, only the first entry in the list is supported, and other entries will be ignored. The server will look for an exact match of the string in the page response's content. This field is optional and should only be specified if a content match is required.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub content_matchers: pulumi_wasm_rust::Output<
+        pub content_matchers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::UptimeCheckConfigContentMatcher>>,
         >,
         /// A human-friendly name for the uptime check configuration. The display name should be unique within a Stackdriver Workspace in order to make it easier to identify; however, uniqueness is not enforced.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Contains information needed to make an HTTP or HTTPS check.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub http_check: pulumi_wasm_rust::Output<
+        pub http_check: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::monitoring::UptimeCheckConfigHttpCheck>,
         >,
         /// The [monitored resource]
@@ -246,35 +246,35 @@ pub mod uptime_check_config {
         /// configuration. The following monitored resource types are supported for
         /// uptime checks:
         #[builder(into, default)]
-        pub monitored_resource: pulumi_wasm_rust::Output<
+        pub monitored_resource: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::monitoring::UptimeCheckConfigMonitoredResource>,
         >,
         /// How often, in seconds, the uptime check is performed. Currently, the only supported values are 60s (1 minute), 300s (5 minutes), 600s (10 minutes), and 900s (15 minutes). Optional, defaults to 300s.
         #[builder(into, default)]
-        pub period: pulumi_wasm_rust::Output<Option<String>>,
+        pub period: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The group resource associated with the configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub resource_group: pulumi_wasm_rust::Output<
+        pub resource_group: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::monitoring::UptimeCheckConfigResourceGroup>,
         >,
         /// The list of regions from which the check will be run. Some regions contain one location, and others contain more than one. If this field is specified, enough regions to include a minimum of 3 locations must be provided, or an error message is returned. Not specifying this field will result in uptime checks running from all regions.
         #[builder(into, default)]
-        pub selected_regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub selected_regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A Synthetic Monitor deployed to a Cloud Functions V2 instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub synthetic_monitor: pulumi_wasm_rust::Output<
+        pub synthetic_monitor: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::monitoring::UptimeCheckConfigSyntheticMonitor>,
         >,
         /// Contains information needed to make a TCP check.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub tcp_check: pulumi_wasm_rust::Output<
+        pub tcp_check: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::monitoring::UptimeCheckConfigTcpCheck>,
         >,
         /// The maximum amount of time to wait for the request to complete (must be between 1 and 60 seconds). See the accepted formats
@@ -282,10 +282,10 @@ pub mod uptime_check_config {
         ///
         /// - - -
         #[builder(into)]
-        pub timeout: pulumi_wasm_rust::Output<String>,
+        pub timeout: pulumi_wasm_rust::InputOrOutput<String>,
         /// User-supplied key/value data to be used for organizing and identifying the `UptimeCheckConfig` objects. The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
         #[builder(into, default)]
-        pub user_labels: pulumi_wasm_rust::Output<
+        pub user_labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -353,22 +353,38 @@ pub mod uptime_check_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UptimeCheckConfigArgs) -> UptimeCheckConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UptimeCheckConfigArgs,
+    ) -> UptimeCheckConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let checker_type_binding = args.checker_type.get_inner();
-        let content_matchers_binding = args.content_matchers.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let http_check_binding = args.http_check.get_inner();
-        let monitored_resource_binding = args.monitored_resource.get_inner();
-        let period_binding = args.period.get_inner();
-        let project_binding = args.project.get_inner();
-        let resource_group_binding = args.resource_group.get_inner();
-        let selected_regions_binding = args.selected_regions.get_inner();
-        let synthetic_monitor_binding = args.synthetic_monitor.get_inner();
-        let tcp_check_binding = args.tcp_check.get_inner();
-        let timeout_binding = args.timeout.get_inner();
-        let user_labels_binding = args.user_labels.get_inner();
+        let checker_type_binding = args.checker_type.get_output(context).get_inner();
+        let content_matchers_binding = args
+            .content_matchers
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let http_check_binding = args.http_check.get_output(context).get_inner();
+        let monitored_resource_binding = args
+            .monitored_resource
+            .get_output(context)
+            .get_inner();
+        let period_binding = args.period.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let resource_group_binding = args.resource_group.get_output(context).get_inner();
+        let selected_regions_binding = args
+            .selected_regions
+            .get_output(context)
+            .get_inner();
+        let synthetic_monitor_binding = args
+            .synthetic_monitor
+            .get_output(context)
+            .get_inner();
+        let tcp_check_binding = args.tcp_check.get_output(context).get_inner();
+        let timeout_binding = args.timeout.get_output(context).get_inner();
+        let user_labels_binding = args.user_labels.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:monitoring/uptimeCheckConfig:UptimeCheckConfig".into(),
             name: name.to_string(),
@@ -475,7 +491,7 @@ pub mod uptime_check_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

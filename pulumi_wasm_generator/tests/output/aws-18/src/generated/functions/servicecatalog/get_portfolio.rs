@@ -1,19 +1,19 @@
 pub mod get_portfolio {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPortfolioArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Portfolio identifier.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Tags applied to the portfolio.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -38,12 +38,18 @@ pub mod get_portfolio {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetPortfolioArgs) -> GetPortfolioResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetPortfolioArgs,
+    ) -> GetPortfolioResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding = args.accept_language.get_inner();
-        let id_binding = args.id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let accept_language_binding = args
+            .accept_language
+            .get_output(context)
+            .get_inner();
+        let id_binding = args.id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicecatalog/getPortfolio:getPortfolio".into(),
             version: super::super::super::get_version(),
@@ -88,7 +94,7 @@ pub mod get_portfolio {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

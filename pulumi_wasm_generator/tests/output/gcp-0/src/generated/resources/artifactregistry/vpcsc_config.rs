@@ -37,21 +37,21 @@
 /// ```
 ///
 pub mod vpcsc_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcscConfigArgs {
         /// The name of the location this config is located in.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The VPC SC policy for project and location.
         /// Possible values are: `DENY`, `ALLOW`.
         #[builder(into, default)]
-        pub vpcsc_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpcsc_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VpcscConfigResult {
@@ -71,12 +71,16 @@ pub mod vpcsc_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VpcscConfigArgs) -> VpcscConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VpcscConfigArgs,
+    ) -> VpcscConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
-        let vpcsc_policy_binding = args.vpcsc_policy.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let vpcsc_policy_binding = args.vpcsc_policy.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:artifactregistry/vpcscConfig:VpcscConfig".into(),
             name: name.to_string(),
@@ -110,7 +114,7 @@ pub mod vpcsc_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

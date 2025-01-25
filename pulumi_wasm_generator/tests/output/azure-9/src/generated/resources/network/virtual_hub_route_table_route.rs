@@ -111,28 +111,28 @@
 /// ```
 ///
 pub mod virtual_hub_route_table_route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualHubRouteTableRouteArgs {
         /// A list of destination addresses for this route.
         #[builder(into)]
-        pub destinations: pulumi_wasm_rust::Output<Vec<String>>,
+        pub destinations: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
         #[builder(into)]
-        pub destinations_type: pulumi_wasm_rust::Output<String>,
+        pub destinations_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this route. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The next hop's resource ID.
         #[builder(into)]
-        pub next_hop: pulumi_wasm_rust::Output<String>,
+        pub next_hop: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
         #[builder(into, default)]
-        pub next_hop_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Virtual Hub Route Table to link this route to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub route_table_id: pulumi_wasm_rust::Output<String>,
+        pub route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VirtualHubRouteTableRouteResult {
@@ -154,17 +154,21 @@ pub mod virtual_hub_route_table_route {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VirtualHubRouteTableRouteArgs,
     ) -> VirtualHubRouteTableRouteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let destinations_binding = args.destinations.get_inner();
-        let destinations_type_binding = args.destinations_type.get_inner();
-        let name_binding = args.name.get_inner();
-        let next_hop_binding = args.next_hop.get_inner();
-        let next_hop_type_binding = args.next_hop_type.get_inner();
-        let route_table_id_binding = args.route_table_id.get_inner();
+        let destinations_binding = args.destinations.get_output(context).get_inner();
+        let destinations_type_binding = args
+            .destinations_type
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let next_hop_binding = args.next_hop.get_output(context).get_inner();
+        let next_hop_type_binding = args.next_hop_type.get_output(context).get_inner();
+        let route_table_id_binding = args.route_table_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/virtualHubRouteTableRoute:VirtualHubRouteTableRoute"
                 .into(),
@@ -217,7 +221,7 @@ pub mod virtual_hub_route_table_route {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

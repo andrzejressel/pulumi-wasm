@@ -140,27 +140,29 @@
 /// $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
 /// ```
 pub mod multicast_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MulticastDomainArgs {
         /// Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         #[builder(into, default)]
-        pub auto_accept_shared_associations: pulumi_wasm_rust::Output<Option<String>>,
+        pub auto_accept_shared_associations: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         #[builder(into, default)]
-        pub igmpv2_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub igmpv2_support: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         #[builder(into, default)]
-        pub static_sources_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub static_sources_support: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
         #[builder(into)]
-        pub transit_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MulticastDomainResult {
@@ -189,16 +191,27 @@ pub mod multicast_domain {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MulticastDomainArgs) -> MulticastDomainResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MulticastDomainArgs,
+    ) -> MulticastDomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let auto_accept_shared_associations_binding = args
             .auto_accept_shared_associations
+            .get_output(context)
             .get_inner();
-        let igmpv2_support_binding = args.igmpv2_support.get_inner();
-        let static_sources_support_binding = args.static_sources_support.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let transit_gateway_id_binding = args.transit_gateway_id.get_inner();
+        let igmpv2_support_binding = args.igmpv2_support.get_output(context).get_inner();
+        let static_sources_support_binding = args
+            .static_sources_support
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let transit_gateway_id_binding = args
+            .transit_gateway_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/multicastDomain:MulticastDomain".into(),
             name: name.to_string(),
@@ -252,7 +265,7 @@ pub mod multicast_domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

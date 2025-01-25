@@ -54,16 +54,16 @@
 /// $ pulumi import aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive example MyRole
 /// ```
 pub mod role_policy_attachments_exclusive {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RolePolicyAttachmentsExclusiveArgs {
         /// A list of managed IAM policy ARNs to be attached to the role. Policies attached to this role but not configured in this argument will be removed.
         #[builder(into)]
-        pub policy_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub policy_arns: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// IAM role name.
         #[builder(into)]
-        pub role_name: pulumi_wasm_rust::Output<String>,
+        pub role_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RolePolicyAttachmentsExclusiveResult {
@@ -77,13 +77,14 @@ pub mod role_policy_attachments_exclusive {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RolePolicyAttachmentsExclusiveArgs,
     ) -> RolePolicyAttachmentsExclusiveResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let policy_arns_binding = args.policy_arns.get_inner();
-        let role_name_binding = args.role_name.get_inner();
+        let policy_arns_binding = args.policy_arns.get_output(context).get_inner();
+        let role_name_binding = args.role_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive"
                 .into(),
@@ -108,7 +109,7 @@ pub mod role_policy_attachments_exclusive {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

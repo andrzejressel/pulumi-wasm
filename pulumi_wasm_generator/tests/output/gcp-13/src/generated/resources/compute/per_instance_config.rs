@@ -109,7 +109,7 @@
 /// ```
 ///
 pub mod per_instance_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PerInstanceConfigArgs {
@@ -118,7 +118,7 @@ pub mod per_instance_config {
         ///
         /// - - -
         #[builder(into)]
-        pub instance_group_manager: pulumi_wasm_rust::Output<String>,
+        pub instance_group_manager: pulumi_wasm_rust::InputOrOutput<String>,
         /// The minimal action to perform on the instance during an update.
         /// Default is `NONE`. Possible values are:
         /// * REPLACE
@@ -126,7 +126,7 @@ pub mod per_instance_config {
         /// * REFRESH
         /// * NONE
         #[builder(into, default)]
-        pub minimal_action: pulumi_wasm_rust::Output<Option<String>>,
+        pub minimal_action: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The most disruptive action to perform on the instance during an update.
         /// Default is `REPLACE`. Possible values are:
         /// * REPLACE
@@ -134,32 +134,36 @@ pub mod per_instance_config {
         /// * REFRESH
         /// * NONE
         #[builder(into, default)]
-        pub most_disruptive_allowed_action: pulumi_wasm_rust::Output<Option<String>>,
+        pub most_disruptive_allowed_action: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The name for this per-instance config and its corresponding instance.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The preserved state for this instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub preserved_state: pulumi_wasm_rust::Output<
+        pub preserved_state: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::PerInstanceConfigPreservedState>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// When true, deleting this config will immediately remove the underlying instance.
         /// When false, deleting this config will use the behavior as determined by remove_instance_on_destroy.
         #[builder(into, default)]
-        pub remove_instance_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub remove_instance_on_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// When true, deleting this config will immediately remove any specified state from the underlying instance.
         /// When false, deleting this config will *not* immediately remove any state from the underlying instance.
         /// State will be removed on the next instance recreation or update.
         #[builder(into, default)]
-        pub remove_instance_state_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub remove_instance_state_on_destroy: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Zone where the containing instance group manager is located
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PerInstanceConfigResult {
@@ -206,24 +210,37 @@ pub mod per_instance_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PerInstanceConfigArgs) -> PerInstanceConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PerInstanceConfigArgs,
+    ) -> PerInstanceConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let instance_group_manager_binding = args.instance_group_manager.get_inner();
-        let minimal_action_binding = args.minimal_action.get_inner();
+        let instance_group_manager_binding = args
+            .instance_group_manager
+            .get_output(context)
+            .get_inner();
+        let minimal_action_binding = args.minimal_action.get_output(context).get_inner();
         let most_disruptive_allowed_action_binding = args
             .most_disruptive_allowed_action
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let preserved_state_binding = args.preserved_state.get_inner();
-        let project_binding = args.project.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let preserved_state_binding = args
+            .preserved_state
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let remove_instance_on_destroy_binding = args
             .remove_instance_on_destroy
+            .get_output(context)
             .get_inner();
         let remove_instance_state_on_destroy_binding = args
             .remove_instance_state_on_destroy
+            .get_output(context)
             .get_inner();
-        let zone_binding = args.zone.get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/perInstanceConfig:PerInstanceConfig".into(),
             name: name.to_string(),
@@ -296,7 +313,7 @@ pub mod per_instance_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

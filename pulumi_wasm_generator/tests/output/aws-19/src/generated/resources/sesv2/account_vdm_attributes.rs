@@ -36,25 +36,25 @@
 /// $ pulumi import aws:sesv2/accountVdmAttributes:AccountVdmAttributes example ses-account-vdm-attributes
 /// ```
 pub mod account_vdm_attributes {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountVdmAttributesArgs {
         /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         #[builder(into, default)]
-        pub dashboard_attributes: pulumi_wasm_rust::Output<
+        pub dashboard_attributes: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sesv2::AccountVdmAttributesDashboardAttributes>,
         >,
         /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
         #[builder(into, default)]
-        pub guardian_attributes: pulumi_wasm_rust::Output<
+        pub guardian_attributes: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sesv2::AccountVdmAttributesGuardianAttributes>,
         >,
         /// Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub vdm_enabled: pulumi_wasm_rust::Output<String>,
+        pub vdm_enabled: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccountVdmAttributesResult {
@@ -76,14 +76,21 @@ pub mod account_vdm_attributes {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AccountVdmAttributesArgs,
     ) -> AccountVdmAttributesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dashboard_attributes_binding = args.dashboard_attributes.get_inner();
-        let guardian_attributes_binding = args.guardian_attributes.get_inner();
-        let vdm_enabled_binding = args.vdm_enabled.get_inner();
+        let dashboard_attributes_binding = args
+            .dashboard_attributes
+            .get_output(context)
+            .get_inner();
+        let guardian_attributes_binding = args
+            .guardian_attributes
+            .get_output(context)
+            .get_inner();
+        let vdm_enabled_binding = args.vdm_enabled.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/accountVdmAttributes:AccountVdmAttributes".into(),
             name: name.to_string(),
@@ -114,7 +121,7 @@ pub mod account_vdm_attributes {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

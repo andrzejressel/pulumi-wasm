@@ -27,24 +27,24 @@
 /// $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
 /// ```
 pub mod principal_portfolio_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrincipalPortfolioAssociationArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Portfolio identifier.
         #[builder(into)]
-        pub portfolio_id: pulumi_wasm_rust::Output<String>,
+        pub portfolio_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Principal ARN.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub principal_arn: pulumi_wasm_rust::Output<String>,
+        pub principal_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         #[builder(into, default)]
-        pub principal_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub principal_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PrincipalPortfolioAssociationResult {
@@ -64,15 +64,19 @@ pub mod principal_portfolio_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PrincipalPortfolioAssociationArgs,
     ) -> PrincipalPortfolioAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding = args.accept_language.get_inner();
-        let portfolio_id_binding = args.portfolio_id.get_inner();
-        let principal_arn_binding = args.principal_arn.get_inner();
-        let principal_type_binding = args.principal_type.get_inner();
+        let accept_language_binding = args
+            .accept_language
+            .get_output(context)
+            .get_inner();
+        let portfolio_id_binding = args.portfolio_id.get_output(context).get_inner();
+        let principal_arn_binding = args.principal_arn.get_output(context).get_inner();
+        let principal_type_binding = args.principal_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation"
                 .into(),
@@ -111,7 +115,7 @@ pub mod principal_portfolio_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

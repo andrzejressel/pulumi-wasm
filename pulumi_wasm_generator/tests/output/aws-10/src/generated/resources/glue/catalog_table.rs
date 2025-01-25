@@ -66,69 +66,69 @@
 /// $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
 /// ```
 pub mod catalog_table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CatalogTableArgs {
         /// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         #[builder(into, default)]
-        pub catalog_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub catalog_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         ///
         /// The follow arguments are optional:
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Description of the table.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block for open table formats. See `open_table_format_input` below.
         #[builder(into, default)]
-        pub open_table_format_input: pulumi_wasm_rust::Output<
+        pub open_table_format_input: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::glue::CatalogTableOpenTableFormatInput>,
         >,
         /// Owner of the table.
         #[builder(into, default)]
-        pub owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Properties associated with this table, as a list of key-value pairs.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         #[builder(into, default)]
-        pub partition_indices: pulumi_wasm_rust::Output<
+        pub partition_indices: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::glue::CatalogTablePartitionIndex>>,
         >,
         /// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         #[builder(into, default)]
-        pub partition_keys: pulumi_wasm_rust::Output<
+        pub partition_keys: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::glue::CatalogTablePartitionKey>>,
         >,
         /// Retention time for this table.
         #[builder(into, default)]
-        pub retention: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         #[builder(into, default)]
-        pub storage_descriptor: pulumi_wasm_rust::Output<
+        pub storage_descriptor: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::glue::CatalogTableStorageDescriptor>,
         >,
         /// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
         #[builder(into, default)]
-        pub table_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub table_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block of a target table for resource linking. See `target_table` below.
         #[builder(into, default)]
-        pub target_table: pulumi_wasm_rust::Output<
+        pub target_table: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::glue::CatalogTableTargetTable>,
         >,
         /// If the table is a view, the expanded text of the view; otherwise null.
         #[builder(into, default)]
-        pub view_expanded_text: pulumi_wasm_rust::Output<Option<String>>,
+        pub view_expanded_text: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If the table is a view, the original text of the view; otherwise null.
         #[builder(into, default)]
-        pub view_original_text: pulumi_wasm_rust::Output<Option<String>>,
+        pub view_original_text: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CatalogTableResult {
@@ -183,24 +183,43 @@ pub mod catalog_table {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CatalogTableArgs) -> CatalogTableResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CatalogTableArgs,
+    ) -> CatalogTableResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_inner();
-        let database_name_binding = args.database_name.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let open_table_format_input_binding = args.open_table_format_input.get_inner();
-        let owner_binding = args.owner.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let partition_indices_binding = args.partition_indices.get_inner();
-        let partition_keys_binding = args.partition_keys.get_inner();
-        let retention_binding = args.retention.get_inner();
-        let storage_descriptor_binding = args.storage_descriptor.get_inner();
-        let table_type_binding = args.table_type.get_inner();
-        let target_table_binding = args.target_table.get_inner();
-        let view_expanded_text_binding = args.view_expanded_text.get_inner();
-        let view_original_text_binding = args.view_original_text.get_inner();
+        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
+        let database_name_binding = args.database_name.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let open_table_format_input_binding = args
+            .open_table_format_input
+            .get_output(context)
+            .get_inner();
+        let owner_binding = args.owner.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let partition_indices_binding = args
+            .partition_indices
+            .get_output(context)
+            .get_inner();
+        let partition_keys_binding = args.partition_keys.get_output(context).get_inner();
+        let retention_binding = args.retention.get_output(context).get_inner();
+        let storage_descriptor_binding = args
+            .storage_descriptor
+            .get_output(context)
+            .get_inner();
+        let table_type_binding = args.table_type.get_output(context).get_inner();
+        let target_table_binding = args.target_table.get_output(context).get_inner();
+        let view_expanded_text_binding = args
+            .view_expanded_text
+            .get_output(context)
+            .get_inner();
+        let view_original_text_binding = args
+            .view_original_text
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/catalogTable:CatalogTable".into(),
             name: name.to_string(),
@@ -318,7 +337,7 @@ pub mod catalog_table {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

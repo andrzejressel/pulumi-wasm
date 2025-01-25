@@ -24,14 +24,14 @@
 /// ## Example Usage
 ///
 pub mod service_perimeter_dry_run_egress_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServicePerimeterDryRunEgressPolicyArgs {
         /// Defines conditions on the source of a request causing this `EgressPolicy` to apply.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub egress_from: pulumi_wasm_rust::Output<
+        pub egress_from: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::accesscontextmanager::ServicePerimeterDryRunEgressPolicyEgressFrom,
             >,
@@ -40,7 +40,7 @@ pub mod service_perimeter_dry_run_egress_policy {
         /// cause this `EgressPolicy` to apply.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub egress_to: pulumi_wasm_rust::Output<
+        pub egress_to: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::accesscontextmanager::ServicePerimeterDryRunEgressPolicyEgressTo,
             >,
@@ -50,7 +50,7 @@ pub mod service_perimeter_dry_run_egress_policy {
         ///
         /// - - -
         #[builder(into)]
-        pub perimeter: pulumi_wasm_rust::Output<String>,
+        pub perimeter: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServicePerimeterDryRunEgressPolicyResult {
@@ -80,14 +80,15 @@ pub mod service_perimeter_dry_run_egress_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ServicePerimeterDryRunEgressPolicyArgs,
     ) -> ServicePerimeterDryRunEgressPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let egress_from_binding = args.egress_from.get_inner();
-        let egress_to_binding = args.egress_to.get_inner();
-        let perimeter_binding = args.perimeter.get_inner();
+        let egress_from_binding = args.egress_from.get_output(context).get_inner();
+        let egress_to_binding = args.egress_to.get_output(context).get_inner();
+        let perimeter_binding = args.perimeter.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/servicePerimeterDryRunEgressPolicy:ServicePerimeterDryRunEgressPolicy"
                 .into(),
@@ -119,7 +120,7 @@ pub mod service_perimeter_dry_run_egress_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

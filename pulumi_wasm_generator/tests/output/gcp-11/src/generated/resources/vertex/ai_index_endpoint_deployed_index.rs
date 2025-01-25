@@ -215,14 +215,14 @@
 /// ```
 ///
 pub mod ai_index_endpoint_deployed_index {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AiIndexEndpointDeployedIndexArgs {
         /// A description of resources that the DeployedIndex uses, which to large degree are decided by Vertex AI, and optionally allows only a modest additional configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub automatic_resources: pulumi_wasm_rust::Output<
+        pub automatic_resources: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::vertex::AiIndexEndpointDeployedIndexAutomaticResources,
             >,
@@ -234,7 +234,7 @@ pub mod ai_index_endpoint_deployed_index {
         /// n1-standard-16 and n1-standard-32 are still available, but we recommend e2-standard-16 and e2-highmem-16 for cost efficiency.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub dedicated_resources: pulumi_wasm_rust::Output<
+        pub dedicated_resources: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::vertex::AiIndexEndpointDeployedIndexDedicatedResources,
             >,
@@ -242,41 +242,41 @@ pub mod ai_index_endpoint_deployed_index {
         /// If set, the authentication is enabled for the private endpoint.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub deployed_index_auth_config: pulumi_wasm_rust::Output<
+        pub deployed_index_auth_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::vertex::AiIndexEndpointDeployedIndexDeployedIndexAuthConfig,
             >,
         >,
         /// The user specified ID of the DeployedIndex. The ID can be up to 128 characters long and must start with a letter and only contain letters, numbers, and underscores. The ID must be unique within the project it is created in.
         #[builder(into)]
-        pub deployed_index_id: pulumi_wasm_rust::Output<String>,
+        pub deployed_index_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The deployment group can be no longer than 64 characters (eg: 'test', 'prod'). If not set, we will use the 'default' deployment group.
         /// Creating deployment_groups with reserved_ip_ranges is a recommended practice when the peered network has multiple peering ranges. This creates your deployments from predictable IP spaces for easier traffic administration. Also, one deployment_group (except 'default') can only be used with the same reserved_ip_ranges which means if the deployment_group has been used with reserved_ip_ranges: [a, b, c], using it with [a, b] or [d, e] is disallowed. [See the official documentation here](https://cloud.google.com/vertex-ai/docs/reference/rest/v1/projects.locations.indexEndpoints#DeployedIndex.FIELDS.deployment_group).
         /// Note: we only support up to 5 deployment groups (not including 'default').
         #[builder(into, default)]
-        pub deployment_group: pulumi_wasm_rust::Output<Option<String>>,
+        pub deployment_group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The display name of the Index. The name can be up to 128 characters long and can consist of any UTF-8 characters.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If true, private endpoint's access logs are sent to Cloud Logging.
         #[builder(into, default)]
-        pub enable_access_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_access_logging: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the Index this is the deployment of.
         #[builder(into)]
-        pub index: pulumi_wasm_rust::Output<String>,
+        pub index: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifies the index endpoint. Must be in the format
         /// 'projects/{{project}}/locations/{{region}}/indexEndpoints/{{indexEndpoint}}'
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub index_endpoint: pulumi_wasm_rust::Output<String>,
+        pub index_endpoint: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of reserved ip ranges under the VPC network that can be used for this DeployedIndex.
         /// If set, we will deploy the index within the provided ip ranges. Otherwise, the index might be deployed to any ip ranges under the provided VPC network.
         /// The value should be the name of the address (https://cloud.google.com/compute/docs/reference/rest/v1/addresses) Example: ['vertex-ai-ip-range'].
         /// For more information about subnets and network IP ranges, please see https://cloud.google.com/vpc/docs/subnets#manually_created_subnet_ip_ranges.
         #[builder(into, default)]
-        pub reserved_ip_ranges: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub reserved_ip_ranges: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct AiIndexEndpointDeployedIndexResult {
@@ -344,23 +344,43 @@ pub mod ai_index_endpoint_deployed_index {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AiIndexEndpointDeployedIndexArgs,
     ) -> AiIndexEndpointDeployedIndexResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let automatic_resources_binding = args.automatic_resources.get_inner();
-        let dedicated_resources_binding = args.dedicated_resources.get_inner();
+        let automatic_resources_binding = args
+            .automatic_resources
+            .get_output(context)
+            .get_inner();
+        let dedicated_resources_binding = args
+            .dedicated_resources
+            .get_output(context)
+            .get_inner();
         let deployed_index_auth_config_binding = args
             .deployed_index_auth_config
+            .get_output(context)
             .get_inner();
-        let deployed_index_id_binding = args.deployed_index_id.get_inner();
-        let deployment_group_binding = args.deployment_group.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enable_access_logging_binding = args.enable_access_logging.get_inner();
-        let index_binding = args.index.get_inner();
-        let index_endpoint_binding = args.index_endpoint.get_inner();
-        let reserved_ip_ranges_binding = args.reserved_ip_ranges.get_inner();
+        let deployed_index_id_binding = args
+            .deployed_index_id
+            .get_output(context)
+            .get_inner();
+        let deployment_group_binding = args
+            .deployment_group
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enable_access_logging_binding = args
+            .enable_access_logging
+            .get_output(context)
+            .get_inner();
+        let index_binding = args.index.get_output(context).get_inner();
+        let index_endpoint_binding = args.index_endpoint.get_output(context).get_inner();
+        let reserved_ip_ranges_binding = args
+            .reserved_ip_ranges
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vertex/aiIndexEndpointDeployedIndex:AiIndexEndpointDeployedIndex"
                 .into(),
@@ -453,7 +473,7 @@ pub mod ai_index_endpoint_deployed_index {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

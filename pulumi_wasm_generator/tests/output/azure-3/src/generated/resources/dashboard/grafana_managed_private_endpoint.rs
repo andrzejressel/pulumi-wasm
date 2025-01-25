@@ -52,34 +52,36 @@
 /// ```
 ///
 pub mod grafana_managed_private_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GrafanaManagedPrivateEndpointArgs {
         /// The id of the associated managed Grafana. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         #[builder(into)]
-        pub grafana_id: pulumi_wasm_rust::Output<String>,
+        pub grafana_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies a list of private link group IDs. The value of this will depend on the private link resource to which you are connecting. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         #[builder(into, default)]
-        pub group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Azure Region where the Dashboard Grafana Managed Private Endpoint should exist. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Dashboard Grafana Managed Private Endpoint. Must be between 2 and 20 alphanumeric characters or dashes, must begin with letter and end with a letter or number. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the resource to which this Dashboard Grafana Managed Private Endpoint will connect. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         #[builder(into)]
-        pub private_link_resource_id: pulumi_wasm_rust::Output<String>,
+        pub private_link_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         #[builder(into, default)]
-        pub private_link_resource_region: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_link_resource_region: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A message to provide in the request which will be seen by approvers.
         #[builder(into, default)]
-        pub request_message: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -109,21 +111,29 @@ pub mod grafana_managed_private_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: GrafanaManagedPrivateEndpointArgs,
     ) -> GrafanaManagedPrivateEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let grafana_id_binding = args.grafana_id.get_inner();
-        let group_ids_binding = args.group_ids.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let private_link_resource_id_binding = args.private_link_resource_id.get_inner();
+        let grafana_id_binding = args.grafana_id.get_output(context).get_inner();
+        let group_ids_binding = args.group_ids.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let private_link_resource_id_binding = args
+            .private_link_resource_id
+            .get_output(context)
+            .get_inner();
         let private_link_resource_region_binding = args
             .private_link_resource_region
+            .get_output(context)
             .get_inner();
-        let request_message_binding = args.request_message.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let request_message_binding = args
+            .request_message
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dashboard/grafanaManagedPrivateEndpoint:GrafanaManagedPrivateEndpoint"
                 .into(),
@@ -190,7 +200,7 @@ pub mod grafana_managed_private_endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -65,46 +65,46 @@
 /// $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
 /// ```
 pub mod traffic_mirror_filter_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrafficMirrorFilterRuleArgs {
         /// Description of the traffic mirror filter rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Destination CIDR block to assign to the Traffic Mirror rule.
         #[builder(into)]
-        pub destination_cidr_block: pulumi_wasm_rust::Output<String>,
+        pub destination_cidr_block: pulumi_wasm_rust::InputOrOutput<String>,
         /// Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         #[builder(into, default)]
-        pub destination_port_range: pulumi_wasm_rust::Output<
+        pub destination_port_range: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ec2::TrafficMirrorFilterRuleDestinationPortRange>,
         >,
         /// Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::Output<Option<i32>>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         #[builder(into)]
-        pub rule_action: pulumi_wasm_rust::Output<String>,
+        pub rule_action: pulumi_wasm_rust::InputOrOutput<String>,
         /// Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         #[builder(into)]
-        pub rule_number: pulumi_wasm_rust::Output<i32>,
+        pub rule_number: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Source CIDR block to assign to the Traffic Mirror rule.
         #[builder(into)]
-        pub source_cidr_block: pulumi_wasm_rust::Output<String>,
+        pub source_cidr_block: pulumi_wasm_rust::InputOrOutput<String>,
         /// Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         #[builder(into, default)]
-        pub source_port_range: pulumi_wasm_rust::Output<
+        pub source_port_range: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ec2::TrafficMirrorFilterRuleSourcePortRange>,
         >,
         /// Direction of traffic to be captured. Valid values are `ingress` and `egress`
         ///
         /// Traffic mirror port range support following attributes:
         #[builder(into)]
-        pub traffic_direction: pulumi_wasm_rust::Output<String>,
+        pub traffic_direction: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the traffic mirror filter to which this rule should be added
         #[builder(into)]
-        pub traffic_mirror_filter_id: pulumi_wasm_rust::Output<String>,
+        pub traffic_mirror_filter_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TrafficMirrorFilterRuleResult {
@@ -142,21 +142,40 @@ pub mod traffic_mirror_filter_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TrafficMirrorFilterRuleArgs,
     ) -> TrafficMirrorFilterRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let destination_cidr_block_binding = args.destination_cidr_block.get_inner();
-        let destination_port_range_binding = args.destination_port_range.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let rule_action_binding = args.rule_action.get_inner();
-        let rule_number_binding = args.rule_number.get_inner();
-        let source_cidr_block_binding = args.source_cidr_block.get_inner();
-        let source_port_range_binding = args.source_port_range.get_inner();
-        let traffic_direction_binding = args.traffic_direction.get_inner();
-        let traffic_mirror_filter_id_binding = args.traffic_mirror_filter_id.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let destination_cidr_block_binding = args
+            .destination_cidr_block
+            .get_output(context)
+            .get_inner();
+        let destination_port_range_binding = args
+            .destination_port_range
+            .get_output(context)
+            .get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let rule_action_binding = args.rule_action.get_output(context).get_inner();
+        let rule_number_binding = args.rule_number.get_output(context).get_inner();
+        let source_cidr_block_binding = args
+            .source_cidr_block
+            .get_output(context)
+            .get_inner();
+        let source_port_range_binding = args
+            .source_port_range
+            .get_output(context)
+            .get_inner();
+        let traffic_direction_binding = args
+            .traffic_direction
+            .get_output(context)
+            .get_inner();
+        let traffic_mirror_filter_id_binding = args
+            .traffic_mirror_filter_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule".into(),
             name: name.to_string(),
@@ -239,7 +258,7 @@ pub mod traffic_mirror_filter_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

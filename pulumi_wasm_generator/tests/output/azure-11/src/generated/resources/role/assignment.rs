@@ -227,53 +227,55 @@
 /// /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000
 ///
 pub mod assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssignmentArgs {
         /// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::Output<Option<String>>,
+        pub condition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub condition_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub condition_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** this field is only used in cross tenant scenario.
         #[builder(into, default)]
-        pub delegated_managed_identity_resource_id: pulumi_wasm_rust::Output<
+        pub delegated_managed_identity_resource_id: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The description for this Role Assignment. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The Principal ID is also known as the Object ID (ie not the "Application ID" for applications).
         #[builder(into)]
-        pub principal_id: pulumi_wasm_rust::Output<String>,
+        pub principal_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
         ///
         /// > **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
         #[builder(into, default)]
-        pub principal_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub principal_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
         #[builder(into, default)]
-        pub role_definition_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_definition_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
         #[builder(into, default)]
-        pub role_definition_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_definition_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
         /// If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
         ///
         /// > **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
         #[builder(into, default)]
-        pub skip_service_principal_aad_check: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_service_principal_aad_check: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
     }
     #[allow(dead_code)]
     pub struct AssignmentResult {
@@ -314,23 +316,38 @@ pub mod assignment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AssignmentArgs) -> AssignmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AssignmentArgs,
+    ) -> AssignmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_inner();
-        let condition_version_binding = args.condition_version.get_inner();
+        let condition_binding = args.condition.get_output(context).get_inner();
+        let condition_version_binding = args
+            .condition_version
+            .get_output(context)
+            .get_inner();
         let delegated_managed_identity_resource_id_binding = args
             .delegated_managed_identity_resource_id
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let principal_id_binding = args.principal_id.get_inner();
-        let principal_type_binding = args.principal_type.get_inner();
-        let role_definition_id_binding = args.role_definition_id.get_inner();
-        let role_definition_name_binding = args.role_definition_name.get_inner();
-        let scope_binding = args.scope.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let principal_id_binding = args.principal_id.get_output(context).get_inner();
+        let principal_type_binding = args.principal_type.get_output(context).get_inner();
+        let role_definition_id_binding = args
+            .role_definition_id
+            .get_output(context)
+            .get_inner();
+        let role_definition_name_binding = args
+            .role_definition_name
+            .get_output(context)
+            .get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
         let skip_service_principal_aad_check_binding = args
             .skip_service_principal_aad_check
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:role/assignment:Assignment".into(),
@@ -418,7 +435,7 @@ pub mod assignment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

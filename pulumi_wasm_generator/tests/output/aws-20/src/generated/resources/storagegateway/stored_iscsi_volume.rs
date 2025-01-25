@@ -53,39 +53,39 @@
 /// $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
 /// ```
 pub mod stored_iscsi_volume {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StoredIscsiVolumeArgs {
         /// The unique identifier for the gateway local disk that is configured as a stored volume.
         #[builder(into)]
-        pub disk_id: pulumi_wasm_rust::Output<String>,
+        pub disk_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the gateway.
         #[builder(into)]
-        pub gateway_arn: pulumi_wasm_rust::Output<String>,
+        pub gateway_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
         #[builder(into, default)]
-        pub kms_encrypted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub kms_encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is `true`.
         #[builder(into, default)]
-        pub kms_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         #[builder(into)]
-        pub network_interface_id: pulumi_wasm_rust::Output<String>,
+        pub network_interface_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
         #[builder(into)]
-        pub preserve_existing_data: pulumi_wasm_rust::Output<bool>,
+        pub preserve_existing_data: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         #[builder(into, default)]
-        pub snapshot_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub snapshot_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         #[builder(into)]
-        pub target_name: pulumi_wasm_rust::Output<String>,
+        pub target_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct StoredIscsiVolumeResult {
@@ -138,18 +138,28 @@ pub mod stored_iscsi_volume {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StoredIscsiVolumeArgs) -> StoredIscsiVolumeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StoredIscsiVolumeArgs,
+    ) -> StoredIscsiVolumeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let disk_id_binding = args.disk_id.get_inner();
-        let gateway_arn_binding = args.gateway_arn.get_inner();
-        let kms_encrypted_binding = args.kms_encrypted.get_inner();
-        let kms_key_binding = args.kms_key.get_inner();
-        let network_interface_id_binding = args.network_interface_id.get_inner();
-        let preserve_existing_data_binding = args.preserve_existing_data.get_inner();
-        let snapshot_id_binding = args.snapshot_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_name_binding = args.target_name.get_inner();
+        let disk_id_binding = args.disk_id.get_output(context).get_inner();
+        let gateway_arn_binding = args.gateway_arn.get_output(context).get_inner();
+        let kms_encrypted_binding = args.kms_encrypted.get_output(context).get_inner();
+        let kms_key_binding = args.kms_key.get_output(context).get_inner();
+        let network_interface_id_binding = args
+            .network_interface_id
+            .get_output(context)
+            .get_inner();
+        let preserve_existing_data_binding = args
+            .preserve_existing_data
+            .get_output(context)
+            .get_inner();
+        let snapshot_id_binding = args.snapshot_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_name_binding = args.target_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:storagegateway/storedIscsiVolume:StoredIscsiVolume".into(),
             name: name.to_string(),
@@ -255,7 +265,7 @@ pub mod stored_iscsi_volume {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

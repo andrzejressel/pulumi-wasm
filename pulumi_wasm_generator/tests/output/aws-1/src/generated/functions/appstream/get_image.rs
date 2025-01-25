@@ -1,23 +1,23 @@
 pub mod get_image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetImageArgs {
         /// Arn of the image being searched for. Cannot be used with name_regex or name.
         #[builder(into, default)]
-        pub arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
         #[builder(into, default)]
-        pub most_recent: pulumi_wasm_rust::Output<Option<bool>>,
+        pub most_recent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the image being searched for. Cannot be used with name_regex or arn.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Regular expression name of the image being searched for. Cannot be used with arn or name.
         #[builder(into, default)]
-        pub name_regex: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_regex: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetImageResult {
@@ -64,14 +64,17 @@ pub mod get_image {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetImageArgs) -> GetImageResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetImageArgs,
+    ) -> GetImageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_inner();
-        let most_recent_binding = args.most_recent.get_inner();
-        let name_binding = args.name.get_inner();
-        let name_regex_binding = args.name_regex.get_inner();
-        let type__binding = args.type_.get_inner();
+        let arn_binding = args.arn.get_output(context).get_inner();
+        let most_recent_binding = args.most_recent.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_regex_binding = args.name_regex.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:appstream/getImage:getImage".into(),
             version: super::super::super::get_version(),
@@ -157,7 +160,7 @@ pub mod get_image {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

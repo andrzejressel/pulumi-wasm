@@ -78,28 +78,28 @@
 /// ```
 ///
 pub mod dataset_data_lake_gen_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatasetDataLakeGen2Args {
         /// The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         #[builder(into, default)]
-        pub file_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub file_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         #[builder(into)]
-        pub file_system_name: pulumi_wasm_rust::Output<String>,
+        pub file_system_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The folder path in the data lake file system to be shared with the receiver. Conflicts with `file_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         #[builder(into, default)]
-        pub folder_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub folder_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Data Share Data Lake Gen2 Dataset. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset should be created. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         #[builder(into)]
-        pub share_id: pulumi_wasm_rust::Output<String>,
+        pub share_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource id of the storage account of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DatasetDataLakeGen2Result {
@@ -123,17 +123,24 @@ pub mod dataset_data_lake_gen_2 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DatasetDataLakeGen2Args,
     ) -> DatasetDataLakeGen2Result {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let file_path_binding = args.file_path.get_inner();
-        let file_system_name_binding = args.file_system_name.get_inner();
-        let folder_path_binding = args.folder_path.get_inner();
-        let name_binding = args.name.get_inner();
-        let share_id_binding = args.share_id.get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
+        let file_path_binding = args.file_path.get_output(context).get_inner();
+        let file_system_name_binding = args
+            .file_system_name
+            .get_output(context)
+            .get_inner();
+        let folder_path_binding = args.folder_path.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let share_id_binding = args.share_id.get_output(context).get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2".into(),
             name: name.to_string(),
@@ -188,7 +195,7 @@ pub mod dataset_data_lake_gen_2 {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

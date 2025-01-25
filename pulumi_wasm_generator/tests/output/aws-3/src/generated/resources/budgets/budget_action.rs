@@ -87,46 +87,46 @@
 /// $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
 /// ```
 pub mod budget_action {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BudgetActionArgs {
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The trigger threshold of the action. See Action Threshold.
         #[builder(into)]
-        pub action_threshold: pulumi_wasm_rust::Output<
+        pub action_threshold: pulumi_wasm_rust::InputOrOutput<
             super::super::types::budgets::BudgetActionActionThreshold,
         >,
         /// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
         #[builder(into)]
-        pub action_type: pulumi_wasm_rust::Output<String>,
+        pub action_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
         #[builder(into)]
-        pub approval_model: pulumi_wasm_rust::Output<String>,
+        pub approval_model: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of a budget.
         #[builder(into)]
-        pub budget_name: pulumi_wasm_rust::Output<String>,
+        pub budget_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies all of the type-specific parameters. See Definition.
         #[builder(into)]
-        pub definition: pulumi_wasm_rust::Output<
+        pub definition: pulumi_wasm_rust::InputOrOutput<
             super::super::types::budgets::BudgetActionDefinition,
         >,
         /// The role passed for action execution and reversion. Roles and actions must be in the same account.
         #[builder(into)]
-        pub execution_role_arn: pulumi_wasm_rust::Output<String>,
+        pub execution_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
         #[builder(into)]
-        pub notification_type: pulumi_wasm_rust::Output<String>,
+        pub notification_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of subscribers. See Subscriber.
         #[builder(into)]
-        pub subscribers: pulumi_wasm_rust::Output<
+        pub subscribers: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::budgets::BudgetActionSubscriber>,
         >,
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -175,19 +175,32 @@ pub mod budget_action {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BudgetActionArgs) -> BudgetActionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BudgetActionArgs,
+    ) -> BudgetActionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let action_threshold_binding = args.action_threshold.get_inner();
-        let action_type_binding = args.action_type.get_inner();
-        let approval_model_binding = args.approval_model.get_inner();
-        let budget_name_binding = args.budget_name.get_inner();
-        let definition_binding = args.definition.get_inner();
-        let execution_role_arn_binding = args.execution_role_arn.get_inner();
-        let notification_type_binding = args.notification_type.get_inner();
-        let subscribers_binding = args.subscribers.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let action_threshold_binding = args
+            .action_threshold
+            .get_output(context)
+            .get_inner();
+        let action_type_binding = args.action_type.get_output(context).get_inner();
+        let approval_model_binding = args.approval_model.get_output(context).get_inner();
+        let budget_name_binding = args.budget_name.get_output(context).get_inner();
+        let definition_binding = args.definition.get_output(context).get_inner();
+        let execution_role_arn_binding = args
+            .execution_role_arn
+            .get_output(context)
+            .get_inner();
+        let notification_type_binding = args
+            .notification_type
+            .get_output(context)
+            .get_inner();
+        let subscribers_binding = args.subscribers.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:budgets/budgetAction:BudgetAction".into(),
             name: name.to_string(),
@@ -279,7 +292,7 @@ pub mod budget_action {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

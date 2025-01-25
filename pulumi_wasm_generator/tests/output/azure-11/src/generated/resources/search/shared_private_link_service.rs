@@ -55,27 +55,27 @@
 /// ```
 ///
 pub mod shared_private_link_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedPrivateLinkServiceArgs {
         /// Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         #[builder(into, default)]
-        pub request_message: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub search_service_id: pulumi_wasm_rust::Output<String>,
+        pub search_service_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub subresource_name: pulumi_wasm_rust::Output<String>,
+        pub subresource_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
         #[builder(into)]
-        pub target_resource_id: pulumi_wasm_rust::Output<String>,
+        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SharedPrivateLinkServiceResult {
@@ -99,16 +99,29 @@ pub mod shared_private_link_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SharedPrivateLinkServiceArgs,
     ) -> SharedPrivateLinkServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let request_message_binding = args.request_message.get_inner();
-        let search_service_id_binding = args.search_service_id.get_inner();
-        let subresource_name_binding = args.subresource_name.get_inner();
-        let target_resource_id_binding = args.target_resource_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let request_message_binding = args
+            .request_message
+            .get_output(context)
+            .get_inner();
+        let search_service_id_binding = args
+            .search_service_id
+            .get_output(context)
+            .get_inner();
+        let subresource_name_binding = args
+            .subresource_name
+            .get_output(context)
+            .get_inner();
+        let target_resource_id_binding = args
+            .target_resource_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:search/sharedPrivateLinkService:SharedPrivateLinkService"
                 .into(),
@@ -157,7 +170,7 @@ pub mod shared_private_link_service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

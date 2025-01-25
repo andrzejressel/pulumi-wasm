@@ -209,35 +209,35 @@
 /// $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
 /// ```
 pub mod anomaly_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AnomalySubscriptionArgs {
         /// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
         #[builder(into)]
-        pub frequency: pulumi_wasm_rust::Output<String>,
+        pub frequency: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of cost anomaly monitors.
         #[builder(into)]
-        pub monitor_arn_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub monitor_arn_lists: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The name for the subscription.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A subscriber configuration. Multiple subscribers can be defined.
         #[builder(into)]
-        pub subscribers: pulumi_wasm_rust::Output<
+        pub subscribers: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::costexplorer::AnomalySubscriptionSubscriber>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         #[builder(into, default)]
-        pub threshold_expression: pulumi_wasm_rust::Output<
+        pub threshold_expression: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::costexplorer::AnomalySubscriptionThresholdExpression,
             >,
@@ -277,18 +277,25 @@ pub mod anomaly_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AnomalySubscriptionArgs,
     ) -> AnomalySubscriptionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let frequency_binding = args.frequency.get_inner();
-        let monitor_arn_lists_binding = args.monitor_arn_lists.get_inner();
-        let name_binding = args.name.get_inner();
-        let subscribers_binding = args.subscribers.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let threshold_expression_binding = args.threshold_expression.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let frequency_binding = args.frequency.get_output(context).get_inner();
+        let monitor_arn_lists_binding = args
+            .monitor_arn_lists
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let subscribers_binding = args.subscribers.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let threshold_expression_binding = args
+            .threshold_expression
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:costexplorer/anomalySubscription:AnomalySubscription".into(),
             name: name.to_string(),
@@ -353,7 +360,7 @@ pub mod anomaly_subscription {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

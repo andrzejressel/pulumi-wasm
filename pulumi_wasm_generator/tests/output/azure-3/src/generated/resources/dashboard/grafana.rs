@@ -35,21 +35,21 @@
 /// ```
 ///
 pub mod grafana {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GrafanaArgs {
         /// Whether to enable the api key setting of the Grafana instance. Defaults to `false`.
         #[builder(into, default)]
-        pub api_key_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub api_key_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Scope for dns deterministic name hash calculation. The only possible value is `TenantReuse`. Defaults to `TenantReuse`.
         #[builder(into, default)]
-        pub auto_generated_domain_name_label_scope: pulumi_wasm_rust::Output<
+        pub auto_generated_domain_name_label_scope: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// A `azure_monitor_workspace_integrations` block as defined below.
         #[builder(into, default)]
-        pub azure_monitor_workspace_integrations: pulumi_wasm_rust::Output<
+        pub azure_monitor_workspace_integrations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::dashboard::GrafanaAzureMonitorWorkspaceIntegration,
@@ -58,43 +58,45 @@ pub mod grafana {
         >,
         /// Whether to enable the Grafana instance to use deterministic outbound IPs. Defaults to `false`.
         #[builder(into, default)]
-        pub deterministic_outbound_ip_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deterministic_outbound_ip_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Which major version of Grafana to deploy. Possible values are `9`, `10`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub grafana_major_version: pulumi_wasm_rust::Output<String>,
+        pub grafana_major_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// An `identity` block as defined below. Changing this forces a new Dashboard Grafana to be created.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dashboard::GrafanaIdentity>,
         >,
         /// Specifies the Azure Region where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Dashboard Grafana. Changing this forces a new Dashboard Grafana to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to enable traffic over the public interface. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         #[builder(into, default)]
-        pub sku: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `smtp` block as defined below.
         #[builder(into, default)]
-        pub smtp: pulumi_wasm_rust::Output<
+        pub smtp: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dashboard::GrafanaSmtp>,
         >,
         /// A mapping of tags which should be assigned to the Dashboard Grafana.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
         #[builder(into, default)]
-        pub zone_redundancy_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub zone_redundancy_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GrafanaResult {
@@ -151,31 +153,51 @@ pub mod grafana {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GrafanaArgs) -> GrafanaResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GrafanaArgs,
+    ) -> GrafanaResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_key_enabled_binding = args.api_key_enabled.get_inner();
+        let api_key_enabled_binding = args
+            .api_key_enabled
+            .get_output(context)
+            .get_inner();
         let auto_generated_domain_name_label_scope_binding = args
             .auto_generated_domain_name_label_scope
+            .get_output(context)
             .get_inner();
         let azure_monitor_workspace_integrations_binding = args
             .azure_monitor_workspace_integrations
+            .get_output(context)
             .get_inner();
         let deterministic_outbound_ip_enabled_binding = args
             .deterministic_outbound_ip_enabled
+            .get_output(context)
             .get_inner();
-        let grafana_major_version_binding = args.grafana_major_version.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
+        let grafana_major_version_binding = args
+            .grafana_major_version
+            .get_output(context)
+            .get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let smtp_binding = args.smtp.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let zone_redundancy_enabled_binding = args.zone_redundancy_enabled.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let smtp_binding = args.smtp.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let zone_redundancy_enabled_binding = args
+            .zone_redundancy_enabled
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dashboard/grafana:Grafana".into(),
             name: name.to_string(),
@@ -292,7 +314,7 @@ pub mod grafana {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

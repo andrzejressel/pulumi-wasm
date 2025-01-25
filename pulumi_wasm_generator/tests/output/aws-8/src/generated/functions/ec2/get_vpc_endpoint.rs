@@ -1,26 +1,26 @@
 pub mod get_vpc_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetVpcEndpointArgs {
         /// Custom filter block as described below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetVpcEndpointFilter>>,
         >,
         /// ID of the specific VPC Endpoint to retrieve.
         #[builder(into, default)]
-        pub id: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
         #[builder(into, default)]
-        pub service_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// State of the specific VPC Endpoint to retrieve.
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::Output<Option<String>>,
+        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags, each pair of which must exactly match
         /// a pair on the specific VPC Endpoint to retrieve.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ID of the VPC in which the specific VPC Endpoint is used.
@@ -28,7 +28,7 @@ pub mod get_vpc_endpoint {
         /// More complex filters can be expressed using one or more `filter` sub-blocks,
         /// which take the following arguments:
         #[builder(into, default)]
-        pub vpc_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetVpcEndpointResult {
@@ -78,15 +78,18 @@ pub mod get_vpc_endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetVpcEndpointArgs) -> GetVpcEndpointResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetVpcEndpointArgs,
+    ) -> GetVpcEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let id_binding = args.id.get_inner();
-        let service_name_binding = args.service_name.get_inner();
-        let state_binding = args.state.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let id_binding = args.id.get_output(context).get_inner();
+        let service_name_binding = args.service_name.get_output(context).get_inner();
+        let state_binding = args.state.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getVpcEndpoint:getVpcEndpoint".into(),
             version: super::super::super::get_version(),
@@ -182,7 +185,7 @@ pub mod get_vpc_endpoint {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

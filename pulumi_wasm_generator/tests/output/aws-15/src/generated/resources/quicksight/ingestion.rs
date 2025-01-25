@@ -28,24 +28,24 @@
 /// $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
 /// ```
 pub mod ingestion {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IngestionArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the dataset used in the ingestion.
         #[builder(into)]
-        pub data_set_id: pulumi_wasm_rust::Output<String>,
+        pub data_set_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID for the ingestion.
         #[builder(into)]
-        pub ingestion_id: pulumi_wasm_rust::Output<String>,
+        pub ingestion_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub ingestion_type: pulumi_wasm_rust::Output<String>,
+        pub ingestion_type: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IngestionResult {
@@ -68,13 +68,17 @@ pub mod ingestion {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: IngestionArgs) -> IngestionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: IngestionArgs,
+    ) -> IngestionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_inner();
-        let data_set_id_binding = args.data_set_id.get_inner();
-        let ingestion_id_binding = args.ingestion_id.get_inner();
-        let ingestion_type_binding = args.ingestion_type.get_inner();
+        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
+        let data_set_id_binding = args.data_set_id.get_output(context).get_inner();
+        let ingestion_id_binding = args.ingestion_id.get_output(context).get_inner();
+        let ingestion_type_binding = args.ingestion_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/ingestion:Ingestion".into(),
             name: name.to_string(),
@@ -118,7 +122,7 @@ pub mod ingestion {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

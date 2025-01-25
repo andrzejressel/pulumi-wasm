@@ -138,13 +138,13 @@
 /// ```
 ///
 pub mod enterprise_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnterpriseKeyArgs {
         /// Settings for keys that can be used by Android apps.
         #[builder(into, default)]
-        pub android_settings: pulumi_wasm_rust::Output<
+        pub android_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::recaptcha::EnterpriseKeyAndroidSettings>,
         >,
         /// Human-readable display name of this key. Modifiable by user.
@@ -153,10 +153,10 @@ pub mod enterprise_key {
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Settings for keys that can be used by iOS apps.
         #[builder(into, default)]
-        pub ios_settings: pulumi_wasm_rust::Output<
+        pub ios_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::recaptcha::EnterpriseKeyIosSettings>,
         >,
         /// See [Creating and managing labels](https://cloud.google.com/recaptcha-enterprise/docs/labels).
@@ -164,25 +164,25 @@ pub mod enterprise_key {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Options for user acceptance testing.
         #[builder(into, default)]
-        pub testing_options: pulumi_wasm_rust::Output<
+        pub testing_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::recaptcha::EnterpriseKeyTestingOptions>,
         >,
         /// Settings specific to keys that can be used for WAF (Web Application Firewall).
         #[builder(into, default)]
-        pub waf_settings: pulumi_wasm_rust::Output<
+        pub waf_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::recaptcha::EnterpriseKeyWafSettings>,
         >,
         /// Settings for keys that can be used by websites.
         #[builder(into, default)]
-        pub web_settings: pulumi_wasm_rust::Output<
+        pub web_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::recaptcha::EnterpriseKeyWebSettings>,
         >,
     }
@@ -240,17 +240,27 @@ pub mod enterprise_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EnterpriseKeyArgs) -> EnterpriseKeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EnterpriseKeyArgs,
+    ) -> EnterpriseKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let android_settings_binding = args.android_settings.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let ios_settings_binding = args.ios_settings.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let project_binding = args.project.get_inner();
-        let testing_options_binding = args.testing_options.get_inner();
-        let waf_settings_binding = args.waf_settings.get_inner();
-        let web_settings_binding = args.web_settings.get_inner();
+        let android_settings_binding = args
+            .android_settings
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let ios_settings_binding = args.ios_settings.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let testing_options_binding = args
+            .testing_options
+            .get_output(context)
+            .get_inner();
+        let waf_settings_binding = args.waf_settings.get_output(context).get_inner();
+        let web_settings_binding = args.web_settings.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:recaptcha/enterpriseKey:EnterpriseKey".into(),
             name: name.to_string(),
@@ -328,7 +338,7 @@ pub mod enterprise_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -172,50 +172,50 @@
 /// $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
 /// ```
 pub mod distribution {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DistributionArgs {
         /// Bundle ID to use for the distribution.
         #[builder(into)]
-        pub bundle_id: pulumi_wasm_rust::Output<String>,
+        pub bundle_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// An object that describes the cache behavior settings of the distribution. Detailed below
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub cache_behavior_settings: pulumi_wasm_rust::Output<
+        pub cache_behavior_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::lightsail::DistributionCacheBehaviorSettings>,
         >,
         /// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
         #[builder(into, default)]
-        pub cache_behaviors: pulumi_wasm_rust::Output<
+        pub cache_behaviors: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::lightsail::DistributionCacheBehavior>>,
         >,
         /// The name of the SSL/TLS certificate attached to the distribution, if any.
         #[builder(into, default)]
-        pub certificate_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Object that describes the default cache behavior of the distribution. Detailed below
         #[builder(into)]
-        pub default_cache_behavior: pulumi_wasm_rust::Output<
+        pub default_cache_behavior: pulumi_wasm_rust::InputOrOutput<
             super::super::types::lightsail::DistributionDefaultCacheBehavior,
         >,
         /// The IP address type of the distribution. Default: `dualstack`.
         #[builder(into, default)]
-        pub ip_address_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether the distribution is enabled. Default: `true`.
         #[builder(into, default)]
-        pub is_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the distribution.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
         #[builder(into)]
-        pub origin: pulumi_wasm_rust::Output<
+        pub origin: pulumi_wasm_rust::InputOrOutput<
             super::super::types::lightsail::DistributionOrigin,
         >,
         /// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -282,19 +282,38 @@ pub mod distribution {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DistributionArgs) -> DistributionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DistributionArgs,
+    ) -> DistributionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bundle_id_binding = args.bundle_id.get_inner();
-        let cache_behavior_settings_binding = args.cache_behavior_settings.get_inner();
-        let cache_behaviors_binding = args.cache_behaviors.get_inner();
-        let certificate_name_binding = args.certificate_name.get_inner();
-        let default_cache_behavior_binding = args.default_cache_behavior.get_inner();
-        let ip_address_type_binding = args.ip_address_type.get_inner();
-        let is_enabled_binding = args.is_enabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let origin_binding = args.origin.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
+        let cache_behavior_settings_binding = args
+            .cache_behavior_settings
+            .get_output(context)
+            .get_inner();
+        let cache_behaviors_binding = args
+            .cache_behaviors
+            .get_output(context)
+            .get_inner();
+        let certificate_name_binding = args
+            .certificate_name
+            .get_output(context)
+            .get_inner();
+        let default_cache_behavior_binding = args
+            .default_cache_behavior
+            .get_output(context)
+            .get_inner();
+        let ip_address_type_binding = args
+            .ip_address_type
+            .get_output(context)
+            .get_inner();
+        let is_enabled_binding = args.is_enabled.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let origin_binding = args.origin.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/distribution:Distribution".into(),
             name: name.to_string(),
@@ -404,7 +423,7 @@ pub mod distribution {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

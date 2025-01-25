@@ -28,42 +28,42 @@
 ///         Name: HelloWorld_copy_snap
 /// ```
 pub mod snapshot_copy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotCopyArgs {
         /// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
         #[builder(into, default)]
-        pub completion_duration_minutes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub completion_duration_minutes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A description of what the snapshot is.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the snapshot is encrypted.
         #[builder(into, default)]
-        pub encrypted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ARN for the KMS encryption key.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether to permanently restore an archived snapshot.
         #[builder(into, default)]
-        pub permanent_restore: pulumi_wasm_rust::Output<Option<bool>>,
+        pub permanent_restore: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The region of the source snapshot.
         #[builder(into)]
-        pub source_region: pulumi_wasm_rust::Output<String>,
+        pub source_region: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ARN for the snapshot to be copied.
         #[builder(into)]
-        pub source_snapshot_id: pulumi_wasm_rust::Output<String>,
+        pub source_snapshot_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         #[builder(into, default)]
-        pub storage_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags for the snapshot.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         #[builder(into, default)]
-        pub temporary_restore_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub temporary_restore_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct SnapshotCopyResult {
@@ -110,21 +110,35 @@ pub mod snapshot_copy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SnapshotCopyArgs) -> SnapshotCopyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SnapshotCopyArgs,
+    ) -> SnapshotCopyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let completion_duration_minutes_binding = args
             .completion_duration_minutes
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let encrypted_binding = args.encrypted.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let permanent_restore_binding = args.permanent_restore.get_inner();
-        let source_region_binding = args.source_region.get_inner();
-        let source_snapshot_id_binding = args.source_snapshot_id.get_inner();
-        let storage_tier_binding = args.storage_tier.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let temporary_restore_days_binding = args.temporary_restore_days.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let encrypted_binding = args.encrypted.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let permanent_restore_binding = args
+            .permanent_restore
+            .get_output(context)
+            .get_inner();
+        let source_region_binding = args.source_region.get_output(context).get_inner();
+        let source_snapshot_id_binding = args
+            .source_snapshot_id
+            .get_output(context)
+            .get_inner();
+        let storage_tier_binding = args.storage_tier.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let temporary_restore_days_binding = args
+            .temporary_restore_days
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ebs/snapshotCopy:SnapshotCopy".into(),
             name: name.to_string(),
@@ -228,7 +242,7 @@ pub mod snapshot_copy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

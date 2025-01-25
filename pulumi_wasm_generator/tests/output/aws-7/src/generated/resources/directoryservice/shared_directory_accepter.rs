@@ -38,13 +38,13 @@
 /// $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
 /// ```
 pub mod shared_directory_accepter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedDirectoryAccepterArgs {
         /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
         #[builder(into)]
-        pub shared_directory_id: pulumi_wasm_rust::Output<String>,
+        pub shared_directory_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SharedDirectoryAccepterResult {
@@ -64,12 +64,16 @@ pub mod shared_directory_accepter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SharedDirectoryAccepterArgs,
     ) -> SharedDirectoryAccepterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let shared_directory_id_binding = args.shared_directory_id.get_inner();
+        let shared_directory_id_binding = args
+            .shared_directory_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter"
                 .into(),
@@ -99,7 +103,7 @@ pub mod shared_directory_accepter {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

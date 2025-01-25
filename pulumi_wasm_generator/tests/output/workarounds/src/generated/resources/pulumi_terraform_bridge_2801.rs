@@ -1,5 +1,5 @@
 pub mod pulumi_terraform_bridge_2801 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PulumiTerraformBridge2801Args {
@@ -7,16 +7,20 @@ pub mod pulumi_terraform_bridge_2801 {
         ///
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: "3.5s".
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PulumiTerraformBridge2801Args) {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PulumiTerraformBridge2801Args,
+    ) {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let type__binding = args.type_.get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "example:index:PulumiTerraformBridge2801".into(),
             name: name.to_string(),
@@ -29,6 +33,6 @@ pub mod pulumi_terraform_bridge_2801 {
             ]),
             results: Vec::from([]),
         };
-        register_interface::register(&request);
+        register_interface::register(context.get_inner(), &request);
     }
 }

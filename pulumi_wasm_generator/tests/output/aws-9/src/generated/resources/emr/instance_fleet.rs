@@ -58,32 +58,32 @@
 /// $ pulumi import aws:emr/instanceFleet:InstanceFleet example j-123456ABCDEF/if-15EK4O09RZLNR
 /// ```
 pub mod instance_fleet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceFleetArgs {
         /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block for instance fleet
         #[builder(into, default)]
-        pub instance_type_configs: pulumi_wasm_rust::Output<
+        pub instance_type_configs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::emr::InstanceFleetInstanceTypeConfig>>,
         >,
         /// Configuration block for launch specification
         #[builder(into, default)]
-        pub launch_specifications: pulumi_wasm_rust::Output<
+        pub launch_specifications: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::emr::InstanceFleetLaunchSpecifications>,
         >,
         /// Friendly name given to the instance fleet.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         #[builder(into, default)]
-        pub target_on_demand_capacity: pulumi_wasm_rust::Output<Option<i32>>,
+        pub target_on_demand_capacity: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         #[builder(into, default)]
-        pub target_spot_capacity: pulumi_wasm_rust::Output<Option<i32>>,
+        pub target_spot_capacity: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct InstanceFleetResult {
@@ -114,17 +114,31 @@ pub mod instance_fleet {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InstanceFleetArgs) -> InstanceFleetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InstanceFleetArgs,
+    ) -> InstanceFleetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding = args.cluster_id.get_inner();
-        let instance_type_configs_binding = args.instance_type_configs.get_inner();
-        let launch_specifications_binding = args.launch_specifications.get_inner();
-        let name_binding = args.name.get_inner();
+        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
+        let instance_type_configs_binding = args
+            .instance_type_configs
+            .get_output(context)
+            .get_inner();
+        let launch_specifications_binding = args
+            .launch_specifications
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let target_on_demand_capacity_binding = args
             .target_on_demand_capacity
+            .get_output(context)
             .get_inner();
-        let target_spot_capacity_binding = args.target_spot_capacity.get_inner();
+        let target_spot_capacity_binding = args
+            .target_spot_capacity
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:emr/instanceFleet:InstanceFleet".into(),
             name: name.to_string(),
@@ -182,7 +196,7 @@ pub mod instance_fleet {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

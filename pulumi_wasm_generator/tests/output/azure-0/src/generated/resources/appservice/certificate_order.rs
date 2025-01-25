@@ -36,44 +36,44 @@
 /// ```
 ///
 pub mod certificate_order {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateOrderArgs {
         /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         #[builder(into, default)]
-        pub auto_renew: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_renew: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Last CSR that was created for this order.
         #[builder(into, default)]
-        pub csr: pulumi_wasm_rust::Output<Option<String>>,
+        pub csr: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Distinguished Name for the App Service Certificate Order.
         ///
         /// > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
         #[builder(into, default)]
-        pub distinguished_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub distinguished_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Certificate key size. Defaults to `2048`.
         #[builder(into, default)]
-        pub key_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub key_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the certificate. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
         #[builder(into, default)]
-        pub product_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub product_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// (Optional) A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Duration in years (must be between `1` and `3`). Defaults to `1`.
         #[builder(into, default)]
-        pub validity_in_years: pulumi_wasm_rust::Output<Option<i32>>,
+        pub validity_in_years: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct CertificateOrderResult {
@@ -128,19 +128,32 @@ pub mod certificate_order {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CertificateOrderArgs) -> CertificateOrderResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CertificateOrderArgs,
+    ) -> CertificateOrderResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_renew_binding = args.auto_renew.get_inner();
-        let csr_binding = args.csr.get_inner();
-        let distinguished_name_binding = args.distinguished_name.get_inner();
-        let key_size_binding = args.key_size.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let product_type_binding = args.product_type.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let validity_in_years_binding = args.validity_in_years.get_inner();
+        let auto_renew_binding = args.auto_renew.get_output(context).get_inner();
+        let csr_binding = args.csr.get_output(context).get_inner();
+        let distinguished_name_binding = args
+            .distinguished_name
+            .get_output(context)
+            .get_inner();
+        let key_size_binding = args.key_size.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let product_type_binding = args.product_type.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let validity_in_years_binding = args
+            .validity_in_years
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/certificateOrder:CertificateOrder".into(),
             name: name.to_string(),
@@ -247,7 +260,7 @@ pub mod certificate_order {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

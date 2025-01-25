@@ -1,16 +1,16 @@
 pub mod get_vpc_iam_pool_cidrs {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetVpcIamPoolCidrsArgs {
         /// Custom filter block as described below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetVpcIamPoolCidrsFilter>>,
         >,
         /// ID of the IPAM pool you would like the list of provisioned CIDRs.
         #[builder(into)]
-        pub ipam_pool_id: pulumi_wasm_rust::Output<String>,
+        pub ipam_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetVpcIamPoolCidrsResult {
@@ -29,11 +29,14 @@ pub mod get_vpc_iam_pool_cidrs {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetVpcIamPoolCidrsArgs) -> GetVpcIamPoolCidrsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetVpcIamPoolCidrsArgs,
+    ) -> GetVpcIamPoolCidrsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let ipam_pool_id_binding = args.ipam_pool_id.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let ipam_pool_id_binding = args.ipam_pool_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getVpcIamPoolCidrs:getVpcIamPoolCidrs".into(),
             version: super::super::super::get_version(),
@@ -62,7 +65,7 @@ pub mod get_vpc_iam_pool_cidrs {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -104,50 +104,50 @@
 /// ```
 ///
 pub mod subnet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubnetArgs {
         /// A free-text description of the resource. Max length 1024 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ranges of ipv4 addresses that are owned by this subnetwork, in CIDR format.
         #[builder(into, default)]
-        pub ipv4_cidrs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ipv4_cidrs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ranges of ipv6 addresses that are owned by this subnetwork, in CIDR format.
         #[builder(into, default)]
-        pub ipv6_cidrs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ipv6_cidrs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Labels associated with this resource.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Google Cloud region to which the target Distributed Cloud Edge zone belongs.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the network to which this router belongs.
         /// Must be of the form: `projects/{{project}}/locations/{{location}}/zones/{{zone}}/networks/{{network_id}}`
         #[builder(into)]
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A unique ID that identifies this subnet.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// VLAN ID for this subnetwork. If not specified, one is assigned automatically.
         #[builder(into, default)]
-        pub vlan_id: pulumi_wasm_rust::Output<Option<i32>>,
+        pub vlan_id: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name of the target Distributed Cloud Edge zone.
         #[builder(into)]
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubnetResult {
@@ -208,19 +208,23 @@ pub mod subnet {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SubnetArgs) -> SubnetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SubnetArgs,
+    ) -> SubnetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let ipv4_cidrs_binding = args.ipv4_cidrs.get_inner();
-        let ipv6_cidrs_binding = args.ipv6_cidrs.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let network_binding = args.network.get_inner();
-        let project_binding = args.project.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
-        let vlan_id_binding = args.vlan_id.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let ipv4_cidrs_binding = args.ipv4_cidrs.get_output(context).get_inner();
+        let ipv6_cidrs_binding = args.ipv6_cidrs.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
+        let vlan_id_binding = args.vlan_id.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:edgenetwork/subnet:Subnet".into(),
             name: name.to_string(),
@@ -318,7 +322,7 @@ pub mod subnet {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

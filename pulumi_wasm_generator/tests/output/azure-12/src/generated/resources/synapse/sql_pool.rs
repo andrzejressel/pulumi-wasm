@@ -57,45 +57,45 @@
 /// ```
 ///
 pub mod sql_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlPoolArgs {
         /// The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
         #[builder(into, default)]
-        pub collation: pulumi_wasm_rust::Output<Option<String>>,
+        pub collation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
         #[builder(into, default)]
-        pub create_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub create_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Is transparent data encryption enabled?
         #[builder(into, default)]
-        pub data_encrypted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub data_encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
         #[builder(into, default)]
-        pub geo_backup_policy_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub geo_backup_policy_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         #[builder(into, default)]
-        pub recovery_database_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub recovery_database_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
         #[builder(into, default)]
-        pub restore: pulumi_wasm_rust::Output<
+        pub restore: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::synapse::SqlPoolRestore>,
         >,
         /// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
         #[builder(into)]
-        pub storage_account_type: pulumi_wasm_rust::Output<String>,
+        pub storage_account_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
         #[builder(into)]
-        pub synapse_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub synapse_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Synapse SQL Pool.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -132,22 +132,36 @@ pub mod sql_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SqlPoolArgs) -> SqlPoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SqlPoolArgs,
+    ) -> SqlPoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let collation_binding = args.collation.get_inner();
-        let create_mode_binding = args.create_mode.get_inner();
-        let data_encrypted_binding = args.data_encrypted.get_inner();
+        let collation_binding = args.collation.get_output(context).get_inner();
+        let create_mode_binding = args.create_mode.get_output(context).get_inner();
+        let data_encrypted_binding = args.data_encrypted.get_output(context).get_inner();
         let geo_backup_policy_enabled_binding = args
             .geo_backup_policy_enabled
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let recovery_database_id_binding = args.recovery_database_id.get_inner();
-        let restore_binding = args.restore.get_inner();
-        let sku_name_binding = args.sku_name.get_inner();
-        let storage_account_type_binding = args.storage_account_type.get_inner();
-        let synapse_workspace_id_binding = args.synapse_workspace_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let recovery_database_id_binding = args
+            .recovery_database_id
+            .get_output(context)
+            .get_inner();
+        let restore_binding = args.restore.get_output(context).get_inner();
+        let sku_name_binding = args.sku_name.get_output(context).get_inner();
+        let storage_account_type_binding = args
+            .storage_account_type
+            .get_output(context)
+            .get_inner();
+        let synapse_workspace_id_binding = args
+            .synapse_workspace_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:synapse/sqlPool:SqlPool".into(),
             name: name.to_string(),
@@ -234,7 +248,7 @@ pub mod sql_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

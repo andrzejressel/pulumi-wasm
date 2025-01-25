@@ -50,67 +50,67 @@
 /// $ pulumi import aws:opsworks/application:Application test <id>
 /// ```
 pub mod application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationArgs {
         /// SCM configuration of the app as described below.
         #[builder(into, default)]
-        pub app_sources: pulumi_wasm_rust::Output<
+        pub app_sources: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::opsworks::ApplicationAppSource>>,
         >,
         /// Run bundle install when deploying for application of type `rails`.
         #[builder(into, default)]
-        pub auto_bundle_on_deploy: pulumi_wasm_rust::Output<Option<String>>,
+        pub auto_bundle_on_deploy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specify activity and workflow workers for your app using the aws-flow gem.
         #[builder(into, default)]
-        pub aws_flow_ruby_settings: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_flow_ruby_settings: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The data source's ARN.
         #[builder(into, default)]
-        pub data_source_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_source_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The database name.
         #[builder(into, default)]
-        pub data_source_database_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_source_database_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The data source's type one of `AutoSelectOpsworksMysqlInstance`, `OpsworksMysqlInstance`, or `RdsDbInstance`.
         #[builder(into, default)]
-        pub data_source_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_source_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A description of the app.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Subfolder for the document root for application of type `rails`.
         #[builder(into, default)]
-        pub document_root: pulumi_wasm_rust::Output<Option<String>>,
+        pub document_root: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of virtual host alias.
         #[builder(into, default)]
-        pub domains: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub domains: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
         #[builder(into, default)]
-        pub enable_ssl: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_ssl: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Object to define environment variables.  Object is described below.
         #[builder(into, default)]
-        pub environments: pulumi_wasm_rust::Output<
+        pub environments: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::opsworks::ApplicationEnvironment>>,
         >,
         /// A human-readable name for the application.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Rails environment for application of type `rails`.
         #[builder(into, default)]
-        pub rails_env: pulumi_wasm_rust::Output<Option<String>>,
+        pub rails_env: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
         #[builder(into, default)]
-        pub short_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub short_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The SSL configuration of the app. Object is described below.
         #[builder(into, default)]
-        pub ssl_configurations: pulumi_wasm_rust::Output<
+        pub ssl_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::opsworks::ApplicationSslConfiguration>>,
         >,
         /// ID of the stack the application will belong to.
         #[builder(into)]
-        pub stack_id: pulumi_wasm_rust::Output<String>,
+        pub stack_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApplicationResult {
@@ -159,28 +159,48 @@ pub mod application {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApplicationArgs) -> ApplicationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApplicationArgs,
+    ) -> ApplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_sources_binding = args.app_sources.get_inner();
-        let auto_bundle_on_deploy_binding = args.auto_bundle_on_deploy.get_inner();
-        let aws_flow_ruby_settings_binding = args.aws_flow_ruby_settings.get_inner();
-        let data_source_arn_binding = args.data_source_arn.get_inner();
+        let app_sources_binding = args.app_sources.get_output(context).get_inner();
+        let auto_bundle_on_deploy_binding = args
+            .auto_bundle_on_deploy
+            .get_output(context)
+            .get_inner();
+        let aws_flow_ruby_settings_binding = args
+            .aws_flow_ruby_settings
+            .get_output(context)
+            .get_inner();
+        let data_source_arn_binding = args
+            .data_source_arn
+            .get_output(context)
+            .get_inner();
         let data_source_database_name_binding = args
             .data_source_database_name
+            .get_output(context)
             .get_inner();
-        let data_source_type_binding = args.data_source_type.get_inner();
-        let description_binding = args.description.get_inner();
-        let document_root_binding = args.document_root.get_inner();
-        let domains_binding = args.domains.get_inner();
-        let enable_ssl_binding = args.enable_ssl.get_inner();
-        let environments_binding = args.environments.get_inner();
-        let name_binding = args.name.get_inner();
-        let rails_env_binding = args.rails_env.get_inner();
-        let short_name_binding = args.short_name.get_inner();
-        let ssl_configurations_binding = args.ssl_configurations.get_inner();
-        let stack_id_binding = args.stack_id.get_inner();
-        let type__binding = args.type_.get_inner();
+        let data_source_type_binding = args
+            .data_source_type
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let document_root_binding = args.document_root.get_output(context).get_inner();
+        let domains_binding = args.domains.get_output(context).get_inner();
+        let enable_ssl_binding = args.enable_ssl.get_output(context).get_inner();
+        let environments_binding = args.environments.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let rails_env_binding = args.rails_env.get_output(context).get_inner();
+        let short_name_binding = args.short_name.get_output(context).get_inner();
+        let ssl_configurations_binding = args
+            .ssl_configurations
+            .get_output(context)
+            .get_inner();
+        let stack_id_binding = args.stack_id.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opsworks/application:Application".into(),
             name: name.to_string(),
@@ -309,7 +329,7 @@ pub mod application {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

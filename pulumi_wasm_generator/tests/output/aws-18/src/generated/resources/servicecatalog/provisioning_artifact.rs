@@ -37,42 +37,42 @@
 /// $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
 /// ```
 pub mod provisioning_artifact {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProvisioningArtifactArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
         #[builder(into, default)]
-        pub active: pulumi_wasm_rust::Output<Option<bool>>,
+        pub active: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
         #[builder(into, default)]
-        pub disable_template_validation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_template_validation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
         #[builder(into, default)]
-        pub guidance: pulumi_wasm_rust::Output<Option<String>>,
+        pub guidance: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of the product.
         #[builder(into)]
-        pub product_id: pulumi_wasm_rust::Output<String>,
+        pub product_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
         #[builder(into, default)]
-        pub template_physical_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_physical_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Template source as URL of the CloudFormation template in Amazon S3.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub template_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ProvisioningArtifactResult {
@@ -108,23 +108,31 @@ pub mod provisioning_artifact {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ProvisioningArtifactArgs,
     ) -> ProvisioningArtifactResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding = args.accept_language.get_inner();
-        let active_binding = args.active.get_inner();
-        let description_binding = args.description.get_inner();
+        let accept_language_binding = args
+            .accept_language
+            .get_output(context)
+            .get_inner();
+        let active_binding = args.active.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let disable_template_validation_binding = args
             .disable_template_validation
+            .get_output(context)
             .get_inner();
-        let guidance_binding = args.guidance.get_inner();
-        let name_binding = args.name.get_inner();
-        let product_id_binding = args.product_id.get_inner();
-        let template_physical_id_binding = args.template_physical_id.get_inner();
-        let template_url_binding = args.template_url.get_inner();
-        let type__binding = args.type_.get_inner();
+        let guidance_binding = args.guidance.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let product_id_binding = args.product_id.get_output(context).get_inner();
+        let template_physical_id_binding = args
+            .template_physical_id
+            .get_output(context)
+            .get_inner();
+        let template_url_binding = args.template_url.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/provisioningArtifact:ProvisioningArtifact".into(),
             name: name.to_string(),
@@ -210,7 +218,7 @@ pub mod provisioning_artifact {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

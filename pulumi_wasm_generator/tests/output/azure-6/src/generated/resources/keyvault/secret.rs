@@ -54,35 +54,35 @@
 /// ```
 ///
 pub mod secret {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecretArgs {
         /// Specifies the content type for the Key Vault Secret.
         #[builder(into, default)]
-        pub content_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
         #[builder(into, default)]
-        pub expiration_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub expiration_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         #[builder(into, default)]
-        pub not_before_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub not_before_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
         ///
         /// > **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SecretResult {
@@ -117,16 +117,26 @@ pub mod secret {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SecretArgs) -> SecretResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SecretArgs,
+    ) -> SecretResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let content_type_binding = args.content_type.get_inner();
-        let expiration_date_binding = args.expiration_date.get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let not_before_date_binding = args.not_before_date.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let value_binding = args.value.get_inner();
+        let content_type_binding = args.content_type.get_output(context).get_inner();
+        let expiration_date_binding = args
+            .expiration_date
+            .get_output(context)
+            .get_inner();
+        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let not_before_date_binding = args
+            .not_before_date
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let value_binding = args.value.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/secret:Secret".into(),
             name: name.to_string(),
@@ -197,7 +207,7 @@ pub mod secret {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

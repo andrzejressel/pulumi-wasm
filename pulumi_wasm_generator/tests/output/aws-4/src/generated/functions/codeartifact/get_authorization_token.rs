@@ -1,17 +1,17 @@
 pub mod get_authorization_token {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAuthorizationTokenArgs {
         /// Name of the domain that is in scope for the generated authorization token.
         #[builder(into)]
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_wasm_rust::InputOrOutput<String>,
         /// Account number of the AWS account that owns the domain.
         #[builder(into, default)]
-        pub domain_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
         #[builder(into, default)]
-        pub duration_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub duration_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct GetAuthorizationTokenResult {
@@ -29,12 +29,18 @@ pub mod get_authorization_token {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAuthorizationTokenArgs) -> GetAuthorizationTokenResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAuthorizationTokenArgs,
+    ) -> GetAuthorizationTokenResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_binding = args.domain.get_inner();
-        let domain_owner_binding = args.domain_owner.get_inner();
-        let duration_seconds_binding = args.duration_seconds.get_inner();
+        let domain_binding = args.domain.get_output(context).get_inner();
+        let domain_owner_binding = args.domain_owner.get_output(context).get_inner();
+        let duration_seconds_binding = args
+            .duration_seconds
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:codeartifact/getAuthorizationToken:getAuthorizationToken".into(),
             version: super::super::super::get_version(),
@@ -73,7 +79,7 @@ pub mod get_authorization_token {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

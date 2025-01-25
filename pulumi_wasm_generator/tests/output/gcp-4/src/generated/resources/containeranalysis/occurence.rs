@@ -98,7 +98,7 @@
 /// ```
 ///
 pub mod occurence {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OccurenceArgs {
@@ -112,24 +112,24 @@ pub mod occurence {
         /// which authority this attestation was intended to sign.
         /// Structure is documented below.
         #[builder(into)]
-        pub attestation: pulumi_wasm_rust::Output<
+        pub attestation: pulumi_wasm_rust::InputOrOutput<
             super::super::types::containeranalysis::OccurenceAttestation,
         >,
         /// The analysis note associated with this occurrence, in the form of
         /// projects/[PROJECT]/notes/[NOTE_ID]. This field can be used as a
         /// filter in list requests.
         #[builder(into)]
-        pub note_name: pulumi_wasm_rust::Output<String>,
+        pub note_name: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A description of actions that can be taken to remedy the note.
         #[builder(into, default)]
-        pub remediation: pulumi_wasm_rust::Output<Option<String>>,
+        pub remediation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. Immutable. A URI that represents the resource for which
         /// the occurrence applies. For example,
         /// https://gcr.io/project/image@sha256:123abc for a Docker image.
         #[builder(into)]
-        pub resource_uri: pulumi_wasm_rust::Output<String>,
+        pub resource_uri: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OccurenceResult {
@@ -171,14 +171,18 @@ pub mod occurence {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: OccurenceArgs) -> OccurenceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: OccurenceArgs,
+    ) -> OccurenceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attestation_binding = args.attestation.get_inner();
-        let note_name_binding = args.note_name.get_inner();
-        let project_binding = args.project.get_inner();
-        let remediation_binding = args.remediation.get_inner();
-        let resource_uri_binding = args.resource_uri.get_inner();
+        let attestation_binding = args.attestation.get_output(context).get_inner();
+        let note_name_binding = args.note_name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let remediation_binding = args.remediation.get_output(context).get_inner();
+        let resource_uri_binding = args.resource_uri.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:containeranalysis/occurence:Occurence".into(),
             name: name.to_string(),
@@ -235,7 +239,7 @@ pub mod occurence {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -253,48 +253,48 @@
 /// $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
 /// ```
 pub mod application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationArgs {
         /// The application's configuration
         #[builder(into, default)]
-        pub application_configuration: pulumi_wasm_rust::Output<
+        pub application_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::kinesisanalyticsv2::ApplicationApplicationConfiguration,
             >,
         >,
         /// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         #[builder(into, default)]
-        pub application_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub application_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A CloudWatch log stream to monitor application configuration errors.
         #[builder(into, default)]
-        pub cloudwatch_logging_options: pulumi_wasm_rust::Output<
+        pub cloudwatch_logging_options: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::kinesisanalyticsv2::ApplicationCloudwatchLoggingOptions,
             >,
         >,
         /// A summary description of the application.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to force stop an unresponsive Flink-based application.
         #[builder(into, default)]
-        pub force_stop: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_stop: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the application.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         #[builder(into)]
-        pub runtime_environment: pulumi_wasm_rust::Output<String>,
+        pub runtime_environment: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         #[builder(into)]
-        pub service_execution_role: pulumi_wasm_rust::Output<String>,
+        pub service_execution_role: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether to start or stop the application.
         #[builder(into, default)]
-        pub start_application: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start_application: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -347,23 +347,41 @@ pub mod application {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApplicationArgs) -> ApplicationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApplicationArgs,
+    ) -> ApplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let application_configuration_binding = args
             .application_configuration
+            .get_output(context)
             .get_inner();
-        let application_mode_binding = args.application_mode.get_inner();
+        let application_mode_binding = args
+            .application_mode
+            .get_output(context)
+            .get_inner();
         let cloudwatch_logging_options_binding = args
             .cloudwatch_logging_options
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let force_stop_binding = args.force_stop.get_inner();
-        let name_binding = args.name.get_inner();
-        let runtime_environment_binding = args.runtime_environment.get_inner();
-        let service_execution_role_binding = args.service_execution_role.get_inner();
-        let start_application_binding = args.start_application.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let force_stop_binding = args.force_stop.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let runtime_environment_binding = args
+            .runtime_environment
+            .get_output(context)
+            .get_inner();
+        let service_execution_role_binding = args
+            .service_execution_role
+            .get_output(context)
+            .get_inner();
+        let start_application_binding = args
+            .start_application
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kinesisanalyticsv2/application:Application".into(),
             name: name.to_string(),
@@ -461,7 +479,7 @@ pub mod application {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

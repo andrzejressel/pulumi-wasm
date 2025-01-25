@@ -110,8 +110,9 @@ mod tests {
 
     #[allow(dead_code)]
     fn compilation_test() {
+        let context = get_context();
         // String
-        let output = Output::new(&"Hello, World!".to_string());
+        let output = Output::new(context, &"Hello, World!".to_string());
 
         let _ = TypesystemServerArgs::builder().required_string_input("&str");
         let _ = TypesystemServerArgs::builder().required_string_input("String".to_string());
@@ -150,8 +151,8 @@ mod tests {
         let case2 = UnionCase2::builder()
             .field_2("value2".to_string())
             .build_struct();
-        let enum_case1_output = Output::new(&case1);
-        let enum_case2_output = Output::new(&case2);
+        let enum_case1_output = Output::new(context, &case1);
+        let enum_case2_output = Output::new(context, &case2);
         let _ = TypesystemServerArgs::builder().required_union(OneOf2::left(case1));
         let _ = TypesystemServerArgs::builder().required_union(OneOf2::right(case2));
         let _ = TypesystemServerArgs::builder().required_union(enum_case1_output.map(OneOf2::left));
@@ -179,7 +180,10 @@ mod tests {
 
     #[allow(dead_code)]
     fn resource_compilation_test() {
+        let context = get_context();
+
         pulumi_wasm_providers_typesystem::deep::nested::module::some_resource::create(
+            context,
             "test",
             SomeResourceArgs::builder().build_struct(),
         );
@@ -187,12 +191,19 @@ mod tests {
 
     #[allow(dead_code)]
     fn function_compilation_test() {
-        pulumi_wasm_providers_typesystem::functions::deep::nested::module::some_function::invoke();
+        let context = get_context();
+        pulumi_wasm_providers_typesystem::functions::deep::nested::module::some_function::invoke(
+            context,
+        );
     }
 
     #[allow(dead_code)]
     fn types_compilation_test() {
         let _ = pulumi_wasm_providers_typesystem::types::deep::nested::module::SomeType::builder()
             .build_struct();
+    }
+
+    fn get_context() -> &'static pulumi_wasm_rust::PulumiContext {
+        todo!()
     }
 }

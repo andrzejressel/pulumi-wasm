@@ -128,27 +128,27 @@
 /// $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
 /// ```
 pub mod route_table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteTableArgs {
         /// A list of virtual gateways for propagation.
         #[builder(into, default)]
-        pub propagating_vgws: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub propagating_vgws: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A list of route objects. Their keys are documented below.
         /// This means that omitting this argument is interpreted as ignoring any existing routes. To remove all managed routes an empty list should be specified. See the example above.
         #[builder(into, default)]
-        pub routes: pulumi_wasm_rust::Output<
+        pub routes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::RouteTableRoute>>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The VPC ID.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RouteTableResult {
@@ -178,13 +178,20 @@ pub mod route_table {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RouteTableArgs) -> RouteTableResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RouteTableArgs,
+    ) -> RouteTableResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let propagating_vgws_binding = args.propagating_vgws.get_inner();
-        let routes_binding = args.routes.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let propagating_vgws_binding = args
+            .propagating_vgws
+            .get_output(context)
+            .get_inner();
+        let routes_binding = args.routes.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/routeTable:RouteTable".into(),
             name: name.to_string(),
@@ -231,7 +238,7 @@ pub mod route_table {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -118,38 +118,38 @@
 /// ```
 ///
 pub mod grpc_route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GrpcRouteArgs {
         /// A free-text description of the resource. Max length 1024 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of gateways this GrpcRoute is attached to, as one of the routing rules to route the requests served by the gateway.
         #[builder(into, default)]
-        pub gateways: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub gateways: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Required. Service hostnames with an optional port for which this route describes traffic.
         #[builder(into)]
-        pub hostnames: pulumi_wasm_rust::Output<Vec<String>>,
+        pub hostnames: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Set of label tags associated with the GrpcRoute resource. **Note**: This field is non-authoritative, and will only
         /// manage the labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels
         /// present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of meshes this GrpcRoute is attached to, as one of the routing rules to route the requests served by the mesh.
         #[builder(into, default)]
-        pub meshes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub meshes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of the GrpcRoute resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Rules that define how traffic is routed and handled.
         /// Structure is documented below.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::networkservices::GrpcRouteRule>,
         >,
     }
@@ -197,17 +197,21 @@ pub mod grpc_route {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GrpcRouteArgs) -> GrpcRouteResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GrpcRouteArgs,
+    ) -> GrpcRouteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let gateways_binding = args.gateways.get_inner();
-        let hostnames_binding = args.hostnames.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let meshes_binding = args.meshes.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let rules_binding = args.rules.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let gateways_binding = args.gateways.get_output(context).get_inner();
+        let hostnames_binding = args.hostnames.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let meshes_binding = args.meshes.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let rules_binding = args.rules.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkservices/grpcRoute:GrpcRoute".into(),
             name: name.to_string(),
@@ -288,7 +292,7 @@ pub mod grpc_route {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

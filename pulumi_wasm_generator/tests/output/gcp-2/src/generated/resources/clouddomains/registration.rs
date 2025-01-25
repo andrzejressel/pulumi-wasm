@@ -88,52 +88,52 @@
 /// ```
 ///
 pub mod registration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegistrationArgs {
         /// The list of contact notices that the caller acknowledges. Possible value is PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT
         #[builder(into, default)]
-        pub contact_notices: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub contact_notices: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Required. Settings for contact information linked to the Registration.
         /// Structure is documented below.
         #[builder(into)]
-        pub contact_settings: pulumi_wasm_rust::Output<
+        pub contact_settings: pulumi_wasm_rust::InputOrOutput<
             super::super::types::clouddomains::RegistrationContactSettings,
         >,
         /// Settings controlling the DNS configuration of the Registration.
         #[builder(into, default)]
-        pub dns_settings: pulumi_wasm_rust::Output<
+        pub dns_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::clouddomains::RegistrationDnsSettings>,
         >,
         /// Required. The domain name. Unicode domain names must be expressed in Punycode format.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The list of domain notices that you acknowledge. Possible value is HSTS_PRELOADED
         #[builder(into, default)]
-        pub domain_notices: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub domain_notices: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Set of labels associated with the Registration. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Settings for management of the Registration, including renewal, billing, and transfer
         #[builder(into, default)]
-        pub management_settings: pulumi_wasm_rust::Output<
+        pub management_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::clouddomains::RegistrationManagementSettings>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. Yearly price to register or renew the domain. The value that should be put here can be obtained from
         /// registrations.retrieveRegisterParameters or registrations.searchDomains calls.
         /// Structure is documented below.
         #[builder(into)]
-        pub yearly_price: pulumi_wasm_rust::Output<
+        pub yearly_price: pulumi_wasm_rust::InputOrOutput<
             super::super::types::clouddomains::RegistrationYearlyPrice,
         >,
     }
@@ -201,19 +201,32 @@ pub mod registration {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RegistrationArgs) -> RegistrationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RegistrationArgs,
+    ) -> RegistrationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let contact_notices_binding = args.contact_notices.get_inner();
-        let contact_settings_binding = args.contact_settings.get_inner();
-        let dns_settings_binding = args.dns_settings.get_inner();
-        let domain_name_binding = args.domain_name.get_inner();
-        let domain_notices_binding = args.domain_notices.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let management_settings_binding = args.management_settings.get_inner();
-        let project_binding = args.project.get_inner();
-        let yearly_price_binding = args.yearly_price.get_inner();
+        let contact_notices_binding = args
+            .contact_notices
+            .get_output(context)
+            .get_inner();
+        let contact_settings_binding = args
+            .contact_settings
+            .get_output(context)
+            .get_inner();
+        let dns_settings_binding = args.dns_settings.get_output(context).get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let domain_notices_binding = args.domain_notices.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let management_settings_binding = args
+            .management_settings
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let yearly_price_binding = args.yearly_price.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:clouddomains/registration:Registration".into(),
             name: name.to_string(),
@@ -320,7 +333,7 @@ pub mod registration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

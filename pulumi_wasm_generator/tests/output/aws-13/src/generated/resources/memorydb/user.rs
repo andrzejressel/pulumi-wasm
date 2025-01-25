@@ -33,28 +33,28 @@
 /// The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 ///
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
         /// Access permissions string used for this user.
         #[builder(into)]
-        pub access_string: pulumi_wasm_rust::Output<String>,
+        pub access_string: pulumi_wasm_rust::InputOrOutput<String>,
         /// Denotes the user's authentication properties. Detailed below.
         #[builder(into)]
-        pub authentication_mode: pulumi_wasm_rust::Output<
+        pub authentication_mode: pulumi_wasm_rust::InputOrOutput<
             super::super::types::memorydb::UserAuthenticationMode,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the MemoryDB user. Up to 40 characters.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserResult {
@@ -85,13 +85,20 @@ pub mod user {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UserArgs) -> UserResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UserArgs,
+    ) -> UserResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_string_binding = args.access_string.get_inner();
-        let authentication_mode_binding = args.authentication_mode.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let user_name_binding = args.user_name.get_inner();
+        let access_string_binding = args.access_string.get_output(context).get_inner();
+        let authentication_mode_binding = args
+            .authentication_mode
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let user_name_binding = args.user_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:memorydb/user:User".into(),
             name: name.to_string(),
@@ -138,7 +145,7 @@ pub mod user {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

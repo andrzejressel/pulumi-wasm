@@ -1,11 +1,11 @@
 pub mod get_serverless_vpc_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetServerlessVpcEndpointArgs {
         /// The unique identifier of the endpoint.
         #[builder(into)]
-        pub vpc_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetServerlessVpcEndpointResult {
@@ -27,10 +27,16 @@ pub mod get_serverless_vpc_endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetServerlessVpcEndpointArgs) -> GetServerlessVpcEndpointResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetServerlessVpcEndpointArgs,
+    ) -> GetServerlessVpcEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_inner();
+        let vpc_endpoint_id_binding = args
+            .vpc_endpoint_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint"
                 .into(),
@@ -65,7 +71,7 @@ pub mod get_serverless_vpc_endpoint {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

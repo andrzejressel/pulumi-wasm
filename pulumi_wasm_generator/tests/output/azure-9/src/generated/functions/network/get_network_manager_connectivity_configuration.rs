@@ -1,14 +1,14 @@
 pub mod get_network_manager_connectivity_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetNetworkManagerConnectivityConfigurationArgs {
         /// The name of this Network Manager Connectivity Configuration.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Network Manager.
         #[builder(into)]
-        pub network_manager_id: pulumi_wasm_rust::Output<String>,
+        pub network_manager_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetNetworkManagerConnectivityConfigurationResult {
@@ -42,12 +42,16 @@ pub mod get_network_manager_connectivity_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetNetworkManagerConnectivityConfigurationArgs,
     ) -> GetNetworkManagerConnectivityConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let network_manager_id_binding = args.network_manager_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_manager_id_binding = args
+            .network_manager_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration"
                 .into(),
@@ -92,7 +96,7 @@ pub mod get_network_manager_connectivity_configuration {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

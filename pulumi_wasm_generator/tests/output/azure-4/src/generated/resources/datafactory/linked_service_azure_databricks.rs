@@ -112,66 +112,66 @@
 /// ```
 ///
 pub mod linked_service_azure_databricks {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedServiceAzureDatabricksArgs {
         /// Authenticate to ADB via an access token.
         #[builder(into, default)]
-        pub access_token: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The domain URL of the databricks instance.
         #[builder(into)]
-        pub adb_domain: pulumi_wasm_rust::Output<String>,
+        pub adb_domain: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of additional properties to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description for the Data Factory Linked Service.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The cluster_id of an existing cluster within the linked ADB instance.
         #[builder(into, default)]
-        pub existing_cluster_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub existing_cluster_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below.
         #[builder(into, default)]
-        pub instance_pool: pulumi_wasm_rust::Output<
+        pub instance_pool: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureDatabricksInstancePool,
             >,
         >,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub integration_runtime_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_runtime_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
         #[builder(into, default)]
-        pub key_vault_password: pulumi_wasm_rust::Output<
+        pub key_vault_password: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureDatabricksKeyVaultPassword,
             >,
         >,
         /// Authenticate to ADB via managed service identity.
         #[builder(into, default)]
-        pub msi_work_space_resource_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub msi_work_space_resource_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
         #[builder(into, default)]
-        pub new_cluster_config: pulumi_wasm_rust::Output<
+        pub new_cluster_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureDatabricksNewClusterConfig,
             >,
         >,
         /// A map of parameters to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -227,27 +227,47 @@ pub mod linked_service_azure_databricks {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LinkedServiceAzureDatabricksArgs,
     ) -> LinkedServiceAzureDatabricksResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_token_binding = args.access_token.get_inner();
-        let adb_domain_binding = args.adb_domain.get_inner();
-        let additional_properties_binding = args.additional_properties.get_inner();
-        let annotations_binding = args.annotations.get_inner();
-        let data_factory_id_binding = args.data_factory_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let existing_cluster_id_binding = args.existing_cluster_id.get_inner();
-        let instance_pool_binding = args.instance_pool.get_inner();
-        let integration_runtime_name_binding = args.integration_runtime_name.get_inner();
-        let key_vault_password_binding = args.key_vault_password.get_inner();
+        let access_token_binding = args.access_token.get_output(context).get_inner();
+        let adb_domain_binding = args.adb_domain.get_output(context).get_inner();
+        let additional_properties_binding = args
+            .additional_properties
+            .get_output(context)
+            .get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let data_factory_id_binding = args
+            .data_factory_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let existing_cluster_id_binding = args
+            .existing_cluster_id
+            .get_output(context)
+            .get_inner();
+        let instance_pool_binding = args.instance_pool.get_output(context).get_inner();
+        let integration_runtime_name_binding = args
+            .integration_runtime_name
+            .get_output(context)
+            .get_inner();
+        let key_vault_password_binding = args
+            .key_vault_password
+            .get_output(context)
+            .get_inner();
         let msi_work_space_resource_id_binding = args
             .msi_work_space_resource_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let new_cluster_config_binding = args.new_cluster_config.get_inner();
-        let parameters_binding = args.parameters.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let new_cluster_config_binding = args
+            .new_cluster_config
+            .get_output(context)
+            .get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks"
                 .into(),
@@ -356,7 +376,7 @@ pub mod linked_service_azure_databricks {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

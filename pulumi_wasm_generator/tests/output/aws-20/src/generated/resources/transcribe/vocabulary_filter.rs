@@ -27,29 +27,29 @@
 /// $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
 /// ```
 pub mod vocabulary_filter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VocabularyFilterArgs {
         /// The language code you selected for your vocabulary filter. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         #[builder(into)]
-        pub language_code: pulumi_wasm_rust::Output<String>,
+        pub language_code: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of tags to assign to the VocabularyFilter. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Amazon S3 location (URI) of the text file that contains your custom VocabularyFilter. Conflicts with `words` argument.
         #[builder(into, default)]
-        pub vocabulary_filter_file_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub vocabulary_filter_file_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the VocabularyFilter.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub vocabulary_filter_name: pulumi_wasm_rust::Output<String>,
+        pub vocabulary_filter_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of terms to include in the vocabulary. Conflicts with `vocabulary_filter_file_uri` argument.
         #[builder(into, default)]
-        pub words: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub words: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct VocabularyFilterResult {
@@ -79,16 +79,24 @@ pub mod vocabulary_filter {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VocabularyFilterArgs) -> VocabularyFilterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VocabularyFilterArgs,
+    ) -> VocabularyFilterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let language_code_binding = args.language_code.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let language_code_binding = args.language_code.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let vocabulary_filter_file_uri_binding = args
             .vocabulary_filter_file_uri
+            .get_output(context)
             .get_inner();
-        let vocabulary_filter_name_binding = args.vocabulary_filter_name.get_inner();
-        let words_binding = args.words.get_inner();
+        let vocabulary_filter_name_binding = args
+            .vocabulary_filter_name
+            .get_output(context)
+            .get_inner();
+        let words_binding = args.words.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:transcribe/vocabularyFilter:VocabularyFilter".into(),
             name: name.to_string(),
@@ -142,7 +150,7 @@ pub mod vocabulary_filter {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

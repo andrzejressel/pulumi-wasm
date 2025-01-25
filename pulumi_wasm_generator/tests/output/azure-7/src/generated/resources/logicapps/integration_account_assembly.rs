@@ -42,36 +42,36 @@
 /// ```
 ///
 pub mod integration_account_assembly {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationAccountAssemblyArgs {
         /// The name of the Logic App Integration Account Assembly.
         #[builder(into)]
-        pub assembly_name: pulumi_wasm_rust::Output<String>,
+        pub assembly_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The version of the Logic App Integration Account Assembly. Defaults to `0.0.0.0`.
         #[builder(into, default)]
-        pub assembly_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub assembly_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The content of the Logic App Integration Account Assembly.
         #[builder(into, default)]
-        pub content: pulumi_wasm_rust::Output<Option<String>>,
+        pub content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The content link URI of the Logic App Integration Account Assembly.
         #[builder(into, default)]
-        pub content_link_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_link_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub integration_account_name: pulumi_wasm_rust::Output<String>,
+        pub integration_account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The metadata of the Logic App Integration Account Assembly.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name which should be used for this Logic App Integration Account Assembly Artifact. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Logic App Integration Account Assembly Artifact should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IntegrationAccountAssemblyResult {
@@ -99,19 +99,32 @@ pub mod integration_account_assembly {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IntegrationAccountAssemblyArgs,
     ) -> IntegrationAccountAssemblyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let assembly_name_binding = args.assembly_name.get_inner();
-        let assembly_version_binding = args.assembly_version.get_inner();
-        let content_binding = args.content.get_inner();
-        let content_link_uri_binding = args.content_link_uri.get_inner();
-        let integration_account_name_binding = args.integration_account_name.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let assembly_name_binding = args.assembly_name.get_output(context).get_inner();
+        let assembly_version_binding = args
+            .assembly_version
+            .get_output(context)
+            .get_inner();
+        let content_binding = args.content.get_output(context).get_inner();
+        let content_link_uri_binding = args
+            .content_link_uri
+            .get_output(context)
+            .get_inner();
+        let integration_account_name_binding = args
+            .integration_account_name
+            .get_output(context)
+            .get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly"
                 .into(),
@@ -178,7 +191,7 @@ pub mod integration_account_assembly {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

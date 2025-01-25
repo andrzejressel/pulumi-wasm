@@ -27,22 +27,22 @@
 /// }
 /// ```
 pub mod workspace_service_account_token {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceServiceAccountTokenArgs {
         /// A name for the token to create. The name must be unique within the workspace.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
         #[builder(into)]
-        pub seconds_to_live: pulumi_wasm_rust::Output<i32>,
+        pub seconds_to_live: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The ID of the service account for which to create a token.
         #[builder(into)]
-        pub service_account_id: pulumi_wasm_rust::Output<String>,
+        pub service_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Grafana workspace with which the service account token is associated.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkspaceServiceAccountTokenResult {
@@ -68,15 +68,22 @@ pub mod workspace_service_account_token {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: WorkspaceServiceAccountTokenArgs,
     ) -> WorkspaceServiceAccountTokenResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let seconds_to_live_binding = args.seconds_to_live.get_inner();
-        let service_account_id_binding = args.service_account_id.get_inner();
-        let workspace_id_binding = args.workspace_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let seconds_to_live_binding = args
+            .seconds_to_live
+            .get_output(context)
+            .get_inner();
+        let service_account_id_binding = args
+            .service_account_id
+            .get_output(context)
+            .get_inner();
+        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:grafana/workspaceServiceAccountToken:WorkspaceServiceAccountToken"
                 .into(),
@@ -127,7 +134,7 @@ pub mod workspace_service_account_token {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

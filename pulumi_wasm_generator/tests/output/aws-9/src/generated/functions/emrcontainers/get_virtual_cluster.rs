@@ -1,16 +1,16 @@
 pub mod get_virtual_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetVirtualClusterArgs {
         /// Key-value mapping of resource tags.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ID of the cluster.
         #[builder(into)]
-        pub virtual_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetVirtualClusterResult {
@@ -38,11 +38,17 @@ pub mod get_virtual_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetVirtualClusterArgs) -> GetVirtualClusterResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetVirtualClusterArgs,
+    ) -> GetVirtualClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let tags_binding = args.tags.get_inner();
-        let virtual_cluster_id_binding = args.virtual_cluster_id.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let virtual_cluster_id_binding = args
+            .virtual_cluster_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:emrcontainers/getVirtualCluster:getVirtualCluster".into(),
             version: super::super::super::get_version(),
@@ -83,7 +89,7 @@ pub mod get_virtual_cluster {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

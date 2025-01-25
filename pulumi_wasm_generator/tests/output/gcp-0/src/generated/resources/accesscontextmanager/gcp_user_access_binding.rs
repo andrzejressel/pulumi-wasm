@@ -69,22 +69,22 @@
 /// ```
 ///
 pub mod gcp_user_access_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GcpUserAccessBindingArgs {
         /// Required. Access level that a user must have to be granted access. Only one access level is supported, not multiple. This repeated field must have exactly one element. Example: "accessPolicies/9522/accessLevels/device_trusted"
         #[builder(into)]
-        pub access_levels: pulumi_wasm_rust::Output<String>,
+        pub access_levels: pulumi_wasm_rust::InputOrOutput<String>,
         /// Required. Immutable. Google Group id whose members are subject to this binding's restrictions. See "id" in the G Suite Directory API's Groups resource. If a group's email address/alias is changed, this resource will continue to point at the changed group. This field does not accept group email addresses or aliases. Example: "01d520gv4vjcrht"
         #[builder(into)]
-        pub group_key: pulumi_wasm_rust::Output<String>,
+        pub group_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// Required. ID of the parent organization.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub organization_id: pulumi_wasm_rust::Output<String>,
+        pub organization_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GcpUserAccessBindingResult {
@@ -105,14 +105,18 @@ pub mod gcp_user_access_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: GcpUserAccessBindingArgs,
     ) -> GcpUserAccessBindingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_levels_binding = args.access_levels.get_inner();
-        let group_key_binding = args.group_key.get_inner();
-        let organization_id_binding = args.organization_id.get_inner();
+        let access_levels_binding = args.access_levels.get_output(context).get_inner();
+        let group_key_binding = args.group_key.get_output(context).get_inner();
+        let organization_id_binding = args
+            .organization_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/gcpUserAccessBinding:GcpUserAccessBinding"
                 .into(),
@@ -147,7 +151,7 @@ pub mod gcp_user_access_binding {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

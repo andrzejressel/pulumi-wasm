@@ -1,10 +1,10 @@
 pub mod get_group_transitive_memberships {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetGroupTransitiveMembershipsArgs {
         #[builder(into)]
-        pub group: pulumi_wasm_rust::Output<String>,
+        pub group: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetGroupTransitiveMembershipsResult {
@@ -22,11 +22,12 @@ pub mod get_group_transitive_memberships {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetGroupTransitiveMembershipsArgs,
     ) -> GetGroupTransitiveMembershipsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let group_binding = args.group.get_inner();
+        let group_binding = args.group.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudidentity/getGroupTransitiveMemberships:getGroupTransitiveMemberships"
                 .into(),
@@ -49,7 +50,7 @@ pub mod get_group_transitive_memberships {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

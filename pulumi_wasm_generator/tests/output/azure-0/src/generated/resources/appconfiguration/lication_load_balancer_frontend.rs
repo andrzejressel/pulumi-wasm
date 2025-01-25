@@ -34,19 +34,19 @@
 /// ```
 ///
 pub mod lication_load_balancer_frontend {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LicationLoadBalancerFrontendArgs {
         /// The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub application_load_balancer_id: pulumi_wasm_rust::Output<String>,
+        pub application_load_balancer_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Application Gateway for Containers Frontend. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Application Gateway for Containers Frontend.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -68,6 +68,7 @@ pub mod lication_load_balancer_frontend {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LicationLoadBalancerFrontendArgs,
     ) -> LicationLoadBalancerFrontendResult {
@@ -75,9 +76,10 @@ pub mod lication_load_balancer_frontend {
         use std::collections::HashMap;
         let application_load_balancer_id_binding = args
             .application_load_balancer_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend"
                 .into(),
@@ -112,7 +114,7 @@ pub mod lication_load_balancer_frontend {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

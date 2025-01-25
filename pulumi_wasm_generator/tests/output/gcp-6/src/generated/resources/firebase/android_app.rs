@@ -107,7 +107,7 @@
 /// ```
 ///
 pub mod android_app {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AndroidAppArgs {
@@ -115,29 +115,29 @@ pub mod android_app {
         /// If apiKeyId is not set during creation, then Firebase automatically associates an apiKeyId with the AndroidApp.
         /// This auto-associated key may be an existing valid key or, if no valid key exists, a new one will be provisioned.
         #[builder(into, default)]
-        pub api_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user-assigned display name of the AndroidApp.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The canonical package name of the Android app as would appear in the Google Play
         /// Developer Console.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub package_name: pulumi_wasm_rust::Output<String>,
+        pub package_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The SHA1 certificate hashes for the AndroidApp.
         #[builder(into, default)]
-        pub sha1_hashes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub sha1_hashes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The SHA256 certificate hashes for the AndroidApp.
         #[builder(into, default)]
-        pub sha256_hashes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub sha256_hashes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct AndroidAppResult {
@@ -175,16 +175,23 @@ pub mod android_app {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AndroidAppArgs) -> AndroidAppResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AndroidAppArgs,
+    ) -> AndroidAppResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_key_id_binding = args.api_key_id.get_inner();
-        let deletion_policy_binding = args.deletion_policy.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let package_name_binding = args.package_name.get_inner();
-        let project_binding = args.project.get_inner();
-        let sha1_hashes_binding = args.sha1_hashes.get_inner();
-        let sha256_hashes_binding = args.sha256_hashes.get_inner();
+        let api_key_id_binding = args.api_key_id.get_output(context).get_inner();
+        let deletion_policy_binding = args
+            .deletion_policy
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let package_name_binding = args.package_name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let sha1_hashes_binding = args.sha1_hashes.get_output(context).get_inner();
+        let sha256_hashes_binding = args.sha256_hashes.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/androidApp:AndroidApp".into(),
             name: name.to_string(),
@@ -252,7 +259,7 @@ pub mod android_app {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

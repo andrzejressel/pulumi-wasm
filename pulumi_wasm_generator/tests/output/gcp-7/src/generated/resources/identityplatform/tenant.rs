@@ -54,31 +54,31 @@
 /// ```
 ///
 pub mod tenant {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TenantArgs {
         /// Whether to allow email/password user authentication.
         #[builder(into, default)]
-        pub allow_password_signup: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_password_signup: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether authentication is disabled for the tenant. If true, the users under
         /// the disabled tenant are not allowed to sign-in. Admins of the disabled tenant
         /// are not able to manage its users.
         #[builder(into, default)]
-        pub disable_auth: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_auth: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Human friendly display name of the tenant.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether to enable email link user authentication.
         #[builder(into, default)]
-        pub enable_email_link_signin: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_email_link_signin: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TenantResult {
@@ -105,14 +105,24 @@ pub mod tenant {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TenantArgs) -> TenantResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TenantArgs,
+    ) -> TenantResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allow_password_signup_binding = args.allow_password_signup.get_inner();
-        let disable_auth_binding = args.disable_auth.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enable_email_link_signin_binding = args.enable_email_link_signin.get_inner();
-        let project_binding = args.project.get_inner();
+        let allow_password_signup_binding = args
+            .allow_password_signup
+            .get_output(context)
+            .get_inner();
+        let disable_auth_binding = args.disable_auth.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enable_email_link_signin_binding = args
+            .enable_email_link_signin
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:identityplatform/tenant:Tenant".into(),
             name: name.to_string(),
@@ -160,7 +170,7 @@ pub mod tenant {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

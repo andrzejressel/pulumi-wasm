@@ -36,52 +36,52 @@
 /// ```
 ///
 pub mod scheduled_action {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ScheduledActionArgs {
         /// UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`.
         #[builder(into, default)]
-        pub day_of_month: pulumi_wasm_rust::Output<Option<i32>>,
+        pub day_of_month: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
         #[builder(into, default)]
-        pub days_of_weeks: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub days_of_weeks: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// User visible input name of the Cost Management Scheduled Action.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
         #[builder(into)]
-        pub email_address_sender: pulumi_wasm_rust::Output<String>,
+        pub email_address_sender: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies a list of email addresses that will receive the Scheduled Action.
         #[builder(into)]
-        pub email_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub email_addresses: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Subject of the email. Length is limited to 70 characters.
         #[builder(into)]
-        pub email_subject: pulumi_wasm_rust::Output<String>,
+        pub email_subject: pulumi_wasm_rust::InputOrOutput<String>,
         /// The end date and time of the Scheduled Action (UTC).
         #[builder(into)]
-        pub end_date: pulumi_wasm_rust::Output<String>,
+        pub end_date: pulumi_wasm_rust::InputOrOutput<String>,
         /// Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `weeks_of_month` and `days_of_week` or `day_of_month` to be specified. Value `Weekly` requires `days_of_week` to be specified.
         #[builder(into)]
-        pub frequency: pulumi_wasm_rust::Output<String>,
+        pub frequency: pulumi_wasm_rust::InputOrOutput<String>,
         /// UTC time at which cost analysis data will be emailed. Must be between `0` and `23`.
         #[builder(into, default)]
-        pub hour_of_day: pulumi_wasm_rust::Output<Option<i32>>,
+        pub hour_of_day: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Message to be added in the email. Length is limited to 250 characters.
         #[builder(into, default)]
-        pub message: pulumi_wasm_rust::Output<Option<String>>,
+        pub message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Azure Cost Management Scheduled Action. Changing this forces a new Azure Cost Management Scheduled Action to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The start date and time of the Scheduled Action (UTC).
         #[builder(into)]
-        pub start_date: pulumi_wasm_rust::Output<String>,
+        pub start_date: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub view_id: pulumi_wasm_rust::Output<String>,
+        pub view_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`.
         #[builder(into, default)]
-        pub weeks_of_months: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub weeks_of_months: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ScheduledActionResult {
@@ -118,23 +118,36 @@ pub mod scheduled_action {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ScheduledActionArgs) -> ScheduledActionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ScheduledActionArgs,
+    ) -> ScheduledActionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let day_of_month_binding = args.day_of_month.get_inner();
-        let days_of_weeks_binding = args.days_of_weeks.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let email_address_sender_binding = args.email_address_sender.get_inner();
-        let email_addresses_binding = args.email_addresses.get_inner();
-        let email_subject_binding = args.email_subject.get_inner();
-        let end_date_binding = args.end_date.get_inner();
-        let frequency_binding = args.frequency.get_inner();
-        let hour_of_day_binding = args.hour_of_day.get_inner();
-        let message_binding = args.message.get_inner();
-        let name_binding = args.name.get_inner();
-        let start_date_binding = args.start_date.get_inner();
-        let view_id_binding = args.view_id.get_inner();
-        let weeks_of_months_binding = args.weeks_of_months.get_inner();
+        let day_of_month_binding = args.day_of_month.get_output(context).get_inner();
+        let days_of_weeks_binding = args.days_of_weeks.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let email_address_sender_binding = args
+            .email_address_sender
+            .get_output(context)
+            .get_inner();
+        let email_addresses_binding = args
+            .email_addresses
+            .get_output(context)
+            .get_inner();
+        let email_subject_binding = args.email_subject.get_output(context).get_inner();
+        let end_date_binding = args.end_date.get_output(context).get_inner();
+        let frequency_binding = args.frequency.get_output(context).get_inner();
+        let hour_of_day_binding = args.hour_of_day.get_output(context).get_inner();
+        let message_binding = args.message.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let start_date_binding = args.start_date.get_output(context).get_inner();
+        let view_id_binding = args.view_id.get_output(context).get_inner();
+        let weeks_of_months_binding = args
+            .weeks_of_months
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:costmanagement/scheduledAction:ScheduledAction".into(),
             name: name.to_string(),
@@ -242,7 +255,7 @@ pub mod scheduled_action {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

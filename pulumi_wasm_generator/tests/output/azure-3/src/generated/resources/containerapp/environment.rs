@@ -45,62 +45,66 @@
 /// ```
 ///
 pub mod environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentArgs {
         /// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub dapr_application_insights_connection_string: pulumi_wasm_rust::Output<
+        pub dapr_application_insights_connection_string: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
         ///
         /// > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
         #[builder(into, default)]
-        pub infrastructure_resource_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub infrastructure_resource_group_name: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
         ///
         /// > **Note:** The Subnet must have a `/21` or larger address space.
         #[builder(into, default)]
-        pub infrastructure_subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub infrastructure_subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         #[builder(into, default)]
-        pub internal_load_balancer_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub internal_load_balancer_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
         #[builder(into, default)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.
         ///
         /// > **Note:** This feature is in public preview. Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
         #[builder(into, default)]
-        pub mutual_tls_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub mutual_tls_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the Container Apps Managed Environment. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
         #[builder(into, default)]
-        pub workload_profiles: pulumi_wasm_rust::Output<
+        pub workload_profiles: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::containerapp::EnvironmentWorkloadProfile>>,
         >,
         /// Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         #[builder(into, default)]
-        pub zone_redundancy_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub zone_redundancy_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentResult {
@@ -161,29 +165,52 @@ pub mod environment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EnvironmentArgs) -> EnvironmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EnvironmentArgs,
+    ) -> EnvironmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let dapr_application_insights_connection_string_binding = args
             .dapr_application_insights_connection_string
+            .get_output(context)
             .get_inner();
         let infrastructure_resource_group_name_binding = args
             .infrastructure_resource_group_name
+            .get_output(context)
             .get_inner();
-        let infrastructure_subnet_id_binding = args.infrastructure_subnet_id.get_inner();
+        let infrastructure_subnet_id_binding = args
+            .infrastructure_subnet_id
+            .get_output(context)
+            .get_inner();
         let internal_load_balancer_enabled_binding = args
             .internal_load_balancer_enabled
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
+            .get_output(context)
             .get_inner();
-        let mutual_tls_enabled_binding = args.mutual_tls_enabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let workload_profiles_binding = args.workload_profiles.get_inner();
-        let zone_redundancy_enabled_binding = args.zone_redundancy_enabled.get_inner();
+        let mutual_tls_enabled_binding = args
+            .mutual_tls_enabled
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let workload_profiles_binding = args
+            .workload_profiles
+            .get_output(context)
+            .get_inner();
+        let zone_redundancy_enabled_binding = args
+            .zone_redundancy_enabled
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerapp/environment:Environment".into(),
             name: name.to_string(),
@@ -295,7 +322,7 @@ pub mod environment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

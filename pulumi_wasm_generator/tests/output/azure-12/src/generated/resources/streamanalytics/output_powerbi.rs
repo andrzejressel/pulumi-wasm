@@ -37,34 +37,34 @@
 /// ```
 ///
 pub mod output_powerbi {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OutputPowerbiArgs {
         /// The name of the Power BI dataset.
         #[builder(into)]
-        pub dataset: pulumi_wasm_rust::Output<String>,
+        pub dataset: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Power BI group, this must be a valid UUID.
         #[builder(into)]
-        pub group_id: pulumi_wasm_rust::Output<String>,
+        pub group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Power BI group. Use this property to help remember which specific Power BI group id was used.
         #[builder(into)]
-        pub group_name: pulumi_wasm_rust::Output<String>,
+        pub group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_id: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Power BI table under the specified dataset.
         #[builder(into)]
-        pub table: pulumi_wasm_rust::Output<String>,
+        pub table: pulumi_wasm_rust::InputOrOutput<String>,
         /// The user display name of the user that was used to obtain the refresh token.
         #[builder(into, default)]
-        pub token_user_display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub token_user_display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user principal name (UPN) of the user that was used to obtain the refresh token.
         #[builder(into, default)]
-        pub token_user_principal_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub token_user_principal_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct OutputPowerbiResult {
@@ -89,18 +89,29 @@ pub mod output_powerbi {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: OutputPowerbiArgs) -> OutputPowerbiResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: OutputPowerbiArgs,
+    ) -> OutputPowerbiResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dataset_binding = args.dataset.get_inner();
-        let group_id_binding = args.group_id.get_inner();
-        let group_name_binding = args.group_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let stream_analytics_job_id_binding = args.stream_analytics_job_id.get_inner();
-        let table_binding = args.table.get_inner();
-        let token_user_display_name_binding = args.token_user_display_name.get_inner();
+        let dataset_binding = args.dataset.get_output(context).get_inner();
+        let group_id_binding = args.group_id.get_output(context).get_inner();
+        let group_name_binding = args.group_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let stream_analytics_job_id_binding = args
+            .stream_analytics_job_id
+            .get_output(context)
+            .get_inner();
+        let table_binding = args.table.get_output(context).get_inner();
+        let token_user_display_name_binding = args
+            .token_user_display_name
+            .get_output(context)
+            .get_inner();
         let token_user_principal_name_binding = args
             .token_user_principal_name
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/outputPowerbi:OutputPowerbi".into(),
@@ -167,7 +178,7 @@ pub mod output_powerbi {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

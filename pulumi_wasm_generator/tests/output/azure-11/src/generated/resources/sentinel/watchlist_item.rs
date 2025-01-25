@@ -50,21 +50,21 @@
 /// ```
 ///
 pub mod watchlist_item {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WatchlistItemArgs {
         /// The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The key value pairs of the Sentinel Watchlist Item.
         #[builder(into)]
-        pub properties: pulumi_wasm_rust::Output<
+        pub properties: pulumi_wasm_rust::InputOrOutput<
             std::collections::HashMap<String, String>,
         >,
         /// The ID of the Sentinel Watchlist that this Item resides in. Changing this forces a new Sentinel Watchlist Item to be created.
         #[builder(into)]
-        pub watchlist_id: pulumi_wasm_rust::Output<String>,
+        pub watchlist_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WatchlistItemResult {
@@ -81,12 +81,16 @@ pub mod watchlist_item {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WatchlistItemArgs) -> WatchlistItemResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WatchlistItemArgs,
+    ) -> WatchlistItemResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let properties_binding = args.properties.get_inner();
-        let watchlist_id_binding = args.watchlist_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let properties_binding = args.properties.get_output(context).get_inner();
+        let watchlist_id_binding = args.watchlist_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/watchlistItem:WatchlistItem".into(),
             name: name.to_string(),
@@ -117,7 +121,7 @@ pub mod watchlist_item {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

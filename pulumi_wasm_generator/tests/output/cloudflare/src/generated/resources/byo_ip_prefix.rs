@@ -27,22 +27,22 @@
 /// ```
 ///
 pub mod byo_ip_prefix {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ByoIpPrefixArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether or not the prefix shall be announced. A prefix can be activated or deactivated once every 15 minutes (attempting more regular updates will trigger rate limiting). Available values: `on`, `off`.
         #[builder(into, default)]
-        pub advertisement: pulumi_wasm_rust::Output<Option<String>>,
+        pub advertisement: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Description of the BYO IP prefix.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The assigned Bring-Your-Own-IP prefix ID. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub prefix_id: pulumi_wasm_rust::Output<String>,
+        pub prefix_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ByoIpPrefixResult {
@@ -59,13 +59,17 @@ pub mod byo_ip_prefix {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ByoIpPrefixArgs) -> ByoIpPrefixResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ByoIpPrefixArgs,
+    ) -> ByoIpPrefixResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let advertisement_binding = args.advertisement.get_inner();
-        let description_binding = args.description.get_inner();
-        let prefix_id_binding = args.prefix_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let advertisement_binding = args.advertisement.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let prefix_id_binding = args.prefix_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/byoIpPrefix:ByoIpPrefix".into(),
             name: name.to_string(),
@@ -103,7 +107,7 @@ pub mod byo_ip_prefix {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

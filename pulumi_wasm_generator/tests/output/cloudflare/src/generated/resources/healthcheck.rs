@@ -69,72 +69,72 @@
 /// ```
 ///
 pub mod healthcheck {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HealthcheckArgs {
         /// The hostname or IP address of the origin server to run health checks on.
         #[builder(into)]
-        pub address: pulumi_wasm_rust::Output<String>,
+        pub address: pulumi_wasm_rust::InputOrOutput<String>,
         /// Do not validate the certificate when the health check uses HTTPS. Defaults to `false`.
         #[builder(into, default)]
-        pub allow_insecure: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_insecure: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of regions from which to run health checks. If not set, Cloudflare will pick a default region. Available values: `WNAM`, `ENAM`, `WEU`, `EEU`, `NSAM`, `SSAM`, `OC`, `ME`, `NAF`, `SAF`, `IN`, `SEAS`, `NEAS`, `ALL_REGIONS`.
         #[builder(into, default)]
-        pub check_regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub check_regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The number of consecutive fails required from a health check before changing the health to unhealthy. Defaults to `1`.
         #[builder(into, default)]
-        pub consecutive_fails: pulumi_wasm_rust::Output<Option<i32>>,
+        pub consecutive_fails: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The number of consecutive successes required from a health check before changing the health to healthy. Defaults to `1`.
         #[builder(into, default)]
-        pub consecutive_successes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub consecutive_successes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A human-readable description of the health check.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A case-insensitive sub-string to look for in the response body. If this string is not found the origin will be marked as unhealthy.
         #[builder(into, default)]
-        pub expected_body: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The expected HTTP response codes (e.g. '200') or code ranges (e.g. '2xx' for all codes starting with 2) of the health check.
         #[builder(into, default)]
-        pub expected_codes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub expected_codes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Follow redirects if the origin returns a 3xx status code. Defaults to `false`.
         #[builder(into, default)]
-        pub follow_redirects: pulumi_wasm_rust::Output<Option<bool>>,
+        pub follow_redirects: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The HTTP request headers to send in the health check. It is recommended you set a Host header by default. The User-Agent header cannot be overridden.
         #[builder(into, default)]
-        pub headers: pulumi_wasm_rust::Output<
+        pub headers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::HealthcheckHeader>>,
         >,
         /// The interval between each health check. Shorter intervals may give quicker notifications if the origin status changes, but will increase the load on the origin as we check from multiple locations. Defaults to `60`.
         #[builder(into, default)]
-        pub interval: pulumi_wasm_rust::Output<Option<i32>>,
+        pub interval: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The HTTP method to use for the health check. Available values: `connection_established`, `GET`, `HEAD`.
         #[builder(into, default)]
-        pub method: pulumi_wasm_rust::Output<Option<String>>,
+        pub method: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A short name to identify the health check. Only alphanumeric characters, hyphens, and underscores are allowed.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The endpoint path to health check against. Defaults to `/`.
         #[builder(into, default)]
-        pub path: pulumi_wasm_rust::Output<Option<String>>,
+        pub path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Port number to connect to for the health check. Defaults to `80`.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Retries are attempted immediately. Defaults to `2`.
         #[builder(into, default)]
-        pub retries: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retries: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// If suspended, no health checks are sent to the origin. Defaults to `false`.
         #[builder(into, default)]
-        pub suspended: pulumi_wasm_rust::Output<Option<bool>>,
+        pub suspended: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The timeout (in seconds) before marking the health check as failed. Defaults to `5`.
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The protocol to use for the health check. Available values: `TCP`, `HTTP`, `HTTPS`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HealthcheckResult {
@@ -189,29 +189,42 @@ pub mod healthcheck {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HealthcheckArgs) -> HealthcheckResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HealthcheckArgs,
+    ) -> HealthcheckResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let address_binding = args.address.get_inner();
-        let allow_insecure_binding = args.allow_insecure.get_inner();
-        let check_regions_binding = args.check_regions.get_inner();
-        let consecutive_fails_binding = args.consecutive_fails.get_inner();
-        let consecutive_successes_binding = args.consecutive_successes.get_inner();
-        let description_binding = args.description.get_inner();
-        let expected_body_binding = args.expected_body.get_inner();
-        let expected_codes_binding = args.expected_codes.get_inner();
-        let follow_redirects_binding = args.follow_redirects.get_inner();
-        let headers_binding = args.headers.get_inner();
-        let interval_binding = args.interval.get_inner();
-        let method_binding = args.method.get_inner();
-        let name_binding = args.name.get_inner();
-        let path_binding = args.path.get_inner();
-        let port_binding = args.port.get_inner();
-        let retries_binding = args.retries.get_inner();
-        let suspended_binding = args.suspended.get_inner();
-        let timeout_binding = args.timeout.get_inner();
-        let type__binding = args.type_.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let address_binding = args.address.get_output(context).get_inner();
+        let allow_insecure_binding = args.allow_insecure.get_output(context).get_inner();
+        let check_regions_binding = args.check_regions.get_output(context).get_inner();
+        let consecutive_fails_binding = args
+            .consecutive_fails
+            .get_output(context)
+            .get_inner();
+        let consecutive_successes_binding = args
+            .consecutive_successes
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let expected_body_binding = args.expected_body.get_output(context).get_inner();
+        let expected_codes_binding = args.expected_codes.get_output(context).get_inner();
+        let follow_redirects_binding = args
+            .follow_redirects
+            .get_output(context)
+            .get_inner();
+        let headers_binding = args.headers.get_output(context).get_inner();
+        let interval_binding = args.interval.get_output(context).get_inner();
+        let method_binding = args.method.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let path_binding = args.path.get_output(context).get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let retries_binding = args.retries.get_output(context).get_inner();
+        let suspended_binding = args.suspended.get_output(context).get_inner();
+        let timeout_binding = args.timeout.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/healthcheck:Healthcheck".into(),
             name: name.to_string(),
@@ -367,7 +380,7 @@ pub mod healthcheck {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

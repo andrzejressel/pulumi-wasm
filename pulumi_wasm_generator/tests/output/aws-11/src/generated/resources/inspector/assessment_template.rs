@@ -41,34 +41,34 @@
 /// $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
 /// ```
 pub mod assessment_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssessmentTemplateArgs {
         /// The duration of the inspector run.
         #[builder(into)]
-        pub duration: pulumi_wasm_rust::Output<i32>,
+        pub duration: pulumi_wasm_rust::InputOrOutput<i32>,
         /// A block that enables sending notifications about a specified assessment template event to a designated SNS topic. See Event Subscriptions for details.
         #[builder(into, default)]
-        pub event_subscriptions: pulumi_wasm_rust::Output<
+        pub event_subscriptions: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::inspector::AssessmentTemplateEventSubscription>,
             >,
         >,
         /// The name of the assessment template.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The rules to be used during the run.
         #[builder(into)]
-        pub rules_package_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub rules_package_arns: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Key-value map of tags for the Inspector assessment template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The assessment target ARN to attach the template to.
         #[builder(into)]
-        pub target_arn: pulumi_wasm_rust::Output<String>,
+        pub target_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AssessmentTemplateResult {
@@ -101,15 +101,25 @@ pub mod assessment_template {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AssessmentTemplateArgs) -> AssessmentTemplateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AssessmentTemplateArgs,
+    ) -> AssessmentTemplateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let duration_binding = args.duration.get_inner();
-        let event_subscriptions_binding = args.event_subscriptions.get_inner();
-        let name_binding = args.name.get_inner();
-        let rules_package_arns_binding = args.rules_package_arns.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_arn_binding = args.target_arn.get_inner();
+        let duration_binding = args.duration.get_output(context).get_inner();
+        let event_subscriptions_binding = args
+            .event_subscriptions
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let rules_package_arns_binding = args
+            .rules_package_arns
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_arn_binding = args.target_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:inspector/assessmentTemplate:AssessmentTemplate".into(),
             name: name.to_string(),
@@ -167,7 +177,7 @@ pub mod assessment_template {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

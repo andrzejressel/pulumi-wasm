@@ -38,16 +38,16 @@
 /// $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1
 /// ```
 pub mod custom_action_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomActionTypeArgs {
         /// The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
         #[builder(into)]
-        pub category: pulumi_wasm_rust::Output<String>,
+        pub category: pulumi_wasm_rust::InputOrOutput<String>,
         /// The configuration properties for the custom action. Max 10 items.
         #[builder(into, default)]
-        pub configuration_properties: pulumi_wasm_rust::Output<
+        pub configuration_properties: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::codepipeline::CustomActionTypeConfigurationProperty,
@@ -55,25 +55,25 @@ pub mod custom_action_type {
             >,
         >,
         #[builder(into)]
-        pub input_artifact_details: pulumi_wasm_rust::Output<
+        pub input_artifact_details: pulumi_wasm_rust::InputOrOutput<
             super::super::types::codepipeline::CustomActionTypeInputArtifactDetails,
         >,
         #[builder(into)]
-        pub output_artifact_details: pulumi_wasm_rust::Output<
+        pub output_artifact_details: pulumi_wasm_rust::InputOrOutput<
             super::super::types::codepipeline::CustomActionTypeOutputArtifactDetails,
         >,
         #[builder(into)]
-        pub provider_name: pulumi_wasm_rust::Output<String>,
+        pub provider_name: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub settings: pulumi_wasm_rust::Output<
+        pub settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codepipeline::CustomActionTypeSettings>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into)]
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CustomActionTypeResult {
@@ -114,17 +114,30 @@ pub mod custom_action_type {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CustomActionTypeArgs) -> CustomActionTypeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CustomActionTypeArgs,
+    ) -> CustomActionTypeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let category_binding = args.category.get_inner();
-        let configuration_properties_binding = args.configuration_properties.get_inner();
-        let input_artifact_details_binding = args.input_artifact_details.get_inner();
-        let output_artifact_details_binding = args.output_artifact_details.get_inner();
-        let provider_name_binding = args.provider_name.get_inner();
-        let settings_binding = args.settings.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let version_binding = args.version.get_inner();
+        let category_binding = args.category.get_output(context).get_inner();
+        let configuration_properties_binding = args
+            .configuration_properties
+            .get_output(context)
+            .get_inner();
+        let input_artifact_details_binding = args
+            .input_artifact_details
+            .get_output(context)
+            .get_inner();
+        let output_artifact_details_binding = args
+            .output_artifact_details
+            .get_output(context)
+            .get_inner();
+        let provider_name_binding = args.provider_name.get_output(context).get_inner();
+        let settings_binding = args.settings.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codepipeline/customActionType:CustomActionType".into(),
             name: name.to_string(),
@@ -199,7 +212,7 @@ pub mod custom_action_type {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

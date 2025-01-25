@@ -25,25 +25,25 @@
 /// $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
 /// ```
 pub mod tape_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TapePoolArgs {
         /// The name of the new custom tape pool.
         #[builder(into)]
-        pub pool_name: pulumi_wasm_rust::Output<String>,
+        pub pool_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
         #[builder(into, default)]
-        pub retention_lock_time_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_lock_time_in_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
         #[builder(into, default)]
-        pub retention_lock_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub retention_lock_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
         #[builder(into)]
-        pub storage_class: pulumi_wasm_rust::Output<String>,
+        pub storage_class: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -72,16 +72,24 @@ pub mod tape_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TapePoolArgs) -> TapePoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TapePoolArgs,
+    ) -> TapePoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let pool_name_binding = args.pool_name.get_inner();
+        let pool_name_binding = args.pool_name.get_output(context).get_inner();
         let retention_lock_time_in_days_binding = args
             .retention_lock_time_in_days
+            .get_output(context)
             .get_inner();
-        let retention_lock_type_binding = args.retention_lock_type.get_inner();
-        let storage_class_binding = args.storage_class.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let retention_lock_type_binding = args
+            .retention_lock_type
+            .get_output(context)
+            .get_inner();
+        let storage_class_binding = args.storage_class.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:storagegateway/tapePool:TapePool".into(),
             name: name.to_string(),
@@ -132,7 +140,7 @@ pub mod tape_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

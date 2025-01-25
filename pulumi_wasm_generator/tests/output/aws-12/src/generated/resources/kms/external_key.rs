@@ -26,39 +26,41 @@
 /// $ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
 /// ```
 pub mod external_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExternalKeyArgs {
         /// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
         #[builder(into, default)]
-        pub bypass_policy_lockout_safety_check: pulumi_wasm_rust::Output<Option<bool>>,
+        pub bypass_policy_lockout_safety_check: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
         #[builder(into, default)]
-        pub deletion_window_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub deletion_window_in_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Description of the key.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
         #[builder(into, default)]
-        pub key_material_base64: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_material_base64: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         #[builder(into, default)]
-        pub multi_region: pulumi_wasm_rust::Output<Option<bool>>,
+        pub multi_region: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         #[builder(into, default)]
-        pub policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A key-value map of tags to assign to the key. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         #[builder(into, default)]
-        pub valid_to: pulumi_wasm_rust::Output<Option<String>>,
+        pub valid_to: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ExternalKeyResult {
@@ -99,20 +101,31 @@ pub mod external_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ExternalKeyArgs) -> ExternalKeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ExternalKeyArgs,
+    ) -> ExternalKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bypass_policy_lockout_safety_check_binding = args
             .bypass_policy_lockout_safety_check
+            .get_output(context)
             .get_inner();
-        let deletion_window_in_days_binding = args.deletion_window_in_days.get_inner();
-        let description_binding = args.description.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let key_material_base64_binding = args.key_material_base64.get_inner();
-        let multi_region_binding = args.multi_region.get_inner();
-        let policy_binding = args.policy.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let valid_to_binding = args.valid_to.get_inner();
+        let deletion_window_in_days_binding = args
+            .deletion_window_in_days
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let key_material_base64_binding = args
+            .key_material_base64
+            .get_output(context)
+            .get_inner();
+        let multi_region_binding = args.multi_region.get_output(context).get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let valid_to_binding = args.valid_to.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kms/externalKey:ExternalKey".into(),
             name: name.to_string(),
@@ -200,7 +213,7 @@ pub mod external_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

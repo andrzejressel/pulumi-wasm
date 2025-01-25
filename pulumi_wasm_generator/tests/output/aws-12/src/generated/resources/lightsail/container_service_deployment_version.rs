@@ -42,27 +42,27 @@
 /// $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1
 /// ```
 pub mod container_service_deployment_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContainerServiceDeploymentVersionArgs {
         /// A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
         #[builder(into)]
-        pub containers: pulumi_wasm_rust::Output<
+        pub containers: pulumi_wasm_rust::InputOrOutput<
             Vec<
                 super::super::types::lightsail::ContainerServiceDeploymentVersionContainer,
             >,
         >,
         /// A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
         #[builder(into, default)]
-        pub public_endpoint: pulumi_wasm_rust::Output<
+        pub public_endpoint: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::lightsail::ContainerServiceDeploymentVersionPublicEndpoint,
             >,
         >,
         /// The name for the container service.
         #[builder(into)]
-        pub service_name: pulumi_wasm_rust::Output<String>,
+        pub service_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ContainerServiceDeploymentVersionResult {
@@ -92,14 +92,18 @@ pub mod container_service_deployment_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ContainerServiceDeploymentVersionArgs,
     ) -> ContainerServiceDeploymentVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let containers_binding = args.containers.get_inner();
-        let public_endpoint_binding = args.public_endpoint.get_inner();
-        let service_name_binding = args.service_name.get_inner();
+        let containers_binding = args.containers.get_output(context).get_inner();
+        let public_endpoint_binding = args
+            .public_endpoint
+            .get_output(context)
+            .get_inner();
+        let service_name_binding = args.service_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion"
                 .into(),
@@ -140,7 +144,7 @@ pub mod container_service_deployment_version {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

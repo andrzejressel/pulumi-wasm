@@ -40,59 +40,59 @@
 /// ```
 ///
 pub mod security_solution {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecuritySolutionArgs {
         /// A `additional_workspace` block as defined below.
         #[builder(into, default)]
-        pub additional_workspaces: pulumi_wasm_rust::Output<
+        pub additional_workspaces: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::SecuritySolutionAdditionalWorkspace>>,
         >,
         /// A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
         #[builder(into, default)]
-        pub disabled_data_sources: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub disabled_data_sources: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the Display Name for this Iot Security Solution.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Is the Iot Security Solution enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of data which is to exported to analytic workspace. Valid values include `RawEvents`.
         #[builder(into, default)]
-        pub events_to_exports: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub events_to_exports: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied.
         #[builder(into)]
-        pub iothub_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub iothub_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Log Analytics Workspace ID to which the security data will be sent.
         #[builder(into, default)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should IP addressed be unmasked in the log? Defaults to `false`.
         #[builder(into, default)]
-        pub log_unmasked_ips_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub log_unmasked_ips_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An Azure Resource Graph query used to set the resources monitored.
         #[builder(into, default)]
-        pub query_for_resources: pulumi_wasm_rust::Output<Option<String>>,
+        pub query_for_resources: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of subscription Ids on which the user defined resources query should be executed.
         #[builder(into, default)]
-        pub query_subscription_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub query_subscription_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A `recommendations_enabled` block of options to enable or disable as defined below.
         #[builder(into, default)]
-        pub recommendations_enabled: pulumi_wasm_rust::Output<
+        pub recommendations_enabled: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iot::SecuritySolutionRecommendationsEnabled>,
         >,
         /// Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -139,26 +139,55 @@ pub mod security_solution {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SecuritySolutionArgs) -> SecuritySolutionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SecuritySolutionArgs,
+    ) -> SecuritySolutionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let additional_workspaces_binding = args.additional_workspaces.get_inner();
-        let disabled_data_sources_binding = args.disabled_data_sources.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let events_to_exports_binding = args.events_to_exports.get_inner();
-        let iothub_ids_binding = args.iothub_ids.get_inner();
-        let location_binding = args.location.get_inner();
+        let additional_workspaces_binding = args
+            .additional_workspaces
+            .get_output(context)
+            .get_inner();
+        let disabled_data_sources_binding = args
+            .disabled_data_sources
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let events_to_exports_binding = args
+            .events_to_exports
+            .get_output(context)
+            .get_inner();
+        let iothub_ids_binding = args.iothub_ids.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
+            .get_output(context)
             .get_inner();
-        let log_unmasked_ips_enabled_binding = args.log_unmasked_ips_enabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let query_for_resources_binding = args.query_for_resources.get_inner();
-        let query_subscription_ids_binding = args.query_subscription_ids.get_inner();
-        let recommendations_enabled_binding = args.recommendations_enabled.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let log_unmasked_ips_enabled_binding = args
+            .log_unmasked_ips_enabled
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let query_for_resources_binding = args
+            .query_for_resources
+            .get_output(context)
+            .get_inner();
+        let query_subscription_ids_binding = args
+            .query_subscription_ids
+            .get_output(context)
+            .get_inner();
+        let recommendations_enabled_binding = args
+            .recommendations_enabled
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/securitySolution:SecuritySolution".into(),
             name: name.to_string(),
@@ -273,7 +302,7 @@ pub mod security_solution {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -52,22 +52,22 @@
 /// $ pulumi import aws:ec2clientvpn/route:Route example cvpn-endpoint-1234567890abcdef,subnet-9876543210fedcba,10.1.0.0/24
 /// ```
 pub mod route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteArgs {
         /// The ID of the Client VPN endpoint.
         #[builder(into)]
-        pub client_vpn_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub client_vpn_endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A brief description of the route.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IPv4 address range, in CIDR notation, of the route destination.
         #[builder(into)]
-        pub destination_cidr_block: pulumi_wasm_rust::Output<String>,
+        pub destination_cidr_block: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Subnet to route the traffic through. It must already be attached to the Client VPN.
         #[builder(into)]
-        pub target_vpc_subnet_id: pulumi_wasm_rust::Output<String>,
+        pub target_vpc_subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RouteResult {
@@ -88,13 +88,26 @@ pub mod route {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RouteArgs) -> RouteResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RouteArgs,
+    ) -> RouteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let client_vpn_endpoint_id_binding = args.client_vpn_endpoint_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let destination_cidr_block_binding = args.destination_cidr_block.get_inner();
-        let target_vpc_subnet_id_binding = args.target_vpc_subnet_id.get_inner();
+        let client_vpn_endpoint_id_binding = args
+            .client_vpn_endpoint_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let destination_cidr_block_binding = args
+            .destination_cidr_block
+            .get_output(context)
+            .get_inner();
+        let target_vpc_subnet_id_binding = args
+            .target_vpc_subnet_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2clientvpn/route:Route".into(),
             name: name.to_string(),
@@ -138,7 +151,7 @@ pub mod route {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -48,24 +48,24 @@
 /// $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
 /// ```
 pub mod storage_lens_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StorageLensConfigurationArgs {
         /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the S3 Storage Lens configuration.
         #[builder(into)]
-        pub config_id: pulumi_wasm_rust::Output<String>,
+        pub config_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         #[builder(into)]
-        pub storage_lens_configuration: pulumi_wasm_rust::Output<
+        pub storage_lens_configuration: pulumi_wasm_rust::InputOrOutput<
             super::super::types::s3control::StorageLensConfigurationStorageLensConfiguration,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -95,17 +95,19 @@ pub mod storage_lens_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: StorageLensConfigurationArgs,
     ) -> StorageLensConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let config_id_binding = args.config_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let config_id_binding = args.config_id.get_output(context).get_inner();
         let storage_lens_configuration_binding = args
             .storage_lens_configuration
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3control/storageLensConfiguration:StorageLensConfiguration"
                 .into(),
@@ -150,7 +152,7 @@ pub mod storage_lens_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

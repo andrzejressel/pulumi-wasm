@@ -54,22 +54,22 @@
 /// ```
 ///
 pub mod linked_storage_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedStorageAccountArgs {
         /// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
         #[builder(into)]
-        pub data_source_type: pulumi_wasm_rust::Output<String>,
+        pub data_source_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The storage account resource ids to be linked.
         #[builder(into)]
-        pub storage_account_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub storage_account_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         #[builder(into)]
-        pub workspace_resource_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LinkedStorageAccountResult {
@@ -87,15 +87,28 @@ pub mod linked_storage_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LinkedStorageAccountArgs,
     ) -> LinkedStorageAccountResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let data_source_type_binding = args.data_source_type.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let storage_account_ids_binding = args.storage_account_ids.get_inner();
-        let workspace_resource_id_binding = args.workspace_resource_id.get_inner();
+        let data_source_type_binding = args
+            .data_source_type
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let storage_account_ids_binding = args
+            .storage_account_ids
+            .get_output(context)
+            .get_inner();
+        let workspace_resource_id_binding = args
+            .workspace_resource_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:loganalytics/linkedStorageAccount:LinkedStorageAccount".into(),
             name: name.to_string(),
@@ -133,7 +146,7 @@ pub mod linked_storage_account {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

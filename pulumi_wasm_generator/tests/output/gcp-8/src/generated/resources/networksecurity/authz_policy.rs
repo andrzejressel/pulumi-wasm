@@ -197,7 +197,7 @@
 /// ```
 ///
 pub mod authz_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthzPolicyArgs {
@@ -211,42 +211,42 @@ pub mod authz_policy {
         /// 4. Else the request is denied by default if none of the configured AuthzPolicies with ALLOW action match the request.
         /// Possible values are: `ALLOW`, `DENY`, `CUSTOM`.
         #[builder(into)]
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_wasm_rust::InputOrOutput<String>,
         /// Required if the action is CUSTOM. Allows delegating authorization decisions to Cloud IAP or to Service Extensions. One
         /// of cloudIap or authzExtension must be specified.
         #[builder(into, default)]
-        pub custom_provider: pulumi_wasm_rust::Output<
+        pub custom_provider: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::networksecurity::AuthzPolicyCustomProvider>,
         >,
         /// A human-readable description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of authorization HTTP rules to match against the incoming request.A policy match occurs when at least one HTTP
         /// rule matches the request or when no HTTP rules are specified in the policy. At least one HTTP Rule is required for Allow
         /// or Deny Action. Limited to 5 rules.
         #[builder(into, default)]
-        pub http_rules: pulumi_wasm_rust::Output<
+        pub http_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::networksecurity::AuthzPolicyHttpRule>>,
         >,
         /// Set of labels associated with the AuthzExtension resource. **Note**: This field is non-authoritative, and will only
         /// manage the labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels
         /// present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifier. Name of the AuthzPolicy resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the set of resources to which this policy should be applied to.
         /// Structure is documented below.
         #[builder(into)]
-        pub target: pulumi_wasm_rust::Output<
+        pub target: pulumi_wasm_rust::InputOrOutput<
             super::super::types::networksecurity::AuthzPolicyTarget,
         >,
     }
@@ -309,18 +309,25 @@ pub mod authz_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AuthzPolicyArgs) -> AuthzPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AuthzPolicyArgs,
+    ) -> AuthzPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_inner();
-        let custom_provider_binding = args.custom_provider.get_inner();
-        let description_binding = args.description.get_inner();
-        let http_rules_binding = args.http_rules.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let target_binding = args.target.get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
+        let custom_provider_binding = args
+            .custom_provider
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let http_rules_binding = args.http_rules.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let target_binding = args.target.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networksecurity/authzPolicy:AuthzPolicy".into(),
             name: name.to_string(),
@@ -405,7 +412,7 @@ pub mod authz_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

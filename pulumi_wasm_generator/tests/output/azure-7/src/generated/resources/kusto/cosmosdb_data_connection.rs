@@ -135,34 +135,34 @@
 /// ```
 ///
 pub mod cosmosdb_data_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CosmosdbDataConnectionArgs {
         /// The name of an existing container in the Cosmos DB database. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into)]
-        pub cosmosdb_container_id: pulumi_wasm_rust::Output<String>,
+        pub cosmosdb_container_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the database in the Kusto cluster. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into)]
-        pub kusto_database_id: pulumi_wasm_rust::Output<String>,
+        pub kusto_database_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Azure Region where the Data Explorer should exist. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource ID of a managed system or user-assigned identity. The identity is used to authenticate with Cosmos DB. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into)]
-        pub managed_identity_id: pulumi_wasm_rust::Output<String>,
+        pub managed_identity_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of an existing mapping rule to use when ingesting the retrieved data. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into, default)]
-        pub mapping_rule_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub mapping_rule_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the data connection. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into, default)]
-        pub retrieval_start_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub retrieval_start_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The case-sensitive name of the existing target table in your cluster. Retrieved data is ingested into this table. Changing this forces a new Kusto Cosmos DB Connection to be created.
         #[builder(into)]
-        pub table_name: pulumi_wasm_rust::Output<String>,
+        pub table_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CosmosdbDataConnectionResult {
@@ -188,19 +188,35 @@ pub mod cosmosdb_data_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CosmosdbDataConnectionArgs,
     ) -> CosmosdbDataConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cosmosdb_container_id_binding = args.cosmosdb_container_id.get_inner();
-        let kusto_database_id_binding = args.kusto_database_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let managed_identity_id_binding = args.managed_identity_id.get_inner();
-        let mapping_rule_name_binding = args.mapping_rule_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let retrieval_start_date_binding = args.retrieval_start_date.get_inner();
-        let table_name_binding = args.table_name.get_inner();
+        let cosmosdb_container_id_binding = args
+            .cosmosdb_container_id
+            .get_output(context)
+            .get_inner();
+        let kusto_database_id_binding = args
+            .kusto_database_id
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let managed_identity_id_binding = args
+            .managed_identity_id
+            .get_output(context)
+            .get_inner();
+        let mapping_rule_name_binding = args
+            .mapping_rule_name
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let retrieval_start_date_binding = args
+            .retrieval_start_date
+            .get_output(context)
+            .get_inner();
+        let table_name_binding = args.table_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection".into(),
             name: name.to_string(),
@@ -266,7 +282,7 @@ pub mod cosmosdb_data_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

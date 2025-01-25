@@ -46,7 +46,7 @@
 /// $ pulumi import aws:iam/user:User lb loadbalancer
 /// ```
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
@@ -54,19 +54,19 @@ pub mod user {
         /// has non-provider-managed IAM access keys, login profile or MFA devices. Without `force_destroy`
         /// a user with non-provider-managed access keys and login profile will fail to be destroyed.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The user's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. User names are not distinguished by case. For example, you cannot create users named both "TESTUSER" and "testuser".
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Path in which to create the user.
         #[builder(into, default)]
-        pub path: pulumi_wasm_rust::Output<Option<String>>,
+        pub path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of the policy that is used to set the permissions boundary for the user.
         #[builder(into, default)]
-        pub permissions_boundary: pulumi_wasm_rust::Output<Option<String>>,
+        pub permissions_boundary: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -99,14 +99,21 @@ pub mod user {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UserArgs) -> UserResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UserArgs,
+    ) -> UserResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let force_destroy_binding = args.force_destroy.get_inner();
-        let name_binding = args.name.get_inner();
-        let path_binding = args.path.get_inner();
-        let permissions_boundary_binding = args.permissions_boundary.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let path_binding = args.path.get_output(context).get_inner();
+        let permissions_boundary_binding = args
+            .permissions_boundary
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/user:User".into(),
             name: name.to_string(),
@@ -160,7 +167,7 @@ pub mod user {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

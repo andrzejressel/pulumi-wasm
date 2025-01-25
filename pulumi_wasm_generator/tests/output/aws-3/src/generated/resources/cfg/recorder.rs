@@ -113,26 +113,26 @@
 /// $ pulumi import aws:cfg/recorder:Recorder foo example
 /// ```
 pub mod recorder {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RecorderArgs {
         /// The name of the recorder. Defaults to `default`. Changing it recreates the resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Recording group - see below.
         #[builder(into, default)]
-        pub recording_group: pulumi_wasm_rust::Output<
+        pub recording_group: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cfg::RecorderRecordingGroup>,
         >,
         /// Recording mode - see below.
         #[builder(into, default)]
-        pub recording_mode: pulumi_wasm_rust::Output<
+        pub recording_mode: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cfg::RecorderRecordingMode>,
         >,
         /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RecorderResult {
@@ -153,13 +153,20 @@ pub mod recorder {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RecorderArgs) -> RecorderResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RecorderArgs,
+    ) -> RecorderResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let recording_group_binding = args.recording_group.get_inner();
-        let recording_mode_binding = args.recording_mode.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let recording_group_binding = args
+            .recording_group
+            .get_output(context)
+            .get_inner();
+        let recording_mode_binding = args.recording_mode.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/recorder:Recorder".into(),
             name: name.to_string(),
@@ -197,7 +204,7 @@ pub mod recorder {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

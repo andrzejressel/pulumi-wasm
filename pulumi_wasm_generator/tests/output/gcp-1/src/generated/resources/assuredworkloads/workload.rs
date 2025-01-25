@@ -101,25 +101,25 @@
 /// ```
 ///
 pub mod workload {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkloadArgs {
         /// Optional. Input only. The billing account used for the resources which are direct children of workload. This billing account is initially associated with the resources created as part of Workload creation. After the initial creation of these resources, the customer can change the assigned billing account. The resource name has the form `billingAccounts/{billing_account_id}`. For example, `billingAccounts/012345-567890-ABCDEF`.
         #[builder(into, default)]
-        pub billing_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub billing_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. Immutable. Compliance Regime associated with this workload. Possible values: COMPLIANCE_REGIME_UNSPECIFIED, IL4, CJIS, FEDRAMP_HIGH, FEDRAMP_MODERATE, US_REGIONAL_ACCESS, HIPAA, HITRUST, EU_REGIONS_AND_SUPPORT, CA_REGIONS_AND_SUPPORT, ITAR, AU_REGIONS_AND_US_SUPPORT, ASSURED_WORKLOADS_FOR_PARTNERS, ISR_REGIONS, ISR_REGIONS_AND_SUPPORT, CA_PROTECTED_B, IL5, IL2, JP_REGIONS_AND_SUPPORT, KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS, REGIONAL_CONTROLS, HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS, HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_WITH_US_SUPPORT, IRS_1075
         #[builder(into)]
-        pub compliance_regime: pulumi_wasm_rust::Output<String>,
+        pub compliance_regime: pulumi_wasm_rust::InputOrOutput<String>,
         /// Required. The user-assigned display name of the Workload. When present it must be between 4 to 30 characters. Allowed characters are: lowercase and uppercase letters, numbers, hyphen, and spaces. Example: My Workload
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. Indicates the sovereignty status of the given workload. Currently meant to be used by Europe/Canada customers.
         #[builder(into, default)]
-        pub enable_sovereign_controls: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_sovereign_controls: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// **DEPRECATED** Input only. Settings used to create a CMEK crypto key. When set, a project with a KMS CMEK key is provisioned. This field is deprecated as of Feb 28, 2022. In order to create a Keyring, callers should specify, ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field.
         #[builder(into, default)]
-        pub kms_settings: pulumi_wasm_rust::Output<
+        pub kms_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::assuredworkloads::WorkloadKmsSettings>,
         >,
         /// Optional. Labels applied to the workload.
@@ -127,44 +127,50 @@ pub mod workload {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The organization for the resource
         ///
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub organization: pulumi_wasm_rust::Output<String>,
+        pub organization: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. Partner regime associated with this workload. Possible values: PARTNER_UNSPECIFIED, LOCAL_CONTROLS_BY_S3NS, SOVEREIGN_CONTROLS_BY_T_SYSTEMS, SOVEREIGN_CONTROLS_BY_SIA_MINSAIT, SOVEREIGN_CONTROLS_BY_PSN, SOVEREIGN_CONTROLS_BY_CNTXT, SOVEREIGN_CONTROLS_BY_CNTXT_NO_EKM
         #[builder(into, default)]
-        pub partner: pulumi_wasm_rust::Output<Option<String>>,
+        pub partner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Permissions granted to the AW Partner SA account for the customer workload
         #[builder(into, default)]
-        pub partner_permissions: pulumi_wasm_rust::Output<
+        pub partner_permissions: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::assuredworkloads::WorkloadPartnerPermissions>,
         >,
         /// Optional. Input only. Billing account necessary for purchasing services from Sovereign Partners. This field is required for creating SIA/PSN/CNTXT partner workloads. The caller should have 'billing.resourceAssociations.create' IAM permission on this billing-account. The format of this string is billingAccounts/AAAAAA-BBBBBB-CCCCCC.
         #[builder(into, default)]
-        pub partner_services_billing_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub partner_services_billing_account: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Input only. The parent resource for the resources managed by this Assured Workload. May be either empty or a folder resource which is a child of the Workload parent. If not specified all resources are created under the parent organization. Format: folders/{folder_id}
         #[builder(into, default)]
-        pub provisioned_resources_parent: pulumi_wasm_rust::Output<Option<String>>,
+        pub provisioned_resources_parent: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Input only. Resource properties that are used to customize workload resources. These properties (such as custom project id) will be used to create workload resources if possible. This field is optional.
         #[builder(into, default)]
-        pub resource_settings: pulumi_wasm_rust::Output<
+        pub resource_settings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::assuredworkloads::WorkloadResourceSetting>>,
         >,
         /// Optional. Indicates whether the e-mail notification for a violation is enabled for a workload. This value will be by default True, and if not present will be considered as true. This should only be updated via updateWorkload call. Any Changes to this field during the createWorkload call will not be honored. This will always be true while creating the workload.
         #[builder(into, default)]
-        pub violation_notifications_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub violation_notifications_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Optional. Used to specify certain options for a workload during workload creation - currently only supporting KAT Optionality for Regional Controls workloads.
         #[builder(into, default)]
-        pub workload_options: pulumi_wasm_rust::Output<
+        pub workload_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::assuredworkloads::WorkloadWorkloadOptions>,
         >,
     }
@@ -254,32 +260,55 @@ pub mod workload {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkloadArgs) -> WorkloadResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkloadArgs,
+    ) -> WorkloadResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let billing_account_binding = args.billing_account.get_inner();
-        let compliance_regime_binding = args.compliance_regime.get_inner();
-        let display_name_binding = args.display_name.get_inner();
+        let billing_account_binding = args
+            .billing_account
+            .get_output(context)
+            .get_inner();
+        let compliance_regime_binding = args
+            .compliance_regime
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
         let enable_sovereign_controls_binding = args
             .enable_sovereign_controls
+            .get_output(context)
             .get_inner();
-        let kms_settings_binding = args.kms_settings.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let organization_binding = args.organization.get_inner();
-        let partner_binding = args.partner.get_inner();
-        let partner_permissions_binding = args.partner_permissions.get_inner();
+        let kms_settings_binding = args.kms_settings.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let organization_binding = args.organization.get_output(context).get_inner();
+        let partner_binding = args.partner.get_output(context).get_inner();
+        let partner_permissions_binding = args
+            .partner_permissions
+            .get_output(context)
+            .get_inner();
         let partner_services_billing_account_binding = args
             .partner_services_billing_account
+            .get_output(context)
             .get_inner();
         let provisioned_resources_parent_binding = args
             .provisioned_resources_parent
+            .get_output(context)
             .get_inner();
-        let resource_settings_binding = args.resource_settings.get_inner();
+        let resource_settings_binding = args
+            .resource_settings
+            .get_output(context)
+            .get_inner();
         let violation_notifications_enabled_binding = args
             .violation_notifications_enabled
+            .get_output(context)
             .get_inner();
-        let workload_options_binding = args.workload_options.get_inner();
+        let workload_options_binding = args
+            .workload_options
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:assuredworkloads/workload:Workload".into(),
             name: name.to_string(),
@@ -424,7 +453,7 @@ pub mod workload {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

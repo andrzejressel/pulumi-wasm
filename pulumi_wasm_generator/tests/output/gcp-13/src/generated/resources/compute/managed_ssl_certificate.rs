@@ -115,18 +115,18 @@
 /// ```
 ///
 pub mod managed_ssl_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedSslCertificateArgs {
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Properties relevant to a managed certificate.  These will be used if the
         /// certificate is managed (as indicated by a value of `MANAGED` in `type`).
         /// Structure is documented below.
         #[builder(into, default)]
-        pub managed: pulumi_wasm_rust::Output<
+        pub managed: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::ManagedSslCertificateManaged>,
         >,
         /// Name of the resource. Provided by the client when the resource is
@@ -138,17 +138,17 @@ pub mod managed_ssl_certificate {
         /// character, which cannot be a dash.
         /// These are in the same namespace as the managed SSL certificates.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Enum field whose value is always `MANAGED` - used to signal to the API
         /// which type this is.
         /// Default value is `MANAGED`.
         /// Possible values are: `MANAGED`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ManagedSslCertificateResult {
@@ -193,16 +193,17 @@ pub mod managed_ssl_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ManagedSslCertificateArgs,
     ) -> ManagedSslCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let managed_binding = args.managed.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let type__binding = args.type_.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let managed_binding = args.managed.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/managedSslCertificate:ManagedSslCertificate".into(),
             name: name.to_string(),
@@ -262,7 +263,7 @@ pub mod managed_ssl_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

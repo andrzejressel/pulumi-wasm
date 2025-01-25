@@ -52,32 +52,32 @@
 /// $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
 /// ```
 pub mod domain_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainAssociationArgs {
         /// Unique ID for an Amplify app.
         #[builder(into)]
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         #[builder(into, default)]
-        pub certificate_settings: pulumi_wasm_rust::Output<
+        pub certificate_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::amplify::DomainAssociationCertificateSettings>,
         >,
         /// Domain name for the domain association.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Enables the automated creation of subdomains for branches.
         #[builder(into, default)]
-        pub enable_auto_sub_domain: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_auto_sub_domain: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Setting for the subdomain. Documented below.
         #[builder(into)]
-        pub sub_domains: pulumi_wasm_rust::Output<
+        pub sub_domains: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::amplify::DomainAssociationSubDomain>,
         >,
         /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         #[builder(into, default)]
-        pub wait_for_verification: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_for_verification: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct DomainAssociationResult {
@@ -106,15 +106,28 @@ pub mod domain_association {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DomainAssociationArgs) -> DomainAssociationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DomainAssociationArgs,
+    ) -> DomainAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_id_binding = args.app_id.get_inner();
-        let certificate_settings_binding = args.certificate_settings.get_inner();
-        let domain_name_binding = args.domain_name.get_inner();
-        let enable_auto_sub_domain_binding = args.enable_auto_sub_domain.get_inner();
-        let sub_domains_binding = args.sub_domains.get_inner();
-        let wait_for_verification_binding = args.wait_for_verification.get_inner();
+        let app_id_binding = args.app_id.get_output(context).get_inner();
+        let certificate_settings_binding = args
+            .certificate_settings
+            .get_output(context)
+            .get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let enable_auto_sub_domain_binding = args
+            .enable_auto_sub_domain
+            .get_output(context)
+            .get_inner();
+        let sub_domains_binding = args.sub_domains.get_output(context).get_inner();
+        let wait_for_verification_binding = args
+            .wait_for_verification
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:amplify/domainAssociation:DomainAssociation".into(),
             name: name.to_string(),
@@ -172,7 +185,7 @@ pub mod domain_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

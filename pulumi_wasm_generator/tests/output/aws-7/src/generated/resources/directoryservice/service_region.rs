@@ -12,27 +12,29 @@
 /// $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
 /// ```
 pub mod service_region {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceRegionArgs {
         /// The number of domain controllers desired in the replicated directory. Minimum value of `2`.
         #[builder(into, default)]
-        pub desired_number_of_domain_controllers: pulumi_wasm_rust::Output<Option<i32>>,
+        pub desired_number_of_domain_controllers: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// The identifier of the directory to which you want to add Region replication.
         #[builder(into)]
-        pub directory_id: pulumi_wasm_rust::Output<String>,
+        pub directory_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Region where you want to add domain controllers for replication.
         #[builder(into)]
-        pub region_name: pulumi_wasm_rust::Output<String>,
+        pub region_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// VPC information in the replicated Region. Detailed below.
         #[builder(into)]
-        pub vpc_settings: pulumi_wasm_rust::Output<
+        pub vpc_settings: pulumi_wasm_rust::InputOrOutput<
             super::super::types::directoryservice::ServiceRegionVpcSettings,
         >,
     }
@@ -61,16 +63,21 @@ pub mod service_region {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServiceRegionArgs) -> ServiceRegionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServiceRegionArgs,
+    ) -> ServiceRegionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let desired_number_of_domain_controllers_binding = args
             .desired_number_of_domain_controllers
+            .get_output(context)
             .get_inner();
-        let directory_id_binding = args.directory_id.get_inner();
-        let region_name_binding = args.region_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_settings_binding = args.vpc_settings.get_inner();
+        let directory_id_binding = args.directory_id.get_output(context).get_inner();
+        let region_name_binding = args.region_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_settings_binding = args.vpc_settings.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directoryservice/serviceRegion:ServiceRegion".into(),
             name: name.to_string(),
@@ -118,7 +125,7 @@ pub mod service_region {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

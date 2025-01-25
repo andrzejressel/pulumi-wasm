@@ -272,28 +272,28 @@
 /// ```
 ///
 pub mod connection_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionProfileArgs {
         /// BigQuery warehouse profile.
         #[builder(into, default)]
-        pub bigquery_profile: pulumi_wasm_rust::Output<
+        pub bigquery_profile: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datastream::ConnectionProfileBigqueryProfile>,
         >,
         /// The connection profile identifier.
         #[builder(into)]
-        pub connection_profile_id: pulumi_wasm_rust::Output<String>,
+        pub connection_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Create the connection profile without validating it.
         #[builder(into, default)]
-        pub create_without_validation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_without_validation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Display name.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Forward SSH tunnel connectivity.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub forward_ssh_connectivity: pulumi_wasm_rust::Output<
+        pub forward_ssh_connectivity: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::datastream::ConnectionProfileForwardSshConnectivity,
             >,
@@ -301,14 +301,14 @@ pub mod connection_profile {
         /// Cloud Storage bucket profile.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub gcs_profile: pulumi_wasm_rust::Output<
+        pub gcs_profile: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datastream::ConnectionProfileGcsProfile>,
         >,
         /// Labels.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the location this connection profile is located in.
@@ -316,39 +316,39 @@ pub mod connection_profile {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// MySQL database profile.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub mysql_profile: pulumi_wasm_rust::Output<
+        pub mysql_profile: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datastream::ConnectionProfileMysqlProfile>,
         >,
         /// Oracle database profile.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub oracle_profile: pulumi_wasm_rust::Output<
+        pub oracle_profile: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datastream::ConnectionProfileOracleProfile>,
         >,
         /// PostgreSQL database profile.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub postgresql_profile: pulumi_wasm_rust::Output<
+        pub postgresql_profile: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datastream::ConnectionProfilePostgresqlProfile>,
         >,
         /// Private connectivity.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub private_connectivity: pulumi_wasm_rust::Output<
+        pub private_connectivity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datastream::ConnectionProfilePrivateConnectivity>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// SQL Server database profile.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub sql_server_profile: pulumi_wasm_rust::Output<
+        pub sql_server_profile: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datastream::ConnectionProfileSqlServerProfile>,
         >,
     }
@@ -431,25 +431,48 @@ pub mod connection_profile {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectionProfileArgs) -> ConnectionProfileResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectionProfileArgs,
+    ) -> ConnectionProfileResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bigquery_profile_binding = args.bigquery_profile.get_inner();
-        let connection_profile_id_binding = args.connection_profile_id.get_inner();
+        let bigquery_profile_binding = args
+            .bigquery_profile
+            .get_output(context)
+            .get_inner();
+        let connection_profile_id_binding = args
+            .connection_profile_id
+            .get_output(context)
+            .get_inner();
         let create_without_validation_binding = args
             .create_without_validation
+            .get_output(context)
             .get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let forward_ssh_connectivity_binding = args.forward_ssh_connectivity.get_inner();
-        let gcs_profile_binding = args.gcs_profile.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let mysql_profile_binding = args.mysql_profile.get_inner();
-        let oracle_profile_binding = args.oracle_profile.get_inner();
-        let postgresql_profile_binding = args.postgresql_profile.get_inner();
-        let private_connectivity_binding = args.private_connectivity.get_inner();
-        let project_binding = args.project.get_inner();
-        let sql_server_profile_binding = args.sql_server_profile.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let forward_ssh_connectivity_binding = args
+            .forward_ssh_connectivity
+            .get_output(context)
+            .get_inner();
+        let gcs_profile_binding = args.gcs_profile.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let mysql_profile_binding = args.mysql_profile.get_output(context).get_inner();
+        let oracle_profile_binding = args.oracle_profile.get_output(context).get_inner();
+        let postgresql_profile_binding = args
+            .postgresql_profile
+            .get_output(context)
+            .get_inner();
+        let private_connectivity_binding = args
+            .private_connectivity
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let sql_server_profile_binding = args
+            .sql_server_profile
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datastream/connectionProfile:ConnectionProfile".into(),
             name: name.to_string(),
@@ -566,7 +589,7 @@ pub mod connection_profile {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

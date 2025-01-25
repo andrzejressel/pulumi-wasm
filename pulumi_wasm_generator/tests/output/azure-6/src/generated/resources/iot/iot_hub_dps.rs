@@ -31,44 +31,44 @@
 /// ```
 ///
 pub mod iot_hub_dps {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IotHubDpsArgs {
         /// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
         #[builder(into, default)]
-        pub allocation_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub allocation_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub data_residency_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub data_residency_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `ip_filter_rule` block as defined below.
         #[builder(into, default)]
-        pub ip_filter_rules: pulumi_wasm_rust::Output<
+        pub ip_filter_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::IotHubDpsIpFilterRule>>,
         >,
         /// A `linked_hub` block as defined below.
         #[builder(into, default)]
-        pub linked_hubs: pulumi_wasm_rust::Output<
+        pub linked_hubs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::IotHubDpsLinkedHub>>,
         >,
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether requests from Public Network are allowed. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `sku` block as defined below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<super::super::types::iot::IotHubDpsSku>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<super::super::types::iot::IotHubDpsSku>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -111,21 +111,38 @@ pub mod iot_hub_dps {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: IotHubDpsArgs) -> IotHubDpsResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: IotHubDpsArgs,
+    ) -> IotHubDpsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allocation_policy_binding = args.allocation_policy.get_inner();
-        let data_residency_enabled_binding = args.data_residency_enabled.get_inner();
-        let ip_filter_rules_binding = args.ip_filter_rules.get_inner();
-        let linked_hubs_binding = args.linked_hubs.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
+        let allocation_policy_binding = args
+            .allocation_policy
+            .get_output(context)
+            .get_inner();
+        let data_residency_enabled_binding = args
+            .data_residency_enabled
+            .get_output(context)
+            .get_inner();
+        let ip_filter_rules_binding = args
+            .ip_filter_rules
+            .get_output(context)
+            .get_inner();
+        let linked_hubs_binding = args.linked_hubs.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/iotHubDps:IotHubDps".into(),
             name: name.to_string(),
@@ -214,7 +231,7 @@ pub mod iot_hub_dps {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

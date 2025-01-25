@@ -69,25 +69,25 @@
 /// ```
 ///
 pub mod membership_rbac_role_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MembershipRbacRoleBindingArgs {
         /// Location of the Membership
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Id of the membership
         #[builder(into)]
-        pub membership_id: pulumi_wasm_rust::Output<String>,
+        pub membership_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The client-provided identifier of the RBAC Role Binding.
         #[builder(into)]
-        pub membership_rbac_role_binding_id: pulumi_wasm_rust::Output<String>,
+        pub membership_rbac_role_binding_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Role to bind to the principal.
         /// Structure is documented below.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::Output<
+        pub role: pulumi_wasm_rust::InputOrOutput<
             super::super::types::gkehub::MembershipRbacRoleBindingRole,
         >,
         /// Principal that is be authorized in the cluster (at least of one the oneof
@@ -95,7 +95,7 @@ pub mod membership_rbac_role_binding {
         /// user is the name of the user as seen by the kubernetes cluster, example
         /// "alice" or "alice@domain.tld"
         #[builder(into)]
-        pub user: pulumi_wasm_rust::Output<String>,
+        pub user: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MembershipRbacRoleBindingResult {
@@ -137,19 +137,21 @@ pub mod membership_rbac_role_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: MembershipRbacRoleBindingArgs,
     ) -> MembershipRbacRoleBindingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let membership_id_binding = args.membership_id.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let membership_id_binding = args.membership_id.get_output(context).get_inner();
         let membership_rbac_role_binding_id_binding = args
             .membership_rbac_role_binding_id
+            .get_output(context)
             .get_inner();
-        let project_binding = args.project.get_inner();
-        let role_binding = args.role.get_inner();
-        let user_binding = args.user.get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let role_binding = args.role.get_output(context).get_inner();
+        let user_binding = args.user.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkehub/membershipRbacRoleBinding:MembershipRbacRoleBinding"
                 .into(),
@@ -220,7 +222,7 @@ pub mod membership_rbac_role_binding {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

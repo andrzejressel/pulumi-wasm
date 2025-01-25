@@ -28,22 +28,22 @@
 /// }
 /// ```
 pub mod registry_image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegistryImageArgs {
         /// If `true`, the verification of TLS certificates of the server/registry is disabled. Defaults to `false`
         #[builder(into, default)]
-        pub insecure_skip_verify: pulumi_wasm_rust::Output<Option<bool>>,
+        pub insecure_skip_verify: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker registry on destroy operation. Defaults to `false`
         #[builder(into, default)]
-        pub keep_remotely: pulumi_wasm_rust::Output<Option<bool>>,
+        pub keep_remotely: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the Docker image.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of arbitrary strings that, when changed, will force the `docker.RegistryImage` resource to be replaced. This can be used to repush a local image
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -66,13 +66,20 @@ pub mod registry_image {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RegistryImageArgs) -> RegistryImageResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RegistryImageArgs,
+    ) -> RegistryImageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let insecure_skip_verify_binding = args.insecure_skip_verify.get_inner();
-        let keep_remotely_binding = args.keep_remotely.get_inner();
-        let name_binding = args.name.get_inner();
-        let triggers_binding = args.triggers.get_inner();
+        let insecure_skip_verify_binding = args
+            .insecure_skip_verify
+            .get_output(context)
+            .get_inner();
+        let keep_remotely_binding = args.keep_remotely.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let triggers_binding = args.triggers.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "docker:index/registryImage:RegistryImage".into(),
             name: name.to_string(),
@@ -113,7 +120,7 @@ pub mod registry_image {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,14 +1,14 @@
 pub mod get_ai_featurestore_entitytype_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAiFeaturestoreEntitytypeIamPolicyArgs {
         /// Used to find the parent resource to bind the IAM policy to
         #[builder(into)]
-        pub entitytype: pulumi_wasm_rust::Output<String>,
+        pub entitytype: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Featurestore to use, in the format projects/{project}/locations/{location}/featurestores/{featurestore}. Used to find the parent resource to bind the IAM policy to
         #[builder(into)]
-        pub featurestore: pulumi_wasm_rust::Output<String>,
+        pub featurestore: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetAiFeaturestoreEntitytypeIamPolicyResult {
@@ -27,12 +27,13 @@ pub mod get_ai_featurestore_entitytype_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetAiFeaturestoreEntitytypeIamPolicyArgs,
     ) -> GetAiFeaturestoreEntitytypeIamPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let entitytype_binding = args.entitytype.get_inner();
-        let featurestore_binding = args.featurestore.get_inner();
+        let entitytype_binding = args.entitytype.get_output(context).get_inner();
+        let featurestore_binding = args.featurestore.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:vertex/getAiFeaturestoreEntitytypeIamPolicy:getAiFeaturestoreEntitytypeIamPolicy"
                 .into(),
@@ -65,7 +66,7 @@ pub mod get_ai_featurestore_entitytype_iam_policy {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,11 +1,11 @@
 pub mod get_core_network_policy_document {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetCoreNetworkPolicyDocumentArgs {
         /// In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
         #[builder(into, default)]
-        pub attachment_policies: pulumi_wasm_rust::Output<
+        pub attachment_policies: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentAttachmentPolicy,
@@ -14,14 +14,14 @@ pub mod get_core_network_policy_document {
         >,
         /// The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
         #[builder(into)]
-        pub core_network_configurations: pulumi_wasm_rust::Output<
+        pub core_network_configurations: pulumi_wasm_rust::InputOrOutput<
             Vec<
                 super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentCoreNetworkConfiguration,
             >,
         >,
         /// Block argument that defines the service insertion actions you want to include. Detailed below.
         #[builder(into, default)]
-        pub network_function_groups: pulumi_wasm_rust::Output<
+        pub network_function_groups: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentNetworkFunctionGroup,
@@ -30,7 +30,7 @@ pub mod get_core_network_policy_document {
         >,
         /// A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
         #[builder(into, default)]
-        pub segment_actions: pulumi_wasm_rust::Output<
+        pub segment_actions: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentSegmentAction,
@@ -39,13 +39,13 @@ pub mod get_core_network_policy_document {
         >,
         /// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
         #[builder(into)]
-        pub segments: pulumi_wasm_rust::Output<
+        pub segments: pulumi_wasm_rust::InputOrOutput<
             Vec<
                 super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentSegment,
             >,
         >,
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetCoreNetworkPolicyDocumentResult {
@@ -91,18 +91,29 @@ pub mod get_core_network_policy_document {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetCoreNetworkPolicyDocumentArgs,
     ) -> GetCoreNetworkPolicyDocumentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attachment_policies_binding = args.attachment_policies.get_inner();
+        let attachment_policies_binding = args
+            .attachment_policies
+            .get_output(context)
+            .get_inner();
         let core_network_configurations_binding = args
             .core_network_configurations
+            .get_output(context)
             .get_inner();
-        let network_function_groups_binding = args.network_function_groups.get_inner();
-        let segment_actions_binding = args.segment_actions.get_inner();
-        let segments_binding = args.segments.get_inner();
-        let version_binding = args.version.get_inner();
+        let network_function_groups_binding = args
+            .network_function_groups
+            .get_output(context)
+            .get_inner();
+        let segment_actions_binding = args
+            .segment_actions
+            .get_output(context)
+            .get_inner();
+        let segments_binding = args.segments.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:networkmanager/getCoreNetworkPolicyDocument:getCoreNetworkPolicyDocument"
                 .into(),
@@ -160,7 +171,7 @@ pub mod get_core_network_policy_document {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

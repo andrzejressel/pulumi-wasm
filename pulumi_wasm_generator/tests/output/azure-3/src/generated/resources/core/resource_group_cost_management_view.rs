@@ -49,46 +49,46 @@
 /// ```
 ///
 pub mod resource_group_cost_management_view {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceGroupCostManagementViewArgs {
         /// Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Resource Group to be created.
         #[builder(into)]
-        pub accumulated: pulumi_wasm_rust::Output<bool>,
+        pub accumulated: pulumi_wasm_rust::InputOrOutput<bool>,
         /// Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`.
         #[builder(into)]
-        pub chart_type: pulumi_wasm_rust::Output<String>,
+        pub chart_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `dataset` block as defined below.
         #[builder(into)]
-        pub dataset: pulumi_wasm_rust::Output<
+        pub dataset: pulumi_wasm_rust::InputOrOutput<
             super::super::types::core::ResourceGroupCostManagementViewDataset,
         >,
         /// User visible input name of the Cost Management View.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `kpi` blocks as defined below, to show in Cost Analysis UI.
         #[builder(into, default)]
-        pub kpis: pulumi_wasm_rust::Output<
+        pub kpis: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::core::ResourceGroupCostManagementViewKpi>>,
         >,
         /// The name which should be used for this Cost Management View for a Resource Group. Changing this forces a new Cost Management View for a Resource Group to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `pivot` blocks as defined below, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots.
         #[builder(into, default)]
-        pub pivots: pulumi_wasm_rust::Output<
+        pub pivots: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::core::ResourceGroupCostManagementViewPivot>>,
         >,
         /// The type of the report. The only possible value is `Usage`.
         #[builder(into)]
-        pub report_type: pulumi_wasm_rust::Output<String>,
+        pub report_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Resource Group this View is scoped to. Changing this forces a new Cost Management View for a Resource Group to be created.
         #[builder(into)]
-        pub resource_group_id: pulumi_wasm_rust::Output<String>,
+        pub resource_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`.
         #[builder(into)]
-        pub timeframe: pulumi_wasm_rust::Output<String>,
+        pub timeframe: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResourceGroupCostManagementViewResult {
@@ -124,21 +124,25 @@ pub mod resource_group_cost_management_view {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ResourceGroupCostManagementViewArgs,
     ) -> ResourceGroupCostManagementViewResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accumulated_binding = args.accumulated.get_inner();
-        let chart_type_binding = args.chart_type.get_inner();
-        let dataset_binding = args.dataset.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let kpis_binding = args.kpis.get_inner();
-        let name_binding = args.name.get_inner();
-        let pivots_binding = args.pivots.get_inner();
-        let report_type_binding = args.report_type.get_inner();
-        let resource_group_id_binding = args.resource_group_id.get_inner();
-        let timeframe_binding = args.timeframe.get_inner();
+        let accumulated_binding = args.accumulated.get_output(context).get_inner();
+        let chart_type_binding = args.chart_type.get_output(context).get_inner();
+        let dataset_binding = args.dataset.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let kpis_binding = args.kpis.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let pivots_binding = args.pivots.get_output(context).get_inner();
+        let report_type_binding = args.report_type.get_output(context).get_inner();
+        let resource_group_id_binding = args
+            .resource_group_id
+            .get_output(context)
+            .get_inner();
+        let timeframe_binding = args.timeframe.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView"
                 .into(),
@@ -219,7 +223,7 @@ pub mod resource_group_cost_management_view {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

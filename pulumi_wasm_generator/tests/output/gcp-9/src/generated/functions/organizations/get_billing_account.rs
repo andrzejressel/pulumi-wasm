@@ -1,23 +1,23 @@
 pub mod get_billing_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBillingAccountArgs {
         /// The name of the billing account in the form `{billing_account_id}` or `billingAccounts/{billing_account_id}`.
         #[builder(into, default)]
-        pub billing_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub billing_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The display name of the billing account.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// `true` if projects associated with the billing account should be read, `false` if this step
         /// should be skipped. Setting `false` may be useful if the user permissions do not allow listing projects. Defaults to `true`.
         ///
         /// > **NOTE:** One of `billing_account` or `display_name` must be specified.
         #[builder(into, default)]
-        pub lookup_projects: pulumi_wasm_rust::Output<Option<bool>>,
+        pub lookup_projects: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// `true` if the billing account is open, `false` if the billing account is closed.
         #[builder(into, default)]
-        pub open: pulumi_wasm_rust::Output<Option<bool>>,
+        pub open: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GetBillingAccountResult {
@@ -37,13 +37,22 @@ pub mod get_billing_account {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetBillingAccountArgs) -> GetBillingAccountResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetBillingAccountArgs,
+    ) -> GetBillingAccountResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let billing_account_binding = args.billing_account.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let lookup_projects_binding = args.lookup_projects.get_inner();
-        let open_binding = args.open.get_inner();
+        let billing_account_binding = args
+            .billing_account
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let lookup_projects_binding = args
+            .lookup_projects
+            .get_output(context)
+            .get_inner();
+        let open_binding = args.open.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:organizations/getBillingAccount:getBillingAccount".into(),
             version: super::super::super::get_version(),
@@ -89,7 +98,7 @@ pub mod get_billing_account {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

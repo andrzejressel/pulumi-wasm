@@ -31,19 +31,21 @@
 /// $ pulumi import aws:organizations/organization:Organization my_org o-1234567
 /// ```
 pub mod organization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationArgs {
         /// List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
         #[builder(into, default)]
-        pub aws_service_access_principals: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub aws_service_access_principals: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `RESOURCE_CONTROL_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         #[builder(into, default)]
-        pub enabled_policy_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub enabled_policy_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specify "ALL" (default) or "CONSOLIDATED_BILLING".
         #[builder(into, default)]
-        pub feature_set: pulumi_wasm_rust::Output<Option<String>>,
+        pub feature_set: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct OrganizationResult {
@@ -80,14 +82,22 @@ pub mod organization {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: OrganizationArgs) -> OrganizationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: OrganizationArgs,
+    ) -> OrganizationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let aws_service_access_principals_binding = args
             .aws_service_access_principals
+            .get_output(context)
             .get_inner();
-        let enabled_policy_types_binding = args.enabled_policy_types.get_inner();
-        let feature_set_binding = args.feature_set.get_inner();
+        let enabled_policy_types_binding = args
+            .enabled_policy_types
+            .get_output(context)
+            .get_inner();
+        let feature_set_binding = args.feature_set.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:organizations/organization:Organization".into(),
             name: name.to_string(),
@@ -142,7 +152,7 @@ pub mod organization {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

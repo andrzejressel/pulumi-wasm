@@ -110,45 +110,47 @@
 /// $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
 /// ```
 pub mod flow {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FlowArgs {
         /// Description of the flow you want to create.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A Destination Flow Config that controls how Amazon AppFlow places data in the destination connector.
         #[builder(into)]
-        pub destination_flow_configs: pulumi_wasm_rust::Output<
+        pub destination_flow_configs: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::appflow::FlowDestinationFlowConfig>,
         >,
         /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         #[builder(into, default)]
-        pub kms_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A Catalog that determines the configuration that Amazon AppFlow uses when it catalogs the data that’s transferred by the associated flow. When Amazon AppFlow catalogs the data from a flow, it stores metadata in a data catalog.
         #[builder(into, default)]
-        pub metadata_catalog_config: pulumi_wasm_rust::Output<
+        pub metadata_catalog_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appflow::FlowMetadataCatalogConfig>,
         >,
         /// Name of the flow.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
         #[builder(into)]
-        pub source_flow_config: pulumi_wasm_rust::Output<
+        pub source_flow_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::appflow::FlowSourceFlowConfig,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A Task that Amazon AppFlow performs while transferring the data in the flow run.
         #[builder(into)]
-        pub tasks: pulumi_wasm_rust::Output<Vec<super::super::types::appflow::FlowTask>>,
+        pub tasks: pulumi_wasm_rust::InputOrOutput<
+            Vec<super::super::types::appflow::FlowTask>,
+        >,
         /// A Trigger that determine how and when the flow runs.
         #[builder(into)]
-        pub trigger_config: pulumi_wasm_rust::Output<
+        pub trigger_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::appflow::FlowTriggerConfig,
         >,
     }
@@ -195,18 +197,31 @@ pub mod flow {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FlowArgs) -> FlowResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FlowArgs,
+    ) -> FlowResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let destination_flow_configs_binding = args.destination_flow_configs.get_inner();
-        let kms_arn_binding = args.kms_arn.get_inner();
-        let metadata_catalog_config_binding = args.metadata_catalog_config.get_inner();
-        let name_binding = args.name.get_inner();
-        let source_flow_config_binding = args.source_flow_config.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tasks_binding = args.tasks.get_inner();
-        let trigger_config_binding = args.trigger_config.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let destination_flow_configs_binding = args
+            .destination_flow_configs
+            .get_output(context)
+            .get_inner();
+        let kms_arn_binding = args.kms_arn.get_output(context).get_inner();
+        let metadata_catalog_config_binding = args
+            .metadata_catalog_config
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let source_flow_config_binding = args
+            .source_flow_config
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tasks_binding = args.tasks.get_output(context).get_inner();
+        let trigger_config_binding = args.trigger_config.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appflow/flow:Flow".into(),
             name: name.to_string(),
@@ -288,7 +303,7 @@ pub mod flow {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

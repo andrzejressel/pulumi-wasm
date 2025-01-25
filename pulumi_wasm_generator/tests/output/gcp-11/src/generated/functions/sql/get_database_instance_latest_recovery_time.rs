@@ -1,14 +1,14 @@
 pub mod get_database_instance_latest_recovery_time {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDatabaseInstanceLatestRecoveryTimeArgs {
         /// The name of the instance.
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetDatabaseInstanceLatestRecoveryTimeResult {
@@ -26,12 +26,13 @@ pub mod get_database_instance_latest_recovery_time {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetDatabaseInstanceLatestRecoveryTimeArgs,
     ) -> GetDatabaseInstanceLatestRecoveryTimeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let instance_binding = args.instance.get_inner();
-        let project_binding = args.project.get_inner();
+        let instance_binding = args.instance.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:sql/getDatabaseInstanceLatestRecoveryTime:getDatabaseInstanceLatestRecoveryTime"
                 .into(),
@@ -61,7 +62,7 @@ pub mod get_database_instance_latest_recovery_time {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

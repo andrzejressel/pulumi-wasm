@@ -36,33 +36,33 @@
 /// $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
 /// ```
 pub mod portfolio_share {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PortfolioShareArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Portfolio identifier.
         #[builder(into)]
-        pub portfolio_id: pulumi_wasm_rust::Output<String>,
+        pub portfolio_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
         #[builder(into)]
-        pub principal_id: pulumi_wasm_rust::Output<String>,
+        pub principal_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         #[builder(into, default)]
-        pub share_principals: pulumi_wasm_rust::Output<Option<bool>>,
+        pub share_principals: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
         #[builder(into, default)]
-        pub share_tag_options: pulumi_wasm_rust::Output<Option<bool>>,
+        pub share_tag_options: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
         #[builder(into, default)]
-        pub wait_for_acceptance: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_for_acceptance: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct PortfolioShareResult {
@@ -89,16 +89,32 @@ pub mod portfolio_share {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PortfolioShareArgs) -> PortfolioShareResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PortfolioShareArgs,
+    ) -> PortfolioShareResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding = args.accept_language.get_inner();
-        let portfolio_id_binding = args.portfolio_id.get_inner();
-        let principal_id_binding = args.principal_id.get_inner();
-        let share_principals_binding = args.share_principals.get_inner();
-        let share_tag_options_binding = args.share_tag_options.get_inner();
-        let type__binding = args.type_.get_inner();
-        let wait_for_acceptance_binding = args.wait_for_acceptance.get_inner();
+        let accept_language_binding = args
+            .accept_language
+            .get_output(context)
+            .get_inner();
+        let portfolio_id_binding = args.portfolio_id.get_output(context).get_inner();
+        let principal_id_binding = args.principal_id.get_output(context).get_inner();
+        let share_principals_binding = args
+            .share_principals
+            .get_output(context)
+            .get_inner();
+        let share_tag_options_binding = args
+            .share_tag_options
+            .get_output(context)
+            .get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let wait_for_acceptance_binding = args
+            .wait_for_acceptance
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/portfolioShare:PortfolioShare".into(),
             name: name.to_string(),
@@ -160,7 +176,7 @@ pub mod portfolio_share {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

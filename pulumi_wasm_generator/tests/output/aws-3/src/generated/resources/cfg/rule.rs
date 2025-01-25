@@ -144,36 +144,40 @@
 /// $ pulumi import aws:cfg/rule:Rule foo example
 /// ```
 pub mod rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RuleArgs {
         /// Description of the rule
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         #[builder(into, default)]
-        pub evaluation_modes: pulumi_wasm_rust::Output<
+        pub evaluation_modes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::cfg::RuleEvaluationMode>>,
         >,
         /// A string in JSON format that is passed to the AWS Config rule Lambda function.
         #[builder(into, default)]
-        pub input_parameters: pulumi_wasm_rust::Output<Option<String>>,
+        pub input_parameters: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The maximum frequency with which AWS Config runs evaluations for a rule.
         #[builder(into, default)]
-        pub maximum_execution_frequency: pulumi_wasm_rust::Output<Option<String>>,
+        pub maximum_execution_frequency: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the rule
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         #[builder(into, default)]
-        pub scope: pulumi_wasm_rust::Output<Option<super::super::types::cfg::RuleScope>>,
+        pub scope: pulumi_wasm_rust::InputOrOutput<
+            Option<super::super::types::cfg::RuleScope>,
+        >,
         /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         #[builder(into)]
-        pub source: pulumi_wasm_rust::Output<super::super::types::cfg::RuleSource>,
+        pub source: pulumi_wasm_rust::InputOrOutput<
+            super::super::types::cfg::RuleSource,
+        >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -212,19 +216,30 @@ pub mod rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RuleArgs) -> RuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RuleArgs,
+    ) -> RuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let evaluation_modes_binding = args.evaluation_modes.get_inner();
-        let input_parameters_binding = args.input_parameters.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let evaluation_modes_binding = args
+            .evaluation_modes
+            .get_output(context)
+            .get_inner();
+        let input_parameters_binding = args
+            .input_parameters
+            .get_output(context)
+            .get_inner();
         let maximum_execution_frequency_binding = args
             .maximum_execution_frequency
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let scope_binding = args.scope.get_inner();
-        let source_binding = args.source.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/rule:Rule".into(),
             name: name.to_string(),
@@ -299,7 +314,7 @@ pub mod rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,11 +1,11 @@
 pub mod get_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetEndpointArgs {
         /// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
         #[builder(into, default)]
-        pub endpoint_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub endpoint_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetEndpointResult {
@@ -24,10 +24,13 @@ pub mod get_endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetEndpointArgs) -> GetEndpointResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetEndpointArgs,
+    ) -> GetEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let endpoint_type_binding = args.endpoint_type.get_inner();
+        let endpoint_type_binding = args.endpoint_type.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:iot/getEndpoint:getEndpoint".into(),
             version: super::super::super::get_version(),
@@ -49,7 +52,7 @@ pub mod get_endpoint {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

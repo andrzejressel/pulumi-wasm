@@ -51,38 +51,38 @@
 /// where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.
 ///
 pub mod resource_policy_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourcePolicyAssignmentArgs {
         /// A description which should be used for this Policy Assignment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Display Name for this Policy Assignment.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies if this Policy should be enforced or not? Defaults to `true`.
         #[builder(into, default)]
-        pub enforce: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enforce: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         ///
         /// > **Note:** The `location` field must also be specified when `identity` is specified.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::core::ResourcePolicyAssignmentIdentity>,
         >,
         /// The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A JSON mapping of any Metadata for this Policy.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<Option<String>>,
+        pub metadata: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Policy Assignment. Changing this forces a new Resource Policy Assignment to be created. Cannot exceed 64 characters in length.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `non_compliance_message` blocks as defined below.
         #[builder(into, default)]
-        pub non_compliance_messages: pulumi_wasm_rust::Output<
+        pub non_compliance_messages: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::core::ResourcePolicyAssignmentNonComplianceMessage,
@@ -91,26 +91,26 @@ pub mod resource_policy_assignment {
         >,
         /// Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy.
         #[builder(into, default)]
-        pub not_scopes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub not_scopes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// One or more `overrides` blocks as defined below. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)
         #[builder(into, default)]
-        pub overrides: pulumi_wasm_rust::Output<
+        pub overrides: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::core::ResourcePolicyAssignmentOverride>>,
         >,
         /// A JSON mapping of any Parameters for this Policy.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<Option<String>>,
+        pub parameters: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created.
         #[builder(into)]
-        pub policy_definition_id: pulumi_wasm_rust::Output<String>,
+        pub policy_definition_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created.
         ///
         /// > To create a Policy Assignment at a Management Group use the `azure.management.GroupPolicyAssignment` resource, for a Resource Group use the `azure.core.ResourceGroupPolicyAssignment` and for a Subscription use the `azure.core.SubscriptionPolicyAssignment` resource.
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `resource_selectors` blocks as defined below to filter polices by resource properties.
         #[builder(into, default)]
-        pub resource_selectors: pulumi_wasm_rust::Output<
+        pub resource_selectors: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::core::ResourcePolicyAssignmentResourceSelector>,
             >,
@@ -170,25 +170,35 @@ pub mod resource_policy_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ResourcePolicyAssignmentArgs,
     ) -> ResourcePolicyAssignmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enforce_binding = args.enforce.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let non_compliance_messages_binding = args.non_compliance_messages.get_inner();
-        let not_scopes_binding = args.not_scopes.get_inner();
-        let overrides_binding = args.overrides.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let policy_definition_id_binding = args.policy_definition_id.get_inner();
-        let resource_id_binding = args.resource_id.get_inner();
-        let resource_selectors_binding = args.resource_selectors.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enforce_binding = args.enforce.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let non_compliance_messages_binding = args
+            .non_compliance_messages
+            .get_output(context)
+            .get_inner();
+        let not_scopes_binding = args.not_scopes.get_output(context).get_inner();
+        let overrides_binding = args.overrides.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let policy_definition_id_binding = args
+            .policy_definition_id
+            .get_output(context)
+            .get_inner();
+        let resource_id_binding = args.resource_id.get_output(context).get_inner();
+        let resource_selectors_binding = args
+            .resource_selectors
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:core/resourcePolicyAssignment:ResourcePolicyAssignment".into(),
             name: name.to_string(),
@@ -296,7 +306,7 @@ pub mod resource_policy_assignment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -50,7 +50,7 @@
 /// ```
 ///
 pub mod source_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SourceIamPolicyArgs {
@@ -60,11 +60,11 @@ pub mod source_iam_policy {
         ///
         /// - - -
         #[builder(into)]
-        pub organization: pulumi_wasm_rust::Output<String>,
+        pub organization: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub policy_data: pulumi_wasm_rust::Output<String>,
+        pub policy_data: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub source: pulumi_wasm_rust::Output<String>,
+        pub source: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SourceIamPolicyResult {
@@ -82,12 +82,16 @@ pub mod source_iam_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SourceIamPolicyArgs) -> SourceIamPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SourceIamPolicyArgs,
+    ) -> SourceIamPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let organization_binding = args.organization.get_inner();
-        let policy_data_binding = args.policy_data.get_inner();
-        let source_binding = args.source.get_inner();
+        let organization_binding = args.organization.get_output(context).get_inner();
+        let policy_data_binding = args.policy_data.get_output(context).get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/sourceIamPolicy:SourceIamPolicy".into(),
             name: name.to_string(),
@@ -121,7 +125,7 @@ pub mod source_iam_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

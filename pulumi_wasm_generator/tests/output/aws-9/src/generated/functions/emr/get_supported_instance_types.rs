@@ -1,14 +1,14 @@
 pub mod get_supported_instance_types {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSupportedInstanceTypesArgs {
         /// Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         #[builder(into)]
-        pub release_label: pulumi_wasm_rust::Output<String>,
+        pub release_label: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of supported instance types. See `supported_instance_types` below.
         #[builder(into, default)]
-        pub supported_instance_types: pulumi_wasm_rust::Output<
+        pub supported_instance_types: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::emr::GetSupportedInstanceTypesSupportedInstanceType,
@@ -34,12 +34,16 @@ pub mod get_supported_instance_types {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetSupportedInstanceTypesArgs,
     ) -> GetSupportedInstanceTypesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let release_label_binding = args.release_label.get_inner();
-        let supported_instance_types_binding = args.supported_instance_types.get_inner();
+        let release_label_binding = args.release_label.get_output(context).get_inner();
+        let supported_instance_types_binding = args
+            .supported_instance_types
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes".into(),
             version: super::super::super::get_version(),
@@ -65,7 +69,7 @@ pub mod get_supported_instance_types {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

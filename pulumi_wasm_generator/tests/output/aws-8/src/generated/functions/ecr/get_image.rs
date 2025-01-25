@@ -1,23 +1,23 @@
 pub mod get_image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetImageArgs {
         /// Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
         #[builder(into, default)]
-        pub image_digest: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_digest: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
         #[builder(into, default)]
-        pub image_tag: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_tag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
         #[builder(into, default)]
-        pub most_recent: pulumi_wasm_rust::Output<Option<bool>>,
+        pub most_recent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// ID of the Registry where the repository resides.
         #[builder(into, default)]
-        pub registry_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub registry_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the ECR Repository.
         #[builder(into)]
-        pub repository_name: pulumi_wasm_rust::Output<String>,
+        pub repository_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetImageResult {
@@ -41,14 +41,20 @@ pub mod get_image {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetImageArgs) -> GetImageResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetImageArgs,
+    ) -> GetImageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let image_digest_binding = args.image_digest.get_inner();
-        let image_tag_binding = args.image_tag.get_inner();
-        let most_recent_binding = args.most_recent.get_inner();
-        let registry_id_binding = args.registry_id.get_inner();
-        let repository_name_binding = args.repository_name.get_inner();
+        let image_digest_binding = args.image_digest.get_output(context).get_inner();
+        let image_tag_binding = args.image_tag.get_output(context).get_inner();
+        let most_recent_binding = args.most_recent.get_output(context).get_inner();
+        let registry_id_binding = args.registry_id.get_output(context).get_inner();
+        let repository_name_binding = args
+            .repository_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ecr/getImage:getImage".into(),
             version: super::super::super::get_version(),
@@ -107,7 +113,7 @@ pub mod get_image {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

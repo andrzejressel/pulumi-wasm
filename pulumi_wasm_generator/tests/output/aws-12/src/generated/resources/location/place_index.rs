@@ -25,29 +25,29 @@
 /// $ pulumi import aws:location/placeIndex:PlaceIndex example example
 /// ```
 pub mod place_index {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PlaceIndexArgs {
         /// Specifies the geospatial data provider for the new place index.
         #[builder(into)]
-        pub data_source: pulumi_wasm_rust::Output<String>,
+        pub data_source: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block with the data storage option chosen for requesting Places. Detailed below.
         #[builder(into, default)]
-        pub data_source_configuration: pulumi_wasm_rust::Output<
+        pub data_source_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::location::PlaceIndexDataSourceConfiguration>,
         >,
         /// The optional description for the place index resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the place index resource.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub index_name: pulumi_wasm_rust::Output<String>,
+        pub index_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -84,16 +84,21 @@ pub mod place_index {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PlaceIndexArgs) -> PlaceIndexResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PlaceIndexArgs,
+    ) -> PlaceIndexResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let data_source_binding = args.data_source.get_inner();
+        let data_source_binding = args.data_source.get_output(context).get_inner();
         let data_source_configuration_binding = args
             .data_source_configuration
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let index_name_binding = args.index_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let index_name_binding = args.index_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:location/placeIndex:PlaceIndex".into(),
             name: name.to_string(),
@@ -150,7 +155,7 @@ pub mod place_index {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

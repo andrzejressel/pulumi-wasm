@@ -35,45 +35,45 @@
 /// ```
 ///
 pub mod zero_trust_gateway_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustGatewayPolicyArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The action executed by matched teams rule. Available values: `allow`, `block`, `safesearch`, `ytrestricted`, `on`, `off`, `scan`, `noscan`, `isolate`, `noisolate`, `override`, `l4_override`, `egress`, `audit_ssh`, `resolve`.
         #[builder(into)]
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of the teams rule.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_wasm_rust::InputOrOutput<String>,
         /// The wirefilter expression to be used for device_posture check matching.
         #[builder(into, default)]
-        pub device_posture: pulumi_wasm_rust::Output<Option<String>>,
+        pub device_posture: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicator of rule enablement.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The protocol or layer to evaluate the traffic and identity expressions.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub filters: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The wirefilter expression to be used for identity matching.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<Option<String>>,
+        pub identity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the teams rule.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The evaluation precedence of the teams rule.
         #[builder(into)]
-        pub precedence: pulumi_wasm_rust::Output<i32>,
+        pub precedence: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Additional rule settings.
         #[builder(into, default)]
-        pub rule_settings: pulumi_wasm_rust::Output<
+        pub rule_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewayPolicyRuleSettings>,
         >,
         /// The wirefilter expression to be used for traffic matching.
         #[builder(into, default)]
-        pub traffic: pulumi_wasm_rust::Output<Option<String>>,
+        pub traffic: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustGatewayPolicyResult {
@@ -108,22 +108,23 @@ pub mod zero_trust_gateway_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ZeroTrustGatewayPolicyArgs,
     ) -> ZeroTrustGatewayPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let action_binding = args.action.get_inner();
-        let description_binding = args.description.get_inner();
-        let device_posture_binding = args.device_posture.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let filters_binding = args.filters.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let name_binding = args.name.get_inner();
-        let precedence_binding = args.precedence.get_inner();
-        let rule_settings_binding = args.rule_settings.get_inner();
-        let traffic_binding = args.traffic.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let device_posture_binding = args.device_posture.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let precedence_binding = args.precedence.get_output(context).get_inner();
+        let rule_settings_binding = args.rule_settings.get_output(context).get_inner();
+        let traffic_binding = args.traffic.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustGatewayPolicy:ZeroTrustGatewayPolicy"
                 .into(),
@@ -214,7 +215,7 @@ pub mod zero_trust_gateway_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

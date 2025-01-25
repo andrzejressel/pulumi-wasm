@@ -81,179 +81,187 @@
 /// ```
 ///
 pub mod account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountArgs {
         /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
         #[builder(into, default)]
-        pub access_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
         ///
         /// > **Note:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
         #[builder(into, default)]
-        pub account_kind: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_kind: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
         #[builder(into)]
-        pub account_replication_type: pulumi_wasm_rust::Output<String>,
+        pub account_replication_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         ///
         /// > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
         #[builder(into)]
-        pub account_tier: pulumi_wasm_rust::Output<String>,
+        pub account_tier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
         ///
         /// > **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         #[builder(into, default)]
-        pub allow_nested_items_to_be_public: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_nested_items_to_be_public: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
         #[builder(into, default)]
-        pub allowed_copy_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub allowed_copy_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `azure_files_authentication` block as defined below.
         #[builder(into, default)]
-        pub azure_files_authentication: pulumi_wasm_rust::Output<
+        pub azure_files_authentication: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::AccountAzureFilesAuthentication>,
         >,
         /// A `blob_properties` block as defined below.
         #[builder(into, default)]
-        pub blob_properties: pulumi_wasm_rust::Output<
+        pub blob_properties: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::AccountBlobProperties>,
         >,
         /// Should cross Tenant replication be enabled? Defaults to `false`.
         #[builder(into, default)]
-        pub cross_tenant_replication_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub cross_tenant_replication_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A `custom_domain` block as documented below.
         #[builder(into, default)]
-        pub custom_domain: pulumi_wasm_rust::Output<
+        pub custom_domain: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::AccountCustomDomain>,
         >,
         /// A `customer_managed_key` block as documented below.
         ///
         /// > **Note:** It's possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `azure.storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
         #[builder(into, default)]
-        pub customer_managed_key: pulumi_wasm_rust::Output<
+        pub customer_managed_key: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::AccountCustomerManagedKey>,
         >,
         /// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
         #[builder(into, default)]
-        pub default_to_oauth_authentication: pulumi_wasm_rust::Output<Option<bool>>,
+        pub default_to_oauth_authentication: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
         #[builder(into, default)]
-        pub dns_endpoint_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub dns_endpoint_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         #[builder(into, default)]
-        pub edge_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub edge_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
         #[builder(into, default)]
-        pub https_traffic_only_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub https_traffic_only_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::AccountIdentity>,
         >,
         /// An `immutability_policy` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub immutability_policy: pulumi_wasm_rust::Output<
+        pub immutability_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::AccountImmutabilityPolicy>,
         >,
         /// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
         ///
         /// > **Note:** This can only be `true` when `account_kind` is `StorageV2` or when `account_tier` is `Premium` *and* `account_kind` is one of `BlockBlobStorage` or `FileStorage`.
         #[builder(into, default)]
-        pub infrastructure_encryption_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub infrastructure_encryption_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         ///
         /// > **Note:** This can only be `true` when `account_tier` is `Standard` or when `account_tier` is `Premium` *and* `account_kind` is `BlockBlobStorage`
         #[builder(into, default)]
-        pub is_hns_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_hns_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Are Large File Shares Enabled? Defaults to `false`.
         ///
         /// > **Note:** Large File Shares are enabled by default when using an `account_kind` of `FileStorage`.
         #[builder(into, default)]
-        pub large_file_share_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub large_file_share_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Is Local User Enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub local_user_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_user_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
         ///
         /// > **Note:** At this time `min_tls_version` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
         #[builder(into, default)]
-        pub min_tls_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub min_tls_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `network_rules` block as documented below.
         #[builder(into, default)]
-        pub network_rules: pulumi_wasm_rust::Output<
+        pub network_rules: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::AccountNetworkRules>,
         >,
         /// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
         ///
         /// > **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
         #[builder(into, default)]
-        pub nfsv3_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub nfsv3_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether the public network access is enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         #[builder(into, default)]
-        pub queue_encryption_key_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub queue_encryption_key_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `queue_properties` block as defined below.
         ///
         /// > **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
         #[builder(into, default)]
-        pub queue_properties: pulumi_wasm_rust::Output<
+        pub queue_properties: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::AccountQueueProperties>,
         >,
         /// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `routing` block as defined below.
         #[builder(into, default)]
-        pub routing: pulumi_wasm_rust::Output<
+        pub routing: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::AccountRouting>,
         >,
         /// A `sas_policy` block as defined below.
         #[builder(into, default)]
-        pub sas_policy: pulumi_wasm_rust::Output<
+        pub sas_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::AccountSasPolicy>,
         >,
         /// Boolean, enable SFTP for the storage account
         ///
         /// > **Note:** SFTP support requires `is_hns_enabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
         #[builder(into, default)]
-        pub sftp_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub sftp_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A `share_properties` block as defined below.
         ///
         /// > **Note:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
         #[builder(into, default)]
-        pub share_properties: pulumi_wasm_rust::Output<
+        pub share_properties: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::AccountShareProperties>,
         >,
         #[builder(into, default)]
-        pub shared_access_key_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub shared_access_key_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A `static_website` block as defined below.
         ///
         /// > **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
         ///
         /// > **Note:** If `static_website` is specified, the service will automatically create a `azure.storage.Container` named `$web`.
         #[builder(into, default)]
-        pub static_website: pulumi_wasm_rust::Output<
+        pub static_website: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storage::AccountStaticWebsite>,
         >,
         /// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         ///
         /// > **Note:** `queue_encryption_key_type` and `table_encryption_key_type` cannot be set to `Account` when `account_kind` is set `Storage`
         #[builder(into, default)]
-        pub table_encryption_key_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub table_encryption_key_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -541,67 +549,117 @@ pub mod account {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccountArgs) -> AccountResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccountArgs,
+    ) -> AccountResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_tier_binding = args.access_tier.get_inner();
-        let account_kind_binding = args.account_kind.get_inner();
-        let account_replication_type_binding = args.account_replication_type.get_inner();
-        let account_tier_binding = args.account_tier.get_inner();
+        let access_tier_binding = args.access_tier.get_output(context).get_inner();
+        let account_kind_binding = args.account_kind.get_output(context).get_inner();
+        let account_replication_type_binding = args
+            .account_replication_type
+            .get_output(context)
+            .get_inner();
+        let account_tier_binding = args.account_tier.get_output(context).get_inner();
         let allow_nested_items_to_be_public_binding = args
             .allow_nested_items_to_be_public
+            .get_output(context)
             .get_inner();
-        let allowed_copy_scope_binding = args.allowed_copy_scope.get_inner();
+        let allowed_copy_scope_binding = args
+            .allowed_copy_scope
+            .get_output(context)
+            .get_inner();
         let azure_files_authentication_binding = args
             .azure_files_authentication
+            .get_output(context)
             .get_inner();
-        let blob_properties_binding = args.blob_properties.get_inner();
+        let blob_properties_binding = args
+            .blob_properties
+            .get_output(context)
+            .get_inner();
         let cross_tenant_replication_enabled_binding = args
             .cross_tenant_replication_enabled
+            .get_output(context)
             .get_inner();
-        let custom_domain_binding = args.custom_domain.get_inner();
-        let customer_managed_key_binding = args.customer_managed_key.get_inner();
+        let custom_domain_binding = args.custom_domain.get_output(context).get_inner();
+        let customer_managed_key_binding = args
+            .customer_managed_key
+            .get_output(context)
+            .get_inner();
         let default_to_oauth_authentication_binding = args
             .default_to_oauth_authentication
+            .get_output(context)
             .get_inner();
-        let dns_endpoint_type_binding = args.dns_endpoint_type.get_inner();
-        let edge_zone_binding = args.edge_zone.get_inner();
+        let dns_endpoint_type_binding = args
+            .dns_endpoint_type
+            .get_output(context)
+            .get_inner();
+        let edge_zone_binding = args.edge_zone.get_output(context).get_inner();
         let https_traffic_only_enabled_binding = args
             .https_traffic_only_enabled
+            .get_output(context)
             .get_inner();
-        let identity_binding = args.identity.get_inner();
-        let immutability_policy_binding = args.immutability_policy.get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let immutability_policy_binding = args
+            .immutability_policy
+            .get_output(context)
+            .get_inner();
         let infrastructure_encryption_enabled_binding = args
             .infrastructure_encryption_enabled
+            .get_output(context)
             .get_inner();
-        let is_hns_enabled_binding = args.is_hns_enabled.get_inner();
-        let large_file_share_enabled_binding = args.large_file_share_enabled.get_inner();
-        let local_user_enabled_binding = args.local_user_enabled.get_inner();
-        let location_binding = args.location.get_inner();
-        let min_tls_version_binding = args.min_tls_version.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_rules_binding = args.network_rules.get_inner();
-        let nfsv3_enabled_binding = args.nfsv3_enabled.get_inner();
+        let is_hns_enabled_binding = args.is_hns_enabled.get_output(context).get_inner();
+        let large_file_share_enabled_binding = args
+            .large_file_share_enabled
+            .get_output(context)
+            .get_inner();
+        let local_user_enabled_binding = args
+            .local_user_enabled
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let min_tls_version_binding = args
+            .min_tls_version
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_rules_binding = args.network_rules.get_output(context).get_inner();
+        let nfsv3_enabled_binding = args.nfsv3_enabled.get_output(context).get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
         let queue_encryption_key_type_binding = args
             .queue_encryption_key_type
+            .get_output(context)
             .get_inner();
-        let queue_properties_binding = args.queue_properties.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let routing_binding = args.routing.get_inner();
-        let sas_policy_binding = args.sas_policy.get_inner();
-        let sftp_enabled_binding = args.sftp_enabled.get_inner();
-        let share_properties_binding = args.share_properties.get_inner();
+        let queue_properties_binding = args
+            .queue_properties
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let routing_binding = args.routing.get_output(context).get_inner();
+        let sas_policy_binding = args.sas_policy.get_output(context).get_inner();
+        let sftp_enabled_binding = args.sftp_enabled.get_output(context).get_inner();
+        let share_properties_binding = args
+            .share_properties
+            .get_output(context)
+            .get_inner();
         let shared_access_key_enabled_binding = args
             .shared_access_key_enabled
+            .get_output(context)
             .get_inner();
-        let static_website_binding = args.static_website.get_inner();
+        let static_website_binding = args.static_website.get_output(context).get_inner();
         let table_encryption_key_type_binding = args
             .table_encryption_key_type
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/account:Account".into(),
             name: name.to_string(),
@@ -1093,7 +1151,7 @@ pub mod account {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -75,81 +75,85 @@
 /// ```
 ///
 pub mod metadata {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MetadataArgs {
         /// An `author` blocks as defined below.
         #[builder(into, default)]
-        pub author: pulumi_wasm_rust::Output<
+        pub author: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sentinel::MetadataAuthor>,
         >,
         /// A `category` block as defined below.
         #[builder(into, default)]
-        pub category: pulumi_wasm_rust::Output<
+        pub category: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sentinel::MetadataCategory>,
         >,
         /// The ID of the content. Used to identify dependencies and content from solutions or community.
         #[builder(into)]
-        pub content_id: pulumi_wasm_rust::Output<String>,
+        pub content_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Schema version of the content. Can be used to distinguish between flow based on the schema version.
         #[builder(into, default)]
-        pub content_schema_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_schema_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Custom version of the content.
         #[builder(into, default)]
-        pub custom_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A JSON formatted `dependency` block as defined below. Dependency for the content item, what other content items it requires to work.
         #[builder(into, default)]
-        pub dependency: pulumi_wasm_rust::Output<Option<String>>,
+        pub dependency: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The first publish date of solution content item.
         #[builder(into, default)]
-        pub first_publish_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub first_publish_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the icon, this id can be fetched from the solution template.
         #[builder(into, default)]
-        pub icon_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub icon_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The kind of content the metadata is for. Possible values are `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook` and `WorkbookTemplate`.
         #[builder(into)]
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_wasm_rust::InputOrOutput<String>,
         /// The last publish date of solution content item.
         #[builder(into, default)]
-        pub last_publish_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub last_publish_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the parent resource ID of the content item, which the metadata belongs to.
         #[builder(into)]
-        pub parent_id: pulumi_wasm_rust::Output<String>,
+        pub parent_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies a list of preview image file names. These will be taken from solution artifacts.
         #[builder(into, default)]
-        pub preview_images: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub preview_images: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts.
         #[builder(into, default)]
-        pub preview_images_darks: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub preview_images_darks: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies a list of providers for the solution content item.
         #[builder(into, default)]
-        pub providers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub providers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A `source` block as defined below.
         #[builder(into, default)]
-        pub source: pulumi_wasm_rust::Output<
+        pub source: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sentinel::MetadataSource>,
         >,
         /// A `support` block as defined below.
         #[builder(into, default)]
-        pub support: pulumi_wasm_rust::Output<
+        pub support: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sentinel::MetadataSupport>,
         >,
         /// Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`.
         #[builder(into, default)]
-        pub threat_analysis_tactics: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub threat_analysis_tactics: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Specifies a list of techniques the resource covers.
         #[builder(into, default)]
-        pub threat_analysis_techniques: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub threat_analysis_techniques: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Version of the content.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MetadataResult {
@@ -208,32 +212,52 @@ pub mod metadata {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MetadataArgs) -> MetadataResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MetadataArgs,
+    ) -> MetadataResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let author_binding = args.author.get_inner();
-        let category_binding = args.category.get_inner();
-        let content_id_binding = args.content_id.get_inner();
-        let content_schema_version_binding = args.content_schema_version.get_inner();
-        let custom_version_binding = args.custom_version.get_inner();
-        let dependency_binding = args.dependency.get_inner();
-        let first_publish_date_binding = args.first_publish_date.get_inner();
-        let icon_id_binding = args.icon_id.get_inner();
-        let kind_binding = args.kind.get_inner();
-        let last_publish_date_binding = args.last_publish_date.get_inner();
-        let name_binding = args.name.get_inner();
-        let parent_id_binding = args.parent_id.get_inner();
-        let preview_images_binding = args.preview_images.get_inner();
-        let preview_images_darks_binding = args.preview_images_darks.get_inner();
-        let providers_binding = args.providers.get_inner();
-        let source_binding = args.source.get_inner();
-        let support_binding = args.support.get_inner();
-        let threat_analysis_tactics_binding = args.threat_analysis_tactics.get_inner();
+        let author_binding = args.author.get_output(context).get_inner();
+        let category_binding = args.category.get_output(context).get_inner();
+        let content_id_binding = args.content_id.get_output(context).get_inner();
+        let content_schema_version_binding = args
+            .content_schema_version
+            .get_output(context)
+            .get_inner();
+        let custom_version_binding = args.custom_version.get_output(context).get_inner();
+        let dependency_binding = args.dependency.get_output(context).get_inner();
+        let first_publish_date_binding = args
+            .first_publish_date
+            .get_output(context)
+            .get_inner();
+        let icon_id_binding = args.icon_id.get_output(context).get_inner();
+        let kind_binding = args.kind.get_output(context).get_inner();
+        let last_publish_date_binding = args
+            .last_publish_date
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parent_id_binding = args.parent_id.get_output(context).get_inner();
+        let preview_images_binding = args.preview_images.get_output(context).get_inner();
+        let preview_images_darks_binding = args
+            .preview_images_darks
+            .get_output(context)
+            .get_inner();
+        let providers_binding = args.providers.get_output(context).get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
+        let support_binding = args.support.get_output(context).get_inner();
+        let threat_analysis_tactics_binding = args
+            .threat_analysis_tactics
+            .get_output(context)
+            .get_inner();
         let threat_analysis_techniques_binding = args
             .threat_analysis_techniques
+            .get_output(context)
             .get_inner();
-        let version_binding = args.version.get_inner();
-        let workspace_id_binding = args.workspace_id.get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
+        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/metadata:Metadata".into(),
             name: name.to_string(),
@@ -390,7 +414,7 @@ pub mod metadata {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

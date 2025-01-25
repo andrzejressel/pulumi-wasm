@@ -25,19 +25,19 @@
 /// $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
 /// ```
 pub mod snapshot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotArgs {
         /// The namespace to create a snapshot for.
         #[builder(into)]
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub namespace_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// How long to retain the created snapshot. Default value is `-1`.
         #[builder(into, default)]
-        pub retention_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_period: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name of the snapshot.
         #[builder(into)]
-        pub snapshot_name: pulumi_wasm_rust::Output<String>,
+        pub snapshot_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SnapshotResult {
@@ -68,12 +68,19 @@ pub mod snapshot {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SnapshotArgs) -> SnapshotResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SnapshotArgs,
+    ) -> SnapshotResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let namespace_name_binding = args.namespace_name.get_inner();
-        let retention_period_binding = args.retention_period.get_inner();
-        let snapshot_name_binding = args.snapshot_name.get_inner();
+        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
+        let retention_period_binding = args
+            .retention_period
+            .get_output(context)
+            .get_inner();
+        let snapshot_name_binding = args.snapshot_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshiftserverless/snapshot:Snapshot".into(),
             name: name.to_string(),
@@ -125,7 +132,7 @@ pub mod snapshot {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

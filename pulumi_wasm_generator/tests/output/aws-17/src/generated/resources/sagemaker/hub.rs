@@ -24,30 +24,30 @@
 /// $ pulumi import aws:sagemaker/hub:Hub test_hub my-code-repo
 /// ```
 pub mod hub {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HubArgs {
         /// A description of the hub.
         #[builder(into)]
-        pub hub_description: pulumi_wasm_rust::Output<String>,
+        pub hub_description: pulumi_wasm_rust::InputOrOutput<String>,
         /// The display name of the hub.
         #[builder(into, default)]
-        pub hub_display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub hub_display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the hub.
         #[builder(into)]
-        pub hub_name: pulumi_wasm_rust::Output<String>,
+        pub hub_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The searchable keywords for the hub.
         #[builder(into, default)]
-        pub hub_search_keywords: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub hub_search_keywords: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
         #[builder(into, default)]
-        pub s3_storage_config: pulumi_wasm_rust::Output<
+        pub s3_storage_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sagemaker::HubS3StorageConfig>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -80,15 +80,31 @@ pub mod hub {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HubArgs) -> HubResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HubArgs,
+    ) -> HubResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let hub_description_binding = args.hub_description.get_inner();
-        let hub_display_name_binding = args.hub_display_name.get_inner();
-        let hub_name_binding = args.hub_name.get_inner();
-        let hub_search_keywords_binding = args.hub_search_keywords.get_inner();
-        let s3_storage_config_binding = args.s3_storage_config.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let hub_description_binding = args
+            .hub_description
+            .get_output(context)
+            .get_inner();
+        let hub_display_name_binding = args
+            .hub_display_name
+            .get_output(context)
+            .get_inner();
+        let hub_name_binding = args.hub_name.get_output(context).get_inner();
+        let hub_search_keywords_binding = args
+            .hub_search_keywords
+            .get_output(context)
+            .get_inner();
+        let s3_storage_config_binding = args
+            .s3_storage_config
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/hub:Hub".into(),
             name: name.to_string(),
@@ -146,7 +162,7 @@ pub mod hub {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

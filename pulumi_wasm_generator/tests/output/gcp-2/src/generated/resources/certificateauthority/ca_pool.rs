@@ -147,14 +147,14 @@
 /// ```
 ///
 pub mod ca_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CaPoolArgs {
         /// The IssuancePolicy to control how Certificates will be issued from this CaPool.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub issuance_policy: pulumi_wasm_rust::Output<
+        pub issuance_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::certificateauthority::CaPoolIssuancePolicy>,
         >,
         /// Labels with user-defined metadata.
@@ -164,7 +164,7 @@ pub mod ca_pool {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Location of the CaPool. A full list of valid locations can be found by
@@ -173,24 +173,24 @@ pub mod ca_pool {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name for this CaPool.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The PublishingOptions to follow when issuing Certificates from any CertificateAuthority in this CaPool.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub publishing_options: pulumi_wasm_rust::Output<
+        pub publishing_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::certificateauthority::CaPoolPublishingOptions>,
         >,
         /// The Tier of this CaPool.
         /// Possible values are: `ENTERPRISE`, `DEVOPS`.
         #[builder(into)]
-        pub tier: pulumi_wasm_rust::Output<String>,
+        pub tier: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CaPoolResult {
@@ -241,16 +241,26 @@ pub mod ca_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CaPoolArgs) -> CaPoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CaPoolArgs,
+    ) -> CaPoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let issuance_policy_binding = args.issuance_policy.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let publishing_options_binding = args.publishing_options.get_inner();
-        let tier_binding = args.tier.get_inner();
+        let issuance_policy_binding = args
+            .issuance_policy
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let publishing_options_binding = args
+            .publishing_options
+            .get_output(context)
+            .get_inner();
+        let tier_binding = args.tier.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificateauthority/caPool:CaPool".into(),
             name: name.to_string(),
@@ -315,7 +325,7 @@ pub mod ca_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

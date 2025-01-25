@@ -72,61 +72,63 @@
 /// ```
 ///
 pub mod insights {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InsightsArgs {
         /// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub application_type: pulumi_wasm_rust::Output<String>,
+        pub application_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
         #[builder(into, default)]
-        pub daily_data_cap_in_gb: pulumi_wasm_rust::Output<Option<f64>>,
+        pub daily_data_cap_in_gb: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
         #[builder(into, default)]
-        pub daily_data_cap_notifications_disabled: pulumi_wasm_rust::Output<
+        pub daily_data_cap_notifications_disabled: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
         #[builder(into, default)]
-        pub disable_ip_masking: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_ip_masking: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         #[builder(into, default)]
-        pub force_customer_storage_for_profiler: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_customer_storage_for_profiler: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
         #[builder(into, default)]
-        pub internet_ingestion_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub internet_ingestion_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
         #[builder(into, default)]
-        pub internet_query_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub internet_query_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Disable Non-Azure AD based Auth. Defaults to `false`.
         #[builder(into, default)]
-        pub local_authentication_disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_authentication_disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
         #[builder(into, default)]
-        pub retention_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_in_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`.
         #[builder(into, default)]
-        pub sampling_percentage: pulumi_wasm_rust::Output<Option<f64>>,
+        pub sampling_percentage: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the id of a log analytics workspace resource.
         ///
         /// > **NOTE:** `workspace_id` cannot be removed after set. More details can be found at [Migrate to workspace-based Application Insights resources](https://docs.microsoft.com/azure/azure-monitor/app/convert-classic-resource#migration-process). If `workspace_id` is not specified but you encounter a diff, this might indicate a Microsoft initiated automatic migration from classic resources to workspace-based resources. If this is the case, please update `workspace_id` in the config file to the new value.
         #[builder(into, default)]
-        pub workspace_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub workspace_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InsightsResult {
@@ -177,32 +179,61 @@ pub mod insights {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InsightsArgs) -> InsightsResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InsightsArgs,
+    ) -> InsightsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_type_binding = args.application_type.get_inner();
-        let daily_data_cap_in_gb_binding = args.daily_data_cap_in_gb.get_inner();
+        let application_type_binding = args
+            .application_type
+            .get_output(context)
+            .get_inner();
+        let daily_data_cap_in_gb_binding = args
+            .daily_data_cap_in_gb
+            .get_output(context)
+            .get_inner();
         let daily_data_cap_notifications_disabled_binding = args
             .daily_data_cap_notifications_disabled
+            .get_output(context)
             .get_inner();
-        let disable_ip_masking_binding = args.disable_ip_masking.get_inner();
+        let disable_ip_masking_binding = args
+            .disable_ip_masking
+            .get_output(context)
+            .get_inner();
         let force_customer_storage_for_profiler_binding = args
             .force_customer_storage_for_profiler
+            .get_output(context)
             .get_inner();
         let internet_ingestion_enabled_binding = args
             .internet_ingestion_enabled
+            .get_output(context)
             .get_inner();
-        let internet_query_enabled_binding = args.internet_query_enabled.get_inner();
+        let internet_query_enabled_binding = args
+            .internet_query_enabled
+            .get_output(context)
+            .get_inner();
         let local_authentication_disabled_binding = args
             .local_authentication_disabled
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let retention_in_days_binding = args.retention_in_days.get_inner();
-        let sampling_percentage_binding = args.sampling_percentage.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let workspace_id_binding = args.workspace_id.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let retention_in_days_binding = args
+            .retention_in_days
+            .get_output(context)
+            .get_inner();
+        let sampling_percentage_binding = args
+            .sampling_percentage
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appinsights/insights:Insights".into(),
             name: name.to_string(),
@@ -326,7 +357,7 @@ pub mod insights {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

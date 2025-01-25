@@ -62,18 +62,18 @@
 /// $ pulumi import aws:apigateway/account:Account demo api-gateway-account
 /// ```
 pub mod account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountArgs {
         /// ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         #[builder(into, default)]
-        pub cloudwatch_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub cloudwatch_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
         /// Defaults to `false`.
         /// Will be removed in a future major version of the provider.
         #[builder(into, default)]
-        pub reset_on_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub reset_on_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct AccountResult {
@@ -96,11 +96,21 @@ pub mod account {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccountArgs) -> AccountResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccountArgs,
+    ) -> AccountResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_role_arn_binding = args.cloudwatch_role_arn.get_inner();
-        let reset_on_delete_binding = args.reset_on_delete.get_inner();
+        let cloudwatch_role_arn_binding = args
+            .cloudwatch_role_arn
+            .get_output(context)
+            .get_inner();
+        let reset_on_delete_binding = args
+            .reset_on_delete
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/account:Account".into(),
             name: name.to_string(),
@@ -133,7 +143,7 @@ pub mod account {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -169,7 +169,7 @@
 /// ```
 ///
 pub mod queue {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct QueueArgs {
@@ -177,13 +177,13 @@ pub mod queue {
         /// to App Engine tasks in this queue
         /// Structure is documented below.
         #[builder(into, default)]
-        pub app_engine_routing_override: pulumi_wasm_rust::Output<
+        pub app_engine_routing_override: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudtasks::QueueAppEngineRoutingOverride>,
         >,
         /// Modifies HTTP target for HTTP tasks.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub http_target: pulumi_wasm_rust::Output<
+        pub http_target: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudtasks::QueueHttpTarget>,
         >,
         /// The location of the queue
@@ -191,14 +191,14 @@ pub mod queue {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The queue name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Rate limits for task dispatches.
         /// The queue's actual dispatch rate is the result of:
         /// * Number of tasks in the queue
@@ -208,19 +208,19 @@ pub mod queue {
         /// smooth sudden large traffic spikes.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub rate_limits: pulumi_wasm_rust::Output<
+        pub rate_limits: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudtasks::QueueRateLimits>,
         >,
         /// Settings that determine the retry behavior.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub retry_config: pulumi_wasm_rust::Output<
+        pub retry_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudtasks::QueueRetryConfig>,
         >,
         /// Configuration options for writing logs to Stackdriver Logging.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub stackdriver_logging_config: pulumi_wasm_rust::Output<
+        pub stackdriver_logging_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudtasks::QueueStackdriverLoggingConfig>,
         >,
     }
@@ -273,20 +273,26 @@ pub mod queue {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: QueueArgs) -> QueueResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: QueueArgs,
+    ) -> QueueResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let app_engine_routing_override_binding = args
             .app_engine_routing_override
+            .get_output(context)
             .get_inner();
-        let http_target_binding = args.http_target.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let rate_limits_binding = args.rate_limits.get_inner();
-        let retry_config_binding = args.retry_config.get_inner();
+        let http_target_binding = args.http_target.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let rate_limits_binding = args.rate_limits.get_output(context).get_inner();
+        let retry_config_binding = args.retry_config.get_output(context).get_inner();
         let stackdriver_logging_config_binding = args
             .stackdriver_logging_config
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudtasks/queue:Queue".into(),
@@ -353,7 +359,7 @@ pub mod queue {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

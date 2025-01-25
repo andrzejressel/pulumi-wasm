@@ -113,19 +113,19 @@
 /// ```
 ///
 pub mod frontdoor_security_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorSecurityPolicyArgs {
         /// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         #[builder(into)]
-        pub cdn_frontdoor_profile_id: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         #[builder(into)]
-        pub security_policies: pulumi_wasm_rust::Output<
+        pub security_policies: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cdn::FrontdoorSecurityPolicySecurityPolicies,
         >,
     }
@@ -145,14 +145,21 @@ pub mod frontdoor_security_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FrontdoorSecurityPolicyArgs,
     ) -> FrontdoorSecurityPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cdn_frontdoor_profile_id_binding = args.cdn_frontdoor_profile_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let security_policies_binding = args.security_policies.get_inner();
+        let cdn_frontdoor_profile_id_binding = args
+            .cdn_frontdoor_profile_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let security_policies_binding = args
+            .security_policies
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy".into(),
             name: name.to_string(),
@@ -183,7 +190,7 @@ pub mod frontdoor_security_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -30,49 +30,49 @@
 /// $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
 /// ```
 pub mod product {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProductArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Description of the product.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Distributor (i.e., vendor) of the product.
         #[builder(into, default)]
-        pub distributor: pulumi_wasm_rust::Output<Option<String>>,
+        pub distributor: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the product.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Owner of the product.
         #[builder(into)]
-        pub owner: pulumi_wasm_rust::Output<String>,
+        pub owner: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
         #[builder(into)]
-        pub provisioning_artifact_parameters: pulumi_wasm_rust::Output<
+        pub provisioning_artifact_parameters: pulumi_wasm_rust::InputOrOutput<
             super::super::types::servicecatalog::ProductProvisioningArtifactParameters,
         >,
         /// Support information about the product.
         #[builder(into, default)]
-        pub support_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub support_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Contact email for product support.
         #[builder(into, default)]
-        pub support_email: pulumi_wasm_rust::Output<Option<String>>,
+        pub support_email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Contact URL for product support.
         #[builder(into, default)]
-        pub support_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub support_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ProductResult {
@@ -121,22 +121,33 @@ pub mod product {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProductArgs) -> ProductResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProductArgs,
+    ) -> ProductResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding = args.accept_language.get_inner();
-        let description_binding = args.description.get_inner();
-        let distributor_binding = args.distributor.get_inner();
-        let name_binding = args.name.get_inner();
-        let owner_binding = args.owner.get_inner();
+        let accept_language_binding = args
+            .accept_language
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let distributor_binding = args.distributor.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let owner_binding = args.owner.get_output(context).get_inner();
         let provisioning_artifact_parameters_binding = args
             .provisioning_artifact_parameters
+            .get_output(context)
             .get_inner();
-        let support_description_binding = args.support_description.get_inner();
-        let support_email_binding = args.support_email.get_inner();
-        let support_url_binding = args.support_url.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let type__binding = args.type_.get_inner();
+        let support_description_binding = args
+            .support_description
+            .get_output(context)
+            .get_inner();
+        let support_email_binding = args.support_email.get_output(context).get_inner();
+        let support_url_binding = args.support_url.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/product:Product".into(),
             name: name.to_string(),
@@ -238,7 +249,7 @@ pub mod product {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

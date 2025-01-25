@@ -29,17 +29,17 @@
 /// additional Route Table in the AWS console; it must remain intact in order for
 /// the `main_route_table_association` delete to work properly.
 pub mod main_route_table_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MainRouteTableAssociationArgs {
         /// The ID of the Route Table to set as the new
         /// main route table for the target VPC
         #[builder(into)]
-        pub route_table_id: pulumi_wasm_rust::Output<String>,
+        pub route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the VPC whose main route table should be set
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MainRouteTableAssociationResult {
@@ -56,13 +56,14 @@ pub mod main_route_table_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: MainRouteTableAssociationArgs,
     ) -> MainRouteTableAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let route_table_id_binding = args.route_table_id.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let route_table_id_binding = args.route_table_id.get_output(context).get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation".into(),
             name: name.to_string(),
@@ -89,7 +90,7 @@ pub mod main_route_table_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

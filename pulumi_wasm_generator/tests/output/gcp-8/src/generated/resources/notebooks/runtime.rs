@@ -169,14 +169,14 @@
 /// ```
 ///
 pub mod runtime {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RuntimeArgs {
         /// The config settings for accessing runtime.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub access_config: pulumi_wasm_rust::Output<
+        pub access_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::notebooks::RuntimeAccessConfig>,
         >,
         /// The labels to associate with this runtime. Label **keys** must
@@ -189,7 +189,7 @@ pub mod runtime {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A reference to the zone where the machine resides.
@@ -197,24 +197,24 @@ pub mod runtime {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name specified for the Notebook runtime.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The config settings for software inside the runtime.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub software_config: pulumi_wasm_rust::Output<
+        pub software_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::notebooks::RuntimeSoftwareConfig>,
         >,
         /// Use a Compute Engine VM image to start the managed notebook instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub virtual_machine: pulumi_wasm_rust::Output<
+        pub virtual_machine: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::notebooks::RuntimeVirtualMachine>,
         >,
     }
@@ -283,16 +283,26 @@ pub mod runtime {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RuntimeArgs) -> RuntimeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RuntimeArgs,
+    ) -> RuntimeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_config_binding = args.access_config.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let software_config_binding = args.software_config.get_inner();
-        let virtual_machine_binding = args.virtual_machine.get_inner();
+        let access_config_binding = args.access_config.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let software_config_binding = args
+            .software_config
+            .get_output(context)
+            .get_inner();
+        let virtual_machine_binding = args
+            .virtual_machine
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:notebooks/runtime:Runtime".into(),
             name: name.to_string(),
@@ -366,7 +376,7 @@ pub mod runtime {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

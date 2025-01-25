@@ -77,61 +77,61 @@
 /// $ pulumi import aws:bedrock/agentAgent:AgentAgent example GGRRAED6JP
 /// ```
 pub mod agent_agent {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AgentAgentArgs {
         /// Agents collaboration role. Valid values: `SUPERVISOR`, `SUPERVISOR_ROUTER`, `DISABLED`.
         #[builder(into, default)]
-        pub agent_collaboration: pulumi_wasm_rust::Output<Option<String>>,
+        pub agent_collaboration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the agent.
         #[builder(into)]
-        pub agent_name: pulumi_wasm_rust::Output<String>,
+        pub agent_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN of the IAM role with permissions to invoke API operations on the agent.
         #[builder(into)]
-        pub agent_resource_role_arn: pulumi_wasm_rust::Output<String>,
+        pub agent_resource_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN of the AWS KMS key that encrypts the agent.
         #[builder(into, default)]
-        pub customer_encryption_key_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub customer_encryption_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Description of the agent.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Foundation model used for orchestration by the agent.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub foundation_model: pulumi_wasm_rust::Output<String>,
+        pub foundation_model: pulumi_wasm_rust::InputOrOutput<String>,
         /// Details about the guardrail associated with the agent. See `guardrail_configuration` Block for details.
         #[builder(into, default)]
-        pub guardrail_configurations: pulumi_wasm_rust::Output<
+        pub guardrail_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::bedrock::AgentAgentGuardrailConfiguration>>,
         >,
         /// Number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent. A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.
         #[builder(into, default)]
-        pub idle_session_ttl_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub idle_session_ttl_in_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Instructions that tell the agent what it should do and how it should interact with users. The valid range is 40 - 8000 characters.
         #[builder(into, default)]
-        pub instruction: pulumi_wasm_rust::Output<Option<String>>,
+        pub instruction: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to prepare the agent after creation or modification. Defaults to `true`.
         #[builder(into, default)]
-        pub prepare_agent: pulumi_wasm_rust::Output<Option<bool>>,
+        pub prepare_agent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
         #[builder(into, default)]
-        pub prompt_override_configurations: pulumi_wasm_rust::Output<
+        pub prompt_override_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::bedrock::AgentAgentPromptOverrideConfiguration>,
             >,
         >,
         /// Whether the in-use check is skipped when deleting the agent.
         #[builder(into, default)]
-        pub skip_resource_in_use_check: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_resource_in_use_check: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bedrock::AgentAgentTimeouts>,
         >,
     }
@@ -189,31 +189,51 @@ pub mod agent_agent {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AgentAgentArgs) -> AgentAgentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AgentAgentArgs,
+    ) -> AgentAgentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let agent_collaboration_binding = args.agent_collaboration.get_inner();
-        let agent_name_binding = args.agent_name.get_inner();
-        let agent_resource_role_arn_binding = args.agent_resource_role_arn.get_inner();
+        let agent_collaboration_binding = args
+            .agent_collaboration
+            .get_output(context)
+            .get_inner();
+        let agent_name_binding = args.agent_name.get_output(context).get_inner();
+        let agent_resource_role_arn_binding = args
+            .agent_resource_role_arn
+            .get_output(context)
+            .get_inner();
         let customer_encryption_key_arn_binding = args
             .customer_encryption_key_arn
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let foundation_model_binding = args.foundation_model.get_inner();
-        let guardrail_configurations_binding = args.guardrail_configurations.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let foundation_model_binding = args
+            .foundation_model
+            .get_output(context)
+            .get_inner();
+        let guardrail_configurations_binding = args
+            .guardrail_configurations
+            .get_output(context)
+            .get_inner();
         let idle_session_ttl_in_seconds_binding = args
             .idle_session_ttl_in_seconds
+            .get_output(context)
             .get_inner();
-        let instruction_binding = args.instruction.get_inner();
-        let prepare_agent_binding = args.prepare_agent.get_inner();
+        let instruction_binding = args.instruction.get_output(context).get_inner();
+        let prepare_agent_binding = args.prepare_agent.get_output(context).get_inner();
         let prompt_override_configurations_binding = args
             .prompt_override_configurations
+            .get_output(context)
             .get_inner();
         let skip_resource_in_use_check_binding = args
             .skip_resource_in_use_check
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:bedrock/agentAgent:AgentAgent".into(),
             name: name.to_string(),
@@ -333,7 +353,7 @@ pub mod agent_agent {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

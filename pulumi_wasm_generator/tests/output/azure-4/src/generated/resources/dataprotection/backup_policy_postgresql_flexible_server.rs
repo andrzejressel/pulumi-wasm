@@ -75,24 +75,26 @@
 /// ```
 ///
 pub mod backup_policy_postgresql_flexible_server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupPolicyPostgresqlFlexibleServerArgs {
         /// Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval format. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub backup_repeating_time_intervals: pulumi_wasm_rust::Output<Vec<String>>,
+        pub backup_repeating_time_intervals: pulumi_wasm_rust::InputOrOutput<
+            Vec<String>,
+        >,
         /// A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub default_retention_rule: pulumi_wasm_rust::Output<
+        pub default_retention_rule: pulumi_wasm_rust::InputOrOutput<
             super::super::types::dataprotection::BackupPolicyPostgresqlFlexibleServerDefaultRetentionRule,
         >,
         /// Specifies the name of the Backup Policy for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub retention_rules: pulumi_wasm_rust::Output<
+        pub retention_rules: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::dataprotection::BackupPolicyPostgresqlFlexibleServerRetentionRule,
@@ -101,10 +103,10 @@ pub mod backup_policy_postgresql_flexible_server {
         >,
         /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub time_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Backup Vault where the Backup Policy PostgreSQL Flexible Server should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub vault_id: pulumi_wasm_rust::Output<String>,
+        pub vault_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackupPolicyPostgresqlFlexibleServerResult {
@@ -134,6 +136,7 @@ pub mod backup_policy_postgresql_flexible_server {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BackupPolicyPostgresqlFlexibleServerArgs,
     ) -> BackupPolicyPostgresqlFlexibleServerResult {
@@ -141,12 +144,19 @@ pub mod backup_policy_postgresql_flexible_server {
         use std::collections::HashMap;
         let backup_repeating_time_intervals_binding = args
             .backup_repeating_time_intervals
+            .get_output(context)
             .get_inner();
-        let default_retention_rule_binding = args.default_retention_rule.get_inner();
-        let name_binding = args.name.get_inner();
-        let retention_rules_binding = args.retention_rules.get_inner();
-        let time_zone_binding = args.time_zone.get_inner();
-        let vault_id_binding = args.vault_id.get_inner();
+        let default_retention_rule_binding = args
+            .default_retention_rule
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let retention_rules_binding = args
+            .retention_rules
+            .get_output(context)
+            .get_inner();
+        let time_zone_binding = args.time_zone.get_output(context).get_inner();
+        let vault_id_binding = args.vault_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer"
                 .into(),
@@ -199,7 +209,7 @@ pub mod backup_policy_postgresql_flexible_server {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

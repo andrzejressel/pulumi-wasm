@@ -264,69 +264,69 @@
 /// ```
 ///
 pub mod vpc_flow_logs_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcFlowLogsConfigArgs {
         /// Optional. The aggregation interval for the logs. Default value is
         /// INTERVAL_5_SEC.   Possible values:  AGGREGATION_INTERVAL_UNSPECIFIED INTERVAL_5_SEC INTERVAL_30_SEC INTERVAL_1_MIN INTERVAL_5_MIN INTERVAL_10_MIN INTERVAL_15_MIN"
         #[builder(into, default)]
-        pub aggregation_interval: pulumi_wasm_rust::Output<Option<String>>,
+        pub aggregation_interval: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. The user-supplied description of the VPC Flow Logs configuration. Maximum
         /// of 512 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Export filter used to define which VPC Flow Logs should be logged.
         #[builder(into, default)]
-        pub filter_expr: pulumi_wasm_rust::Output<Option<String>>,
+        pub filter_expr: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. The value of the field must be in (0, 1]. The sampling rate
         /// of VPC Flow Logs where 1.0 means all collected logs are reported. Setting the
         /// sampling rate to 0.0 is not allowed. If you want to disable VPC Flow Logs, use
         /// the state field instead. Default value is 1.0.
         #[builder(into, default)]
-        pub flow_sampling: pulumi_wasm_rust::Output<Option<f64>>,
+        pub flow_sampling: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// Traffic will be logged from the Interconnect Attachment. Format: projects/{project_id}/regions/{region}/interconnectAttachments/{name}
         #[builder(into, default)]
-        pub interconnect_attachment: pulumi_wasm_rust::Output<Option<String>>,
+        pub interconnect_attachment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Resource labels to represent user-provided metadata.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. It identifies the resource
         /// within its parent collection as described in https://google.aip.dev/122. See documentation
         /// for resource type `networkmanagement.googleapis.com/VpcFlowLogsConfig`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. Configures whether all, none or a subset of metadata fields
         /// should be added to the reported VPC flow logs. Default value is INCLUDE_ALL_METADATA.
         /// Possible values:  METADATA_UNSPECIFIED INCLUDE_ALL_METADATA EXCLUDE_ALL_METADATA CUSTOM_METADATA
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<Option<String>>,
+        pub metadata: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Custom metadata fields to include in the reported VPC flow
         /// logs. Can only be specified if \"metadata\" was set to CUSTOM_METADATA.
         #[builder(into, default)]
-        pub metadata_fields: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub metadata_fields: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. The state of the VPC Flow Log configuration. Default value
         /// is ENABLED. When creating a new configuration, it must be enabled.   Possible
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::Output<Option<String>>,
+        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. ID of the `VpcFlowLogsConfig`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub vpc_flow_logs_config_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_flow_logs_config_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Traffic will be logged from the VPN Tunnel. Format: projects/{project_id}/regions/{region}/vpnTunnels/{name}
         #[builder(into, default)]
-        pub vpn_tunnel: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpn_tunnel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VpcFlowLogsConfigResult {
@@ -396,22 +396,38 @@ pub mod vpc_flow_logs_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VpcFlowLogsConfigArgs) -> VpcFlowLogsConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VpcFlowLogsConfigArgs,
+    ) -> VpcFlowLogsConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aggregation_interval_binding = args.aggregation_interval.get_inner();
-        let description_binding = args.description.get_inner();
-        let filter_expr_binding = args.filter_expr.get_inner();
-        let flow_sampling_binding = args.flow_sampling.get_inner();
-        let interconnect_attachment_binding = args.interconnect_attachment.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let metadata_fields_binding = args.metadata_fields.get_inner();
-        let project_binding = args.project.get_inner();
-        let state_binding = args.state.get_inner();
-        let vpc_flow_logs_config_id_binding = args.vpc_flow_logs_config_id.get_inner();
-        let vpn_tunnel_binding = args.vpn_tunnel.get_inner();
+        let aggregation_interval_binding = args
+            .aggregation_interval
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let filter_expr_binding = args.filter_expr.get_output(context).get_inner();
+        let flow_sampling_binding = args.flow_sampling.get_output(context).get_inner();
+        let interconnect_attachment_binding = args
+            .interconnect_attachment
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let metadata_fields_binding = args
+            .metadata_fields
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let state_binding = args.state.get_output(context).get_inner();
+        let vpc_flow_logs_config_id_binding = args
+            .vpc_flow_logs_config_id
+            .get_output(context)
+            .get_inner();
+        let vpn_tunnel_binding = args.vpn_tunnel.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkmanagement/vpcFlowLogsConfig:VpcFlowLogsConfig".into(),
             name: name.to_string(),
@@ -527,7 +543,7 @@ pub mod vpc_flow_logs_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

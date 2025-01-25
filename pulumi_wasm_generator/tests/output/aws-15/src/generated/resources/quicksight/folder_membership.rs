@@ -28,24 +28,24 @@
 /// $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
 /// ```
 pub mod folder_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FolderMembershipArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier for the folder.
         #[builder(into)]
-        pub folder_id: pulumi_wasm_rust::Output<String>,
+        pub folder_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the asset (the dashboard, analysis, or dataset).
         #[builder(into)]
-        pub member_id: pulumi_wasm_rust::Output<String>,
+        pub member_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub member_type: pulumi_wasm_rust::Output<String>,
+        pub member_type: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FolderMembershipResult {
@@ -64,13 +64,17 @@ pub mod folder_membership {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FolderMembershipArgs) -> FolderMembershipResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FolderMembershipArgs,
+    ) -> FolderMembershipResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_inner();
-        let folder_id_binding = args.folder_id.get_inner();
-        let member_id_binding = args.member_id.get_inner();
-        let member_type_binding = args.member_type.get_inner();
+        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
+        let folder_id_binding = args.folder_id.get_output(context).get_inner();
+        let member_id_binding = args.member_id.get_output(context).get_inner();
+        let member_type_binding = args.member_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/folderMembership:FolderMembership".into(),
             name: name.to_string(),
@@ -108,7 +112,7 @@ pub mod folder_membership {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

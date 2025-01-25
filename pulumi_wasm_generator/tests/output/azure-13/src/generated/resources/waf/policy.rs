@@ -95,37 +95,37 @@
 /// ```
 ///
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
         /// One or more `custom_rules` blocks as defined below.
         #[builder(into, default)]
-        pub custom_rules: pulumi_wasm_rust::Output<
+        pub custom_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::waf::PolicyCustomRule>>,
         >,
         /// Resource location. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `managed_rules` blocks as defined below.
         #[builder(into)]
-        pub managed_rules: pulumi_wasm_rust::Output<
+        pub managed_rules: pulumi_wasm_rust::InputOrOutput<
             super::super::types::waf::PolicyManagedRules,
         >,
         /// The name of the policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `policy_settings` block as defined below.
         #[builder(into, default)]
-        pub policy_settings: pulumi_wasm_rust::Output<
+        pub policy_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::waf::PolicyPolicySettings>,
         >,
         /// The name of the resource group. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the Web Application Firewall Policy.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -162,16 +162,26 @@ pub mod policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyArgs) -> PolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyArgs,
+    ) -> PolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let custom_rules_binding = args.custom_rules.get_inner();
-        let location_binding = args.location.get_inner();
-        let managed_rules_binding = args.managed_rules.get_inner();
-        let name_binding = args.name.get_inner();
-        let policy_settings_binding = args.policy_settings.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let custom_rules_binding = args.custom_rules.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let managed_rules_binding = args.managed_rules.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let policy_settings_binding = args
+            .policy_settings
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:waf/policy:Policy".into(),
             name: name.to_string(),
@@ -236,7 +246,7 @@ pub mod policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

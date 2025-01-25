@@ -1,11 +1,11 @@
 pub mod get_origin_access_identities {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetOriginAccessIdentitiesArgs {
         /// Filter origin access identities by comment.
         #[builder(into, default)]
-        pub comments: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub comments: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct GetOriginAccessIdentitiesResult {
@@ -24,11 +24,12 @@ pub mod get_origin_access_identities {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetOriginAccessIdentitiesArgs,
     ) -> GetOriginAccessIdentitiesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let comments_binding = args.comments.get_inner();
+        let comments_binding = args.comments.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cloudfront/getOriginAccessIdentities:getOriginAccessIdentities"
                 .into(),
@@ -57,7 +58,7 @@ pub mod get_origin_access_identities {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

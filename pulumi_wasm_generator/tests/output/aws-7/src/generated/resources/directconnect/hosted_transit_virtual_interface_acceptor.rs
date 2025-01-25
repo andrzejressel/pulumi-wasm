@@ -50,21 +50,21 @@
 /// $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
 /// ```
 pub mod hosted_transit_virtual_interface_acceptor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostedTransitVirtualInterfaceAcceptorArgs {
         /// The ID of the Direct Connect gateway to which to connect the virtual interface.
         #[builder(into)]
-        pub dx_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub dx_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Direct Connect virtual interface to accept.
         #[builder(into)]
-        pub virtual_interface_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_interface_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HostedTransitVirtualInterfaceAcceptorResult {
@@ -88,14 +88,18 @@ pub mod hosted_transit_virtual_interface_acceptor {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: HostedTransitVirtualInterfaceAcceptorArgs,
     ) -> HostedTransitVirtualInterfaceAcceptorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dx_gateway_id_binding = args.dx_gateway_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let virtual_interface_id_binding = args.virtual_interface_id.get_inner();
+        let dx_gateway_id_binding = args.dx_gateway_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let virtual_interface_id_binding = args
+            .virtual_interface_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor"
                 .into(),
@@ -133,7 +137,7 @@ pub mod hosted_transit_virtual_interface_acceptor {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

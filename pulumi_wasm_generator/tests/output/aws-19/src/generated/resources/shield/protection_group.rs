@@ -86,28 +86,28 @@
 /// $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
 /// ```
 pub mod protection_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProtectionGroupArgs {
         /// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
         #[builder(into)]
-        pub aggregation: pulumi_wasm_rust::Output<String>,
+        pub aggregation: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
         #[builder(into, default)]
-        pub members: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub members: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The criteria to use to choose the protected resources for inclusion in the group.
         #[builder(into)]
-        pub pattern: pulumi_wasm_rust::Output<String>,
+        pub pattern: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the protection group.
         #[builder(into)]
-        pub protection_group_id: pulumi_wasm_rust::Output<String>,
+        pub protection_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
         #[builder(into, default)]
-        pub resource_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -138,15 +138,22 @@ pub mod protection_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProtectionGroupArgs) -> ProtectionGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProtectionGroupArgs,
+    ) -> ProtectionGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aggregation_binding = args.aggregation.get_inner();
-        let members_binding = args.members.get_inner();
-        let pattern_binding = args.pattern.get_inner();
-        let protection_group_id_binding = args.protection_group_id.get_inner();
-        let resource_type_binding = args.resource_type.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let aggregation_binding = args.aggregation.get_output(context).get_inner();
+        let members_binding = args.members.get_output(context).get_inner();
+        let pattern_binding = args.pattern.get_output(context).get_inner();
+        let protection_group_id_binding = args
+            .protection_group_id
+            .get_output(context)
+            .get_inner();
+        let resource_type_binding = args.resource_type.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:shield/protectionGroup:ProtectionGroup".into(),
             name: name.to_string(),
@@ -204,7 +211,7 @@ pub mod protection_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

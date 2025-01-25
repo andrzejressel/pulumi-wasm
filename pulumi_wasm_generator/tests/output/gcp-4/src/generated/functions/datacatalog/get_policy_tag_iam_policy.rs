@@ -1,11 +1,11 @@
 pub mod get_policy_tag_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPolicyTagIamPolicyArgs {
         /// Used to find the parent resource to bind the IAM policy to
         #[builder(into)]
-        pub policy_tag: pulumi_wasm_rust::Output<String>,
+        pub policy_tag: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetPolicyTagIamPolicyResult {
@@ -22,10 +22,13 @@ pub mod get_policy_tag_iam_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetPolicyTagIamPolicyArgs) -> GetPolicyTagIamPolicyResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetPolicyTagIamPolicyArgs,
+    ) -> GetPolicyTagIamPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let policy_tag_binding = args.policy_tag.get_inner();
+        let policy_tag_binding = args.policy_tag.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:datacatalog/getPolicyTagIamPolicy:getPolicyTagIamPolicy".into(),
             version: super::super::super::get_version(),
@@ -50,7 +53,7 @@ pub mod get_policy_tag_iam_policy {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

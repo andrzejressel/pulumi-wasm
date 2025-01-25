@@ -63,29 +63,29 @@
 /// ```
 ///
 pub mod repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryArgs {
         /// If set to true, skip repository creation if a repository with the same name already exists.
         #[builder(into, default)]
-        pub create_ignore_already_exists: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_ignore_already_exists: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Resource name of the repository, of the form `{{repo}}`.
         /// The repo name may contain slashes. eg, `name/with/slash`
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// How this repository publishes a change in the repository through Cloud Pub/Sub.
         /// Keyed by the topic names.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub pubsub_configs: pulumi_wasm_rust::Output<
+        pub pubsub_configs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::sourcerepo::RepositoryPubsubConfig>>,
         >,
     }
@@ -117,15 +117,20 @@ pub mod repository {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RepositoryArgs) -> RepositoryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RepositoryArgs,
+    ) -> RepositoryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let create_ignore_already_exists_binding = args
             .create_ignore_already_exists
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let pubsub_configs_binding = args.pubsub_configs.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let pubsub_configs_binding = args.pubsub_configs.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:sourcerepo/repository:Repository".into(),
             name: name.to_string(),
@@ -169,7 +174,7 @@ pub mod repository {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

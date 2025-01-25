@@ -74,49 +74,49 @@
 /// ```
 ///
 pub mod policy_file_share {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyFileShareArgs {
         /// Configures the Policy backup frequency and times as documented in the `backup` block below.
         #[builder(into)]
-        pub backup: pulumi_wasm_rust::Output<
+        pub backup: pulumi_wasm_rust::InputOrOutput<
             super::super::types::backup::PolicyFileShareBackup,
         >,
         /// Specifies the name of the policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configures the policy daily retention as documented in the `retention_daily` block below.
         #[builder(into)]
-        pub retention_daily: pulumi_wasm_rust::Output<
+        pub retention_daily: pulumi_wasm_rust::InputOrOutput<
             super::super::types::backup::PolicyFileShareRetentionDaily,
         >,
         /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
         #[builder(into, default)]
-        pub retention_monthly: pulumi_wasm_rust::Output<
+        pub retention_monthly: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyFileShareRetentionMonthly>,
         >,
         /// Configures the policy weekly retention as documented in the `retention_weekly` block below.
         #[builder(into, default)]
-        pub retention_weekly: pulumi_wasm_rust::Output<
+        pub retention_weekly: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyFileShareRetentionWeekly>,
         >,
         /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
         #[builder(into, default)]
-        pub retention_yearly: pulumi_wasm_rust::Output<
+        pub retention_yearly: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyFileShareRetentionYearly>,
         >,
         /// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         ///
         /// > **NOTE:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
         #[builder(into, default)]
-        pub timezone: pulumi_wasm_rust::Output<Option<String>>,
+        pub timezone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PolicyFileShareResult {
@@ -155,18 +155,40 @@ pub mod policy_file_share {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyFileShareArgs) -> PolicyFileShareResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyFileShareArgs,
+    ) -> PolicyFileShareResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backup_binding = args.backup.get_inner();
-        let name_binding = args.name.get_inner();
-        let recovery_vault_name_binding = args.recovery_vault_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let retention_daily_binding = args.retention_daily.get_inner();
-        let retention_monthly_binding = args.retention_monthly.get_inner();
-        let retention_weekly_binding = args.retention_weekly.get_inner();
-        let retention_yearly_binding = args.retention_yearly.get_inner();
-        let timezone_binding = args.timezone.get_inner();
+        let backup_binding = args.backup.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let recovery_vault_name_binding = args
+            .recovery_vault_name
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let retention_daily_binding = args
+            .retention_daily
+            .get_output(context)
+            .get_inner();
+        let retention_monthly_binding = args
+            .retention_monthly
+            .get_output(context)
+            .get_inner();
+        let retention_weekly_binding = args
+            .retention_weekly
+            .get_output(context)
+            .get_inner();
+        let retention_yearly_binding = args
+            .retention_yearly
+            .get_output(context)
+            .get_inner();
+        let timezone_binding = args.timezone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:backup/policyFileShare:PolicyFileShare".into(),
             name: name.to_string(),
@@ -239,7 +261,7 @@ pub mod policy_file_share {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

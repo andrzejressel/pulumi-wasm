@@ -94,43 +94,43 @@
 /// ```
 ///
 pub mod network_sim_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkSimPolicyArgs {
         /// The ID of default slice to use if the UE does not explicitly specify it. This slice must exist in the `slice` block.
         #[builder(into)]
-        pub default_slice_id: pulumi_wasm_rust::Output<String>,
+        pub default_slice_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the Azure Region where the Mobile Network Sim Policy should exist. Changing this forces a new Mobile Network Sim Policies to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Mobile Network which the Sim Policy belongs to. Changing this forces a new Mobile Network Sim Policies to be created.
         #[builder(into)]
-        pub mobile_network_id: pulumi_wasm_rust::Output<String>,
+        pub mobile_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Mobile Network Sim Policies. Changing this forces a new Mobile Network Sim Policies to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.
         #[builder(into, default)]
-        pub rat_frequency_selection_priority_index: pulumi_wasm_rust::Output<
+        pub rat_frequency_selection_priority_index: pulumi_wasm_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Interval for the user equipment periodic registration update procedure. Defaults to `3240`.
         #[builder(into, default)]
-        pub registration_timer_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub registration_timer_in_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         #[builder(into)]
-        pub slices: pulumi_wasm_rust::Output<
+        pub slices: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::mobile::NetworkSimPolicySlice>,
         >,
         /// A mapping of tags which should be assigned to the Mobile Network Sim Policies.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
         #[builder(into)]
-        pub user_equipment_aggregate_maximum_bit_rate: pulumi_wasm_rust::Output<
+        pub user_equipment_aggregate_maximum_bit_rate: pulumi_wasm_rust::InputOrOutput<
             super::super::types::mobile::NetworkSimPolicyUserEquipmentAggregateMaximumBitRate,
         >,
     }
@@ -167,23 +167,36 @@ pub mod network_sim_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NetworkSimPolicyArgs) -> NetworkSimPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NetworkSimPolicyArgs,
+    ) -> NetworkSimPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let default_slice_id_binding = args.default_slice_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let mobile_network_id_binding = args.mobile_network_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let default_slice_id_binding = args
+            .default_slice_id
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let mobile_network_id_binding = args
+            .mobile_network_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let rat_frequency_selection_priority_index_binding = args
             .rat_frequency_selection_priority_index
+            .get_output(context)
             .get_inner();
         let registration_timer_in_seconds_binding = args
             .registration_timer_in_seconds
+            .get_output(context)
             .get_inner();
-        let slices_binding = args.slices.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let slices_binding = args.slices.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let user_equipment_aggregate_maximum_bit_rate_binding = args
             .user_equipment_aggregate_maximum_bit_rate
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mobile/networkSimPolicy:NetworkSimPolicy".into(),
@@ -257,7 +270,7 @@ pub mod network_sim_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

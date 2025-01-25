@@ -1,20 +1,20 @@
 pub mod get_account_id_token {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAccountIdTokenArgs {
         /// Delegate chain of approvals needed to perform full impersonation. Specify the fully qualified service account name.   Used only when using impersonation mode.
         #[builder(into, default)]
-        pub delegates: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub delegates: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Include the verified email in the claim. Used only when using impersonation mode.
         #[builder(into, default)]
-        pub include_email: pulumi_wasm_rust::Output<Option<bool>>,
+        pub include_email: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The audience claim for the `id_token`.
         #[builder(into)]
-        pub target_audience: pulumi_wasm_rust::Output<String>,
+        pub target_audience: pulumi_wasm_rust::InputOrOutput<String>,
         /// The email of the service account being impersonated.  Used only when using impersonation mode.
         #[builder(into, default)]
-        pub target_service_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_service_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetAccountIdTokenResult {
@@ -31,13 +31,22 @@ pub mod get_account_id_token {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAccountIdTokenArgs) -> GetAccountIdTokenResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAccountIdTokenArgs,
+    ) -> GetAccountIdTokenResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let delegates_binding = args.delegates.get_inner();
-        let include_email_binding = args.include_email.get_inner();
-        let target_audience_binding = args.target_audience.get_inner();
-        let target_service_account_binding = args.target_service_account.get_inner();
+        let delegates_binding = args.delegates.get_output(context).get_inner();
+        let include_email_binding = args.include_email.get_output(context).get_inner();
+        let target_audience_binding = args
+            .target_audience
+            .get_output(context)
+            .get_inner();
+        let target_service_account_binding = args
+            .target_service_account
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:serviceaccount/getAccountIdToken:getAccountIdToken".into(),
             version: super::super::super::get_version(),
@@ -80,7 +89,7 @@ pub mod get_account_id_token {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

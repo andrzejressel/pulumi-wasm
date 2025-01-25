@@ -128,14 +128,14 @@
 /// ```
 ///
 pub mod organization_custom_module {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationCustomModuleArgs {
         /// The user specified custom configuration for the module.
         /// Structure is documented below.
         #[builder(into)]
-        pub custom_config: pulumi_wasm_rust::Output<
+        pub custom_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::securitycenter::OrganizationCustomModuleCustomConfig,
         >,
         /// The display name of the Security Health Analytics custom module. This
@@ -144,14 +144,14 @@ pub mod organization_custom_module {
         /// 128 characters, start with a lowercase letter, and contain alphanumeric
         /// characters or underscores only.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The enablement state of the custom module.
         /// Possible values are: `ENABLED`, `DISABLED`.
         #[builder(into)]
-        pub enablement_state: pulumi_wasm_rust::Output<String>,
+        pub enablement_state: pulumi_wasm_rust::InputOrOutput<String>,
         /// Numerical ID of the parent organization.
         #[builder(into)]
-        pub organization: pulumi_wasm_rust::Output<String>,
+        pub organization: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OrganizationCustomModuleResult {
@@ -190,15 +190,19 @@ pub mod organization_custom_module {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OrganizationCustomModuleArgs,
     ) -> OrganizationCustomModuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let custom_config_binding = args.custom_config.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enablement_state_binding = args.enablement_state.get_inner();
-        let organization_binding = args.organization.get_inner();
+        let custom_config_binding = args.custom_config.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enablement_state_binding = args
+            .enablement_state
+            .get_output(context)
+            .get_inner();
+        let organization_binding = args.organization.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/organizationCustomModule:OrganizationCustomModule"
                 .into(),
@@ -249,7 +253,7 @@ pub mod organization_custom_module {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

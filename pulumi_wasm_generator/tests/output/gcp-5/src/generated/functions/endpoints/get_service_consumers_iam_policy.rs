@@ -1,12 +1,12 @@
 pub mod get_service_consumers_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetServiceConsumersIamPolicyArgs {
         #[builder(into)]
-        pub consumer_project: pulumi_wasm_rust::Output<String>,
+        pub consumer_project: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub service_name: pulumi_wasm_rust::Output<String>,
+        pub service_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetServiceConsumersIamPolicyResult {
@@ -25,12 +25,16 @@ pub mod get_service_consumers_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetServiceConsumersIamPolicyArgs,
     ) -> GetServiceConsumersIamPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let consumer_project_binding = args.consumer_project.get_inner();
-        let service_name_binding = args.service_name.get_inner();
+        let consumer_project_binding = args
+            .consumer_project
+            .get_output(context)
+            .get_inner();
+        let service_name_binding = args.service_name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:endpoints/getServiceConsumersIamPolicy:getServiceConsumersIamPolicy"
                 .into(),
@@ -63,7 +67,7 @@ pub mod get_service_consumers_iam_policy {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -62,37 +62,37 @@
 /// $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
 /// ```
 pub mod connector {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectorArgs {
         /// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         #[builder(into)]
-        pub access_role: pulumi_wasm_rust::Output<String>,
+        pub access_role: pulumi_wasm_rust::InputOrOutput<String>,
         /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         #[builder(into, default)]
-        pub as2_config: pulumi_wasm_rust::Output<
+        pub as2_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::transfer::ConnectorAs2Config>,
         >,
         /// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
         #[builder(into, default)]
-        pub logging_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub logging_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the security policy for the connector.
         #[builder(into, default)]
-        pub security_policy_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_policy_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         #[builder(into, default)]
-        pub sftp_config: pulumi_wasm_rust::Output<
+        pub sftp_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::transfer::ConnectorSftpConfig>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The URL of the partners AS2 endpoint or SFTP endpoint.
         #[builder(into)]
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConnectorResult {
@@ -128,16 +128,23 @@ pub mod connector {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectorArgs) -> ConnectorResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectorArgs,
+    ) -> ConnectorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_role_binding = args.access_role.get_inner();
-        let as2_config_binding = args.as2_config.get_inner();
-        let logging_role_binding = args.logging_role.get_inner();
-        let security_policy_name_binding = args.security_policy_name.get_inner();
-        let sftp_config_binding = args.sftp_config.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let url_binding = args.url.get_inner();
+        let access_role_binding = args.access_role.get_output(context).get_inner();
+        let as2_config_binding = args.as2_config.get_output(context).get_inner();
+        let logging_role_binding = args.logging_role.get_output(context).get_inner();
+        let security_policy_name_binding = args
+            .security_policy_name
+            .get_output(context)
+            .get_inner();
+        let sftp_config_binding = args.sftp_config.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let url_binding = args.url.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:transfer/connector:Connector".into(),
             name: name.to_string(),
@@ -205,7 +212,7 @@ pub mod connector {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

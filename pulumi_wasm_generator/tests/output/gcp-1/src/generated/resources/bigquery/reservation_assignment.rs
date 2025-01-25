@@ -63,29 +63,29 @@
 /// ```
 ///
 pub mod reservation_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReservationAssignmentArgs {
         /// The resource which will use the reservation. E.g. projects/myproject, folders/123, organizations/456.
         #[builder(into)]
-        pub assignee: pulumi_wasm_rust::Output<String>,
+        pub assignee: pulumi_wasm_rust::InputOrOutput<String>,
         /// Types of job, which could be specified when using the reservation. Possible values: JOB_TYPE_UNSPECIFIED, PIPELINE, QUERY
         #[builder(into)]
-        pub job_type: pulumi_wasm_rust::Output<String>,
+        pub job_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location for the resource
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The reservation for the resource
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub reservation: pulumi_wasm_rust::Output<String>,
+        pub reservation: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ReservationAssignmentResult {
@@ -114,16 +114,17 @@ pub mod reservation_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ReservationAssignmentArgs,
     ) -> ReservationAssignmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let assignee_binding = args.assignee.get_inner();
-        let job_type_binding = args.job_type.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
-        let reservation_binding = args.reservation.get_inner();
+        let assignee_binding = args.assignee.get_output(context).get_inner();
+        let job_type_binding = args.job_type.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let reservation_binding = args.reservation.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/reservationAssignment:ReservationAssignment".into(),
             name: name.to_string(),
@@ -174,7 +175,7 @@ pub mod reservation_assignment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

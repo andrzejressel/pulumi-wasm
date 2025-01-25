@@ -95,65 +95,65 @@
 /// $ pulumi import aws:medialive/channel:Channel example 1234567
 /// ```
 pub mod channel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ChannelArgs {
         /// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
         #[builder(into, default)]
-        pub cdi_input_specification: pulumi_wasm_rust::Output<
+        pub cdi_input_specification: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::medialive::ChannelCdiInputSpecification>,
         >,
         /// Concise argument description.
         #[builder(into)]
-        pub channel_class: pulumi_wasm_rust::Output<String>,
+        pub channel_class: pulumi_wasm_rust::InputOrOutput<String>,
         /// Destinations for channel. See Destinations for more details.
         #[builder(into)]
-        pub destinations: pulumi_wasm_rust::Output<
+        pub destinations: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::medialive::ChannelDestination>,
         >,
         /// Encoder settings. See Encoder Settings for more details.
         #[builder(into)]
-        pub encoder_settings: pulumi_wasm_rust::Output<
+        pub encoder_settings: pulumi_wasm_rust::InputOrOutput<
             super::super::types::medialive::ChannelEncoderSettings,
         >,
         /// Input attachments for the channel. See Input Attachments for more details.
         #[builder(into)]
-        pub input_attachments: pulumi_wasm_rust::Output<
+        pub input_attachments: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::medialive::ChannelInputAttachment>,
         >,
         /// Specification of network and file inputs for the channel.
         #[builder(into)]
-        pub input_specification: pulumi_wasm_rust::Output<
+        pub input_specification: pulumi_wasm_rust::InputOrOutput<
             super::super::types::medialive::ChannelInputSpecification,
         >,
         /// The log level to write to Cloudwatch logs.
         #[builder(into, default)]
-        pub log_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub log_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Maintenance settings for this channel. See Maintenance for more details.
         #[builder(into, default)]
-        pub maintenance: pulumi_wasm_rust::Output<
+        pub maintenance: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::medialive::ChannelMaintenance>,
         >,
         /// Name of the Channel.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Concise argument description.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to start/stop channel. Default: `false`
         #[builder(into, default)]
-        pub start_channel: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start_channel: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Settings for the VPC outputs. See VPC for more details.
         #[builder(into, default)]
-        pub vpc: pulumi_wasm_rust::Output<
+        pub vpc: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::medialive::ChannelVpc>,
         >,
     }
@@ -215,22 +215,38 @@ pub mod channel {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ChannelArgs) -> ChannelResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ChannelArgs,
+    ) -> ChannelResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cdi_input_specification_binding = args.cdi_input_specification.get_inner();
-        let channel_class_binding = args.channel_class.get_inner();
-        let destinations_binding = args.destinations.get_inner();
-        let encoder_settings_binding = args.encoder_settings.get_inner();
-        let input_attachments_binding = args.input_attachments.get_inner();
-        let input_specification_binding = args.input_specification.get_inner();
-        let log_level_binding = args.log_level.get_inner();
-        let maintenance_binding = args.maintenance.get_inner();
-        let name_binding = args.name.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let start_channel_binding = args.start_channel.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_binding = args.vpc.get_inner();
+        let cdi_input_specification_binding = args
+            .cdi_input_specification
+            .get_output(context)
+            .get_inner();
+        let channel_class_binding = args.channel_class.get_output(context).get_inner();
+        let destinations_binding = args.destinations.get_output(context).get_inner();
+        let encoder_settings_binding = args
+            .encoder_settings
+            .get_output(context)
+            .get_inner();
+        let input_attachments_binding = args
+            .input_attachments
+            .get_output(context)
+            .get_inner();
+        let input_specification_binding = args
+            .input_specification
+            .get_output(context)
+            .get_inner();
+        let log_level_binding = args.log_level.get_output(context).get_inner();
+        let maintenance_binding = args.maintenance.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let start_channel_binding = args.start_channel.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_binding = args.vpc.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:medialive/channel:Channel".into(),
             name: name.to_string(),
@@ -340,7 +356,7 @@ pub mod channel {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

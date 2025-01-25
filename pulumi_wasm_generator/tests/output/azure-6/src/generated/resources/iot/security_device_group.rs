@@ -57,24 +57,24 @@
 /// ```
 ///
 pub mod security_device_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecurityDeviceGroupArgs {
         /// an `allow_rule` blocks as defined below.
         #[builder(into, default)]
-        pub allow_rule: pulumi_wasm_rust::Output<
+        pub allow_rule: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iot::SecurityDeviceGroupAllowRule>,
         >,
         /// The ID of the IoT Hub which to link the Security Device Group to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub iothub_id: pulumi_wasm_rust::Output<String>,
+        pub iothub_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Device Security Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `range_rule` blocks as defined below.
         #[builder(into, default)]
-        pub range_rules: pulumi_wasm_rust::Output<
+        pub range_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::SecurityDeviceGroupRangeRule>>,
         >,
     }
@@ -98,15 +98,16 @@ pub mod security_device_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SecurityDeviceGroupArgs,
     ) -> SecurityDeviceGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allow_rule_binding = args.allow_rule.get_inner();
-        let iothub_id_binding = args.iothub_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let range_rules_binding = args.range_rules.get_inner();
+        let allow_rule_binding = args.allow_rule.get_output(context).get_inner();
+        let iothub_id_binding = args.iothub_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let range_rules_binding = args.range_rules.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/securityDeviceGroup:SecurityDeviceGroup".into(),
             name: name.to_string(),
@@ -144,7 +145,7 @@ pub mod security_device_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

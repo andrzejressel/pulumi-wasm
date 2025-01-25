@@ -1,14 +1,16 @@
 pub mod get_network_attached_data_network {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetNetworkAttachedDataNetworkArgs {
         /// The Name of the `azure.mobile.NetworkDataNetwork` this resource belongs to.
         #[builder(into)]
-        pub mobile_network_data_network_name: pulumi_wasm_rust::Output<String>,
+        pub mobile_network_data_network_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the `azure.mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to.
         #[builder(into)]
-        pub mobile_network_packet_core_data_plane_id: pulumi_wasm_rust::Output<String>,
+        pub mobile_network_packet_core_data_plane_id: pulumi_wasm_rust::InputOrOutput<
+            String,
+        >,
     }
     #[allow(dead_code)]
     pub struct GetNetworkAttachedDataNetworkResult {
@@ -46,15 +48,18 @@ pub mod get_network_attached_data_network {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetNetworkAttachedDataNetworkArgs,
     ) -> GetNetworkAttachedDataNetworkResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let mobile_network_data_network_name_binding = args
             .mobile_network_data_network_name
+            .get_output(context)
             .get_inner();
         let mobile_network_packet_core_data_plane_id_binding = args
             .mobile_network_packet_core_data_plane_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:mobile/getNetworkAttachedDataNetwork:getNetworkAttachedDataNetwork"
@@ -112,7 +117,7 @@ pub mod get_network_attached_data_network {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -54,47 +54,47 @@
 /// ```
 ///
 pub mod environment_dapr_component {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentDaprComponentArgs {
         /// The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub component_type: pulumi_wasm_rust::Output<String>,
+        pub component_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub container_app_environment_id: pulumi_wasm_rust::Output<String>,
+        pub container_app_environment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false`
         #[builder(into, default)]
-        pub ignore_errors: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ignore_errors: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`.
         #[builder(into, default)]
-        pub init_timeout: pulumi_wasm_rust::Output<Option<String>>,
+        pub init_timeout: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `metadata` blocks as detailed below.
         #[builder(into, default)]
-        pub metadatas: pulumi_wasm_rust::Output<
+        pub metadatas: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::containerapp::EnvironmentDaprComponentMetadata>,
             >,
         >,
         /// The name for this Dapr component. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of scopes to which this component applies.
         ///
         /// > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
         #[builder(into, default)]
-        pub scopes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub scopes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A `secret` block as detailed below.
         #[builder(into, default)]
-        pub secrets: pulumi_wasm_rust::Output<
+        pub secrets: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::containerapp::EnvironmentDaprComponentSecret>,
             >,
         >,
         /// The version of the component.
         #[builder(into)]
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentDaprComponentResult {
@@ -132,22 +132,24 @@ pub mod environment_dapr_component {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EnvironmentDaprComponentArgs,
     ) -> EnvironmentDaprComponentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let component_type_binding = args.component_type.get_inner();
+        let component_type_binding = args.component_type.get_output(context).get_inner();
         let container_app_environment_id_binding = args
             .container_app_environment_id
+            .get_output(context)
             .get_inner();
-        let ignore_errors_binding = args.ignore_errors.get_inner();
-        let init_timeout_binding = args.init_timeout.get_inner();
-        let metadatas_binding = args.metadatas.get_inner();
-        let name_binding = args.name.get_inner();
-        let scopes_binding = args.scopes.get_inner();
-        let secrets_binding = args.secrets.get_inner();
-        let version_binding = args.version.get_inner();
+        let ignore_errors_binding = args.ignore_errors.get_output(context).get_inner();
+        let init_timeout_binding = args.init_timeout.get_output(context).get_inner();
+        let metadatas_binding = args.metadatas.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let scopes_binding = args.scopes.get_output(context).get_inner();
+        let secrets_binding = args.secrets.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent"
                 .into(),
@@ -221,7 +223,7 @@ pub mod environment_dapr_component {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

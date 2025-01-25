@@ -26,23 +26,23 @@
 /// $ pulumi import aws:rekognition/project:Project example project-id-12345678
 /// ```
 pub mod project {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectArgs {
         /// Specify if automatic retraining should occur. Valid values are `ENABLED` or `DISABLED`. Defaults to `DISABLED`
         #[builder(into, default)]
-        pub auto_update: pulumi_wasm_rust::Output<Option<String>>,
+        pub auto_update: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specify the feature being customized. Valid values are `CONTENT_MODERATION` or `CUSTOM_LABELS`. Defaults to `CUSTOM_LABELS`
         #[builder(into, default)]
-        pub feature: pulumi_wasm_rust::Output<Option<String>>,
+        pub feature: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Desired name of the project
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::rekognition::ProjectTimeouts>,
         >,
     }
@@ -66,13 +66,17 @@ pub mod project {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProjectArgs) -> ProjectResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProjectArgs,
+    ) -> ProjectResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_update_binding = args.auto_update.get_inner();
-        let feature_binding = args.feature.get_inner();
-        let name_binding = args.name.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let auto_update_binding = args.auto_update.get_output(context).get_inner();
+        let feature_binding = args.feature.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rekognition/project:Project".into(),
             name: name.to_string(),
@@ -113,7 +117,7 @@ pub mod project {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

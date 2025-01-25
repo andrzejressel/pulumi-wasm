@@ -33,26 +33,26 @@
 /// }
 /// ```
 pub mod load_balancer_cookie_stickiness_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoadBalancerCookieStickinessPolicyArgs {
         /// The time period after which
         /// the session cookie should be considered stale, expressed in seconds.
         #[builder(into, default)]
-        pub cookie_expiration_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub cookie_expiration_period: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The load balancer port to which the policy
         /// should be applied. This must be an active listener on the load
         /// balancer.
         #[builder(into)]
-        pub lb_port: pulumi_wasm_rust::Output<i32>,
+        pub lb_port: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The load balancer to which the policy
         /// should be attached.
         #[builder(into)]
-        pub load_balancer: pulumi_wasm_rust::Output<String>,
+        pub load_balancer: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the stickiness policy.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LoadBalancerCookieStickinessPolicyResult {
@@ -74,15 +74,19 @@ pub mod load_balancer_cookie_stickiness_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LoadBalancerCookieStickinessPolicyArgs,
     ) -> LoadBalancerCookieStickinessPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cookie_expiration_period_binding = args.cookie_expiration_period.get_inner();
-        let lb_port_binding = args.lb_port.get_inner();
-        let load_balancer_binding = args.load_balancer.get_inner();
-        let name_binding = args.name.get_inner();
+        let cookie_expiration_period_binding = args
+            .cookie_expiration_period
+            .get_output(context)
+            .get_inner();
+        let lb_port_binding = args.lb_port.get_output(context).get_inner();
+        let load_balancer_binding = args.load_balancer.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elb/loadBalancerCookieStickinessPolicy:LoadBalancerCookieStickinessPolicy"
                 .into(),
@@ -121,7 +125,7 @@ pub mod load_balancer_cookie_stickiness_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

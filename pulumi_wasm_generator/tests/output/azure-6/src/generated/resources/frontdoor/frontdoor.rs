@@ -85,57 +85,57 @@
 /// ```
 ///
 pub mod frontdoor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorArgs {
         /// A `backend_pool_health_probe` block as defined below.
         #[builder(into)]
-        pub backend_pool_health_probes: pulumi_wasm_rust::Output<
+        pub backend_pool_health_probes: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::frontdoor::FrontdoorBackendPoolHealthProbe>,
         >,
         /// A `backend_pool_load_balancing` block as defined below.
         #[builder(into)]
-        pub backend_pool_load_balancings: pulumi_wasm_rust::Output<
+        pub backend_pool_load_balancings: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::frontdoor::FrontdoorBackendPoolLoadBalancing>,
         >,
         /// A `backend_pool_settings` block as defined below.
         #[builder(into, default)]
-        pub backend_pool_settings: pulumi_wasm_rust::Output<
+        pub backend_pool_settings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::frontdoor::FrontdoorBackendPoolSetting>>,
         >,
         /// A `backend_pool` block as defined below.
         ///
         /// > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         #[builder(into)]
-        pub backend_pools: pulumi_wasm_rust::Output<
+        pub backend_pools: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::frontdoor::FrontdoorBackendPool>,
         >,
         /// A friendly name for the Front Door service.
         #[builder(into, default)]
-        pub friendly_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub friendly_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `frontend_endpoint` block as defined below.
         #[builder(into)]
-        pub frontend_endpoints: pulumi_wasm_rust::Output<
+        pub frontend_endpoints: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::frontdoor::FrontdoorFrontendEndpoint>,
         >,
         /// Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub load_balancer_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub load_balancer_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `routing_rule` block as defined below.
         #[builder(into)]
-        pub routing_rules: pulumi_wasm_rust::Output<
+        pub routing_rules: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::frontdoor::FrontdoorRoutingRule>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -211,24 +211,42 @@ pub mod frontdoor {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FrontdoorArgs) -> FrontdoorResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FrontdoorArgs,
+    ) -> FrontdoorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let backend_pool_health_probes_binding = args
             .backend_pool_health_probes
+            .get_output(context)
             .get_inner();
         let backend_pool_load_balancings_binding = args
             .backend_pool_load_balancings
+            .get_output(context)
             .get_inner();
-        let backend_pool_settings_binding = args.backend_pool_settings.get_inner();
-        let backend_pools_binding = args.backend_pools.get_inner();
-        let friendly_name_binding = args.friendly_name.get_inner();
-        let frontend_endpoints_binding = args.frontend_endpoints.get_inner();
-        let load_balancer_enabled_binding = args.load_balancer_enabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let routing_rules_binding = args.routing_rules.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let backend_pool_settings_binding = args
+            .backend_pool_settings
+            .get_output(context)
+            .get_inner();
+        let backend_pools_binding = args.backend_pools.get_output(context).get_inner();
+        let friendly_name_binding = args.friendly_name.get_output(context).get_inner();
+        let frontend_endpoints_binding = args
+            .frontend_endpoints
+            .get_output(context)
+            .get_inner();
+        let load_balancer_enabled_binding = args
+            .load_balancer_enabled
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let routing_rules_binding = args.routing_rules.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:frontdoor/frontdoor:Frontdoor".into(),
             name: name.to_string(),
@@ -339,7 +357,7 @@ pub mod frontdoor {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

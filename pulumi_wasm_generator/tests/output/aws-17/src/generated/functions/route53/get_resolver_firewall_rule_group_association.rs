@@ -1,5 +1,5 @@
 pub mod get_resolver_firewall_rule_group_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetResolverFirewallRuleGroupAssociationArgs {
@@ -7,7 +7,7 @@ pub mod get_resolver_firewall_rule_group_association {
         ///
         /// The following attribute is additionally exported:
         #[builder(into)]
-        pub firewall_rule_group_association_id: pulumi_wasm_rust::Output<String>,
+        pub firewall_rule_group_association_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetResolverFirewallRuleGroupAssociationResult {
@@ -32,12 +32,14 @@ pub mod get_resolver_firewall_rule_group_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetResolverFirewallRuleGroupAssociationArgs,
     ) -> GetResolverFirewallRuleGroupAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let firewall_rule_group_association_id_binding = args
             .firewall_rule_group_association_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation"
@@ -94,7 +96,7 @@ pub mod get_resolver_firewall_rule_group_association {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

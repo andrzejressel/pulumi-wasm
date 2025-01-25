@@ -39,34 +39,34 @@
 /// ```
 ///
 pub mod api_schema {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiSchemaArgs {
         /// The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_name: pulumi_wasm_rust::Output<String>,
+        pub api_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
         #[builder(into, default)]
-        pub components: pulumi_wasm_rust::Output<Option<String>>,
+        pub components: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The content type of the API Schema.
         #[builder(into)]
-        pub content_type: pulumi_wasm_rust::Output<String>,
+        pub content_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Types definitions. Used for Swagger/OpenAPI v1 schemas only.
         #[builder(into, default)]
-        pub definitions: pulumi_wasm_rust::Output<Option<String>>,
+        pub definitions: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A unique identifier for this API Schema. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub schema_id: pulumi_wasm_rust::Output<String>,
+        pub schema_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The JSON escaped string defining the document representing the Schema.
         #[builder(into, default)]
-        pub value: pulumi_wasm_rust::Output<Option<String>>,
+        pub value: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ApiSchemaResult {
@@ -91,17 +91,27 @@ pub mod api_schema {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApiSchemaArgs) -> ApiSchemaResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApiSchemaArgs,
+    ) -> ApiSchemaResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args.api_management_name.get_inner();
-        let api_name_binding = args.api_name.get_inner();
-        let components_binding = args.components.get_inner();
-        let content_type_binding = args.content_type.get_inner();
-        let definitions_binding = args.definitions.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let schema_id_binding = args.schema_id.get_inner();
-        let value_binding = args.value.get_inner();
+        let api_management_name_binding = args
+            .api_management_name
+            .get_output(context)
+            .get_inner();
+        let api_name_binding = args.api_name.get_output(context).get_inner();
+        let components_binding = args.components.get_output(context).get_inner();
+        let content_type_binding = args.content_type.get_output(context).get_inner();
+        let definitions_binding = args.definitions.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let schema_id_binding = args.schema_id.get_output(context).get_inner();
+        let value_binding = args.value.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/apiSchema:ApiSchema".into(),
             name: name.to_string(),
@@ -167,7 +177,7 @@ pub mod api_schema {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

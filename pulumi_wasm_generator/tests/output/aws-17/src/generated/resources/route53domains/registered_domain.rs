@@ -27,63 +27,63 @@
 /// $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
 /// ```
 pub mod registered_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegisteredDomainArgs {
         /// Details about the domain administrative contact. See Contact Blocks for more details.
         #[builder(into, default)]
-        pub admin_contact: pulumi_wasm_rust::Output<
+        pub admin_contact: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::route53domains::RegisteredDomainAdminContact>,
         >,
         /// Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
         #[builder(into, default)]
-        pub admin_privacy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub admin_privacy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether the domain registration is set to renew automatically. Default: `true`.
         #[builder(into, default)]
-        pub auto_renew: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_renew: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Details about the domain billing contact. See Contact Blocks for more details.
         #[builder(into, default)]
-        pub billing_contact: pulumi_wasm_rust::Output<
+        pub billing_contact: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::route53domains::RegisteredDomainBillingContact>,
         >,
         /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
         #[builder(into, default)]
-        pub billing_privacy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub billing_privacy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the registered domain.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The list of nameservers for the domain. See `name_server` Blocks for more details.
         #[builder(into, default)]
-        pub name_servers: pulumi_wasm_rust::Output<
+        pub name_servers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::route53domains::RegisteredDomainNameServer>>,
         >,
         /// Details about the domain registrant. See Contact Blocks for more details.
         #[builder(into, default)]
-        pub registrant_contact: pulumi_wasm_rust::Output<
+        pub registrant_contact: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::route53domains::RegisteredDomainRegistrantContact,
             >,
         >,
         /// Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
         #[builder(into, default)]
-        pub registrant_privacy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub registrant_privacy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Details about the domain technical contact. See Contact Blocks for more details.
         #[builder(into, default)]
-        pub tech_contact: pulumi_wasm_rust::Output<
+        pub tech_contact: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::route53domains::RegisteredDomainTechContact>,
         >,
         /// Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         #[builder(into, default)]
-        pub tech_privacy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tech_privacy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether the domain is locked for transfer. Default: `true`.
         #[builder(into, default)]
-        pub transfer_lock: pulumi_wasm_rust::Output<Option<bool>>,
+        pub transfer_lock: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct RegisteredDomainResult {
@@ -154,22 +154,38 @@ pub mod registered_domain {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RegisteredDomainArgs) -> RegisteredDomainResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RegisteredDomainArgs,
+    ) -> RegisteredDomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let admin_contact_binding = args.admin_contact.get_inner();
-        let admin_privacy_binding = args.admin_privacy.get_inner();
-        let auto_renew_binding = args.auto_renew.get_inner();
-        let billing_contact_binding = args.billing_contact.get_inner();
-        let billing_privacy_binding = args.billing_privacy.get_inner();
-        let domain_name_binding = args.domain_name.get_inner();
-        let name_servers_binding = args.name_servers.get_inner();
-        let registrant_contact_binding = args.registrant_contact.get_inner();
-        let registrant_privacy_binding = args.registrant_privacy.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tech_contact_binding = args.tech_contact.get_inner();
-        let tech_privacy_binding = args.tech_privacy.get_inner();
-        let transfer_lock_binding = args.transfer_lock.get_inner();
+        let admin_contact_binding = args.admin_contact.get_output(context).get_inner();
+        let admin_privacy_binding = args.admin_privacy.get_output(context).get_inner();
+        let auto_renew_binding = args.auto_renew.get_output(context).get_inner();
+        let billing_contact_binding = args
+            .billing_contact
+            .get_output(context)
+            .get_inner();
+        let billing_privacy_binding = args
+            .billing_privacy
+            .get_output(context)
+            .get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let name_servers_binding = args.name_servers.get_output(context).get_inner();
+        let registrant_contact_binding = args
+            .registrant_contact
+            .get_output(context)
+            .get_inner();
+        let registrant_privacy_binding = args
+            .registrant_privacy
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tech_contact_binding = args.tech_contact.get_output(context).get_inner();
+        let tech_privacy_binding = args.tech_privacy.get_output(context).get_inner();
+        let transfer_lock_binding = args.transfer_lock.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53domains/registeredDomain:RegisteredDomain".into(),
             name: name.to_string(),
@@ -303,7 +319,7 @@ pub mod registered_domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -64,19 +64,19 @@
 /// $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
 /// ```
 pub mod user_pool_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserPoolDomainArgs {
         /// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         #[builder(into, default)]
-        pub certificate_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         #[builder(into)]
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_wasm_rust::InputOrOutput<String>,
         /// The user pool ID.
         #[builder(into)]
-        pub user_pool_id: pulumi_wasm_rust::Output<String>,
+        pub user_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserPoolDomainResult {
@@ -103,12 +103,19 @@ pub mod user_pool_domain {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UserPoolDomainArgs) -> UserPoolDomainResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UserPoolDomainArgs,
+    ) -> UserPoolDomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_arn_binding = args.certificate_arn.get_inner();
-        let domain_binding = args.domain.get_inner();
-        let user_pool_id_binding = args.user_pool_id.get_inner();
+        let certificate_arn_binding = args
+            .certificate_arn
+            .get_output(context)
+            .get_inner();
+        let domain_binding = args.domain.get_output(context).get_inner();
+        let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/userPoolDomain:UserPoolDomain".into(),
             name: name.to_string(),
@@ -157,7 +164,7 @@ pub mod user_pool_domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

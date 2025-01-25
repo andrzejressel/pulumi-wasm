@@ -75,16 +75,16 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// Required. Immutable. Storage capacity of Parallelstore instance in Gibibytes (GiB).
         #[builder(into)]
-        pub capacity_gib: pulumi_wasm_rust::Output<String>,
+        pub capacity_gib: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of the instance. 2048 characters or less.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Stripe level for directories.
         /// MIN when directory has a small number of files.
         /// MAX when directory has a large number of files.
@@ -94,7 +94,7 @@ pub mod instance {
         /// DIRECTORY_STRIPE_LEVEL_BALANCED
         /// DIRECTORY_STRIPE_LEVEL_MAX
         #[builder(into, default)]
-        pub directory_stripe_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub directory_stripe_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Stripe level for files.
         /// MIN better suited for small size files.
         /// MAX higher throughput performance for larger files.
@@ -104,7 +104,7 @@ pub mod instance {
         /// FILE_STRIPE_LEVEL_BALANCED
         /// FILE_STRIPE_LEVEL_MAX
         #[builder(into, default)]
-        pub file_stripe_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub file_stripe_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The logical name of the Parallelstore instance in the user project with the following restrictions:
         /// * Must contain only lowercase letters, numbers, and hyphens.
         /// * Must start with a letter.
@@ -115,7 +115,7 @@ pub mod instance {
         ///
         /// - - -
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Cloud Labels are a flexible and lightweight mechanism for
         /// organizing cloud resources into groups that reflect a customer's organizational
         /// needs and deployment strategies. Cloud Labels can be used to filter collections
@@ -138,26 +138,26 @@ pub mod instance {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Part of `parent`. See documentation of `projectsId`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Immutable. The name of the Google Compute Engine [VPC network](https://cloud.google.com/vpc/docs/vpc)
         /// to which the instance is connected.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::Output<Option<String>>,
+        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Immutable. Contains the id of the allocated IP address range
         /// associated with the private service access connection for example, \"test-default\"
         /// associated with IP range 10.0.0.0/29. If no range id is provided all ranges will
         /// be considered.
         #[builder(into, default)]
-        pub reserved_ip_range: pulumi_wasm_rust::Output<Option<String>>,
+        pub reserved_ip_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
@@ -270,19 +270,32 @@ pub mod instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InstanceArgs) -> InstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InstanceArgs,
+    ) -> InstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let capacity_gib_binding = args.capacity_gib.get_inner();
-        let description_binding = args.description.get_inner();
-        let directory_stripe_level_binding = args.directory_stripe_level.get_inner();
-        let file_stripe_level_binding = args.file_stripe_level.get_inner();
-        let instance_id_binding = args.instance_id.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let network_binding = args.network.get_inner();
-        let project_binding = args.project.get_inner();
-        let reserved_ip_range_binding = args.reserved_ip_range.get_inner();
+        let capacity_gib_binding = args.capacity_gib.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let directory_stripe_level_binding = args
+            .directory_stripe_level
+            .get_output(context)
+            .get_inner();
+        let file_stripe_level_binding = args
+            .file_stripe_level
+            .get_output(context)
+            .get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let reserved_ip_range_binding = args
+            .reserved_ip_range
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:parallelstore/instance:Instance".into(),
             name: name.to_string(),
@@ -389,7 +402,7 @@ pub mod instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

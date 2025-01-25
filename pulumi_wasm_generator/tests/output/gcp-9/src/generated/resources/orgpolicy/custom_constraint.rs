@@ -73,38 +73,38 @@
 /// ```
 ///
 pub mod custom_constraint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomConstraintArgs {
         /// The action to take if the condition is met.
         /// Possible values are: `ALLOW`, `DENY`.
         #[builder(into)]
-        pub action_type: pulumi_wasm_rust::Output<String>,
+        pub action_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// A CEL condition that refers to a supported service resource, for example `resource.management.autoUpgrade == false`. For details about CEL usage, see [Common Expression Language](https://cloud.google.com/resource-manager/docs/organization-policy/creating-managing-custom-constraints#common_expression_language).
         #[builder(into)]
-        pub condition: pulumi_wasm_rust::Output<String>,
+        pub condition: pulumi_wasm_rust::InputOrOutput<String>,
         /// A human-friendly description of the constraint to display as an error message when the policy is violated.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A human-friendly name for the constraint.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of RESTful methods for which to enforce the constraint. Can be `CREATE`, `UPDATE`, or both. Not all Google Cloud services support both methods. To see supported methods for each service, find the service in [Supported services](https://cloud.google.com/resource-manager/docs/organization-policy/custom-constraint-supported-services).
         #[builder(into)]
-        pub method_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub method_types: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Immutable. The name of the custom constraint. This is unique within the organization.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The parent of the resource, an organization. Format should be `organizations/{organization_id}`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// Immutable. The fully qualified name of the Google Cloud REST resource containing the object and field you want to restrict. For example, `container.googleapis.com/NodePool`.
         #[builder(into)]
-        pub resource_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub resource_types: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct CustomConstraintResult {
@@ -135,17 +135,21 @@ pub mod custom_constraint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CustomConstraintArgs) -> CustomConstraintResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CustomConstraintArgs,
+    ) -> CustomConstraintResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_type_binding = args.action_type.get_inner();
-        let condition_binding = args.condition.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let method_types_binding = args.method_types.get_inner();
-        let name_binding = args.name.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let resource_types_binding = args.resource_types.get_inner();
+        let action_type_binding = args.action_type.get_output(context).get_inner();
+        let condition_binding = args.condition.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let method_types_binding = args.method_types.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let resource_types_binding = args.resource_types.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:orgpolicy/customConstraint:CustomConstraint".into(),
             name: name.to_string(),
@@ -214,7 +218,7 @@ pub mod custom_constraint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

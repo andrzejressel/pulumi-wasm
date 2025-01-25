@@ -36,64 +36,66 @@
 /// ```
 ///
 pub mod vault {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VaultArgs {
         /// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub classic_vmware_replication_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub classic_vmware_replication_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
         ///
         /// > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         #[builder(into, default)]
-        pub cross_region_restore_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub cross_region_restore_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `encryption` block as defined below. Required with `identity`.
         ///
         /// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         #[builder(into, default)]
-        pub encryption: pulumi_wasm_rust::Output<
+        pub encryption: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::recoveryservices::VaultEncryption>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::recoveryservices::VaultIdentity>,
         >,
         /// Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
         ///
         /// > **Note:** Once `immutability` is set to `Locked`, changing it to other values forces a new Recovery Services Vault to be created.
         #[builder(into, default)]
-        pub immutability: pulumi_wasm_rust::Output<Option<String>>,
+        pub immutability: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `monitoring` block as defined below.
         #[builder(into, default)]
-        pub monitoring: pulumi_wasm_rust::Output<
+        pub monitoring: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::recoveryservices::VaultMonitoring>,
         >,
         /// Specifies the name of the Recovery Services Vault. Recovery Service Vault name must be 2 - 50 characters long, start with a letter, contain only letters, numbers and hyphens. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Is it enabled to access the vault from public networks. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
         /// Is soft delete enable for this Vault? Defaults to `true`.
         #[builder(into, default)]
-        pub soft_delete_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub soft_delete_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
         #[builder(into, default)]
-        pub storage_mode_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_mode_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -146,29 +148,45 @@ pub mod vault {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VaultArgs) -> VaultResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VaultArgs,
+    ) -> VaultResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let classic_vmware_replication_enabled_binding = args
             .classic_vmware_replication_enabled
+            .get_output(context)
             .get_inner();
         let cross_region_restore_enabled_binding = args
             .cross_region_restore_enabled
+            .get_output(context)
             .get_inner();
-        let encryption_binding = args.encryption.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let immutability_binding = args.immutability.get_inner();
-        let location_binding = args.location.get_inner();
-        let monitoring_binding = args.monitoring.get_inner();
-        let name_binding = args.name.get_inner();
+        let encryption_binding = args.encryption.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let immutability_binding = args.immutability.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let monitoring_binding = args.monitoring.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let soft_delete_enabled_binding = args.soft_delete_enabled.get_inner();
-        let storage_mode_type_binding = args.storage_mode_type.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let soft_delete_enabled_binding = args
+            .soft_delete_enabled
+            .get_output(context)
+            .get_inner();
+        let storage_mode_type_binding = args
+            .storage_mode_type
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:recoveryservices/vault:Vault".into(),
             name: name.to_string(),
@@ -276,7 +294,7 @@ pub mod vault {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

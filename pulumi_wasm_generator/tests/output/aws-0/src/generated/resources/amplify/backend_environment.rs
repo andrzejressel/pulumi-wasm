@@ -31,22 +31,22 @@
 /// $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
 /// ```
 pub mod backend_environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackendEnvironmentArgs {
         /// Unique ID for an Amplify app.
         #[builder(into)]
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of deployment artifacts.
         #[builder(into, default)]
-        pub deployment_artifacts: pulumi_wasm_rust::Output<Option<String>>,
+        pub deployment_artifacts: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name for the backend environment.
         #[builder(into)]
-        pub environment_name: pulumi_wasm_rust::Output<String>,
+        pub environment_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// AWS CloudFormation stack name of a backend environment.
         #[builder(into, default)]
-        pub stack_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub stack_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BackendEnvironmentResult {
@@ -65,13 +65,23 @@ pub mod backend_environment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BackendEnvironmentArgs) -> BackendEnvironmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BackendEnvironmentArgs,
+    ) -> BackendEnvironmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_id_binding = args.app_id.get_inner();
-        let deployment_artifacts_binding = args.deployment_artifacts.get_inner();
-        let environment_name_binding = args.environment_name.get_inner();
-        let stack_name_binding = args.stack_name.get_inner();
+        let app_id_binding = args.app_id.get_output(context).get_inner();
+        let deployment_artifacts_binding = args
+            .deployment_artifacts
+            .get_output(context)
+            .get_inner();
+        let environment_name_binding = args
+            .environment_name
+            .get_output(context)
+            .get_inner();
+        let stack_name_binding = args.stack_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:amplify/backendEnvironment:BackendEnvironment".into(),
             name: name.to_string(),
@@ -112,7 +122,7 @@ pub mod backend_environment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

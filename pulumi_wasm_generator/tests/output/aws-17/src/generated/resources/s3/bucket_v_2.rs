@@ -27,67 +27,67 @@
 /// $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
 /// ```
 pub mod bucket_v_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketV2Args {
         /// Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`. Cannot be used in `cn-north-1` or `us-gov-west-1`. This provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketAccelerateConfigurationV2` instead.
         #[builder(into, default)]
-        pub acceleration_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub acceleration_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
         #[builder(into, default)]
-        pub acl: pulumi_wasm_rust::Output<Option<String>>,
+        pub acl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the bucket. If omitted, the provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html). The name must not be in the format `[bucket_name]--[azid]--x-s3`. Use the `aws.s3.DirectoryBucket` resource to manage S3 Express buckets.
         #[builder(into, default)]
-        pub bucket: pulumi_wasm_rust::Output<Option<String>>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
         #[builder(into, default)]
-        pub bucket_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub bucket_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfigurationV2` instead.
         #[builder(into, default)]
-        pub cors_rules: pulumi_wasm_rust::Output<
+        pub cors_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketV2CorsRule>>,
         >,
         /// Boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket *when the bucket is destroyed* so that the bucket can be destroyed without error. These objects are *not* recoverable. This only deletes objects when the bucket is destroyed, *not* when setting this parameter to `true`. Once this parameter is set to `true`, there must be a successful `pulumi up` run before a destroy is required to update this value in the resource state. Without a successful `pulumi up` after this parameter is set, this flag will have no effect. If setting this field in the same operation that would require replacing the bucket or destroying the bucket, this flag will not work. Additionally when importing a bucket, a successful `pulumi up` is required to set this value in state before it will take effect on a destroy operation.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
         #[builder(into, default)]
-        pub grants: pulumi_wasm_rust::Output<
+        pub grants: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketV2Grant>>,
         >,
         /// Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketLifecycleConfigurationV2` instead.
         #[builder(into, default)]
-        pub lifecycle_rules: pulumi_wasm_rust::Output<
+        pub lifecycle_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketV2LifecycleRule>>,
         >,
         /// Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketLoggingV2` instead.
         #[builder(into, default)]
-        pub loggings: pulumi_wasm_rust::Output<
+        pub loggings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketV2Logging>>,
         >,
         /// Configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html). See Object Lock Configuration below for details.
         /// The provider wil only perform drift detection if a configuration value is provided.
         /// Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
         #[builder(into, default)]
-        pub object_lock_configuration: pulumi_wasm_rust::Output<
+        pub object_lock_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3::BucketV2ObjectLockConfiguration>,
         >,
         /// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
         #[builder(into, default)]
-        pub object_lock_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub object_lock_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), this provider may view the policy as constantly changing. In this case, please make sure you use the verbose/specific version of the policy. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
         /// The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketPolicy` instead.
         #[builder(into, default)]
-        pub policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketReplicationConfig` instead.
         #[builder(into, default)]
-        pub replication_configurations: pulumi_wasm_rust::Output<
+        pub replication_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketV2ReplicationConfiguration>>,
         >,
         /// Specifies who should bear the cost of Amazon S3 data transfer.
@@ -96,12 +96,12 @@ pub mod bucket_v_2 {
         /// The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
         #[builder(into, default)]
-        pub request_payer: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_payer: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html). See Server Side Encryption Configuration below for details.
         /// The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
         #[builder(into, default)]
-        pub server_side_encryption_configurations: pulumi_wasm_rust::Output<
+        pub server_side_encryption_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::s3::BucketV2ServerSideEncryptionConfiguration>,
             >,
@@ -110,18 +110,18 @@ pub mod bucket_v_2 {
         ///
         /// The following arguments are deprecated, and will be removed in a future major version:
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
         #[builder(into, default)]
-        pub versionings: pulumi_wasm_rust::Output<
+        pub versionings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketV2Versioning>>,
         >,
         /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
         #[builder(into, default)]
-        pub websites: pulumi_wasm_rust::Output<
+        pub websites: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketV2Website>>,
         >,
     }
@@ -223,33 +223,49 @@ pub mod bucket_v_2 {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BucketV2Args) -> BucketV2Result {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BucketV2Args,
+    ) -> BucketV2Result {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let acceleration_status_binding = args.acceleration_status.get_inner();
-        let acl_binding = args.acl.get_inner();
-        let bucket_binding = args.bucket.get_inner();
-        let bucket_prefix_binding = args.bucket_prefix.get_inner();
-        let cors_rules_binding = args.cors_rules.get_inner();
-        let force_destroy_binding = args.force_destroy.get_inner();
-        let grants_binding = args.grants.get_inner();
-        let lifecycle_rules_binding = args.lifecycle_rules.get_inner();
-        let loggings_binding = args.loggings.get_inner();
+        let acceleration_status_binding = args
+            .acceleration_status
+            .get_output(context)
+            .get_inner();
+        let acl_binding = args.acl.get_output(context).get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let bucket_prefix_binding = args.bucket_prefix.get_output(context).get_inner();
+        let cors_rules_binding = args.cors_rules.get_output(context).get_inner();
+        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
+        let grants_binding = args.grants.get_output(context).get_inner();
+        let lifecycle_rules_binding = args
+            .lifecycle_rules
+            .get_output(context)
+            .get_inner();
+        let loggings_binding = args.loggings.get_output(context).get_inner();
         let object_lock_configuration_binding = args
             .object_lock_configuration
+            .get_output(context)
             .get_inner();
-        let object_lock_enabled_binding = args.object_lock_enabled.get_inner();
-        let policy_binding = args.policy.get_inner();
+        let object_lock_enabled_binding = args
+            .object_lock_enabled
+            .get_output(context)
+            .get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
         let replication_configurations_binding = args
             .replication_configurations
+            .get_output(context)
             .get_inner();
-        let request_payer_binding = args.request_payer.get_inner();
+        let request_payer_binding = args.request_payer.get_output(context).get_inner();
         let server_side_encryption_configurations_binding = args
             .server_side_encryption_configurations
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let versionings_binding = args.versionings.get_inner();
-        let websites_binding = args.websites.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let versionings_binding = args.versionings.get_output(context).get_inner();
+        let websites_binding = args.websites.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketV2:BucketV2".into(),
             name: name.to_string(),
@@ -409,7 +425,7 @@ pub mod bucket_v_2 {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

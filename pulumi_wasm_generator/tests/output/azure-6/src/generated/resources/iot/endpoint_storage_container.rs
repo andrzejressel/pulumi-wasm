@@ -61,48 +61,48 @@
 /// ```
 ///
 pub mod endpoint_storage_container {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointStorageContainerArgs {
         /// Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
         #[builder(into, default)]
-        pub authentication_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub authentication_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         #[builder(into, default)]
-        pub batch_frequency_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub batch_frequency_in_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`.
         #[builder(into, default)]
-        pub connection_string: pulumi_wasm_rust::Output<Option<String>>,
+        pub connection_string: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of storage container in the storage account.
         #[builder(into)]
-        pub container_name: pulumi_wasm_rust::Output<String>,
+        pub container_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub encoding: pulumi_wasm_rust::Output<Option<String>>,
+        pub encoding: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`.
         #[builder(into, default)]
-        pub endpoint_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub endpoint_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
         #[builder(into, default)]
-        pub file_name_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub file_name_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the User Managed Identity used to authenticate against the storage endpoint.
         ///
         /// > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the Iot Hub. If not specified when `authentication_type` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
         #[builder(into, default)]
-        pub identity_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub identity_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IoTHub ID for the endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub iothub_id: pulumi_wasm_rust::Output<String>,
+        pub iothub_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB).
         #[builder(into, default)]
-        pub max_chunk_size_in_bytes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_chunk_size_in_bytes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EndpointStorageContainerResult {
@@ -138,25 +138,42 @@ pub mod endpoint_storage_container {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EndpointStorageContainerArgs,
     ) -> EndpointStorageContainerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authentication_type_binding = args.authentication_type.get_inner();
+        let authentication_type_binding = args
+            .authentication_type
+            .get_output(context)
+            .get_inner();
         let batch_frequency_in_seconds_binding = args
             .batch_frequency_in_seconds
+            .get_output(context)
             .get_inner();
-        let connection_string_binding = args.connection_string.get_inner();
-        let container_name_binding = args.container_name.get_inner();
-        let encoding_binding = args.encoding.get_inner();
-        let endpoint_uri_binding = args.endpoint_uri.get_inner();
-        let file_name_format_binding = args.file_name_format.get_inner();
-        let identity_id_binding = args.identity_id.get_inner();
-        let iothub_id_binding = args.iothub_id.get_inner();
-        let max_chunk_size_in_bytes_binding = args.max_chunk_size_in_bytes.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let connection_string_binding = args
+            .connection_string
+            .get_output(context)
+            .get_inner();
+        let container_name_binding = args.container_name.get_output(context).get_inner();
+        let encoding_binding = args.encoding.get_output(context).get_inner();
+        let endpoint_uri_binding = args.endpoint_uri.get_output(context).get_inner();
+        let file_name_format_binding = args
+            .file_name_format
+            .get_output(context)
+            .get_inner();
+        let identity_id_binding = args.identity_id.get_output(context).get_inner();
+        let iothub_id_binding = args.iothub_id.get_output(context).get_inner();
+        let max_chunk_size_in_bytes_binding = args
+            .max_chunk_size_in_bytes
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/endpointStorageContainer:EndpointStorageContainer".into(),
             name: name.to_string(),
@@ -250,7 +267,7 @@ pub mod endpoint_storage_container {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

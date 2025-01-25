@@ -170,7 +170,7 @@
 /// ```
 ///
 pub mod address {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AddressArgs {
@@ -178,32 +178,32 @@ pub mod address {
         /// The IP address must be inside the specified subnetwork,
         /// if any. Set by the API if undefined.
         #[builder(into, default)]
-        pub address: pulumi_wasm_rust::Output<Option<String>>,
+        pub address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of address to reserve.
         /// Note: if you set this argument's value as `INTERNAL` you need to leave the `network_tier` argument unset in that resource block.
         /// Default value is `EXTERNAL`.
         /// Possible values are: `INTERNAL`, `EXTERNAL`.
         #[builder(into, default)]
-        pub address_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub address_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IP Version that will be used by this address. The default value is `IPV4`.
         /// Possible values are: `IPV4`, `IPV6`.
         #[builder(into, default)]
-        pub ip_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The endpoint type of this address, which should be VM or NETLB. This is
         /// used for deciding which type of endpoint this address can be used after
         /// the external IPv6 address reservation.
         /// Possible values are: `VM`, `NETLB`.
         #[builder(into, default)]
-        pub ipv6_endpoint_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv6_endpoint_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Labels to apply to this address.  A list of key->value pairs.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the resource. The name must be 1-63 characters long, and
@@ -216,25 +216,25 @@ pub mod address {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URL of the network in which to reserve the address. This field
         /// can only be used with INTERNAL type with the VPC_PEERING and
         /// IPSEC_INTERCONNECT purposes.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::Output<Option<String>>,
+        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The networking tier used for configuring this address. If this field is not
         /// specified, it is assumed to be PREMIUM.
         /// This argument should not be used when configuring Internal addresses, because [network tier cannot be set for internal traffic; it's always Premium](https://cloud.google.com/network-tiers/docs/overview).
         /// Possible values are: `PREMIUM`, `STANDARD`.
         #[builder(into, default)]
-        pub network_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The prefix length if the resource represents an IP range.
         #[builder(into, default)]
-        pub prefix_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub prefix_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The purpose of this resource, which can be one of the following values.
         /// * GCE_ENDPOINT for addresses that are used by VM instances, alias IP
         /// ranges, load balancers, and similar resources.
@@ -249,17 +249,17 @@ pub mod address {
         /// this purpose.
         /// This should only be set when using an Internal address.
         #[builder(into, default)]
-        pub purpose: pulumi_wasm_rust::Output<Option<String>>,
+        pub purpose: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Region in which the created address should reside.
         /// If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URL of the subnetwork in which to reserve the address. If an IP
         /// address is specified, it must be within the subnetwork's IP range.
         /// This field can only be used with INTERNAL type with
         /// GCE_ENDPOINT/DNS_RESOLVER purposes.
         #[builder(into, default)]
-        pub subnetwork: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnetwork: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AddressResult {
@@ -358,23 +358,30 @@ pub mod address {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AddressArgs) -> AddressResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AddressArgs,
+    ) -> AddressResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let address_binding = args.address.get_inner();
-        let address_type_binding = args.address_type.get_inner();
-        let description_binding = args.description.get_inner();
-        let ip_version_binding = args.ip_version.get_inner();
-        let ipv6_endpoint_type_binding = args.ipv6_endpoint_type.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
-        let network_tier_binding = args.network_tier.get_inner();
-        let prefix_length_binding = args.prefix_length.get_inner();
-        let project_binding = args.project.get_inner();
-        let purpose_binding = args.purpose.get_inner();
-        let region_binding = args.region.get_inner();
-        let subnetwork_binding = args.subnetwork.get_inner();
+        let address_binding = args.address.get_output(context).get_inner();
+        let address_type_binding = args.address_type.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let ip_version_binding = args.ip_version.get_output(context).get_inner();
+        let ipv6_endpoint_type_binding = args
+            .ipv6_endpoint_type
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let network_tier_binding = args.network_tier.get_output(context).get_inner();
+        let prefix_length_binding = args.prefix_length.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let purpose_binding = args.purpose.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let subnetwork_binding = args.subnetwork.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/address:Address".into(),
             name: name.to_string(),
@@ -500,7 +507,7 @@ pub mod address {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

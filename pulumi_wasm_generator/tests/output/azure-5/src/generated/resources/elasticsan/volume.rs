@@ -120,26 +120,26 @@
 /// ```
 ///
 pub mod volume {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VolumeArgs {
         /// A `create_source` block as defined below.
         #[builder(into, default)]
-        pub create_source: pulumi_wasm_rust::Output<
+        pub create_source: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::elasticsan::VolumeCreateSource>,
         >,
         /// Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
         ///
         /// > **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
         #[builder(into)]
-        pub size_in_gib: pulumi_wasm_rust::Output<i32>,
+        pub size_in_gib: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Specifies the Volume Group ID within which this Elastic SAN Volume should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub volume_group_id: pulumi_wasm_rust::Output<String>,
+        pub volume_group_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VolumeResult {
@@ -168,13 +168,20 @@ pub mod volume {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VolumeArgs) -> VolumeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VolumeArgs,
+    ) -> VolumeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let create_source_binding = args.create_source.get_inner();
-        let name_binding = args.name.get_inner();
-        let size_in_gib_binding = args.size_in_gib.get_inner();
-        let volume_group_id_binding = args.volume_group_id.get_inner();
+        let create_source_binding = args.create_source.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let size_in_gib_binding = args.size_in_gib.get_output(context).get_inner();
+        let volume_group_id_binding = args
+            .volume_group_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:elasticsan/volume:Volume".into(),
             name: name.to_string(),
@@ -224,7 +231,7 @@ pub mod volume {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -174,43 +174,45 @@
 /// $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
 /// ```
 pub mod compute_environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ComputeEnvironmentArgs {
         /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         #[builder(into, default)]
-        pub compute_environment_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub compute_environment_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         #[builder(into, default)]
-        pub compute_environment_name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub compute_environment_name_prefix: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         #[builder(into, default)]
-        pub compute_resources: pulumi_wasm_rust::Output<
+        pub compute_resources: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::batch::ComputeEnvironmentComputeResources>,
         >,
         /// Details for the Amazon EKS cluster that supports the compute environment. See details below.
         #[builder(into, default)]
-        pub eks_configuration: pulumi_wasm_rust::Output<
+        pub eks_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::batch::ComputeEnvironmentEksConfiguration>,
         >,
         /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         #[builder(into, default)]
-        pub service_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::Output<Option<String>>,
+        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the infrastructure update policy for the compute environment. See details below.
         #[builder(into, default)]
-        pub update_policy: pulumi_wasm_rust::Output<
+        pub update_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::batch::ComputeEnvironmentUpdatePolicy>,
         >,
     }
@@ -259,20 +261,34 @@ pub mod compute_environment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ComputeEnvironmentArgs) -> ComputeEnvironmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ComputeEnvironmentArgs,
+    ) -> ComputeEnvironmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let compute_environment_name_binding = args.compute_environment_name.get_inner();
+        let compute_environment_name_binding = args
+            .compute_environment_name
+            .get_output(context)
+            .get_inner();
         let compute_environment_name_prefix_binding = args
             .compute_environment_name_prefix
+            .get_output(context)
             .get_inner();
-        let compute_resources_binding = args.compute_resources.get_inner();
-        let eks_configuration_binding = args.eks_configuration.get_inner();
-        let service_role_binding = args.service_role.get_inner();
-        let state_binding = args.state.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let type__binding = args.type_.get_inner();
-        let update_policy_binding = args.update_policy.get_inner();
+        let compute_resources_binding = args
+            .compute_resources
+            .get_output(context)
+            .get_inner();
+        let eks_configuration_binding = args
+            .eks_configuration
+            .get_output(context)
+            .get_inner();
+        let service_role_binding = args.service_role.get_output(context).get_inner();
+        let state_binding = args.state.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let update_policy_binding = args.update_policy.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:batch/computeEnvironment:ComputeEnvironment".into(),
             name: name.to_string(),
@@ -360,7 +376,7 @@ pub mod compute_environment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

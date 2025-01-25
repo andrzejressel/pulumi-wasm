@@ -58,33 +58,33 @@
 /// Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 ///
 pub mod vpc_peering_connection_accepter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcPeeringConnectionAccepterArgs {
         /// A configuration block that describes [VPC Peering Connection]
         /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         #[builder(into, default)]
-        pub accepter: pulumi_wasm_rust::Output<
+        pub accepter: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ec2::VpcPeeringConnectionAccepterAccepter>,
         >,
         /// Whether or not to accept the peering request. Defaults to `false`.
         #[builder(into, default)]
-        pub auto_accept: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_accept: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A configuration block that describes [VPC Peering Connection]
         /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         #[builder(into, default)]
-        pub requester: pulumi_wasm_rust::Output<
+        pub requester: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ec2::VpcPeeringConnectionAccepterRequester>,
         >,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The VPC Peering Connection ID to manage.
         #[builder(into)]
-        pub vpc_peering_connection_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_peering_connection_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcPeeringConnectionAccepterResult {
@@ -126,17 +126,19 @@ pub mod vpc_peering_connection_accepter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpcPeeringConnectionAccepterArgs,
     ) -> VpcPeeringConnectionAccepterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accepter_binding = args.accepter.get_inner();
-        let auto_accept_binding = args.auto_accept.get_inner();
-        let requester_binding = args.requester.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let accepter_binding = args.accepter.get_output(context).get_inner();
+        let auto_accept_binding = args.auto_accept.get_output(context).get_inner();
+        let requester_binding = args.requester.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let vpc_peering_connection_id_binding = args
             .vpc_peering_connection_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter"
@@ -201,7 +203,7 @@ pub mod vpc_peering_connection_accepter {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

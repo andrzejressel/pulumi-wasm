@@ -41,38 +41,38 @@
 /// ```
 ///
 pub mod hci_logical_network {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HciLogicalNetworkArgs {
         /// The ID of Custom Location where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub custom_location_id: pulumi_wasm_rust::Output<String>,
+        pub custom_location_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of IPv4 addresses of DNS servers available to VMs deployed in the Logical Networks. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub dns_servers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns_servers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Azure Region where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Azure Stack HCI Logical Network. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Azure Stack HCI Logical Network should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `subnet` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub subnet: pulumi_wasm_rust::Output<
+        pub subnet: pulumi_wasm_rust::InputOrOutput<
             super::super::types::stack::HciLogicalNetworkSubnet,
         >,
         /// A mapping of tags which should be assigned to the Azure Stack HCI Logical Network.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the virtual switch on the cluster used to associate with the Azure Stack HCI Logical Network. Possible switch names can be retrieved by following this [Azure guide](https://learn.microsoft.com/azure-stack/hci/manage/create-logical-networks?tabs=azurecli#prerequisites). Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_switch_name: pulumi_wasm_rust::Output<String>,
+        pub virtual_switch_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HciLogicalNetworkResult {
@@ -101,17 +101,30 @@ pub mod hci_logical_network {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HciLogicalNetworkArgs) -> HciLogicalNetworkResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HciLogicalNetworkArgs,
+    ) -> HciLogicalNetworkResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let custom_location_id_binding = args.custom_location_id.get_inner();
-        let dns_servers_binding = args.dns_servers.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let subnet_binding = args.subnet.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let virtual_switch_name_binding = args.virtual_switch_name.get_inner();
+        let custom_location_id_binding = args
+            .custom_location_id
+            .get_output(context)
+            .get_inner();
+        let dns_servers_binding = args.dns_servers.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let subnet_binding = args.subnet.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let virtual_switch_name_binding = args
+            .virtual_switch_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:stack/hciLogicalNetwork:HciLogicalNetwork".into(),
             name: name.to_string(),
@@ -177,7 +190,7 @@ pub mod hci_logical_network {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

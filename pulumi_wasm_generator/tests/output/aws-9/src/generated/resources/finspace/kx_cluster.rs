@@ -46,86 +46,86 @@
 /// $ pulumi import aws:finspace/kxCluster:KxCluster example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-cluster
 /// ```
 pub mod kx_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KxClusterArgs {
         /// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         #[builder(into, default)]
-        pub auto_scaling_configuration: pulumi_wasm_rust::Output<
+        pub auto_scaling_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::finspace::KxClusterAutoScalingConfiguration>,
         >,
         /// The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
         #[builder(into, default)]
-        pub availability_zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The number of availability zones you want to assign per cluster. This can be one of the following:
         /// * SINGLE - Assigns one availability zone per cluster.
         /// * MULTI - Assigns all the availability zones per cluster.
         #[builder(into)]
-        pub az_mode: pulumi_wasm_rust::Output<String>,
+        pub az_mode: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
         #[builder(into, default)]
-        pub cache_storage_configurations: pulumi_wasm_rust::Output<
+        pub cache_storage_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::finspace::KxClusterCacheStorageConfiguration>,
             >,
         >,
         /// Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         #[builder(into, default)]
-        pub capacity_configuration: pulumi_wasm_rust::Output<
+        pub capacity_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::finspace::KxClusterCapacityConfiguration>,
         >,
         /// Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
         #[builder(into, default)]
-        pub code: pulumi_wasm_rust::Output<
+        pub code: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::finspace::KxClusterCode>,
         >,
         /// List of key-value pairs to make available inside the cluster.
         #[builder(into, default)]
-        pub command_line_arguments: pulumi_wasm_rust::Output<
+        pub command_line_arguments: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// KX database that will be available for querying. Defined below.
         #[builder(into, default)]
-        pub databases: pulumi_wasm_rust::Output<
+        pub databases: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::finspace::KxClusterDatabase>>,
         >,
         /// Description of the cluster.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Unique identifier for the KX environment.
         #[builder(into)]
-        pub environment_id: pulumi_wasm_rust::Output<String>,
+        pub environment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
         #[builder(into, default)]
-        pub execution_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub execution_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
         #[builder(into, default)]
-        pub initialization_script: pulumi_wasm_rust::Output<Option<String>>,
+        pub initialization_script: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Unique name for the cluster that you want to create.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Version of FinSpace Managed kdb to run.
         #[builder(into)]
-        pub release_label: pulumi_wasm_rust::Output<String>,
+        pub release_label: pulumi_wasm_rust::InputOrOutput<String>,
         /// Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         #[builder(into, default)]
-        pub savedown_storage_configuration: pulumi_wasm_rust::Output<
+        pub savedown_storage_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::finspace::KxClusterSavedownStorageConfiguration>,
         >,
         /// The structure that stores the configuration details of a scaling group.
         #[builder(into, default)]
-        pub scaling_group_configuration: pulumi_wasm_rust::Output<
+        pub scaling_group_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::finspace::KxClusterScalingGroupConfiguration>,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A configuration to store Tickerplant logs. It consists of a list of volumes that will be mounted to your cluster. For the cluster type Tickerplant , the location of the TP volume on the cluster will be available by using the global variable .aws.tp_log_path.
         #[builder(into, default)]
-        pub tickerplant_log_configurations: pulumi_wasm_rust::Output<
+        pub tickerplant_log_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::finspace::KxClusterTickerplantLogConfiguration>,
             >,
@@ -137,12 +137,12 @@ pub mod kx_cluster {
         /// * GP - A general purpose cluster allows you to quickly iterate on code during development by granting greater access to system commands and enabling a fast reload of custom code. This cluster type can optionally mount databases including cache and savedown storage. For this cluster type, the node count is fixed at 1. It does not support autoscaling and supports only `SINGLE` AZ mode.
         /// * Tickerplant – A tickerplant cluster allows you to subscribe to feed handlers based on IAM permissions. It can publish to RDBs, other Tickerplants, and real-time subscribers (RTS). Tickerplants can persist messages to log, which is readable by any RDB environment. It supports only single-node that is only one kdb process.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub vpc_configuration: pulumi_wasm_rust::Output<
+        pub vpc_configuration: pulumi_wasm_rust::InputOrOutput<
             super::super::types::finspace::KxClusterVpcConfiguration,
         >,
     }
@@ -240,39 +240,63 @@ pub mod kx_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: KxClusterArgs) -> KxClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: KxClusterArgs,
+    ) -> KxClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let auto_scaling_configuration_binding = args
             .auto_scaling_configuration
+            .get_output(context)
             .get_inner();
-        let availability_zone_id_binding = args.availability_zone_id.get_inner();
-        let az_mode_binding = args.az_mode.get_inner();
+        let availability_zone_id_binding = args
+            .availability_zone_id
+            .get_output(context)
+            .get_inner();
+        let az_mode_binding = args.az_mode.get_output(context).get_inner();
         let cache_storage_configurations_binding = args
             .cache_storage_configurations
+            .get_output(context)
             .get_inner();
-        let capacity_configuration_binding = args.capacity_configuration.get_inner();
-        let code_binding = args.code.get_inner();
-        let command_line_arguments_binding = args.command_line_arguments.get_inner();
-        let databases_binding = args.databases.get_inner();
-        let description_binding = args.description.get_inner();
-        let environment_id_binding = args.environment_id.get_inner();
-        let execution_role_binding = args.execution_role.get_inner();
-        let initialization_script_binding = args.initialization_script.get_inner();
-        let name_binding = args.name.get_inner();
-        let release_label_binding = args.release_label.get_inner();
+        let capacity_configuration_binding = args
+            .capacity_configuration
+            .get_output(context)
+            .get_inner();
+        let code_binding = args.code.get_output(context).get_inner();
+        let command_line_arguments_binding = args
+            .command_line_arguments
+            .get_output(context)
+            .get_inner();
+        let databases_binding = args.databases.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let environment_id_binding = args.environment_id.get_output(context).get_inner();
+        let execution_role_binding = args.execution_role.get_output(context).get_inner();
+        let initialization_script_binding = args
+            .initialization_script
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let release_label_binding = args.release_label.get_output(context).get_inner();
         let savedown_storage_configuration_binding = args
             .savedown_storage_configuration
+            .get_output(context)
             .get_inner();
         let scaling_group_configuration_binding = args
             .scaling_group_configuration
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let tickerplant_log_configurations_binding = args
             .tickerplant_log_configurations
+            .get_output(context)
             .get_inner();
-        let type__binding = args.type_.get_inner();
-        let vpc_configuration_binding = args.vpc_configuration.get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let vpc_configuration_binding = args
+            .vpc_configuration
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:finspace/kxCluster:KxCluster".into(),
             name: name.to_string(),
@@ -440,7 +464,7 @@ pub mod kx_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

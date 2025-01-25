@@ -99,20 +99,20 @@
 /// $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
 /// ```
 pub mod global_replication_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GlobalReplicationGroupArgs {
         /// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
         /// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
         #[builder(into, default)]
-        pub automatic_failover_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub automatic_failover_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The instance class used.
         /// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
         /// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
         /// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
         #[builder(into, default)]
-        pub cache_node_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub cache_node_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Redis version to use for the Global Replication Group.
         /// When creating, by default the Global Replication Group inherits the version of the primary replication group.
         /// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
@@ -122,27 +122,27 @@ pub mod global_replication_group {
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A user-created description for the global replication group.
         #[builder(into, default)]
-        pub global_replication_group_description: pulumi_wasm_rust::Output<
+        pub global_replication_group_description: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         #[builder(into)]
-        pub global_replication_group_id_suffix: pulumi_wasm_rust::Output<String>,
+        pub global_replication_group_id_suffix: pulumi_wasm_rust::InputOrOutput<String>,
         /// The number of node groups (shards) on the global replication group.
         #[builder(into, default)]
-        pub num_node_groups: pulumi_wasm_rust::Output<Option<i32>>,
+        pub num_node_groups: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
         /// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
         /// Specifying without a major version upgrade will fail.
         /// Note that ElastiCache creates a copy of this parameter group for each member replication group.
         #[builder(into, default)]
-        pub parameter_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub parameter_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         #[builder(into)]
-        pub primary_replication_group_id: pulumi_wasm_rust::Output<String>,
+        pub primary_replication_group_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GlobalReplicationGroupResult {
@@ -205,6 +205,7 @@ pub mod global_replication_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: GlobalReplicationGroupArgs,
     ) -> GlobalReplicationGroupResult {
@@ -212,19 +213,32 @@ pub mod global_replication_group {
         use std::collections::HashMap;
         let automatic_failover_enabled_binding = args
             .automatic_failover_enabled
+            .get_output(context)
             .get_inner();
-        let cache_node_type_binding = args.cache_node_type.get_inner();
-        let engine_version_binding = args.engine_version.get_inner();
+        let cache_node_type_binding = args
+            .cache_node_type
+            .get_output(context)
+            .get_inner();
+        let engine_version_binding = args.engine_version.get_output(context).get_inner();
         let global_replication_group_description_binding = args
             .global_replication_group_description
+            .get_output(context)
             .get_inner();
         let global_replication_group_id_suffix_binding = args
             .global_replication_group_id_suffix
+            .get_output(context)
             .get_inner();
-        let num_node_groups_binding = args.num_node_groups.get_inner();
-        let parameter_group_name_binding = args.parameter_group_name.get_inner();
+        let num_node_groups_binding = args
+            .num_node_groups
+            .get_output(context)
+            .get_inner();
+        let parameter_group_name_binding = args
+            .parameter_group_name
+            .get_output(context)
+            .get_inner();
         let primary_replication_group_id_binding = args
             .primary_replication_group_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticache/globalReplicationGroup:GlobalReplicationGroup"
@@ -319,7 +333,7 @@ pub mod global_replication_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

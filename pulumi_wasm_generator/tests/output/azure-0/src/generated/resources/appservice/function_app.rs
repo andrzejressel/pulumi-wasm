@@ -217,75 +217,77 @@
 /// ```
 ///
 pub mod function_app {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionAppArgs {
         /// The ID of the App Service Plan within which to create this Function App.
         #[builder(into)]
-        pub app_service_plan_id: pulumi_wasm_rust::Output<String>,
+        pub app_service_plan_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         ///
         /// > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
         #[builder(into, default)]
-        pub app_settings: pulumi_wasm_rust::Output<
+        pub app_settings: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `auth_settings` block as defined below.
         #[builder(into, default)]
-        pub auth_settings: pulumi_wasm_rust::Output<
+        pub auth_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appservice::FunctionAppAuthSettings>,
         >,
         /// The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         #[builder(into, default)]
-        pub client_cert_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_cert_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `connection_string` block as defined below.
         #[builder(into, default)]
-        pub connection_strings: pulumi_wasm_rust::Output<
+        pub connection_strings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::appservice::FunctionAppConnectionString>>,
         >,
         /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         #[builder(into, default)]
-        pub daily_memory_time_quota: pulumi_wasm_rust::Output<Option<i32>>,
+        pub daily_memory_time_quota: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Should the built-in logging of this Function App be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enable_builtin_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_builtin_logging: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Is the Function App enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Can the Function App only be accessed via HTTPS? Defaults to `false`.
         #[builder(into, default)]
-        pub https_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub https_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appservice::FunctionAppIdentity>,
         >,
         /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         #[builder(into, default)]
-        pub key_vault_reference_identity_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_vault_reference_identity_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb).
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`.
         ///
         /// > **NOTE:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `azure.appservice.Plan` arguments as `kind = "Linux"` and `reserved = true`
         #[builder(into, default)]
-        pub os_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub os_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Function App. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `site_config` object as defined below.
         #[builder(into, default)]
-        pub site_config: pulumi_wasm_rust::Output<
+        pub site_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appservice::FunctionAppSiteConfig>,
         >,
         /// A `source_control` block, as defined below.
         #[builder(into, default)]
-        pub source_control: pulumi_wasm_rust::Output<
+        pub source_control: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appservice::FunctionAppSourceControl>,
         >,
         /// The access key which will be used to access the backend storage account for the Function App.
@@ -294,18 +296,18 @@ pub mod function_app {
         ///
         /// > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         #[builder(into)]
-        pub storage_account_access_key: pulumi_wasm_rust::Output<String>,
+        pub storage_account_access_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_name: pulumi_wasm_rust::Output<String>,
+        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The runtime version associated with the Function App. Defaults to `~1`.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FunctionAppResult {
@@ -392,34 +394,61 @@ pub mod function_app {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FunctionAppArgs) -> FunctionAppResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FunctionAppArgs,
+    ) -> FunctionAppResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_service_plan_id_binding = args.app_service_plan_id.get_inner();
-        let app_settings_binding = args.app_settings.get_inner();
-        let auth_settings_binding = args.auth_settings.get_inner();
-        let client_cert_mode_binding = args.client_cert_mode.get_inner();
-        let connection_strings_binding = args.connection_strings.get_inner();
-        let daily_memory_time_quota_binding = args.daily_memory_time_quota.get_inner();
-        let enable_builtin_logging_binding = args.enable_builtin_logging.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let https_only_binding = args.https_only.get_inner();
-        let identity_binding = args.identity.get_inner();
+        let app_service_plan_id_binding = args
+            .app_service_plan_id
+            .get_output(context)
+            .get_inner();
+        let app_settings_binding = args.app_settings.get_output(context).get_inner();
+        let auth_settings_binding = args.auth_settings.get_output(context).get_inner();
+        let client_cert_mode_binding = args
+            .client_cert_mode
+            .get_output(context)
+            .get_inner();
+        let connection_strings_binding = args
+            .connection_strings
+            .get_output(context)
+            .get_inner();
+        let daily_memory_time_quota_binding = args
+            .daily_memory_time_quota
+            .get_output(context)
+            .get_inner();
+        let enable_builtin_logging_binding = args
+            .enable_builtin_logging
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let https_only_binding = args.https_only.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
         let key_vault_reference_identity_id_binding = args
             .key_vault_reference_identity_id
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let os_type_binding = args.os_type.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let site_config_binding = args.site_config.get_inner();
-        let source_control_binding = args.source_control.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let os_type_binding = args.os_type.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let site_config_binding = args.site_config.get_output(context).get_inner();
+        let source_control_binding = args.source_control.get_output(context).get_inner();
         let storage_account_access_key_binding = args
             .storage_account_access_key
+            .get_output(context)
             .get_inner();
-        let storage_account_name_binding = args.storage_account_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let version_binding = args.version.get_inner();
+        let storage_account_name_binding = args
+            .storage_account_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/functionApp:FunctionApp".into(),
             name: name.to_string(),
@@ -594,7 +623,7 @@ pub mod function_app {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

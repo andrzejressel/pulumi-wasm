@@ -33,37 +33,39 @@
 /// $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
 /// ```
 pub mod account_password_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountPasswordPolicyArgs {
         /// Whether to allow users to change their own password
         #[builder(into, default)]
-        pub allow_users_to_change_password: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_users_to_change_password: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
         #[builder(into, default)]
-        pub hard_expiry: pulumi_wasm_rust::Output<Option<bool>>,
+        pub hard_expiry: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The number of days that an user password is valid.
         #[builder(into, default)]
-        pub max_password_age: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_password_age: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Minimum length to require for user passwords.
         #[builder(into, default)]
-        pub minimum_password_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub minimum_password_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The number of previous passwords that users are prevented from reusing.
         #[builder(into, default)]
-        pub password_reuse_prevention: pulumi_wasm_rust::Output<Option<i32>>,
+        pub password_reuse_prevention: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Whether to require lowercase characters for user passwords.
         #[builder(into, default)]
-        pub require_lowercase_characters: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_lowercase_characters: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to require numbers for user passwords.
         #[builder(into, default)]
-        pub require_numbers: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_numbers: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to require symbols for user passwords.
         #[builder(into, default)]
-        pub require_symbols: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_symbols: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to require uppercase characters for user passwords.
         #[builder(into, default)]
-        pub require_uppercase_characters: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_uppercase_characters: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct AccountPasswordPolicyResult {
@@ -93,6 +95,7 @@ pub mod account_password_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AccountPasswordPolicyArgs,
     ) -> AccountPasswordPolicyResult {
@@ -100,20 +103,36 @@ pub mod account_password_policy {
         use std::collections::HashMap;
         let allow_users_to_change_password_binding = args
             .allow_users_to_change_password
+            .get_output(context)
             .get_inner();
-        let hard_expiry_binding = args.hard_expiry.get_inner();
-        let max_password_age_binding = args.max_password_age.get_inner();
-        let minimum_password_length_binding = args.minimum_password_length.get_inner();
+        let hard_expiry_binding = args.hard_expiry.get_output(context).get_inner();
+        let max_password_age_binding = args
+            .max_password_age
+            .get_output(context)
+            .get_inner();
+        let minimum_password_length_binding = args
+            .minimum_password_length
+            .get_output(context)
+            .get_inner();
         let password_reuse_prevention_binding = args
             .password_reuse_prevention
+            .get_output(context)
             .get_inner();
         let require_lowercase_characters_binding = args
             .require_lowercase_characters
+            .get_output(context)
             .get_inner();
-        let require_numbers_binding = args.require_numbers.get_inner();
-        let require_symbols_binding = args.require_symbols.get_inner();
+        let require_numbers_binding = args
+            .require_numbers
+            .get_output(context)
+            .get_inner();
+        let require_symbols_binding = args
+            .require_symbols
+            .get_output(context)
+            .get_inner();
         let require_uppercase_characters_binding = args
             .require_uppercase_characters
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/accountPasswordPolicy:AccountPasswordPolicy".into(),
@@ -190,7 +209,7 @@ pub mod account_password_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

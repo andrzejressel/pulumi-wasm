@@ -43,24 +43,24 @@
 /// $ pulumi import aws:opensearch/package:Package example package-id
 /// ```
 pub mod package {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PackageArgs {
         /// Description of the package.
         #[builder(into, default)]
-        pub package_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub package_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Unique name for the package.
         #[builder(into)]
-        pub package_name: pulumi_wasm_rust::Output<String>,
+        pub package_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block for the package source options.
         #[builder(into)]
-        pub package_source: pulumi_wasm_rust::Output<
+        pub package_source: pulumi_wasm_rust::InputOrOutput<
             super::super::types::opensearch::PackagePackageSource,
         >,
         /// The type of package.
         #[builder(into)]
-        pub package_type: pulumi_wasm_rust::Output<String>,
+        pub package_type: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PackageResult {
@@ -82,13 +82,20 @@ pub mod package {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PackageArgs) -> PackageResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PackageArgs,
+    ) -> PackageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let package_description_binding = args.package_description.get_inner();
-        let package_name_binding = args.package_name.get_inner();
-        let package_source_binding = args.package_source.get_inner();
-        let package_type_binding = args.package_type.get_inner();
+        let package_description_binding = args
+            .package_description
+            .get_output(context)
+            .get_inner();
+        let package_name_binding = args.package_name.get_output(context).get_inner();
+        let package_source_binding = args.package_source.get_output(context).get_inner();
+        let package_type_binding = args.package_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:opensearch/package:Package".into(),
             name: name.to_string(),
@@ -132,7 +139,7 @@ pub mod package {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

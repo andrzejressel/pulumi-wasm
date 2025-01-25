@@ -35,27 +35,27 @@
 /// $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
 /// ```
 pub mod route_response {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteResponseArgs {
         /// API identifier.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
         #[builder(into, default)]
-        pub model_selection_expression: pulumi_wasm_rust::Output<Option<String>>,
+        pub model_selection_expression: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Response models for the route response.
         #[builder(into, default)]
-        pub response_models: pulumi_wasm_rust::Output<
+        pub response_models: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Identifier of the `aws.apigatewayv2.Route`.
         #[builder(into)]
-        pub route_id: pulumi_wasm_rust::Output<String>,
+        pub route_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Route response key.
         #[builder(into)]
-        pub route_response_key: pulumi_wasm_rust::Output<String>,
+        pub route_response_key: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RouteResponseResult {
@@ -76,16 +76,27 @@ pub mod route_response {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RouteResponseArgs) -> RouteResponseResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RouteResponseArgs,
+    ) -> RouteResponseResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_inner();
+        let api_id_binding = args.api_id.get_output(context).get_inner();
         let model_selection_expression_binding = args
             .model_selection_expression
+            .get_output(context)
             .get_inner();
-        let response_models_binding = args.response_models.get_inner();
-        let route_id_binding = args.route_id.get_inner();
-        let route_response_key_binding = args.route_response_key.get_inner();
+        let response_models_binding = args
+            .response_models
+            .get_output(context)
+            .get_inner();
+        let route_id_binding = args.route_id.get_output(context).get_inner();
+        let route_response_key_binding = args
+            .route_response_key
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigatewayv2/routeResponse:RouteResponse".into(),
             name: name.to_string(),
@@ -130,7 +141,7 @@ pub mod route_response {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,23 +1,23 @@
 pub mod get_backup_run {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBackupRunArgs {
         /// The identifier for this backup run. Unique only for a specific Cloud SQL instance.
         /// If left empty and multiple backups exist for the instance, `most_recent` must be set to `true`.
         #[builder(into, default)]
-        pub backup_id: pulumi_wasm_rust::Output<Option<i32>>,
+        pub backup_id: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name of the instance the backup is taken from.
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
         /// Toggles use of the most recent backup run if multiple backups exist for a
         /// Cloud SQL instance.
         #[builder(into, default)]
-        pub most_recent: pulumi_wasm_rust::Output<Option<bool>>,
+        pub most_recent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The project to list instances for. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetBackupRunResult {
@@ -39,13 +39,16 @@ pub mod get_backup_run {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetBackupRunArgs) -> GetBackupRunResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetBackupRunArgs,
+    ) -> GetBackupRunResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backup_id_binding = args.backup_id.get_inner();
-        let instance_binding = args.instance.get_inner();
-        let most_recent_binding = args.most_recent.get_inner();
-        let project_binding = args.project.get_inner();
+        let backup_id_binding = args.backup_id.get_output(context).get_inner();
+        let instance_binding = args.instance.get_output(context).get_inner();
+        let most_recent_binding = args.most_recent.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:sql/getBackupRun:getBackupRun".into(),
             version: super::super::super::get_version(),
@@ -94,7 +97,7 @@ pub mod get_backup_run {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

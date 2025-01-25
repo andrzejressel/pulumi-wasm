@@ -64,38 +64,38 @@
 /// ```
 ///
 pub mod database_extended_auditing_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatabaseExtendedAuditingPolicyArgs {
         /// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub database_id: pulumi_wasm_rust::Output<String>,
+        pub database_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         ///
         /// ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Enable audit events to Azure Monitor? Defaults to `true`.
         ///
         /// > **NOTE:** To enable sending audit events to Log Analytics, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_log_analytics` directory within the GitHub Repository.  To enable sending server audit events to Log Analytics, please enable the master database to send audit events to Log Analytics.
         /// To enable audit events to Eventhub, please refer to the example which can be found in the `./examples/sql-azure/sql_auditing_eventhub` directory within the GitHub Repository.
         #[builder(into, default)]
-        pub log_monitoring_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub log_monitoring_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The number of days to retain logs for in the storage account. Defaults to `0`.
         #[builder(into, default)]
-        pub retention_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_in_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The access key to use for the auditing storage account.
         #[builder(into, default)]
-        pub storage_account_access_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_access_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Is `storage_account_access_key` value the storage's secondary key?
         #[builder(into, default)]
-        pub storage_account_access_key_is_secondary: pulumi_wasm_rust::Output<
+        pub storage_account_access_key_is_secondary: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         #[builder(into, default)]
-        pub storage_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DatabaseExtendedAuditingPolicyResult {
@@ -126,22 +126,34 @@ pub mod database_extended_auditing_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DatabaseExtendedAuditingPolicyArgs,
     ) -> DatabaseExtendedAuditingPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let database_id_binding = args.database_id.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let log_monitoring_enabled_binding = args.log_monitoring_enabled.get_inner();
-        let retention_in_days_binding = args.retention_in_days.get_inner();
+        let database_id_binding = args.database_id.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let log_monitoring_enabled_binding = args
+            .log_monitoring_enabled
+            .get_output(context)
+            .get_inner();
+        let retention_in_days_binding = args
+            .retention_in_days
+            .get_output(context)
+            .get_inner();
         let storage_account_access_key_binding = args
             .storage_account_access_key
+            .get_output(context)
             .get_inner();
         let storage_account_access_key_is_secondary_binding = args
             .storage_account_access_key_is_secondary
+            .get_output(context)
             .get_inner();
-        let storage_endpoint_binding = args.storage_endpoint.get_inner();
+        let storage_endpoint_binding = args
+            .storage_endpoint
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy"
                 .into(),
@@ -201,7 +213,7 @@ pub mod database_extended_auditing_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

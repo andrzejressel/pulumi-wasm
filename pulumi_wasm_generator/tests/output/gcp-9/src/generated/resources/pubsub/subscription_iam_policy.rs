@@ -127,7 +127,7 @@
 /// ```
 ///
 pub mod subscription_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriptionIAMPolicyArgs {
@@ -136,14 +136,14 @@ pub mod subscription_iam_policy {
         ///
         /// - - -
         #[builder(into)]
-        pub policy_data: pulumi_wasm_rust::Output<String>,
+        pub policy_data: pulumi_wasm_rust::InputOrOutput<String>,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The subscription name or id to bind to attach IAM policy to.
         #[builder(into)]
-        pub subscription: pulumi_wasm_rust::Output<String>,
+        pub subscription: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubscriptionIAMPolicyResult {
@@ -165,14 +165,15 @@ pub mod subscription_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SubscriptionIAMPolicyArgs,
     ) -> SubscriptionIAMPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let policy_data_binding = args.policy_data.get_inner();
-        let project_binding = args.project.get_inner();
-        let subscription_binding = args.subscription.get_inner();
+        let policy_data_binding = args.policy_data.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let subscription_binding = args.subscription.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:pubsub/subscriptionIAMPolicy:SubscriptionIAMPolicy".into(),
             name: name.to_string(),
@@ -206,7 +207,7 @@ pub mod subscription_iam_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

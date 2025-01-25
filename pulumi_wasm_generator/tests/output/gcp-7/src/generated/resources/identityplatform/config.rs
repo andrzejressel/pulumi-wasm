@@ -103,66 +103,66 @@
 /// ```
 ///
 pub mod config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigArgs {
         /// List of domains authorized for OAuth redirects.
         #[builder(into, default)]
-        pub authorized_domains: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub authorized_domains: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Whether anonymous users will be auto-deleted after a period of 30 days
         #[builder(into, default)]
-        pub autodelete_anonymous_users: pulumi_wasm_rust::Output<Option<bool>>,
+        pub autodelete_anonymous_users: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration related to blocking functions.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub blocking_functions: pulumi_wasm_rust::Output<
+        pub blocking_functions: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigBlockingFunctions>,
         >,
         /// Options related to how clients making requests on behalf of a project should be configured.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub client: pulumi_wasm_rust::Output<
+        pub client: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigClient>,
         >,
         /// Options related to how clients making requests on behalf of a project should be configured.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub mfa: pulumi_wasm_rust::Output<
+        pub mfa: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigMfa>,
         >,
         /// Configuration related to monitoring project activity.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub monitoring: pulumi_wasm_rust::Output<
+        pub monitoring: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigMonitoring>,
         >,
         /// Configuration related to multi-tenant functionality.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub multi_tenant: pulumi_wasm_rust::Output<
+        pub multi_tenant: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigMultiTenant>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration related to quotas.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub quota: pulumi_wasm_rust::Output<
+        pub quota: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigQuota>,
         >,
         /// Configuration related to local sign in methods.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub sign_in: pulumi_wasm_rust::Output<
+        pub sign_in: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigSignIn>,
         >,
         /// Configures the regions where users are allowed to send verification SMS for the project or tenant. This is based on the calling code of the destination phone number.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub sms_region_config: pulumi_wasm_rust::Output<
+        pub sms_region_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigSmsRegionConfig>,
         >,
     }
@@ -222,22 +222,36 @@ pub mod config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConfigArgs) -> ConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConfigArgs,
+    ) -> ConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authorized_domains_binding = args.authorized_domains.get_inner();
+        let authorized_domains_binding = args
+            .authorized_domains
+            .get_output(context)
+            .get_inner();
         let autodelete_anonymous_users_binding = args
             .autodelete_anonymous_users
+            .get_output(context)
             .get_inner();
-        let blocking_functions_binding = args.blocking_functions.get_inner();
-        let client_binding = args.client.get_inner();
-        let mfa_binding = args.mfa.get_inner();
-        let monitoring_binding = args.monitoring.get_inner();
-        let multi_tenant_binding = args.multi_tenant.get_inner();
-        let project_binding = args.project.get_inner();
-        let quota_binding = args.quota.get_inner();
-        let sign_in_binding = args.sign_in.get_inner();
-        let sms_region_config_binding = args.sms_region_config.get_inner();
+        let blocking_functions_binding = args
+            .blocking_functions
+            .get_output(context)
+            .get_inner();
+        let client_binding = args.client.get_output(context).get_inner();
+        let mfa_binding = args.mfa.get_output(context).get_inner();
+        let monitoring_binding = args.monitoring.get_output(context).get_inner();
+        let multi_tenant_binding = args.multi_tenant.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let quota_binding = args.quota.get_output(context).get_inner();
+        let sign_in_binding = args.sign_in.get_output(context).get_inner();
+        let sms_region_config_binding = args
+            .sms_region_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:identityplatform/config:Config".into(),
             name: name.to_string(),
@@ -327,7 +341,7 @@ pub mod config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -27,16 +27,16 @@
 /// $ pulumi import aws:route53recoverycontrol/controlPanel:ControlPanel mypanel arn:aws:route53-recovery-control::313517334327:controlpanel/1bfba17df8684f5dab0467b71424f7e8
 /// ```
 pub mod control_panel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ControlPanelArgs {
         /// ARN of the cluster in which this control panel will reside.
         #[builder(into)]
-        pub cluster_arn: pulumi_wasm_rust::Output<String>,
+        pub cluster_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name describing the control panel.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ControlPanelResult {
@@ -57,11 +57,15 @@ pub mod control_panel {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ControlPanelArgs) -> ControlPanelResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ControlPanelArgs,
+    ) -> ControlPanelResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_arn_binding = args.cluster_arn.get_inner();
-        let name_binding = args.name.get_inner();
+        let cluster_arn_binding = args.cluster_arn.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53recoverycontrol/controlPanel:ControlPanel".into(),
             name: name.to_string(),
@@ -97,7 +101,7 @@ pub mod control_panel {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

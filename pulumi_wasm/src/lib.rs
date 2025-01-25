@@ -1,11 +1,13 @@
 use core::fmt::Debug;
+use pulumi_wasm_core::{Engine, OutputId, PulumiServiceImpl};
 use std::cell::RefCell;
 use std::collections::{HashMap, HashSet};
-
-use globals::get_pulumi_engine;
-use pulumi_wasm_core::{Engine, OutputId};
+use std::rc::Rc;
 
 use crate::bindings::exports::component::pulumi_wasm::output_interface::{GuestOutput, Output};
+use crate::bindings::exports::component::pulumi_wasm::pulumi_engine::{
+    Engine as WasmPulumiEngine, EngineBorrow,
+};
 use crate::bindings::exports::component::pulumi_wasm::register_interface::{
     ObjectField, RegisterResourceRequest, RegisterResourceResult, RegisterResourceResultField,
     ResourceInvokeRequest, ResourceInvokeResult, ResourceInvokeResultField, ResultField,
@@ -14,7 +16,7 @@ use crate::bindings::exports::component::pulumi_wasm::stack_interface::{
     FunctionInvocationRequest, FunctionInvocationResult, OutputBorrow,
 };
 use crate::bindings::exports::component::pulumi_wasm::{
-    output_interface, register_interface, stack_interface,
+    output_interface, pulumi_engine, register_interface, stack_interface,
 };
 use crate::bindings::exports::component::pulumi_wasm_external::pulumi_settings;
 use std::sync::atomic::{AtomicBool, Ordering};
@@ -30,30 +32,43 @@ mod bindings;
 mod globals;
 mod pulumi_connector_impl;
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
-pub(crate) struct CustomOutputId(OutputId);
+pub(crate) struct CustomOutputId(OutputId, Rc<RefCell<Engine>>);
 
-impl From<OutputId> for CustomOutputId {
-    fn from(output_id: OutputId) -> Self {
-        Self(output_id)
+struct LocalPulumiEngine(Rc<RefCell<Engine>>);
+
+impl pulumi_engine::GuestEngine for LocalPulumiEngine {
+    fn new(in_preview: bool) -> Self {
+        let rc = Rc::new(RefCell::new(Engine::new(PulumiServiceImpl::new(
+            pulumi_connector_impl::PulumiConnectorImpl {},
+            in_preview,
+        ))));
+        LocalPulumiEngine(rc)
     }
 }
 
 struct Component;
 
+impl pulumi_engine::Guest for Component {
+    type Engine = LocalPulumiEngine;
+}
+
 impl stack_interface::Guest for Component {
     fn add_export(name: String, value: OutputBorrow<'_>) {
         pulumi_wasm_common::setup_logger();
-        let refcell: &RefCell<Engine> = &get_pulumi_engine();
+        let rc = value.get::<CustomOutputId>().1.clone();
+        let refcell: &RefCell<Engine> = &rc;
         refcell
             .borrow_mut()
             .add_output(name.into(), value.get::<CustomOutputId>().0);
     }
 
-    fn finish(functions: Vec<FunctionInvocationResult>) -> Vec<FunctionInvocationRequest> {
+    fn finish(
+        engine: EngineBorrow<'_>,
+        functions: Vec<FunctionInvocationResult>,
+    ) -> Vec<FunctionInvocationRequest> {
         pulumi_wasm_common::setup_logger();
 
-        let refcell: &RefCell<Engine> = &get_pulumi_engine();
+        let refcell: &RefCell<Engine> = &engine.get::<LocalPulumiEngine>().0;
 
         let v = functions
             .iter()
@@ -69,7 +84,10 @@ impl stack_interface::Guest for Component {
             .into_iter()
             .map(|result| {
                 let vec = result.value.to_string();
-                let id: CustomOutputId = result.output_id.into();
+                let id: CustomOutputId = CustomOutputId(
+                    result.output_id,
+                    engine.get::<LocalPulumiEngine>().0.clone(),
+                );
                 FunctionInvocationRequest {
                     id: Output::new(id),
                     function_id: result.function_name.into(),
@@ -92,22 +110,29 @@ impl output_interface::Guest for Component {
     type Output = CustomOutputId;
 
     fn combine(outputs: Vec<OutputBorrow>) -> Output {
+        if outputs.is_empty() {
+            panic!("combine must have at least one output");
+        }
+        let refcell = &outputs.get(0).unwrap().get::<CustomOutputId>().1.clone();
         pulumi_wasm_common::setup_logger();
-        let refcell: &RefCell<Engine> = &get_pulumi_engine();
+
         let output_id = refcell.borrow_mut().create_combine_outputs(
             outputs
                 .into_iter()
                 .map(|output| output.get::<CustomOutputId>().0)
                 .collect(),
         );
-        Output::new::<CustomOutputId>(output_id.into())
+        Output::new::<CustomOutputId>(CustomOutputId(output_id, refcell.clone()))
     }
 }
 
 impl register_interface::Guest for Component {
-    fn register(request: RegisterResourceRequest<'_>) -> RegisterResourceResult {
+    fn register(
+        engine: EngineBorrow<'_>,
+        request: RegisterResourceRequest<'_>,
+    ) -> RegisterResourceResult {
         pulumi_wasm_common::setup_logger();
-        let refcell: &RefCell<Engine> = &get_pulumi_engine();
+        let refcell: &RefCell<Engine> = &engine.get::<LocalPulumiEngine>().0;
 
         let outputs = request
             .results
@@ -137,15 +162,21 @@ impl register_interface::Guest for Component {
                 .iter()
                 .map(|(field_name, output_id)| RegisterResourceResultField {
                     name: field_name.as_string().clone(),
-                    output: Output::new(CustomOutputId(*output_id)),
+                    output: Output::new(CustomOutputId(
+                        *output_id,
+                        engine.get::<LocalPulumiEngine>().0.clone(),
+                    )),
                 })
                 .collect(),
         }
     }
 
-    fn invoke(request: ResourceInvokeRequest<'_>) -> ResourceInvokeResult {
+    fn invoke(
+        engine: EngineBorrow<'_>,
+        request: ResourceInvokeRequest<'_>,
+    ) -> ResourceInvokeResult {
         pulumi_wasm_common::setup_logger();
-        let refcell: &RefCell<Engine> = &get_pulumi_engine();
+        let refcell: &RefCell<Engine> = &engine.get::<LocalPulumiEngine>().0;
 
         let outputs = request
             .results
@@ -174,7 +205,10 @@ impl register_interface::Guest for Component {
                 .iter()
                 .map(|(field_name, output_id)| ResourceInvokeResultField {
                     name: field_name.as_string().clone(),
-                    output: Output::new(CustomOutputId(*output_id)),
+                    output: Output::new(CustomOutputId(
+                        *output_id,
+                        engine.get::<LocalPulumiEngine>().0.clone(),
+                    )),
                 })
                 .collect(),
         }
@@ -182,20 +216,22 @@ impl register_interface::Guest for Component {
 }
 
 impl GuestOutput for CustomOutputId {
-    fn new(value: String, secret: bool) -> CustomOutputId {
+    fn new(engine: EngineBorrow<'_>, value: String, secret: bool) -> CustomOutputId {
         pulumi_wasm_common::setup_logger();
         let value = serde_json::from_str(&value).unwrap();
-        let refcell: &RefCell<Engine> = &get_pulumi_engine();
+        let refcell: &RefCell<Engine> = &engine.get::<LocalPulumiEngine>().0;
+
         let output_id = refcell.borrow_mut().create_done_node(value, secret);
-        output_id.into()
+        CustomOutputId(output_id, engine.get::<LocalPulumiEngine>().0.clone())
     }
 
     fn map(&self, function_name: String) -> Output {
         pulumi_wasm_common::setup_logger();
-        let refcell: &RefCell<Engine> = &get_pulumi_engine();
+        let refcell: &Rc<RefCell<Engine>> = &self.1.clone();
+
         let output_id = refcell
             .borrow_mut()
             .create_native_function_node(function_name.into(), self.0);
-        Output::new::<CustomOutputId>(output_id.into())
+        Output::new::<CustomOutputId>(CustomOutputId(output_id.into(), refcell.clone()))
     }
 }

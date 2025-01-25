@@ -41,16 +41,16 @@
 /// $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
 /// ```
 pub mod snapshot_schedule_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotScheduleAssociationArgs {
         /// The cluster identifier.
         #[builder(into)]
-        pub cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The snapshot schedule identifier.
         #[builder(into)]
-        pub schedule_identifier: pulumi_wasm_rust::Output<String>,
+        pub schedule_identifier: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SnapshotScheduleAssociationResult {
@@ -64,13 +64,20 @@ pub mod snapshot_schedule_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SnapshotScheduleAssociationArgs,
     ) -> SnapshotScheduleAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_identifier_binding = args.cluster_identifier.get_inner();
-        let schedule_identifier_binding = args.schedule_identifier.get_inner();
+        let cluster_identifier_binding = args
+            .cluster_identifier
+            .get_output(context)
+            .get_inner();
+        let schedule_identifier_binding = args
+            .schedule_identifier
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation"
                 .into(),
@@ -95,7 +102,7 @@ pub mod snapshot_schedule_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

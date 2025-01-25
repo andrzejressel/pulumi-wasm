@@ -1,25 +1,25 @@
 pub mod get_availability_zone {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAvailabilityZoneArgs {
         /// Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
         #[builder(into, default)]
-        pub all_availability_zones: pulumi_wasm_rust::Output<Option<bool>>,
+        pub all_availability_zones: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration block(s) for filtering. Detailed below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::GetAvailabilityZoneFilter>>,
         >,
         /// Full name of the availability zone to select.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::Output<Option<String>>,
+        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Zone ID of the availability zone to select.
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetAvailabilityZoneResult {
@@ -55,14 +55,20 @@ pub mod get_availability_zone {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAvailabilityZoneArgs) -> GetAvailabilityZoneResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAvailabilityZoneArgs,
+    ) -> GetAvailabilityZoneResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let all_availability_zones_binding = args.all_availability_zones.get_inner();
-        let filters_binding = args.filters.get_inner();
-        let name_binding = args.name.get_inner();
-        let state_binding = args.state.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let all_availability_zones_binding = args
+            .all_availability_zones
+            .get_output(context)
+            .get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let state_binding = args.state.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:index/getAvailabilityZone:getAvailabilityZone".into(),
             version: super::super::get_version(),
@@ -133,7 +139,7 @@ pub mod get_availability_zone {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

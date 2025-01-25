@@ -34,36 +34,40 @@
 /// ```
 ///
 pub mod virtual_wan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualWanArgs {
         /// Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`.
         #[builder(into, default)]
-        pub allow_branch_to_branch_traffic: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_branch_to_branch_traffic: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`.
         #[builder(into, default)]
-        pub disable_vpn_encryption: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_vpn_encryption: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Virtual WAN. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`.
         #[builder(into, default)]
-        pub office365_local_breakout_category: pulumi_wasm_rust::Output<Option<String>>,
+        pub office365_local_breakout_category: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The name of the resource group in which to create the Virtual WAN. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the Virtual WAN.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VirtualWanResult {
@@ -90,21 +94,33 @@ pub mod virtual_wan {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VirtualWanArgs) -> VirtualWanResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VirtualWanArgs,
+    ) -> VirtualWanResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let allow_branch_to_branch_traffic_binding = args
             .allow_branch_to_branch_traffic
+            .get_output(context)
             .get_inner();
-        let disable_vpn_encryption_binding = args.disable_vpn_encryption.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
+        let disable_vpn_encryption_binding = args
+            .disable_vpn_encryption
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let office365_local_breakout_category_binding = args
             .office365_local_breakout_category
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let type__binding = args.type_.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/virtualWan:VirtualWan".into(),
             name: name.to_string(),
@@ -170,7 +186,7 @@ pub mod virtual_wan {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

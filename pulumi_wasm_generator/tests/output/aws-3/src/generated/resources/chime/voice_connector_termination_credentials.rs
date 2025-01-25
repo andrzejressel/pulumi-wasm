@@ -49,20 +49,20 @@
 /// $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
 /// ```
 pub mod voice_connector_termination_credentials {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VoiceConnectorTerminationCredentialsArgs {
         /// List of termination SIP credentials.
         #[builder(into)]
-        pub credentials: pulumi_wasm_rust::Output<
+        pub credentials: pulumi_wasm_rust::InputOrOutput<
             Vec<
                 super::super::types::chime::VoiceConnectorTerminationCredentialsCredential,
             >,
         >,
         /// Amazon Chime Voice Connector ID.
         #[builder(into)]
-        pub voice_connector_id: pulumi_wasm_rust::Output<String>,
+        pub voice_connector_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VoiceConnectorTerminationCredentialsResult {
@@ -80,13 +80,17 @@ pub mod voice_connector_termination_credentials {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VoiceConnectorTerminationCredentialsArgs,
     ) -> VoiceConnectorTerminationCredentialsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let credentials_binding = args.credentials.get_inner();
-        let voice_connector_id_binding = args.voice_connector_id.get_inner();
+        let credentials_binding = args.credentials.get_output(context).get_inner();
+        let voice_connector_id_binding = args
+            .voice_connector_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials"
                 .into(),
@@ -111,7 +115,7 @@ pub mod voice_connector_termination_credentials {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

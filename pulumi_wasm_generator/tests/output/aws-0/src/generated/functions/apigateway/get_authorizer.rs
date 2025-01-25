@@ -1,14 +1,14 @@
 pub mod get_authorizer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAuthorizerArgs {
         /// Authorizer identifier.
         #[builder(into)]
-        pub authorizer_id: pulumi_wasm_rust::Output<String>,
+        pub authorizer_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the associated REST API.
         #[builder(into)]
-        pub rest_api_id: pulumi_wasm_rust::Output<String>,
+        pub rest_api_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetAuthorizerResult {
@@ -39,11 +39,14 @@ pub mod get_authorizer {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAuthorizerArgs) -> GetAuthorizerResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAuthorizerArgs,
+    ) -> GetAuthorizerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authorizer_id_binding = args.authorizer_id.get_inner();
-        let rest_api_id_binding = args.rest_api_id.get_inner();
+        let authorizer_id_binding = args.authorizer_id.get_output(context).get_inner();
+        let rest_api_id_binding = args.rest_api_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:apigateway/getAuthorizer:getAuthorizer".into(),
             version: super::super::super::get_version(),
@@ -96,7 +99,7 @@ pub mod get_authorizer {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

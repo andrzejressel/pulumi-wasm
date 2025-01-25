@@ -44,36 +44,40 @@
 /// $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
 /// ```
 pub mod workspace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceArgs {
         /// The ID of the bundle for the WorkSpace.
         #[builder(into)]
-        pub bundle_id: pulumi_wasm_rust::Output<String>,
+        pub bundle_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the directory for the WorkSpace.
         #[builder(into)]
-        pub directory_id: pulumi_wasm_rust::Output<String>,
+        pub directory_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indicates whether the data stored on the root volume is encrypted.
         #[builder(into, default)]
-        pub root_volume_encryption_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub root_volume_encryption_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The tags for the WorkSpace. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indicates whether the data stored on the user volume is encrypted.
         #[builder(into, default)]
-        pub user_volume_encryption_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub user_volume_encryption_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The ARN of a symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
         #[builder(into, default)]
-        pub volume_encryption_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub volume_encryption_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The WorkSpace properties.
         #[builder(into, default)]
-        pub workspace_properties: pulumi_wasm_rust::Output<
+        pub workspace_properties: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::workspaces::WorkspaceWorkspaceProperties>,
         >,
     }
@@ -114,21 +118,33 @@ pub mod workspace {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkspaceArgs) -> WorkspaceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkspaceArgs,
+    ) -> WorkspaceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bundle_id_binding = args.bundle_id.get_inner();
-        let directory_id_binding = args.directory_id.get_inner();
+        let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
+        let directory_id_binding = args.directory_id.get_output(context).get_inner();
         let root_volume_encryption_enabled_binding = args
             .root_volume_encryption_enabled
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let user_name_binding = args.user_name.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let user_name_binding = args.user_name.get_output(context).get_inner();
         let user_volume_encryption_enabled_binding = args
             .user_volume_encryption_enabled
+            .get_output(context)
             .get_inner();
-        let volume_encryption_key_binding = args.volume_encryption_key.get_inner();
-        let workspace_properties_binding = args.workspace_properties.get_inner();
+        let volume_encryption_key_binding = args
+            .volume_encryption_key
+            .get_output(context)
+            .get_inner();
+        let workspace_properties_binding = args
+            .workspace_properties
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:workspaces/workspace:Workspace".into(),
             name: name.to_string(),
@@ -206,7 +222,7 @@ pub mod workspace {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -48,25 +48,25 @@
 /// ```
 ///
 pub mod sql_trigger {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlTriggerArgs {
         /// Body of the Trigger.
         #[builder(into)]
-        pub body: pulumi_wasm_rust::Output<String>,
+        pub body: pulumi_wasm_rust::InputOrOutput<String>,
         /// The id of the Cosmos DB SQL Container to create the SQL Trigger within. Changing this forces a new SQL Trigger to be created.
         #[builder(into)]
-        pub container_id: pulumi_wasm_rust::Output<String>,
+        pub container_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this SQL Trigger. Changing this forces a new SQL Trigger to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The operation the trigger is associated with. Possible values are `All`, `Create`, `Update`, `Delete` and `Replace`.
         #[builder(into)]
-        pub operation: pulumi_wasm_rust::Output<String>,
+        pub operation: pulumi_wasm_rust::InputOrOutput<String>,
         /// Type of the Trigger. Possible values are `Pre` and `Post`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SqlTriggerResult {
@@ -85,14 +85,18 @@ pub mod sql_trigger {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SqlTriggerArgs) -> SqlTriggerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SqlTriggerArgs,
+    ) -> SqlTriggerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let body_binding = args.body.get_inner();
-        let container_id_binding = args.container_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let operation_binding = args.operation.get_inner();
-        let type__binding = args.type_.get_inner();
+        let body_binding = args.body.get_output(context).get_inner();
+        let container_id_binding = args.container_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let operation_binding = args.operation.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/sqlTrigger:SqlTrigger".into(),
             name: name.to_string(),
@@ -137,7 +141,7 @@ pub mod sql_trigger {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

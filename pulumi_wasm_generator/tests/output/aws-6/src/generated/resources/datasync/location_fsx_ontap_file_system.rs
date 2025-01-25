@@ -27,31 +27,31 @@
 /// $ pulumi import aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123
 /// ```
 pub mod location_fsx_ontap_file_system {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LocationFsxOntapFileSystemArgs {
         /// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::Output<
+        pub protocol: pulumi_wasm_rust::InputOrOutput<
             super::super::types::datasync::LocationFsxOntapFileSystemProtocol,
         >,
         /// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
         /// * Network File System (NFS): TCP ports 111, 635, and 2049
         /// * Server Message Block (SMB): TCP port 445
         #[builder(into)]
-        pub security_group_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_group_arns: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The ARN of the SVM in your file system where you want to copy data to of from.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub storage_virtual_machine_arn: pulumi_wasm_rust::Output<String>,
+        pub storage_virtual_machine_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
         #[builder(into, default)]
-        pub subdirectory: pulumi_wasm_rust::Output<Option<String>>,
+        pub subdirectory: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -91,18 +91,23 @@ pub mod location_fsx_ontap_file_system {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LocationFsxOntapFileSystemArgs,
     ) -> LocationFsxOntapFileSystemResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let protocol_binding = args.protocol.get_inner();
-        let security_group_arns_binding = args.security_group_arns.get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let security_group_arns_binding = args
+            .security_group_arns
+            .get_output(context)
+            .get_inner();
         let storage_virtual_machine_arn_binding = args
             .storage_virtual_machine_arn
+            .get_output(context)
             .get_inner();
-        let subdirectory_binding = args.subdirectory.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let subdirectory_binding = args.subdirectory.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem"
                 .into(),
@@ -163,7 +168,7 @@ pub mod location_fsx_ontap_file_system {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

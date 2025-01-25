@@ -57,21 +57,21 @@
 /// ```
 ///
 pub mod token_password {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TokenPasswordArgs {
         /// The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created.
         #[builder(into)]
-        pub container_registry_token_id: pulumi_wasm_rust::Output<String>,
+        pub container_registry_token_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// One `password` block as defined below.
         #[builder(into)]
-        pub password1: pulumi_wasm_rust::Output<
+        pub password1: pulumi_wasm_rust::InputOrOutput<
             super::super::types::containerservice::TokenPasswordPassword1,
         >,
         /// One `password` block as defined below.
         #[builder(into, default)]
-        pub password2: pulumi_wasm_rust::Output<
+        pub password2: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::containerservice::TokenPasswordPassword2>,
         >,
     }
@@ -92,14 +92,19 @@ pub mod token_password {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TokenPasswordArgs) -> TokenPasswordResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TokenPasswordArgs,
+    ) -> TokenPasswordResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let container_registry_token_id_binding = args
             .container_registry_token_id
+            .get_output(context)
             .get_inner();
-        let password1_binding = args.password1.get_inner();
-        let password2_binding = args.password2.get_inner();
+        let password1_binding = args.password1.get_output(context).get_inner();
+        let password2_binding = args.password2.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/tokenPassword:TokenPassword".into(),
             name: name.to_string(),
@@ -130,7 +135,7 @@ pub mod token_password {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

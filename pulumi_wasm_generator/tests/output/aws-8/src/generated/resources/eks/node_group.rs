@@ -68,83 +68,83 @@
 /// $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
 /// ```
 pub mod node_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NodeGroupArgs {
         /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
         #[builder(into, default)]
-        pub ami_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub ami_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         #[builder(into, default)]
-        pub capacity_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub capacity_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the EKS Cluster.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
         #[builder(into, default)]
-        pub disk_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub disk_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
         #[builder(into, default)]
-        pub force_update_version: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_update_version: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
         #[builder(into, default)]
-        pub instance_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub instance_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block with Launch Template settings. See `launch_template` below for details. Conflicts with `remote_access`.
         #[builder(into, default)]
-        pub launch_template: pulumi_wasm_rust::Output<
+        pub launch_template: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eks::NodeGroupLaunchTemplate>,
         >,
         /// Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         #[builder(into, default)]
-        pub node_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub node_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         #[builder(into, default)]
-        pub node_group_name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub node_group_name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         #[builder(into)]
-        pub node_role_arn: pulumi_wasm_rust::Output<String>,
+        pub node_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         #[builder(into, default)]
-        pub release_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub release_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         #[builder(into, default)]
-        pub remote_access: pulumi_wasm_rust::Output<
+        pub remote_access: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eks::NodeGroupRemoteAccess>,
         >,
         /// Configuration block with scaling settings. See `scaling_config` below for details.
         #[builder(into)]
-        pub scaling_config: pulumi_wasm_rust::Output<
+        pub scaling_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::eks::NodeGroupScalingConfig,
         >,
         /// Identifiers of EC2 Subnets to associate with the EKS Node Group.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         #[builder(into, default)]
-        pub taints: pulumi_wasm_rust::Output<
+        pub taints: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::eks::NodeGroupTaint>>,
         >,
         /// Configuration block with update settings. See `update_config` below for details.
         #[builder(into, default)]
-        pub update_config: pulumi_wasm_rust::Output<
+        pub update_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eks::NodeGroupUpdateConfig>,
         >,
         /// Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NodeGroupResult {
@@ -219,28 +219,47 @@ pub mod node_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NodeGroupArgs) -> NodeGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NodeGroupArgs,
+    ) -> NodeGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let ami_type_binding = args.ami_type.get_inner();
-        let capacity_type_binding = args.capacity_type.get_inner();
-        let cluster_name_binding = args.cluster_name.get_inner();
-        let disk_size_binding = args.disk_size.get_inner();
-        let force_update_version_binding = args.force_update_version.get_inner();
-        let instance_types_binding = args.instance_types.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let launch_template_binding = args.launch_template.get_inner();
-        let node_group_name_binding = args.node_group_name.get_inner();
-        let node_group_name_prefix_binding = args.node_group_name_prefix.get_inner();
-        let node_role_arn_binding = args.node_role_arn.get_inner();
-        let release_version_binding = args.release_version.get_inner();
-        let remote_access_binding = args.remote_access.get_inner();
-        let scaling_config_binding = args.scaling_config.get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let taints_binding = args.taints.get_inner();
-        let update_config_binding = args.update_config.get_inner();
-        let version_binding = args.version.get_inner();
+        let ami_type_binding = args.ami_type.get_output(context).get_inner();
+        let capacity_type_binding = args.capacity_type.get_output(context).get_inner();
+        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
+        let disk_size_binding = args.disk_size.get_output(context).get_inner();
+        let force_update_version_binding = args
+            .force_update_version
+            .get_output(context)
+            .get_inner();
+        let instance_types_binding = args.instance_types.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let launch_template_binding = args
+            .launch_template
+            .get_output(context)
+            .get_inner();
+        let node_group_name_binding = args
+            .node_group_name
+            .get_output(context)
+            .get_inner();
+        let node_group_name_prefix_binding = args
+            .node_group_name_prefix
+            .get_output(context)
+            .get_inner();
+        let node_role_arn_binding = args.node_role_arn.get_output(context).get_inner();
+        let release_version_binding = args
+            .release_version
+            .get_output(context)
+            .get_inner();
+        let remote_access_binding = args.remote_access.get_output(context).get_inner();
+        let scaling_config_binding = args.scaling_config.get_output(context).get_inner();
+        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let taints_binding = args.taints.get_output(context).get_inner();
+        let update_config_binding = args.update_config.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:eks/nodeGroup:NodeGroup".into(),
             name: name.to_string(),
@@ -395,7 +414,7 @@ pub mod node_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

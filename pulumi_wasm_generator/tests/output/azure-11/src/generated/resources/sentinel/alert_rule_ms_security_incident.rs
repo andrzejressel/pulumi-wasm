@@ -53,42 +53,44 @@
 /// ```
 ///
 pub mod alert_rule_ms_security_incident {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AlertRuleMsSecurityIncidentArgs {
         /// The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         #[builder(into, default)]
-        pub alert_rule_template_guid: pulumi_wasm_rust::Output<Option<String>>,
+        pub alert_rule_template_guid: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description of this Sentinel MS Security Incident Alert Rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The friendly name of this Sentinel MS Security Incident Alert Rule.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Only create incidents when the alert display name doesn't contain text from this list.
         #[builder(into, default)]
-        pub display_name_exclude_filters: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub display_name_exclude_filters: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Only create incidents when the alert display name contain text from this list, leave empty to apply no filter.
         #[builder(into, default)]
-        pub display_name_filters: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub display_name_filters: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Should this Sentinel MS Security Incident Alert Rule be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Log Analytics Workspace this Sentinel MS Security Incident Alert Rule belongs to. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Sentinel MS Security Incident Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Microsoft Security Service from where the alert will be generated. Possible values are `Azure Active Directory Identity Protection`, `Azure Advanced Threat Protection`, `Azure Security Center`, `Azure Security Center for IoT`, `Microsoft Cloud App Security`, `Microsoft Defender Advanced Threat Protection` and `Office 365 Advanced Threat Protection`.
         #[builder(into)]
-        pub product_filter: pulumi_wasm_rust::Output<String>,
+        pub product_filter: pulumi_wasm_rust::InputOrOutput<String>,
         /// Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
         ///
         /// > **NOTE** At least one of the severity filters need to be set.
         #[builder(into)]
-        pub severity_filters: pulumi_wasm_rust::Output<Vec<String>>,
+        pub severity_filters: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct AlertRuleMsSecurityIncidentResult {
@@ -120,25 +122,37 @@ pub mod alert_rule_ms_security_incident {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AlertRuleMsSecurityIncidentArgs,
     ) -> AlertRuleMsSecurityIncidentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alert_rule_template_guid_binding = args.alert_rule_template_guid.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
+        let alert_rule_template_guid_binding = args
+            .alert_rule_template_guid
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
         let display_name_exclude_filters_binding = args
             .display_name_exclude_filters
+            .get_output(context)
             .get_inner();
-        let display_name_filters_binding = args.display_name_filters.get_inner();
-        let enabled_binding = args.enabled.get_inner();
+        let display_name_filters_binding = args
+            .display_name_filters
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let product_filter_binding = args.product_filter.get_inner();
-        let severity_filters_binding = args.severity_filters.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let product_filter_binding = args.product_filter.get_output(context).get_inner();
+        let severity_filters_binding = args
+            .severity_filters
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident"
                 .into(),
@@ -219,7 +233,7 @@ pub mod alert_rule_ms_security_incident {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

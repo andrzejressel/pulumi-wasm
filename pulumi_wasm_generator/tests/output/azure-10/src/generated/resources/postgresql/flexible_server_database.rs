@@ -46,22 +46,22 @@
 /// ```
 ///
 pub mod flexible_server_database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FlexibleServerDatabaseArgs {
         /// Specifies the Charset for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Defaults to `UTF8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
         #[builder(into, default)]
-        pub charset: pulumi_wasm_rust::Output<Option<String>>,
+        pub charset: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Defaults to `en_US.utf8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
         #[builder(into, default)]
-        pub collation: pulumi_wasm_rust::Output<Option<String>>,
+        pub collation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Azure PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
         #[builder(into)]
-        pub server_id: pulumi_wasm_rust::Output<String>,
+        pub server_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FlexibleServerDatabaseResult {
@@ -79,15 +79,16 @@ pub mod flexible_server_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FlexibleServerDatabaseArgs,
     ) -> FlexibleServerDatabaseResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let charset_binding = args.charset.get_inner();
-        let collation_binding = args.collation.get_inner();
-        let name_binding = args.name.get_inner();
-        let server_id_binding = args.server_id.get_inner();
+        let charset_binding = args.charset.get_output(context).get_inner();
+        let collation_binding = args.collation.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let server_id_binding = args.server_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase"
                 .into(),
@@ -126,7 +127,7 @@ pub mod flexible_server_database {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

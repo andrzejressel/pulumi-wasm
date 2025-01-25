@@ -52,91 +52,91 @@
 /// $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
 /// ```
 pub mod smb_file_share {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SmbFileShareArgs {
         /// The files and folders on this share will only be visible to users with read access. Default value is `false`.
         #[builder(into, default)]
-        pub access_based_enumeration: pulumi_wasm_rust::Output<Option<bool>>,
+        pub access_based_enumeration: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         #[builder(into, default)]
-        pub admin_user_lists: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub admin_user_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         #[builder(into, default)]
-        pub audit_destination_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub audit_destination_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         #[builder(into, default)]
-        pub authentication: pulumi_wasm_rust::Output<Option<String>>,
+        pub authentication: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         #[builder(into, default)]
-        pub bucket_region: pulumi_wasm_rust::Output<Option<String>>,
+        pub bucket_region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Refresh cache information. see `cache_attributes` Block for more details.
         ///
         /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         #[builder(into, default)]
-        pub cache_attributes: pulumi_wasm_rust::Output<
+        pub cache_attributes: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::storagegateway::SmbFileShareCacheAttributes>,
         >,
         /// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         #[builder(into, default)]
-        pub case_sensitivity: pulumi_wasm_rust::Output<Option<String>>,
+        pub case_sensitivity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         #[builder(into, default)]
-        pub default_storage_class: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_storage_class: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         #[builder(into, default)]
-        pub file_share_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub file_share_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of the file gateway.
         #[builder(into)]
-        pub gateway_arn: pulumi_wasm_rust::Output<String>,
+        pub gateway_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         #[builder(into, default)]
-        pub guess_mime_type_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub guess_mime_type_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         #[builder(into, default)]
-        pub invalid_user_lists: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub invalid_user_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
         #[builder(into, default)]
-        pub kms_encrypted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub kms_encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         #[builder(into, default)]
-        pub kms_key_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of the backed storage used for storing file data.
         #[builder(into)]
-        pub location_arn: pulumi_wasm_rust::Output<String>,
+        pub location_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         #[builder(into, default)]
-        pub notification_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub notification_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Access Control List permission for S3 objects. Defaults to `private`.
         #[builder(into, default)]
-        pub object_acl: pulumi_wasm_rust::Output<Option<String>>,
+        pub object_acl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         #[builder(into, default)]
-        pub oplocks_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub oplocks_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         #[builder(into, default)]
-        pub read_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub read_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         #[builder(into, default)]
-        pub requester_pays: pulumi_wasm_rust::Output<Option<bool>>,
+        pub requester_pays: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
         #[builder(into, default)]
-        pub smb_acl_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub smb_acl_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
         #[builder(into, default)]
-        pub valid_user_lists: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub valid_user_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The DNS name of the VPC endpoint for S3 private link.
         #[builder(into, default)]
-        pub vpc_endpoint_dns_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_endpoint_dns_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SmbFileShareResult {
@@ -211,34 +211,80 @@ pub mod smb_file_share {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SmbFileShareArgs) -> SmbFileShareResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SmbFileShareArgs,
+    ) -> SmbFileShareResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_based_enumeration_binding = args.access_based_enumeration.get_inner();
-        let admin_user_lists_binding = args.admin_user_lists.get_inner();
-        let audit_destination_arn_binding = args.audit_destination_arn.get_inner();
-        let authentication_binding = args.authentication.get_inner();
-        let bucket_region_binding = args.bucket_region.get_inner();
-        let cache_attributes_binding = args.cache_attributes.get_inner();
-        let case_sensitivity_binding = args.case_sensitivity.get_inner();
-        let default_storage_class_binding = args.default_storage_class.get_inner();
-        let file_share_name_binding = args.file_share_name.get_inner();
-        let gateway_arn_binding = args.gateway_arn.get_inner();
-        let guess_mime_type_enabled_binding = args.guess_mime_type_enabled.get_inner();
-        let invalid_user_lists_binding = args.invalid_user_lists.get_inner();
-        let kms_encrypted_binding = args.kms_encrypted.get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_inner();
-        let location_arn_binding = args.location_arn.get_inner();
-        let notification_policy_binding = args.notification_policy.get_inner();
-        let object_acl_binding = args.object_acl.get_inner();
-        let oplocks_enabled_binding = args.oplocks_enabled.get_inner();
-        let read_only_binding = args.read_only.get_inner();
-        let requester_pays_binding = args.requester_pays.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let smb_acl_enabled_binding = args.smb_acl_enabled.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let valid_user_lists_binding = args.valid_user_lists.get_inner();
-        let vpc_endpoint_dns_name_binding = args.vpc_endpoint_dns_name.get_inner();
+        let access_based_enumeration_binding = args
+            .access_based_enumeration
+            .get_output(context)
+            .get_inner();
+        let admin_user_lists_binding = args
+            .admin_user_lists
+            .get_output(context)
+            .get_inner();
+        let audit_destination_arn_binding = args
+            .audit_destination_arn
+            .get_output(context)
+            .get_inner();
+        let authentication_binding = args.authentication.get_output(context).get_inner();
+        let bucket_region_binding = args.bucket_region.get_output(context).get_inner();
+        let cache_attributes_binding = args
+            .cache_attributes
+            .get_output(context)
+            .get_inner();
+        let case_sensitivity_binding = args
+            .case_sensitivity
+            .get_output(context)
+            .get_inner();
+        let default_storage_class_binding = args
+            .default_storage_class
+            .get_output(context)
+            .get_inner();
+        let file_share_name_binding = args
+            .file_share_name
+            .get_output(context)
+            .get_inner();
+        let gateway_arn_binding = args.gateway_arn.get_output(context).get_inner();
+        let guess_mime_type_enabled_binding = args
+            .guess_mime_type_enabled
+            .get_output(context)
+            .get_inner();
+        let invalid_user_lists_binding = args
+            .invalid_user_lists
+            .get_output(context)
+            .get_inner();
+        let kms_encrypted_binding = args.kms_encrypted.get_output(context).get_inner();
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
+        let location_arn_binding = args.location_arn.get_output(context).get_inner();
+        let notification_policy_binding = args
+            .notification_policy
+            .get_output(context)
+            .get_inner();
+        let object_acl_binding = args.object_acl.get_output(context).get_inner();
+        let oplocks_enabled_binding = args
+            .oplocks_enabled
+            .get_output(context)
+            .get_inner();
+        let read_only_binding = args.read_only.get_output(context).get_inner();
+        let requester_pays_binding = args.requester_pays.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let smb_acl_enabled_binding = args
+            .smb_acl_enabled
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let valid_user_lists_binding = args
+            .valid_user_lists
+            .get_output(context)
+            .get_inner();
+        let vpc_endpoint_dns_name_binding = args
+            .vpc_endpoint_dns_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:storagegateway/smbFileShare:SmbFileShare".into(),
             name: name.to_string(),
@@ -435,7 +481,7 @@ pub mod smb_file_share {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

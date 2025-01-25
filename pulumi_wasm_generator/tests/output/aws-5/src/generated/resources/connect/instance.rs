@@ -67,44 +67,48 @@
 /// $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
 /// ```
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// Specifies whether auto resolve best voices is enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub auto_resolve_best_voices_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_resolve_best_voices_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies whether contact flow logs are enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub contact_flow_logs_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub contact_flow_logs_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether contact lens is enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub contact_lens_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub contact_lens_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
         #[builder(into, default)]
-        pub directory_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub directory_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
         #[builder(into, default)]
-        pub early_media_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub early_media_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
         #[builder(into)]
-        pub identity_management_type: pulumi_wasm_rust::Output<String>,
+        pub identity_management_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies whether inbound calls are enabled.
         #[builder(into)]
-        pub inbound_calls_enabled: pulumi_wasm_rust::Output<bool>,
+        pub inbound_calls_enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// Specifies the name of the instance. Required if `directory_id` not specified.
         #[builder(into, default)]
-        pub instance_alias: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance_alias: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub multi_party_conference_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub multi_party_conference_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies whether outbound calls are enabled.
         #[builder(into)]
-        pub outbound_calls_enabled: pulumi_wasm_rust::Output<bool>,
+        pub outbound_calls_enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -152,26 +156,48 @@ pub mod instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InstanceArgs) -> InstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InstanceArgs,
+    ) -> InstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let auto_resolve_best_voices_enabled_binding = args
             .auto_resolve_best_voices_enabled
+            .get_output(context)
             .get_inner();
         let contact_flow_logs_enabled_binding = args
             .contact_flow_logs_enabled
+            .get_output(context)
             .get_inner();
-        let contact_lens_enabled_binding = args.contact_lens_enabled.get_inner();
-        let directory_id_binding = args.directory_id.get_inner();
-        let early_media_enabled_binding = args.early_media_enabled.get_inner();
-        let identity_management_type_binding = args.identity_management_type.get_inner();
-        let inbound_calls_enabled_binding = args.inbound_calls_enabled.get_inner();
-        let instance_alias_binding = args.instance_alias.get_inner();
+        let contact_lens_enabled_binding = args
+            .contact_lens_enabled
+            .get_output(context)
+            .get_inner();
+        let directory_id_binding = args.directory_id.get_output(context).get_inner();
+        let early_media_enabled_binding = args
+            .early_media_enabled
+            .get_output(context)
+            .get_inner();
+        let identity_management_type_binding = args
+            .identity_management_type
+            .get_output(context)
+            .get_inner();
+        let inbound_calls_enabled_binding = args
+            .inbound_calls_enabled
+            .get_output(context)
+            .get_inner();
+        let instance_alias_binding = args.instance_alias.get_output(context).get_inner();
         let multi_party_conference_enabled_binding = args
             .multi_party_conference_enabled
+            .get_output(context)
             .get_inner();
-        let outbound_calls_enabled_binding = args.outbound_calls_enabled.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let outbound_calls_enabled_binding = args
+            .outbound_calls_enabled
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:connect/instance:Instance".into(),
             name: name.to_string(),
@@ -273,7 +299,7 @@ pub mod instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

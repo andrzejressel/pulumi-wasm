@@ -170,21 +170,21 @@
 /// $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
 /// ```
 pub mod configuration_set_event_destination {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationSetEventDestinationArgs {
         /// The name of the configuration set.
         #[builder(into)]
-        pub configuration_set_name: pulumi_wasm_rust::Output<String>,
+        pub configuration_set_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A name that identifies the event destination within the configuration set.
         #[builder(into)]
-        pub event_destination: pulumi_wasm_rust::Output<
+        pub event_destination: pulumi_wasm_rust::InputOrOutput<
             super::super::types::sesv2::ConfigurationSetEventDestinationEventDestination,
         >,
         /// An object that defines the event destination. See `event_destination` Block for details.
         #[builder(into)]
-        pub event_destination_name: pulumi_wasm_rust::Output<String>,
+        pub event_destination_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConfigurationSetEventDestinationResult {
@@ -202,14 +202,24 @@ pub mod configuration_set_event_destination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ConfigurationSetEventDestinationArgs,
     ) -> ConfigurationSetEventDestinationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let configuration_set_name_binding = args.configuration_set_name.get_inner();
-        let event_destination_binding = args.event_destination.get_inner();
-        let event_destination_name_binding = args.event_destination_name.get_inner();
+        let configuration_set_name_binding = args
+            .configuration_set_name
+            .get_output(context)
+            .get_inner();
+        let event_destination_binding = args
+            .event_destination
+            .get_output(context)
+            .get_inner();
+        let event_destination_name_binding = args
+            .event_destination_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination"
                 .into(),
@@ -241,7 +251,7 @@ pub mod configuration_set_event_destination {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

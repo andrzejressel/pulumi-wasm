@@ -37,30 +37,30 @@
 /// $ pulumi import gcp:organizations/iAMCustomRole:IAMCustomRole my-custom-role organizations/123456789/roles/myCustomRole
 /// ```
 pub mod iam_custom_role {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IAMCustomRoleArgs {
         /// A human-readable description for the role.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The numeric ID of the organization in which you want to create a custom role.
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The names of the permissions this role grants when bound in an IAM policy. At least one permission must be specified.
         #[builder(into)]
-        pub permissions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub permissions: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The role id to use for this role.
         #[builder(into, default)]
-        pub role_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The current launch stage of the role.
         /// Defaults to `GA`.
         /// List of possible stages is [here](https://cloud.google.com/iam/reference/rest/v1/organizations.roles#Role.RoleLaunchStage).
         #[builder(into, default)]
-        pub stage: pulumi_wasm_rust::Output<Option<String>>,
+        pub stage: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A human-readable title for the role.
         #[builder(into)]
-        pub title: pulumi_wasm_rust::Output<String>,
+        pub title: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IAMCustomRoleResult {
@@ -87,15 +87,19 @@ pub mod iam_custom_role {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: IAMCustomRoleArgs) -> IAMCustomRoleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: IAMCustomRoleArgs,
+    ) -> IAMCustomRoleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let org_id_binding = args.org_id.get_inner();
-        let permissions_binding = args.permissions.get_inner();
-        let role_id_binding = args.role_id.get_inner();
-        let stage_binding = args.stage.get_inner();
-        let title_binding = args.title.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let org_id_binding = args.org_id.get_output(context).get_inner();
+        let permissions_binding = args.permissions.get_output(context).get_inner();
+        let role_id_binding = args.role_id.get_output(context).get_inner();
+        let stage_binding = args.stage.get_output(context).get_inner();
+        let title_binding = args.title.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:organizations/iAMCustomRole:IAMCustomRole".into(),
             name: name.to_string(),
@@ -153,7 +157,7 @@ pub mod iam_custom_role {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

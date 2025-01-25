@@ -74,23 +74,23 @@
 /// ```
 ///
 pub mod hosting_site {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostingSiteArgs {
         /// Optional. The [ID of a Web App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.webApps#WebApp.FIELDS.app_id)
         /// associated with the Hosting site.
         #[builder(into, default)]
-        pub app_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub app_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. Immutable. A globally unique identifier for the Hosting site. This identifier is
         /// used to construct the Firebase-provisioned subdomains for the site, so it must also be a valid
         /// domain name label.
         #[builder(into, default)]
-        pub site_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub site_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct HostingSiteResult {
@@ -119,12 +119,16 @@ pub mod hosting_site {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HostingSiteArgs) -> HostingSiteResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HostingSiteArgs,
+    ) -> HostingSiteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_id_binding = args.app_id.get_inner();
-        let project_binding = args.project.get_inner();
-        let site_id_binding = args.site_id.get_inner();
+        let app_id_binding = args.app_id.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let site_id_binding = args.site_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/hostingSite:HostingSite".into(),
             name: name.to_string(),
@@ -161,7 +165,7 @@ pub mod hosting_site {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

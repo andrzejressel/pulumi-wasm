@@ -26,33 +26,33 @@
 /// $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
 /// ```
 pub mod network_insights_path {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkInsightsPathArgs {
         /// ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         #[builder(into, default)]
-        pub destination: pulumi_wasm_rust::Output<Option<String>>,
+        pub destination: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// IP address of the destination resource.
         #[builder(into, default)]
-        pub destination_ip: pulumi_wasm_rust::Output<Option<String>>,
+        pub destination_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Destination port to analyze access to.
         #[builder(into, default)]
-        pub destination_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub destination_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Protocol to use for analysis. Valid options are `tcp` or `udp`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         #[builder(into)]
-        pub source: pulumi_wasm_rust::Output<String>,
+        pub source: pulumi_wasm_rust::InputOrOutput<String>,
         /// IP address of the source resource.
         #[builder(into, default)]
-        pub source_ip: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -92,18 +92,22 @@ pub mod network_insights_path {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NetworkInsightsPathArgs,
     ) -> NetworkInsightsPathResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let destination_binding = args.destination.get_inner();
-        let destination_ip_binding = args.destination_ip.get_inner();
-        let destination_port_binding = args.destination_port.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let source_binding = args.source.get_inner();
-        let source_ip_binding = args.source_ip.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let destination_binding = args.destination.get_output(context).get_inner();
+        let destination_ip_binding = args.destination_ip.get_output(context).get_inner();
+        let destination_port_binding = args
+            .destination_port
+            .get_output(context)
+            .get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
+        let source_ip_binding = args.source_ip.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/networkInsightsPath:NetworkInsightsPath".into(),
             name: name.to_string(),
@@ -174,7 +178,7 @@ pub mod network_insights_path {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

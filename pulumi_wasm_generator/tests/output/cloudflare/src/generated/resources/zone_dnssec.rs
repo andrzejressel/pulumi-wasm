@@ -25,16 +25,16 @@
 /// ```
 ///
 pub mod zone_dnssec {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZoneDnssecArgs {
         /// Zone DNSSEC updated time.
         #[builder(into, default)]
-        pub modified_on: pulumi_wasm_rust::Output<Option<String>>,
+        pub modified_on: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZoneDnssecResult {
@@ -67,11 +67,15 @@ pub mod zone_dnssec {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ZoneDnssecArgs) -> ZoneDnssecResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ZoneDnssecArgs,
+    ) -> ZoneDnssecResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let modified_on_binding = args.modified_on.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let modified_on_binding = args.modified_on.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zoneDnssec:ZoneDnssec".into(),
             name: name.to_string(),
@@ -125,7 +129,7 @@ pub mod zone_dnssec {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

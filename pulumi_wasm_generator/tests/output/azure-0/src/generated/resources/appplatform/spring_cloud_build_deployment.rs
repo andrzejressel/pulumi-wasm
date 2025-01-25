@@ -51,40 +51,40 @@
 /// ```
 ///
 pub mod spring_cloud_build_deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudBuildDeploymentArgs {
         /// A JSON object that contains the addon configurations of the Spring Cloud Build Deployment.
         #[builder(into, default)]
-        pub addon_json: pulumi_wasm_rust::Output<Option<String>>,
+        pub addon_json: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         #[builder(into, default)]
-        pub application_performance_monitoring_ids: pulumi_wasm_rust::Output<
+        pub application_performance_monitoring_ids: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The ID of the Spring Cloud Build Result.
         #[builder(into)]
-        pub build_result_id: pulumi_wasm_rust::Output<String>,
+        pub build_result_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         #[builder(into, default)]
-        pub environment_variables: pulumi_wasm_rust::Output<
+        pub environment_variables: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         #[builder(into, default)]
-        pub instance_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub instance_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name which should be used for this Spring Cloud Build Deployment. Changing this forces a new Spring Cloud Build Deployment to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `quota` block as defined below.
         #[builder(into, default)]
-        pub quota: pulumi_wasm_rust::Output<
+        pub quota: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudBuildDeploymentQuota>,
         >,
         /// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Build Deployment to be created.
         #[builder(into)]
-        pub spring_cloud_app_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_app_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudBuildDeploymentResult {
@@ -116,21 +116,32 @@ pub mod spring_cloud_build_deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SpringCloudBuildDeploymentArgs,
     ) -> SpringCloudBuildDeploymentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let addon_json_binding = args.addon_json.get_inner();
+        let addon_json_binding = args.addon_json.get_output(context).get_inner();
         let application_performance_monitoring_ids_binding = args
             .application_performance_monitoring_ids
+            .get_output(context)
             .get_inner();
-        let build_result_id_binding = args.build_result_id.get_inner();
-        let environment_variables_binding = args.environment_variables.get_inner();
-        let instance_count_binding = args.instance_count.get_inner();
-        let name_binding = args.name.get_inner();
-        let quota_binding = args.quota.get_inner();
-        let spring_cloud_app_id_binding = args.spring_cloud_app_id.get_inner();
+        let build_result_id_binding = args
+            .build_result_id
+            .get_output(context)
+            .get_inner();
+        let environment_variables_binding = args
+            .environment_variables
+            .get_output(context)
+            .get_inner();
+        let instance_count_binding = args.instance_count.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let quota_binding = args.quota.get_output(context).get_inner();
+        let spring_cloud_app_id_binding = args
+            .spring_cloud_app_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment"
                 .into(),
@@ -197,7 +208,7 @@ pub mod spring_cloud_build_deployment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

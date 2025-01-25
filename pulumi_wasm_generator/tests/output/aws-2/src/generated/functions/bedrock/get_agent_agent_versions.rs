@@ -1,14 +1,14 @@
 pub mod get_agent_agent_versions {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAgentAgentVersionsArgs {
         /// Unique identifier of the agent.
         #[builder(into)]
-        pub agent_id: pulumi_wasm_rust::Output<String>,
+        pub agent_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
         #[builder(into, default)]
-        pub agent_version_summaries: pulumi_wasm_rust::Output<
+        pub agent_version_summaries: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::bedrock::GetAgentAgentVersionsAgentVersionSummary,
@@ -34,11 +34,17 @@ pub mod get_agent_agent_versions {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAgentAgentVersionsArgs) -> GetAgentAgentVersionsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAgentAgentVersionsArgs,
+    ) -> GetAgentAgentVersionsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let agent_id_binding = args.agent_id.get_inner();
-        let agent_version_summaries_binding = args.agent_version_summaries.get_inner();
+        let agent_id_binding = args.agent_id.get_output(context).get_inner();
+        let agent_version_summaries_binding = args
+            .agent_version_summaries
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:bedrock/getAgentAgentVersions:getAgentAgentVersions".into(),
             version: super::super::super::get_version(),
@@ -64,7 +70,7 @@ pub mod get_agent_agent_versions {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

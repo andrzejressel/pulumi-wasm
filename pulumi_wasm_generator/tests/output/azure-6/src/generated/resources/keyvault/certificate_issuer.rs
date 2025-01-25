@@ -44,33 +44,33 @@
 /// ```
 ///
 pub mod certificate_issuer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateIssuerArgs {
         /// The account number with the third-party Certificate Issuer.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `admin` blocks as defined below.
         #[builder(into, default)]
-        pub admins: pulumi_wasm_rust::Output<
+        pub admins: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::keyvault::CertificateIssuerAdmin>>,
         >,
         /// The ID of the Key Vault in which to create the Certificate Issuer. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Key Vault Certificate Issuer. Changing this forces a new Key Vault Certificate Issuer to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the organization as provided to the issuer.
         #[builder(into, default)]
-        pub org_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub org_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`.
         #[builder(into)]
-        pub provider_name: pulumi_wasm_rust::Output<String>,
+        pub provider_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CertificateIssuerResult {
@@ -95,16 +95,20 @@ pub mod certificate_issuer {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CertificateIssuerArgs) -> CertificateIssuerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CertificateIssuerArgs,
+    ) -> CertificateIssuerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let admins_binding = args.admins.get_inner();
-        let key_vault_id_binding = args.key_vault_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let org_id_binding = args.org_id.get_inner();
-        let password_binding = args.password.get_inner();
-        let provider_name_binding = args.provider_name.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let admins_binding = args.admins.get_output(context).get_inner();
+        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let org_id_binding = args.org_id.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let provider_name_binding = args.provider_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/certificateIssuer:CertificateIssuer".into(),
             name: name.to_string(),
@@ -163,7 +167,7 @@ pub mod certificate_issuer {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

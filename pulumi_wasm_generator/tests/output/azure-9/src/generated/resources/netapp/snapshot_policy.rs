@@ -73,48 +73,48 @@
 /// ```
 ///
 pub mod snapshot_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotPolicyArgs {
         /// The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Sets a daily snapshot schedule. A `daily_schedule` block as defined below.
         #[builder(into, default)]
-        pub daily_schedule: pulumi_wasm_rust::Output<
+        pub daily_schedule: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::netapp::SnapshotPolicyDailySchedule>,
         >,
         /// Defines that the NetApp Snapshot Policy is enabled or not.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// Sets an hourly snapshot schedule. A `hourly_schedule` block as defined below.
         #[builder(into, default)]
-        pub hourly_schedule: pulumi_wasm_rust::Output<
+        pub hourly_schedule: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::netapp::SnapshotPolicyHourlySchedule>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Sets a monthly snapshot schedule. A `monthly_schedule` block as defined below.
         #[builder(into, default)]
-        pub monthly_schedule: pulumi_wasm_rust::Output<
+        pub monthly_schedule: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::netapp::SnapshotPolicyMonthlySchedule>,
         >,
         /// The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Sets a weekly snapshot schedule. A `weekly_schedule` block as defined below.
         #[builder(into, default)]
-        pub weekly_schedule: pulumi_wasm_rust::Output<
+        pub weekly_schedule: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::netapp::SnapshotPolicyWeeklySchedule>,
         >,
     }
@@ -155,19 +155,35 @@ pub mod snapshot_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SnapshotPolicyArgs) -> SnapshotPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SnapshotPolicyArgs,
+    ) -> SnapshotPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_name_binding = args.account_name.get_inner();
-        let daily_schedule_binding = args.daily_schedule.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let hourly_schedule_binding = args.hourly_schedule.get_inner();
-        let location_binding = args.location.get_inner();
-        let monthly_schedule_binding = args.monthly_schedule.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let weekly_schedule_binding = args.weekly_schedule.get_inner();
+        let account_name_binding = args.account_name.get_output(context).get_inner();
+        let daily_schedule_binding = args.daily_schedule.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let hourly_schedule_binding = args
+            .hourly_schedule
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let monthly_schedule_binding = args
+            .monthly_schedule
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let weekly_schedule_binding = args
+            .weekly_schedule
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:netapp/snapshotPolicy:SnapshotPolicy".into(),
             name: name.to_string(),
@@ -247,7 +263,7 @@ pub mod snapshot_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

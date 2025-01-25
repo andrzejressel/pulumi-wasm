@@ -106,23 +106,23 @@
 /// ```
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// A capacity configuration of a Kafka cluster.
         /// Structure is documented below.
         #[builder(into)]
-        pub capacity_config: pulumi_wasm_rust::Output<
+        pub capacity_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::managedkafka::ClusterCapacityConfig,
         >,
         /// The ID to use for the cluster, which will become the final component of the cluster's name. The ID must be 1-63 characters long, and match the regular expression `a-z?` to comply with RFC 1035. This value is structured like: `my-cluster-id`.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration properties for a Kafka cluster deployed to Google Cloud Platform.
         /// Structure is documented below.
         #[builder(into)]
-        pub gcp_config: pulumi_wasm_rust::Output<
+        pub gcp_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::managedkafka::ClusterGcpConfig,
         >,
         /// List of label KEY=VALUE pairs to add. Keys must start with a lowercase character and contain only hyphens (-),
@@ -130,17 +130,17 @@ pub mod cluster {
         /// characters, and numbers. **Note**: This field is non-authoritative, and will only manage the labels present in your
         /// configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ID of the location of the Kafka resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Defines rebalancing behavior of a Kafka cluster.
         #[builder(into, default)]
-        pub rebalance_config: pulumi_wasm_rust::Output<
+        pub rebalance_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::managedkafka::ClusterRebalanceConfig>,
         >,
     }
@@ -194,16 +194,26 @@ pub mod cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ClusterArgs) -> ClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ClusterArgs,
+    ) -> ClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let capacity_config_binding = args.capacity_config.get_inner();
-        let cluster_id_binding = args.cluster_id.get_inner();
-        let gcp_config_binding = args.gcp_config.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
-        let rebalance_config_binding = args.rebalance_config.get_inner();
+        let capacity_config_binding = args
+            .capacity_config
+            .get_output(context)
+            .get_inner();
+        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
+        let gcp_config_binding = args.gcp_config.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let rebalance_config_binding = args
+            .rebalance_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:managedkafka/cluster:Cluster".into(),
             name: name.to_string(),
@@ -280,7 +290,7 @@ pub mod cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

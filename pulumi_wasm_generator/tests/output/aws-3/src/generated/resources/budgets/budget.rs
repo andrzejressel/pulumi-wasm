@@ -209,69 +209,69 @@
 /// $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
 /// ```
 pub mod budget {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BudgetArgs {
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Object containing AutoAdjustData which determines the budget amount for an auto-adjusting budget.
         #[builder(into, default)]
-        pub auto_adjust_data: pulumi_wasm_rust::Output<
+        pub auto_adjust_data: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::budgets::BudgetAutoAdjustData>,
         >,
         /// Whether this budget tracks monetary cost or usage.
         #[builder(into)]
-        pub budget_type: pulumi_wasm_rust::Output<String>,
+        pub budget_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of CostFilter name/values pair to apply to budget.
         #[builder(into, default)]
-        pub cost_filters: pulumi_wasm_rust::Output<
+        pub cost_filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::budgets::BudgetCostFilter>>,
         >,
         /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         #[builder(into, default)]
-        pub cost_types: pulumi_wasm_rust::Output<
+        pub cost_types: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::budgets::BudgetCostTypes>,
         >,
         /// The amount of cost or usage being measured for a budget.
         #[builder(into, default)]
-        pub limit_amount: pulumi_wasm_rust::Output<Option<String>>,
+        pub limit_amount: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
         #[builder(into, default)]
-        pub limit_unit: pulumi_wasm_rust::Output<Option<String>>,
+        pub limit_unit: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of a budget. Unique within accounts.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The prefix of the name of a budget. Unique within accounts.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Object containing Budget Notifications. Can be used multiple times to define more than one budget notification.
         #[builder(into, default)]
-        pub notifications: pulumi_wasm_rust::Output<
+        pub notifications: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::budgets::BudgetNotification>>,
         >,
         /// Object containing Planned Budget Limits. Can be used multiple times to plan more than one budget limit. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
         #[builder(into, default)]
-        pub planned_limits: pulumi_wasm_rust::Output<
+        pub planned_limits: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::budgets::BudgetPlannedLimit>>,
         >,
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
         #[builder(into, default)]
-        pub time_period_end: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_period_end: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         #[builder(into, default)]
-        pub time_period_start: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_period_start: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub time_unit: pulumi_wasm_rust::Output<String>,
+        pub time_unit: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BudgetResult {
@@ -330,24 +330,37 @@ pub mod budget {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BudgetArgs) -> BudgetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BudgetArgs,
+    ) -> BudgetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let auto_adjust_data_binding = args.auto_adjust_data.get_inner();
-        let budget_type_binding = args.budget_type.get_inner();
-        let cost_filters_binding = args.cost_filters.get_inner();
-        let cost_types_binding = args.cost_types.get_inner();
-        let limit_amount_binding = args.limit_amount.get_inner();
-        let limit_unit_binding = args.limit_unit.get_inner();
-        let name_binding = args.name.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let notifications_binding = args.notifications.get_inner();
-        let planned_limits_binding = args.planned_limits.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let time_period_end_binding = args.time_period_end.get_inner();
-        let time_period_start_binding = args.time_period_start.get_inner();
-        let time_unit_binding = args.time_unit.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let auto_adjust_data_binding = args
+            .auto_adjust_data
+            .get_output(context)
+            .get_inner();
+        let budget_type_binding = args.budget_type.get_output(context).get_inner();
+        let cost_filters_binding = args.cost_filters.get_output(context).get_inner();
+        let cost_types_binding = args.cost_types.get_output(context).get_inner();
+        let limit_amount_binding = args.limit_amount.get_output(context).get_inner();
+        let limit_unit_binding = args.limit_unit.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let notifications_binding = args.notifications.get_output(context).get_inner();
+        let planned_limits_binding = args.planned_limits.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let time_period_end_binding = args
+            .time_period_end
+            .get_output(context)
+            .get_inner();
+        let time_period_start_binding = args
+            .time_period_start
+            .get_output(context)
+            .get_inner();
+        let time_unit_binding = args.time_unit.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:budgets/budget:Budget".into(),
             name: name.to_string(),
@@ -468,7 +481,7 @@ pub mod budget {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

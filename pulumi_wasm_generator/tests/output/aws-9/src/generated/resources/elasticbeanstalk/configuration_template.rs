@@ -36,27 +36,27 @@
 /// * `value` - value for the configuration option
 /// * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 pub mod configuration_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationTemplateArgs {
         /// name of the application to associate with this configuration template
         #[builder(into)]
-        pub application: pulumi_wasm_rust::Output<String>,
+        pub application: pulumi_wasm_rust::InputOrOutput<String>,
         /// Short description of the Template
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the environment used with this configuration template
         #[builder(into, default)]
-        pub environment_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub environment_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A unique name for this Template.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
         #[builder(into, default)]
-        pub settings: pulumi_wasm_rust::Output<
+        pub settings: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::elasticbeanstalk::ConfigurationTemplateSetting>,
             >,
@@ -64,7 +64,7 @@ pub mod configuration_template {
         /// A solution stack to base your Template
         /// off of. Example stacks can be found in the [Amazon API documentation][1]
         #[builder(into, default)]
-        pub solution_stack_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub solution_stack_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ConfigurationTemplateResult {
@@ -91,17 +91,21 @@ pub mod configuration_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ConfigurationTemplateArgs,
     ) -> ConfigurationTemplateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_binding = args.application.get_inner();
-        let description_binding = args.description.get_inner();
-        let environment_id_binding = args.environment_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let settings_binding = args.settings.get_inner();
-        let solution_stack_name_binding = args.solution_stack_name.get_inner();
+        let application_binding = args.application.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let environment_id_binding = args.environment_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let settings_binding = args.settings.get_output(context).get_inner();
+        let solution_stack_name_binding = args
+            .solution_stack_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate"
                 .into(),
@@ -154,7 +158,7 @@ pub mod configuration_template {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,14 +1,14 @@
 pub mod get_network_slice {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetNetworkSliceArgs {
         /// The ID of Mobile Network which the Mobile Network Slice belongs to.
         #[builder(into)]
-        pub mobile_network_id: pulumi_wasm_rust::Output<String>,
+        pub mobile_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name which should be used for this Mobile Network Slice.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetNetworkSliceResult {
@@ -33,11 +33,17 @@ pub mod get_network_slice {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetNetworkSliceArgs) -> GetNetworkSliceResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetNetworkSliceArgs,
+    ) -> GetNetworkSliceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let mobile_network_id_binding = args.mobile_network_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let mobile_network_id_binding = args
+            .mobile_network_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:mobile/getNetworkSlice:getNetworkSlice".into(),
             version: super::super::super::get_version(),
@@ -75,7 +81,7 @@ pub mod get_network_slice {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

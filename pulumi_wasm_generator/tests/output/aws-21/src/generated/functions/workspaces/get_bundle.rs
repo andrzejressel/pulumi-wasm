@@ -1,17 +1,17 @@
 pub mod get_bundle {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBundleArgs {
         /// ID of the bundle.
         #[builder(into, default)]
-        pub bundle_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub bundle_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the bundle. You cannot combine this parameter with `bundle_id`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
         #[builder(into, default)]
-        pub owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetBundleResult {
@@ -42,12 +42,15 @@ pub mod get_bundle {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetBundleArgs) -> GetBundleResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetBundleArgs,
+    ) -> GetBundleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bundle_id_binding = args.bundle_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let owner_binding = args.owner.get_inner();
+        let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let owner_binding = args.owner.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:workspaces/getBundle:getBundle".into(),
             version: super::super::super::get_version(),
@@ -92,7 +95,7 @@ pub mod get_bundle {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

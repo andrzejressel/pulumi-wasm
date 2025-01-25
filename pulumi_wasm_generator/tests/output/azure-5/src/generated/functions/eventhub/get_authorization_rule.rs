@@ -1,26 +1,26 @@
 pub mod get_authorization_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAuthorizationRuleArgs {
         /// Specifies the name of the EventHub.
         #[builder(into)]
-        pub eventhub_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_name: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub listen: pulumi_wasm_rust::Output<Option<bool>>,
+        pub listen: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub manage: pulumi_wasm_rust::Output<Option<bool>>,
+        pub manage: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the EventHub Authorization Rule resource. be created.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the grandparent EventHub Namespace.
         #[builder(into)]
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub namespace_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group in which the EventHub Authorization Rule's grandparent Namespace exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub send: pulumi_wasm_rust::Output<Option<bool>>,
+        pub send: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GetAuthorizationRuleResult {
@@ -50,16 +50,22 @@ pub mod get_authorization_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAuthorizationRuleArgs) -> GetAuthorizationRuleResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAuthorizationRuleArgs,
+    ) -> GetAuthorizationRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let eventhub_name_binding = args.eventhub_name.get_inner();
-        let listen_binding = args.listen.get_inner();
-        let manage_binding = args.manage.get_inner();
-        let name_binding = args.name.get_inner();
-        let namespace_name_binding = args.namespace_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let send_binding = args.send.get_inner();
+        let eventhub_name_binding = args.eventhub_name.get_output(context).get_inner();
+        let listen_binding = args.listen.get_output(context).get_inner();
+        let manage_binding = args.manage.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let send_binding = args.send.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:eventhub/getAuthorizationRule:getAuthorizationRule".into(),
             version: super::super::super::get_version(),
@@ -138,7 +144,7 @@ pub mod get_authorization_rule {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

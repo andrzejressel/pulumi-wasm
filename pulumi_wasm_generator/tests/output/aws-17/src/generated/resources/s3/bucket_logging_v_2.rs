@@ -60,32 +60,32 @@
 /// $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
 /// ```
 pub mod bucket_logging_v_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketLoggingV2Args {
         /// Name of the bucket.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// Account ID of the expected bucket owner.
         #[builder(into, default)]
-        pub expected_bucket_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_bucket_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the bucket where you want Amazon S3 to store server access logs.
         #[builder(into)]
-        pub target_bucket: pulumi_wasm_rust::Output<String>,
+        pub target_bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// Set of configuration blocks with information for granting permissions. See below.
         #[builder(into, default)]
-        pub target_grants: pulumi_wasm_rust::Output<
+        pub target_grants: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketLoggingV2TargetGrant>>,
         >,
         /// Amazon S3 key format for log objects. See below.
         #[builder(into, default)]
-        pub target_object_key_format: pulumi_wasm_rust::Output<
+        pub target_object_key_format: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3::BucketLoggingV2TargetObjectKeyFormat>,
         >,
         /// Prefix for all log object keys.
         #[builder(into)]
-        pub target_prefix: pulumi_wasm_rust::Output<String>,
+        pub target_prefix: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BucketLoggingV2Result {
@@ -110,15 +110,25 @@ pub mod bucket_logging_v_2 {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BucketLoggingV2Args) -> BucketLoggingV2Result {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BucketLoggingV2Args,
+    ) -> BucketLoggingV2Result {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let expected_bucket_owner_binding = args.expected_bucket_owner.get_inner();
-        let target_bucket_binding = args.target_bucket.get_inner();
-        let target_grants_binding = args.target_grants.get_inner();
-        let target_object_key_format_binding = args.target_object_key_format.get_inner();
-        let target_prefix_binding = args.target_prefix.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let expected_bucket_owner_binding = args
+            .expected_bucket_owner
+            .get_output(context)
+            .get_inner();
+        let target_bucket_binding = args.target_bucket.get_output(context).get_inner();
+        let target_grants_binding = args.target_grants.get_output(context).get_inner();
+        let target_object_key_format_binding = args
+            .target_object_key_format
+            .get_output(context)
+            .get_inner();
+        let target_prefix_binding = args.target_prefix.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketLoggingV2:BucketLoggingV2".into(),
             name: name.to_string(),
@@ -170,7 +180,7 @@ pub mod bucket_logging_v_2 {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

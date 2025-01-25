@@ -34,7 +34,7 @@
 /// This resource does not support import.
 ///
 pub mod bucket_acl {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketACLArgs {
@@ -42,16 +42,16 @@ pub mod bucket_acl {
         ///
         /// - - -
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configure this ACL to be the default ACL.
         #[builder(into, default)]
-        pub default_acl: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_acl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The [canned GCS ACL](https://cloud.google.com/storage/docs/access-control/lists#predefined-acl) to apply. Must be set if `role_entity` is not.
         #[builder(into, default)]
-        pub predefined_acl: pulumi_wasm_rust::Output<Option<String>>,
+        pub predefined_acl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of role/entity pairs in the form `ROLE:entity`. See [GCS Bucket ACL documentation](https://cloud.google.com/storage/docs/json_api/v1/bucketAccessControls)  for more details. Must be set if `predefined_acl` is not.
         #[builder(into, default)]
-        pub role_entities: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub role_entities: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct BucketACLResult {
@@ -70,13 +70,17 @@ pub mod bucket_acl {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BucketACLArgs) -> BucketACLResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BucketACLArgs,
+    ) -> BucketACLResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let default_acl_binding = args.default_acl.get_inner();
-        let predefined_acl_binding = args.predefined_acl.get_inner();
-        let role_entities_binding = args.role_entities.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let default_acl_binding = args.default_acl.get_output(context).get_inner();
+        let predefined_acl_binding = args.predefined_acl.get_output(context).get_inner();
+        let role_entities_binding = args.role_entities.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/bucketACL:BucketACL".into(),
             name: name.to_string(),
@@ -114,7 +118,7 @@ pub mod bucket_acl {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

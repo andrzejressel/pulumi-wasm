@@ -250,39 +250,41 @@
 /// ```
 ///
 pub mod budget {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BudgetArgs {
         /// Defines notifications that are sent on every update to the billing account's spend, regardless of the thresholds defined
         /// using threshold rules.
         #[builder(into, default)]
-        pub all_updates_rule: pulumi_wasm_rust::Output<
+        pub all_updates_rule: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::billing::BudgetAllUpdatesRule>,
         >,
         /// The budgeted amount for each usage period.
         /// Structure is documented below.
         #[builder(into)]
-        pub amount: pulumi_wasm_rust::Output<super::super::types::billing::BudgetAmount>,
+        pub amount: pulumi_wasm_rust::InputOrOutput<
+            super::super::types::billing::BudgetAmount,
+        >,
         /// ID of the billing account to set a budget on.
         #[builder(into)]
-        pub billing_account: pulumi_wasm_rust::Output<String>,
+        pub billing_account: pulumi_wasm_rust::InputOrOutput<String>,
         /// Filters that define which resources are used to compute the actual spend against the budget.
         #[builder(into, default)]
-        pub budget_filter: pulumi_wasm_rust::Output<
+        pub budget_filter: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::billing::BudgetBudgetFilter>,
         >,
         /// User data for display name in UI. Must be <= 60 chars.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ownership scope of the budget. The ownership scope and users' IAM permissions determine who has full access to the
         /// budget's data. Possible values: ["OWNERSHIP_SCOPE_UNSPECIFIED", "ALL_USERS", "BILLING_ACCOUNT"]
         #[builder(into, default)]
-        pub ownership_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub ownership_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Rules that trigger alerts (notifications of thresholds being crossed) when spend exceeds the specified percentages of
         /// the budget.
         #[builder(into, default)]
-        pub threshold_rules: pulumi_wasm_rust::Output<
+        pub threshold_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::billing::BudgetThresholdRule>>,
         >,
     }
@@ -321,16 +323,32 @@ pub mod budget {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BudgetArgs) -> BudgetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BudgetArgs,
+    ) -> BudgetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let all_updates_rule_binding = args.all_updates_rule.get_inner();
-        let amount_binding = args.amount.get_inner();
-        let billing_account_binding = args.billing_account.get_inner();
-        let budget_filter_binding = args.budget_filter.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let ownership_scope_binding = args.ownership_scope.get_inner();
-        let threshold_rules_binding = args.threshold_rules.get_inner();
+        let all_updates_rule_binding = args
+            .all_updates_rule
+            .get_output(context)
+            .get_inner();
+        let amount_binding = args.amount.get_output(context).get_inner();
+        let billing_account_binding = args
+            .billing_account
+            .get_output(context)
+            .get_inner();
+        let budget_filter_binding = args.budget_filter.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let ownership_scope_binding = args
+            .ownership_scope
+            .get_output(context)
+            .get_inner();
+        let threshold_rules_binding = args
+            .threshold_rules
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:billing/budget:Budget".into(),
             name: name.to_string(),
@@ -392,7 +410,7 @@ pub mod budget {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

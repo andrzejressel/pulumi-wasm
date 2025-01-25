@@ -36,7 +36,7 @@
 /// ```
 ///
 pub mod backup_vault {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupVaultArgs {
@@ -44,42 +44,42 @@ pub mod backup_vault {
         ///
         /// > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
         #[builder(into, default)]
-        pub cross_region_restore_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub cross_region_restore_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         #[builder(into)]
-        pub datastore_type: pulumi_wasm_rust::Output<String>,
+        pub datastore_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataprotection::BackupVaultIdentity>,
         >,
         /// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
         #[builder(into)]
-        pub redundancy: pulumi_wasm_rust::Output<String>,
+        pub redundancy: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
         ///
         /// > **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
         #[builder(into, default)]
-        pub retention_duration_in_days: pulumi_wasm_rust::Output<Option<f64>>,
+        pub retention_duration_in_days: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
         ///
         /// > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         #[builder(into, default)]
-        pub soft_delete: pulumi_wasm_rust::Output<Option<String>>,
+        pub soft_delete: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Backup Vault.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -122,23 +122,32 @@ pub mod backup_vault {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BackupVaultArgs) -> BackupVaultResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BackupVaultArgs,
+    ) -> BackupVaultResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cross_region_restore_enabled_binding = args
             .cross_region_restore_enabled
+            .get_output(context)
             .get_inner();
-        let datastore_type_binding = args.datastore_type.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let redundancy_binding = args.redundancy.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let datastore_type_binding = args.datastore_type.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let redundancy_binding = args.redundancy.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let retention_duration_in_days_binding = args
             .retention_duration_in_days
+            .get_output(context)
             .get_inner();
-        let soft_delete_binding = args.soft_delete.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let soft_delete_binding = args.soft_delete.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dataprotection/backupVault:BackupVault".into(),
             name: name.to_string(),
@@ -218,7 +227,7 @@ pub mod backup_vault {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

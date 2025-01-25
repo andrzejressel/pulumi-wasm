@@ -43,19 +43,19 @@
 /// $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
 /// ```
 pub mod group_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GroupMembershipArgs {
         /// The identifier for a group in the Identity Store.
         #[builder(into)]
-        pub group_id: pulumi_wasm_rust::Output<String>,
+        pub group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identity Store ID associated with the Single Sign-On Instance.
         #[builder(into)]
-        pub identity_store_id: pulumi_wasm_rust::Output<String>,
+        pub identity_store_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The identifier for a user in the Identity Store.
         #[builder(into)]
-        pub member_id: pulumi_wasm_rust::Output<String>,
+        pub member_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GroupMembershipResult {
@@ -72,12 +72,19 @@ pub mod group_membership {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GroupMembershipArgs) -> GroupMembershipResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GroupMembershipArgs,
+    ) -> GroupMembershipResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let group_id_binding = args.group_id.get_inner();
-        let identity_store_id_binding = args.identity_store_id.get_inner();
-        let member_id_binding = args.member_id.get_inner();
+        let group_id_binding = args.group_id.get_output(context).get_inner();
+        let identity_store_id_binding = args
+            .identity_store_id
+            .get_output(context)
+            .get_inner();
+        let member_id_binding = args.member_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:identitystore/groupMembership:GroupMembership".into(),
             name: name.to_string(),
@@ -111,7 +118,7 @@ pub mod group_membership {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

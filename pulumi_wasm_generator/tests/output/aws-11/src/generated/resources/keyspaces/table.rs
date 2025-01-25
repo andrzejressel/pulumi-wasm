@@ -43,59 +43,59 @@
 /// $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
 /// ```
 pub mod table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableArgs {
         /// Specifies the read/write throughput capacity mode for the table.
         #[builder(into, default)]
-        pub capacity_specification: pulumi_wasm_rust::Output<
+        pub capacity_specification: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::keyspaces::TableCapacitySpecification>,
         >,
         /// Enables client-side timestamps for the table. By default, the setting is disabled.
         #[builder(into, default)]
-        pub client_side_timestamps: pulumi_wasm_rust::Output<
+        pub client_side_timestamps: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::keyspaces::TableClientSideTimestamps>,
         >,
         /// A description of the table.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::Output<
+        pub comment: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::keyspaces::TableComment>,
         >,
         /// The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
         #[builder(into, default)]
-        pub default_time_to_live: pulumi_wasm_rust::Output<Option<i32>>,
+        pub default_time_to_live: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         #[builder(into, default)]
-        pub encryption_specification: pulumi_wasm_rust::Output<
+        pub encryption_specification: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::keyspaces::TableEncryptionSpecification>,
         >,
         /// The name of the keyspace that the table is going to be created in.
         #[builder(into)]
-        pub keyspace_name: pulumi_wasm_rust::Output<String>,
+        pub keyspace_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
         #[builder(into, default)]
-        pub point_in_time_recovery: pulumi_wasm_rust::Output<
+        pub point_in_time_recovery: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::keyspaces::TablePointInTimeRecovery>,
         >,
         /// Describes the schema of the table.
         #[builder(into)]
-        pub schema_definition: pulumi_wasm_rust::Output<
+        pub schema_definition: pulumi_wasm_rust::InputOrOutput<
             super::super::types::keyspaces::TableSchemaDefinition,
         >,
         /// The name of the table.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub table_name: pulumi_wasm_rust::Output<String>,
+        pub table_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
         #[builder(into, default)]
-        pub ttl: pulumi_wasm_rust::Output<
+        pub ttl: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::keyspaces::TableTtl>,
         >,
     }
@@ -152,20 +152,42 @@ pub mod table {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TableArgs) -> TableResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TableArgs,
+    ) -> TableResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let capacity_specification_binding = args.capacity_specification.get_inner();
-        let client_side_timestamps_binding = args.client_side_timestamps.get_inner();
-        let comment_binding = args.comment.get_inner();
-        let default_time_to_live_binding = args.default_time_to_live.get_inner();
-        let encryption_specification_binding = args.encryption_specification.get_inner();
-        let keyspace_name_binding = args.keyspace_name.get_inner();
-        let point_in_time_recovery_binding = args.point_in_time_recovery.get_inner();
-        let schema_definition_binding = args.schema_definition.get_inner();
-        let table_name_binding = args.table_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let ttl_binding = args.ttl.get_inner();
+        let capacity_specification_binding = args
+            .capacity_specification
+            .get_output(context)
+            .get_inner();
+        let client_side_timestamps_binding = args
+            .client_side_timestamps
+            .get_output(context)
+            .get_inner();
+        let comment_binding = args.comment.get_output(context).get_inner();
+        let default_time_to_live_binding = args
+            .default_time_to_live
+            .get_output(context)
+            .get_inner();
+        let encryption_specification_binding = args
+            .encryption_specification
+            .get_output(context)
+            .get_inner();
+        let keyspace_name_binding = args.keyspace_name.get_output(context).get_inner();
+        let point_in_time_recovery_binding = args
+            .point_in_time_recovery
+            .get_output(context)
+            .get_inner();
+        let schema_definition_binding = args
+            .schema_definition
+            .get_output(context)
+            .get_inner();
+        let table_name_binding = args.table_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let ttl_binding = args.ttl.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:keyspaces/table:Table".into(),
             name: name.to_string(),
@@ -258,7 +280,7 @@ pub mod table {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

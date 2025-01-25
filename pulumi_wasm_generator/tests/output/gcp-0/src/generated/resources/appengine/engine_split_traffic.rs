@@ -91,22 +91,22 @@
 /// ```
 ///
 pub mod engine_split_traffic {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EngineSplitTrafficArgs {
         /// If set to true traffic will be migrated to this version.
         #[builder(into, default)]
-        pub migrate_traffic: pulumi_wasm_rust::Output<Option<bool>>,
+        pub migrate_traffic: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the service these settings apply to.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_wasm_rust::InputOrOutput<String>,
         /// Mapping that defines fractional HTTP traffic diversion to different versions within the service.
         /// Structure is documented below.
         #[builder(into)]
-        pub split: pulumi_wasm_rust::Output<
+        pub split: pulumi_wasm_rust::InputOrOutput<
             super::super::types::appengine::EngineSplitTrafficSplit,
         >,
     }
@@ -127,13 +127,20 @@ pub mod engine_split_traffic {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EngineSplitTrafficArgs) -> EngineSplitTrafficResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EngineSplitTrafficArgs,
+    ) -> EngineSplitTrafficResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let migrate_traffic_binding = args.migrate_traffic.get_inner();
-        let project_binding = args.project.get_inner();
-        let service_binding = args.service.get_inner();
-        let split_binding = args.split.get_inner();
+        let migrate_traffic_binding = args
+            .migrate_traffic
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let service_binding = args.service.get_output(context).get_inner();
+        let split_binding = args.split.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:appengine/engineSplitTraffic:EngineSplitTraffic".into(),
             name: name.to_string(),
@@ -171,7 +178,7 @@ pub mod engine_split_traffic {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

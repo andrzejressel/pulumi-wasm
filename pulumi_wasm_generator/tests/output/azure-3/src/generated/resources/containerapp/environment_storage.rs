@@ -74,28 +74,28 @@
 /// ```
 ///
 pub mod environment_storage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentStorageArgs {
         /// The Storage Account Access Key.
         #[builder(into)]
-        pub access_key: pulumi_wasm_rust::Output<String>,
+        pub access_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub access_mode: pulumi_wasm_rust::Output<String>,
+        pub access_mode: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub container_app_environment_id: pulumi_wasm_rust::Output<String>,
+        pub container_app_environment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name for this Container App Environment Storage. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub share_name: pulumi_wasm_rust::Output<String>,
+        pub share_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentStorageResult {
@@ -116,17 +116,22 @@ pub mod environment_storage {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EnvironmentStorageArgs) -> EnvironmentStorageResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EnvironmentStorageArgs,
+    ) -> EnvironmentStorageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_key_binding = args.access_key.get_inner();
-        let access_mode_binding = args.access_mode.get_inner();
-        let account_name_binding = args.account_name.get_inner();
+        let access_key_binding = args.access_key.get_output(context).get_inner();
+        let access_mode_binding = args.access_mode.get_output(context).get_inner();
+        let account_name_binding = args.account_name.get_output(context).get_inner();
         let container_app_environment_id_binding = args
             .container_app_environment_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let share_name_binding = args.share_name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let share_name_binding = args.share_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerapp/environmentStorage:EnvironmentStorage".into(),
             name: name.to_string(),
@@ -178,7 +183,7 @@ pub mod environment_storage {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,14 +1,14 @@
 pub mod get_subscribed_rule_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSubscribedRuleGroupArgs {
         /// Name of the WAF rule group.
         #[builder(into, default)]
-        pub metric_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub metric_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the WAF rule group.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetSubscribedRuleGroupResult {
@@ -21,11 +21,14 @@ pub mod get_subscribed_rule_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetSubscribedRuleGroupArgs) -> GetSubscribedRuleGroupResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetSubscribedRuleGroupArgs,
+    ) -> GetSubscribedRuleGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let metric_name_binding = args.metric_name.get_inner();
-        let name_binding = args.name.get_inner();
+        let metric_name_binding = args.metric_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:waf/getSubscribedRuleGroup:getSubscribedRuleGroup".into(),
             version: super::super::super::get_version(),
@@ -51,7 +54,7 @@ pub mod get_subscribed_rule_group {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

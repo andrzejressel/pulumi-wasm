@@ -46,40 +46,42 @@
 /// ```
 ///
 pub mod group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GroupArgs {
         /// An extended description to help users determine the purpose of a Group. Must not be longer than 4,096 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The display name of the Group.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// EntityKey of the Group.
         /// Structure is documented below.
         #[builder(into)]
-        pub group_key: pulumi_wasm_rust::Output<
+        pub group_key: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudidentity::GroupGroupKey,
         >,
         /// The initial configuration options for creating a Group. See the [API
         /// reference](https://cloud.google.com/identity/docs/reference/rest/v1beta1/groups/create#initialgroupconfig) for possible
         /// values. Default value: "EMPTY" Possible values: ["INITIAL_GROUP_CONFIG_UNSPECIFIED", "WITH_INITIAL_OWNER", "EMPTY"]
         #[builder(into, default)]
-        pub initial_group_config: pulumi_wasm_rust::Output<Option<String>>,
+        pub initial_group_config: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more label entries that apply to the Group. Currently supported labels contain a key with an empty value.
         /// Google Groups are the default type of group and have a label with a key of cloudidentity.googleapis.com/groups.discussion_forum and an empty value.
         /// Existing Google Groups can have an additional label with a key of cloudidentity.googleapis.com/groups.security and an empty value added to them. This is an immutable change and the security label cannot be removed once added.
         /// Dynamic groups have a label with a key of cloudidentity.googleapis.com/groups.dynamic.
         /// Identity-mapped groups for Cloud Search have a label with a key of system/groups/external and an empty value.
         #[builder(into)]
-        pub labels: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub labels: pulumi_wasm_rust::InputOrOutput<
+            std::collections::HashMap<String, String>,
+        >,
         /// The resource name of the entity under which this Group resides in the
         /// Cloud Identity resource hierarchy.
         /// Must be of the form identitysources/{identity_source_id} for external-identity-mapped
         /// groups or customers/{customer_id} for Google Groups.
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GroupResult {
@@ -124,15 +126,22 @@ pub mod group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GroupArgs) -> GroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GroupArgs,
+    ) -> GroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let group_key_binding = args.group_key.get_inner();
-        let initial_group_config_binding = args.initial_group_config.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let parent_binding = args.parent.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let group_key_binding = args.group_key.get_output(context).get_inner();
+        let initial_group_config_binding = args
+            .initial_group_config
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudidentity/group:Group".into(),
             name: name.to_string(),
@@ -196,7 +205,7 @@ pub mod group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

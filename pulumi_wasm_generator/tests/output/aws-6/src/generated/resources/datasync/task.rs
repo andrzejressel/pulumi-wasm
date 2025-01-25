@@ -82,50 +82,50 @@
 /// $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
 /// ```
 pub mod task {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TaskArgs {
         /// Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         #[builder(into, default)]
-        pub cloudwatch_log_group_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub cloudwatch_log_group_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of destination DataSync Location.
         #[builder(into)]
-        pub destination_location_arn: pulumi_wasm_rust::Output<String>,
+        pub destination_location_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Filter rules that determines which files to exclude from a task.
         #[builder(into, default)]
-        pub excludes: pulumi_wasm_rust::Output<
+        pub excludes: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datasync::TaskExcludes>,
         >,
         /// Filter rules that determines which files to include in a task.
         #[builder(into, default)]
-        pub includes: pulumi_wasm_rust::Output<
+        pub includes: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datasync::TaskIncludes>,
         >,
         /// Name of the DataSync Task.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
         #[builder(into, default)]
-        pub options: pulumi_wasm_rust::Output<
+        pub options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datasync::TaskOptions>,
         >,
         /// Specifies a schedule used to periodically transfer files from a source to a destination location.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datasync::TaskSchedule>,
         >,
         /// Amazon Resource Name (ARN) of source DataSync Location.
         #[builder(into)]
-        pub source_location_arn: pulumi_wasm_rust::Output<String>,
+        pub source_location_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
         #[builder(into, default)]
-        pub task_report_config: pulumi_wasm_rust::Output<
+        pub task_report_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datasync::TaskTaskReportConfig>,
         >,
     }
@@ -174,19 +174,35 @@ pub mod task {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TaskArgs) -> TaskResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TaskArgs,
+    ) -> TaskResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_log_group_arn_binding = args.cloudwatch_log_group_arn.get_inner();
-        let destination_location_arn_binding = args.destination_location_arn.get_inner();
-        let excludes_binding = args.excludes.get_inner();
-        let includes_binding = args.includes.get_inner();
-        let name_binding = args.name.get_inner();
-        let options_binding = args.options.get_inner();
-        let schedule_binding = args.schedule.get_inner();
-        let source_location_arn_binding = args.source_location_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let task_report_config_binding = args.task_report_config.get_inner();
+        let cloudwatch_log_group_arn_binding = args
+            .cloudwatch_log_group_arn
+            .get_output(context)
+            .get_inner();
+        let destination_location_arn_binding = args
+            .destination_location_arn
+            .get_output(context)
+            .get_inner();
+        let excludes_binding = args.excludes.get_output(context).get_inner();
+        let includes_binding = args.includes.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let options_binding = args.options.get_output(context).get_inner();
+        let schedule_binding = args.schedule.get_output(context).get_inner();
+        let source_location_arn_binding = args
+            .source_location_arn
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let task_report_config_binding = args
+            .task_report_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/task:Task".into(),
             name: name.to_string(),
@@ -272,7 +288,7 @@ pub mod task {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

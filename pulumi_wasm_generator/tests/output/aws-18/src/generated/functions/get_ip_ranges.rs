@@ -1,15 +1,15 @@
 pub mod get_ip_ranges {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetIpRangesArgs {
         #[builder(into, default)]
-        pub id: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Filter IP ranges by regions (or include all regions, if
         /// omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
         /// (e.g., `eu-central-1`)
         #[builder(into, default)]
-        pub regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Filter IP ranges by services. Valid items are `amazon`
         /// (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
         /// `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
@@ -19,10 +19,10 @@ pub mod get_ip_ranges {
         /// > **NOTE:** If the specified combination of regions and services does not yield any
         /// CIDR blocks, this call will fail.
         #[builder(into)]
-        pub services: pulumi_wasm_rust::Output<Vec<String>>,
+        pub services: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
         #[builder(into, default)]
-        pub url: pulumi_wasm_rust::Output<Option<String>>,
+        pub url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetIpRangesResult {
@@ -44,13 +44,16 @@ pub mod get_ip_ranges {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetIpRangesArgs) -> GetIpRangesResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetIpRangesArgs,
+    ) -> GetIpRangesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let id_binding = args.id.get_inner();
-        let regions_binding = args.regions.get_inner();
-        let services_binding = args.services.get_inner();
-        let url_binding = args.url.get_inner();
+        let id_binding = args.id.get_output(context).get_inner();
+        let regions_binding = args.regions.get_output(context).get_inner();
+        let services_binding = args.services.get_output(context).get_inner();
+        let url_binding = args.url.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:index/getIpRanges:getIpRanges".into(),
             version: super::super::get_version(),
@@ -99,7 +102,7 @@ pub mod get_ip_ranges {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

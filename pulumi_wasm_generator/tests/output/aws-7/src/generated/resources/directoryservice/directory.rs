@@ -130,53 +130,55 @@
 /// $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
 /// ```
 pub mod directory {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DirectoryArgs {
         /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         #[builder(into, default)]
-        pub alias: pulumi_wasm_rust::Output<Option<String>>,
+        pub alias: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Connector related information about the directory. Fields documented below.
         #[builder(into, default)]
-        pub connect_settings: pulumi_wasm_rust::Output<
+        pub connect_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::directoryservice::DirectoryConnectSettings>,
         >,
         /// A textual description for the directory.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         #[builder(into, default)]
-        pub desired_number_of_domain_controllers: pulumi_wasm_rust::Output<Option<i32>>,
+        pub desired_number_of_domain_controllers: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
         #[builder(into, default)]
-        pub edition: pulumi_wasm_rust::Output<Option<String>>,
+        pub edition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         #[builder(into, default)]
-        pub enable_sso: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_sso: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The fully qualified name for the directory, such as `corp.example.com`
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The password for the directory administrator or connector user.
         #[builder(into)]
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_wasm_rust::InputOrOutput<String>,
         /// The short name of the directory, such as `CORP`.
         #[builder(into, default)]
-        pub short_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub short_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
         #[builder(into, default)]
-        pub size: pulumi_wasm_rust::Output<Option<String>>,
+        pub size: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// VPC related information about the directory. Fields documented below.
         #[builder(into, default)]
-        pub vpc_settings: pulumi_wasm_rust::Output<
+        pub vpc_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::directoryservice::DirectoryVpcSettings>,
         >,
     }
@@ -229,24 +231,32 @@ pub mod directory {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DirectoryArgs) -> DirectoryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DirectoryArgs,
+    ) -> DirectoryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_inner();
-        let connect_settings_binding = args.connect_settings.get_inner();
-        let description_binding = args.description.get_inner();
+        let alias_binding = args.alias.get_output(context).get_inner();
+        let connect_settings_binding = args
+            .connect_settings
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let desired_number_of_domain_controllers_binding = args
             .desired_number_of_domain_controllers
+            .get_output(context)
             .get_inner();
-        let edition_binding = args.edition.get_inner();
-        let enable_sso_binding = args.enable_sso.get_inner();
-        let name_binding = args.name.get_inner();
-        let password_binding = args.password.get_inner();
-        let short_name_binding = args.short_name.get_inner();
-        let size_binding = args.size.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let type__binding = args.type_.get_inner();
-        let vpc_settings_binding = args.vpc_settings.get_inner();
+        let edition_binding = args.edition.get_output(context).get_inner();
+        let enable_sso_binding = args.enable_sso.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let short_name_binding = args.short_name.get_output(context).get_inner();
+        let size_binding = args.size.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let vpc_settings_binding = args.vpc_settings.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directoryservice/directory:Directory".into(),
             name: name.to_string(),
@@ -359,7 +369,7 @@ pub mod directory {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

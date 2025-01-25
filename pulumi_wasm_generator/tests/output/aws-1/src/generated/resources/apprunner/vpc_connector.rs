@@ -26,24 +26,24 @@
 /// $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
 /// ```
 pub mod vpc_connector {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcConnectorArgs {
         /// List of IDs of security groups that App Runner should use for access to AWS resources under the specified subnets. If not specified, App Runner uses the default security group of the Amazon VPC. The default security group allows all outbound traffic.
         #[builder(into)]
-        pub security_groups: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_groups: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// List of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
         #[builder(into)]
-        pub subnets: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnets: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name for the VPC connector.
         #[builder(into)]
-        pub vpc_connector_name: pulumi_wasm_rust::Output<String>,
+        pub vpc_connector_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcConnectorResult {
@@ -72,13 +72,23 @@ pub mod vpc_connector {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VpcConnectorArgs) -> VpcConnectorResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VpcConnectorArgs,
+    ) -> VpcConnectorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let security_groups_binding = args.security_groups.get_inner();
-        let subnets_binding = args.subnets.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_connector_name_binding = args.vpc_connector_name.get_inner();
+        let security_groups_binding = args
+            .security_groups
+            .get_output(context)
+            .get_inner();
+        let subnets_binding = args.subnets.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_connector_name_binding = args
+            .vpc_connector_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apprunner/vpcConnector:VpcConnector".into(),
             name: name.to_string(),
@@ -128,7 +138,7 @@ pub mod vpc_connector {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

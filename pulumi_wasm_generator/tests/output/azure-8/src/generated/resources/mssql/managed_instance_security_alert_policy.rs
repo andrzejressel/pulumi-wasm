@@ -235,39 +235,39 @@
 /// ```
 ///
 pub mod managed_instance_security_alert_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedInstanceSecurityAlertPolicyArgs {
         /// Specifies an array of alerts that are disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action` and `Brute_Force`.
         #[builder(into, default)]
-        pub disabled_alerts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub disabled_alerts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Boolean flag which specifies if the alert is sent to the account administrators or not. Defaults to `false`.
         #[builder(into, default)]
-        pub email_account_admins_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub email_account_admins_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies an array of email addresses to which the alert is sent.
         #[builder(into, default)]
-        pub email_addresses: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub email_addresses: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the state of the Security Alert Policy, whether it is enabled or disabled. Possible values are `true`, `false`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub managed_instance_name: pulumi_wasm_rust::Output<String>,
+        pub managed_instance_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group that contains the MS SQL Managed Instance. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         #[builder(into, default)]
-        pub retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
         ///
         /// > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azure.mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
         #[builder(into, default)]
-        pub storage_account_access_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_access_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         #[builder(into, default)]
-        pub storage_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ManagedInstanceSecurityAlertPolicyResult {
@@ -297,24 +297,42 @@ pub mod managed_instance_security_alert_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ManagedInstanceSecurityAlertPolicyArgs,
     ) -> ManagedInstanceSecurityAlertPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let disabled_alerts_binding = args.disabled_alerts.get_inner();
+        let disabled_alerts_binding = args
+            .disabled_alerts
+            .get_output(context)
+            .get_inner();
         let email_account_admins_enabled_binding = args
             .email_account_admins_enabled
+            .get_output(context)
             .get_inner();
-        let email_addresses_binding = args.email_addresses.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let managed_instance_name_binding = args.managed_instance_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let retention_days_binding = args.retention_days.get_inner();
+        let email_addresses_binding = args
+            .email_addresses
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let managed_instance_name_binding = args
+            .managed_instance_name
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let retention_days_binding = args.retention_days.get_output(context).get_inner();
         let storage_account_access_key_binding = args
             .storage_account_access_key
+            .get_output(context)
             .get_inner();
-        let storage_endpoint_binding = args.storage_endpoint.get_inner();
+        let storage_endpoint_binding = args
+            .storage_endpoint
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy"
                 .into(),
@@ -388,7 +406,7 @@ pub mod managed_instance_security_alert_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

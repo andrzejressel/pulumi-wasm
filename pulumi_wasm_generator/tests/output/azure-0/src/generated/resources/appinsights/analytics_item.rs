@@ -49,28 +49,28 @@
 /// az rest --method GET --uri "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/appinsightstest/analyticsItems?api-version=2015-05-01"
 ///
 pub mod analytics_item {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AnalyticsItemArgs {
         /// The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub application_insights_id: pulumi_wasm_rust::Output<String>,
+        pub application_insights_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The content for the Analytics Item, for example the query text if `type` is `query`.
         #[builder(into)]
-        pub content: pulumi_wasm_rust::Output<String>,
+        pub content: pulumi_wasm_rust::InputOrOutput<String>,
         /// The alias to use for the function. Required when `type` is `function`.
         #[builder(into, default)]
-        pub function_alias: pulumi_wasm_rust::Output<Option<String>>,
+        pub function_alias: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions.
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AnalyticsItemResult {
@@ -97,15 +97,22 @@ pub mod analytics_item {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AnalyticsItemArgs) -> AnalyticsItemResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AnalyticsItemArgs,
+    ) -> AnalyticsItemResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_insights_id_binding = args.application_insights_id.get_inner();
-        let content_binding = args.content.get_inner();
-        let function_alias_binding = args.function_alias.get_inner();
-        let name_binding = args.name.get_inner();
-        let scope_binding = args.scope.get_inner();
-        let type__binding = args.type_.get_inner();
+        let application_insights_id_binding = args
+            .application_insights_id
+            .get_output(context)
+            .get_inner();
+        let content_binding = args.content.get_output(context).get_inner();
+        let function_alias_binding = args.function_alias.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appinsights/analyticsItem:AnalyticsItem".into(),
             name: name.to_string(),
@@ -166,7 +173,7 @@ pub mod analytics_item {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

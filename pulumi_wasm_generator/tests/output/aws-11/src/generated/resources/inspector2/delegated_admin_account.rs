@@ -25,13 +25,13 @@
 /// $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 123456789012
 /// ```
 pub mod delegated_admin_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DelegatedAdminAccountArgs {
         /// Account to enable as delegated admin account.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DelegatedAdminAccountResult {
@@ -45,12 +45,13 @@ pub mod delegated_admin_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DelegatedAdminAccountArgs,
     ) -> DelegatedAdminAccountResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount".into(),
             name: name.to_string(),
@@ -70,7 +71,7 @@ pub mod delegated_admin_account {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

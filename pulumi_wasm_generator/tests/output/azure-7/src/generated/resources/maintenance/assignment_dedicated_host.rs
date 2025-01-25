@@ -62,19 +62,19 @@
 /// ```
 ///
 pub mod assignment_dedicated_host {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssignmentDedicatedHostArgs {
         /// Specifies the Dedicated Host ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub dedicated_host_id: pulumi_wasm_rust::Output<String>,
+        pub dedicated_host_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub maintenance_configuration_id: pulumi_wasm_rust::Output<String>,
+        pub maintenance_configuration_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AssignmentDedicatedHostResult {
@@ -90,15 +90,20 @@ pub mod assignment_dedicated_host {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AssignmentDedicatedHostArgs,
     ) -> AssignmentDedicatedHostResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dedicated_host_id_binding = args.dedicated_host_id.get_inner();
-        let location_binding = args.location.get_inner();
+        let dedicated_host_id_binding = args
+            .dedicated_host_id
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let maintenance_configuration_id_binding = args
             .maintenance_configuration_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost"
@@ -131,7 +136,7 @@ pub mod assignment_dedicated_host {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

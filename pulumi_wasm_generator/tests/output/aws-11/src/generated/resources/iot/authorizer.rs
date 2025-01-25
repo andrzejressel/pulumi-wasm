@@ -31,36 +31,36 @@
 /// $ pulumi import aws:iot/authorizer:Authorizer example example
 /// ```
 pub mod authorizer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthorizerArgs {
         /// The ARN of the authorizer's Lambda function.
         #[builder(into)]
-        pub authorizer_function_arn: pulumi_wasm_rust::Output<String>,
+        pub authorizer_function_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies whether the HTTP caching is enabled or not. Default: `false`.
         #[builder(into, default)]
-        pub enable_caching_for_http: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_caching_for_http: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the authorizer.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         #[builder(into, default)]
-        pub signing_disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub signing_disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
         #[builder(into, default)]
-        pub token_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub token_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
         #[builder(into, default)]
-        pub token_signing_public_keys: pulumi_wasm_rust::Output<
+        pub token_signing_public_keys: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -97,18 +97,32 @@ pub mod authorizer {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AuthorizerArgs) -> AuthorizerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AuthorizerArgs,
+    ) -> AuthorizerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authorizer_function_arn_binding = args.authorizer_function_arn.get_inner();
-        let enable_caching_for_http_binding = args.enable_caching_for_http.get_inner();
-        let name_binding = args.name.get_inner();
-        let signing_disabled_binding = args.signing_disabled.get_inner();
-        let status_binding = args.status.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let token_key_name_binding = args.token_key_name.get_inner();
+        let authorizer_function_arn_binding = args
+            .authorizer_function_arn
+            .get_output(context)
+            .get_inner();
+        let enable_caching_for_http_binding = args
+            .enable_caching_for_http
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let signing_disabled_binding = args
+            .signing_disabled
+            .get_output(context)
+            .get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let token_key_name_binding = args.token_key_name.get_output(context).get_inner();
         let token_signing_public_keys_binding = args
             .token_signing_public_keys
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/authorizer:Authorizer".into(),
@@ -181,7 +195,7 @@ pub mod authorizer {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

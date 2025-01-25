@@ -252,7 +252,7 @@
 /// ```
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
@@ -262,62 +262,62 @@ pub mod cluster {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The automated backup policy for this cluster. AutomatedBackupPolicy is disabled by default.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub automated_backup_policy: pulumi_wasm_rust::Output<
+        pub automated_backup_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterAutomatedBackupPolicy>,
         >,
         /// The ID of the alloydb cluster.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of cluster. If not set, defaults to PRIMARY.
         /// Default value is `PRIMARY`.
         /// Possible values are: `PRIMARY`, `SECONDARY`.
         #[builder(into, default)]
-        pub cluster_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub cluster_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The continuous backup config for this cluster.
         /// If no policy is provided then the default policy will be used. The default policy takes one backup a day and retains backups for 14 days.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub continuous_backup_config: pulumi_wasm_rust::Output<
+        pub continuous_backup_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterContinuousBackupConfig>,
         >,
         /// The database engine major version. This is an optional field and it's populated at the Cluster creation time. This field cannot be changed after cluster creation.
         #[builder(into, default)]
-        pub database_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub database_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Policy to determine if the cluster should be deleted forcefully.
         /// Deleting a cluster forcefully, deletes the cluster and all its associated instances within the cluster.
         /// Deleting a Secondary cluster with a secondary instance REQUIRES setting deletion_policy = "FORCE" otherwise an error is returned. This is needed as there is no support to delete just the secondary instance, and the only way to delete secondary instance is to delete the associated secondary cluster forcefully which also deletes the secondary instance.
         /// Possible values: DEFAULT, FORCE
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User-settable and human-readable display name for the Cluster.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// EncryptionConfig describes the encryption config of a cluster or a backup that is encrypted with a CMEK (customer-managed encryption key).
         /// Structure is documented below.
         #[builder(into, default)]
-        pub encryption_config: pulumi_wasm_rust::Output<
+        pub encryption_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterEncryptionConfig>,
         >,
         /// For Resource freshness validation (https://google.aip.dev/154)
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::Output<Option<String>>,
+        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Initial user to setup during cluster creation.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub initial_user: pulumi_wasm_rust::Output<
+        pub initial_user: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterInitialUser>,
         >,
         /// User-defined labels for the alloydb cluster.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the alloydb cluster should reside.
@@ -325,51 +325,51 @@ pub mod cluster {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// MaintenanceUpdatePolicy defines the policy for system updates.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub maintenance_update_policy: pulumi_wasm_rust::Output<
+        pub maintenance_update_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterMaintenanceUpdatePolicy>,
         >,
         /// Metadata related to network configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterNetworkConfig>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for Private Service Connect (PSC) for the cluster.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub psc_config: pulumi_wasm_rust::Output<
+        pub psc_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterPscConfig>,
         >,
         /// The source when restoring from a backup. Conflicts with 'restore_continuous_backup_source', both can't be set together.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub restore_backup_source: pulumi_wasm_rust::Output<
+        pub restore_backup_source: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterRestoreBackupSource>,
         >,
         /// The source when restoring via point in time recovery (PITR). Conflicts with 'restore_backup_source', both can't be set together.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub restore_continuous_backup_source: pulumi_wasm_rust::Output<
+        pub restore_continuous_backup_source: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterRestoreContinuousBackupSource>,
         >,
         /// Configuration of the secondary cluster for Cross Region Replication. This should be set if and only if the cluster is of type SECONDARY.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub secondary_config: pulumi_wasm_rust::Output<
+        pub secondary_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alloydb::ClusterSecondaryConfig>,
         >,
         /// The subscrition type of cluster.
         /// Possible values are: `TRIAL`, `STANDARD`.
         #[builder(into, default)]
-        pub subscription_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub subscription_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ClusterResult {
@@ -519,34 +519,64 @@ pub mod cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ClusterArgs) -> ClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ClusterArgs,
+    ) -> ClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let automated_backup_policy_binding = args.automated_backup_policy.get_inner();
-        let cluster_id_binding = args.cluster_id.get_inner();
-        let cluster_type_binding = args.cluster_type.get_inner();
-        let continuous_backup_config_binding = args.continuous_backup_config.get_inner();
-        let database_version_binding = args.database_version.get_inner();
-        let deletion_policy_binding = args.deletion_policy.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let encryption_config_binding = args.encryption_config.get_inner();
-        let etag_binding = args.etag.get_inner();
-        let initial_user_binding = args.initial_user.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let automated_backup_policy_binding = args
+            .automated_backup_policy
+            .get_output(context)
+            .get_inner();
+        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
+        let cluster_type_binding = args.cluster_type.get_output(context).get_inner();
+        let continuous_backup_config_binding = args
+            .continuous_backup_config
+            .get_output(context)
+            .get_inner();
+        let database_version_binding = args
+            .database_version
+            .get_output(context)
+            .get_inner();
+        let deletion_policy_binding = args
+            .deletion_policy
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let encryption_config_binding = args
+            .encryption_config
+            .get_output(context)
+            .get_inner();
+        let etag_binding = args.etag.get_output(context).get_inner();
+        let initial_user_binding = args.initial_user.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let maintenance_update_policy_binding = args
             .maintenance_update_policy
+            .get_output(context)
             .get_inner();
-        let network_config_binding = args.network_config.get_inner();
-        let project_binding = args.project.get_inner();
-        let psc_config_binding = args.psc_config.get_inner();
-        let restore_backup_source_binding = args.restore_backup_source.get_inner();
+        let network_config_binding = args.network_config.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let psc_config_binding = args.psc_config.get_output(context).get_inner();
+        let restore_backup_source_binding = args
+            .restore_backup_source
+            .get_output(context)
+            .get_inner();
         let restore_continuous_backup_source_binding = args
             .restore_continuous_backup_source
+            .get_output(context)
             .get_inner();
-        let secondary_config_binding = args.secondary_config.get_inner();
-        let subscription_type_binding = args.subscription_type.get_inner();
+        let secondary_config_binding = args
+            .secondary_config
+            .get_output(context)
+            .get_inner();
+        let subscription_type_binding = args
+            .subscription_type
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:alloydb/cluster:Cluster".into(),
             name: name.to_string(),
@@ -739,7 +769,7 @@ pub mod cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

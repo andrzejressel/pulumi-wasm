@@ -52,7 +52,7 @@
 /// $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example my-function,$LATEST
 /// ```
 pub mod runtime_management_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RuntimeManagementConfigArgs {
@@ -60,16 +60,16 @@ pub mod runtime_management_config {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub function_name: pulumi_wasm_rust::Output<String>,
+        pub function_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
         #[builder(into, default)]
-        pub qualifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub qualifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         #[builder(into, default)]
-        pub runtime_version_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub runtime_version_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
         #[builder(into, default)]
-        pub update_runtime_on: pulumi_wasm_rust::Output<Option<String>>,
+        pub update_runtime_on: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RuntimeManagementConfigResult {
@@ -91,15 +91,22 @@ pub mod runtime_management_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RuntimeManagementConfigArgs,
     ) -> RuntimeManagementConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let function_name_binding = args.function_name.get_inner();
-        let qualifier_binding = args.qualifier.get_inner();
-        let runtime_version_arn_binding = args.runtime_version_arn.get_inner();
-        let update_runtime_on_binding = args.update_runtime_on.get_inner();
+        let function_name_binding = args.function_name.get_output(context).get_inner();
+        let qualifier_binding = args.qualifier.get_output(context).get_inner();
+        let runtime_version_arn_binding = args
+            .runtime_version_arn
+            .get_output(context)
+            .get_inner();
+        let update_runtime_on_binding = args
+            .update_runtime_on
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/runtimeManagementConfig:RuntimeManagementConfig".into(),
             name: name.to_string(),
@@ -140,7 +147,7 @@ pub mod runtime_management_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

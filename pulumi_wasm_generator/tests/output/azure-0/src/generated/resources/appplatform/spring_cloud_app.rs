@@ -36,56 +36,56 @@
 /// ```
 ///
 pub mod spring_cloud_app {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudAppArgs {
         /// A JSON object that contains the addon configurations of the Spring Cloud Service.
         #[builder(into, default)]
-        pub addon_json: pulumi_wasm_rust::Output<Option<String>>,
+        pub addon_json: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `custom_persistent_disk` block as defined below.
         #[builder(into, default)]
-        pub custom_persistent_disks: pulumi_wasm_rust::Output<
+        pub custom_persistent_disks: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::appplatform::SpringCloudAppCustomPersistentDisk>,
             >,
         >,
         /// Is only HTTPS allowed? Defaults to `false`.
         #[builder(into, default)]
-        pub https_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub https_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudAppIdentity>,
         >,
         /// An `ingress_settings` block as defined below.
         #[builder(into, default)]
-        pub ingress_settings: pulumi_wasm_rust::Output<
+        pub ingress_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudAppIngressSettings>,
         >,
         /// Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         #[builder(into, default)]
-        pub is_public: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_public: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `persistent_disk` block as defined below.
         #[builder(into, default)]
-        pub persistent_disk: pulumi_wasm_rust::Output<
+        pub persistent_disk: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudAppPersistentDisk>,
         >,
         /// Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
         #[builder(into, default)]
-        pub public_endpoint_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_endpoint_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub service_name: pulumi_wasm_rust::Output<String>,
+        pub service_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Is End to End TLS Enabled? Defaults to `false`.
         #[builder(into, default)]
-        pub tls_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tls_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudAppResult {
@@ -132,21 +132,40 @@ pub mod spring_cloud_app {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SpringCloudAppArgs) -> SpringCloudAppResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SpringCloudAppArgs,
+    ) -> SpringCloudAppResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let addon_json_binding = args.addon_json.get_inner();
-        let custom_persistent_disks_binding = args.custom_persistent_disks.get_inner();
-        let https_only_binding = args.https_only.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let ingress_settings_binding = args.ingress_settings.get_inner();
-        let is_public_binding = args.is_public.get_inner();
-        let name_binding = args.name.get_inner();
-        let persistent_disk_binding = args.persistent_disk.get_inner();
-        let public_endpoint_enabled_binding = args.public_endpoint_enabled.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let service_name_binding = args.service_name.get_inner();
-        let tls_enabled_binding = args.tls_enabled.get_inner();
+        let addon_json_binding = args.addon_json.get_output(context).get_inner();
+        let custom_persistent_disks_binding = args
+            .custom_persistent_disks
+            .get_output(context)
+            .get_inner();
+        let https_only_binding = args.https_only.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let ingress_settings_binding = args
+            .ingress_settings
+            .get_output(context)
+            .get_inner();
+        let is_public_binding = args.is_public.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let persistent_disk_binding = args
+            .persistent_disk
+            .get_output(context)
+            .get_inner();
+        let public_endpoint_enabled_binding = args
+            .public_endpoint_enabled
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let service_name_binding = args.service_name.get_output(context).get_inner();
+        let tls_enabled_binding = args.tls_enabled.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudApp:SpringCloudApp".into(),
             name: name.to_string(),
@@ -246,7 +265,7 @@ pub mod spring_cloud_app {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

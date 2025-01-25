@@ -40,16 +40,16 @@
 /// $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
 /// ```
 pub mod fleet_stack_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FleetStackAssociationArgs {
         /// Name of the fleet.
         #[builder(into)]
-        pub fleet_name: pulumi_wasm_rust::Output<String>,
+        pub fleet_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the stack.
         #[builder(into)]
-        pub stack_name: pulumi_wasm_rust::Output<String>,
+        pub stack_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FleetStackAssociationResult {
@@ -63,13 +63,14 @@ pub mod fleet_stack_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FleetStackAssociationArgs,
     ) -> FleetStackAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let fleet_name_binding = args.fleet_name.get_inner();
-        let stack_name_binding = args.stack_name.get_inner();
+        let fleet_name_binding = args.fleet_name.get_output(context).get_inner();
+        let stack_name_binding = args.stack_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appstream/fleetStackAssociation:FleetStackAssociation".into(),
             name: name.to_string(),
@@ -93,7 +94,7 @@ pub mod fleet_stack_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

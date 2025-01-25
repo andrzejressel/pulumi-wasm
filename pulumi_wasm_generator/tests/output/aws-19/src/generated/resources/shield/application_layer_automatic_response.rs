@@ -29,18 +29,18 @@
 ///       arguments: {}
 /// ```
 pub mod application_layer_automatic_response {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationLayerAutomaticResponseArgs {
         /// One of `COUNT` or `BLOCK`
         #[builder(into)]
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
         #[builder(into)]
-        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_arn: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::shield::ApplicationLayerAutomaticResponseTimeouts,
             >,
@@ -63,14 +63,15 @@ pub mod application_layer_automatic_response {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ApplicationLayerAutomaticResponseArgs,
     ) -> ApplicationLayerAutomaticResponseResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_inner();
-        let resource_arn_binding = args.resource_arn.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
+        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:shield/applicationLayerAutomaticResponse:ApplicationLayerAutomaticResponse"
                 .into(),
@@ -102,7 +103,7 @@ pub mod application_layer_automatic_response {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

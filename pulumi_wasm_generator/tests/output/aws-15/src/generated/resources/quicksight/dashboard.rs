@@ -85,52 +85,52 @@
 /// $ pulumi import aws:quicksight/dashboard:Dashboard example 123456789012,example-id
 /// ```
 pub mod dashboard {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DashboardArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier for the dashboard.
         #[builder(into)]
-        pub dashboard_id: pulumi_wasm_rust::Output<String>,
+        pub dashboard_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Options for publishing the dashboard. See dashboard_publish_options.
         #[builder(into, default)]
-        pub dashboard_publish_options: pulumi_wasm_rust::Output<
+        pub dashboard_publish_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::quicksight::DashboardDashboardPublishOptions>,
         >,
         /// Display name for the dashboard.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::quicksight::DashboardParameters>,
         >,
         /// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
         #[builder(into, default)]
-        pub permissions: pulumi_wasm_rust::Output<
+        pub permissions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::quicksight::DashboardPermission>>,
         >,
         /// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         #[builder(into, default)]
-        pub source_entity: pulumi_wasm_rust::Output<
+        pub source_entity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::quicksight::DashboardSourceEntity>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         #[builder(into, default)]
-        pub theme_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub theme_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A description of the current dashboard version being created/updated.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub version_description: pulumi_wasm_rust::Output<String>,
+        pub version_description: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DashboardResult {
@@ -188,21 +188,29 @@ pub mod dashboard {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DashboardArgs) -> DashboardResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DashboardArgs,
+    ) -> DashboardResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_inner();
-        let dashboard_id_binding = args.dashboard_id.get_inner();
+        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
+        let dashboard_id_binding = args.dashboard_id.get_output(context).get_inner();
         let dashboard_publish_options_binding = args
             .dashboard_publish_options
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let permissions_binding = args.permissions.get_inner();
-        let source_entity_binding = args.source_entity.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let theme_arn_binding = args.theme_arn.get_inner();
-        let version_description_binding = args.version_description.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let permissions_binding = args.permissions.get_output(context).get_inner();
+        let source_entity_binding = args.source_entity.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let theme_arn_binding = args.theme_arn.get_output(context).get_inner();
+        let version_description_binding = args
+            .version_description
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/dashboard:Dashboard".into(),
             name: name.to_string(),
@@ -306,7 +314,7 @@ pub mod dashboard {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -29,22 +29,22 @@
 /// $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
 /// ```
 pub mod template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TemplateArgs {
         /// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         #[builder(into, default)]
-        pub html: pulumi_wasm_rust::Output<Option<String>>,
+        pub html: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The subject line of the email.
         #[builder(into, default)]
-        pub subject: pulumi_wasm_rust::Output<Option<String>>,
+        pub subject: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         #[builder(into, default)]
-        pub text: pulumi_wasm_rust::Output<Option<String>>,
+        pub text: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TemplateResult {
@@ -63,13 +63,17 @@ pub mod template {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TemplateArgs) -> TemplateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TemplateArgs,
+    ) -> TemplateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let html_binding = args.html.get_inner();
-        let name_binding = args.name.get_inner();
-        let subject_binding = args.subject.get_inner();
-        let text_binding = args.text.get_inner();
+        let html_binding = args.html.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let subject_binding = args.subject.get_output(context).get_inner();
+        let text_binding = args.text.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/template:Template".into(),
             name: name.to_string(),
@@ -110,7 +114,7 @@ pub mod template {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

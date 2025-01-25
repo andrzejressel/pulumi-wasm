@@ -35,19 +35,19 @@
 /// $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
 /// ```
 pub mod managed_prefix_list_entry {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedPrefixListEntryArgs {
         /// CIDR block of this entry.
         #[builder(into)]
-        pub cidr: pulumi_wasm_rust::Output<String>,
+        pub cidr: pulumi_wasm_rust::InputOrOutput<String>,
         /// Description of this entry. Please note that due to API limitations, updating only the description of an entry will require recreating the entry.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the prefix list.
         #[builder(into)]
-        pub prefix_list_id: pulumi_wasm_rust::Output<String>,
+        pub prefix_list_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ManagedPrefixListEntryResult {
@@ -63,14 +63,15 @@ pub mod managed_prefix_list_entry {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ManagedPrefixListEntryArgs,
     ) -> ManagedPrefixListEntryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cidr_binding = args.cidr.get_inner();
-        let description_binding = args.description.get_inner();
-        let prefix_list_id_binding = args.prefix_list_id.get_inner();
+        let cidr_binding = args.cidr.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let prefix_list_id_binding = args.prefix_list_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry".into(),
             name: name.to_string(),
@@ -101,7 +102,7 @@ pub mod managed_prefix_list_entry {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

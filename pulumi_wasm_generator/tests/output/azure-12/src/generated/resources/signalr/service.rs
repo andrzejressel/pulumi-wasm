@@ -53,80 +53,82 @@
 /// ```
 ///
 pub mod service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceArgs {
         /// Whether to enable AAD auth? Defaults to `true`.
         #[builder(into, default)]
-        pub aad_auth_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub aad_auth_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies if Connectivity Logs are enabled or not. Defaults to `false`.
         #[builder(into, default)]
-        pub connectivity_logs_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub connectivity_logs_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A `cors` block as documented below.
         #[builder(into, default)]
-        pub cors: pulumi_wasm_rust::Output<
+        pub cors: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::signalr::ServiceCor>>,
         >,
         /// Specifies if Http Request Logs are enabled or not. Defaults to `false`.
         #[builder(into, default)]
-        pub http_request_logs_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub http_request_logs_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::signalr::ServiceIdentity>,
         >,
         /// A `live_trace` block as defined below.
         #[builder(into, default)]
-        pub live_trace: pulumi_wasm_rust::Output<
+        pub live_trace: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::signalr::ServiceLiveTrace>,
         >,
         #[builder(into, default)]
-        pub live_trace_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub live_trace_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to enable local auth? Defaults to `true`.
         #[builder(into, default)]
-        pub local_auth_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_auth_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies if Messaging Logs are enabled or not. Defaults to `false`.
         #[builder(into, default)]
-        pub messaging_logs_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub messaging_logs_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the SignalR service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to enable public network access? Defaults to `true`.
         ///
         /// > **Note:** `public_network_access_enabled` cannot be set to `false` in `Free` sku tier.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the client connection timeout. Defaults to `30`.
         #[builder(into, default)]
-        pub serverless_connection_timeout_in_seconds: pulumi_wasm_rust::Output<
+        pub serverless_connection_timeout_in_seconds: pulumi_wasm_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`.
         #[builder(into, default)]
-        pub service_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `sku` block as documented below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<super::super::types::signalr::ServiceSku>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<
+            super::super::types::signalr::ServiceSku,
+        >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Whether to request client certificate during TLS handshake? Defaults to `false`.
         ///
         /// > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
         #[builder(into, default)]
-        pub tls_client_cert_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tls_client_cert_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         #[builder(into, default)]
-        pub upstream_endpoints: pulumi_wasm_rust::Output<
+        pub upstream_endpoints: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::signalr::ServiceUpstreamEndpoint>>,
         >,
     }
@@ -206,36 +208,65 @@ pub mod service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServiceArgs) -> ServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServiceArgs,
+    ) -> ServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aad_auth_enabled_binding = args.aad_auth_enabled.get_inner();
+        let aad_auth_enabled_binding = args
+            .aad_auth_enabled
+            .get_output(context)
+            .get_inner();
         let connectivity_logs_enabled_binding = args
             .connectivity_logs_enabled
+            .get_output(context)
             .get_inner();
-        let cors_binding = args.cors.get_inner();
+        let cors_binding = args.cors.get_output(context).get_inner();
         let http_request_logs_enabled_binding = args
             .http_request_logs_enabled
+            .get_output(context)
             .get_inner();
-        let identity_binding = args.identity.get_inner();
-        let live_trace_binding = args.live_trace.get_inner();
-        let live_trace_enabled_binding = args.live_trace_enabled.get_inner();
-        let local_auth_enabled_binding = args.local_auth_enabled.get_inner();
-        let location_binding = args.location.get_inner();
-        let messaging_logs_enabled_binding = args.messaging_logs_enabled.get_inner();
-        let name_binding = args.name.get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let live_trace_binding = args.live_trace.get_output(context).get_inner();
+        let live_trace_enabled_binding = args
+            .live_trace_enabled
+            .get_output(context)
+            .get_inner();
+        let local_auth_enabled_binding = args
+            .local_auth_enabled
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let messaging_logs_enabled_binding = args
+            .messaging_logs_enabled
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let serverless_connection_timeout_in_seconds_binding = args
             .serverless_connection_timeout_in_seconds
+            .get_output(context)
             .get_inner();
-        let service_mode_binding = args.service_mode.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tls_client_cert_enabled_binding = args.tls_client_cert_enabled.get_inner();
-        let upstream_endpoints_binding = args.upstream_endpoints.get_inner();
+        let service_mode_binding = args.service_mode.get_output(context).get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tls_client_cert_enabled_binding = args
+            .tls_client_cert_enabled
+            .get_output(context)
+            .get_inner();
+        let upstream_endpoints_binding = args
+            .upstream_endpoints
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:signalr/service:Service".into(),
             name: name.to_string(),
@@ -402,7 +433,7 @@ pub mod service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

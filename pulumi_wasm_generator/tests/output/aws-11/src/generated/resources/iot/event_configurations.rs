@@ -31,13 +31,13 @@
 /// $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
 /// ```
 pub mod event_configurations {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventConfigurationsArgs {
         /// Map. The new event configuration values. You can use only these strings as keys: `THING_GROUP_HIERARCHY`, `THING_GROUP_MEMBERSHIP`, `THING_TYPE`, `THING_TYPE_ASSOCIATION`, `THING_GROUP`, `THING`, `POLICY`, `CA_CERTIFICATE`, `JOB_EXECUTION`, `CERTIFICATE`, `JOB`. Use boolean for values of mapping.
         #[builder(into)]
-        pub event_configurations: pulumi_wasm_rust::Output<
+        pub event_configurations: pulumi_wasm_rust::InputOrOutput<
             std::collections::HashMap<String, bool>,
         >,
     }
@@ -53,12 +53,16 @@ pub mod event_configurations {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EventConfigurationsArgs,
     ) -> EventConfigurationsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let event_configurations_binding = args.event_configurations.get_inner();
+        let event_configurations_binding = args
+            .event_configurations
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/eventConfigurations:EventConfigurations".into(),
             name: name.to_string(),
@@ -75,7 +79,7 @@ pub mod event_configurations {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

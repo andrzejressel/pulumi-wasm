@@ -451,25 +451,25 @@
 /// ```
 ///
 pub mod ai_feature_online_store_featureview {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AiFeatureOnlineStoreFeatureviewArgs {
         /// Configures how data is supposed to be extracted from a BigQuery source to be loaded onto the FeatureOnlineStore.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub big_query_source: pulumi_wasm_rust::Output<
+        pub big_query_source: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::vertex::AiFeatureOnlineStoreFeatureviewBigQuerySource,
             >,
         >,
         /// The name of the FeatureOnlineStore to use for the featureview.
         #[builder(into)]
-        pub feature_online_store: pulumi_wasm_rust::Output<String>,
+        pub feature_online_store: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configures the features from a Feature Registry source that need to be loaded onto the FeatureOnlineStore.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub feature_registry_source: pulumi_wasm_rust::Output<
+        pub feature_registry_source: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::vertex::AiFeatureOnlineStoreFeatureviewFeatureRegistrySource,
             >,
@@ -479,26 +479,26 @@ pub mod ai_feature_online_store_featureview {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the FeatureView. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The region for the resource. It should be the same as the featureonlinestore region.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configures when data is to be synced/updated for this FeatureView. At the end of the sync the latest featureValues for each entityId of this FeatureView are made ready for online serving.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub sync_config: pulumi_wasm_rust::Output<
+        pub sync_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::vertex::AiFeatureOnlineStoreFeatureviewSyncConfig,
             >,
@@ -506,7 +506,7 @@ pub mod ai_feature_online_store_featureview {
         /// Configuration for vector search. It contains the required configurations to create an index from source data, so that approximate nearest neighbor (a.k.a ANN) algorithms search can be performed during online serving.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub vector_search_config: pulumi_wasm_rust::Output<
+        pub vector_search_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::vertex::AiFeatureOnlineStoreFeatureviewVectorSearchConfig,
             >,
@@ -580,20 +580,33 @@ pub mod ai_feature_online_store_featureview {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AiFeatureOnlineStoreFeatureviewArgs,
     ) -> AiFeatureOnlineStoreFeatureviewResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let big_query_source_binding = args.big_query_source.get_inner();
-        let feature_online_store_binding = args.feature_online_store.get_inner();
-        let feature_registry_source_binding = args.feature_registry_source.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let sync_config_binding = args.sync_config.get_inner();
-        let vector_search_config_binding = args.vector_search_config.get_inner();
+        let big_query_source_binding = args
+            .big_query_source
+            .get_output(context)
+            .get_inner();
+        let feature_online_store_binding = args
+            .feature_online_store
+            .get_output(context)
+            .get_inner();
+        let feature_registry_source_binding = args
+            .feature_registry_source
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let sync_config_binding = args.sync_config.get_output(context).get_inner();
+        let vector_search_config_binding = args
+            .vector_search_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vertex/aiFeatureOnlineStoreFeatureview:AiFeatureOnlineStoreFeatureview"
                 .into(),
@@ -679,7 +692,7 @@ pub mod ai_feature_online_store_featureview {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

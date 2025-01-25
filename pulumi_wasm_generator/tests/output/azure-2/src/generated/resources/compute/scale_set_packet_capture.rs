@@ -122,43 +122,45 @@
 /// ```
 ///
 pub mod scale_set_packet_capture {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ScaleSetPacketCaptureArgs {
         /// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::ScaleSetPacketCaptureFilter>>,
         >,
         /// A `machine_scope` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub machine_scope: pulumi_wasm_rust::Output<
+        pub machine_scope: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::ScaleSetPacketCaptureMachineScope>,
         >,
         /// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub maximum_bytes_per_packet: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_bytes_per_packet: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub maximum_bytes_per_session: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_bytes_per_session: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub maximum_capture_duration_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_capture_duration_in_seconds: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the Network Watcher. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub network_watcher_id: pulumi_wasm_rust::Output<String>,
+        pub network_watcher_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `storage_location` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_location: pulumi_wasm_rust::Output<
+        pub storage_location: pulumi_wasm_rust::InputOrOutput<
             super::super::types::compute::ScaleSetPacketCaptureStorageLocation,
         >,
         /// The resource ID of the Virtual Machine Scale Set to capture packets from. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_machine_scale_set_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_machine_scale_set_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ScaleSetPacketCaptureResult {
@@ -192,25 +194,38 @@ pub mod scale_set_packet_capture {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ScaleSetPacketCaptureArgs,
     ) -> ScaleSetPacketCaptureResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let machine_scope_binding = args.machine_scope.get_inner();
-        let maximum_bytes_per_packet_binding = args.maximum_bytes_per_packet.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let machine_scope_binding = args.machine_scope.get_output(context).get_inner();
+        let maximum_bytes_per_packet_binding = args
+            .maximum_bytes_per_packet
+            .get_output(context)
+            .get_inner();
         let maximum_bytes_per_session_binding = args
             .maximum_bytes_per_session
+            .get_output(context)
             .get_inner();
         let maximum_capture_duration_in_seconds_binding = args
             .maximum_capture_duration_in_seconds
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let network_watcher_id_binding = args.network_watcher_id.get_inner();
-        let storage_location_binding = args.storage_location.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_watcher_id_binding = args
+            .network_watcher_id
+            .get_output(context)
+            .get_inner();
+        let storage_location_binding = args
+            .storage_location
+            .get_output(context)
+            .get_inner();
         let virtual_machine_scale_set_id_binding = args
             .virtual_machine_scale_set_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture".into(),
@@ -284,7 +299,7 @@ pub mod scale_set_packet_capture {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,23 +1,23 @@
 pub mod get_record {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRecordArgs {
         /// Content to filter record results on.
         #[builder(into, default)]
-        pub content: pulumi_wasm_rust::Output<Option<String>>,
+        pub content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Hostname to filter DNS record results on.
         #[builder(into)]
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_wasm_rust::InputOrOutput<String>,
         /// DNS priority to filter record results on.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// DNS record type to filter record results on. Defaults to `A`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The zone identifier to target for the resource.
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetRecordResult {
@@ -46,14 +46,17 @@ pub mod get_record {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetRecordArgs) -> GetRecordResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetRecordArgs,
+    ) -> GetRecordResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let content_binding = args.content.get_inner();
-        let hostname_binding = args.hostname.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let type__binding = args.type_.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let content_binding = args.content.get_output(context).get_inner();
+        let hostname_binding = args.hostname.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getRecord:getRecord".into(),
             version: super::super::get_version(),
@@ -112,7 +115,7 @@ pub mod get_record {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

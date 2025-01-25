@@ -83,37 +83,37 @@
 /// $ pulumi import aws:customerprofiles/domain:Domain example e6f777be-22d0-4b40-b307-5d2720ef16b2
 /// ```
 pub mod domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainArgs {
         /// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
         #[builder(into, default)]
-        pub dead_letter_queue_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub dead_letter_queue_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
         #[builder(into, default)]
-        pub default_encryption_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_encryption_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The default number of days until the data within the domain expires.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub default_expiration_days: pulumi_wasm_rust::Output<i32>,
+        pub default_expiration_days: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The name for your Customer Profile domain. It must be unique for your AWS account.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A block that specifies the process of matching duplicate profiles. Documented below.
         #[builder(into, default)]
-        pub matching: pulumi_wasm_rust::Output<
+        pub matching: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::customerprofiles::DomainMatching>,
         >,
         /// A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
         #[builder(into, default)]
-        pub rule_based_matching: pulumi_wasm_rust::Output<
+        pub rule_based_matching: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::customerprofiles::DomainRuleBasedMatching>,
         >,
         /// Tags to apply to the domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -152,16 +152,32 @@ pub mod domain {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DomainArgs) -> DomainResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DomainArgs,
+    ) -> DomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dead_letter_queue_url_binding = args.dead_letter_queue_url.get_inner();
-        let default_encryption_key_binding = args.default_encryption_key.get_inner();
-        let default_expiration_days_binding = args.default_expiration_days.get_inner();
-        let domain_name_binding = args.domain_name.get_inner();
-        let matching_binding = args.matching.get_inner();
-        let rule_based_matching_binding = args.rule_based_matching.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let dead_letter_queue_url_binding = args
+            .dead_letter_queue_url
+            .get_output(context)
+            .get_inner();
+        let default_encryption_key_binding = args
+            .default_encryption_key
+            .get_output(context)
+            .get_inner();
+        let default_expiration_days_binding = args
+            .default_expiration_days
+            .get_output(context)
+            .get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let matching_binding = args.matching.get_output(context).get_inner();
+        let rule_based_matching_binding = args
+            .rule_based_matching
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:customerprofiles/domain:Domain".into(),
             name: name.to_string(),
@@ -226,7 +242,7 @@ pub mod domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

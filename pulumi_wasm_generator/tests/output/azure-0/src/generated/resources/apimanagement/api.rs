@@ -57,95 +57,95 @@
 /// ```
 ///
 pub mod api {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiArgs {
         /// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
         #[builder(into, default)]
-        pub api_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `contact` block as documented below.
         #[builder(into, default)]
-        pub contact: pulumi_wasm_rust::Output<
+        pub contact: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ApiContact>,
         >,
         /// A description of the API Management API, which may include HTML formatting tags.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The display name of the API.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `import` block as documented below.
         #[builder(into, default)]
-        pub import: pulumi_wasm_rust::Output<
+        pub import: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ApiImport>,
         >,
         /// A `license` block as documented below.
         #[builder(into, default)]
-        pub license: pulumi_wasm_rust::Output<
+        pub license: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ApiLicense>,
         >,
         /// The name of the API Management API. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `oauth2_authorization` block as documented below.
         #[builder(into, default)]
-        pub oauth2_authorization: pulumi_wasm_rust::Output<
+        pub oauth2_authorization: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ApiOauth2Authorization>,
         >,
         /// An `openid_authentication` block as documented below.
         #[builder(into, default)]
-        pub openid_authentication: pulumi_wasm_rust::Output<
+        pub openid_authentication: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ApiOpenidAuthentication>,
         >,
         /// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         #[builder(into, default)]
-        pub path: pulumi_wasm_rust::Output<Option<String>>,
+        pub path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         ///
         /// > **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         #[builder(into, default)]
-        pub protocols: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub protocols: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Revision which used for this API. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub revision: pulumi_wasm_rust::Output<String>,
+        pub revision: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of the API Revision of the API Management API.
         #[builder(into, default)]
-        pub revision_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub revision_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Absolute URL of the backend service implementing this API.
         #[builder(into, default)]
-        pub service_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         #[builder(into, default)]
-        pub source_api_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_api_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `subscription_key_parameter_names` block as documented below.
         #[builder(into, default)]
-        pub subscription_key_parameter_names: pulumi_wasm_rust::Output<
+        pub subscription_key_parameter_names: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ApiSubscriptionKeyParameterNames>,
         >,
         /// Should this API require a subscription key? Defaults to `true`.
         #[builder(into, default)]
-        pub subscription_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub subscription_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Absolute URL of the Terms of Service for the API.
         #[builder(into, default)]
-        pub terms_of_service_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub terms_of_service_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Version number of this API, if this API is versioned.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description of the API Version of the API Management API.
         #[builder(into, default)]
-        pub version_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Version Set which this API is associated with.
         ///
         /// > **NOTE:** When `version` is set, `version_set_id` must also be specified
         #[builder(into, default)]
-        pub version_set_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_set_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ApiResult {
@@ -220,34 +220,63 @@ pub mod api {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApiArgs) -> ApiResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApiArgs,
+    ) -> ApiResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args.api_management_name.get_inner();
-        let api_type_binding = args.api_type.get_inner();
-        let contact_binding = args.contact.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let import_binding = args.import.get_inner();
-        let license_binding = args.license.get_inner();
-        let name_binding = args.name.get_inner();
-        let oauth2_authorization_binding = args.oauth2_authorization.get_inner();
-        let openid_authentication_binding = args.openid_authentication.get_inner();
-        let path_binding = args.path.get_inner();
-        let protocols_binding = args.protocols.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let revision_binding = args.revision.get_inner();
-        let revision_description_binding = args.revision_description.get_inner();
-        let service_url_binding = args.service_url.get_inner();
-        let source_api_id_binding = args.source_api_id.get_inner();
+        let api_management_name_binding = args
+            .api_management_name
+            .get_output(context)
+            .get_inner();
+        let api_type_binding = args.api_type.get_output(context).get_inner();
+        let contact_binding = args.contact.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let import_binding = args.import.get_output(context).get_inner();
+        let license_binding = args.license.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let oauth2_authorization_binding = args
+            .oauth2_authorization
+            .get_output(context)
+            .get_inner();
+        let openid_authentication_binding = args
+            .openid_authentication
+            .get_output(context)
+            .get_inner();
+        let path_binding = args.path.get_output(context).get_inner();
+        let protocols_binding = args.protocols.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let revision_binding = args.revision.get_output(context).get_inner();
+        let revision_description_binding = args
+            .revision_description
+            .get_output(context)
+            .get_inner();
+        let service_url_binding = args.service_url.get_output(context).get_inner();
+        let source_api_id_binding = args.source_api_id.get_output(context).get_inner();
         let subscription_key_parameter_names_binding = args
             .subscription_key_parameter_names
+            .get_output(context)
             .get_inner();
-        let subscription_required_binding = args.subscription_required.get_inner();
-        let terms_of_service_url_binding = args.terms_of_service_url.get_inner();
-        let version_binding = args.version.get_inner();
-        let version_description_binding = args.version_description.get_inner();
-        let version_set_id_binding = args.version_set_id.get_inner();
+        let subscription_required_binding = args
+            .subscription_required
+            .get_output(context)
+            .get_inner();
+        let terms_of_service_url_binding = args
+            .terms_of_service_url
+            .get_output(context)
+            .get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
+        let version_description_binding = args
+            .version_description
+            .get_output(context)
+            .get_inner();
+        let version_set_id_binding = args.version_set_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/api:Api".into(),
             name: name.to_string(),
@@ -424,7 +453,7 @@ pub mod api {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

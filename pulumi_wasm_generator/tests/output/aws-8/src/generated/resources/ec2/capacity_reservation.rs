@@ -27,51 +27,51 @@
 /// $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
 /// ```
 pub mod capacity_reservation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CapacityReservationArgs {
         /// The Availability Zone in which to create the Capacity Reservation.
         #[builder(into)]
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indicates whether the Capacity Reservation supports EBS-optimized instances.
         #[builder(into, default)]
-        pub ebs_optimized: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ebs_optimized: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         #[builder(into, default)]
-        pub end_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
         #[builder(into, default)]
-        pub end_date_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_date_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
         #[builder(into, default)]
-        pub ephemeral_storage: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ephemeral_storage: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The number of instances for which to reserve capacity.
         #[builder(into)]
-        pub instance_count: pulumi_wasm_rust::Output<i32>,
+        pub instance_count: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
         #[builder(into, default)]
-        pub instance_match_criteria: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance_match_criteria: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         #[builder(into)]
-        pub instance_platform: pulumi_wasm_rust::Output<String>,
+        pub instance_platform: pulumi_wasm_rust::InputOrOutput<String>,
         /// The instance type for which to reserve capacity.
         #[builder(into)]
-        pub instance_type: pulumi_wasm_rust::Output<String>,
+        pub instance_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         #[builder(into, default)]
-        pub outpost_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub outpost_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
         #[builder(into, default)]
-        pub placement_group_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub placement_group_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         #[builder(into, default)]
-        pub tenancy: pulumi_wasm_rust::Output<Option<String>>,
+        pub tenancy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CapacityReservationResult {
@@ -117,24 +117,40 @@ pub mod capacity_reservation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CapacityReservationArgs,
     ) -> CapacityReservationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args.availability_zone.get_inner();
-        let ebs_optimized_binding = args.ebs_optimized.get_inner();
-        let end_date_binding = args.end_date.get_inner();
-        let end_date_type_binding = args.end_date_type.get_inner();
-        let ephemeral_storage_binding = args.ephemeral_storage.get_inner();
-        let instance_count_binding = args.instance_count.get_inner();
-        let instance_match_criteria_binding = args.instance_match_criteria.get_inner();
-        let instance_platform_binding = args.instance_platform.get_inner();
-        let instance_type_binding = args.instance_type.get_inner();
-        let outpost_arn_binding = args.outpost_arn.get_inner();
-        let placement_group_arn_binding = args.placement_group_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tenancy_binding = args.tenancy.get_inner();
+        let availability_zone_binding = args
+            .availability_zone
+            .get_output(context)
+            .get_inner();
+        let ebs_optimized_binding = args.ebs_optimized.get_output(context).get_inner();
+        let end_date_binding = args.end_date.get_output(context).get_inner();
+        let end_date_type_binding = args.end_date_type.get_output(context).get_inner();
+        let ephemeral_storage_binding = args
+            .ephemeral_storage
+            .get_output(context)
+            .get_inner();
+        let instance_count_binding = args.instance_count.get_output(context).get_inner();
+        let instance_match_criteria_binding = args
+            .instance_match_criteria
+            .get_output(context)
+            .get_inner();
+        let instance_platform_binding = args
+            .instance_platform
+            .get_output(context)
+            .get_inner();
+        let instance_type_binding = args.instance_type.get_output(context).get_inner();
+        let outpost_arn_binding = args.outpost_arn.get_output(context).get_inner();
+        let placement_group_arn_binding = args
+            .placement_group_arn
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tenancy_binding = args.tenancy.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/capacityReservation:CapacityReservation".into(),
             name: name.to_string(),
@@ -244,7 +260,7 @@ pub mod capacity_reservation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

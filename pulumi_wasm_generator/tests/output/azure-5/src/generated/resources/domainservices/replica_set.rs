@@ -259,19 +259,19 @@
 /// ```
 ///
 pub mod replica_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicaSetArgs {
         /// The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub domain_service_id: pulumi_wasm_rust::Output<String>,
+        pub domain_service_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ReplicaSetResult {
@@ -292,12 +292,19 @@ pub mod replica_set {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ReplicaSetArgs) -> ReplicaSetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ReplicaSetArgs,
+    ) -> ReplicaSetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_service_id_binding = args.domain_service_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
+        let domain_service_id_binding = args
+            .domain_service_id
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:domainservices/replicaSet:ReplicaSet".into(),
             name: name.to_string(),
@@ -337,7 +344,7 @@ pub mod replica_set {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

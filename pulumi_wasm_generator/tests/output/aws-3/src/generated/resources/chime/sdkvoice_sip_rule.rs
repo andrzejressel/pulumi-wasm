@@ -35,29 +35,29 @@
 /// $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
 /// ```
 pub mod sdkvoice_sip_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SdkvoiceSipRuleArgs {
         /// Enables or disables a rule. You must disable rules before you can delete them.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the SIP rule.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
         #[builder(into)]
-        pub target_applications: pulumi_wasm_rust::Output<
+        pub target_applications: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::chime::SdkvoiceSipRuleTargetApplication>,
         >,
         /// The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
         #[builder(into)]
-        pub trigger_type: pulumi_wasm_rust::Output<String>,
+        pub trigger_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub trigger_value: pulumi_wasm_rust::Output<String>,
+        pub trigger_value: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SdkvoiceSipRuleResult {
@@ -80,14 +80,21 @@ pub mod sdkvoice_sip_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SdkvoiceSipRuleArgs) -> SdkvoiceSipRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SdkvoiceSipRuleArgs,
+    ) -> SdkvoiceSipRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let disabled_binding = args.disabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let target_applications_binding = args.target_applications.get_inner();
-        let trigger_type_binding = args.trigger_type.get_inner();
-        let trigger_value_binding = args.trigger_value.get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let target_applications_binding = args
+            .target_applications
+            .get_output(context)
+            .get_inner();
+        let trigger_type_binding = args.trigger_type.get_output(context).get_inner();
+        let trigger_value_binding = args.trigger_value.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chime/sdkvoiceSipRule:SdkvoiceSipRule".into(),
             name: name.to_string(),
@@ -132,7 +139,7 @@ pub mod sdkvoice_sip_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

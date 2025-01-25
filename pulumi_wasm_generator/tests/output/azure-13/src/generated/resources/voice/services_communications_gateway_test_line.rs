@@ -37,30 +37,32 @@
 /// ```
 ///
 pub mod services_communications_gateway_test_line {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServicesCommunicationsGatewayTestLineArgs {
         /// Specifies the Azure Region where the Voice Services Communications Gateway Test Line should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Voice Services Communications Gateway Test Line. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the phone number.
         #[builder(into)]
-        pub phone_number: pulumi_wasm_rust::Output<String>,
+        pub phone_number: pulumi_wasm_rust::InputOrOutput<String>,
         /// The purpose of the Voice Services Communications Gateway Test Line. Possible values are `Automated` or `Manual`.
         #[builder(into)]
-        pub purpose: pulumi_wasm_rust::Output<String>,
+        pub purpose: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Voice Services Communications Gateway Test Line.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the ID of the Voice Services Communications Gateway. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub voice_services_communications_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub voice_services_communications_gateway_id: pulumi_wasm_rust::InputOrOutput<
+            String,
+        >,
     }
     #[allow(dead_code)]
     pub struct ServicesCommunicationsGatewayTestLineResult {
@@ -84,18 +86,20 @@ pub mod services_communications_gateway_test_line {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ServicesCommunicationsGatewayTestLineArgs,
     ) -> ServicesCommunicationsGatewayTestLineResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let phone_number_binding = args.phone_number.get_inner();
-        let purpose_binding = args.purpose.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let phone_number_binding = args.phone_number.get_output(context).get_inner();
+        let purpose_binding = args.purpose.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let voice_services_communications_gateway_id_binding = args
             .voice_services_communications_gateway_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:voice/servicesCommunicationsGatewayTestLine:ServicesCommunicationsGatewayTestLine"
@@ -149,7 +153,7 @@ pub mod services_communications_gateway_test_line {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

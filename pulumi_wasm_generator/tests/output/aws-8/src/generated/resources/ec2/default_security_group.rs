@@ -68,30 +68,30 @@
 /// $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8
 /// ```
 pub mod default_security_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultSecurityGroupArgs {
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub egress: pulumi_wasm_rust::Output<
+        pub egress: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::DefaultSecurityGroupEgress>>,
         >,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub ingress: pulumi_wasm_rust::Output<
+        pub ingress: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::DefaultSecurityGroupIngress>>,
         >,
         #[builder(into, default)]
-        pub revoke_rules_on_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub revoke_rules_on_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
         #[builder(into, default)]
-        pub vpc_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DefaultSecurityGroupResult {
@@ -129,16 +129,20 @@ pub mod default_security_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DefaultSecurityGroupArgs,
     ) -> DefaultSecurityGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let egress_binding = args.egress.get_inner();
-        let ingress_binding = args.ingress.get_inner();
-        let revoke_rules_on_delete_binding = args.revoke_rules_on_delete.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let egress_binding = args.egress.get_output(context).get_inner();
+        let ingress_binding = args.ingress.get_output(context).get_inner();
+        let revoke_rules_on_delete_binding = args
+            .revoke_rules_on_delete
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/defaultSecurityGroup:DefaultSecurityGroup".into(),
             name: name.to_string(),
@@ -201,7 +205,7 @@ pub mod default_security_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

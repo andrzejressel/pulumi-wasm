@@ -106,13 +106,13 @@
 /// ```
 ///
 pub mod node {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NodeArgs {
         /// The type of hardware accelerators associated with this node.
         #[builder(into)]
-        pub accelerator_type: pulumi_wasm_rust::Output<String>,
+        pub accelerator_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The CIDR block that the TPU node will use when selecting an IP
         /// address. This CIDR block must be a /29 block; the Compute Engine
         /// networks API forbids a smaller block, and using a larger block would
@@ -122,34 +122,34 @@ pub mod node {
         /// subnetworks in the user's provided network, or the provided network
         /// is peered with another network that is using that CIDR block.
         #[builder(into, default)]
-        pub cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user-supplied description of the TPU. Maximum of 512 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Resource labels to represent user provided metadata.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The immutable name of the TPU.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of a network to peer the TPU node to. It must be a
         /// preexisting Compute Engine network inside of the project on which
         /// this API has been activated. If none is provided, "default" will be
         /// used.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::Output<Option<String>>,
+        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Sets the scheduling options for this TPU instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub scheduling_config: pulumi_wasm_rust::Output<
+        pub scheduling_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::tpu::NodeSchedulingConfig>,
         >,
         /// The version of Tensorflow running in the Node.
@@ -157,16 +157,16 @@ pub mod node {
         ///
         /// - - -
         #[builder(into)]
-        pub tensorflow_version: pulumi_wasm_rust::Output<String>,
+        pub tensorflow_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether the VPC peering for the node is set up through Service Networking API.
         /// The VPC Peering should be set up before provisioning the node. If this field is set,
         /// cidr_block field should not be specified. If the network that you want to peer the
         /// TPU Node to is a Shared VPC network, the node must be created with this this field enabled.
         #[builder(into, default)]
-        pub use_service_networking: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_service_networking: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The GCP location for the TPU. If it is not provided, the provider zone is used.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NodeResult {
@@ -242,20 +242,36 @@ pub mod node {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NodeArgs) -> NodeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NodeArgs,
+    ) -> NodeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accelerator_type_binding = args.accelerator_type.get_inner();
-        let cidr_block_binding = args.cidr_block.get_inner();
-        let description_binding = args.description.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
-        let project_binding = args.project.get_inner();
-        let scheduling_config_binding = args.scheduling_config.get_inner();
-        let tensorflow_version_binding = args.tensorflow_version.get_inner();
-        let use_service_networking_binding = args.use_service_networking.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let accelerator_type_binding = args
+            .accelerator_type
+            .get_output(context)
+            .get_inner();
+        let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let scheduling_config_binding = args
+            .scheduling_config
+            .get_output(context)
+            .get_inner();
+        let tensorflow_version_binding = args
+            .tensorflow_version
+            .get_output(context)
+            .get_inner();
+        let use_service_networking_binding = args
+            .use_service_networking
+            .get_output(context)
+            .get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:tpu/node:Node".into(),
             name: name.to_string(),
@@ -354,7 +370,7 @@ pub mod node {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

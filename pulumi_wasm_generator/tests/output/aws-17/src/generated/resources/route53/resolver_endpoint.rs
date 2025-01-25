@@ -32,7 +32,7 @@
 /// $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
 /// ```
 pub mod resolver_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverEndpointArgs {
@@ -40,28 +40,28 @@ pub mod resolver_endpoint {
         /// Valid values are `INBOUND` (resolver forwards DNS queries to the DNS service for a VPC from your network or another VPC)
         /// or `OUTBOUND` (resolver forwards DNS queries from the DNS service for a VPC to your network or another VPC).
         #[builder(into)]
-        pub direction: pulumi_wasm_rust::Output<String>,
+        pub direction: pulumi_wasm_rust::InputOrOutput<String>,
         /// Subnets and IP addresses in your VPC that you want DNS queries to pass through on the way from your VPCs
         /// to your network (for outbound endpoints) or on the way from your network to your VPCs (for inbound endpoints). Described below.
         #[builder(into)]
-        pub ip_addresses: pulumi_wasm_rust::Output<
+        pub ip_addresses: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::route53::ResolverEndpointIpAddress>,
         >,
         /// Friendly name of the Route 53 Resolver endpoint.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Protocols you want to use for the Route 53 Resolver endpoint. Valid values: `DoH`, `Do53`, `DoH-FIPS`.
         #[builder(into, default)]
-        pub protocols: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub protocols: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Route 53 Resolver endpoint IP address type. Valid values: `IPV4`, `IPV6`, `DUALSTACK`.
         #[builder(into, default)]
-        pub resolver_endpoint_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub resolver_endpoint_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of one or more security groups that you want to use to control access to this VPC.
         #[builder(into)]
-        pub security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -101,16 +101,26 @@ pub mod resolver_endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ResolverEndpointArgs) -> ResolverEndpointResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ResolverEndpointArgs,
+    ) -> ResolverEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let direction_binding = args.direction.get_inner();
-        let ip_addresses_binding = args.ip_addresses.get_inner();
-        let name_binding = args.name.get_inner();
-        let protocols_binding = args.protocols.get_inner();
-        let resolver_endpoint_type_binding = args.resolver_endpoint_type.get_inner();
-        let security_group_ids_binding = args.security_group_ids.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let direction_binding = args.direction.get_output(context).get_inner();
+        let ip_addresses_binding = args.ip_addresses.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let protocols_binding = args.protocols.get_output(context).get_inner();
+        let resolver_endpoint_type_binding = args
+            .resolver_endpoint_type
+            .get_output(context)
+            .get_inner();
+        let security_group_ids_binding = args
+            .security_group_ids
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/resolverEndpoint:ResolverEndpoint".into(),
             name: name.to_string(),
@@ -178,7 +188,7 @@ pub mod resolver_endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

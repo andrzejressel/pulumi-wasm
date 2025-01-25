@@ -27,18 +27,18 @@
 /// $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
 /// ```
 pub mod access_log_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessLogSubscriptionArgs {
         /// Amazon Resource Name (ARN) of the log destination.
         #[builder(into)]
-        pub destination_arn: pulumi_wasm_rust::Output<String>,
+        pub destination_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
         #[builder(into)]
-        pub resource_identifier: pulumi_wasm_rust::Output<String>,
+        pub resource_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -64,14 +64,21 @@ pub mod access_log_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AccessLogSubscriptionArgs,
     ) -> AccessLogSubscriptionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let destination_arn_binding = args.destination_arn.get_inner();
-        let resource_identifier_binding = args.resource_identifier.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let destination_arn_binding = args
+            .destination_arn
+            .get_output(context)
+            .get_inner();
+        let resource_identifier_binding = args
+            .resource_identifier
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpclattice/accessLogSubscription:AccessLogSubscription".into(),
             name: name.to_string(),
@@ -111,7 +118,7 @@ pub mod access_log_subscription {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

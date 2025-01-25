@@ -1,18 +1,18 @@
 pub mod get_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetKeyArgs {
         /// List of grant tokens
         #[builder(into, default)]
-        pub grant_tokens: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub grant_tokens: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Key identifier which can be one of the following format:
         /// * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
         /// * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
         /// * Alias name. E.g.: `alias/my-key`
         /// * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
         #[builder(into)]
-        pub key_id: pulumi_wasm_rust::Output<String>,
+        pub key_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetKeyResult {
@@ -69,11 +69,14 @@ pub mod get_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetKeyArgs) -> GetKeyResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetKeyArgs,
+    ) -> GetKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let grant_tokens_binding = args.grant_tokens.get_inner();
-        let key_id_binding = args.key_id.get_inner();
+        let grant_tokens_binding = args.grant_tokens.get_output(context).get_inner();
+        let key_id_binding = args.key_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kms/getKey:getKey".into(),
             version: super::super::super::get_version(),
@@ -159,7 +162,7 @@ pub mod get_key {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

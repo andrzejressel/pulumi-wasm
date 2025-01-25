@@ -19,22 +19,22 @@
 /// }
 /// ```
 pub mod api_shield_operation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiShieldOperationArgs {
         /// The endpoint which can contain path parameter templates in curly braces, each will be replaced from left to right with `{varN}`, starting with `{var1}`. This will then be [Cloudflare-normalized](https://developers.cloudflare.com/rules/normalization/how-it-works/). **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_wasm_rust::InputOrOutput<String>,
         /// RFC3986-compliant host. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub host: pulumi_wasm_rust::Output<String>,
+        pub host: pulumi_wasm_rust::InputOrOutput<String>,
         /// The HTTP method used to access the endpoint. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub method: pulumi_wasm_rust::Output<String>,
+        pub method: pulumi_wasm_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApiShieldOperationResult {
@@ -51,13 +51,17 @@ pub mod api_shield_operation {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApiShieldOperationArgs) -> ApiShieldOperationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApiShieldOperationArgs,
+    ) -> ApiShieldOperationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let endpoint_binding = args.endpoint.get_inner();
-        let host_binding = args.host.get_inner();
-        let method_binding = args.method.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let endpoint_binding = args.endpoint.get_output(context).get_inner();
+        let host_binding = args.host.get_output(context).get_inner();
+        let method_binding = args.method.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/apiShieldOperation:ApiShieldOperation".into(),
             name: name.to_string(),
@@ -95,7 +99,7 @@ pub mod api_shield_operation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

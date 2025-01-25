@@ -1,11 +1,11 @@
 pub mod get_tracker_associations {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetTrackerAssociationsArgs {
         /// Name of the tracker resource associated with a geofence collection.
         #[builder(into)]
-        pub tracker_name: pulumi_wasm_rust::Output<String>,
+        pub tracker_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetTrackerAssociationsResult {
@@ -19,10 +19,13 @@ pub mod get_tracker_associations {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetTrackerAssociationsArgs) -> GetTrackerAssociationsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetTrackerAssociationsArgs,
+    ) -> GetTrackerAssociationsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let tracker_name_binding = args.tracker_name.get_inner();
+        let tracker_name_binding = args.tracker_name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:location/getTrackerAssociations:getTrackerAssociations".into(),
             version: super::super::super::get_version(),
@@ -44,7 +47,7 @@ pub mod get_tracker_associations {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

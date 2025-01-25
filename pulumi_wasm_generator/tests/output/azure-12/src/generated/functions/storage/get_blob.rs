@@ -1,22 +1,22 @@
 pub mod get_blob {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBlobArgs {
         /// A map of custom blob metadata.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the Blob.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Storage Account where the Container exists.
         #[builder(into)]
-        pub storage_account_name: pulumi_wasm_rust::Output<String>,
+        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Storage Container where the Blob exists.
         #[builder(into)]
-        pub storage_container_name: pulumi_wasm_rust::Output<String>,
+        pub storage_container_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetBlobResult {
@@ -46,13 +46,22 @@ pub mod get_blob {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetBlobArgs) -> GetBlobResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetBlobArgs,
+    ) -> GetBlobResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let storage_account_name_binding = args.storage_account_name.get_inner();
-        let storage_container_name_binding = args.storage_container_name.get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let storage_account_name_binding = args
+            .storage_account_name
+            .get_output(context)
+            .get_inner();
+        let storage_container_name_binding = args
+            .storage_container_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:storage/getBlob:getBlob".into(),
             version: super::super::super::get_version(),
@@ -110,7 +119,7 @@ pub mod get_blob {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

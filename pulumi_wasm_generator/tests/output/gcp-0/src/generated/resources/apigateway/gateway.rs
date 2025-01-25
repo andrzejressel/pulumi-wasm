@@ -39,7 +39,7 @@
 /// ```
 ///
 pub mod gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GatewayArgs {
@@ -47,31 +47,31 @@ pub mod gateway {
         /// When changing api configs please ensure the new config is a new resource and the
         /// lifecycle rule `create_before_destroy` is set.
         #[builder(into)]
-        pub api_config: pulumi_wasm_rust::Output<String>,
+        pub api_config: pulumi_wasm_rust::InputOrOutput<String>,
         /// A user-visible name for the API.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier to assign to the Gateway. Must be unique within scope of the parent resource(project).
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub gateway_id: pulumi_wasm_rust::Output<String>,
+        pub gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Resource labels to represent user-provided metadata.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The region of the gateway for the API.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GatewayResult {
@@ -116,15 +116,19 @@ pub mod gateway {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GatewayArgs) -> GatewayResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GatewayArgs,
+    ) -> GatewayResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_config_binding = args.api_config.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let gateway_id_binding = args.gateway_id.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
+        let api_config_binding = args.api_config.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let gateway_id_binding = args.gateway_id.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigateway/gateway:Gateway".into(),
             name: name.to_string(),
@@ -188,7 +192,7 @@ pub mod gateway {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,13 +1,14 @@
-use anyhow::Error;
 use pulumi_wasm_providers_docker::functions::get_remote_image;
 use pulumi_wasm_providers_docker::functions::get_remote_image::GetRemoteImageArgs;
 use pulumi_wasm_providers_docker::types::{ContainerLabel, DockerBuild};
 use pulumi_wasm_providers_docker::{container, image};
-use pulumi_wasm_rust::{add_export, pulumi_main};
+use pulumi_wasm_rust::{add_export, pulumi_main, PulumiContext};
 
-#[pulumi_main]
-fn test_main() -> Result<(), Error> {
+pulumi_main!();
+
+fn main(context: &PulumiContext) -> anyhow::Result<()> {
     let cont = container::create(
+        context,
         "container",
         container::ContainerArgs::builder()
             .attach(true)
@@ -23,6 +24,7 @@ fn test_main() -> Result<(), Error> {
     );
 
     let image = image::create(
+        context,
         "image",
         image::ImageArgs::builder()
             .build(
@@ -36,6 +38,7 @@ fn test_main() -> Result<(), Error> {
     );
 
     let remote_image = get_remote_image::invoke(
+        context,
         GetRemoteImageArgs::builder()
             .name("public.ecr.aws/ubuntu/ubuntu:latest")
             .build_struct(),

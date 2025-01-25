@@ -1,16 +1,16 @@
 pub mod get_launch_paths {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetLaunchPathsArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Product identifier.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub product_id: pulumi_wasm_rust::Output<String>,
+        pub product_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetLaunchPathsResult {
@@ -27,11 +27,17 @@ pub mod get_launch_paths {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetLaunchPathsArgs) -> GetLaunchPathsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetLaunchPathsArgs,
+    ) -> GetLaunchPathsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding = args.accept_language.get_inner();
-        let product_id_binding = args.product_id.get_inner();
+        let accept_language_binding = args
+            .accept_language
+            .get_output(context)
+            .get_inner();
+        let product_id_binding = args.product_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicecatalog/getLaunchPaths:getLaunchPaths".into(),
             version: super::super::super::get_version(),
@@ -60,7 +66,7 @@ pub mod get_launch_paths {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

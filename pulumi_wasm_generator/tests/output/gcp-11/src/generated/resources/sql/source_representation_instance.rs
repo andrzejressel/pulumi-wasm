@@ -82,54 +82,54 @@
 /// ```
 ///
 pub mod source_representation_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SourceRepresentationInstanceArgs {
         /// The CA certificate on the external server. Include only if SSL/TLS is used on the external server.
         #[builder(into, default)]
-        pub ca_certificate: pulumi_wasm_rust::Output<Option<String>>,
+        pub ca_certificate: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The client certificate on the external server. Required only for server-client authentication. Include only if SSL/TLS is used on the external server.
         #[builder(into, default)]
-        pub client_certificate: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_certificate: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The private key file for the client certificate on the external server. Required only for server-client authentication. Include only if SSL/TLS is used on the external server.
         #[builder(into, default)]
-        pub client_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The MySQL version running on your source database server.
         /// Possible values are: `MYSQL_5_6`, `MYSQL_5_7`, `MYSQL_8_0`, `POSTGRES_9_6`, `POSTGRES_10`, `POSTGRES_11`, `POSTGRES_12`, `POSTGRES_13`, `POSTGRES_14`.
         #[builder(into)]
-        pub database_version: pulumi_wasm_rust::Output<String>,
+        pub database_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// A file in the bucket that contains the data from the external server.
         #[builder(into, default)]
-        pub dump_file_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub dump_file_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IPv4 address and port for the external server, or the the DNS address for the external server. If the external server is hosted on Cloud SQL, the port is 5432.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub host: pulumi_wasm_rust::Output<String>,
+        pub host: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the source representation instance. Use any valid Cloud SQL instance name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The password for the replication user account.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The externally accessible port for the source database server.
         /// Defaults to 3306.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Region in which the created instance should reside.
         /// If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The replication user account on the external server.
         #[builder(into, default)]
-        pub username: pulumi_wasm_rust::Output<Option<String>>,
+        pub username: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SourceRepresentationInstanceResult {
@@ -171,23 +171,30 @@ pub mod source_representation_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SourceRepresentationInstanceArgs,
     ) -> SourceRepresentationInstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let ca_certificate_binding = args.ca_certificate.get_inner();
-        let client_certificate_binding = args.client_certificate.get_inner();
-        let client_key_binding = args.client_key.get_inner();
-        let database_version_binding = args.database_version.get_inner();
-        let dump_file_path_binding = args.dump_file_path.get_inner();
-        let host_binding = args.host.get_inner();
-        let name_binding = args.name.get_inner();
-        let password_binding = args.password.get_inner();
-        let port_binding = args.port.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let username_binding = args.username.get_inner();
+        let ca_certificate_binding = args.ca_certificate.get_output(context).get_inner();
+        let client_certificate_binding = args
+            .client_certificate
+            .get_output(context)
+            .get_inner();
+        let client_key_binding = args.client_key.get_output(context).get_inner();
+        let database_version_binding = args
+            .database_version
+            .get_output(context)
+            .get_inner();
+        let dump_file_path_binding = args.dump_file_path.get_output(context).get_inner();
+        let host_binding = args.host.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let username_binding = args.username.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:sql/sourceRepresentationInstance:SourceRepresentationInstance"
                 .into(),
@@ -282,7 +289,7 @@ pub mod source_representation_instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

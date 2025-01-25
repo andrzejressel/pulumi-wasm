@@ -1,11 +1,11 @@
 pub mod get_node_groups {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetNodeGroupsArgs {
         /// Name of the cluster.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetNodeGroupsResult {
@@ -19,10 +19,13 @@ pub mod get_node_groups {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetNodeGroupsArgs) -> GetNodeGroupsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetNodeGroupsArgs,
+    ) -> GetNodeGroupsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding = args.cluster_name.get_inner();
+        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:eks/getNodeGroups:getNodeGroups".into(),
             version: super::super::super::get_version(),
@@ -44,7 +47,7 @@ pub mod get_node_groups {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

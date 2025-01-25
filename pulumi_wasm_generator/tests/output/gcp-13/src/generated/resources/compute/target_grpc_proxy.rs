@@ -134,13 +134,13 @@
 /// ```
 ///
 pub mod target_grpc_proxy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetGrpcProxyArgs {
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the resource. Provided by the client when the resource
         /// is created. The name must be 1-63 characters long, and comply
         /// with RFC1035. Specifically, the name must be 1-63 characters long
@@ -152,16 +152,16 @@ pub mod target_grpc_proxy {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// URL to the UrlMap resource that defines the mapping from URL to
         /// the BackendService. The protocol field in the BackendService
         /// must be set to GRPC.
         #[builder(into, default)]
-        pub url_map: pulumi_wasm_rust::Output<Option<String>>,
+        pub url_map: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If true, indicates that the BackendServices referenced by
         /// the urlMap may be accessed by gRPC applications without using
         /// a sidecar proxy. This will enable configuration checks on urlMap
@@ -173,7 +173,7 @@ pub mod target_grpc_proxy {
         /// must not use "xds:///" scheme in the target URI of the service
         /// it is connecting to
         #[builder(into, default)]
-        pub validate_for_proxyless: pulumi_wasm_rust::Output<Option<bool>>,
+        pub validate_for_proxyless: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct TargetGrpcProxyResult {
@@ -227,14 +227,21 @@ pub mod target_grpc_proxy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TargetGrpcProxyArgs) -> TargetGrpcProxyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TargetGrpcProxyArgs,
+    ) -> TargetGrpcProxyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let url_map_binding = args.url_map.get_inner();
-        let validate_for_proxyless_binding = args.validate_for_proxyless.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let url_map_binding = args.url_map.get_output(context).get_inner();
+        let validate_for_proxyless_binding = args
+            .validate_for_proxyless
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/targetGrpcProxy:TargetGrpcProxy".into(),
             name: name.to_string(),
@@ -291,7 +298,7 @@ pub mod target_grpc_proxy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

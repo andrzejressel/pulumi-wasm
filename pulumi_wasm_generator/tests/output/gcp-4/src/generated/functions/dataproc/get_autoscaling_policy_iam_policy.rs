@@ -1,5 +1,5 @@
 pub mod get_autoscaling_policy_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAutoscalingPolicyIamPolicyArgs {
@@ -9,17 +9,17 @@ pub mod get_autoscaling_policy_iam_policy {
         /// the value will be parsed from the identifier of the parent resource. If no location is provided in the parent identifier and no
         /// location is specified, it is taken from the provider configuration.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The policy id. The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
         /// and hyphens (-). Cannot begin or end with underscore or hyphen. Must consist of between
         /// 3 and 50 characters.
         /// Used to find the parent resource to bind the IAM policy to
         #[builder(into)]
-        pub policy_id: pulumi_wasm_rust::Output<String>,
+        pub policy_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the project will be parsed from the identifier of the parent resource. If no project is provided in the parent identifier and no project is specified, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetAutoscalingPolicyIamPolicyResult {
@@ -39,13 +39,14 @@ pub mod get_autoscaling_policy_iam_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetAutoscalingPolicyIamPolicyArgs,
     ) -> GetAutoscalingPolicyIamPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let policy_id_binding = args.policy_id.get_inner();
-        let project_binding = args.project.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let policy_id_binding = args.policy_id.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:dataproc/getAutoscalingPolicyIamPolicy:getAutoscalingPolicyIamPolicy"
                 .into(),
@@ -85,7 +86,7 @@ pub mod get_autoscaling_policy_iam_policy {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

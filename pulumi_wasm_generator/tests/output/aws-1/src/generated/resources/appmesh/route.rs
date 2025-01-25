@@ -122,30 +122,32 @@
 /// $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
 /// ```
 pub mod route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteArgs {
         /// Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
         #[builder(into)]
-        pub mesh_name: pulumi_wasm_rust::Output<String>,
+        pub mesh_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         #[builder(into, default)]
-        pub mesh_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub mesh_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name to use for the route. Must be between 1 and 255 characters in length.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Route specification to apply.
         #[builder(into)]
-        pub spec: pulumi_wasm_rust::Output<super::super::types::appmesh::RouteSpec>,
+        pub spec: pulumi_wasm_rust::InputOrOutput<
+            super::super::types::appmesh::RouteSpec,
+        >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
         #[builder(into)]
-        pub virtual_router_name: pulumi_wasm_rust::Output<String>,
+        pub virtual_router_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RouteResult {
@@ -180,15 +182,22 @@ pub mod route {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RouteArgs) -> RouteResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RouteArgs,
+    ) -> RouteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let mesh_name_binding = args.mesh_name.get_inner();
-        let mesh_owner_binding = args.mesh_owner.get_inner();
-        let name_binding = args.name.get_inner();
-        let spec_binding = args.spec.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let virtual_router_name_binding = args.virtual_router_name.get_inner();
+        let mesh_name_binding = args.mesh_name.get_output(context).get_inner();
+        let mesh_owner_binding = args.mesh_owner.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let spec_binding = args.spec.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let virtual_router_name_binding = args
+            .virtual_router_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appmesh/route:Route".into(),
             name: name.to_string(),
@@ -255,7 +264,7 @@ pub mod route {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

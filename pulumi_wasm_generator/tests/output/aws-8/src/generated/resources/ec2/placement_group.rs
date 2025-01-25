@@ -26,28 +26,28 @@
 /// $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
 /// ```
 pub mod placement_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PlacementGroupArgs {
         /// The name of the placement group.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The number of partitions to create in the
         /// placement group.  Can only be specified when the `strategy` is set to
         /// `partition`.  Valid values are 1 - 7 (default is `2`).
         #[builder(into, default)]
-        pub partition_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub partition_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Determines how placement groups spread instances. Can only be used
         /// when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         #[builder(into, default)]
-        pub spread_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub spread_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The placement strategy. Can be `cluster`, `partition` or `spread`.
         #[builder(into)]
-        pub strategy: pulumi_wasm_rust::Output<String>,
+        pub strategy: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -81,14 +81,21 @@ pub mod placement_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PlacementGroupArgs) -> PlacementGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PlacementGroupArgs,
+    ) -> PlacementGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let partition_count_binding = args.partition_count.get_inner();
-        let spread_level_binding = args.spread_level.get_inner();
-        let strategy_binding = args.strategy.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let partition_count_binding = args
+            .partition_count
+            .get_output(context)
+            .get_inner();
+        let spread_level_binding = args.spread_level.get_output(context).get_inner();
+        let strategy_binding = args.strategy.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/placementGroup:PlacementGroup".into(),
             name: name.to_string(),
@@ -142,7 +149,7 @@ pub mod placement_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

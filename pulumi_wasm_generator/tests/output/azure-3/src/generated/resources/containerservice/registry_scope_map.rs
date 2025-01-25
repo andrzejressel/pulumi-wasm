@@ -55,25 +55,25 @@
 /// ```
 ///
 pub mod registry_scope_map {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegistryScopeMapArgs {
         /// A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`).
         #[builder(into)]
-        pub actions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub actions: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The name of the Container Registry. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub container_registry_name: pulumi_wasm_rust::Output<String>,
+        pub container_registry_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of the Container Registry.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the scope map. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RegistryScopeMapResult {
@@ -92,14 +92,24 @@ pub mod registry_scope_map {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RegistryScopeMapArgs) -> RegistryScopeMapResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RegistryScopeMapArgs,
+    ) -> RegistryScopeMapResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_inner();
-        let container_registry_name_binding = args.container_registry_name.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let actions_binding = args.actions.get_output(context).get_inner();
+        let container_registry_name_binding = args
+            .container_registry_name
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/registryScopeMap:RegistryScopeMap".into(),
             name: name.to_string(),
@@ -144,7 +154,7 @@ pub mod registry_scope_map {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

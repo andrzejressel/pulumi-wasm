@@ -31,13 +31,13 @@
 /// $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
 /// ```
 pub mod classification_export_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClassificationExportConfigurationArgs {
         /// Configuration block for a S3 Destination. Defined below
         #[builder(into, default)]
-        pub s3_destination: pulumi_wasm_rust::Output<
+        pub s3_destination: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::macie2::ClassificationExportConfigurationS3Destination,
             >,
@@ -57,12 +57,13 @@ pub mod classification_export_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ClassificationExportConfigurationArgs,
     ) -> ClassificationExportConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let s3_destination_binding = args.s3_destination.get_inner();
+        let s3_destination_binding = args.s3_destination.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration"
                 .into(),
@@ -80,7 +81,7 @@ pub mod classification_export_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

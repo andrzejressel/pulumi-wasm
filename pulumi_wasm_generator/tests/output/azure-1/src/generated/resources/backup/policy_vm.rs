@@ -69,65 +69,65 @@
 /// ```
 ///
 pub mod policy_vm {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyVMArgs {
         /// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         #[builder(into)]
-        pub backup: pulumi_wasm_rust::Output<
+        pub backup: pulumi_wasm_rust::InputOrOutput<
             super::super::types::backup::PolicyVmBackup,
         >,
         /// Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         #[builder(into, default)]
-        pub instant_restore_resource_group: pulumi_wasm_rust::Output<
+        pub instant_restore_resource_group: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyVmInstantRestoreResourceGroup>,
         >,
         /// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
         ///
         /// > **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
         #[builder(into, default)]
-        pub instant_restore_retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub instant_restore_retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the name of the Backup Policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub policy_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
         #[builder(into, default)]
-        pub retention_daily: pulumi_wasm_rust::Output<
+        pub retention_daily: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyVmRetentionDaily>,
         >,
         /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
         #[builder(into, default)]
-        pub retention_monthly: pulumi_wasm_rust::Output<
+        pub retention_monthly: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyVmRetentionMonthly>,
         >,
         /// Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
         #[builder(into, default)]
-        pub retention_weekly: pulumi_wasm_rust::Output<
+        pub retention_weekly: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyVmRetentionWeekly>,
         >,
         /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
         #[builder(into, default)]
-        pub retention_yearly: pulumi_wasm_rust::Output<
+        pub retention_yearly: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyVmRetentionYearly>,
         >,
         /// A `tiering_policy` block as defined below.
         #[builder(into, default)]
-        pub tiering_policy: pulumi_wasm_rust::Output<
+        pub tiering_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyVmTieringPolicy>,
         >,
         /// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         #[builder(into, default)]
-        pub timezone: pulumi_wasm_rust::Output<Option<String>>,
+        pub timezone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PolicyVMResult {
@@ -178,26 +178,50 @@ pub mod policy_vm {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyVMArgs) -> PolicyVMResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyVMArgs,
+    ) -> PolicyVMResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backup_binding = args.backup.get_inner();
+        let backup_binding = args.backup.get_output(context).get_inner();
         let instant_restore_resource_group_binding = args
             .instant_restore_resource_group
+            .get_output(context)
             .get_inner();
         let instant_restore_retention_days_binding = args
             .instant_restore_retention_days
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let policy_type_binding = args.policy_type.get_inner();
-        let recovery_vault_name_binding = args.recovery_vault_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let retention_daily_binding = args.retention_daily.get_inner();
-        let retention_monthly_binding = args.retention_monthly.get_inner();
-        let retention_weekly_binding = args.retention_weekly.get_inner();
-        let retention_yearly_binding = args.retention_yearly.get_inner();
-        let tiering_policy_binding = args.tiering_policy.get_inner();
-        let timezone_binding = args.timezone.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let policy_type_binding = args.policy_type.get_output(context).get_inner();
+        let recovery_vault_name_binding = args
+            .recovery_vault_name
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let retention_daily_binding = args
+            .retention_daily
+            .get_output(context)
+            .get_inner();
+        let retention_monthly_binding = args
+            .retention_monthly
+            .get_output(context)
+            .get_inner();
+        let retention_weekly_binding = args
+            .retention_weekly
+            .get_output(context)
+            .get_inner();
+        let retention_yearly_binding = args
+            .retention_yearly
+            .get_output(context)
+            .get_inner();
+        let tiering_policy_binding = args.tiering_policy.get_output(context).get_inner();
+        let timezone_binding = args.timezone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:backup/policyVM:PolicyVM".into(),
             name: name.to_string(),
@@ -298,7 +322,7 @@ pub mod policy_vm {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

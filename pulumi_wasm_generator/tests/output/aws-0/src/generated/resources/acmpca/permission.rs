@@ -35,22 +35,22 @@
 /// }
 /// ```
 pub mod permission {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PermissionArgs {
         /// Actions that the specified AWS service principal can use. These include `IssueCertificate`, `GetCertificate`, and `ListPermissions`. Note that in order for ACM to automatically rotate certificates issued by a PCA, it must be granted permission on all 3 actions, as per the example above.
         #[builder(into)]
-        pub actions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub actions: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// ARN of the CA that grants the permissions.
         #[builder(into)]
-        pub certificate_authority_arn: pulumi_wasm_rust::Output<String>,
+        pub certificate_authority_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// AWS service or identity that receives the permission. At this time, the only valid principal is `acm.amazonaws.com`.
         #[builder(into)]
-        pub principal: pulumi_wasm_rust::Output<String>,
+        pub principal: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the calling account
         #[builder(into, default)]
-        pub source_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PermissionResult {
@@ -69,15 +69,20 @@ pub mod permission {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PermissionArgs) -> PermissionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PermissionArgs,
+    ) -> PermissionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_inner();
+        let actions_binding = args.actions.get_output(context).get_inner();
         let certificate_authority_arn_binding = args
             .certificate_authority_arn
+            .get_output(context)
             .get_inner();
-        let principal_binding = args.principal.get_inner();
-        let source_account_binding = args.source_account.get_inner();
+        let principal_binding = args.principal.get_output(context).get_inner();
+        let source_account_binding = args.source_account.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:acmpca/permission:Permission".into(),
             name: name.to_string(),
@@ -118,7 +123,7 @@ pub mod permission {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

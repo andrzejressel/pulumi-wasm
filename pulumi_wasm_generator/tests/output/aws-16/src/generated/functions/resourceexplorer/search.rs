@@ -1,5 +1,5 @@
 pub mod search {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SearchArgs {
@@ -7,10 +7,10 @@ pub mod search {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub query_string: pulumi_wasm_rust::Output<String>,
+        pub query_string: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
         #[builder(into, default)]
-        pub view_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub view_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SearchResult {
@@ -31,11 +31,14 @@ pub mod search {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: SearchArgs) -> SearchResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: SearchArgs,
+    ) -> SearchResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let query_string_binding = args.query_string.get_inner();
-        let view_arn_binding = args.view_arn.get_inner();
+        let query_string_binding = args.query_string.get_output(context).get_inner();
+        let view_arn_binding = args.view_arn.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:resourceexplorer/search:Search".into(),
             version: super::super::super::get_version(),
@@ -67,7 +70,7 @@ pub mod search {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -156,7 +156,7 @@
 /// ```
 ///
 pub mod attached_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AttachedClusterArgs {
@@ -167,52 +167,52 @@ pub mod attached_cluster {
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// 'effective_annotations' for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration related to the cluster RBAC settings.
         #[builder(into, default)]
-        pub authorization: pulumi_wasm_rust::Output<
+        pub authorization: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::AttachedClusterAuthorization>,
         >,
         /// Binary Authorization configuration.
         #[builder(into, default)]
-        pub binary_authorization: pulumi_wasm_rust::Output<
+        pub binary_authorization: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::AttachedClusterBinaryAuthorization>,
         >,
         /// Policy to determine what flags to send on delete. Possible values: DELETE, DELETE_IGNORE_ERRORS
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A human readable description of this attached cluster. Cannot be longer than 255 UTF-8 encoded bytes.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Kubernetes distribution of the underlying attached cluster. Supported values:
         /// "eks", "aks", "generic". The generic distribution provides the ability to register
         /// or migrate any CNCF conformant cluster.
         #[builder(into)]
-        pub distribution: pulumi_wasm_rust::Output<String>,
+        pub distribution: pulumi_wasm_rust::InputOrOutput<String>,
         /// Fleet configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub fleet: pulumi_wasm_rust::Output<
+        pub fleet: pulumi_wasm_rust::InputOrOutput<
             super::super::types::container::AttachedClusterFleet,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Logging configuration.
         #[builder(into, default)]
-        pub logging_config: pulumi_wasm_rust::Output<
+        pub logging_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::AttachedClusterLoggingConfig>,
         >,
         /// Monitoring configuration.
         #[builder(into, default)]
-        pub monitoring_config: pulumi_wasm_rust::Output<
+        pub monitoring_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::AttachedClusterMonitoringConfig>,
         >,
         /// The name of this resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// OIDC discovery information of the target cluster.
         /// Kubernetes Service Account (KSA) tokens are JWT tokens signed by the cluster
         /// API server. This fields indicates how GCP services
@@ -224,22 +224,22 @@ pub mod attached_cluster {
         /// `issuer_url` and `jwks`.
         /// Structure is documented below.
         #[builder(into)]
-        pub oidc_config: pulumi_wasm_rust::Output<
+        pub oidc_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::container::AttachedClusterOidcConfig,
         >,
         /// The platform version for the cluster (e.g. `1.23.0-gke.1`).
         #[builder(into)]
-        pub platform_version: pulumi_wasm_rust::Output<String>,
+        pub platform_version: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Support for proxy configuration.
         #[builder(into, default)]
-        pub proxy_config: pulumi_wasm_rust::Output<
+        pub proxy_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::AttachedClusterProxyConfig>,
         >,
         /// Enable/Disable Security Posture API features for the cluster.
         #[builder(into, default)]
-        pub security_posture_config: pulumi_wasm_rust::Output<
+        pub security_posture_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::AttachedClusterSecurityPostureConfig>,
         >,
     }
@@ -347,25 +347,44 @@ pub mod attached_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AttachedClusterArgs) -> AttachedClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AttachedClusterArgs,
+    ) -> AttachedClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let authorization_binding = args.authorization.get_inner();
-        let binary_authorization_binding = args.binary_authorization.get_inner();
-        let deletion_policy_binding = args.deletion_policy.get_inner();
-        let description_binding = args.description.get_inner();
-        let distribution_binding = args.distribution.get_inner();
-        let fleet_binding = args.fleet.get_inner();
-        let location_binding = args.location.get_inner();
-        let logging_config_binding = args.logging_config.get_inner();
-        let monitoring_config_binding = args.monitoring_config.get_inner();
-        let name_binding = args.name.get_inner();
-        let oidc_config_binding = args.oidc_config.get_inner();
-        let platform_version_binding = args.platform_version.get_inner();
-        let project_binding = args.project.get_inner();
-        let proxy_config_binding = args.proxy_config.get_inner();
-        let security_posture_config_binding = args.security_posture_config.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let authorization_binding = args.authorization.get_output(context).get_inner();
+        let binary_authorization_binding = args
+            .binary_authorization
+            .get_output(context)
+            .get_inner();
+        let deletion_policy_binding = args
+            .deletion_policy
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let distribution_binding = args.distribution.get_output(context).get_inner();
+        let fleet_binding = args.fleet.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let logging_config_binding = args.logging_config.get_output(context).get_inner();
+        let monitoring_config_binding = args
+            .monitoring_config
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let oidc_config_binding = args.oidc_config.get_output(context).get_inner();
+        let platform_version_binding = args
+            .platform_version
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let proxy_config_binding = args.proxy_config.get_output(context).get_inner();
+        let security_posture_config_binding = args
+            .security_posture_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:container/attachedCluster:AttachedCluster".into(),
             name: name.to_string(),
@@ -517,7 +536,7 @@ pub mod attached_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,17 +1,17 @@
 pub mod get_public_configurations {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPublicConfigurationsArgs {
         /// The Azure location to filter the list of Public Maintenance Configurations against.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
         #[builder(into, default)]
-        pub recur_every: pulumi_wasm_rust::Output<Option<String>>,
+        pub recur_every: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
         #[builder(into, default)]
-        pub scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetPublicConfigurationsResult {
@@ -31,12 +31,15 @@ pub mod get_public_configurations {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetPublicConfigurationsArgs) -> GetPublicConfigurationsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetPublicConfigurationsArgs,
+    ) -> GetPublicConfigurationsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let recur_every_binding = args.recur_every.get_inner();
-        let scope_binding = args.scope.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let recur_every_binding = args.recur_every.get_output(context).get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:maintenance/getPublicConfigurations:getPublicConfigurations"
                 .into(),
@@ -73,7 +76,7 @@ pub mod get_public_configurations {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

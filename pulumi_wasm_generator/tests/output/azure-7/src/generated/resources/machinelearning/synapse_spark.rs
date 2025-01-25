@@ -103,36 +103,36 @@
 /// ```
 ///
 pub mod synapse_spark {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SynapseSparkArgs {
         /// The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below. Changing this forces a new Machine Learning Synapse Spark to be created.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::machinelearning::SynapseSparkIdentity>,
         >,
         /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created.
         #[builder(into, default)]
-        pub local_auth_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_auth_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created.
         #[builder(into)]
-        pub machine_learning_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub machine_learning_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the linked Synapse Spark Pool. Changing this forces a new Machine Learning Synapse Spark to be created.
         #[builder(into)]
-        pub synapse_spark_pool_id: pulumi_wasm_rust::Output<String>,
+        pub synapse_spark_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -163,19 +163,30 @@ pub mod synapse_spark {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SynapseSparkArgs) -> SynapseSparkResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SynapseSparkArgs,
+    ) -> SynapseSparkResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let local_auth_enabled_binding = args.local_auth_enabled.get_inner();
-        let location_binding = args.location.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let local_auth_enabled_binding = args
+            .local_auth_enabled
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let machine_learning_workspace_id_binding = args
             .machine_learning_workspace_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let synapse_spark_pool_id_binding = args.synapse_spark_pool_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let synapse_spark_pool_id_binding = args
+            .synapse_spark_pool_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:machinelearning/synapseSpark:SynapseSpark".into(),
             name: name.to_string(),
@@ -241,7 +252,7 @@ pub mod synapse_spark {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

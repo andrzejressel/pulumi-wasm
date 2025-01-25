@@ -49,34 +49,34 @@
 /// ```
 ///
 pub mod open_id_connect_provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OpenIdConnectProviderArgs {
         /// The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Client ID used for the Client Application.
         #[builder(into)]
-        pub client_id: pulumi_wasm_rust::Output<String>,
+        pub client_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Client Secret used for the Client Application.
         #[builder(into)]
-        pub client_secret: pulumi_wasm_rust::Output<String>,
+        pub client_secret: pulumi_wasm_rust::InputOrOutput<String>,
         /// A description of this OpenID Connect Provider.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A user-friendly name for this OpenID Connect Provider.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The URI of the Metadata endpoint.
         #[builder(into)]
-        pub metadata_endpoint: pulumi_wasm_rust::Output<String>,
+        pub metadata_endpoint: pulumi_wasm_rust::InputOrOutput<String>,
         /// the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OpenIdConnectProviderResult {
@@ -102,19 +102,29 @@ pub mod open_id_connect_provider {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OpenIdConnectProviderArgs,
     ) -> OpenIdConnectProviderResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args.api_management_name.get_inner();
-        let client_id_binding = args.client_id.get_inner();
-        let client_secret_binding = args.client_secret.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let metadata_endpoint_binding = args.metadata_endpoint.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let api_management_name_binding = args
+            .api_management_name
+            .get_output(context)
+            .get_inner();
+        let client_id_binding = args.client_id.get_output(context).get_inner();
+        let client_secret_binding = args.client_secret.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let metadata_endpoint_binding = args
+            .metadata_endpoint
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider"
                 .into(),
@@ -181,7 +191,7 @@ pub mod open_id_connect_provider {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

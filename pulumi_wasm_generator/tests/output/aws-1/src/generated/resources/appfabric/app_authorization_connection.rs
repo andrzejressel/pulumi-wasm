@@ -19,23 +19,23 @@
 /// }
 /// ```
 pub mod app_authorization_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppAuthorizationConnectionArgs {
         /// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         #[builder(into)]
-        pub app_authorization_arn: pulumi_wasm_rust::Output<String>,
+        pub app_authorization_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
         #[builder(into)]
-        pub app_bundle_arn: pulumi_wasm_rust::Output<String>,
+        pub app_bundle_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
         #[builder(into, default)]
-        pub auth_request: pulumi_wasm_rust::Output<
+        pub auth_request: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appfabric::AppAuthorizationConnectionAuthRequest>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appfabric::AppAuthorizationConnectionTimeouts>,
         >,
     }
@@ -64,15 +64,19 @@ pub mod app_authorization_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AppAuthorizationConnectionArgs,
     ) -> AppAuthorizationConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_authorization_arn_binding = args.app_authorization_arn.get_inner();
-        let app_bundle_arn_binding = args.app_bundle_arn.get_inner();
-        let auth_request_binding = args.auth_request.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let app_authorization_arn_binding = args
+            .app_authorization_arn
+            .get_output(context)
+            .get_inner();
+        let app_bundle_arn_binding = args.app_bundle_arn.get_output(context).get_inner();
+        let auth_request_binding = args.auth_request.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appfabric/appAuthorizationConnection:AppAuthorizationConnection"
                 .into(),
@@ -117,7 +121,7 @@ pub mod app_authorization_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

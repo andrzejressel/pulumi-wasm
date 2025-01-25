@@ -1,21 +1,21 @@
 pub mod get_region_instance_group_manager {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRegionInstanceGroupManagerArgs {
         /// The name of the instance group. Either `name` or `self_link` must be provided.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
         ///
         /// * `Region` - (Optional) The region where the managed instance group resides. If not provided, the provider region is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The self link of the instance group. Either `name` or `self_link` must be provided.
         #[builder(into, default)]
-        pub self_link: pulumi_wasm_rust::Output<Option<String>>,
+        pub self_link: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetRegionInstanceGroupManagerResult {
@@ -107,14 +107,15 @@ pub mod get_region_instance_group_manager {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetRegionInstanceGroupManagerArgs,
     ) -> GetRegionInstanceGroupManagerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let self_link_binding = args.self_link.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let self_link_binding = args.self_link.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getRegionInstanceGroupManager:getRegionInstanceGroupManager"
                 .into(),
@@ -239,7 +240,7 @@ pub mod get_region_instance_group_manager {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -41,7 +41,7 @@
 /// ```
 ///
 pub mod s_quota_preference {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SQuotaPreferenceArgs {
@@ -50,7 +50,7 @@ pub mod s_quota_preference {
         /// account for the email address must have quota update permission for the project, folder or organization this quota
         /// preference is for.
         #[builder(into, default)]
-        pub contact_email: pulumi_wasm_rust::Output<Option<String>>,
+        pub contact_email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The dimensions that this quota preference applies to. The key of the map entry is the name of a dimension, such as
         /// "region", "zone", "network_id", and the value of the map entry is the dimension value. If a dimension is missing from
         /// the map of dimensions, the quota preference applies to all the dimension values except for those that have other quota
@@ -58,35 +58,35 @@ pub mod s_quota_preference {
         /// and "resource" dimension. Do not set values for "user" or "resource" in the dimension map. Example: '{"provider": "Foo
         /// Inc"}' where "provider" is a service specific dimension.
         #[builder(into, default)]
-        pub dimensions: pulumi_wasm_rust::Output<
+        pub dimensions: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The list of quota safety checks to be ignored. Default value: "QUOTA_SAFETY_CHECK_UNSPECIFIED" Possible values:
         /// ["QUOTA_SAFETY_CHECK_UNSPECIFIED", "QUOTA_DECREASE_BELOW_USAGE", "QUOTA_DECREASE_PERCENTAGE_TOO_HIGH"]
         #[builder(into, default)]
-        pub ignore_safety_checks: pulumi_wasm_rust::Output<Option<String>>,
+        pub ignore_safety_checks: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The reason / justification for this quota preference.
         #[builder(into, default)]
-        pub justification: pulumi_wasm_rust::Output<Option<String>>,
+        pub justification: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource name of the quota preference. Required except in the CREATE requests.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The parent of the quota preference. Allowed parents are "projects/[project-id / number]" or "folders/[folder-id / number]" or "organizations/[org-id / number]".
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The preferred quota configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub quota_config: pulumi_wasm_rust::Output<
+        pub quota_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudquota::SQuotaPreferenceQuotaConfig,
         >,
         /// The id of the quota to which the quota preference is applied. A quota id is unique in the service.
         /// Example: `CPUS-per-project-region`.
         #[builder(into, default)]
-        pub quota_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub quota_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the service to which the quota preference is applied.
         #[builder(into, default)]
-        pub service: pulumi_wasm_rust::Output<Option<String>>,
+        pub service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SQuotaPreferenceResult {
@@ -138,18 +138,25 @@ pub mod s_quota_preference {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SQuotaPreferenceArgs) -> SQuotaPreferenceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SQuotaPreferenceArgs,
+    ) -> SQuotaPreferenceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let contact_email_binding = args.contact_email.get_inner();
-        let dimensions_binding = args.dimensions.get_inner();
-        let ignore_safety_checks_binding = args.ignore_safety_checks.get_inner();
-        let justification_binding = args.justification.get_inner();
-        let name_binding = args.name.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let quota_config_binding = args.quota_config.get_inner();
-        let quota_id_binding = args.quota_id.get_inner();
-        let service_binding = args.service.get_inner();
+        let contact_email_binding = args.contact_email.get_output(context).get_inner();
+        let dimensions_binding = args.dimensions.get_output(context).get_inner();
+        let ignore_safety_checks_binding = args
+            .ignore_safety_checks
+            .get_output(context)
+            .get_inner();
+        let justification_binding = args.justification.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let quota_config_binding = args.quota_config.get_output(context).get_inner();
+        let quota_id_binding = args.quota_id.get_output(context).get_inner();
+        let service_binding = args.service.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudquota/sQuotaPreference:SQuotaPreference".into(),
             name: name.to_string(),
@@ -234,7 +241,7 @@ pub mod s_quota_preference {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

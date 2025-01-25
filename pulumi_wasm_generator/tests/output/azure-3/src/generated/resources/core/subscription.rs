@@ -87,34 +87,34 @@
 /// In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
 ///
 pub mod subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriptionArgs {
         /// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
         #[builder(into, default)]
-        pub alias: pulumi_wasm_rust::Output<Option<String>>,
+        pub alias: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
         #[builder(into, default)]
-        pub billing_scope_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub billing_scope_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Subscription. Changing this forces a new Subscription to be created.
         ///
         /// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
         ///
         /// > **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
         #[builder(into, default)]
-        pub subscription_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub subscription_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Name of the Subscription. This is the Display Name in the portal.
         #[builder(into)]
-        pub subscription_name: pulumi_wasm_rust::Output<String>,
+        pub subscription_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the Subscription.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         #[builder(into, default)]
-        pub workload: pulumi_wasm_rust::Output<Option<String>>,
+        pub workload: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SubscriptionResult {
@@ -143,15 +143,28 @@ pub mod subscription {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SubscriptionArgs) -> SubscriptionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SubscriptionArgs,
+    ) -> SubscriptionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_inner();
-        let billing_scope_id_binding = args.billing_scope_id.get_inner();
-        let subscription_id_binding = args.subscription_id.get_inner();
-        let subscription_name_binding = args.subscription_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let workload_binding = args.workload.get_inner();
+        let alias_binding = args.alias.get_output(context).get_inner();
+        let billing_scope_id_binding = args
+            .billing_scope_id
+            .get_output(context)
+            .get_inner();
+        let subscription_id_binding = args
+            .subscription_id
+            .get_output(context)
+            .get_inner();
+        let subscription_name_binding = args
+            .subscription_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let workload_binding = args.workload.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:core/subscription:Subscription".into(),
             name: name.to_string(),
@@ -206,7 +219,7 @@ pub mod subscription {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

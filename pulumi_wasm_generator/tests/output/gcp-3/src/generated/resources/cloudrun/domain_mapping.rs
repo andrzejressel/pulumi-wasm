@@ -85,27 +85,27 @@
 /// ```
 ///
 pub mod domain_mapping {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainMappingArgs {
         /// The location of the cloud run instance. eg us-central1
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Metadata associated with this DomainMapping.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudrun::DomainMappingMetadata>,
         >,
         /// Name should be a [verified](https://support.google.com/webmasters/answer/9008080) domain
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The spec for this DomainMapping.
         /// Structure is documented below.
         #[builder(into)]
-        pub spec: pulumi_wasm_rust::Output<
+        pub spec: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudrun::DomainMappingSpec,
         >,
     }
@@ -135,14 +135,18 @@ pub mod domain_mapping {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DomainMappingArgs) -> DomainMappingResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DomainMappingArgs,
+    ) -> DomainMappingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let spec_binding = args.spec.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let spec_binding = args.spec.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudrun/domainMapping:DomainMapping".into(),
             name: name.to_string(),
@@ -190,7 +194,7 @@ pub mod domain_mapping {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

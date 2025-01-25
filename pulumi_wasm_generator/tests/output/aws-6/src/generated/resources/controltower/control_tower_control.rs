@@ -12,23 +12,23 @@
 /// $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
 /// ```
 pub mod control_tower_control {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ControlTowerControlArgs {
         /// The ARN of the control. Only Strongly recommended and Elective controls are permitted, with the exception of the Region deny guardrail.
         #[builder(into)]
-        pub control_identifier: pulumi_wasm_rust::Output<String>,
+        pub control_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::controltower::ControlTowerControlParameter>>,
         >,
         /// The ARN of the organizational unit.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub target_identifier: pulumi_wasm_rust::Output<String>,
+        pub target_identifier: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ControlTowerControlResult {
@@ -50,14 +50,21 @@ pub mod control_tower_control {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ControlTowerControlArgs,
     ) -> ControlTowerControlResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let control_identifier_binding = args.control_identifier.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let target_identifier_binding = args.target_identifier.get_inner();
+        let control_identifier_binding = args
+            .control_identifier
+            .get_output(context)
+            .get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let target_identifier_binding = args
+            .target_identifier
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:controltower/controlTowerControl:ControlTowerControl".into(),
             name: name.to_string(),
@@ -91,7 +98,7 @@ pub mod control_tower_control {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

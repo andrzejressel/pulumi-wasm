@@ -51,36 +51,36 @@
 /// $ pulumi import aws:s3control/accessGrant:AccessGrant example 123456789012,04549c5e-2f3c-4a07-824d-2cafe720aa22
 /// ```
 pub mod access_grant {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessGrantArgs {
         /// See Location Configuration below for more details.
         #[builder(into, default)]
-        pub access_grants_location_configuration: pulumi_wasm_rust::Output<
+        pub access_grants_location_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::s3control::AccessGrantAccessGrantsLocationConfiguration,
             >,
         >,
         /// The ID of the S3 Access Grants location to with the access grant is giving access.
         #[builder(into)]
-        pub access_grants_location_id: pulumi_wasm_rust::Output<String>,
+        pub access_grants_location_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// See Grantee below for more details.
         #[builder(into, default)]
-        pub grantee: pulumi_wasm_rust::Output<
+        pub grantee: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3control::AccessGrantGrantee>,
         >,
         /// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         #[builder(into)]
-        pub permission: pulumi_wasm_rust::Output<String>,
+        pub permission: pulumi_wasm_rust::InputOrOutput<String>,
         /// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
         #[builder(into, default)]
-        pub s3_prefix_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_prefix_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -122,20 +122,26 @@ pub mod access_grant {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccessGrantArgs) -> AccessGrantResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccessGrantArgs,
+    ) -> AccessGrantResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let access_grants_location_configuration_binding = args
             .access_grants_location_configuration
+            .get_output(context)
             .get_inner();
         let access_grants_location_id_binding = args
             .access_grants_location_id
+            .get_output(context)
             .get_inner();
-        let account_id_binding = args.account_id.get_inner();
-        let grantee_binding = args.grantee.get_inner();
-        let permission_binding = args.permission.get_inner();
-        let s3_prefix_type_binding = args.s3_prefix_type.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let grantee_binding = args.grantee.get_output(context).get_inner();
+        let permission_binding = args.permission.get_output(context).get_inner();
+        let s3_prefix_type_binding = args.s3_prefix_type.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3control/accessGrant:AccessGrant".into(),
             name: name.to_string(),
@@ -206,7 +212,7 @@ pub mod access_grant {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

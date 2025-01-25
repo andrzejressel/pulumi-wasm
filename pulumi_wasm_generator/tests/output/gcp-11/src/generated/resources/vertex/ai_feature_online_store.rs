@@ -110,20 +110,20 @@
 /// ```
 ///
 pub mod ai_feature_online_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AiFeatureOnlineStoreArgs {
         /// Settings for Cloud Bigtable instance that will be created to serve featureValues for all FeatureViews under this FeatureOnlineStore.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub bigtable: pulumi_wasm_rust::Output<
+        pub bigtable: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::vertex::AiFeatureOnlineStoreBigtable>,
         >,
         /// The dedicated serving endpoint for this FeatureOnlineStore, which is different from common vertex service endpoint. Only need to be set when you choose Optimized storage type or enable EmbeddingManagement. Will use public endpoint by default.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub dedicated_serving_endpoint: pulumi_wasm_rust::Output<
+        pub dedicated_serving_endpoint: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::vertex::AiFeatureOnlineStoreDedicatedServingEndpoint,
             >,
@@ -133,17 +133,17 @@ pub mod ai_feature_online_store {
         ///
         /// > **Warning:** `embedding_management` is deprecated. This field is no longer needed anymore and embedding management is automatically enabled when specifying Optimized storage type
         #[builder(into, default)]
-        pub embedding_management: pulumi_wasm_rust::Output<
+        pub embedding_management: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::vertex::AiFeatureOnlineStoreEmbeddingManagement>,
         >,
         /// If set to true, any FeatureViews and Features for this FeatureOnlineStore will also be deleted.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The labels with user-defined metadata to organize your feature online stores.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The resource name of the Feature Online Store. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
@@ -151,19 +151,19 @@ pub mod ai_feature_online_store {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Settings for the Optimized store that will be created to serve featureValues for all FeatureViews under this FeatureOnlineStore
         #[builder(into, default)]
-        pub optimized: pulumi_wasm_rust::Output<
+        pub optimized: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::vertex::AiFeatureOnlineStoreOptimized>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The region of feature online store. eg us-central1
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AiFeatureOnlineStoreResult {
@@ -229,22 +229,27 @@ pub mod ai_feature_online_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AiFeatureOnlineStoreArgs,
     ) -> AiFeatureOnlineStoreResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bigtable_binding = args.bigtable.get_inner();
+        let bigtable_binding = args.bigtable.get_output(context).get_inner();
         let dedicated_serving_endpoint_binding = args
             .dedicated_serving_endpoint
+            .get_output(context)
             .get_inner();
-        let embedding_management_binding = args.embedding_management.get_inner();
-        let force_destroy_binding = args.force_destroy.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let optimized_binding = args.optimized.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
+        let embedding_management_binding = args
+            .embedding_management
+            .get_output(context)
+            .get_inner();
+        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let optimized_binding = args.optimized.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vertex/aiFeatureOnlineStore:AiFeatureOnlineStore".into(),
             name: name.to_string(),
@@ -335,7 +340,7 @@ pub mod ai_feature_online_store {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

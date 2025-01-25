@@ -103,7 +103,7 @@
 /// ```
 ///
 pub mod cx_agent {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CxAgentArgs {
@@ -111,35 +111,35 @@ pub mod cx_agent {
         /// Hierarchy: Agent->Flow->Page->Fulfillment/Parameter.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub advanced_settings: pulumi_wasm_rust::Output<
+        pub advanced_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxAgentAdvancedSettings>,
         >,
         /// The URI of the agent's avatar. Avatars are used throughout the Dialogflow console and in the self-hosted Web Demo integration.
         #[builder(into, default)]
-        pub avatar_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub avatar_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The default language of the agent as a language tag. [See Language Support](https://cloud.google.com/dialogflow/cx/docs/reference/language)
         /// for a list of the currently supported language codes. This field cannot be updated after creation.
         #[builder(into)]
-        pub default_language_code: pulumi_wasm_rust::Output<String>,
+        pub default_language_code: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of this agent. The maximum length is 500 characters. If exceeded, the request is rejected.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The human-readable name of the agent, unique within the location.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indicates if automatic spell correction is enabled in detect intent requests.
         #[builder(into, default)]
-        pub enable_spell_correction: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_spell_correction: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// (Optional, Deprecated)
         /// Determines whether this agent should log conversation queries.
         ///
         /// > **Warning:** `enable_stackdriver_logging` is deprecated and will be removed in a future major release. Please use `advanced_settings.logging_settings.enable_stackdriver_logging`instead.
         #[builder(into, default)]
-        pub enable_stackdriver_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_stackdriver_logging: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Git integration settings for this agent.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub git_integration_settings: pulumi_wasm_rust::Output<
+        pub git_integration_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxAgentGitIntegrationSettings>,
         >,
         /// The name of the location this agent is located in.
@@ -147,27 +147,29 @@ pub mod cx_agent {
         /// This is a one time step but at the moment you can only [configure location settings](https://cloud.google.com/dialogflow/cx/docs/concept/region#location-settings) via the Dialogflow CX console.
         /// Another options is to use global location so you don't need to manually configure location settings.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the SecuritySettings reference for the agent. Format: projects/<Project ID>/locations/<Location ID>/securitySettings/<Security Settings ID>.
         #[builder(into, default)]
-        pub security_settings: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_settings: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Settings related to speech recognition.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub speech_to_text_settings: pulumi_wasm_rust::Output<
+        pub speech_to_text_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxAgentSpeechToTextSettings>,
         >,
         /// The list of all languages supported by this agent (except for the default_language_code).
         #[builder(into, default)]
-        pub supported_language_codes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub supported_language_codes: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Settings related to speech synthesizing.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub text_to_speech_settings: pulumi_wasm_rust::Output<
+        pub text_to_speech_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxAgentTextToSpeechSettings>,
         >,
         /// The time zone of this agent from the [time zone database](https://www.iana.org/time-zones), e.g., America/New_York,
@@ -176,7 +178,7 @@ pub mod cx_agent {
         ///
         /// - - -
         #[builder(into)]
-        pub time_zone: pulumi_wasm_rust::Output<String>,
+        pub time_zone: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CxAgentResult {
@@ -244,26 +246,55 @@ pub mod cx_agent {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CxAgentArgs) -> CxAgentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CxAgentArgs,
+    ) -> CxAgentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let advanced_settings_binding = args.advanced_settings.get_inner();
-        let avatar_uri_binding = args.avatar_uri.get_inner();
-        let default_language_code_binding = args.default_language_code.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enable_spell_correction_binding = args.enable_spell_correction.get_inner();
+        let advanced_settings_binding = args
+            .advanced_settings
+            .get_output(context)
+            .get_inner();
+        let avatar_uri_binding = args.avatar_uri.get_output(context).get_inner();
+        let default_language_code_binding = args
+            .default_language_code
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enable_spell_correction_binding = args
+            .enable_spell_correction
+            .get_output(context)
+            .get_inner();
         let enable_stackdriver_logging_binding = args
             .enable_stackdriver_logging
+            .get_output(context)
             .get_inner();
-        let git_integration_settings_binding = args.git_integration_settings.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
-        let security_settings_binding = args.security_settings.get_inner();
-        let speech_to_text_settings_binding = args.speech_to_text_settings.get_inner();
-        let supported_language_codes_binding = args.supported_language_codes.get_inner();
-        let text_to_speech_settings_binding = args.text_to_speech_settings.get_inner();
-        let time_zone_binding = args.time_zone.get_inner();
+        let git_integration_settings_binding = args
+            .git_integration_settings
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let security_settings_binding = args
+            .security_settings
+            .get_output(context)
+            .get_inner();
+        let speech_to_text_settings_binding = args
+            .speech_to_text_settings
+            .get_output(context)
+            .get_inner();
+        let supported_language_codes_binding = args
+            .supported_language_codes
+            .get_output(context)
+            .get_inner();
+        let text_to_speech_settings_binding = args
+            .text_to_speech_settings
+            .get_output(context)
+            .get_inner();
+        let time_zone_binding = args.time_zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/cxAgent:CxAgent".into(),
             name: name.to_string(),
@@ -384,7 +415,7 @@ pub mod cx_agent {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

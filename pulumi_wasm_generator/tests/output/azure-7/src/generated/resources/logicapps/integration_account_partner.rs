@@ -49,29 +49,29 @@
 /// ```
 ///
 pub mod integration_account_partner {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationAccountPartnerArgs {
         /// A `business_identity` block as documented below.
         #[builder(into)]
-        pub business_identities: pulumi_wasm_rust::Output<
+        pub business_identities: pulumi_wasm_rust::InputOrOutput<
             Vec<
                 super::super::types::logicapps::IntegrationAccountPartnerBusinessIdentity,
             >,
         >,
         /// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
         #[builder(into)]
-        pub integration_account_name: pulumi_wasm_rust::Output<String>,
+        pub integration_account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A JSON mapping of any Metadata for this Logic App Integration Account Partner.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<Option<String>>,
+        pub metadata: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Logic App Integration Account Partner should exist. Changing this forces a new Logic App Integration Account Partner to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IntegrationAccountPartnerResult {
@@ -95,16 +95,26 @@ pub mod integration_account_partner {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IntegrationAccountPartnerArgs,
     ) -> IntegrationAccountPartnerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let business_identities_binding = args.business_identities.get_inner();
-        let integration_account_name_binding = args.integration_account_name.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let business_identities_binding = args
+            .business_identities
+            .get_output(context)
+            .get_inner();
+        let integration_account_name_binding = args
+            .integration_account_name
+            .get_output(context)
+            .get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/integrationAccountPartner:IntegrationAccountPartner"
                 .into(),
@@ -150,7 +160,7 @@ pub mod integration_account_partner {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

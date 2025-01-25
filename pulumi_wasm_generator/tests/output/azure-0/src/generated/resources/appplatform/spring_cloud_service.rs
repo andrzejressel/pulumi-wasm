@@ -47,23 +47,23 @@
 /// ```
 ///
 pub mod spring_cloud_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudServiceArgs {
         /// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
         #[builder(into, default)]
-        pub build_agent_pool_size: pulumi_wasm_rust::Output<Option<String>>,
+        pub build_agent_pool_size: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
         #[builder(into, default)]
-        pub config_server_git_setting: pulumi_wasm_rust::Output<
+        pub config_server_git_setting: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::appplatform::SpringCloudServiceConfigServerGitSetting,
             >,
         >,
         /// One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         #[builder(into, default)]
-        pub container_registries: pulumi_wasm_rust::Output<
+        pub container_registries: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::appplatform::SpringCloudServiceContainerRegistry,
@@ -72,58 +72,60 @@ pub mod spring_cloud_service {
         >,
         /// A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         #[builder(into, default)]
-        pub default_build_service: pulumi_wasm_rust::Output<
+        pub default_build_service: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::appplatform::SpringCloudServiceDefaultBuildService,
             >,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should the log stream in vnet injection instance could be accessed from Internet?
         #[builder(into, default)]
-        pub log_stream_public_endpoint_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub log_stream_public_endpoint_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The resource Id of the Managed Environment that the Spring Apps instance builds on. Can only be specified when `sku_tier` is set to `StandardGen2`.
         #[builder(into, default)]
-        pub managed_environment_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub managed_environment_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
         #[builder(into, default)]
-        pub marketplace: pulumi_wasm_rust::Output<
+        pub marketplace: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudServiceMarketplace>,
         >,
         /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `network` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::Output<
+        pub network: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudServiceNetwork>,
         >,
         /// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
         #[builder(into, default)]
-        pub service_registry_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub service_registry_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub sku_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the SKU Tier for this Spring Cloud Service. Possible values are `Basic`, `Enterprise`, `Standard` and `StandardGen2`. The attribute is automatically computed from API response except when `managed_environment_id` is defined. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub sku_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `trace` block as defined below.
         #[builder(into, default)]
-        pub trace: pulumi_wasm_rust::Output<
+        pub trace: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudServiceTrace>,
         >,
         /// Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
         #[builder(into, default)]
-        pub zone_redundant: pulumi_wasm_rust::Output<Option<bool>>,
+        pub zone_redundant: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudServiceResult {
@@ -198,30 +200,54 @@ pub mod spring_cloud_service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SpringCloudServiceArgs) -> SpringCloudServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SpringCloudServiceArgs,
+    ) -> SpringCloudServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let build_agent_pool_size_binding = args.build_agent_pool_size.get_inner();
+        let build_agent_pool_size_binding = args
+            .build_agent_pool_size
+            .get_output(context)
+            .get_inner();
         let config_server_git_setting_binding = args
             .config_server_git_setting
+            .get_output(context)
             .get_inner();
-        let container_registries_binding = args.container_registries.get_inner();
-        let default_build_service_binding = args.default_build_service.get_inner();
-        let location_binding = args.location.get_inner();
+        let container_registries_binding = args
+            .container_registries
+            .get_output(context)
+            .get_inner();
+        let default_build_service_binding = args
+            .default_build_service
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let log_stream_public_endpoint_enabled_binding = args
             .log_stream_public_endpoint_enabled
+            .get_output(context)
             .get_inner();
-        let managed_environment_id_binding = args.managed_environment_id.get_inner();
-        let marketplace_binding = args.marketplace.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let service_registry_enabled_binding = args.service_registry_enabled.get_inner();
-        let sku_name_binding = args.sku_name.get_inner();
-        let sku_tier_binding = args.sku_tier.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let trace_binding = args.trace.get_inner();
-        let zone_redundant_binding = args.zone_redundant.get_inner();
+        let managed_environment_id_binding = args
+            .managed_environment_id
+            .get_output(context)
+            .get_inner();
+        let marketplace_binding = args.marketplace.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let service_registry_enabled_binding = args
+            .service_registry_enabled
+            .get_output(context)
+            .get_inner();
+        let sku_name_binding = args.sku_name.get_output(context).get_inner();
+        let sku_tier_binding = args.sku_tier.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let trace_binding = args.trace.get_output(context).get_inner();
+        let zone_redundant_binding = args.zone_redundant.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudService:SpringCloudService".into(),
             name: name.to_string(),
@@ -359,7 +385,7 @@ pub mod spring_cloud_service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

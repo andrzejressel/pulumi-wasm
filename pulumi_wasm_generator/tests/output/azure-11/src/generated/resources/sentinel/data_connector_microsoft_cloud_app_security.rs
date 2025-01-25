@@ -52,29 +52,29 @@
 /// ```
 ///
 pub mod data_connector_microsoft_cloud_app_security {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataConnectorMicrosoftCloudAppSecurityArgs {
         /// Should the alerts be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub alerts_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub alerts_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Should the Discovery Logs be enabled? Defaults to `true`.
         ///
         /// > **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
         #[builder(into, default)]
-        pub discovery_logs_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub discovery_logs_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
         ///
         /// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         #[builder(into, default)]
-        pub tenant_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub tenant_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DataConnectorMicrosoftCloudAppSecurityResult {
@@ -98,18 +98,23 @@ pub mod data_connector_microsoft_cloud_app_security {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DataConnectorMicrosoftCloudAppSecurityArgs,
     ) -> DataConnectorMicrosoftCloudAppSecurityResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alerts_enabled_binding = args.alerts_enabled.get_inner();
-        let discovery_logs_enabled_binding = args.discovery_logs_enabled.get_inner();
+        let alerts_enabled_binding = args.alerts_enabled.get_output(context).get_inner();
+        let discovery_logs_enabled_binding = args
+            .discovery_logs_enabled
+            .get_output(context)
+            .get_inner();
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let tenant_id_binding = args.tenant_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity"
                 .into(),
@@ -155,7 +160,7 @@ pub mod data_connector_microsoft_cloud_app_security {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

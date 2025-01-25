@@ -76,13 +76,13 @@
 /// ```
 ///
 pub mod reservation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReservationArgs {
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -91,27 +91,27 @@ pub mod reservation {
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The share setting for reservations.
         #[builder(into, default)]
-        pub share_settings: pulumi_wasm_rust::Output<
+        pub share_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::ReservationShareSettings>,
         >,
         /// Reservation for instances with specific machine shapes.
         /// Structure is documented below.
         #[builder(into)]
-        pub specific_reservation: pulumi_wasm_rust::Output<
+        pub specific_reservation: pulumi_wasm_rust::InputOrOutput<
             super::super::types::compute::ReservationSpecificReservation,
         >,
         /// When set to true, only VMs that target this reservation by name can consume this reservation. Otherwise, it can be
         /// consumed by VMs with affinity for any reservation. Defaults to false.
         #[builder(into, default)]
-        pub specific_reservation_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub specific_reservation_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The zone where the reservation is made.
         #[builder(into)]
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ReservationResult {
@@ -154,18 +154,26 @@ pub mod reservation {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ReservationArgs) -> ReservationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ReservationArgs,
+    ) -> ReservationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let share_settings_binding = args.share_settings.get_inner();
-        let specific_reservation_binding = args.specific_reservation.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let share_settings_binding = args.share_settings.get_output(context).get_inner();
+        let specific_reservation_binding = args
+            .specific_reservation
+            .get_output(context)
+            .get_inner();
         let specific_reservation_required_binding = args
             .specific_reservation_required
+            .get_output(context)
             .get_inner();
-        let zone_binding = args.zone.get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/reservation:Reservation".into(),
             name: name.to_string(),
@@ -236,7 +244,7 @@ pub mod reservation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -55,41 +55,41 @@
 /// $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
 /// ```
 pub mod assessment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssessmentArgs {
         /// Assessment report storage destination configuration. See `assessment_reports_destination` below.
         #[builder(into, default)]
-        pub assessment_reports_destination: pulumi_wasm_rust::Output<
+        pub assessment_reports_destination: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::auditmanager::AssessmentAssessmentReportsDestination,
             >,
         >,
         /// Description of the assessment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Unique identifier of the framework the assessment will be created from.
         #[builder(into)]
-        pub framework_id: pulumi_wasm_rust::Output<String>,
+        pub framework_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the assessment.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of roles for the assessment. See `roles` below.
         #[builder(into)]
-        pub roles: pulumi_wasm_rust::Output<
+        pub roles: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::auditmanager::AssessmentRole>,
         >,
         /// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub scope: pulumi_wasm_rust::Output<
+        pub scope: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::auditmanager::AssessmentScope>,
         >,
         /// A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -137,18 +137,23 @@ pub mod assessment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AssessmentArgs) -> AssessmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AssessmentArgs,
+    ) -> AssessmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let assessment_reports_destination_binding = args
             .assessment_reports_destination
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let framework_id_binding = args.framework_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let roles_binding = args.roles.get_inner();
-        let scope_binding = args.scope.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let framework_id_binding = args.framework_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let roles_binding = args.roles.get_output(context).get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:auditmanager/assessment:Assessment".into(),
             name: name.to_string(),
@@ -219,7 +224,7 @@ pub mod assessment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -34,31 +34,31 @@
 /// ```
 ///
 pub mod lb_traffic_extension {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LbTrafficExtensionArgs {
         /// A human-readable description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A set of ordered extension chains that contain the match conditions and extensions to execute.
         /// Match conditions for each extension chain are evaluated in sequence for a given request.
         /// The first extension chain that has a condition that matches the request is executed.
         /// Any subsequent extension chains do not execute. Limited to 5 extension chains per resource.
         /// Structure is documented below.
         #[builder(into)]
-        pub extension_chains: pulumi_wasm_rust::Output<
+        pub extension_chains: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::networkservices::LbTrafficExtensionExtensionChain>,
         >,
         /// A list of references to the forwarding rules to which this service extension is attached to.
         /// At least one forwarding rule is required. There can be only one LBTrafficExtension resource per forwarding rule.
         #[builder(into)]
-        pub forwarding_rules: pulumi_wasm_rust::Output<Vec<String>>,
+        pub forwarding_rules: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Set of labels associated with the LbTrafficExtension resource. **Note**: This field is non-authoritative, and will only
         /// manage the labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels
         /// present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// All backend services and forwarding rules referenced by this extension must share the same load balancing scheme. For
@@ -67,15 +67,15 @@ pub mod lb_traffic_extension {
         /// balancers](https://cloud.google.com/service-extensions/docs/callouts-overview#supported-lbs). Possible values:
         /// ["INTERNAL_MANAGED", "EXTERNAL_MANAGED"]
         #[builder(into, default)]
-        pub load_balancing_scheme: pulumi_wasm_rust::Output<Option<String>>,
+        pub load_balancing_scheme: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location of the traffic extension
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the LbTrafficExtension resource in the following format: projects/{project}/locations/{location}/lbTrafficExtensions/{lbTrafficExtension}.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LbTrafficExtensionResult {
@@ -123,17 +123,30 @@ pub mod lb_traffic_extension {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LbTrafficExtensionArgs) -> LbTrafficExtensionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LbTrafficExtensionArgs,
+    ) -> LbTrafficExtensionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let extension_chains_binding = args.extension_chains.get_inner();
-        let forwarding_rules_binding = args.forwarding_rules.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let load_balancing_scheme_binding = args.load_balancing_scheme.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let extension_chains_binding = args
+            .extension_chains
+            .get_output(context)
+            .get_inner();
+        let forwarding_rules_binding = args
+            .forwarding_rules
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let load_balancing_scheme_binding = args
+            .load_balancing_scheme
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkservices/lbTrafficExtension:LbTrafficExtension".into(),
             name: name.to_string(),
@@ -205,7 +218,7 @@ pub mod lb_traffic_extension {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

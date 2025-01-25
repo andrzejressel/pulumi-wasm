@@ -1,26 +1,26 @@
 pub mod get_resolver_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetResolverRuleArgs {
         /// Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
         #[builder(into, default)]
-        pub domain_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
         #[builder(into, default)]
-        pub resolver_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub resolver_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
         #[builder(into, default)]
-        pub resolver_rule_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub resolver_rule_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
         #[builder(into, default)]
-        pub rule_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub rule_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags assigned to the resolver rule.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -47,15 +47,24 @@ pub mod get_resolver_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetResolverRuleArgs) -> GetResolverRuleResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetResolverRuleArgs,
+    ) -> GetResolverRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let resolver_endpoint_id_binding = args.resolver_endpoint_id.get_inner();
-        let resolver_rule_id_binding = args.resolver_rule_id.get_inner();
-        let rule_type_binding = args.rule_type.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resolver_endpoint_id_binding = args
+            .resolver_endpoint_id
+            .get_output(context)
+            .get_inner();
+        let resolver_rule_id_binding = args
+            .resolver_rule_id
+            .get_output(context)
+            .get_inner();
+        let rule_type_binding = args.rule_type.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverRule:getResolverRule".into(),
             version: super::super::super::get_version(),
@@ -118,7 +127,7 @@ pub mod get_resolver_rule {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -24,16 +24,16 @@
 /// $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
 /// ```
 pub mod hsm_client_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HsmClientCertificateArgs {
         /// The identifier of the HSM client certificate.
         #[builder(into)]
-        pub hsm_client_certificate_identifier: pulumi_wasm_rust::Output<String>,
+        pub hsm_client_certificate_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -59,6 +59,7 @@ pub mod hsm_client_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: HsmClientCertificateArgs,
     ) -> HsmClientCertificateResult {
@@ -66,8 +67,9 @@ pub mod hsm_client_certificate {
         use std::collections::HashMap;
         let hsm_client_certificate_identifier_binding = args
             .hsm_client_certificate_identifier
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshift/hsmClientCertificate:HsmClientCertificate".into(),
             name: name.to_string(),
@@ -100,7 +102,7 @@ pub mod hsm_client_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

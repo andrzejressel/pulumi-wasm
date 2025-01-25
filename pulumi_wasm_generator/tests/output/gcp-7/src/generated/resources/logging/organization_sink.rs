@@ -41,18 +41,18 @@
 /// ```
 ///
 pub mod organization_sink {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationSinkArgs {
         /// Options that affect sinks exporting data to BigQuery. Structure documented below.
         #[builder(into, default)]
-        pub bigquery_options: pulumi_wasm_rust::Output<
+        pub bigquery_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::logging::OrganizationSinkBigqueryOptions>,
         >,
         /// A description of this sink. The maximum length of the description is 8000 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The destination of the sink (or, in other words, where logs are written to). Can be a Cloud Storage bucket, a PubSub topic, a BigQuery dataset, a Cloud Logging bucket, or a Google Cloud project. Examples:
         ///
         /// - `storage.googleapis.com/[GCS_BUCKET]`
@@ -63,34 +63,34 @@ pub mod organization_sink {
         ///
         /// The writer associated with the sink must have access to write to the above resource.
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::Output<String>,
+        pub destination: pulumi_wasm_rust::InputOrOutput<String>,
         /// If set to True, then this sink is disabled and it does not export any log entries.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Log entries that match any of the exclusion filters will not be exported. If a log entry is matched by both `filter` and one of `exclusions.filter`, it will not be exported.  Can be repeated multiple times for multiple exclusions. Structure is documented below.
         #[builder(into, default)]
-        pub exclusions: pulumi_wasm_rust::Output<
+        pub exclusions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::logging::OrganizationSinkExclusion>>,
         >,
         /// The filter to apply when exporting logs. Only log entries that match the filter are exported.
         /// See [Advanced Log Filters](https://cloud.google.com/logging/docs/view/advanced_filters) for information on how to
         /// write a filter.
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::Output<Option<String>>,
+        pub filter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether or not to include children organizations in the sink export. If true, logs
         /// associated with child projects are also exported; otherwise only logs relating to the provided organization are included.
         #[builder(into, default)]
-        pub include_children: pulumi_wasm_rust::Output<Option<bool>>,
+        pub include_children: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether or not to intercept logs from child projects. If true, matching logs will not
         /// match with sinks in child resources, except _Required sinks. This sink will be visible to child resources when listing sinks.
         #[builder(into, default)]
-        pub intercept_children: pulumi_wasm_rust::Output<Option<bool>>,
+        pub intercept_children: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the logging sink.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The numeric ID of the organization to be exported to the sink.
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OrganizationSinkResult {
@@ -138,19 +138,32 @@ pub mod organization_sink {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: OrganizationSinkArgs) -> OrganizationSinkResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: OrganizationSinkArgs,
+    ) -> OrganizationSinkResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bigquery_options_binding = args.bigquery_options.get_inner();
-        let description_binding = args.description.get_inner();
-        let destination_binding = args.destination.get_inner();
-        let disabled_binding = args.disabled.get_inner();
-        let exclusions_binding = args.exclusions.get_inner();
-        let filter_binding = args.filter.get_inner();
-        let include_children_binding = args.include_children.get_inner();
-        let intercept_children_binding = args.intercept_children.get_inner();
-        let name_binding = args.name.get_inner();
-        let org_id_binding = args.org_id.get_inner();
+        let bigquery_options_binding = args
+            .bigquery_options
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let destination_binding = args.destination.get_output(context).get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let exclusions_binding = args.exclusions.get_output(context).get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
+        let include_children_binding = args
+            .include_children
+            .get_output(context)
+            .get_inner();
+        let intercept_children_binding = args
+            .intercept_children
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let org_id_binding = args.org_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:logging/organizationSink:OrganizationSink".into(),
             name: name.to_string(),
@@ -233,7 +246,7 @@ pub mod organization_sink {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

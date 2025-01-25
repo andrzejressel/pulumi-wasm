@@ -41,68 +41,68 @@
 /// $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
 /// ```
 pub mod endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointArgs {
         /// Information about the authentication method to be used to authenticate clients.
         #[builder(into)]
-        pub authentication_options: pulumi_wasm_rust::Output<
+        pub authentication_options: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::ec2clientvpn::EndpointAuthenticationOption>,
         >,
         /// The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
         #[builder(into)]
-        pub client_cidr_block: pulumi_wasm_rust::Output<String>,
+        pub client_cidr_block: pulumi_wasm_rust::InputOrOutput<String>,
         /// The options for managing connection authorization for new client connections.
         #[builder(into, default)]
-        pub client_connect_options: pulumi_wasm_rust::Output<
+        pub client_connect_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ec2clientvpn::EndpointClientConnectOptions>,
         >,
         /// Options for enabling a customizable text banner that will be displayed on AWS provided clients when a VPN session is established.
         #[builder(into, default)]
-        pub client_login_banner_options: pulumi_wasm_rust::Output<
+        pub client_login_banner_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ec2clientvpn::EndpointClientLoginBannerOptions>,
         >,
         /// Information about the client connection logging options.
         #[builder(into)]
-        pub connection_log_options: pulumi_wasm_rust::Output<
+        pub connection_log_options: pulumi_wasm_rust::InputOrOutput<
             super::super::types::ec2clientvpn::EndpointConnectionLogOptions,
         >,
         /// A brief description of the Client VPN endpoint.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
         #[builder(into, default)]
-        pub dns_servers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns_servers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
         #[builder(into, default)]
-        pub security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         #[builder(into, default)]
-        pub self_service_portal: pulumi_wasm_rust::Output<Option<String>>,
+        pub self_service_portal: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of the ACM server certificate.
         #[builder(into)]
-        pub server_certificate_arn: pulumi_wasm_rust::Output<String>,
+        pub server_certificate_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The maximum session duration is a trigger by which end-users are required to re-authenticate prior to establishing a VPN session. Default value is `24` - Valid values: `8 | 10 | 12 | 24`
         #[builder(into, default)]
-        pub session_timeout_hours: pulumi_wasm_rust::Output<Option<i32>>,
+        pub session_timeout_hours: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         #[builder(into, default)]
-        pub split_tunnel: pulumi_wasm_rust::Output<Option<bool>>,
+        pub split_tunnel: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The transport protocol to be used by the VPN session. Default value is `udp`.
         #[builder(into, default)]
-        pub transport_protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub transport_protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.
         #[builder(into, default)]
-        pub vpc_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The port number for the Client VPN endpoint. Valid values are `443` and `1194`. Default value is `443`.
         #[builder(into, default)]
-        pub vpn_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub vpn_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct EndpointResult {
@@ -163,27 +163,59 @@ pub mod endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EndpointArgs) -> EndpointResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EndpointArgs,
+    ) -> EndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authentication_options_binding = args.authentication_options.get_inner();
-        let client_cidr_block_binding = args.client_cidr_block.get_inner();
-        let client_connect_options_binding = args.client_connect_options.get_inner();
+        let authentication_options_binding = args
+            .authentication_options
+            .get_output(context)
+            .get_inner();
+        let client_cidr_block_binding = args
+            .client_cidr_block
+            .get_output(context)
+            .get_inner();
+        let client_connect_options_binding = args
+            .client_connect_options
+            .get_output(context)
+            .get_inner();
         let client_login_banner_options_binding = args
             .client_login_banner_options
+            .get_output(context)
             .get_inner();
-        let connection_log_options_binding = args.connection_log_options.get_inner();
-        let description_binding = args.description.get_inner();
-        let dns_servers_binding = args.dns_servers.get_inner();
-        let security_group_ids_binding = args.security_group_ids.get_inner();
-        let self_service_portal_binding = args.self_service_portal.get_inner();
-        let server_certificate_arn_binding = args.server_certificate_arn.get_inner();
-        let session_timeout_hours_binding = args.session_timeout_hours.get_inner();
-        let split_tunnel_binding = args.split_tunnel.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let transport_protocol_binding = args.transport_protocol.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
-        let vpn_port_binding = args.vpn_port.get_inner();
+        let connection_log_options_binding = args
+            .connection_log_options
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let dns_servers_binding = args.dns_servers.get_output(context).get_inner();
+        let security_group_ids_binding = args
+            .security_group_ids
+            .get_output(context)
+            .get_inner();
+        let self_service_portal_binding = args
+            .self_service_portal
+            .get_output(context)
+            .get_inner();
+        let server_certificate_arn_binding = args
+            .server_certificate_arn
+            .get_output(context)
+            .get_inner();
+        let session_timeout_hours_binding = args
+            .session_timeout_hours
+            .get_output(context)
+            .get_inner();
+        let split_tunnel_binding = args.split_tunnel.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let transport_protocol_binding = args
+            .transport_protocol
+            .get_output(context)
+            .get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let vpn_port_binding = args.vpn_port.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2clientvpn/endpoint:Endpoint".into(),
             name: name.to_string(),
@@ -317,7 +349,7 @@ pub mod endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

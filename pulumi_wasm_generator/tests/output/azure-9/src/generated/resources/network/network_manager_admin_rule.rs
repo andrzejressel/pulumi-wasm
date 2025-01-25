@@ -83,45 +83,47 @@
 /// ```
 ///
 pub mod network_manager_admin_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkManagerAdminRuleArgs {
         /// Specifies the action allowed for this Network Manager Admin Rule. Possible values are `Allow`, `AlwaysAllow`, and `Deny`.
         #[builder(into)]
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the ID of the Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule to be created.
         #[builder(into)]
-        pub admin_rule_collection_id: pulumi_wasm_rust::Output<String>,
+        pub admin_rule_collection_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A description of the Network Manager Admin Rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of string specifies the destination port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
         #[builder(into, default)]
-        pub destination_port_ranges: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub destination_port_ranges: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// One or more `destination` blocks as defined below.
         #[builder(into, default)]
-        pub destinations: pulumi_wasm_rust::Output<
+        pub destinations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::network::NetworkManagerAdminRuleDestination>>,
         >,
         /// Indicates if the traffic matched against the rule in inbound or outbound. Possible values are `Inbound` and `Outbound`.
         #[builder(into)]
-        pub direction: pulumi_wasm_rust::Output<String>,
+        pub direction: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name which should be used for this Network Manager Admin Rule. Changing this forces a new Network Manager Admin Rule to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The priority of the rule. Possible values are integers between `1` and `4096`. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Specifies which network protocol this Network Manager Admin Rule applies to. Possible values are `Ah`, `Any`, `Esp`, `Icmp`, `Tcp`, and `Udp`.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port.
         #[builder(into, default)]
-        pub source_port_ranges: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub source_port_ranges: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// One or more `source` blocks as defined below.
         #[builder(into, default)]
-        pub sources: pulumi_wasm_rust::Output<
+        pub sources: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::network::NetworkManagerAdminRuleSource>>,
         >,
     }
@@ -159,22 +161,32 @@ pub mod network_manager_admin_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NetworkManagerAdminRuleArgs,
     ) -> NetworkManagerAdminRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_inner();
-        let admin_rule_collection_id_binding = args.admin_rule_collection_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let destination_port_ranges_binding = args.destination_port_ranges.get_inner();
-        let destinations_binding = args.destinations.get_inner();
-        let direction_binding = args.direction.get_inner();
-        let name_binding = args.name.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let source_port_ranges_binding = args.source_port_ranges.get_inner();
-        let sources_binding = args.sources.get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
+        let admin_rule_collection_id_binding = args
+            .admin_rule_collection_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let destination_port_ranges_binding = args
+            .destination_port_ranges
+            .get_output(context)
+            .get_inner();
+        let destinations_binding = args.destinations.get_output(context).get_inner();
+        let direction_binding = args.direction.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let source_port_ranges_binding = args
+            .source_port_ranges
+            .get_output(context)
+            .get_inner();
+        let sources_binding = args.sources.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkManagerAdminRule:NetworkManagerAdminRule"
                 .into(),
@@ -262,7 +274,7 @@ pub mod network_manager_admin_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

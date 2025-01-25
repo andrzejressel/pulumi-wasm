@@ -1,19 +1,19 @@
 pub mod get_quicksight_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetQuicksightGroupArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the group that you want to match.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub group_name: pulumi_wasm_rust::Output<String>,
+        pub group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// QuickSight namespace. Defaults to `default`.
         #[builder(into, default)]
-        pub namespace: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetQuicksightGroupResult {
@@ -33,12 +33,15 @@ pub mod get_quicksight_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetQuicksightGroupArgs) -> GetQuicksightGroupResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetQuicksightGroupArgs,
+    ) -> GetQuicksightGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_inner();
-        let group_name_binding = args.group_name.get_inner();
-        let namespace_binding = args.namespace.get_inner();
+        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
+        let group_name_binding = args.group_name.get_output(context).get_inner();
+        let namespace_binding = args.namespace.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:quicksight/getQuicksightGroup:getQuicksightGroup".into(),
             version: super::super::super::get_version(),
@@ -80,7 +83,7 @@ pub mod get_quicksight_group {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -21,19 +21,19 @@
 /// $ pulumi import aws:securityhub/account:Account example 123456789012
 /// ```
 pub mod account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountArgs {
         /// Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
         #[builder(into, default)]
-        pub auto_enable_controls: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_enable_controls: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         #[builder(into, default)]
-        pub control_finding_generator: pulumi_wasm_rust::Output<Option<String>>,
+        pub control_finding_generator: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
         #[builder(into, default)]
-        pub enable_default_standards: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_default_standards: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct AccountResult {
@@ -50,14 +50,25 @@ pub mod account {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccountArgs) -> AccountResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccountArgs,
+    ) -> AccountResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_enable_controls_binding = args.auto_enable_controls.get_inner();
+        let auto_enable_controls_binding = args
+            .auto_enable_controls
+            .get_output(context)
+            .get_inner();
         let control_finding_generator_binding = args
             .control_finding_generator
+            .get_output(context)
             .get_inner();
-        let enable_default_standards_binding = args.enable_default_standards.get_inner();
+        let enable_default_standards_binding = args
+            .enable_default_standards
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/account:Account".into(),
             name: name.to_string(),
@@ -91,7 +102,7 @@ pub mod account {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -28,54 +28,54 @@
 /// $ pulumi import aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration example 5f4f15d2-b958-522a-8333-124aa8bf0925
 /// ```
 pub mod teams_channel_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TeamsChannelConfigurationArgs {
         /// ID of the Microsoft Teams channel.
         #[builder(into)]
-        pub channel_id: pulumi_wasm_rust::Output<String>,
+        pub channel_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the Microsoft Teams channel.
         #[builder(into, default)]
-        pub channel_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub channel_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the Microsoft Teams channel configuration.
         #[builder(into)]
-        pub configuration_name: pulumi_wasm_rust::Output<String>,
+        pub configuration_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of IAM policy ARNs that are applied as channel guardrails. The AWS managed `AdministratorAccess` policy is applied by default if this is not set.
         #[builder(into, default)]
-        pub guardrail_policy_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub guardrail_policy_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// ARN of the IAM role that defines the permissions for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is not the service-linked role.
         #[builder(into)]
-        pub iam_role_arn: pulumi_wasm_rust::Output<String>,
+        pub iam_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Logging levels include `ERROR`, `INFO`, or `NONE`.
         #[builder(into, default)]
-        pub logging_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub logging_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
         #[builder(into, default)]
-        pub sns_topic_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub sns_topic_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Map of tags assigned to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
         #[builder(into)]
-        pub team_id: pulumi_wasm_rust::Output<String>,
+        pub team_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the Microsoft Teams team.
         #[builder(into, default)]
-        pub team_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub team_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the Microsoft Teams tenant.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::chatbot::TeamsChannelConfigurationTimeouts>,
         >,
         /// Enables use of a user role requirement in your chat configuration.
         #[builder(into, default)]
-        pub user_authorization_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub user_authorization_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct TeamsChannelConfigurationResult {
@@ -122,25 +122,33 @@ pub mod teams_channel_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TeamsChannelConfigurationArgs,
     ) -> TeamsChannelConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let channel_id_binding = args.channel_id.get_inner();
-        let channel_name_binding = args.channel_name.get_inner();
-        let configuration_name_binding = args.configuration_name.get_inner();
-        let guardrail_policy_arns_binding = args.guardrail_policy_arns.get_inner();
-        let iam_role_arn_binding = args.iam_role_arn.get_inner();
-        let logging_level_binding = args.logging_level.get_inner();
-        let sns_topic_arns_binding = args.sns_topic_arns.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let team_id_binding = args.team_id.get_inner();
-        let team_name_binding = args.team_name.get_inner();
-        let tenant_id_binding = args.tenant_id.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let channel_id_binding = args.channel_id.get_output(context).get_inner();
+        let channel_name_binding = args.channel_name.get_output(context).get_inner();
+        let configuration_name_binding = args
+            .configuration_name
+            .get_output(context)
+            .get_inner();
+        let guardrail_policy_arns_binding = args
+            .guardrail_policy_arns
+            .get_output(context)
+            .get_inner();
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
+        let logging_level_binding = args.logging_level.get_output(context).get_inner();
+        let sns_topic_arns_binding = args.sns_topic_arns.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let team_id_binding = args.team_id.get_output(context).get_inner();
+        let team_name_binding = args.team_name.get_output(context).get_inner();
+        let tenant_id_binding = args.tenant_id.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let user_authorization_required_binding = args
             .user_authorization_required
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration"
@@ -249,7 +257,7 @@ pub mod teams_channel_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

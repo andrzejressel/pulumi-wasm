@@ -1,17 +1,17 @@
 pub mod get_query_suggestions_block_list {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetQuerySuggestionsBlockListArgs {
         /// Identifier of the index that contains the block list.
         #[builder(into)]
-        pub index_id: pulumi_wasm_rust::Output<String>,
+        pub index_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifier of the block list.
         #[builder(into)]
-        pub query_suggestions_block_list_id: pulumi_wasm_rust::Output<String>,
+        pub query_suggestions_block_list_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Metadata that helps organize the block list you create.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -55,15 +55,17 @@ pub mod get_query_suggestions_block_list {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetQuerySuggestionsBlockListArgs,
     ) -> GetQuerySuggestionsBlockListResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let index_id_binding = args.index_id.get_inner();
+        let index_id_binding = args.index_id.get_output(context).get_inner();
         let query_suggestions_block_list_id_binding = args
             .query_suggestions_block_list_id
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList"
                 .into(),
@@ -130,7 +132,7 @@ pub mod get_query_suggestions_block_list {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

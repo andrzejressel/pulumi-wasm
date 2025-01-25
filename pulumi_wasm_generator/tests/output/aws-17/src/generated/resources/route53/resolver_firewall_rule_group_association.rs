@@ -31,30 +31,30 @@
 /// $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
 /// ```
 pub mod resolver_firewall_rule_group_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverFirewallRuleGroupAssociationArgs {
         /// The unique identifier of the firewall rule group.
         #[builder(into)]
-        pub firewall_rule_group_id: pulumi_wasm_rust::Output<String>,
+        pub firewall_rule_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. Valid values: `ENABLED`, `DISABLED`.
         #[builder(into, default)]
-        pub mutation_protection: pulumi_wasm_rust::Output<Option<String>>,
+        pub mutation_protection: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A name that lets you identify the rule group association, to manage and use it.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The unique identifier of the VPC that you want to associate with the rule group.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResolverFirewallRuleGroupAssociationResult {
@@ -84,17 +84,24 @@ pub mod resolver_firewall_rule_group_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ResolverFirewallRuleGroupAssociationArgs,
     ) -> ResolverFirewallRuleGroupAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let firewall_rule_group_id_binding = args.firewall_rule_group_id.get_inner();
-        let mutation_protection_binding = args.mutation_protection.get_inner();
-        let name_binding = args.name.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let firewall_rule_group_id_binding = args
+            .firewall_rule_group_id
+            .get_output(context)
+            .get_inner();
+        let mutation_protection_binding = args
+            .mutation_protection
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation"
                 .into(),
@@ -153,7 +160,7 @@ pub mod resolver_firewall_rule_group_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -47,25 +47,25 @@
 /// ```
 ///
 pub mod tag_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TagKeyArgs {
         /// User-assigned description of the TagKey. Must not exceed 256 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Input only. The resource name of the new TagKey's parent. Must be of the form organizations/{org_id} or projects/{project_id_or_number}.
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. A purpose cannot be changed once set.
         /// A purpose denotes that this Tag is intended for use in policies of a specific policy engine, and will involve that policy engine in management operations involving this Tag.
         /// Possible values are: `GCE_FIREWALL`.
         #[builder(into, default)]
-        pub purpose: pulumi_wasm_rust::Output<Option<String>>,
+        pub purpose: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Purpose data cannot be changed once set.
         /// Purpose data corresponds to the policy system that the tag is intended for. For example, the GCE_FIREWALL purpose expects data in the following format: `network = "<project-name>/<vpc-name>"`.
         #[builder(into, default)]
-        pub purpose_data: pulumi_wasm_rust::Output<
+        pub purpose_data: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Input only. The user friendly name for a TagKey. The short name should be unique for TagKeys within the same tag namespace.
@@ -74,7 +74,7 @@ pub mod tag_key {
         ///
         /// - - -
         #[builder(into)]
-        pub short_name: pulumi_wasm_rust::Output<String>,
+        pub short_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TagKeyResult {
@@ -112,14 +112,18 @@ pub mod tag_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TagKeyArgs) -> TagKeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TagKeyArgs,
+    ) -> TagKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let purpose_binding = args.purpose.get_inner();
-        let purpose_data_binding = args.purpose_data.get_inner();
-        let short_name_binding = args.short_name.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let purpose_binding = args.purpose.get_output(context).get_inner();
+        let purpose_data_binding = args.purpose_data.get_output(context).get_inner();
+        let short_name_binding = args.short_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:tags/tagKey:TagKey".into(),
             name: name.to_string(),
@@ -176,7 +180,7 @@ pub mod tag_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

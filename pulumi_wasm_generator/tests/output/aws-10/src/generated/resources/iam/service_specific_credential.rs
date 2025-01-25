@@ -29,19 +29,19 @@
 /// $ pulumi import aws:iam/serviceSpecificCredential:ServiceSpecificCredential default `codecommit.amazonaws.com:example:some-id`
 /// ```
 pub mod service_specific_credential {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceSpecificCredentialArgs {
         /// The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
         #[builder(into)]
-        pub service_name: pulumi_wasm_rust::Output<String>,
+        pub service_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The status to be assigned to the service-specific credential. Valid values are `Active` and `Inactive`. Default value is `Active`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServiceSpecificCredentialResult {
@@ -63,14 +63,15 @@ pub mod service_specific_credential {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ServiceSpecificCredentialArgs,
     ) -> ServiceSpecificCredentialResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let service_name_binding = args.service_name.get_inner();
-        let status_binding = args.status.get_inner();
-        let user_name_binding = args.user_name.get_inner();
+        let service_name_binding = args.service_name.get_output(context).get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let user_name_binding = args.user_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/serviceSpecificCredential:ServiceSpecificCredential".into(),
             name: name.to_string(),
@@ -110,7 +111,7 @@ pub mod service_specific_credential {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

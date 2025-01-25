@@ -87,49 +87,49 @@
 /// ```
 ///
 pub mod nat_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NatRuleArgs {
         /// Specifies a reference to backendAddressPool resource.
         #[builder(into, default)]
-        pub backend_address_pool_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub backend_address_pool_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
         #[builder(into)]
-        pub backend_port: pulumi_wasm_rust::Output<i32>,
+        pub backend_port: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         #[builder(into, default)]
-        pub enable_floating_ip: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_floating_ip: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Is TCP Reset enabled for this Load Balancer Rule?
         #[builder(into, default)]
-        pub enable_tcp_reset: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_tcp_reset: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the frontend IP configuration exposing this rule.
         #[builder(into)]
-        pub frontend_ip_configuration_name: pulumi_wasm_rust::Output<String>,
+        pub frontend_ip_configuration_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
         #[builder(into, default)]
-        pub frontend_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub frontend_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
         #[builder(into, default)]
-        pub frontend_port_end: pulumi_wasm_rust::Output<Option<i32>>,
+        pub frontend_port_end: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive.
         #[builder(into, default)]
-        pub frontend_port_start: pulumi_wasm_rust::Output<Option<i32>>,
+        pub frontend_port_start: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
         #[builder(into, default)]
-        pub idle_timeout_in_minutes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub idle_timeout_in_minutes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub loadbalancer_id: pulumi_wasm_rust::Output<String>,
+        pub loadbalancer_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the NAT Rule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NatRuleResult {
@@ -166,24 +166,53 @@ pub mod nat_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NatRuleArgs) -> NatRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NatRuleArgs,
+    ) -> NatRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backend_address_pool_id_binding = args.backend_address_pool_id.get_inner();
-        let backend_port_binding = args.backend_port.get_inner();
-        let enable_floating_ip_binding = args.enable_floating_ip.get_inner();
-        let enable_tcp_reset_binding = args.enable_tcp_reset.get_inner();
+        let backend_address_pool_id_binding = args
+            .backend_address_pool_id
+            .get_output(context)
+            .get_inner();
+        let backend_port_binding = args.backend_port.get_output(context).get_inner();
+        let enable_floating_ip_binding = args
+            .enable_floating_ip
+            .get_output(context)
+            .get_inner();
+        let enable_tcp_reset_binding = args
+            .enable_tcp_reset
+            .get_output(context)
+            .get_inner();
         let frontend_ip_configuration_name_binding = args
             .frontend_ip_configuration_name
+            .get_output(context)
             .get_inner();
-        let frontend_port_binding = args.frontend_port.get_inner();
-        let frontend_port_end_binding = args.frontend_port_end.get_inner();
-        let frontend_port_start_binding = args.frontend_port_start.get_inner();
-        let idle_timeout_in_minutes_binding = args.idle_timeout_in_minutes.get_inner();
-        let loadbalancer_id_binding = args.loadbalancer_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let frontend_port_binding = args.frontend_port.get_output(context).get_inner();
+        let frontend_port_end_binding = args
+            .frontend_port_end
+            .get_output(context)
+            .get_inner();
+        let frontend_port_start_binding = args
+            .frontend_port_start
+            .get_output(context)
+            .get_inner();
+        let idle_timeout_in_minutes_binding = args
+            .idle_timeout_in_minutes
+            .get_output(context)
+            .get_inner();
+        let loadbalancer_id_binding = args
+            .loadbalancer_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:lb/natRule:NatRule".into(),
             name: name.to_string(),
@@ -290,7 +319,7 @@ pub mod nat_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

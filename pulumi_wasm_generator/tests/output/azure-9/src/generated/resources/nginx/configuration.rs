@@ -110,29 +110,29 @@
 /// ```
 ///
 pub mod configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationArgs {
         /// One or more `config_file` blocks as defined below.
         #[builder(into, default)]
-        pub config_files: pulumi_wasm_rust::Output<
+        pub config_files: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::nginx::ConfigurationConfigFile>>,
         >,
         /// The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created.
         #[builder(into)]
-        pub nginx_deployment_id: pulumi_wasm_rust::Output<String>,
+        pub nginx_deployment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the package data for this configuration.
         #[builder(into, default)]
-        pub package_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub package_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified.
         #[builder(into, default)]
-        pub protected_files: pulumi_wasm_rust::Output<
+        pub protected_files: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::nginx::ConfigurationProtectedFile>>,
         >,
         /// Specifies the root file path of this Nginx Configuration.
         #[builder(into)]
-        pub root_file: pulumi_wasm_rust::Output<String>,
+        pub root_file: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConfigurationResult {
@@ -155,14 +155,24 @@ pub mod configuration {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConfigurationArgs) -> ConfigurationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConfigurationArgs,
+    ) -> ConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let config_files_binding = args.config_files.get_inner();
-        let nginx_deployment_id_binding = args.nginx_deployment_id.get_inner();
-        let package_data_binding = args.package_data.get_inner();
-        let protected_files_binding = args.protected_files.get_inner();
-        let root_file_binding = args.root_file.get_inner();
+        let config_files_binding = args.config_files.get_output(context).get_inner();
+        let nginx_deployment_id_binding = args
+            .nginx_deployment_id
+            .get_output(context)
+            .get_inner();
+        let package_data_binding = args.package_data.get_output(context).get_inner();
+        let protected_files_binding = args
+            .protected_files
+            .get_output(context)
+            .get_inner();
+        let root_file_binding = args.root_file.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:nginx/configuration:Configuration".into(),
             name: name.to_string(),
@@ -207,7 +217,7 @@ pub mod configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

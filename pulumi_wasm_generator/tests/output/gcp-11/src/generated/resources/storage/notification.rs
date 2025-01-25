@@ -71,27 +71,27 @@
 /// ```
 ///
 pub mod notification {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NotificationArgs {
         /// The name of the bucket.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// A set of key/value attribute pairs to attach to each Cloud PubSub message published for this notification subscription
         #[builder(into, default)]
-        pub custom_attributes: pulumi_wasm_rust::Output<
+        pub custom_attributes: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of event type filters for this notification config. If not specified, Cloud Storage will send notifications for all event types. The valid types are: `"OBJECT_FINALIZE"`, `"OBJECT_METADATA_UPDATE"`, `"OBJECT_DELETE"`, `"OBJECT_ARCHIVE"`
         #[builder(into, default)]
-        pub event_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub event_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies a prefix path filter for this notification config. Cloud Storage will only send notifications for objects in this bucket whose names begin with the specified prefix.
         #[builder(into, default)]
-        pub object_name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub object_name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The desired content of the Payload. One of `"JSON_API_V1"` or `"NONE"`.
         #[builder(into)]
-        pub payload_format: pulumi_wasm_rust::Output<String>,
+        pub payload_format: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Cloud PubSub topic to which this subscription publishes. Expects either the
         /// topic name, assumed to belong to the default GCP provider project, or the project-level name,
         /// i.e. `projects/my-gcp-project/topics/my-topic` or `my-topic`. If the project is not set in the provider,
@@ -99,7 +99,7 @@ pub mod notification {
         ///
         /// - - -
         #[builder(into)]
-        pub topic: pulumi_wasm_rust::Output<String>,
+        pub topic: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NotificationResult {
@@ -131,15 +131,25 @@ pub mod notification {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NotificationArgs) -> NotificationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NotificationArgs,
+    ) -> NotificationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let custom_attributes_binding = args.custom_attributes.get_inner();
-        let event_types_binding = args.event_types.get_inner();
-        let object_name_prefix_binding = args.object_name_prefix.get_inner();
-        let payload_format_binding = args.payload_format.get_inner();
-        let topic_binding = args.topic.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let custom_attributes_binding = args
+            .custom_attributes
+            .get_output(context)
+            .get_inner();
+        let event_types_binding = args.event_types.get_output(context).get_inner();
+        let object_name_prefix_binding = args
+            .object_name_prefix
+            .get_output(context)
+            .get_inner();
+        let payload_format_binding = args.payload_format.get_output(context).get_inner();
+        let topic_binding = args.topic.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/notification:Notification".into(),
             name: name.to_string(),
@@ -197,7 +207,7 @@ pub mod notification {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

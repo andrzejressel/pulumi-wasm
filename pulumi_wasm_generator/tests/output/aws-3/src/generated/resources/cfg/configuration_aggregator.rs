@@ -73,23 +73,23 @@
 /// $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
 /// ```
 pub mod configuration_aggregator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationAggregatorArgs {
         /// The account(s) to aggregate config data from as documented below.
         #[builder(into, default)]
-        pub account_aggregation_source: pulumi_wasm_rust::Output<
+        pub account_aggregation_source: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::cfg::ConfigurationAggregatorAccountAggregationSource,
             >,
         >,
         /// The name of the configuration aggregator.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The organization to aggregate config data from as documented below.
         #[builder(into, default)]
-        pub organization_aggregation_source: pulumi_wasm_rust::Output<
+        pub organization_aggregation_source: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::cfg::ConfigurationAggregatorOrganizationAggregationSource,
             >,
@@ -98,7 +98,7 @@ pub mod configuration_aggregator {
         ///
         /// Either `account_aggregation_source` or `organization_aggregation_source` must be specified.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -136,6 +136,7 @@ pub mod configuration_aggregator {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ConfigurationAggregatorArgs,
     ) -> ConfigurationAggregatorResult {
@@ -143,12 +144,14 @@ pub mod configuration_aggregator {
         use std::collections::HashMap;
         let account_aggregation_source_binding = args
             .account_aggregation_source
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let organization_aggregation_source_binding = args
             .organization_aggregation_source
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/configurationAggregator:ConfigurationAggregator".into(),
             name: name.to_string(),
@@ -192,7 +195,7 @@ pub mod configuration_aggregator {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

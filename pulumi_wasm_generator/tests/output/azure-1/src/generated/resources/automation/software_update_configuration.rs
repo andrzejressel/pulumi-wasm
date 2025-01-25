@@ -63,55 +63,57 @@
 /// ```
 ///
 pub mod software_update_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SoftwareUpdateConfigurationArgs {
         /// The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
         #[builder(into)]
-        pub automation_account_id: pulumi_wasm_rust::Output<String>,
+        pub automation_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
         #[builder(into, default)]
-        pub duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `linux` block as defined below.
         #[builder(into, default)]
-        pub linux: pulumi_wasm_rust::Output<
+        pub linux: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::automation::SoftwareUpdateConfigurationLinux>,
         >,
         /// The name which should be used for this Automation. Changing this forces a new Automation to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of names of non-Azure machines for the software update configuration.
         #[builder(into, default)]
-        pub non_azure_computer_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub non_azure_computer_names: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// A `post_task` blocks as defined below.
         #[builder(into, default)]
-        pub post_task: pulumi_wasm_rust::Output<
+        pub post_task: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::automation::SoftwareUpdateConfigurationPostTask>,
         >,
         /// A `pre_task` blocks as defined below.
         #[builder(into, default)]
-        pub pre_task: pulumi_wasm_rust::Output<
+        pub pre_task: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::automation::SoftwareUpdateConfigurationPreTask>,
         >,
         /// A `schedule` blocks as defined below.
         #[builder(into)]
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_wasm_rust::InputOrOutput<
             super::super::types::automation::SoftwareUpdateConfigurationSchedule,
         >,
         /// A `target` blocks as defined below.
         #[builder(into, default)]
-        pub target: pulumi_wasm_rust::Output<
+        pub target: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::automation::SoftwareUpdateConfigurationTarget>,
         >,
         /// Specifies a list of Azure Resource IDs of azure virtual machines.
         #[builder(into, default)]
-        pub virtual_machine_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub virtual_machine_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A `windows` block as defined below.
         ///
         /// > **NOTE:** One of `linux` or `windows` must be specified.
         #[builder(into, default)]
-        pub windows: pulumi_wasm_rust::Output<
+        pub windows: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::automation::SoftwareUpdateConfigurationWindows>,
         >,
     }
@@ -163,22 +165,32 @@ pub mod software_update_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SoftwareUpdateConfigurationArgs,
     ) -> SoftwareUpdateConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let automation_account_id_binding = args.automation_account_id.get_inner();
-        let duration_binding = args.duration.get_inner();
-        let linux_binding = args.linux.get_inner();
-        let name_binding = args.name.get_inner();
-        let non_azure_computer_names_binding = args.non_azure_computer_names.get_inner();
-        let post_task_binding = args.post_task.get_inner();
-        let pre_task_binding = args.pre_task.get_inner();
-        let schedule_binding = args.schedule.get_inner();
-        let target_binding = args.target.get_inner();
-        let virtual_machine_ids_binding = args.virtual_machine_ids.get_inner();
-        let windows_binding = args.windows.get_inner();
+        let automation_account_id_binding = args
+            .automation_account_id
+            .get_output(context)
+            .get_inner();
+        let duration_binding = args.duration.get_output(context).get_inner();
+        let linux_binding = args.linux.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let non_azure_computer_names_binding = args
+            .non_azure_computer_names
+            .get_output(context)
+            .get_inner();
+        let post_task_binding = args.post_task.get_output(context).get_inner();
+        let pre_task_binding = args.pre_task.get_output(context).get_inner();
+        let schedule_binding = args.schedule.get_output(context).get_inner();
+        let target_binding = args.target.get_output(context).get_inner();
+        let virtual_machine_ids_binding = args
+            .virtual_machine_ids
+            .get_output(context)
+            .get_inner();
+        let windows_binding = args.windows.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration"
                 .into(),
@@ -272,7 +284,7 @@ pub mod software_update_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

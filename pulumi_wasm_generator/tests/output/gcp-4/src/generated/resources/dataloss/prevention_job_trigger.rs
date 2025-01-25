@@ -741,36 +741,36 @@
 /// ```
 ///
 pub mod prevention_job_trigger {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PreventionJobTriggerArgs {
         /// A description of the job trigger.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User set display name of the job trigger.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Controls what and how to inspect for findings.
         #[builder(into, default)]
-        pub inspect_job: pulumi_wasm_rust::Output<
+        pub inspect_job: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataloss::PreventionJobTriggerInspectJob>,
         >,
         /// The parent of the trigger, either in the format `projects/{{project}}`
         /// or `projects/{{project}}/locations/{{location}}`
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether the trigger is currently active. Default value: "HEALTHY" Possible values: ["PAUSED", "HEALTHY", "CANCELLED"]
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The trigger id can contain uppercase and lowercase letters, numbers, and hyphens; that is, it must match the regular
         /// expression: [a-zA-Z\d-_]+. The maximum length is 100 characters. Can be empty to allow the system to generate one.
         #[builder(into, default)]
-        pub trigger_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub trigger_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// What event needs to occur for a new job to be started.
         /// Structure is documented below.
         #[builder(into)]
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::dataloss::PreventionJobTriggerTrigger>,
         >,
     }
@@ -811,18 +811,19 @@ pub mod prevention_job_trigger {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PreventionJobTriggerArgs,
     ) -> PreventionJobTriggerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let inspect_job_binding = args.inspect_job.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let status_binding = args.status.get_inner();
-        let trigger_id_binding = args.trigger_id.get_inner();
-        let triggers_binding = args.triggers.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let inspect_job_binding = args.inspect_job.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let trigger_id_binding = args.trigger_id.get_output(context).get_inner();
+        let triggers_binding = args.triggers.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataloss/preventionJobTrigger:PreventionJobTrigger".into(),
             name: name.to_string(),
@@ -893,7 +894,7 @@ pub mod prevention_job_trigger {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

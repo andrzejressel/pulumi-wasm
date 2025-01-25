@@ -63,22 +63,22 @@
 /// When importing using only the name, the provider project must be set.
 ///
 pub mod variable {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VariableArgs {
         /// The name of the variable to manage. Note that variable
         /// names can be hierarchical using slashes (e.g. "prod-variables/hostname").
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the RuntimeConfig resource containing this
         /// variable.
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// or `value` - (Required) The content to associate with the variable.
         /// Exactly one of `text` or `variable` must be specified. If `text` is specified,
         /// it must be a valid UTF-8 string and less than 4096 bytes in length. If `value`
@@ -86,9 +86,9 @@ pub mod variable {
         ///
         /// - - -
         #[builder(into, default)]
-        pub text: pulumi_wasm_rust::Output<Option<String>>,
+        pub text: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub value: pulumi_wasm_rust::Output<Option<String>>,
+        pub value: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VariableResult {
@@ -118,14 +118,18 @@ pub mod variable {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VariableArgs) -> VariableResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VariableArgs,
+    ) -> VariableResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let project_binding = args.project.get_inner();
-        let text_binding = args.text.get_inner();
-        let value_binding = args.value.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let text_binding = args.text.get_output(context).get_inner();
+        let value_binding = args.value.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:runtimeconfig/variable:Variable".into(),
             name: name.to_string(),
@@ -173,7 +177,7 @@ pub mod variable {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

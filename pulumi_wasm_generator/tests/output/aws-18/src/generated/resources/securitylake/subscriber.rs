@@ -43,36 +43,36 @@
 /// $ pulumi import aws:securitylake/subscriber:Subscriber example 9f3bfe79-d543-474d-a93c-f3846805d208
 /// ```
 pub mod subscriber {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriberArgs {
         /// The Amazon S3 or Lake Formation access type.
         #[builder(into, default)]
-        pub access_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         #[builder(into, default)]
-        pub source: pulumi_wasm_rust::Output<
+        pub source: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::securitylake::SubscriberSource>,
         >,
         /// The description for your subscriber account in Security Lake.
         #[builder(into, default)]
-        pub subscriber_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub subscriber_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The AWS identity used to access your data. See `subscriber_identity` Block below.
         #[builder(into, default)]
-        pub subscriber_identity: pulumi_wasm_rust::Output<
+        pub subscriber_identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::securitylake::SubscriberSubscriberIdentity>,
         >,
         /// The name of your Security Lake subscriber account.
         #[builder(into, default)]
-        pub subscriber_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub subscriber_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::securitylake::SubscriberTimeouts>,
         >,
     }
@@ -122,16 +122,29 @@ pub mod subscriber {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SubscriberArgs) -> SubscriberResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SubscriberArgs,
+    ) -> SubscriberResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_type_binding = args.access_type.get_inner();
-        let source_binding = args.source.get_inner();
-        let subscriber_description_binding = args.subscriber_description.get_inner();
-        let subscriber_identity_binding = args.subscriber_identity.get_inner();
-        let subscriber_name_binding = args.subscriber_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let access_type_binding = args.access_type.get_output(context).get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
+        let subscriber_description_binding = args
+            .subscriber_description
+            .get_output(context)
+            .get_inner();
+        let subscriber_identity_binding = args
+            .subscriber_identity
+            .get_output(context)
+            .get_inner();
+        let subscriber_name_binding = args
+            .subscriber_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securitylake/subscriber:Subscriber".into(),
             name: name.to_string(),
@@ -214,7 +227,7 @@ pub mod subscriber {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

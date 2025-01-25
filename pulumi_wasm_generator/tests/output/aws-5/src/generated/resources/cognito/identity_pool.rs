@@ -44,19 +44,21 @@
 /// $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
 /// ```
 pub mod identity_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IdentityPoolArgs {
         /// Enables or disables the classic / basic authentication flow. Default is `false`.
         #[builder(into, default)]
-        pub allow_classic_flow: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_classic_flow: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether the identity pool supports unauthenticated logins or not.
         #[builder(into, default)]
-        pub allow_unauthenticated_identities: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_unauthenticated_identities: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// An array of Amazon Cognito Identity user pools and their client IDs.
         #[builder(into, default)]
-        pub cognito_identity_providers: pulumi_wasm_rust::Output<
+        pub cognito_identity_providers: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::cognito::IdentityPoolCognitoIdentityProvider>,
             >,
@@ -64,24 +66,26 @@ pub mod identity_pool {
         /// The "domain" by which Cognito will refer to your users. This name acts as a placeholder that allows your
         /// backend and the Cognito service to communicate about the developer provider.
         #[builder(into, default)]
-        pub developer_provider_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub developer_provider_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Cognito Identity Pool name.
         #[builder(into)]
-        pub identity_pool_name: pulumi_wasm_rust::Output<String>,
+        pub identity_pool_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Set of OpendID Connect provider ARNs.
         #[builder(into, default)]
-        pub openid_connect_provider_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub openid_connect_provider_arns: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         #[builder(into, default)]
-        pub saml_provider_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub saml_provider_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Key-Value pairs mapping provider names to provider app IDs.
         #[builder(into, default)]
-        pub supported_login_providers: pulumi_wasm_rust::Output<
+        pub supported_login_providers: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags to assign to the Identity Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -125,26 +129,46 @@ pub mod identity_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: IdentityPoolArgs) -> IdentityPoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: IdentityPoolArgs,
+    ) -> IdentityPoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allow_classic_flow_binding = args.allow_classic_flow.get_inner();
+        let allow_classic_flow_binding = args
+            .allow_classic_flow
+            .get_output(context)
+            .get_inner();
         let allow_unauthenticated_identities_binding = args
             .allow_unauthenticated_identities
+            .get_output(context)
             .get_inner();
         let cognito_identity_providers_binding = args
             .cognito_identity_providers
+            .get_output(context)
             .get_inner();
-        let developer_provider_name_binding = args.developer_provider_name.get_inner();
-        let identity_pool_name_binding = args.identity_pool_name.get_inner();
+        let developer_provider_name_binding = args
+            .developer_provider_name
+            .get_output(context)
+            .get_inner();
+        let identity_pool_name_binding = args
+            .identity_pool_name
+            .get_output(context)
+            .get_inner();
         let openid_connect_provider_arns_binding = args
             .openid_connect_provider_arns
+            .get_output(context)
             .get_inner();
-        let saml_provider_arns_binding = args.saml_provider_arns.get_inner();
+        let saml_provider_arns_binding = args
+            .saml_provider_arns
+            .get_output(context)
+            .get_inner();
         let supported_login_providers_binding = args
             .supported_login_providers
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/identityPool:IdentityPool".into(),
             name: name.to_string(),
@@ -223,7 +247,7 @@ pub mod identity_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

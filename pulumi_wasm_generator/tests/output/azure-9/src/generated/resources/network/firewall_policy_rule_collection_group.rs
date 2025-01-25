@@ -82,13 +82,13 @@
 /// ```
 ///
 pub mod firewall_policy_rule_collection_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FirewallPolicyRuleCollectionGroupArgs {
         /// One or more `application_rule_collection` blocks as defined below.
         #[builder(into, default)]
-        pub application_rule_collections: pulumi_wasm_rust::Output<
+        pub application_rule_collections: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::FirewallPolicyRuleCollectionGroupApplicationRuleCollection,
@@ -97,13 +97,13 @@ pub mod firewall_policy_rule_collection_group {
         >,
         /// The ID of the Firewall Policy where the Firewall Policy Rule Collection Group should exist. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         #[builder(into)]
-        pub firewall_policy_id: pulumi_wasm_rust::Output<String>,
+        pub firewall_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `nat_rule_collection` blocks as defined below.
         #[builder(into, default)]
-        pub nat_rule_collections: pulumi_wasm_rust::Output<
+        pub nat_rule_collections: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::FirewallPolicyRuleCollectionGroupNatRuleCollection,
@@ -112,7 +112,7 @@ pub mod firewall_policy_rule_collection_group {
         >,
         /// One or more `network_rule_collection` blocks as defined below.
         #[builder(into, default)]
-        pub network_rule_collections: pulumi_wasm_rust::Output<
+        pub network_rule_collections: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::FirewallPolicyRuleCollectionGroupNetworkRuleCollection,
@@ -121,7 +121,7 @@ pub mod firewall_policy_rule_collection_group {
         >,
         /// The priority of the Firewall Policy Rule Collection Group. The range is 100-65000.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct FirewallPolicyRuleCollectionGroupResult {
@@ -161,6 +161,7 @@ pub mod firewall_policy_rule_collection_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FirewallPolicyRuleCollectionGroupArgs,
     ) -> FirewallPolicyRuleCollectionGroupResult {
@@ -168,12 +169,22 @@ pub mod firewall_policy_rule_collection_group {
         use std::collections::HashMap;
         let application_rule_collections_binding = args
             .application_rule_collections
+            .get_output(context)
             .get_inner();
-        let firewall_policy_id_binding = args.firewall_policy_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let nat_rule_collections_binding = args.nat_rule_collections.get_inner();
-        let network_rule_collections_binding = args.network_rule_collections.get_inner();
-        let priority_binding = args.priority.get_inner();
+        let firewall_policy_id_binding = args
+            .firewall_policy_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let nat_rule_collections_binding = args
+            .nat_rule_collections
+            .get_output(context)
+            .get_inner();
+        let network_rule_collections_binding = args
+            .network_rule_collections
+            .get_output(context)
+            .get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup"
                 .into(),
@@ -226,7 +237,7 @@ pub mod firewall_policy_rule_collection_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

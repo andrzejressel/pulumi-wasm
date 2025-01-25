@@ -25,22 +25,22 @@
 /// ```
 ///
 pub mod hostname_tls_setting_ciphers {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostnameTlsSettingCiphersArgs {
         /// Hostname that belongs to this zone name. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_wasm_rust::InputOrOutput<String>,
         /// Ports to use within the IP rule.
         #[builder(into, default)]
-        pub ports: pulumi_wasm_rust::Output<Option<Vec<i32>>>,
+        pub ports: pulumi_wasm_rust::InputOrOutput<Option<Vec<i32>>>,
         /// Ciphers suites value.
         #[builder(into)]
-        pub values: pulumi_wasm_rust::Output<Vec<String>>,
+        pub values: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HostnameTlsSettingCiphersResult {
@@ -60,15 +60,16 @@ pub mod hostname_tls_setting_ciphers {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: HostnameTlsSettingCiphersArgs,
     ) -> HostnameTlsSettingCiphersResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let hostname_binding = args.hostname.get_inner();
-        let ports_binding = args.ports.get_inner();
-        let values_binding = args.values.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let hostname_binding = args.hostname.get_output(context).get_inner();
+        let ports_binding = args.ports.get_output(context).get_inner();
+        let values_binding = args.values.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/hostnameTlsSettingCiphers:HostnameTlsSettingCiphers"
                 .into(),
@@ -113,7 +114,7 @@ pub mod hostname_tls_setting_ciphers {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

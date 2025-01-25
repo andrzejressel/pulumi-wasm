@@ -46,45 +46,45 @@
 /// ```
 ///
 pub mod record {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RecordArgs {
         #[builder(into, default)]
-        pub allow_overwrite: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_overwrite: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Comments or notes about the DNS record. This field has no effect on DNS responses.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The content of the record. Must provide only one of `data`, `content`, `value`.
         #[builder(into, default)]
-        pub content: pulumi_wasm_rust::Output<Option<String>>,
+        pub content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of attributes that constitute the record value. Must provide only one of `data`, `content`, `value`.
         #[builder(into, default)]
-        pub data: pulumi_wasm_rust::Output<Option<super::types::RecordData>>,
+        pub data: pulumi_wasm_rust::InputOrOutput<Option<super::types::RecordData>>,
         /// The name of the record. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The priority of the record.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Whether the record gets Cloudflare's origin protection.
         #[builder(into, default)]
-        pub proxied: pulumi_wasm_rust::Output<Option<bool>>,
+        pub proxied: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Custom tags for the DNS record.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The TTL of the record.
         #[builder(into, default)]
-        pub ttl: pulumi_wasm_rust::Output<Option<i32>>,
+        pub ttl: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The type of the record. Available values: `A`, `AAAA`, `CAA`, `CNAME`, `TXT`, `SRV`, `LOC`, `MX`, `NS`, `SPF`, `CERT`, `DNSKEY`, `DS`, `NAPTR`, `SMIMEA`, `SSHFP`, `TLSA`, `URI`, `PTR`, `HTTPS`, `SVCB`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
         /// The value of the record. Must provide only one of `data`, `content`, `value`.
         #[builder(into, default)]
-        pub value: pulumi_wasm_rust::Output<Option<String>>,
+        pub value: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RecordResult {
@@ -128,21 +128,28 @@ pub mod record {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RecordArgs) -> RecordResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RecordArgs,
+    ) -> RecordResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allow_overwrite_binding = args.allow_overwrite.get_inner();
-        let comment_binding = args.comment.get_inner();
-        let content_binding = args.content.get_inner();
-        let data_binding = args.data.get_inner();
-        let name_binding = args.name.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let proxied_binding = args.proxied.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let ttl_binding = args.ttl.get_inner();
-        let type__binding = args.type_.get_inner();
-        let value_binding = args.value.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let allow_overwrite_binding = args
+            .allow_overwrite
+            .get_output(context)
+            .get_inner();
+        let comment_binding = args.comment.get_output(context).get_inner();
+        let content_binding = args.content.get_output(context).get_inner();
+        let data_binding = args.data.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let proxied_binding = args.proxied.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let ttl_binding = args.ttl.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let value_binding = args.value.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/record:Record".into(),
             name: name.to_string(),
@@ -251,7 +258,7 @@ pub mod record {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

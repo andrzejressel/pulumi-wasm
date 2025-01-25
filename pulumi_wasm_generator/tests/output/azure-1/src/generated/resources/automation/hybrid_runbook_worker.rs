@@ -113,25 +113,25 @@
 /// ```
 ///
 pub mod hybrid_runbook_worker {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HybridRunbookWorkerArgs {
         /// The name of the automation account in which the Hybrid Worker is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub automation_account_name: pulumi_wasm_rust::Output<String>,
+        pub automation_account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the virtual machine used for this HybridWorker. Changing this forces a new Automation to be created.
         #[builder(into)]
-        pub vm_resource_id: pulumi_wasm_rust::Output<String>,
+        pub vm_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the HybridWorker Group. Changing this forces a new Automation to be created.
         #[builder(into)]
-        pub worker_group_name: pulumi_wasm_rust::Output<String>,
+        pub worker_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specify the ID of this HybridWorker in UUID notation. Changing this forces a new Automation to be created.
         #[builder(into)]
-        pub worker_id: pulumi_wasm_rust::Output<String>,
+        pub worker_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HybridRunbookWorkerResult {
@@ -161,16 +161,26 @@ pub mod hybrid_runbook_worker {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: HybridRunbookWorkerArgs,
     ) -> HybridRunbookWorkerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let automation_account_name_binding = args.automation_account_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let vm_resource_id_binding = args.vm_resource_id.get_inner();
-        let worker_group_name_binding = args.worker_group_name.get_inner();
-        let worker_id_binding = args.worker_id.get_inner();
+        let automation_account_name_binding = args
+            .automation_account_name
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let vm_resource_id_binding = args.vm_resource_id.get_output(context).get_inner();
+        let worker_group_name_binding = args
+            .worker_group_name
+            .get_output(context)
+            .get_inner();
+        let worker_id_binding = args.worker_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:automation/hybridRunbookWorker:HybridRunbookWorker".into(),
             name: name.to_string(),
@@ -230,7 +240,7 @@ pub mod hybrid_runbook_worker {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

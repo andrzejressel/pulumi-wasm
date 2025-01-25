@@ -48,29 +48,29 @@
 /// ```
 ///
 pub mod api_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiConnectionArgs {
         /// A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         #[builder(into)]
-        pub managed_api_id: pulumi_wasm_rust::Output<String>,
+        pub managed_api_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub parameter_values: pulumi_wasm_rust::Output<
+        pub parameter_values: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the API Connection.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -96,15 +96,25 @@ pub mod api_connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApiConnectionArgs) -> ApiConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApiConnectionArgs,
+    ) -> ApiConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_inner();
-        let managed_api_id_binding = args.managed_api_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let parameter_values_binding = args.parameter_values.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let managed_api_id_binding = args.managed_api_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parameter_values_binding = args
+            .parameter_values
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:connections/apiConnection:ApiConnection".into(),
             name: name.to_string(),
@@ -156,7 +166,7 @@ pub mod api_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -28,19 +28,19 @@
 /// $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
 /// ```
 pub mod link_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkAssociationArgs {
         /// The ID of the device.
         #[builder(into)]
-        pub device_id: pulumi_wasm_rust::Output<String>,
+        pub device_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the global network.
         #[builder(into)]
-        pub global_network_id: pulumi_wasm_rust::Output<String>,
+        pub global_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the link.
         #[builder(into)]
-        pub link_id: pulumi_wasm_rust::Output<String>,
+        pub link_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LinkAssociationResult {
@@ -55,12 +55,19 @@ pub mod link_association {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LinkAssociationArgs) -> LinkAssociationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LinkAssociationArgs,
+    ) -> LinkAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let device_id_binding = args.device_id.get_inner();
-        let global_network_id_binding = args.global_network_id.get_inner();
-        let link_id_binding = args.link_id.get_inner();
+        let device_id_binding = args.device_id.get_output(context).get_inner();
+        let global_network_id_binding = args
+            .global_network_id
+            .get_output(context)
+            .get_inner();
+        let link_id_binding = args.link_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/linkAssociation:LinkAssociation".into(),
             name: name.to_string(),
@@ -91,7 +98,7 @@ pub mod link_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

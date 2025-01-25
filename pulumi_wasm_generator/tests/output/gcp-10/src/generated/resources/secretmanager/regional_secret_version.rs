@@ -114,7 +114,7 @@
 /// ```
 ///
 pub mod regional_secret_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionalSecretVersionArgs {
@@ -125,23 +125,23 @@ pub mod regional_secret_version {
         /// * DISABLE
         /// * ABANDON
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The current state of the regional secret version.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If set to 'true', the secret data is expected to be base64-encoded string and would be sent as is.
         #[builder(into, default)]
-        pub is_secret_data_base64: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_secret_data_base64: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Secret Manager regional secret resource.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub secret: pulumi_wasm_rust::Output<String>,
+        pub secret: pulumi_wasm_rust::InputOrOutput<String>,
         /// The secret data. Must be no larger than 64KiB.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
         #[builder(into)]
-        pub secret_data: pulumi_wasm_rust::Output<String>,
+        pub secret_data: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RegionalSecretVersionResult {
@@ -188,16 +188,23 @@ pub mod regional_secret_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RegionalSecretVersionArgs,
     ) -> RegionalSecretVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let deletion_policy_binding = args.deletion_policy.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let is_secret_data_base64_binding = args.is_secret_data_base64.get_inner();
-        let secret_binding = args.secret.get_inner();
-        let secret_data_binding = args.secret_data.get_inner();
+        let deletion_policy_binding = args
+            .deletion_policy
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let is_secret_data_base64_binding = args
+            .is_secret_data_base64
+            .get_output(context)
+            .get_inner();
+        let secret_binding = args.secret.get_output(context).get_inner();
+        let secret_data_binding = args.secret_data.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:secretmanager/regionalSecretVersion:RegionalSecretVersion"
                 .into(),
@@ -261,7 +268,7 @@ pub mod regional_secret_version {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

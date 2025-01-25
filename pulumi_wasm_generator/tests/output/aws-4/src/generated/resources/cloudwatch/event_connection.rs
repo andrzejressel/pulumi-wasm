@@ -184,24 +184,24 @@
 /// $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
 /// ```
 pub mod event_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventConnectionArgs {
         /// Parameters used for authorization. A maximum of 1 are allowed. Documented below.
         #[builder(into)]
-        pub auth_parameters: pulumi_wasm_rust::Output<
+        pub auth_parameters: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudwatch::EventConnectionAuthParameters,
         >,
         /// Choose the type of authorization to use for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
         #[builder(into)]
-        pub authorization_type: pulumi_wasm_rust::Output<String>,
+        pub authorization_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Enter a description for the connection. Maximum of 512 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the new connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EventConnectionResult {
@@ -224,13 +224,23 @@ pub mod event_connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EventConnectionArgs) -> EventConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EventConnectionArgs,
+    ) -> EventConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auth_parameters_binding = args.auth_parameters.get_inner();
-        let authorization_type_binding = args.authorization_type.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
+        let auth_parameters_binding = args
+            .auth_parameters
+            .get_output(context)
+            .get_inner();
+        let authorization_type_binding = args
+            .authorization_type
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/eventConnection:EventConnection".into(),
             name: name.to_string(),
@@ -274,7 +284,7 @@ pub mod event_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

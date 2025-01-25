@@ -109,22 +109,22 @@
 /// $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
 /// ```
 pub mod game_server_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GameServerGroupArgs {
         #[builder(into, default)]
-        pub auto_scaling_policy: pulumi_wasm_rust::Output<
+        pub auto_scaling_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gamelift::GameServerGroupAutoScalingPolicy>,
         >,
         /// Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
         /// Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
         #[builder(into, default)]
-        pub balancing_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub balancing_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the game server group.
         /// This value is used to generate unique ARN identifiers for the EC2 Auto Scaling group and the GameLift FleetIQ game server group.
         #[builder(into)]
-        pub game_server_group_name: pulumi_wasm_rust::Output<String>,
+        pub game_server_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indicates whether instances in the game server group are protected from early termination.
         /// Unprotected instances that have active game servers running might be terminated during a scale-down event,
         /// causing players to be dropped from the game.
@@ -132,35 +132,37 @@ pub mod game_server_group {
         /// of a forced game server group deletion.
         /// Valid values: `NO_PROTECTION`, `FULL_PROTECTION`. Defaults to `NO_PROTECTION`.
         #[builder(into, default)]
-        pub game_server_protection_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub game_server_protection_policy: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         #[builder(into)]
-        pub instance_definitions: pulumi_wasm_rust::Output<
+        pub instance_definitions: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::gamelift::GameServerGroupInstanceDefinition>,
         >,
         #[builder(into)]
-        pub launch_template: pulumi_wasm_rust::Output<
+        pub launch_template: pulumi_wasm_rust::InputOrOutput<
             super::super::types::gamelift::GameServerGroupLaunchTemplate,
         >,
         /// The maximum number of instances allowed in the EC2 Auto Scaling group.
         /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale up the group above this maximum.
         #[builder(into)]
-        pub max_size: pulumi_wasm_rust::Output<i32>,
+        pub max_size: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The minimum number of instances allowed in the EC2 Auto Scaling group.
         /// During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
         #[builder(into)]
-        pub min_size: pulumi_wasm_rust::Output<i32>,
+        pub min_size: pulumi_wasm_rust::InputOrOutput<i32>,
         /// ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of VPC subnets to use with instances in the game server group.
         /// By default, all GameLift FleetIQ-supported Availability Zones are used.
         #[builder(into, default)]
-        pub vpc_subnets: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub vpc_subnets: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct GameServerGroupResult {
@@ -213,22 +215,42 @@ pub mod game_server_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GameServerGroupArgs) -> GameServerGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GameServerGroupArgs,
+    ) -> GameServerGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_scaling_policy_binding = args.auto_scaling_policy.get_inner();
-        let balancing_strategy_binding = args.balancing_strategy.get_inner();
-        let game_server_group_name_binding = args.game_server_group_name.get_inner();
+        let auto_scaling_policy_binding = args
+            .auto_scaling_policy
+            .get_output(context)
+            .get_inner();
+        let balancing_strategy_binding = args
+            .balancing_strategy
+            .get_output(context)
+            .get_inner();
+        let game_server_group_name_binding = args
+            .game_server_group_name
+            .get_output(context)
+            .get_inner();
         let game_server_protection_policy_binding = args
             .game_server_protection_policy
+            .get_output(context)
             .get_inner();
-        let instance_definitions_binding = args.instance_definitions.get_inner();
-        let launch_template_binding = args.launch_template.get_inner();
-        let max_size_binding = args.max_size.get_inner();
-        let min_size_binding = args.min_size.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_subnets_binding = args.vpc_subnets.get_inner();
+        let instance_definitions_binding = args
+            .instance_definitions
+            .get_output(context)
+            .get_inner();
+        let launch_template_binding = args
+            .launch_template
+            .get_output(context)
+            .get_inner();
+        let max_size_binding = args.max_size.get_output(context).get_inner();
+        let min_size_binding = args.min_size.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_subnets_binding = args.vpc_subnets.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:gamelift/gameServerGroup:GameServerGroup".into(),
             name: name.to_string(),
@@ -324,7 +346,7 @@ pub mod game_server_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

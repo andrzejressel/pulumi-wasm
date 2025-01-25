@@ -40,21 +40,21 @@
 /// $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
 /// ```
 pub mod kinesis_streaming_destination {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KinesisStreamingDestinationArgs {
         /// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
         #[builder(into, default)]
-        pub approximate_creation_date_time_precision: pulumi_wasm_rust::Output<
+        pub approximate_creation_date_time_precision: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         #[builder(into)]
-        pub stream_arn: pulumi_wasm_rust::Output<String>,
+        pub stream_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         #[builder(into)]
-        pub table_name: pulumi_wasm_rust::Output<String>,
+        pub table_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct KinesisStreamingDestinationResult {
@@ -70,6 +70,7 @@ pub mod kinesis_streaming_destination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: KinesisStreamingDestinationArgs,
     ) -> KinesisStreamingDestinationResult {
@@ -77,9 +78,10 @@ pub mod kinesis_streaming_destination {
         use std::collections::HashMap;
         let approximate_creation_date_time_precision_binding = args
             .approximate_creation_date_time_precision
+            .get_output(context)
             .get_inner();
-        let stream_arn_binding = args.stream_arn.get_inner();
-        let table_name_binding = args.table_name.get_inner();
+        let stream_arn_binding = args.stream_arn.get_output(context).get_inner();
+        let table_name_binding = args.table_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination"
                 .into(),
@@ -111,7 +113,7 @@ pub mod kinesis_streaming_destination {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

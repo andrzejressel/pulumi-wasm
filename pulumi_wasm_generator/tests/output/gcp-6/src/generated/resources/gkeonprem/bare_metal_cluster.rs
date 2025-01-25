@@ -251,14 +251,14 @@
 /// ```
 ///
 pub mod bare_metal_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BareMetalClusterArgs {
         /// The Admin Cluster this Bare Metal User Cluster belongs to.
         /// This is the full resource name of the Admin Cluster's hub membership.
         #[builder(into)]
-        pub admin_cluster_membership: pulumi_wasm_rust::Output<String>,
+        pub admin_cluster_membership: pulumi_wasm_rust::InputOrOutput<String>,
         /// Annotations on the Bare Metal User Cluster. This field has the same restrictions as Kubernetes annotations. The total
         /// size of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required),
         /// separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with
@@ -266,91 +266,91 @@ pub mod bare_metal_cluster {
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// 'effective_annotations' for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A human readable description of this Bare Metal User Cluster.
         #[builder(into)]
-        pub bare_metal_version: pulumi_wasm_rust::Output<String>,
+        pub bare_metal_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// Binary Authorization related configurations.
         #[builder(into, default)]
-        pub binary_authorization: pulumi_wasm_rust::Output<
+        pub binary_authorization: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterBinaryAuthorization>,
         >,
         /// Specifies the User Cluster's observability infrastructure.
         #[builder(into, default)]
-        pub cluster_operations: pulumi_wasm_rust::Output<
+        pub cluster_operations: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterClusterOperations>,
         >,
         /// Specifies the control plane configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub control_plane: pulumi_wasm_rust::Output<
+        pub control_plane: pulumi_wasm_rust::InputOrOutput<
             super::super::types::gkeonprem::BareMetalClusterControlPlane,
         >,
         /// (Output)
         /// The description of the validation check.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the load balancer configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub load_balancer: pulumi_wasm_rust::Output<
+        pub load_balancer: pulumi_wasm_rust::InputOrOutput<
             super::super::types::gkeonprem::BareMetalClusterLoadBalancer,
         >,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the workload node configurations.
         #[builder(into, default)]
-        pub maintenance_config: pulumi_wasm_rust::Output<
+        pub maintenance_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterMaintenanceConfig>,
         >,
         /// The bare metal cluster name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Network configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::gkeonprem::BareMetalClusterNetworkConfig,
         >,
         /// Specifies the node access related settings for the bare metal user cluster.
         #[builder(into, default)]
-        pub node_access_config: pulumi_wasm_rust::Output<
+        pub node_access_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterNodeAccessConfig>,
         >,
         /// Specifies the workload node configurations.
         #[builder(into, default)]
-        pub node_config: pulumi_wasm_rust::Output<
+        pub node_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterNodeConfig>,
         >,
         /// OS environment related configurations.
         #[builder(into, default)]
-        pub os_environment_config: pulumi_wasm_rust::Output<
+        pub os_environment_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterOsEnvironmentConfig>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the cluster proxy configuration.
         #[builder(into, default)]
-        pub proxy: pulumi_wasm_rust::Output<
+        pub proxy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterProxy>,
         >,
         /// Specifies the security related settings for the Bare Metal User Cluster.
         #[builder(into, default)]
-        pub security_config: pulumi_wasm_rust::Output<
+        pub security_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterSecurityConfig>,
         >,
         /// Specifies the cluster storage configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub storage: pulumi_wasm_rust::Output<
+        pub storage: pulumi_wasm_rust::InputOrOutput<
             super::super::types::gkeonprem::BareMetalClusterStorage,
         >,
         /// The cluster upgrade policy.
         #[builder(into, default)]
-        pub upgrade_policy: pulumi_wasm_rust::Output<
+        pub upgrade_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterUpgradePolicy>,
         >,
     }
@@ -495,29 +495,57 @@ pub mod bare_metal_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BareMetalClusterArgs) -> BareMetalClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BareMetalClusterArgs,
+    ) -> BareMetalClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let admin_cluster_membership_binding = args.admin_cluster_membership.get_inner();
-        let annotations_binding = args.annotations.get_inner();
-        let bare_metal_version_binding = args.bare_metal_version.get_inner();
-        let binary_authorization_binding = args.binary_authorization.get_inner();
-        let cluster_operations_binding = args.cluster_operations.get_inner();
-        let control_plane_binding = args.control_plane.get_inner();
-        let description_binding = args.description.get_inner();
-        let load_balancer_binding = args.load_balancer.get_inner();
-        let location_binding = args.location.get_inner();
-        let maintenance_config_binding = args.maintenance_config.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_config_binding = args.network_config.get_inner();
-        let node_access_config_binding = args.node_access_config.get_inner();
-        let node_config_binding = args.node_config.get_inner();
-        let os_environment_config_binding = args.os_environment_config.get_inner();
-        let project_binding = args.project.get_inner();
-        let proxy_binding = args.proxy.get_inner();
-        let security_config_binding = args.security_config.get_inner();
-        let storage_binding = args.storage.get_inner();
-        let upgrade_policy_binding = args.upgrade_policy.get_inner();
+        let admin_cluster_membership_binding = args
+            .admin_cluster_membership
+            .get_output(context)
+            .get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let bare_metal_version_binding = args
+            .bare_metal_version
+            .get_output(context)
+            .get_inner();
+        let binary_authorization_binding = args
+            .binary_authorization
+            .get_output(context)
+            .get_inner();
+        let cluster_operations_binding = args
+            .cluster_operations
+            .get_output(context)
+            .get_inner();
+        let control_plane_binding = args.control_plane.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let load_balancer_binding = args.load_balancer.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let maintenance_config_binding = args
+            .maintenance_config
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_config_binding = args.network_config.get_output(context).get_inner();
+        let node_access_config_binding = args
+            .node_access_config
+            .get_output(context)
+            .get_inner();
+        let node_config_binding = args.node_config.get_output(context).get_inner();
+        let os_environment_config_binding = args
+            .os_environment_config
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let proxy_binding = args.proxy.get_output(context).get_inner();
+        let security_config_binding = args
+            .security_config
+            .get_output(context)
+            .get_inner();
+        let storage_binding = args.storage.get_output(context).get_inner();
+        let upgrade_policy_binding = args.upgrade_policy.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkeonprem/bareMetalCluster:BareMetalCluster".into(),
             name: name.to_string(),
@@ -706,7 +734,7 @@ pub mod bare_metal_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

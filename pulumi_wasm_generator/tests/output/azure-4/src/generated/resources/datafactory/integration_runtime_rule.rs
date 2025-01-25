@@ -42,37 +42,37 @@
 /// ```
 ///
 pub mod integration_runtime_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationRuntimeRuleArgs {
         /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
         #[builder(into, default)]
-        pub cleanup_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub cleanup_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         #[builder(into, default)]
-        pub compute_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub compute_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         #[builder(into, default)]
-        pub core_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub core_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Integration runtime description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
         #[builder(into, default)]
-        pub time_to_live_min: pulumi_wasm_rust::Output<Option<i32>>,
+        pub time_to_live_min: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub virtual_network_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub virtual_network_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct IntegrationRuntimeRuleResult {
@@ -100,20 +100,33 @@ pub mod integration_runtime_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IntegrationRuntimeRuleArgs,
     ) -> IntegrationRuntimeRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cleanup_enabled_binding = args.cleanup_enabled.get_inner();
-        let compute_type_binding = args.compute_type.get_inner();
-        let core_count_binding = args.core_count.get_inner();
-        let data_factory_id_binding = args.data_factory_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let time_to_live_min_binding = args.time_to_live_min.get_inner();
-        let virtual_network_enabled_binding = args.virtual_network_enabled.get_inner();
+        let cleanup_enabled_binding = args
+            .cleanup_enabled
+            .get_output(context)
+            .get_inner();
+        let compute_type_binding = args.compute_type.get_output(context).get_inner();
+        let core_count_binding = args.core_count.get_output(context).get_inner();
+        let data_factory_id_binding = args
+            .data_factory_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let time_to_live_min_binding = args
+            .time_to_live_min
+            .get_output(context)
+            .get_inner();
+        let virtual_network_enabled_binding = args
+            .virtual_network_enabled
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule"
                 .into(),
@@ -187,7 +200,7 @@ pub mod integration_runtime_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

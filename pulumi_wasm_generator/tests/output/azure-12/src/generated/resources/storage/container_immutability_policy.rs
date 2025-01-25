@@ -46,27 +46,33 @@
 /// ```
 ///
 pub mod container_immutability_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContainerImmutabilityPolicyArgs {
         /// The time interval in days that the data needs to be kept in a non-erasable and non-modifiable state.
         #[builder(into)]
-        pub immutability_period_in_days: pulumi_wasm_rust::Output<i32>,
+        pub immutability_period_in_days: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Whether to lock this immutability policy. Cannot be set to `false` once the policy has been locked.
         ///
         /// !> **Locking an Immutability Policy** Once an Immutability Policy has been locked, it cannot be unlocked. After locking, it will only be possible to increase the value for `retention_period_in_days` up to 5 times for the lifetime of the policy. No other properties will be updateable. Furthermore, the Storage Container and the Storage Account in which it resides will become protected by the policy. It will no longer be possible to delete the Storage Container or the Storage Account. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/immutable-policy-configure-container-scope?tabs=azure-portal#lock-a-time-based-retention-policy) for more information.
         #[builder(into, default)]
-        pub locked: pulumi_wasm_rust::Output<Option<bool>>,
+        pub locked: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to allow protected append writes to block and append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_enabled`.
         #[builder(into, default)]
-        pub protected_append_writes_all_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub protected_append_writes_all_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Whether to allow protected append writes to append blobs to the container. Defaults to `false`. Cannot be set with `protected_append_writes_all_enabled`.
         #[builder(into, default)]
-        pub protected_append_writes_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub protected_append_writes_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The Resource Manager ID of the Storage Container where this Immutability Policy should be applied. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_container_resource_manager_id: pulumi_wasm_rust::Output<String>,
+        pub storage_container_resource_manager_id: pulumi_wasm_rust::InputOrOutput<
+            String,
+        >,
     }
     #[allow(dead_code)]
     pub struct ContainerImmutabilityPolicyResult {
@@ -88,6 +94,7 @@ pub mod container_immutability_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ContainerImmutabilityPolicyArgs,
     ) -> ContainerImmutabilityPolicyResult {
@@ -95,16 +102,20 @@ pub mod container_immutability_policy {
         use std::collections::HashMap;
         let immutability_period_in_days_binding = args
             .immutability_period_in_days
+            .get_output(context)
             .get_inner();
-        let locked_binding = args.locked.get_inner();
+        let locked_binding = args.locked.get_output(context).get_inner();
         let protected_append_writes_all_enabled_binding = args
             .protected_append_writes_all_enabled
+            .get_output(context)
             .get_inner();
         let protected_append_writes_enabled_binding = args
             .protected_append_writes_enabled
+            .get_output(context)
             .get_inner();
         let storage_container_resource_manager_id_binding = args
             .storage_container_resource_manager_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy"
@@ -151,7 +162,7 @@ pub mod container_immutability_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -53,22 +53,22 @@
 /// ```
 ///
 pub mod spring_cloud_configuration_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudConfigurationServiceArgs {
         /// The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         #[builder(into, default)]
-        pub generation: pulumi_wasm_rust::Output<Option<String>>,
+        pub generation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies how often to check repository updates. Minimum value is 0.
         #[builder(into, default)]
-        pub refresh_interval_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub refresh_interval_in_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// One or more `repository` blocks as defined below.
         #[builder(into, default)]
-        pub repositories: pulumi_wasm_rust::Output<
+        pub repositories: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::appplatform::SpringCloudConfigurationServiceRepository,
@@ -77,7 +77,7 @@ pub mod spring_cloud_configuration_service {
         >,
         /// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
         #[builder(into)]
-        pub spring_cloud_service_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_service_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudConfigurationServiceResult {
@@ -103,18 +103,23 @@ pub mod spring_cloud_configuration_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SpringCloudConfigurationServiceArgs,
     ) -> SpringCloudConfigurationServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let generation_binding = args.generation.get_inner();
-        let name_binding = args.name.get_inner();
+        let generation_binding = args.generation.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let refresh_interval_in_seconds_binding = args
             .refresh_interval_in_seconds
+            .get_output(context)
             .get_inner();
-        let repositories_binding = args.repositories.get_inner();
-        let spring_cloud_service_id_binding = args.spring_cloud_service_id.get_inner();
+        let repositories_binding = args.repositories.get_output(context).get_inner();
+        let spring_cloud_service_id_binding = args
+            .spring_cloud_service_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService"
                 .into(),
@@ -160,7 +165,7 @@ pub mod spring_cloud_configuration_service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

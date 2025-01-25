@@ -21,16 +21,16 @@
 /// }
 /// ```
 pub mod attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AttachmentArgs {
         /// The name of the ELB.
         #[builder(into)]
-        pub elb: pulumi_wasm_rust::Output<String>,
+        pub elb: pulumi_wasm_rust::InputOrOutput<String>,
         /// Instance ID to place in the ELB pool.
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AttachmentResult {
@@ -43,11 +43,15 @@ pub mod attachment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AttachmentArgs) -> AttachmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AttachmentArgs,
+    ) -> AttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let elb_binding = args.elb.get_inner();
-        let instance_binding = args.instance.get_inner();
+        let elb_binding = args.elb.get_output(context).get_inner();
+        let instance_binding = args.instance.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elb/attachment:Attachment".into(),
             name: name.to_string(),
@@ -71,7 +75,7 @@ pub mod attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

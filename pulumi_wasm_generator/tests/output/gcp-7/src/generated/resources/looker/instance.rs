@@ -251,56 +251,56 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// Looker instance Admin settings.
         #[builder(into, default)]
-        pub admin_settings: pulumi_wasm_rust::Output<
+        pub admin_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::looker::InstanceAdminSettings>,
         >,
         /// Network name in the consumer project in the format of: projects/{project}/global/networks/{network} Note that the
         /// consumer network may be in a different GCP project than the consumer project that is hosting the Looker Instance.
         #[builder(into, default)]
-        pub consumer_network: pulumi_wasm_rust::Output<Option<String>>,
+        pub consumer_network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Custom domain settings for a Looker instance.
         #[builder(into, default)]
-        pub custom_domain: pulumi_wasm_rust::Output<
+        pub custom_domain: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::looker::InstanceCustomDomain>,
         >,
         /// Policy to determine if the cluster should be deleted forcefully. If setting deletion_policy = "FORCE", the Looker
         /// instance will be deleted regardless of its nested resources. If set to "DEFAULT", Looker instances that still have
         /// nested resources will return an error. Possible values: DEFAULT, FORCE
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Maintenance denial period for this instance. You must allow at least 14 days of maintenance availability between any two
         /// deny maintenance periods.
         #[builder(into, default)]
-        pub deny_maintenance_period: pulumi_wasm_rust::Output<
+        pub deny_maintenance_period: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::looker::InstanceDenyMaintenancePeriod>,
         >,
         /// Looker instance encryption settings.
         #[builder(into, default)]
-        pub encryption_config: pulumi_wasm_rust::Output<
+        pub encryption_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::looker::InstanceEncryptionConfig>,
         >,
         /// FIPS 140-2 Encryption enablement for Looker (Google Cloud Core).
         #[builder(into, default)]
-        pub fips_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub fips_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Maintenance window for an instance. Maintenance of your instance takes place once a month, and will require your
         /// instance to be restarted during updates, which will temporarily disrupt service.
         #[builder(into, default)]
-        pub maintenance_window: pulumi_wasm_rust::Output<
+        pub maintenance_window: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::looker::InstanceMaintenanceWindow>,
         >,
         /// The ID of the instance or a fully qualified identifier for the instance.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Looker Instance OAuth login settings.
         /// Structure is documented below.
         #[builder(into)]
-        pub oauth_config: pulumi_wasm_rust::Output<
+        pub oauth_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::looker::InstanceOauthConfig,
         >,
         /// Platform editions for a Looker instance. Each edition maps to a set of instance features, like its size. Must be one of
@@ -313,37 +313,37 @@ pub mod instance {
         /// "LOOKER_CORE_ENTERPRISE_ANNUAL", "LOOKER_CORE_EMBED_ANNUAL", "LOOKER_CORE_NONPROD_STANDARD_ANNUAL",
         /// "LOOKER_CORE_NONPROD_ENTERPRISE_ANNUAL", "LOOKER_CORE_NONPROD_EMBED_ANNUAL"]
         #[builder(into, default)]
-        pub platform_edition: pulumi_wasm_rust::Output<Option<String>>,
+        pub platform_edition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether private IP is enabled on the Looker instance.
         #[builder(into, default)]
-        pub private_ip_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub private_ip_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Information for Private Service Connect (PSC) setup for a Looker instance.
         #[builder(into, default)]
-        pub psc_config: pulumi_wasm_rust::Output<
+        pub psc_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::looker::InstancePscConfig>,
         >,
         /// Whether Public Service Connect (PSC) is enabled on the Looker instance
         #[builder(into, default)]
-        pub psc_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub psc_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether public IP is enabled on the Looker instance.
         #[builder(into, default)]
-        pub public_ip_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_ip_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the Looker region of the instance.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of a reserved IP address range within the consumer network, to be used for private service access connection. User
         /// may or may not specify this in a request.
         #[builder(into, default)]
-        pub reserved_range: pulumi_wasm_rust::Output<Option<String>>,
+        pub reserved_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Metadata about users for a Looker instance. These settings are only available when platform edition LOOKER_CORE_STANDARD
         /// is set. There are ten Standard and two Developer users included in the cost of the product. You can allocate additional
         /// Standard, Viewer, and Developer users for this instance. It is an optional step and can be modified later. With the
         /// Standard edition of Looker (Google Cloud core), you can provision up to 50 total users, distributed across Viewer,
         /// Standard, and Developer.
         #[builder(into, default)]
-        pub user_metadata: pulumi_wasm_rust::Output<
+        pub user_metadata: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::looker::InstanceUserMetadata>,
         >,
     }
@@ -442,28 +442,56 @@ pub mod instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InstanceArgs) -> InstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InstanceArgs,
+    ) -> InstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let admin_settings_binding = args.admin_settings.get_inner();
-        let consumer_network_binding = args.consumer_network.get_inner();
-        let custom_domain_binding = args.custom_domain.get_inner();
-        let deletion_policy_binding = args.deletion_policy.get_inner();
-        let deny_maintenance_period_binding = args.deny_maintenance_period.get_inner();
-        let encryption_config_binding = args.encryption_config.get_inner();
-        let fips_enabled_binding = args.fips_enabled.get_inner();
-        let maintenance_window_binding = args.maintenance_window.get_inner();
-        let name_binding = args.name.get_inner();
-        let oauth_config_binding = args.oauth_config.get_inner();
-        let platform_edition_binding = args.platform_edition.get_inner();
-        let private_ip_enabled_binding = args.private_ip_enabled.get_inner();
-        let project_binding = args.project.get_inner();
-        let psc_config_binding = args.psc_config.get_inner();
-        let psc_enabled_binding = args.psc_enabled.get_inner();
-        let public_ip_enabled_binding = args.public_ip_enabled.get_inner();
-        let region_binding = args.region.get_inner();
-        let reserved_range_binding = args.reserved_range.get_inner();
-        let user_metadata_binding = args.user_metadata.get_inner();
+        let admin_settings_binding = args.admin_settings.get_output(context).get_inner();
+        let consumer_network_binding = args
+            .consumer_network
+            .get_output(context)
+            .get_inner();
+        let custom_domain_binding = args.custom_domain.get_output(context).get_inner();
+        let deletion_policy_binding = args
+            .deletion_policy
+            .get_output(context)
+            .get_inner();
+        let deny_maintenance_period_binding = args
+            .deny_maintenance_period
+            .get_output(context)
+            .get_inner();
+        let encryption_config_binding = args
+            .encryption_config
+            .get_output(context)
+            .get_inner();
+        let fips_enabled_binding = args.fips_enabled.get_output(context).get_inner();
+        let maintenance_window_binding = args
+            .maintenance_window
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let oauth_config_binding = args.oauth_config.get_output(context).get_inner();
+        let platform_edition_binding = args
+            .platform_edition
+            .get_output(context)
+            .get_inner();
+        let private_ip_enabled_binding = args
+            .private_ip_enabled
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let psc_config_binding = args.psc_config.get_output(context).get_inner();
+        let psc_enabled_binding = args.psc_enabled.get_output(context).get_inner();
+        let public_ip_enabled_binding = args
+            .public_ip_enabled
+            .get_output(context)
+            .get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let reserved_range_binding = args.reserved_range.get_output(context).get_inner();
+        let user_metadata_binding = args.user_metadata.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:looker/instance:Instance".into(),
             name: name.to_string(),
@@ -627,7 +655,7 @@ pub mod instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

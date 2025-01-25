@@ -70,38 +70,38 @@
 /// ```
 ///
 pub mod zero_trust_dlp_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustDlpProfileArgs {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Related DLP policies will trigger when the match count exceeds the number set.
         #[builder(into)]
-        pub allowed_match_count: pulumi_wasm_rust::Output<i32>,
+        pub allowed_match_count: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Scan the context of predefined entries to only return matches surrounded by keywords.
         #[builder(into, default)]
-        pub context_awareness: pulumi_wasm_rust::Output<
+        pub context_awareness: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::ZeroTrustDlpProfileContextAwareness>,
         >,
         /// Brief summary of the profile and its intended use.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of entries to apply to the profile.
         #[builder(into)]
-        pub entries: pulumi_wasm_rust::Output<
+        pub entries: pulumi_wasm_rust::InputOrOutput<
             Vec<super::types::ZeroTrustDlpProfileEntry>,
         >,
         /// Name of the profile. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// If true, scan images via OCR to determine if any text present matches filters.
         #[builder(into, default)]
-        pub ocr_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ocr_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The type of the profile. Available values: `custom`, `predefined`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustDlpProfileResult {
@@ -131,19 +131,26 @@ pub mod zero_trust_dlp_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ZeroTrustDlpProfileArgs,
     ) -> ZeroTrustDlpProfileResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let allowed_match_count_binding = args.allowed_match_count.get_inner();
-        let context_awareness_binding = args.context_awareness.get_inner();
-        let description_binding = args.description.get_inner();
-        let entries_binding = args.entries.get_inner();
-        let name_binding = args.name.get_inner();
-        let ocr_enabled_binding = args.ocr_enabled.get_inner();
-        let type__binding = args.type_.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let allowed_match_count_binding = args
+            .allowed_match_count
+            .get_output(context)
+            .get_inner();
+        let context_awareness_binding = args
+            .context_awareness
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let entries_binding = args.entries.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let ocr_enabled_binding = args.ocr_enabled.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustDlpProfile:ZeroTrustDlpProfile".into(),
             name: name.to_string(),
@@ -209,7 +216,7 @@ pub mod zero_trust_dlp_profile {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

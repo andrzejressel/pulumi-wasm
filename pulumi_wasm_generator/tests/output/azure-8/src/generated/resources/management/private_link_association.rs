@@ -49,7 +49,7 @@
 /// ```
 ///
 pub mod private_link_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrivateLinkAssociationArgs {
@@ -57,7 +57,7 @@ pub mod private_link_association {
         ///
         /// > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         #[builder(into)]
-        pub management_group_id: pulumi_wasm_rust::Output<String>,
+        pub management_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
         ///
         /// ```ignore
@@ -78,13 +78,13 @@ pub mod private_link_association {
         /// }
         /// ```
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
         #[builder(into)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<bool>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The Resource ID of Resource Management Private Link. Changing this forces a new Private Link Association to be created.
         #[builder(into)]
-        pub resource_management_private_link_id: pulumi_wasm_rust::Output<String>,
+        pub resource_management_private_link_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PrivateLinkAssociationResult {
@@ -124,18 +124,24 @@ pub mod private_link_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PrivateLinkAssociationArgs,
     ) -> PrivateLinkAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let management_group_id_binding = args.management_group_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let management_group_id_binding = args
+            .management_group_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
         let resource_management_private_link_id_binding = args
             .resource_management_private_link_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:management/privateLinkAssociation:PrivateLinkAssociation"
@@ -178,7 +184,7 @@ pub mod private_link_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

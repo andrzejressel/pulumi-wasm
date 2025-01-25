@@ -93,7 +93,7 @@
 /// ```
 ///
 pub mod policy_tag {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyTagArgs {
@@ -102,23 +102,23 @@ pub mod policy_tag {
         /// encoded in UTF-8. If not set, defaults to an empty description.
         /// If not set, defaults to an empty description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User defined name of this policy tag. It must: be unique within the parent
         /// taxonomy; contain only unicode letters, numbers, underscores, dashes and spaces;
         /// not start or end with spaces; and be at most 200 bytes long when encoded in UTF-8.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Resource name of this policy tag's parent policy tag.
         /// If empty, it means this policy tag is a top level policy tag.
         /// If not set, defaults to an empty string.
         #[builder(into, default)]
-        pub parent_policy_tag: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent_policy_tag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Taxonomy the policy tag is associated with
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub taxonomy: pulumi_wasm_rust::Output<String>,
+        pub taxonomy: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PolicyTagResult {
@@ -150,13 +150,20 @@ pub mod policy_tag {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyTagArgs) -> PolicyTagResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyTagArgs,
+    ) -> PolicyTagResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let parent_policy_tag_binding = args.parent_policy_tag.get_inner();
-        let taxonomy_binding = args.taxonomy.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let parent_policy_tag_binding = args
+            .parent_policy_tag
+            .get_output(context)
+            .get_inner();
+        let taxonomy_binding = args.taxonomy.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/policyTag:PolicyTag".into(),
             name: name.to_string(),
@@ -200,7 +207,7 @@ pub mod policy_tag {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -45,25 +45,25 @@
 /// ```
 ///
 pub mod mover_agent {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MoverAgentArgs {
         /// Specifies the fully qualified ID of the Hybrid Compute resource for the Storage Mover Agent. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub arc_virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub arc_virtual_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the Hybrid Compute resource's unique SMBIOS ID. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub arc_virtual_machine_uuid: pulumi_wasm_rust::Output<String>,
+        pub arc_virtual_machine_uuid: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies a description for this Storage Mover Agent.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Storage Mover Agent. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Storage Mover that this Agent should be connected to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_mover_id: pulumi_wasm_rust::Output<String>,
+        pub storage_mover_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MoverAgentResult {
@@ -82,14 +82,27 @@ pub mod mover_agent {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MoverAgentArgs) -> MoverAgentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MoverAgentArgs,
+    ) -> MoverAgentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arc_virtual_machine_id_binding = args.arc_virtual_machine_id.get_inner();
-        let arc_virtual_machine_uuid_binding = args.arc_virtual_machine_uuid.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let storage_mover_id_binding = args.storage_mover_id.get_inner();
+        let arc_virtual_machine_id_binding = args
+            .arc_virtual_machine_id
+            .get_output(context)
+            .get_inner();
+        let arc_virtual_machine_uuid_binding = args
+            .arc_virtual_machine_uuid
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let storage_mover_id_binding = args
+            .storage_mover_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/moverAgent:MoverAgent".into(),
             name: name.to_string(),
@@ -134,7 +147,7 @@ pub mod mover_agent {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

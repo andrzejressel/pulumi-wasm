@@ -131,36 +131,36 @@
 /// $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
 /// ```
 pub mod kx_environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KxEnvironmentArgs {
         /// List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
         #[builder(into, default)]
-        pub custom_dns_configurations: pulumi_wasm_rust::Output<
+        pub custom_dns_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::finspace::KxEnvironmentCustomDnsConfiguration>,
             >,
         >,
         /// Description for the KX environment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// KMS key ID to encrypt your data in the FinSpace environment.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the KX environment that you want to create.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Transit gateway and network configuration that is used to connect the KX environment to an internal network. Defined below.
         #[builder(into, default)]
-        pub transit_gateway_configuration: pulumi_wasm_rust::Output<
+        pub transit_gateway_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::finspace::KxEnvironmentTransitGatewayConfiguration,
             >,
@@ -213,18 +213,24 @@ pub mod kx_environment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: KxEnvironmentArgs) -> KxEnvironmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: KxEnvironmentArgs,
+    ) -> KxEnvironmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let custom_dns_configurations_binding = args
             .custom_dns_configurations
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let transit_gateway_configuration_binding = args
             .transit_gateway_configuration
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:finspace/kxEnvironment:KxEnvironment".into(),
@@ -298,7 +304,7 @@ pub mod kx_environment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -219,61 +219,61 @@
 /// ```
 ///
 pub mod run_command {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RunCommandArgs {
         /// An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
         #[builder(into, default)]
-        pub error_blob_managed_identity: pulumi_wasm_rust::Output<
+        pub error_blob_managed_identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::RunCommandErrorBlobManagedIdentity>,
         >,
         /// Specifies the Azure storage blob where script error stream will be uploaded.
         #[builder(into, default)]
-        pub error_blob_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub error_blob_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Azure Region where the Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Virtual Machine Run Command. Changing this forces a new Virtual Machine Run Command to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
         #[builder(into, default)]
-        pub output_blob_managed_identity: pulumi_wasm_rust::Output<
+        pub output_blob_managed_identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::RunCommandOutputBlobManagedIdentity>,
         >,
         /// Specifies the Azure storage blob where script output stream will be uploaded. It can be basic blob URI with SAS token.
         #[builder(into, default)]
-        pub output_blob_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub output_blob_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of `parameter` blocks as defined below. The parameters used by the script.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RunCommandParameter>>,
         >,
         /// A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
         #[builder(into, default)]
-        pub protected_parameters: pulumi_wasm_rust::Output<
+        pub protected_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RunCommandProtectedParameter>>,
         >,
         /// Specifies the user account password on the VM when executing the Virtual Machine Run Command.
         #[builder(into, default)]
-        pub run_as_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub run_as_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the user account on the VM when executing the Virtual Machine Run Command.
         #[builder(into, default)]
-        pub run_as_user: pulumi_wasm_rust::Output<Option<String>>,
+        pub run_as_user: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `source` block as defined below. The source of the run command script.
         #[builder(into)]
-        pub source: pulumi_wasm_rust::Output<
+        pub source: pulumi_wasm_rust::InputOrOutput<
             super::super::types::compute::RunCommandSource,
         >,
         /// A mapping of tags which should be assigned to the Virtual Machine Run Command.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Virtual Machine ID within which this Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
         #[builder(into)]
-        pub virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RunCommandResult {
@@ -323,26 +323,44 @@ pub mod run_command {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RunCommandArgs) -> RunCommandResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RunCommandArgs,
+    ) -> RunCommandResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let error_blob_managed_identity_binding = args
             .error_blob_managed_identity
+            .get_output(context)
             .get_inner();
-        let error_blob_uri_binding = args.error_blob_uri.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
+        let error_blob_uri_binding = args.error_blob_uri.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let output_blob_managed_identity_binding = args
             .output_blob_managed_identity
+            .get_output(context)
             .get_inner();
-        let output_blob_uri_binding = args.output_blob_uri.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let protected_parameters_binding = args.protected_parameters.get_inner();
-        let run_as_password_binding = args.run_as_password.get_inner();
-        let run_as_user_binding = args.run_as_user.get_inner();
-        let source_binding = args.source.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let virtual_machine_id_binding = args.virtual_machine_id.get_inner();
+        let output_blob_uri_binding = args
+            .output_blob_uri
+            .get_output(context)
+            .get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let protected_parameters_binding = args
+            .protected_parameters
+            .get_output(context)
+            .get_inner();
+        let run_as_password_binding = args
+            .run_as_password
+            .get_output(context)
+            .get_inner();
+        let run_as_user_binding = args.run_as_user.get_output(context).get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let virtual_machine_id_binding = args
+            .virtual_machine_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/runCommand:RunCommand".into(),
             name: name.to_string(),
@@ -446,7 +464,7 @@ pub mod run_command {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()
