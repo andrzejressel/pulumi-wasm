@@ -31,7 +31,7 @@ where
 }
 
 fn run_loop(engine: &PulumiContext) -> Result<(), Error> {
-    run_all_function(&engine)
+    run_all_function(engine)
 }
 
 fn run_all_function(engine: &PulumiContext) -> Result<(), Error> {

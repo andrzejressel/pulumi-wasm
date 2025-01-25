@@ -1,13 +1,10 @@
-use core::fmt::Debug;
 use pulumi_wasm_core::{Engine, OutputId, PulumiServiceImpl};
 use std::cell::RefCell;
 use std::collections::{HashMap, HashSet};
 use std::rc::Rc;
 
 use crate::bindings::exports::component::pulumi_wasm::output_interface::{GuestOutput, Output};
-use crate::bindings::exports::component::pulumi_wasm::pulumi_engine::{
-    Engine as WasmPulumiEngine, EngineBorrow,
-};
+use crate::bindings::exports::component::pulumi_wasm::pulumi_engine::EngineBorrow;
 use crate::bindings::exports::component::pulumi_wasm::register_interface::{
     ObjectField, RegisterResourceRequest, RegisterResourceResult, RegisterResourceResultField,
     ResourceInvokeRequest, ResourceInvokeResult, ResourceInvokeResultField, ResultField,
@@ -113,7 +110,7 @@ impl output_interface::Guest for Component {
         if outputs.is_empty() {
             panic!("combine must have at least one output");
         }
-        let refcell = &outputs.get(0).unwrap().get::<CustomOutputId>().1.clone();
+        let refcell = &outputs.first().unwrap().get::<CustomOutputId>().1.clone();
         pulumi_wasm_common::setup_logger();
 
         let output_id = refcell.borrow_mut().create_combine_outputs(
@@ -232,6 +229,6 @@ impl GuestOutput for CustomOutputId {
         let output_id = refcell
             .borrow_mut()
             .create_native_function_node(function_name.into(), self.0);
-        Output::new::<CustomOutputId>(CustomOutputId(output_id.into(), refcell.clone()))
+        Output::new::<CustomOutputId>(CustomOutputId(output_id, refcell.clone()))
     }
 }

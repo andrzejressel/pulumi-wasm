@@ -8,10 +8,10 @@ use pulumi_wasm_rust::{pulumi_main, PulumiContext, ToOutput};
 pulumi_main!();
 
 fn main(context: &PulumiContext) -> Result<()> {
-    let length: Output<i32> = Output::new(&context, &12).map(|i: i32| i * 3);
+    let length: Output<i32> = Output::new(context, &12).map(|i: i32| i * 3);
 
     let random_string = random_string::create(
-        &context,
+        context,
         "test",
         RandomStringArgs::builder().length(length).build_struct(),
     );
@@ -25,8 +25,8 @@ fn main(context: &PulumiContext) -> Result<()> {
     // Optional values are deserialized as None
     let keepers = random_string.keepers.map(|map| format!("Keepers: {map:?}"));
 
-    let val1 = Output::new(&context, &1);
-    let val2 = Output::new(&context, &"abc".to_string());
+    let val1 = Output::new(context, &1);
+    let val2 = Output::new(context, &"abc".to_string());
 
     // Outputs can be reused
     let combined = pulumi_combine!(val1, val2);
@@ -36,7 +36,7 @@ fn main(context: &PulumiContext) -> Result<()> {
     let combined_2_string = pulumi_format!(&context, "Values: {:?}", combined_2);
 
     let random_string_2 = random_string::create(
-        &context,
+        context,
         "test_2",
         RandomStringArgs::builder()
             .length(keepers.map(|s| s.len() as i32))
