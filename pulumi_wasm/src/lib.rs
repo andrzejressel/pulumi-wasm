@@ -26,7 +26,6 @@ bindings::export!(Component with_types_in bindings);
 #[rustfmt::skip]
 mod bindings;
 
-mod globals;
 mod pulumi_connector_impl;
 
 pub(crate) struct CustomOutputId(OutputId, Rc<RefCell<Engine>>);
