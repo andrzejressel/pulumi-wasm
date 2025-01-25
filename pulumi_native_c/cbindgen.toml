@@ -1,0 +1,3 @@
+language = "C"
+include_guard = "PULUMI_WASM_H"
+cpp_compat = true
