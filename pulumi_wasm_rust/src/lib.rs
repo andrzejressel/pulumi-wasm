@@ -43,7 +43,7 @@ macro_rules! include_provider {
     };
 }
 
-/// Generate boilerplate for WASM Min
+/// Generate boilerplate for Wasm entrypoint
 ///
 /// ```rust,no_run
 /// use pulumi_wasm_rust::*;
@@ -51,7 +51,7 @@ macro_rules! include_provider {
 ///
 /// pulumi_main!();
 ///
-/// fn main(context: &PulumiContext) -> Result<()> {
+/// fn pulumi_main(context: &PulumiContext) -> Result<()> {
 ///    Ok(())
 /// }
 /// ```
@@ -62,7 +62,7 @@ macro_rules! pulumi_main {
         unsafe extern "C" fn __exported(arg: i32) {
             let mapped = arg as u8;
 
-            pulumi_wasm_rust::__private::runner::run(mapped, |engine| main(&engine)).unwrap();
+            pulumi_wasm_rust::__private::runner::run(mapped, |engine| pulumi_main(&engine)).unwrap();
         }
     };
 }

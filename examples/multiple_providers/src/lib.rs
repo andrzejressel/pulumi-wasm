@@ -8,7 +8,7 @@ use pulumi_wasm_rust::{Output, PulumiContext};
 
 pulumi_main!();
 
-fn main(context: &PulumiContext) -> Result<()> {
+fn pulumi_main(context: &PulumiContext) -> Result<()> {
     let length: Output<i32> = Output::new(context, &12).map(|i: i32| i * 3);
     let random_string = random_string::create(
         context,

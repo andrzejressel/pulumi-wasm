@@ -5,7 +5,7 @@ use pulumi_wasm_rust::{Output, PulumiContext};
 
 pulumi_main!();
 
-fn main(context: &PulumiContext) -> anyhow::Result<()> {
+fn pulumi_main(context: &PulumiContext) -> anyhow::Result<()> {
     let length: Output<i32> = Output::new(context, &4);
     let random_string_1 = random_string::create(
         context,

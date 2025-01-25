@@ -6,7 +6,7 @@ use pulumi_wasm_rust::{add_export, pulumi_main, PulumiContext};
 
 pulumi_main!();
 
-fn main(context: &PulumiContext) -> anyhow::Result<()> {
+fn pulumi_main(context: &PulumiContext) -> anyhow::Result<()> {
     let cont = container::create(
         context,
         "container",

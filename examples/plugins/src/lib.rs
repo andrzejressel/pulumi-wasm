@@ -5,7 +5,7 @@ use pulumi_wasm_rust::{pulumi_main, PulumiContext};
 
 pulumi_main!();
 
-fn main(context: &PulumiContext) -> Result<(), Error> {
+fn pulumi_main(context: &PulumiContext) -> Result<(), Error> {
     let _ = random_string::create(
         context,
         "test",

@@ -129,11 +129,16 @@ impl<T: Serialize> Output<T> {
 ///
 /// Format string passed as first arguments is the same as in `format!` macro.
 /// ```no_run
+/// use anyhow::Result;
+/// use pulumi_wasm_rust::PulumiContext;
 /// use pulumi_wasm_rust::{pulumi_format, Output, ToOutput};
 ///
-/// let a = Output::new(&1);
-/// let b = Output::new(&"test".to_string());
-/// let formatted: Output<String> = pulumi_format!("{} {}", a, b); // "1 test"
+/// fn pulumi_main(context: &PulumiContext) -> Result<()> {
+///   let a = Output::new(context, &1);
+///   let b = Output::new(context, &"test".to_string());
+///   let formatted: Output<String> = pulumi_format!(context, "{} {}", a, b); // "1 test"
+///   Ok(())
+/// }
 #[macro_export]
 macro_rules! pulumi_format {
     ($context:expr, $format:expr, $o1:expr) => {{
@@ -369,11 +374,16 @@ macro_rules! pulumi_format {
 
 /// Combine multiple Outputs into a single Output of [tuple] type. Supports up to 16 arguments.
 /// ```no_run
-/// use pulumi_wasm_rust::{pulumi_combine, Output};
+/// use anyhow::Result;
+/// use pulumi_wasm_rust::PulumiContext;
+/// use pulumi_wasm_rust::{pulumi_combine, Output, ToOutput};
 ///
-/// let a = Output::new(&1);
-/// let b = Output::new(&"test");
-/// let combined: Output<(i32, &str)> = pulumi_combine!(a, b);
+/// fn pulumi_main(context: &PulumiContext) -> Result<()> {
+///   let a = Output::new(context, &1);
+///   let b = Output::new(context, &"test".to_string());
+///   let combined: Output<(i32, String)> = pulumi_combine!(a, b);
+///   Ok(())
+/// }
 /// ```
 #[macro_export]
 macro_rules! pulumi_combine {

@@ -4,7 +4,7 @@ use pulumi_wasm_rust::{add_export, pulumi_combine, pulumi_main, Output, PulumiCo
 
 pulumi_main!();
 
-fn main(context: &PulumiContext) -> Result<(), Error> {
+fn pulumi_main(context: &PulumiContext) -> Result<(), Error> {
     let custom_secret = Output::new_secret(context, &10);
     let non_secret = Output::new(context, &1);
 
