@@ -53,7 +53,7 @@
 /// ```
 ///
 pub mod dataset_delimited_text {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatasetDelimitedTextArgs {
@@ -61,85 +61,85 @@ pub mod dataset_delimited_text {
         ///
         /// The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Dataset.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// An `azure_blob_fs_location` block as defined below.
         #[builder(into, default)]
-        pub azure_blob_fs_location: pulumi_wasm_rust::Output<
+        pub azure_blob_fs_location: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::DatasetDelimitedTextAzureBlobFsLocation,
             >,
         >,
         /// An `azure_blob_storage_location` block as defined below.
         #[builder(into, default)]
-        pub azure_blob_storage_location: pulumi_wasm_rust::Output<
+        pub azure_blob_storage_location: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::DatasetDelimitedTextAzureBlobStorageLocation,
             >,
         >,
         /// The column delimiter. Defaults to `,`.
         #[builder(into, default)]
-        pub column_delimiter: pulumi_wasm_rust::Output<Option<String>>,
+        pub column_delimiter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         #[builder(into, default)]
-        pub compression_codec: pulumi_wasm_rust::Output<Option<String>>,
+        pub compression_codec: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
         #[builder(into, default)]
-        pub compression_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub compression_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description for the Data Factory Dataset.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The encoding format for the file.
         #[builder(into, default)]
-        pub encoding: pulumi_wasm_rust::Output<Option<String>>,
+        pub encoding: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The escape character. Defaults to `\`.
         #[builder(into, default)]
-        pub escape_character: pulumi_wasm_rust::Output<Option<String>>,
+        pub escape_character: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         #[builder(into, default)]
-        pub first_row_as_header: pulumi_wasm_rust::Output<Option<bool>>,
+        pub first_row_as_header: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         #[builder(into, default)]
-        pub folder: pulumi_wasm_rust::Output<Option<String>>,
+        pub folder: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `http_server_location` block as defined below.
         ///
         /// The following supported arguments are specific to Delimited Text Dataset:
         #[builder(into, default)]
-        pub http_server_location: pulumi_wasm_rust::Output<
+        pub http_server_location: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::DatasetDelimitedTextHttpServerLocation,
             >,
         >,
         /// The Data Factory Linked Service name in which to associate the Dataset with.
         #[builder(into)]
-        pub linked_service_name: pulumi_wasm_rust::Output<String>,
+        pub linked_service_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The null value string. Defaults to `""`.
         #[builder(into, default)]
-        pub null_value: pulumi_wasm_rust::Output<Option<String>>,
+        pub null_value: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of parameters to associate with the Data Factory Dataset.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The quote character. Defaults to `"`.
         #[builder(into, default)]
-        pub quote_character: pulumi_wasm_rust::Output<Option<String>>,
+        pub quote_character: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively.
         #[builder(into, default)]
-        pub row_delimiter: pulumi_wasm_rust::Output<Option<String>>,
+        pub row_delimiter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `schema_column` block as defined below.
         #[builder(into, default)]
-        pub schema_columns: pulumi_wasm_rust::Output<
+        pub schema_columns: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::datafactory::DatasetDelimitedTextSchemaColumn>,
             >,
@@ -219,34 +219,69 @@ pub mod dataset_delimited_text {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DatasetDelimitedTextArgs,
     ) -> DatasetDelimitedTextResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let additional_properties_binding = args.additional_properties.get_inner();
-        let annotations_binding = args.annotations.get_inner();
-        let azure_blob_fs_location_binding = args.azure_blob_fs_location.get_inner();
+        let additional_properties_binding = args
+            .additional_properties
+            .get_output(context)
+            .get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let azure_blob_fs_location_binding = args
+            .azure_blob_fs_location
+            .get_output(context)
+            .get_inner();
         let azure_blob_storage_location_binding = args
             .azure_blob_storage_location
+            .get_output(context)
             .get_inner();
-        let column_delimiter_binding = args.column_delimiter.get_inner();
-        let compression_codec_binding = args.compression_codec.get_inner();
-        let compression_level_binding = args.compression_level.get_inner();
-        let data_factory_id_binding = args.data_factory_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let encoding_binding = args.encoding.get_inner();
-        let escape_character_binding = args.escape_character.get_inner();
-        let first_row_as_header_binding = args.first_row_as_header.get_inner();
-        let folder_binding = args.folder.get_inner();
-        let http_server_location_binding = args.http_server_location.get_inner();
-        let linked_service_name_binding = args.linked_service_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let null_value_binding = args.null_value.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let quote_character_binding = args.quote_character.get_inner();
-        let row_delimiter_binding = args.row_delimiter.get_inner();
-        let schema_columns_binding = args.schema_columns.get_inner();
+        let column_delimiter_binding = args
+            .column_delimiter
+            .get_output(context)
+            .get_inner();
+        let compression_codec_binding = args
+            .compression_codec
+            .get_output(context)
+            .get_inner();
+        let compression_level_binding = args
+            .compression_level
+            .get_output(context)
+            .get_inner();
+        let data_factory_id_binding = args
+            .data_factory_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let encoding_binding = args.encoding.get_output(context).get_inner();
+        let escape_character_binding = args
+            .escape_character
+            .get_output(context)
+            .get_inner();
+        let first_row_as_header_binding = args
+            .first_row_as_header
+            .get_output(context)
+            .get_inner();
+        let folder_binding = args.folder.get_output(context).get_inner();
+        let http_server_location_binding = args
+            .http_server_location
+            .get_output(context)
+            .get_inner();
+        let linked_service_name_binding = args
+            .linked_service_name
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let null_value_binding = args.null_value.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let quote_character_binding = args
+            .quote_character
+            .get_output(context)
+            .get_inner();
+        let row_delimiter_binding = args.row_delimiter.get_output(context).get_inner();
+        let schema_columns_binding = args.schema_columns.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/datasetDelimitedText:DatasetDelimitedText".into(),
             name: name.to_string(),
@@ -403,7 +438,7 @@ pub mod dataset_delimited_text {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

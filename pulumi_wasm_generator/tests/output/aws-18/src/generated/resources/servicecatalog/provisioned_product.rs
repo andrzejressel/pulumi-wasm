@@ -35,45 +35,45 @@
 /// $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
 /// ```
 pub mod provisioned_product {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProvisionedProductArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// _Only applies to deleting._ If set to `true`, AWS Service Catalog stops managing the specified provisioned product even if it cannot delete the underlying resources. The default value is `false`.
         #[builder(into, default)]
-        pub ignore_errors: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ignore_errors: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// User-friendly name of the provisioned product.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related events.
         #[builder(into, default)]
-        pub notification_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub notification_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. To list the paths for a product, use `aws.servicecatalog.getLaunchPaths`. When required, you must provide `path_id` or `path_name`, but not both.
         #[builder(into, default)]
-        pub path_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub path_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the path. You must provide `path_id` or `path_name`, but not both.
         #[builder(into, default)]
-        pub path_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub path_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Product identifier. For example, `prod-abcdzk7xy33qa`. You must provide `product_id` or `product_name`, but not both.
         #[builder(into, default)]
-        pub product_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub product_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the product. You must provide `product_id` or `product_name`, but not both.
         #[builder(into, default)]
-        pub product_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub product_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of the provisioning artifact. For example, `pa-4abcdjnxjj6ne`. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         #[builder(into, default)]
-        pub provisioning_artifact_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub provisioning_artifact_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the provisioning artifact. You must provide the `provisioning_artifact_id` or `provisioning_artifact_name`, but not both.
         #[builder(into, default)]
-        pub provisioning_artifact_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub provisioning_artifact_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioning_parameters` Block for details.
         #[builder(into, default)]
-        pub provisioning_parameters: pulumi_wasm_rust::Output<
+        pub provisioning_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::servicecatalog::ProvisionedProductProvisioningParameter,
@@ -82,17 +82,17 @@ pub mod provisioned_product {
         >,
         /// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
         #[builder(into, default)]
-        pub retain_physical_resources: pulumi_wasm_rust::Output<Option<bool>>,
+        pub retain_physical_resources: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration block with information about the provisioning preferences for a stack set. See `stack_set_provisioning_preferences` Block for details.
         #[builder(into, default)]
-        pub stack_set_provisioning_preferences: pulumi_wasm_rust::Output<
+        pub stack_set_provisioning_preferences: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::servicecatalog::ProvisionedProductStackSetProvisioningPreferences,
             >,
         >,
         /// Tags to apply to the provisioned product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -173,29 +173,48 @@ pub mod provisioned_product {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProvisionedProductArgs) -> ProvisionedProductResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProvisionedProductArgs,
+    ) -> ProvisionedProductResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding = args.accept_language.get_inner();
-        let ignore_errors_binding = args.ignore_errors.get_inner();
-        let name_binding = args.name.get_inner();
-        let notification_arns_binding = args.notification_arns.get_inner();
-        let path_id_binding = args.path_id.get_inner();
-        let path_name_binding = args.path_name.get_inner();
-        let product_id_binding = args.product_id.get_inner();
-        let product_name_binding = args.product_name.get_inner();
-        let provisioning_artifact_id_binding = args.provisioning_artifact_id.get_inner();
+        let accept_language_binding = args
+            .accept_language
+            .get_output(context)
+            .get_inner();
+        let ignore_errors_binding = args.ignore_errors.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let notification_arns_binding = args
+            .notification_arns
+            .get_output(context)
+            .get_inner();
+        let path_id_binding = args.path_id.get_output(context).get_inner();
+        let path_name_binding = args.path_name.get_output(context).get_inner();
+        let product_id_binding = args.product_id.get_output(context).get_inner();
+        let product_name_binding = args.product_name.get_output(context).get_inner();
+        let provisioning_artifact_id_binding = args
+            .provisioning_artifact_id
+            .get_output(context)
+            .get_inner();
         let provisioning_artifact_name_binding = args
             .provisioning_artifact_name
+            .get_output(context)
             .get_inner();
-        let provisioning_parameters_binding = args.provisioning_parameters.get_inner();
+        let provisioning_parameters_binding = args
+            .provisioning_parameters
+            .get_output(context)
+            .get_inner();
         let retain_physical_resources_binding = args
             .retain_physical_resources
+            .get_output(context)
             .get_inner();
         let stack_set_provisioning_preferences_binding = args
             .stack_set_provisioning_preferences
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:servicecatalog/provisionedProduct:ProvisionedProduct".into(),
             name: name.to_string(),
@@ -339,7 +358,7 @@ pub mod provisioned_product {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

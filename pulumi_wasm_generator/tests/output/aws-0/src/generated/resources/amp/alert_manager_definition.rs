@@ -28,16 +28,16 @@
 /// $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
 /// ```
 pub mod alert_manager_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AlertManagerDefinitionArgs {
         /// the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
         #[builder(into)]
-        pub definition: pulumi_wasm_rust::Output<String>,
+        pub definition: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the prometheus workspace the alert manager definition should be linked to
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AlertManagerDefinitionResult {
@@ -51,13 +51,14 @@ pub mod alert_manager_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AlertManagerDefinitionArgs,
     ) -> AlertManagerDefinitionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let definition_binding = args.definition.get_inner();
-        let workspace_id_binding = args.workspace_id.get_inner();
+        let definition_binding = args.definition.get_output(context).get_inner();
+        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:amp/alertManagerDefinition:AlertManagerDefinition".into(),
             name: name.to_string(),
@@ -81,7 +82,7 @@ pub mod alert_manager_definition {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

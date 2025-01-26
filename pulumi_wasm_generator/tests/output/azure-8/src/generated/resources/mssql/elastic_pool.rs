@@ -62,7 +62,7 @@
 /// ```
 ///
 pub mod elastic_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ElasticPoolArgs {
@@ -74,49 +74,53 @@ pub mod elastic_pool {
         ///
         /// > **NOTE:** The default value for `enclave_type` field is unset not `Default`.
         #[builder(into, default)]
-        pub enclave_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub enclave_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         #[builder(into, default)]
-        pub license_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub license_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Public Maintenance Configuration window to apply to the elastic pool. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`, `SQL_SouthAfricaNorth_DB_1`, `SQL_SouthAfricaNorth_DB_2`, `SQL_WestUS3_DB_1`, `SQL_WestUS3_DB_2`. Defaults to `SQL_Default`.
         #[builder(into, default)]
-        pub maintenance_configuration_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub maintenance_configuration_name: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         ///
         /// > **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         #[builder(into, default)]
-        pub max_size_bytes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_size_bytes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         #[builder(into, default)]
-        pub max_size_gb: pulumi_wasm_rust::Output<Option<f64>>,
+        pub max_size_gb: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `per_database_settings` block as defined below.
         #[builder(into)]
-        pub per_database_settings: pulumi_wasm_rust::Output<
+        pub per_database_settings: pulumi_wasm_rust::InputOrOutput<
             super::super::types::mssql::ElasticPoolPerDatabaseSettings,
         >,
         /// The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server_name: pulumi_wasm_rust::Output<String>,
+        pub server_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `sku` block as defined below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<super::super::types::mssql::ElasticPoolSku>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<
+            super::super::types::mssql::ElasticPoolSku,
+        >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
         #[builder(into, default)]
-        pub zone_redundant: pulumi_wasm_rust::Output<Option<bool>>,
+        pub zone_redundant: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ElasticPoolResult {
@@ -163,24 +167,35 @@ pub mod elastic_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ElasticPoolArgs) -> ElasticPoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ElasticPoolArgs,
+    ) -> ElasticPoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let enclave_type_binding = args.enclave_type.get_inner();
-        let license_type_binding = args.license_type.get_inner();
-        let location_binding = args.location.get_inner();
+        let enclave_type_binding = args.enclave_type.get_output(context).get_inner();
+        let license_type_binding = args.license_type.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let maintenance_configuration_name_binding = args
             .maintenance_configuration_name
+            .get_output(context)
             .get_inner();
-        let max_size_bytes_binding = args.max_size_bytes.get_inner();
-        let max_size_gb_binding = args.max_size_gb.get_inner();
-        let name_binding = args.name.get_inner();
-        let per_database_settings_binding = args.per_database_settings.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let server_name_binding = args.server_name.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let zone_redundant_binding = args.zone_redundant.get_inner();
+        let max_size_bytes_binding = args.max_size_bytes.get_output(context).get_inner();
+        let max_size_gb_binding = args.max_size_gb.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let per_database_settings_binding = args
+            .per_database_settings
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let server_name_binding = args.server_name.get_output(context).get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let zone_redundant_binding = args.zone_redundant.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/elasticPool:ElasticPool".into(),
             name: name.to_string(),
@@ -281,7 +296,7 @@ pub mod elastic_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

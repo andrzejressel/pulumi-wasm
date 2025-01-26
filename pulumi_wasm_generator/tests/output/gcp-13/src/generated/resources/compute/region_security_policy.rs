@@ -107,40 +107,40 @@
 /// ```
 ///
 pub mod region_security_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionSecurityPolicyArgs {
         /// Configuration for Google Cloud Armor DDOS Proctection Config.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub ddos_protection_config: pulumi_wasm_rust::Output<
+        pub ddos_protection_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::RegionSecurityPolicyDdosProtectionConfig,
             >,
         >,
         /// An optional description of this resource. Provide this property when you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
         /// Specifically, the name must be 1-63 characters long and match the regular expression a-z? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Region in which the created Region Security Policy should reside.
         /// If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The set of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match "*"). If no rules are provided when creating a security policy, a default rule with action "allow" will be added.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RegionSecurityPolicyRule>>,
         >,
         /// The type indicates the intended use of the security policy.
@@ -150,13 +150,13 @@ pub mod region_security_policy {
         /// This field can be set only at resource creation time.
         /// Possible values are: `CLOUD_ARMOR`, `CLOUD_ARMOR_EDGE`, `CLOUD_ARMOR_NETWORK`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Definitions of user-defined fields for CLOUD_ARMOR_NETWORK policies.
         /// A user-defined field consists of up to 4 bytes extracted from a fixed offset in the packet, relative to the IPv4, IPv6, TCP, or UDP header, with an optional mask to select certain bits.
         /// Rules may then specify matching values for these fields.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub user_defined_fields: pulumi_wasm_rust::Output<
+        pub user_defined_fields: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::compute::RegionSecurityPolicyUserDefinedField>,
             >,
@@ -221,19 +221,26 @@ pub mod region_security_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RegionSecurityPolicyArgs,
     ) -> RegionSecurityPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let ddos_protection_config_binding = args.ddos_protection_config.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let rules_binding = args.rules.get_inner();
-        let type__binding = args.type_.get_inner();
-        let user_defined_fields_binding = args.user_defined_fields.get_inner();
+        let ddos_protection_config_binding = args
+            .ddos_protection_config
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let rules_binding = args.rules.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let user_defined_fields_binding = args
+            .user_defined_fields
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionSecurityPolicy:RegionSecurityPolicy".into(),
             name: name.to_string(),
@@ -311,7 +318,7 @@ pub mod region_security_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

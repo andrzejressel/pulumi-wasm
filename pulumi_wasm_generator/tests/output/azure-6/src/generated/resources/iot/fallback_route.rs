@@ -76,28 +76,28 @@
 /// ```
 ///
 pub mod fallback_route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FallbackRouteArgs {
         /// The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`.
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::Output<Option<String>>,
+        pub condition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Used to specify whether the fallback route is enabled.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
         #[builder(into)]
-        pub endpoint_names: pulumi_wasm_rust::Output<String>,
+        pub endpoint_names: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub iothub_name: pulumi_wasm_rust::Output<String>,
+        pub iothub_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
         #[builder(into, default)]
-        pub source: pulumi_wasm_rust::Output<Option<String>>,
+        pub source: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FallbackRouteResult {
@@ -118,15 +118,22 @@ pub mod fallback_route {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FallbackRouteArgs) -> FallbackRouteResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FallbackRouteArgs,
+    ) -> FallbackRouteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let endpoint_names_binding = args.endpoint_names.get_inner();
-        let iothub_name_binding = args.iothub_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let source_binding = args.source.get_inner();
+        let condition_binding = args.condition.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let endpoint_names_binding = args.endpoint_names.get_output(context).get_inner();
+        let iothub_name_binding = args.iothub_name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/fallbackRoute:FallbackRoute".into(),
             name: name.to_string(),
@@ -178,7 +185,7 @@ pub mod fallback_route {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

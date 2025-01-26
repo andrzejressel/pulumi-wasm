@@ -27,23 +27,23 @@
 ///         startDateRange: 2024-04-28T15:04:05Z
 /// ```
 pub mod capacity_block_reservation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CapacityBlockReservationArgs {
         /// The Capacity Block Reservation ID.
         #[builder(into)]
-        pub capacity_block_offering_id: pulumi_wasm_rust::Output<String>,
+        pub capacity_block_offering_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         #[builder(into)]
-        pub instance_platform: pulumi_wasm_rust::Output<String>,
+        pub instance_platform: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ec2::CapacityBlockReservationTimeouts>,
         >,
     }
@@ -96,6 +96,7 @@ pub mod capacity_block_reservation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CapacityBlockReservationArgs,
     ) -> CapacityBlockReservationResult {
@@ -103,10 +104,14 @@ pub mod capacity_block_reservation {
         use std::collections::HashMap;
         let capacity_block_offering_id_binding = args
             .capacity_block_offering_id
+            .get_output(context)
             .get_inner();
-        let instance_platform_binding = args.instance_platform.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let instance_platform_binding = args
+            .instance_platform
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/capacityBlockReservation:CapacityBlockReservation".into(),
             name: name.to_string(),
@@ -186,7 +191,7 @@ pub mod capacity_block_reservation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

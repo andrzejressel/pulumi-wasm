@@ -1,24 +1,24 @@
 /// The [Risk Score Integration](https://developers.cloudflare.com/cloudflare-one/insights/risk-score/#send-risk-score-to-okta) resource allows you to transmit changes in User Risk Score to a specified vendor such as Okta.
 pub mod zero_trust_risk_score_integration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustRiskScoreIntegrationArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether this integration is enabled. If disabled, no risk changes will be exported to the third-party.
         #[builder(into, default)]
-        pub active: pulumi_wasm_rust::Output<Option<bool>>,
+        pub active: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The type of integration, e.g. 'Okta'. Full list of allowed values can be found here: https://developers.cloudflare.com/api/operations/dlp-zt-risk-score-integration-create#request-body
         #[builder(into)]
-        pub integration_type: pulumi_wasm_rust::Output<String>,
+        pub integration_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// A reference id that can be supplied by the client. Currently this should be set to the Access-Okta IDP ID (a UUIDv4). If omitted, a random UUIDv4 is used. https://developers.cloudflare.com/api/operations/access-identity-providers-get-an-access-identity-provider
         #[builder(into, default)]
-        pub reference_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub reference_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The base url of the tenant, e.g. 'https://tenant.okta.com'. Must be your Okta Tenant URL and not your custom domain.
         #[builder(into)]
-        pub tenant_url: pulumi_wasm_rust::Output<String>,
+        pub tenant_url: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustRiskScoreIntegrationResult {
@@ -40,16 +40,20 @@ pub mod zero_trust_risk_score_integration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ZeroTrustRiskScoreIntegrationArgs,
     ) -> ZeroTrustRiskScoreIntegrationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let active_binding = args.active.get_inner();
-        let integration_type_binding = args.integration_type.get_inner();
-        let reference_id_binding = args.reference_id.get_inner();
-        let tenant_url_binding = args.tenant_url.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let active_binding = args.active.get_output(context).get_inner();
+        let integration_type_binding = args
+            .integration_type
+            .get_output(context)
+            .get_inner();
+        let reference_id_binding = args.reference_id.get_output(context).get_inner();
+        let tenant_url_binding = args.tenant_url.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustRiskScoreIntegration:ZeroTrustRiskScoreIntegration"
                 .into(),
@@ -98,7 +102,7 @@ pub mod zero_trust_risk_score_integration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

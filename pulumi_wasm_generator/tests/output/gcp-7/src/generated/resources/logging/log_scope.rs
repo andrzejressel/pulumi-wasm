@@ -49,28 +49,28 @@
 /// ```
 ///
 pub mod log_scope {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogScopeArgs {
         /// Describes this log scopes.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location of the resource. The only supported location is global so far.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource name of the log scope. For example: \`projects/my-project/locations/global/logScopes/my-log-scope\`
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The parent of the resource.
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Names of one or more parent resources : *  \`projects/[PROJECT_ID]\` May alternatively be one or more views : * \`projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]\` A log scope can include a maximum of 50 projects and a maximum of 100 resources in total.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub resource_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub resource_names: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct LogScopeResult {
@@ -96,14 +96,18 @@ pub mod log_scope {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LogScopeArgs) -> LogScopeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LogScopeArgs,
+    ) -> LogScopeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let resource_names_binding = args.resource_names.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let resource_names_binding = args.resource_names.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:logging/logScope:LogScope".into(),
             name: name.to_string(),
@@ -154,7 +158,7 @@ pub mod log_scope {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

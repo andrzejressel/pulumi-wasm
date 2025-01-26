@@ -69,22 +69,22 @@
 /// ```
 ///
 pub mod flexible_server_virtual_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FlexibleServerVirtualEndpointArgs {
         /// The name of the Virtual Endpoint
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Resource ID of the *Replica* Postgres Flexible Server this should be associated with
         #[builder(into)]
-        pub replica_server_id: pulumi_wasm_rust::Output<String>,
+        pub replica_server_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Resource ID of the *Source* Postgres Flexible Server this should be associated with.
         #[builder(into)]
-        pub source_server_id: pulumi_wasm_rust::Output<String>,
+        pub source_server_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of Virtual Endpoint. Currently only `ReadWrite` is supported.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FlexibleServerVirtualEndpointResult {
@@ -102,15 +102,22 @@ pub mod flexible_server_virtual_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FlexibleServerVirtualEndpointArgs,
     ) -> FlexibleServerVirtualEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let replica_server_id_binding = args.replica_server_id.get_inner();
-        let source_server_id_binding = args.source_server_id.get_inner();
-        let type__binding = args.type_.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let replica_server_id_binding = args
+            .replica_server_id
+            .get_output(context)
+            .get_inner();
+        let source_server_id_binding = args
+            .source_server_id
+            .get_output(context)
+            .get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint"
                 .into(),
@@ -149,7 +156,7 @@ pub mod flexible_server_virtual_endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

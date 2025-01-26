@@ -48,30 +48,30 @@
 ///       active: true
 /// ```
 pub mod certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateArgs {
         /// Boolean flag to indicate if the certificate should be active
         #[builder(into)]
-        pub active: pulumi_wasm_rust::Output<bool>,
+        pub active: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The CA certificate for the certificate to be registered. If this is set, the CA needs to be registered with AWS IoT beforehand.
         #[builder(into, default)]
-        pub ca_pem: pulumi_wasm_rust::Output<Option<String>>,
+        pub ca_pem: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The certificate to be registered. If `ca_pem` is unspecified, review
         /// [RegisterCertificateWithoutCA](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificateWithoutCA.html).
         /// If `ca_pem` is specified, review
         /// [RegisterCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_RegisterCertificate.html)
         /// for more information on registering a certificate.
         #[builder(into, default)]
-        pub certificate_pem: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_pem: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The certificate signing request. Review
         /// [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
         /// for more information on generating a certificate from a certificate signing request (CSR).
         /// If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
         /// for more information on generating keys and a certificate.
         #[builder(into, default)]
-        pub csr: pulumi_wasm_rust::Output<Option<String>>,
+        pub csr: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CertificateResult {
@@ -104,13 +104,20 @@ pub mod certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CertificateArgs) -> CertificateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CertificateArgs,
+    ) -> CertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let active_binding = args.active.get_inner();
-        let ca_pem_binding = args.ca_pem.get_inner();
-        let certificate_pem_binding = args.certificate_pem.get_inner();
-        let csr_binding = args.csr.get_inner();
+        let active_binding = args.active.get_output(context).get_inner();
+        let ca_pem_binding = args.ca_pem.get_output(context).get_inner();
+        let certificate_pem_binding = args
+            .certificate_pem
+            .get_output(context)
+            .get_inner();
+        let csr_binding = args.csr.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/certificate:Certificate".into(),
             name: name.to_string(),
@@ -160,7 +167,7 @@ pub mod certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -34,19 +34,19 @@
 /// $ pulumi import aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy example example_email_identity|example_policy_name
 /// ```
 pub mod email_identity_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EmailIdentityPolicyArgs {
         /// The email identity.
         #[builder(into)]
-        pub email_identity: pulumi_wasm_rust::Output<String>,
+        pub email_identity: pulumi_wasm_rust::InputOrOutput<String>,
         /// The text of the policy in JSON format.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the policy.
         #[builder(into)]
-        pub policy_name: pulumi_wasm_rust::Output<String>,
+        pub policy_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EmailIdentityPolicyResult {
@@ -62,14 +62,15 @@ pub mod email_identity_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EmailIdentityPolicyArgs,
     ) -> EmailIdentityPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let email_identity_binding = args.email_identity.get_inner();
-        let policy_binding = args.policy.get_inner();
-        let policy_name_binding = args.policy_name.get_inner();
+        let email_identity_binding = args.email_identity.get_output(context).get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
+        let policy_name_binding = args.policy_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy".into(),
             name: name.to_string(),
@@ -100,7 +101,7 @@ pub mod email_identity_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

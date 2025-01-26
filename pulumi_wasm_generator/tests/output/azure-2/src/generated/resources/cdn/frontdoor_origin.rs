@@ -232,51 +232,51 @@
 /// ```
 ///
 pub mod frontdoor_origin {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorOriginArgs {
         /// The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created.
         #[builder(into)]
-        pub cdn_frontdoor_origin_group_id: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_origin_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies whether certificate name checks are enabled for this origin.
         #[builder(into)]
-        pub certificate_name_check_enabled: pulumi_wasm_rust::Output<bool>,
+        pub certificate_name_check_enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The IPv4 address, IPv6 address or Domain name of the Origin.
         ///
         /// !> **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         #[builder(into)]
-        pub host_name: pulumi_wasm_rust::Output<String>,
+        pub host_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         #[builder(into, default)]
-        pub http_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub http_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
         #[builder(into, default)]
-        pub https_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub https_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
         ///
         /// > Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin's hostname. This field's value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
         #[builder(into, default)]
-        pub origin_host_header: pulumi_wasm_rust::Output<Option<String>>,
+        pub origin_host_header: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A `private_link` block as defined below.
         ///
         /// > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         #[builder(into, default)]
-        pub private_link: pulumi_wasm_rust::Output<
+        pub private_link: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cdn::FrontdoorOriginPrivateLink>,
         >,
         /// The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
         #[builder(into, default)]
-        pub weight: pulumi_wasm_rust::Output<Option<i32>>,
+        pub weight: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct FrontdoorOriginResult {
@@ -315,24 +315,33 @@ pub mod frontdoor_origin {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FrontdoorOriginArgs) -> FrontdoorOriginResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FrontdoorOriginArgs,
+    ) -> FrontdoorOriginResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let cdn_frontdoor_origin_group_id_binding = args
             .cdn_frontdoor_origin_group_id
+            .get_output(context)
             .get_inner();
         let certificate_name_check_enabled_binding = args
             .certificate_name_check_enabled
+            .get_output(context)
             .get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let host_name_binding = args.host_name.get_inner();
-        let http_port_binding = args.http_port.get_inner();
-        let https_port_binding = args.https_port.get_inner();
-        let name_binding = args.name.get_inner();
-        let origin_host_header_binding = args.origin_host_header.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let private_link_binding = args.private_link.get_inner();
-        let weight_binding = args.weight.get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let host_name_binding = args.host_name.get_output(context).get_inner();
+        let http_port_binding = args.http_port.get_output(context).get_inner();
+        let https_port_binding = args.https_port.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let origin_host_header_binding = args
+            .origin_host_header
+            .get_output(context)
+            .get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let private_link_binding = args.private_link.get_output(context).get_inner();
+        let weight_binding = args.weight.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorOrigin:FrontdoorOrigin".into(),
             name: name.to_string(),
@@ -419,7 +428,7 @@ pub mod frontdoor_origin {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

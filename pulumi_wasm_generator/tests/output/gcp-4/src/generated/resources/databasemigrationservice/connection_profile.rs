@@ -397,14 +397,14 @@
 /// ```
 ///
 pub mod connection_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionProfileArgs {
         /// Specifies required connection parameters, and the parameters required to create an AlloyDB destination cluster.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub alloydb: pulumi_wasm_rust::Output<
+        pub alloydb: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::databasemigrationservice::ConnectionProfileAlloydb,
             >,
@@ -412,7 +412,7 @@ pub mod connection_profile {
         /// Specifies required connection parameters, and, optionally, the parameters required to create a Cloud SQL destination database instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloudsql: pulumi_wasm_rust::Output<
+        pub cloudsql: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::databasemigrationservice::ConnectionProfileCloudsql,
             >,
@@ -422,31 +422,31 @@ pub mod connection_profile {
         ///
         /// - - -
         #[builder(into)]
-        pub connection_profile_id: pulumi_wasm_rust::Output<String>,
+        pub connection_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The connection profile display name.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource labels for connection profile to use to annotate any related underlying resources such as Compute Engine VMs.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the connection profile should reside.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies connection parameters required specifically for MySQL databases.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub mysql: pulumi_wasm_rust::Output<
+        pub mysql: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::databasemigrationservice::ConnectionProfileMysql>,
         >,
         /// Specifies connection parameters required specifically for Oracle databases.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub oracle: pulumi_wasm_rust::Output<
+        pub oracle: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::databasemigrationservice::ConnectionProfileOracle,
             >,
@@ -454,7 +454,7 @@ pub mod connection_profile {
         /// Specifies connection parameters required specifically for PostgreSQL databases.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub postgresql: pulumi_wasm_rust::Output<
+        pub postgresql: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::databasemigrationservice::ConnectionProfilePostgresql,
             >,
@@ -462,7 +462,7 @@ pub mod connection_profile {
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ConnectionProfileResult {
@@ -545,19 +545,26 @@ pub mod connection_profile {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectionProfileArgs) -> ConnectionProfileResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectionProfileArgs,
+    ) -> ConnectionProfileResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alloydb_binding = args.alloydb.get_inner();
-        let cloudsql_binding = args.cloudsql.get_inner();
-        let connection_profile_id_binding = args.connection_profile_id.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let mysql_binding = args.mysql.get_inner();
-        let oracle_binding = args.oracle.get_inner();
-        let postgresql_binding = args.postgresql.get_inner();
-        let project_binding = args.project.get_inner();
+        let alloydb_binding = args.alloydb.get_output(context).get_inner();
+        let cloudsql_binding = args.cloudsql.get_output(context).get_inner();
+        let connection_profile_id_binding = args
+            .connection_profile_id
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let mysql_binding = args.mysql.get_output(context).get_inner();
+        let oracle_binding = args.oracle.get_output(context).get_inner();
+        let postgresql_binding = args.postgresql.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:databasemigrationservice/connectionProfile:ConnectionProfile"
                 .into(),
@@ -659,7 +666,7 @@ pub mod connection_profile {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

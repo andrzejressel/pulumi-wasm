@@ -168,30 +168,32 @@
 /// ```
 ///
 pub mod server_microsoft_support_auditing_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServerMicrosoftSupportAuditingPolicyArgs {
         /// The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
         #[builder(into, default)]
-        pub blob_storage_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub blob_storage_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
         ///
         /// ->**NOTE:**  If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         #[builder(into, default)]
-        pub log_monitoring_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub log_monitoring_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the SQL Server to set the extended auditing policy. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server_id: pulumi_wasm_rust::Output<String>,
+        pub server_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The access key to use for the auditing storage account.
         #[builder(into, default)]
-        pub storage_account_access_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_access_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Subscription containing the Storage Account.
         #[builder(into, default)]
-        pub storage_account_subscription_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_subscription_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct ServerMicrosoftSupportAuditingPolicyResult {
@@ -215,20 +217,29 @@ pub mod server_microsoft_support_auditing_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ServerMicrosoftSupportAuditingPolicyArgs,
     ) -> ServerMicrosoftSupportAuditingPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let blob_storage_endpoint_binding = args.blob_storage_endpoint.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let log_monitoring_enabled_binding = args.log_monitoring_enabled.get_inner();
-        let server_id_binding = args.server_id.get_inner();
+        let blob_storage_endpoint_binding = args
+            .blob_storage_endpoint
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let log_monitoring_enabled_binding = args
+            .log_monitoring_enabled
+            .get_output(context)
+            .get_inner();
+        let server_id_binding = args.server_id.get_output(context).get_inner();
         let storage_account_access_key_binding = args
             .storage_account_access_key
+            .get_output(context)
             .get_inner();
         let storage_account_subscription_id_binding = args
             .storage_account_subscription_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy"
@@ -282,7 +293,7 @@ pub mod server_microsoft_support_auditing_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

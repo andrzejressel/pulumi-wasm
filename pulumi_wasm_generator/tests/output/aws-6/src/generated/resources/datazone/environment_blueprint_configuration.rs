@@ -40,30 +40,30 @@
 /// $ pulumi import aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration example domain-id-12345/environment-blueprint-id-54321
 /// ```
 pub mod environment_blueprint_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentBlueprintConfigurationArgs {
         /// ID of the Domain.
         #[builder(into)]
-        pub domain_id: pulumi_wasm_rust::Output<String>,
+        pub domain_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Regions in which the blueprint is enabled
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub enabled_regions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub enabled_regions: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// ID of the Environment Blueprint
         #[builder(into)]
-        pub environment_blueprint_id: pulumi_wasm_rust::Output<String>,
+        pub environment_blueprint_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN of the manage access role with which this blueprint is created.
         #[builder(into, default)]
-        pub manage_access_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub manage_access_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of the provisioning role with which this blueprint is created.
         #[builder(into, default)]
-        pub provisioning_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub provisioning_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Parameters for each region in which the blueprint is enabled
         #[builder(into, default)]
-        pub regional_parameters: pulumi_wasm_rust::Output<
+        pub regional_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<
                 std::collections::HashMap<
                     String,
@@ -101,17 +101,33 @@ pub mod environment_blueprint_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EnvironmentBlueprintConfigurationArgs,
     ) -> EnvironmentBlueprintConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_id_binding = args.domain_id.get_inner();
-        let enabled_regions_binding = args.enabled_regions.get_inner();
-        let environment_blueprint_id_binding = args.environment_blueprint_id.get_inner();
-        let manage_access_role_arn_binding = args.manage_access_role_arn.get_inner();
-        let provisioning_role_arn_binding = args.provisioning_role_arn.get_inner();
-        let regional_parameters_binding = args.regional_parameters.get_inner();
+        let domain_id_binding = args.domain_id.get_output(context).get_inner();
+        let enabled_regions_binding = args
+            .enabled_regions
+            .get_output(context)
+            .get_inner();
+        let environment_blueprint_id_binding = args
+            .environment_blueprint_id
+            .get_output(context)
+            .get_inner();
+        let manage_access_role_arn_binding = args
+            .manage_access_role_arn
+            .get_output(context)
+            .get_inner();
+        let provisioning_role_arn_binding = args
+            .provisioning_role_arn
+            .get_output(context)
+            .get_inner();
+        let regional_parameters_binding = args
+            .regional_parameters
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration"
                 .into(),
@@ -164,7 +180,7 @@ pub mod environment_blueprint_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

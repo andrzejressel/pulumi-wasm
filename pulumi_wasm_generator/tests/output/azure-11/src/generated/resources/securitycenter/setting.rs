@@ -27,16 +27,16 @@
 /// ```
 ///
 pub mod setting {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SettingArgs {
         /// Boolean flag to enable/disable data access.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The setting to manage. Possible values are `MCAS` , `WDATP`, `WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW`, `WDATP_UNIFIED_SOLUTION` and `Sentinel`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub setting_name: pulumi_wasm_rust::Output<String>,
+        pub setting_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SettingResult {
@@ -49,11 +49,15 @@ pub mod setting {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SettingArgs) -> SettingResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SettingArgs,
+    ) -> SettingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let enabled_binding = args.enabled.get_inner();
-        let setting_name_binding = args.setting_name.get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let setting_name_binding = args.setting_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:securitycenter/setting:Setting".into(),
             name: name.to_string(),
@@ -77,7 +81,7 @@ pub mod setting {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

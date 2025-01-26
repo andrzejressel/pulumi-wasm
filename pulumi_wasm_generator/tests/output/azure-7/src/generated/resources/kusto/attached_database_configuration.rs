@@ -93,36 +93,36 @@
 /// ```
 ///
 pub mod attached_database_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AttachedDatabaseConfigurationArgs {
         /// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_resource_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
         #[builder(into, default)]
-        pub default_principal_modification_kind: pulumi_wasm_rust::Output<
+        pub default_principal_modification_kind: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `sharing` block as defined below.
         #[builder(into, default)]
-        pub sharing: pulumi_wasm_rust::Output<
+        pub sharing: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::kusto::AttachedDatabaseConfigurationSharing>,
         >,
     }
@@ -156,21 +156,29 @@ pub mod attached_database_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AttachedDatabaseConfigurationArgs,
     ) -> AttachedDatabaseConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding = args.cluster_name.get_inner();
-        let cluster_resource_id_binding = args.cluster_resource_id.get_inner();
-        let database_name_binding = args.database_name.get_inner();
+        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
+        let cluster_resource_id_binding = args
+            .cluster_resource_id
+            .get_output(context)
+            .get_inner();
+        let database_name_binding = args.database_name.get_output(context).get_inner();
         let default_principal_modification_kind_binding = args
             .default_principal_modification_kind
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sharing_binding = args.sharing.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sharing_binding = args.sharing.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration"
                 .into(),
@@ -240,7 +248,7 @@ pub mod attached_database_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

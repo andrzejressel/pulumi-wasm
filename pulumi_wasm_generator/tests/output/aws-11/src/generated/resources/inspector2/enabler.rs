@@ -40,19 +40,19 @@
 ///       arguments: {}
 /// ```
 pub mod enabler {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnablerArgs {
         /// Set of account IDs.
         /// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         #[builder(into)]
-        pub account_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub account_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Type of resources to scan.
         /// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
         /// At least one item is required.
         #[builder(into)]
-        pub resource_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub resource_types: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct EnablerResult {
@@ -68,11 +68,15 @@ pub mod enabler {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EnablerArgs) -> EnablerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EnablerArgs,
+    ) -> EnablerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_ids_binding = args.account_ids.get_inner();
-        let resource_types_binding = args.resource_types.get_inner();
+        let account_ids_binding = args.account_ids.get_output(context).get_inner();
+        let resource_types_binding = args.resource_types.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:inspector2/enabler:Enabler".into(),
             name: name.to_string(),
@@ -96,7 +100,7 @@ pub mod enabler {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

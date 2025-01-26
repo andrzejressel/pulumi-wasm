@@ -1,20 +1,20 @@
 pub mod get_repository_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRepositoryEndpointArgs {
         /// Name of the domain that contains the repository.
         #[builder(into)]
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_wasm_rust::InputOrOutput<String>,
         /// Account number of the AWS account that owns the domain.
         #[builder(into, default)]
-        pub domain_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
         #[builder(into)]
-        pub format: pulumi_wasm_rust::Output<String>,
+        pub format: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the repository.
         #[builder(into)]
-        pub repository: pulumi_wasm_rust::Output<String>,
+        pub repository: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetRepositoryEndpointResult {
@@ -31,13 +31,16 @@ pub mod get_repository_endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetRepositoryEndpointArgs) -> GetRepositoryEndpointResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetRepositoryEndpointArgs,
+    ) -> GetRepositoryEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_binding = args.domain.get_inner();
-        let domain_owner_binding = args.domain_owner.get_inner();
-        let format_binding = args.format.get_inner();
-        let repository_binding = args.repository.get_inner();
+        let domain_binding = args.domain.get_output(context).get_inner();
+        let domain_owner_binding = args.domain_owner.get_output(context).get_inner();
+        let format_binding = args.format.get_output(context).get_inner();
+        let repository_binding = args.repository.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint".into(),
             version: super::super::super::get_version(),
@@ -80,7 +83,7 @@ pub mod get_repository_endpoint {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

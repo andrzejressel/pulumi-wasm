@@ -62,7 +62,7 @@
 /// ```
 ///
 pub mod deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentArgs {
@@ -71,33 +71,33 @@ pub mod deployment {
         /// updating this field does not actually affect the deployment, just how it is updated. Default value: "CREATE_OR_ACQUIRE"
         /// Possible values: ["ACQUIRE", "CREATE_OR_ACQUIRE"]
         #[builder(into, default)]
-        pub create_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub create_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Set the policy to use for deleting new resources on update/delete. Valid values are 'DELETE' (default) or 'ABANDON'. If
         /// 'DELETE', resource is deleted after removal from Deployment Manager. If 'ABANDON', the resource is only removed from
         /// Deployment Manager and is not actually deleted. Note that updating this field does not actually change the deployment,
         /// just how it is updated. Default value: "DELETE" Possible values: ["ABANDON", "DELETE"]
         #[builder(into, default)]
-        pub delete_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub delete_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional user-provided description of deployment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value pairs to apply to this labels.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::deploymentmanager::DeploymentLabel>>,
         >,
         /// Unique name for the deployment
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub preview: pulumi_wasm_rust::Output<Option<bool>>,
+        pub preview: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Parameters that define your deployment, including the deployment
         /// configuration and relevant templates.
         /// Structure is documented below.
         #[builder(into)]
-        pub target: pulumi_wasm_rust::Output<
+        pub target: pulumi_wasm_rust::InputOrOutput<
             super::super::types::deploymentmanager::DeploymentTarget,
         >,
     }
@@ -141,17 +141,21 @@ pub mod deployment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DeploymentArgs) -> DeploymentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DeploymentArgs,
+    ) -> DeploymentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let create_policy_binding = args.create_policy.get_inner();
-        let delete_policy_binding = args.delete_policy.get_inner();
-        let description_binding = args.description.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let preview_binding = args.preview.get_inner();
-        let project_binding = args.project.get_inner();
-        let target_binding = args.target.get_inner();
+        let create_policy_binding = args.create_policy.get_output(context).get_inner();
+        let delete_policy_binding = args.delete_policy.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let preview_binding = args.preview.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let target_binding = args.target.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:deploymentmanager/deployment:Deployment".into(),
             name: name.to_string(),
@@ -226,7 +230,7 @@ pub mod deployment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

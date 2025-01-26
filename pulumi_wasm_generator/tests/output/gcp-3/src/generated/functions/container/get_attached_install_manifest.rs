@@ -1,21 +1,21 @@
 pub mod get_attached_install_manifest {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAttachedInstallManifestArgs {
         /// The name that will be used when creating the attached cluster resource.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location to list versions for.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The platform version for the cluster. A list of valid values can be retrieved using the `gcp.container.getAttachedVersions` data source.
         #[builder(into)]
-        pub platform_version: pulumi_wasm_rust::Output<String>,
+        pub platform_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the project to list available platform versions for. Should match the project the cluster will be deployed to.
         /// Defaults to the project that the provider is authenticated with.
         #[builder(into)]
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetAttachedInstallManifestResult {
@@ -33,14 +33,18 @@ pub mod get_attached_install_manifest {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetAttachedInstallManifestArgs,
     ) -> GetAttachedInstallManifestResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding = args.cluster_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let platform_version_binding = args.platform_version.get_inner();
-        let project_binding = args.project.get_inner();
+        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let platform_version_binding = args
+            .platform_version
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:container/getAttachedInstallManifest:getAttachedInstallManifest"
                 .into(),
@@ -84,7 +88,7 @@ pub mod get_attached_install_manifest {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

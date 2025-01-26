@@ -160,39 +160,39 @@
 /// ```
 ///
 pub mod network_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkAttachmentArgs {
         /// The connection preference of service attachment. The value can be set to ACCEPT_AUTOMATIC. An ACCEPT_AUTOMATIC service attachment is one that always accepts the connection from consumer forwarding rules.
         /// Possible values are: `ACCEPT_AUTOMATIC`, `ACCEPT_MANUAL`, `INVALID`.
         #[builder(into)]
-        pub connection_preference: pulumi_wasm_rust::Output<String>,
+        pub connection_preference: pulumi_wasm_rust::InputOrOutput<String>,
         /// An optional description of this resource. Provide this property when you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression a-z? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Projects that are allowed to connect to this network attachment. The project can be specified using its id or number.
         #[builder(into, default)]
-        pub producer_accept_lists: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub producer_accept_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Projects that are not allowed to connect to this network attachment. The project can be specified using its id or number.
         #[builder(into, default)]
-        pub producer_reject_lists: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub producer_reject_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// URL of the region where the network attachment resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An array of URLs where each entry is the URL of a subnet provided by the service consumer to use for endpoints in the producers that connect to this network attachment.
         #[builder(into)]
-        pub subnetworks: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnetworks: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct NetworkAttachmentResult {
@@ -241,17 +241,30 @@ pub mod network_attachment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NetworkAttachmentArgs) -> NetworkAttachmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NetworkAttachmentArgs,
+    ) -> NetworkAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let connection_preference_binding = args.connection_preference.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let producer_accept_lists_binding = args.producer_accept_lists.get_inner();
-        let producer_reject_lists_binding = args.producer_reject_lists.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let subnetworks_binding = args.subnetworks.get_inner();
+        let connection_preference_binding = args
+            .connection_preference
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let producer_accept_lists_binding = args
+            .producer_accept_lists
+            .get_output(context)
+            .get_inner();
+        let producer_reject_lists_binding = args
+            .producer_reject_lists
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let subnetworks_binding = args.subnetworks.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/networkAttachment:NetworkAttachment".into(),
             name: name.to_string(),
@@ -338,7 +351,7 @@ pub mod network_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

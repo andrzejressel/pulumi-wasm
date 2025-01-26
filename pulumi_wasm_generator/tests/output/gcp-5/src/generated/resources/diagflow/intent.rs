@@ -114,66 +114,68 @@
 /// ```
 ///
 pub mod intent {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntentArgs {
         /// The name of the action associated with the intent.
         /// Note: The action name must not contain whitespaces.
         #[builder(into, default)]
-        pub action: pulumi_wasm_rust::Output<Option<String>>,
+        pub action: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The list of platforms for which the first responses will be copied from the messages in PLATFORM_UNSPECIFIED
         /// (i.e. default platform).
         /// Each value may be one of: `FACEBOOK`, `SLACK`, `TELEGRAM`, `KIK`, `SKYPE`, `LINE`, `VIBER`, `ACTIONS_ON_GOOGLE`, `GOOGLE_HANGOUTS`.
         #[builder(into, default)]
-        pub default_response_platforms: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub default_response_platforms: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The name of this intent to be displayed on the console.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The collection of event names that trigger the intent. If the collection of input contexts is not empty, all of
         /// the contexts must be present in the active user session for an event to trigger this intent. See the
         /// [events reference](https://cloud.google.com/dialogflow/docs/events-overview) for more details.
         #[builder(into, default)]
-        pub events: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub events: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The list of context names required for this intent to be triggered.
         /// Format: projects/<Project ID>/agent/sessions/-/contexts/<Context ID>.
         #[builder(into, default)]
-        pub input_context_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub input_context_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Indicates whether this is a fallback intent.
         #[builder(into, default)]
-        pub is_fallback: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_fallback: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Indicates whether Machine Learning is disabled for the intent.
         /// Note: If mlDisabled setting is set to true, then this intent is not taken into account during inference in ML
         /// ONLY match mode. Also, auto-markup in the UI is turned off.
         #[builder(into, default)]
-        pub ml_disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ml_disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The unique identifier of the parent intent in the chain of followup intents.
         /// Format: projects/<Project ID>/agent/intents/<Intent ID>.
         #[builder(into, default)]
-        pub parent_followup_intent_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent_followup_intent_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The priority of this intent. Higher numbers represent higher priorities.
         /// - If the supplied value is unspecified or 0, the service translates the value to 500,000, which corresponds
         /// to the Normal priority in the console.
         /// - If the supplied value is negative, the intent is ignored in runtime detect intent requests.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether to delete all contexts in the current session when this intent is matched.
         #[builder(into, default)]
-        pub reset_contexts: pulumi_wasm_rust::Output<Option<bool>>,
+        pub reset_contexts: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Indicates whether webhooks are enabled for the intent.
         /// * WEBHOOK_STATE_ENABLED: Webhook is enabled in the agent and in the intent.
         /// * WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING: Webhook is enabled in the agent and in the intent. Also, each slot
         /// filling prompt is forwarded to the webhook.
         /// Possible values are: `WEBHOOK_STATE_ENABLED`, `WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING`.
         #[builder(into, default)]
-        pub webhook_state: pulumi_wasm_rust::Output<Option<String>>,
+        pub webhook_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct IntentResult {
@@ -239,25 +241,34 @@ pub mod intent {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: IntentArgs) -> IntentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: IntentArgs,
+    ) -> IntentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
         let default_response_platforms_binding = args
             .default_response_platforms
+            .get_output(context)
             .get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let events_binding = args.events.get_inner();
-        let input_context_names_binding = args.input_context_names.get_inner();
-        let is_fallback_binding = args.is_fallback.get_inner();
-        let ml_disabled_binding = args.ml_disabled.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let events_binding = args.events.get_output(context).get_inner();
+        let input_context_names_binding = args
+            .input_context_names
+            .get_output(context)
+            .get_inner();
+        let is_fallback_binding = args.is_fallback.get_output(context).get_inner();
+        let ml_disabled_binding = args.ml_disabled.get_output(context).get_inner();
         let parent_followup_intent_name_binding = args
             .parent_followup_intent_name
+            .get_output(context)
             .get_inner();
-        let priority_binding = args.priority.get_inner();
-        let project_binding = args.project.get_inner();
-        let reset_contexts_binding = args.reset_contexts.get_inner();
-        let webhook_state_binding = args.webhook_state.get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let reset_contexts_binding = args.reset_contexts.get_output(context).get_inner();
+        let webhook_state_binding = args.webhook_state.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/intent:Intent".into(),
             name: name.to_string(),
@@ -360,7 +371,7 @@ pub mod intent {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

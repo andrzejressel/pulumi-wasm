@@ -1,14 +1,14 @@
 pub mod get_policy_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPolicyAssignmentArgs {
         /// The name of this Policy Assignment. Changing this forces a new Policy Assignment to be created.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the scope this Policy Assignment is assigned to. The `scope_id` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
         #[builder(into)]
-        pub scope_id: pulumi_wasm_rust::Output<String>,
+        pub scope_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetPolicyAssignmentResult {
@@ -47,11 +47,14 @@ pub mod get_policy_assignment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetPolicyAssignmentArgs) -> GetPolicyAssignmentResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetPolicyAssignmentArgs,
+    ) -> GetPolicyAssignmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let scope_id_binding = args.scope_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let scope_id_binding = args.scope_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:policy/getPolicyAssignment:getPolicyAssignment".into(),
             version: super::super::super::get_version(),
@@ -107,7 +110,7 @@ pub mod get_policy_assignment {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

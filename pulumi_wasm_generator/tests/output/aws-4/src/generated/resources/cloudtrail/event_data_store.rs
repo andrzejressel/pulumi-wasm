@@ -66,43 +66,45 @@
 /// $ pulumi import aws:cloudtrail/eventDataStore:EventDataStore example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
 /// ```
 pub mod event_data_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventDataStoreArgs {
         /// The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
         #[builder(into, default)]
-        pub advanced_event_selectors: pulumi_wasm_rust::Output<
+        pub advanced_event_selectors: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::cloudtrail::EventDataStoreAdvancedEventSelector>,
             >,
         >,
         /// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
         #[builder(into, default)]
-        pub billing_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub billing_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         #[builder(into, default)]
-        pub multi_region_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub multi_region_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the event data store.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
         #[builder(into, default)]
-        pub organization_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub organization_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         #[builder(into, default)]
-        pub retention_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_period: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         #[builder(into, default)]
-        pub termination_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub termination_protection_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
     }
     #[allow(dead_code)]
     pub struct EventDataStoreResult {
@@ -139,19 +141,36 @@ pub mod event_data_store {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EventDataStoreArgs) -> EventDataStoreResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EventDataStoreArgs,
+    ) -> EventDataStoreResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let advanced_event_selectors_binding = args.advanced_event_selectors.get_inner();
-        let billing_mode_binding = args.billing_mode.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let multi_region_enabled_binding = args.multi_region_enabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let organization_enabled_binding = args.organization_enabled.get_inner();
-        let retention_period_binding = args.retention_period.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let advanced_event_selectors_binding = args
+            .advanced_event_selectors
+            .get_output(context)
+            .get_inner();
+        let billing_mode_binding = args.billing_mode.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let multi_region_enabled_binding = args
+            .multi_region_enabled
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let organization_enabled_binding = args
+            .organization_enabled
+            .get_output(context)
+            .get_inner();
+        let retention_period_binding = args
+            .retention_period
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let termination_protection_enabled_binding = args
             .termination_protection_enabled
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudtrail/eventDataStore:EventDataStore".into(),
@@ -231,7 +250,7 @@ pub mod event_data_store {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

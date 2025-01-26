@@ -113,23 +113,23 @@
 /// ```
 ///
 pub mod vpn_tunnel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VPNTunnelArgs {
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// IKE protocol version to use when establishing the VPN tunnel with
         /// peer VPN gateway.
         /// Acceptable IKE versions are 1 or 2. Default version is 2.
         #[builder(into, default)]
-        pub ike_version: pulumi_wasm_rust::Output<Option<i32>>,
+        pub ike_version: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Labels to apply to this VpnTunnel.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Local traffic selector to use when establishing the VPN tunnel with
@@ -137,7 +137,9 @@ pub mod vpn_tunnel {
         /// for example `192.168.0.0/16`. The ranges should be disjoint.
         /// Only IPv4 is supported.
         #[builder(into, default)]
-        pub local_traffic_selectors: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub local_traffic_selectors: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Name of the resource. The name must be 1-63 characters long, and
         /// comply with RFC1035. Specifically, the name must be 1-63
         /// characters long and match the regular expression
@@ -146,38 +148,42 @@ pub mod vpn_tunnel {
         /// be a dash, lowercase letter, or digit,
         /// except the last character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// URL of the peer side external VPN gateway to which this VPN tunnel is connected.
         #[builder(into, default)]
-        pub peer_external_gateway: pulumi_wasm_rust::Output<Option<String>>,
+        pub peer_external_gateway: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The interface ID of the external VPN gateway to which this VPN tunnel is connected.
         #[builder(into, default)]
-        pub peer_external_gateway_interface: pulumi_wasm_rust::Output<Option<i32>>,
+        pub peer_external_gateway_interface: pulumi_wasm_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// URL of the peer side HA GCP VPN gateway to which this VPN tunnel is connected.
         /// If provided, the VPN tunnel will automatically use the same vpn_gateway_interface
         /// ID in the peer GCP VPN gateway.
         /// This field must reference a `gcp.compute.HaVpnGateway` resource.
         #[builder(into, default)]
-        pub peer_gcp_gateway: pulumi_wasm_rust::Output<Option<String>>,
+        pub peer_gcp_gateway: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// IP address of the peer VPN gateway. Only IPv4 is supported.
         #[builder(into, default)]
-        pub peer_ip: pulumi_wasm_rust::Output<Option<String>>,
+        pub peer_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The region where the tunnel is located. If unset, is set to the region of `target_vpn_gateway`.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Remote traffic selector to use when establishing the VPN tunnel with
         /// peer VPN gateway. The value should be a CIDR formatted string,
         /// for example `192.168.0.0/16`. The ranges should be disjoint.
         /// Only IPv4 is supported.
         #[builder(into, default)]
-        pub remote_traffic_selectors: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub remote_traffic_selectors: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// URL of router resource to be used for dynamic routing.
         #[builder(into, default)]
-        pub router: pulumi_wasm_rust::Output<Option<String>>,
+        pub router: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Shared secret used to set the secure session between the Cloud VPN
         /// gateway and the peer VPN gateway.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
@@ -185,19 +191,19 @@ pub mod vpn_tunnel {
         ///
         /// - - -
         #[builder(into)]
-        pub shared_secret: pulumi_wasm_rust::Output<String>,
+        pub shared_secret: pulumi_wasm_rust::InputOrOutput<String>,
         /// URL of the Target VPN gateway with which this VPN tunnel is
         /// associated.
         #[builder(into, default)]
-        pub target_vpn_gateway: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_vpn_gateway: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// URL of the VPN gateway with which this VPN tunnel is associated.
         /// This must be used if a High Availability VPN gateway resource is created.
         /// This field must reference a `gcp.compute.HaVpnGateway` resource.
         #[builder(into, default)]
-        pub vpn_gateway: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpn_gateway: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The interface ID of the VPN gateway with which this VPN tunnel is associated.
         #[builder(into, default)]
-        pub vpn_gateway_interface: pulumi_wasm_rust::Output<Option<i32>>,
+        pub vpn_gateway_interface: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct VPNTunnelResult {
@@ -292,28 +298,51 @@ pub mod vpn_tunnel {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VPNTunnelArgs) -> VPNTunnelResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VPNTunnelArgs,
+    ) -> VPNTunnelResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let ike_version_binding = args.ike_version.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let local_traffic_selectors_binding = args.local_traffic_selectors.get_inner();
-        let name_binding = args.name.get_inner();
-        let peer_external_gateway_binding = args.peer_external_gateway.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let ike_version_binding = args.ike_version.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let local_traffic_selectors_binding = args
+            .local_traffic_selectors
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let peer_external_gateway_binding = args
+            .peer_external_gateway
+            .get_output(context)
+            .get_inner();
         let peer_external_gateway_interface_binding = args
             .peer_external_gateway_interface
+            .get_output(context)
             .get_inner();
-        let peer_gcp_gateway_binding = args.peer_gcp_gateway.get_inner();
-        let peer_ip_binding = args.peer_ip.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let remote_traffic_selectors_binding = args.remote_traffic_selectors.get_inner();
-        let router_binding = args.router.get_inner();
-        let shared_secret_binding = args.shared_secret.get_inner();
-        let target_vpn_gateway_binding = args.target_vpn_gateway.get_inner();
-        let vpn_gateway_binding = args.vpn_gateway.get_inner();
-        let vpn_gateway_interface_binding = args.vpn_gateway_interface.get_inner();
+        let peer_gcp_gateway_binding = args
+            .peer_gcp_gateway
+            .get_output(context)
+            .get_inner();
+        let peer_ip_binding = args.peer_ip.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let remote_traffic_selectors_binding = args
+            .remote_traffic_selectors
+            .get_output(context)
+            .get_inner();
+        let router_binding = args.router.get_output(context).get_inner();
+        let shared_secret_binding = args.shared_secret.get_output(context).get_inner();
+        let target_vpn_gateway_binding = args
+            .target_vpn_gateway
+            .get_output(context)
+            .get_inner();
+        let vpn_gateway_binding = args.vpn_gateway.get_output(context).get_inner();
+        let vpn_gateway_interface_binding = args
+            .vpn_gateway_interface
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/vPNTunnel:VPNTunnel".into(),
             name: name.to_string(),
@@ -466,7 +495,7 @@ pub mod vpn_tunnel {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

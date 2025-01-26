@@ -1,5 +1,5 @@
 pub mod get_analysis {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAnalysisArgs {
@@ -7,12 +7,12 @@ pub mod get_analysis {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub analysis_id: pulumi_wasm_rust::Output<String>,
+        pub analysis_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -38,12 +38,15 @@ pub mod get_analysis {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAnalysisArgs) -> GetAnalysisResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAnalysisArgs,
+    ) -> GetAnalysisResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let analysis_id_binding = args.analysis_id.get_inner();
-        let aws_account_id_binding = args.aws_account_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let analysis_id_binding = args.analysis_id.get_output(context).get_inner();
+        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:quicksight/getAnalysis:getAnalysis".into(),
             version: super::super::super::get_version(),
@@ -100,7 +103,7 @@ pub mod get_analysis {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

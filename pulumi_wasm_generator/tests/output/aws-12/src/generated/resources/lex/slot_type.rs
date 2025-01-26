@@ -36,34 +36,34 @@
 /// $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
 /// ```
 pub mod slot_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SlotTypeArgs {
         /// Determines if a new slot type version is created when the initial resource is created and on each
         /// update. Defaults to `false`.
         #[builder(into, default)]
-        pub create_version: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_version: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A description of the slot type. Must be less than or equal to 200 characters in length.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of EnumerationValue objects that defines the values that
         /// the slot type can take. Each value can have a list of synonyms, which are additional values that help
         /// train the machine learning model about the values that it resolves for a slot. Attributes are
         /// documented under enumeration_value.
         #[builder(into)]
-        pub enumeration_values: pulumi_wasm_rust::Output<
+        pub enumeration_values: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::lex::SlotTypeEnumerationValue>,
         >,
         /// The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Determines the slot resolution strategy that Amazon Lex
         /// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
         /// value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
         /// if there is a resolution list for the slot, otherwise null is returned. Defaults to `ORIGINAL_VALUE`.
         #[builder(into, default)]
-        pub value_selection_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub value_selection_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SlotTypeResult {
@@ -100,14 +100,24 @@ pub mod slot_type {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SlotTypeArgs) -> SlotTypeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SlotTypeArgs,
+    ) -> SlotTypeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let create_version_binding = args.create_version.get_inner();
-        let description_binding = args.description.get_inner();
-        let enumeration_values_binding = args.enumeration_values.get_inner();
-        let name_binding = args.name.get_inner();
-        let value_selection_strategy_binding = args.value_selection_strategy.get_inner();
+        let create_version_binding = args.create_version.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enumeration_values_binding = args
+            .enumeration_values
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let value_selection_strategy_binding = args
+            .value_selection_strategy
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lex/slotType:SlotType".into(),
             name: name.to_string(),
@@ -164,7 +174,7 @@ pub mod slot_type {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

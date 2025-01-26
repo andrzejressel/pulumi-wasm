@@ -40,28 +40,28 @@
 /// * Where `{fleetName}` is the name of the Fleet. For example `fleetValue`.
 ///
 pub mod kubernetes_fleet_manager {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KubernetesFleetManagerArgs {
         #[builder(into, default)]
-        pub hub_profile: pulumi_wasm_rust::Output<
+        pub hub_profile: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesFleetManagerHubProfile,
             >,
         >,
         /// The Azure Region where the Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Kubernetes Fleet Manager. Changing this forces a new Kubernetes Fleet Manager to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group within which this Kubernetes Fleet Manager should exist. Changing this forces a new Kubernetes Fleet Manager to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Kubernetes Fleet Manager.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -88,16 +88,20 @@ pub mod kubernetes_fleet_manager {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: KubernetesFleetManagerArgs,
     ) -> KubernetesFleetManagerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let hub_profile_binding = args.hub_profile.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let hub_profile_binding = args.hub_profile.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/kubernetesFleetManager:KubernetesFleetManager"
                 .into(),
@@ -143,7 +147,7 @@ pub mod kubernetes_fleet_manager {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

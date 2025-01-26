@@ -76,38 +76,38 @@
 /// ```
 ///
 pub mod budget_resource_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BudgetResourceGroupArgs {
         /// The total amount of cost to track with the budget.
         #[builder(into)]
-        pub amount: pulumi_wasm_rust::Output<f64>,
+        pub amount: pulumi_wasm_rust::InputOrOutput<f64>,
         /// (Optional) The ETag of the Resource Group Consumption Budget
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::Output<Option<String>>,
+        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `filter` block as defined below.
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::consumption::BudgetResourceGroupFilter>,
         >,
         /// The name which should be used for this Resource Group Consumption Budget. Changing this forces a new Resource Group Consumption Budget to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `notification` blocks as defined below.
         #[builder(into)]
-        pub notifications: pulumi_wasm_rust::Output<
+        pub notifications: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::consumption::BudgetResourceGroupNotification>,
         >,
         /// The ID of the Resource Group to create the consumption budget for in the form of /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1. Changing this forces a new Resource Group Consumption Budget to be created.
         #[builder(into)]
-        pub resource_group_id: pulumi_wasm_rust::Output<String>,
+        pub resource_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub time_grain: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_grain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `time_period` block as defined below.
         #[builder(into)]
-        pub time_period: pulumi_wasm_rust::Output<
+        pub time_period: pulumi_wasm_rust::InputOrOutput<
             super::super::types::consumption::BudgetResourceGroupTimePeriod,
         >,
     }
@@ -141,19 +141,23 @@ pub mod budget_resource_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BudgetResourceGroupArgs,
     ) -> BudgetResourceGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let amount_binding = args.amount.get_inner();
-        let etag_binding = args.etag.get_inner();
-        let filter_binding = args.filter.get_inner();
-        let name_binding = args.name.get_inner();
-        let notifications_binding = args.notifications.get_inner();
-        let resource_group_id_binding = args.resource_group_id.get_inner();
-        let time_grain_binding = args.time_grain.get_inner();
-        let time_period_binding = args.time_period.get_inner();
+        let amount_binding = args.amount.get_output(context).get_inner();
+        let etag_binding = args.etag.get_output(context).get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let notifications_binding = args.notifications.get_output(context).get_inner();
+        let resource_group_id_binding = args
+            .resource_group_id
+            .get_output(context)
+            .get_inner();
+        let time_grain_binding = args.time_grain.get_output(context).get_inner();
+        let time_period_binding = args.time_period.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:consumption/budgetResourceGroup:BudgetResourceGroup".into(),
             name: name.to_string(),
@@ -219,7 +223,7 @@ pub mod budget_resource_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

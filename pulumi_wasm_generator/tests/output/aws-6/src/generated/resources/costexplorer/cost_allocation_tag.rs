@@ -25,16 +25,16 @@
 /// $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
 /// ```
 pub mod cost_allocation_tag {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CostAllocationTagArgs {
         /// The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
         #[builder(into)]
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_wasm_rust::InputOrOutput<String>,
         /// The key for the cost allocation tag.
         #[builder(into)]
-        pub tag_key: pulumi_wasm_rust::Output<String>,
+        pub tag_key: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CostAllocationTagResult {
@@ -49,11 +49,15 @@ pub mod cost_allocation_tag {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CostAllocationTagArgs) -> CostAllocationTagResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CostAllocationTagArgs,
+    ) -> CostAllocationTagResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let status_binding = args.status.get_inner();
-        let tag_key_binding = args.tag_key.get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let tag_key_binding = args.tag_key.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:costexplorer/costAllocationTag:CostAllocationTag".into(),
             name: name.to_string(),
@@ -80,7 +84,7 @@ pub mod cost_allocation_tag {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

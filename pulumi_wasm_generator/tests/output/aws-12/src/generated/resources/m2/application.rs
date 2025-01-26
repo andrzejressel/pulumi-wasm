@@ -34,39 +34,39 @@
 /// $ pulumi import aws:m2/application:Application example 01234567890abcdef012345678
 /// ```
 pub mod application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationArgs {
         /// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
         #[builder(into, default)]
-        pub definition: pulumi_wasm_rust::Output<
+        pub definition: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::m2::ApplicationDefinition>,
         >,
         /// Description of the application.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Engine type must be `microfocus | bluage`.
         #[builder(into)]
-        pub engine_type: pulumi_wasm_rust::Output<String>,
+        pub engine_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// KMS Key to use for the Application.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Unique identifier of the application.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of role for application to use to access AWS resources.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::m2::ApplicationTimeouts>,
         >,
     }
@@ -110,17 +110,21 @@ pub mod application {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApplicationArgs) -> ApplicationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApplicationArgs,
+    ) -> ApplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let definition_binding = args.definition.get_inner();
-        let description_binding = args.description.get_inner();
-        let engine_type_binding = args.engine_type.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let definition_binding = args.definition.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let engine_type_binding = args.engine_type.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:m2/application:Application".into(),
             name: name.to_string(),
@@ -198,7 +202,7 @@ pub mod application {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

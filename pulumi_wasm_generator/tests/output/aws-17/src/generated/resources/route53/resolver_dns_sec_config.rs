@@ -30,13 +30,13 @@
 /// $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
 /// ```
 pub mod resolver_dns_sec_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverDnsSecConfigArgs {
         /// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResolverDnsSecConfigResult {
@@ -54,12 +54,13 @@ pub mod resolver_dns_sec_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ResolverDnsSecConfigArgs,
     ) -> ResolverDnsSecConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let resource_id_binding = args.resource_id.get_inner();
+        let resource_id_binding = args.resource_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig".into(),
             name: name.to_string(),
@@ -85,7 +86,7 @@ pub mod resolver_dns_sec_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

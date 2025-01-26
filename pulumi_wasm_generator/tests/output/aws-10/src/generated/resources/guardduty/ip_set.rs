@@ -47,28 +47,28 @@
 /// $ pulumi import aws:guardduty/iPSet:IPSet MyIPSet 00b00fd5aecc0ab60a708659477e9617:123456789012
 /// ```
 pub mod ip_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IPSetArgs {
         /// Specifies whether GuardDuty is to start using the uploaded IPSet.
         #[builder(into)]
-        pub activate: pulumi_wasm_rust::Output<bool>,
+        pub activate: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The detector ID of the GuardDuty.
         #[builder(into)]
-        pub detector_id: pulumi_wasm_rust::Output<String>,
+        pub detector_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The format of the file that contains the IPSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
         #[builder(into)]
-        pub format: pulumi_wasm_rust::Output<String>,
+        pub format: pulumi_wasm_rust::InputOrOutput<String>,
         /// The URI of the file that contains the IPSet.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The friendly name to identify the IPSet.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -99,15 +99,19 @@ pub mod ip_set {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: IPSetArgs) -> IPSetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: IPSetArgs,
+    ) -> IPSetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let activate_binding = args.activate.get_inner();
-        let detector_id_binding = args.detector_id.get_inner();
-        let format_binding = args.format.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let activate_binding = args.activate.get_output(context).get_inner();
+        let detector_id_binding = args.detector_id.get_output(context).get_inner();
+        let format_binding = args.format.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:guardduty/iPSet:IPSet".into(),
             name: name.to_string(),
@@ -165,7 +169,7 @@ pub mod ip_set {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

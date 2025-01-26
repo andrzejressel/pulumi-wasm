@@ -1,19 +1,19 @@
 pub mod get_spot_price {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSpotPriceArgs {
         /// Availability zone in which to query Spot price information.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetSpotPriceFilter>>,
         >,
         /// Type of instance for which to query Spot Price information.
         #[builder(into, default)]
-        pub instance_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetSpotPriceResult {
@@ -33,12 +33,18 @@ pub mod get_spot_price {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetSpotPriceArgs) -> GetSpotPriceResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetSpotPriceArgs,
+    ) -> GetSpotPriceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args.availability_zone.get_inner();
-        let filters_binding = args.filters.get_inner();
-        let instance_type_binding = args.instance_type.get_inner();
+        let availability_zone_binding = args
+            .availability_zone
+            .get_output(context)
+            .get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let instance_type_binding = args.instance_type.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getSpotPrice:getSpotPrice".into(),
             version: super::super::super::get_version(),
@@ -77,7 +83,7 @@ pub mod get_spot_price {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

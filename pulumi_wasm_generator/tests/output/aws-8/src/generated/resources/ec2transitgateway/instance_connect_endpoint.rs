@@ -24,26 +24,26 @@
 /// $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
 /// ```
 pub mod instance_connect_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceConnectEndpointArgs {
         /// Indicates whether your client's IP address is preserved as the source. Default: `true`.
         #[builder(into, default)]
-        pub preserve_client_ip: pulumi_wasm_rust::Output<Option<bool>>,
+        pub preserve_client_ip: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// One or more security groups to associate with the endpoint. If you don't specify a security group, the default security group for the VPC will be associated with the endpoint.
         #[builder(into, default)]
-        pub security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::ec2transitgateway::InstanceConnectEndpointTimeouts,
             >,
@@ -90,16 +90,23 @@ pub mod instance_connect_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: InstanceConnectEndpointArgs,
     ) -> InstanceConnectEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let preserve_client_ip_binding = args.preserve_client_ip.get_inner();
-        let security_group_ids_binding = args.security_group_ids.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let preserve_client_ip_binding = args
+            .preserve_client_ip
+            .get_output(context)
+            .get_inner();
+        let security_group_ids_binding = args
+            .security_group_ids
+            .get_output(context)
+            .get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint"
                 .into(),
@@ -169,7 +176,7 @@ pub mod instance_connect_endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

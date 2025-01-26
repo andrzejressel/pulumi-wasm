@@ -1,14 +1,14 @@
 pub mod get_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetGatewayArgs {
         /// The ID of the API Management Service in which the Gateway exists.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the API Management Gateway.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetGatewayResult {
@@ -28,11 +28,17 @@ pub mod get_gateway {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetGatewayArgs) -> GetGatewayResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetGatewayArgs,
+    ) -> GetGatewayResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding = args.api_management_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let api_management_id_binding = args
+            .api_management_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:apimanagement/getGateway:getGateway".into(),
             version: super::super::super::get_version(),
@@ -64,7 +70,7 @@ pub mod get_gateway {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

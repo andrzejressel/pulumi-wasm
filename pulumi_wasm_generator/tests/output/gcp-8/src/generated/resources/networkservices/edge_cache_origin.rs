@@ -130,32 +130,32 @@
 /// ```
 ///
 pub mod edge_cache_origin {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EdgeCacheOriginArgs {
         /// Enable AWS Signature Version 4 origin authentication.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub aws_v4_authentication: pulumi_wasm_rust::Output<
+        pub aws_v4_authentication: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::networkservices::EdgeCacheOriginAwsV4Authentication,
             >,
         >,
         /// A human-readable description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Origin resource to try when the current origin cannot be reached.
         /// After maxAttempts is reached, the configured failoverOrigin will be used to fulfil the request.
         /// The value of timeout.maxAttemptsTimeout dictates the timeout across all origins.
         /// A reference to a Topic resource.
         #[builder(into, default)]
-        pub failover_origin: pulumi_wasm_rust::Output<Option<String>>,
+        pub failover_origin: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Set of label tags associated with the EdgeCache resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The maximum number of attempts to cache fill from this origin. Another attempt is made when a cache fill fails with one of the retryConditions.
@@ -167,7 +167,7 @@ pub mod edge_cache_origin {
         /// If no origin returns a valid response, an HTTP 502 will be returned to the client.
         /// Defaults to 1. Must be a value greater than 0 and less than 4.
         #[builder(into, default)]
-        pub max_attempts: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_attempts: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Name of the resource; provided by the client when the resource is created.
         /// The name must be 1-64 characters long, and match the regular expression [a-zA-Z][a-zA-Z0-9_-]* which means the first character must be a letter,
         /// and all following characters must be a dash, underscore, letter or digit.
@@ -175,18 +175,18 @@ pub mod edge_cache_origin {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A fully qualified domain name (FQDN) or IP address reachable over the public Internet, or the address of a Google Cloud Storage bucket.
         /// This address will be used as the origin for cache requests - e.g. FQDN: media-backend.example.com, IPv4: 35.218.1.1, IPv6: 2607:f8b0:4012:809::200e, Cloud Storage: gs://bucketname
         /// When providing an FQDN (hostname), it must be publicly resolvable (e.g. via Google public DNS) and IP addresses must be publicly routable.  It must not contain a protocol (e.g., https://) and it must not contain any slashes.
         /// If a Cloud Storage bucket is provided, it must be in the canonical "gs://bucketname" format. Other forms, such as "storage.googleapis.com", will be rejected.
         #[builder(into)]
-        pub origin_address: pulumi_wasm_rust::Output<String>,
+        pub origin_address: pulumi_wasm_rust::InputOrOutput<String>,
         /// The override actions, including url rewrites and header
         /// additions, for requests that use this origin.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub origin_override_action: pulumi_wasm_rust::Output<
+        pub origin_override_action: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::networkservices::EdgeCacheOriginOriginOverrideAction,
             >,
@@ -194,22 +194,22 @@ pub mod edge_cache_origin {
         /// Follow redirects from this origin.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub origin_redirect: pulumi_wasm_rust::Output<
+        pub origin_redirect: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::networkservices::EdgeCacheOriginOriginRedirect>,
         >,
         /// The port to connect to the origin on.
         /// Defaults to port 443 for HTTP2 and HTTPS protocols, and port 80 for HTTP.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The protocol to use to connect to the configured origin. Defaults to HTTP2, and it is strongly recommended that users use HTTP2 for both security & performance.
         /// When using HTTP2 or HTTPS as the protocol, a valid, publicly-signed, unexpired TLS (SSL) certificate must be presented by the origin server.
         /// Possible values are: `HTTP2`, `HTTPS`, `HTTP`.
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies one or more retry conditions for the configured origin.
         /// If the failure mode during a connection attempt to the origin matches the configured retryCondition(s),
         /// the origin request will be retried up to maxAttempts times. The failoverOrigin, if configured, will then be used to satisfy the request.
@@ -225,11 +225,11 @@ pub mod edge_cache_origin {
         /// - FORBIDDEN: Retry if the origin returns a HTTP 403 (Forbidden).
         /// Each value may be one of: `CONNECT_FAILURE`, `HTTP_5XX`, `GATEWAY_ERROR`, `RETRIABLE_4XX`, `NOT_FOUND`, `FORBIDDEN`.
         #[builder(into, default)]
-        pub retry_conditions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub retry_conditions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The connection and HTTP timeout configuration for this origin.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::Output<
+        pub timeout: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::networkservices::EdgeCacheOriginTimeout>,
         >,
     }
@@ -333,23 +333,42 @@ pub mod edge_cache_origin {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EdgeCacheOriginArgs) -> EdgeCacheOriginResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EdgeCacheOriginArgs,
+    ) -> EdgeCacheOriginResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_v4_authentication_binding = args.aws_v4_authentication.get_inner();
-        let description_binding = args.description.get_inner();
-        let failover_origin_binding = args.failover_origin.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let max_attempts_binding = args.max_attempts.get_inner();
-        let name_binding = args.name.get_inner();
-        let origin_address_binding = args.origin_address.get_inner();
-        let origin_override_action_binding = args.origin_override_action.get_inner();
-        let origin_redirect_binding = args.origin_redirect.get_inner();
-        let port_binding = args.port.get_inner();
-        let project_binding = args.project.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let retry_conditions_binding = args.retry_conditions.get_inner();
-        let timeout_binding = args.timeout.get_inner();
+        let aws_v4_authentication_binding = args
+            .aws_v4_authentication
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let failover_origin_binding = args
+            .failover_origin
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let max_attempts_binding = args.max_attempts.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let origin_address_binding = args.origin_address.get_output(context).get_inner();
+        let origin_override_action_binding = args
+            .origin_override_action
+            .get_output(context)
+            .get_inner();
+        let origin_redirect_binding = args
+            .origin_redirect
+            .get_output(context)
+            .get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let retry_conditions_binding = args
+            .retry_conditions
+            .get_output(context)
+            .get_inner();
+        let timeout_binding = args.timeout.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkservices/edgeCacheOrigin:EdgeCacheOrigin".into(),
             name: name.to_string(),
@@ -463,7 +482,7 @@ pub mod edge_cache_origin {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

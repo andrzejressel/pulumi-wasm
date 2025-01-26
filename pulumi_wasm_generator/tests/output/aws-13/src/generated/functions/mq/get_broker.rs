@@ -1,16 +1,16 @@
 pub mod get_broker {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBrokerArgs {
         /// Unique id of the mq broker.
         #[builder(into, default)]
-        pub broker_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub broker_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Unique name of the mq broker.
         #[builder(into, default)]
-        pub broker_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub broker_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -58,12 +58,15 @@ pub mod get_broker {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetBrokerArgs) -> GetBrokerResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetBrokerArgs,
+    ) -> GetBrokerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let broker_id_binding = args.broker_id.get_inner();
-        let broker_name_binding = args.broker_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let broker_id_binding = args.broker_id.get_output(context).get_inner();
+        let broker_name_binding = args.broker_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:mq/getBroker:getBroker".into(),
             version: super::super::super::get_version(),
@@ -150,7 +153,7 @@ pub mod get_broker {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

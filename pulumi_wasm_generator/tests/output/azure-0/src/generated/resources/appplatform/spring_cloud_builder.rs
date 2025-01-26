@@ -57,24 +57,24 @@
 /// ```
 ///
 pub mod spring_cloud_builder {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudBuilderArgs {
         /// One or more `build_pack_group` blocks as defined below.
         #[builder(into)]
-        pub build_pack_groups: pulumi_wasm_rust::Output<
+        pub build_pack_groups: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::appplatform::SpringCloudBuilderBuildPackGroup>,
         >,
         /// The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created.
         #[builder(into)]
-        pub spring_cloud_service_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_service_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `stack` block as defined below.
         #[builder(into)]
-        pub stack: pulumi_wasm_rust::Output<
+        pub stack: pulumi_wasm_rust::InputOrOutput<
             super::super::types::appplatform::SpringCloudBuilderStack,
         >,
     }
@@ -97,13 +97,23 @@ pub mod spring_cloud_builder {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SpringCloudBuilderArgs) -> SpringCloudBuilderResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SpringCloudBuilderArgs,
+    ) -> SpringCloudBuilderResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let build_pack_groups_binding = args.build_pack_groups.get_inner();
-        let name_binding = args.name.get_inner();
-        let spring_cloud_service_id_binding = args.spring_cloud_service_id.get_inner();
-        let stack_binding = args.stack.get_inner();
+        let build_pack_groups_binding = args
+            .build_pack_groups
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let spring_cloud_service_id_binding = args
+            .spring_cloud_service_id
+            .get_output(context)
+            .get_inner();
+        let stack_binding = args.stack.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudBuilder:SpringCloudBuilder".into(),
             name: name.to_string(),
@@ -141,7 +151,7 @@ pub mod spring_cloud_builder {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

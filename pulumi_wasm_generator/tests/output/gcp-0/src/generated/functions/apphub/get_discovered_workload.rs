@@ -1,17 +1,17 @@
 pub mod get_discovered_workload {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDiscoveredWorkloadArgs {
         /// The location of the discovered workload.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The host project of the discovered workload.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The uri of the workload (instance group managed by the Instance Group Manager). Example: "//compute.googleapis.com/projects/1/regions/us-east1/instanceGroups/id1"
         #[builder(into)]
-        pub workload_uri: pulumi_wasm_rust::Output<String>,
+        pub workload_uri: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetDiscoveredWorkloadResult {
@@ -40,12 +40,15 @@ pub mod get_discovered_workload {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetDiscoveredWorkloadArgs) -> GetDiscoveredWorkloadResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetDiscoveredWorkloadArgs,
+    ) -> GetDiscoveredWorkloadResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
-        let workload_uri_binding = args.workload_uri.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let workload_uri_binding = args.workload_uri.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:apphub/getDiscoveredWorkload:getDiscoveredWorkload".into(),
             version: super::super::super::get_version(),
@@ -87,7 +90,7 @@ pub mod get_discovered_workload {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

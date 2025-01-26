@@ -42,25 +42,25 @@
 /// ```
 ///
 pub mod local_rulestack_prefix_list {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LocalRulestackPrefixListArgs {
         /// The comment for Audit purposes.
         #[builder(into, default)]
-        pub audit_comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub audit_comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description for the Prefix List.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Palo Alto Local Rulestack Prefix List.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of Prefixes.
         #[builder(into)]
-        pub prefix_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub prefix_lists: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The ID of the Local Rulestack on which to create this Prefix List. Changing this forces a new Palo Alto Local Rulestack Prefix List to be created.
         #[builder(into)]
-        pub rulestack_id: pulumi_wasm_rust::Output<String>,
+        pub rulestack_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LocalRulestackPrefixListResult {
@@ -80,16 +80,17 @@ pub mod local_rulestack_prefix_list {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LocalRulestackPrefixListArgs,
     ) -> LocalRulestackPrefixListResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let audit_comment_binding = args.audit_comment.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let prefix_lists_binding = args.prefix_lists.get_inner();
-        let rulestack_id_binding = args.rulestack_id.get_inner();
+        let audit_comment_binding = args.audit_comment.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let prefix_lists_binding = args.prefix_lists.get_output(context).get_inner();
+        let rulestack_id_binding = args.rulestack_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList"
                 .into(),
@@ -135,7 +136,7 @@ pub mod local_rulestack_prefix_list {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

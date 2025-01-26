@@ -138,14 +138,14 @@
 /// ```
 ///
 pub mod fhir_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FhirStoreArgs {
         /// Enable parsing of references within complex FHIR data types such as Extensions. If this value is set to ENABLED, then features like referential integrity and Bundle reference rewriting apply to all references. If this flag has not been specified the behavior of the FHIR store will not change, references in complex data types will not be parsed. New stores will have this value set to ENABLED by default after a notification period. Warning: turning on this flag causes processing existing resources to fail if they contain references to non-existent resources.
         /// Possible values are: `COMPLEX_DATA_TYPE_REFERENCE_PARSING_UNSPECIFIED`, `DISABLED`, `ENABLED`.
         #[builder(into, default)]
-        pub complex_data_type_reference_parsing: pulumi_wasm_rust::Output<
+        pub complex_data_type_reference_parsing: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// Identifies the dataset addressed by this request. Must be in the format
@@ -154,12 +154,14 @@ pub mod fhir_store {
         ///
         /// - - -
         #[builder(into)]
-        pub dataset: pulumi_wasm_rust::Output<String>,
+        pub dataset: pulumi_wasm_rust::InputOrOutput<String>,
         /// If true, overrides the default search behavior for this FHIR store to handling=strict which returns an error for unrecognized search parameters.
         /// If false, uses the FHIR specification default handling=lenient which ignores unrecognized search parameters.
         /// The handling can always be changed from the default on an individual API call by setting the HTTP header Prefer: handling=strict or Prefer: handling=lenient.
         #[builder(into, default)]
-        pub default_search_handling_strict: pulumi_wasm_rust::Output<Option<bool>>,
+        pub default_search_handling_strict: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Whether to disable referential integrity in this FHIR store. This field is immutable after FHIR store
         /// creation. The default value is false, meaning that the API will enforce referential integrity and fail the
         /// requests that will result in inconsistent state in the FHIR store. When this field is set to true, the API
@@ -167,7 +169,7 @@ pub mod fhir_store {
         /// Patient.get$everything, will not return all the results if broken references exist.
         /// ** Changing this property may recreate the FHIR store (removing all data) **
         #[builder(into, default)]
-        pub disable_referential_integrity: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_referential_integrity: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to disable resource versioning for this FHIR store. This field can not be changed after the creation
         /// of FHIR store. If set to false, which is the default behavior, all write operations will cause historical
         /// versions to be recorded automatically. The historical versions can be fetched through the history APIs, but
@@ -175,7 +177,7 @@ pub mod fhir_store {
         /// attempts to read the historical versions.
         /// ** Changing this property may recreate the FHIR store (removing all data) **
         #[builder(into, default)]
-        pub disable_resource_versioning: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_resource_versioning: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to allow the bulk import API to accept history bundles and directly insert historical resource
         /// versions into the FHIR store. Importing resource histories creates resource interactions that appear to have
         /// occurred in the past, which clients may not want to allow. If set to false, history bundles within an import
@@ -183,11 +185,11 @@ pub mod fhir_store {
         /// ** Changing this property may recreate the FHIR store (removing all data) **
         /// ** This property can be changed manually in the Google Cloud Healthcare admin console without recreating the FHIR store **
         #[builder(into, default)]
-        pub enable_history_import: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_history_import: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether to allow the ExecuteBundle API to accept history bundles, and directly insert and overwrite historical
         /// resource versions into the FHIR store. If set to false, using history bundles fails with an error.
         #[builder(into, default)]
-        pub enable_history_modifications: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_history_modifications: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether this FHIR store has the updateCreate capability. This determines if the client can use an Update
         /// operation to create a new resource with a client-specified ID. If false, all IDs are server-assigned through
         /// the Create operation and attempts to Update a non-existent resource will return errors. Please treat the audit
@@ -195,7 +197,7 @@ pub mod fhir_store {
         /// identifiers, those IDs will be part of the FHIR resource path recorded in Cloud audit logs and Cloud Pub/Sub
         /// notifications.
         #[builder(into, default)]
-        pub enable_update_create: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_update_create: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// User-supplied key-value pairs used to organize FHIR stores.
         /// Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must
         /// conform to the following PCRE regular expression: [\p{Ll}\p{Lo}][\p{Ll}\p{Lo}\p{N}_-]{0,62}
@@ -208,26 +210,26 @@ pub mod fhir_store {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The resource name for the FhirStore.
         /// ** Changing this property may recreate the FHIR store (removing all data) **
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// (Optional, Deprecated)
         /// A nested object resource.
         /// Structure is documented below.
         ///
         /// > **Warning:** `notification_config` is deprecated and will be removed in a future major release. Use `notification_configs` instead.
         #[builder(into, default)]
-        pub notification_config: pulumi_wasm_rust::Output<
+        pub notification_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::healthcare::FhirStoreNotificationConfig>,
         >,
         /// A list of notifcation configs that configure the notification for every resource mutation in this FHIR store.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub notification_configs: pulumi_wasm_rust::Output<
+        pub notification_configs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::healthcare::FhirStoreNotificationConfig>>,
         >,
         /// A list of streaming configs that configure the destinations of streaming export for every resource mutation in
@@ -238,14 +240,14 @@ pub mod fhir_store {
         /// the order of dozens of seconds) is expected before the results show up in the streaming destination.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub stream_configs: pulumi_wasm_rust::Output<
+        pub stream_configs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::healthcare::FhirStoreStreamConfig>>,
         >,
         /// The FHIR specification version.
         /// Default value is `STU3`.
         /// Possible values are: `DSTU2`, `STU3`, `R4`.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FhirStoreResult {
@@ -353,33 +355,54 @@ pub mod fhir_store {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FhirStoreArgs) -> FhirStoreResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FhirStoreArgs,
+    ) -> FhirStoreResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let complex_data_type_reference_parsing_binding = args
             .complex_data_type_reference_parsing
+            .get_output(context)
             .get_inner();
-        let dataset_binding = args.dataset.get_inner();
+        let dataset_binding = args.dataset.get_output(context).get_inner();
         let default_search_handling_strict_binding = args
             .default_search_handling_strict
+            .get_output(context)
             .get_inner();
         let disable_referential_integrity_binding = args
             .disable_referential_integrity
+            .get_output(context)
             .get_inner();
         let disable_resource_versioning_binding = args
             .disable_resource_versioning
+            .get_output(context)
             .get_inner();
-        let enable_history_import_binding = args.enable_history_import.get_inner();
+        let enable_history_import_binding = args
+            .enable_history_import
+            .get_output(context)
+            .get_inner();
         let enable_history_modifications_binding = args
             .enable_history_modifications
+            .get_output(context)
             .get_inner();
-        let enable_update_create_binding = args.enable_update_create.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let notification_config_binding = args.notification_config.get_inner();
-        let notification_configs_binding = args.notification_configs.get_inner();
-        let stream_configs_binding = args.stream_configs.get_inner();
-        let version_binding = args.version.get_inner();
+        let enable_update_create_binding = args
+            .enable_update_create
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let notification_config_binding = args
+            .notification_config
+            .get_output(context)
+            .get_inner();
+        let notification_configs_binding = args
+            .notification_configs
+            .get_output(context)
+            .get_inner();
+        let stream_configs_binding = args.stream_configs.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/fhirStore:FhirStore".into(),
             name: name.to_string(),
@@ -496,7 +519,7 @@ pub mod fhir_store {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

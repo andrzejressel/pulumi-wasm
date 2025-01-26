@@ -51,25 +51,25 @@
 /// $ pulumi import aws:glacier/vault:Vault archive my_archive
 /// ```
 pub mod vault {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VaultArgs {
         /// The policy document. This is a JSON formatted string.
         /// The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         #[builder(into, default)]
-        pub access_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The notifications for the Vault. Fields documented below.
         #[builder(into, default)]
-        pub notification: pulumi_wasm_rust::Output<
+        pub notification: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::glacier::VaultNotification>,
         >,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -101,13 +101,17 @@ pub mod vault {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VaultArgs) -> VaultResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VaultArgs,
+    ) -> VaultResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_policy_binding = args.access_policy.get_inner();
-        let name_binding = args.name.get_inner();
-        let notification_binding = args.notification.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let access_policy_binding = args.access_policy.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let notification_binding = args.notification.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glacier/vault:Vault".into(),
             name: name.to_string(),
@@ -154,7 +158,7 @@ pub mod vault {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

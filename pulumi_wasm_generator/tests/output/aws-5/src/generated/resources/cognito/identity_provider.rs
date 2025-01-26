@@ -34,32 +34,32 @@
 /// $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
 /// ```
 pub mod identity_provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IdentityProviderArgs {
         /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         #[builder(into, default)]
-        pub attribute_mapping: pulumi_wasm_rust::Output<
+        pub attribute_mapping: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The list of identity providers.
         #[builder(into, default)]
-        pub idp_identifiers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub idp_identifiers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The map of identity details, such as access token
         #[builder(into)]
-        pub provider_details: pulumi_wasm_rust::Output<
+        pub provider_details: pulumi_wasm_rust::InputOrOutput<
             std::collections::HashMap<String, String>,
         >,
         /// The provider name
         #[builder(into)]
-        pub provider_name: pulumi_wasm_rust::Output<String>,
+        pub provider_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
         #[builder(into)]
-        pub provider_type: pulumi_wasm_rust::Output<String>,
+        pub provider_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The user pool id
         #[builder(into)]
-        pub user_pool_id: pulumi_wasm_rust::Output<String>,
+        pub user_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IdentityProviderResult {
@@ -84,15 +84,28 @@ pub mod identity_provider {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: IdentityProviderArgs) -> IdentityProviderResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: IdentityProviderArgs,
+    ) -> IdentityProviderResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attribute_mapping_binding = args.attribute_mapping.get_inner();
-        let idp_identifiers_binding = args.idp_identifiers.get_inner();
-        let provider_details_binding = args.provider_details.get_inner();
-        let provider_name_binding = args.provider_name.get_inner();
-        let provider_type_binding = args.provider_type.get_inner();
-        let user_pool_id_binding = args.user_pool_id.get_inner();
+        let attribute_mapping_binding = args
+            .attribute_mapping
+            .get_output(context)
+            .get_inner();
+        let idp_identifiers_binding = args
+            .idp_identifiers
+            .get_output(context)
+            .get_inner();
+        let provider_details_binding = args
+            .provider_details
+            .get_output(context)
+            .get_inner();
+        let provider_name_binding = args.provider_name.get_output(context).get_inner();
+        let provider_type_binding = args.provider_type.get_output(context).get_inner();
+        let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cognito/identityProvider:IdentityProvider".into(),
             name: name.to_string(),
@@ -144,7 +157,7 @@ pub mod identity_provider {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

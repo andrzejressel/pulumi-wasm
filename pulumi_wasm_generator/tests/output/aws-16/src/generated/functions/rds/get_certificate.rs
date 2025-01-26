@@ -1,14 +1,14 @@
 pub mod get_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetCertificateArgs {
         /// Certificate identifier. For example, `rds-ca-2019`.
         #[builder(into, default)]
-        pub id: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// When enabled, returns the certificate with the latest `ValidTill`.
         #[builder(into, default)]
-        pub latest_valid_till: pulumi_wasm_rust::Output<Option<bool>>,
+        pub latest_valid_till: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GetCertificateResult {
@@ -33,11 +33,17 @@ pub mod get_certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetCertificateArgs) -> GetCertificateResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetCertificateArgs,
+    ) -> GetCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let id_binding = args.id.get_inner();
-        let latest_valid_till_binding = args.latest_valid_till.get_inner();
+        let id_binding = args.id.get_output(context).get_inner();
+        let latest_valid_till_binding = args
+            .latest_valid_till
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:rds/getCertificate:getCertificate".into(),
             version: super::super::super::get_version(),
@@ -81,7 +87,7 @@ pub mod get_certificate {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

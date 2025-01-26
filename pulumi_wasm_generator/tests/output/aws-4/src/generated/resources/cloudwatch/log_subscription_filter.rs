@@ -29,28 +29,28 @@
 /// $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter "/aws/lambda/example_lambda_name|test_lambdafunction_logfilter"
 /// ```
 pub mod log_subscription_filter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogSubscriptionFilterArgs {
         /// The ARN of the destination to deliver matching log events to. Kinesis stream or Lambda function ARN.
         #[builder(into)]
-        pub destination_arn: pulumi_wasm_rust::Output<String>,
+        pub destination_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
         #[builder(into, default)]
-        pub distribution: pulumi_wasm_rust::Output<Option<String>>,
+        pub distribution: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         #[builder(into)]
-        pub filter_pattern: pulumi_wasm_rust::Output<String>,
+        pub filter_pattern: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the log group to associate the subscription filter with
         #[builder(into)]
-        pub log_group: pulumi_wasm_rust::Output<String>,
+        pub log_group: pulumi_wasm_rust::InputOrOutput<String>,
         /// A name for the subscription filter
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `aws.lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LogSubscriptionFilterResult {
@@ -72,17 +72,21 @@ pub mod log_subscription_filter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LogSubscriptionFilterArgs,
     ) -> LogSubscriptionFilterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let destination_arn_binding = args.destination_arn.get_inner();
-        let distribution_binding = args.distribution.get_inner();
-        let filter_pattern_binding = args.filter_pattern.get_inner();
-        let log_group_binding = args.log_group.get_inner();
-        let name_binding = args.name.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
+        let destination_arn_binding = args
+            .destination_arn
+            .get_output(context)
+            .get_inner();
+        let distribution_binding = args.distribution.get_output(context).get_inner();
+        let filter_pattern_binding = args.filter_pattern.get_output(context).get_inner();
+        let log_group_binding = args.log_group.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter".into(),
             name: name.to_string(),
@@ -134,7 +138,7 @@ pub mod log_subscription_filter {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

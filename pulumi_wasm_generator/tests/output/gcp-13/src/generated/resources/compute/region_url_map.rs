@@ -624,7 +624,7 @@
 /// ```
 ///
 pub mod region_url_map {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionUrlMapArgs {
@@ -634,7 +634,7 @@ pub mod region_url_map {
         /// defaultRouteAction has no effect when the URL map is bound to a target gRPC proxy that has the validateForProxyless field set to true.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub default_route_action: pulumi_wasm_rust::Output<
+        pub default_route_action: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::RegionUrlMapDefaultRouteAction>,
         >,
         /// The full or partial URL of the defaultService resource to which traffic is directed if
@@ -645,23 +645,23 @@ pub mod region_url_map {
         /// weightedBackendServices, service must not be specified.  Only one of defaultService,
         /// defaultUrlRedirect or defaultRouteAction.weightedBackendService must be set.
         #[builder(into, default)]
-        pub default_service: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// When none of the specified hostRules match, the request is redirected to a URL specified
         /// by defaultUrlRedirect. If defaultUrlRedirect is specified, defaultService or
         /// defaultRouteAction must not be set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub default_url_redirect: pulumi_wasm_rust::Output<
+        pub default_url_redirect: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::RegionUrlMapDefaultUrlRedirect>,
         >,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The list of HostRules to use against the URL.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub host_rules: pulumi_wasm_rust::Output<
+        pub host_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RegionUrlMapHostRule>>,
         >,
         /// Name of the resource. Provided by the client when the resource is
@@ -675,26 +675,26 @@ pub mod region_url_map {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The list of named PathMatchers to use against the URL.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub path_matchers: pulumi_wasm_rust::Output<
+        pub path_matchers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RegionUrlMapPathMatcher>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Region in which the url map should reside.
         /// If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The list of expected URL mappings. Requests to update this UrlMap will
         /// succeed only if all of the test cases pass.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub tests: pulumi_wasm_rust::Output<
+        pub tests: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RegionUrlMapTest>>,
         >,
     }
@@ -773,19 +773,32 @@ pub mod region_url_map {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RegionUrlMapArgs) -> RegionUrlMapResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RegionUrlMapArgs,
+    ) -> RegionUrlMapResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let default_route_action_binding = args.default_route_action.get_inner();
-        let default_service_binding = args.default_service.get_inner();
-        let default_url_redirect_binding = args.default_url_redirect.get_inner();
-        let description_binding = args.description.get_inner();
-        let host_rules_binding = args.host_rules.get_inner();
-        let name_binding = args.name.get_inner();
-        let path_matchers_binding = args.path_matchers.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let tests_binding = args.tests.get_inner();
+        let default_route_action_binding = args
+            .default_route_action
+            .get_output(context)
+            .get_inner();
+        let default_service_binding = args
+            .default_service
+            .get_output(context)
+            .get_inner();
+        let default_url_redirect_binding = args
+            .default_url_redirect
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let host_rules_binding = args.host_rules.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let path_matchers_binding = args.path_matchers.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let tests_binding = args.tests.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionUrlMap:RegionUrlMap".into(),
             name: name.to_string(),
@@ -877,7 +890,7 @@ pub mod region_url_map {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

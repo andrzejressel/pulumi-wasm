@@ -72,7 +72,7 @@
 /// ```
 ///
 pub mod organization_feed {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationFeedArgs {
@@ -81,42 +81,42 @@ pub mod organization_feed {
         /// //compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1. See
         /// https://cloud.google.com/apis/design/resourceNames#fullResourceName for more info.
         #[builder(into, default)]
-        pub asset_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub asset_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A list of types of the assets to receive updates. You must specify either or both of assetNames and assetTypes. Only
         /// asset updates matching specified assetNames and assetTypes are exported to the feed. For example:
         /// "compute.googleapis.com/Disk" See https://cloud.google.com/asset-inventory/docs/supported-asset-types for a list of all
         /// supported asset types.
         #[builder(into, default)]
-        pub asset_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub asset_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The project whose identity will be used when sending messages to the
         /// destination pubsub topic. It also specifies the project for API
         /// enablement check, quota, and billing.
         #[builder(into)]
-        pub billing_project: pulumi_wasm_rust::Output<String>,
+        pub billing_project: pulumi_wasm_rust::InputOrOutput<String>,
         /// A condition which determines whether an asset update should be published. If specified, an asset will be returned only
         /// when the expression evaluates to true. When set, expression field must be a valid CEL expression on a TemporalAsset with
         /// name temporal_asset. Example: a Feed with expression "temporal_asset.deleted == true" will only publish Asset deletions.
         /// Other fields of condition are optional.
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudasset::OrganizationFeedCondition>,
         >,
         /// Asset content type. If not specified, no content but the asset name and type will be returned. Possible values:
         /// ["CONTENT_TYPE_UNSPECIFIED", "RESOURCE", "IAM_POLICY", "ORG_POLICY", "OS_INVENTORY", "ACCESS_POLICY"]
         #[builder(into, default)]
-        pub content_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// This is the client-assigned asset feed identifier and it needs to be unique under a specific parent.
         #[builder(into)]
-        pub feed_id: pulumi_wasm_rust::Output<String>,
+        pub feed_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Output configuration for asset feed destination.
         /// Structure is documented below.
         #[builder(into)]
-        pub feed_output_config: pulumi_wasm_rust::Output<
+        pub feed_output_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudasset::OrganizationFeedFeedOutputConfig,
         >,
         /// The organization this feed should be created in.
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OrganizationFeedResult {
@@ -160,17 +160,27 @@ pub mod organization_feed {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: OrganizationFeedArgs) -> OrganizationFeedResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: OrganizationFeedArgs,
+    ) -> OrganizationFeedResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let asset_names_binding = args.asset_names.get_inner();
-        let asset_types_binding = args.asset_types.get_inner();
-        let billing_project_binding = args.billing_project.get_inner();
-        let condition_binding = args.condition.get_inner();
-        let content_type_binding = args.content_type.get_inner();
-        let feed_id_binding = args.feed_id.get_inner();
-        let feed_output_config_binding = args.feed_output_config.get_inner();
-        let org_id_binding = args.org_id.get_inner();
+        let asset_names_binding = args.asset_names.get_output(context).get_inner();
+        let asset_types_binding = args.asset_types.get_output(context).get_inner();
+        let billing_project_binding = args
+            .billing_project
+            .get_output(context)
+            .get_inner();
+        let condition_binding = args.condition.get_output(context).get_inner();
+        let content_type_binding = args.content_type.get_output(context).get_inner();
+        let feed_id_binding = args.feed_id.get_output(context).get_inner();
+        let feed_output_config_binding = args
+            .feed_output_config
+            .get_output(context)
+            .get_inner();
+        let org_id_binding = args.org_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudasset/organizationFeed:OrganizationFeed".into(),
             name: name.to_string(),
@@ -239,7 +249,7 @@ pub mod organization_feed {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

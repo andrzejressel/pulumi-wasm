@@ -1,14 +1,14 @@
 pub mod get_folder {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetFolderArgs {
         /// The name of the Folder in the form `{folder_id}` or `folders/{folder_id}`.
         #[builder(into)]
-        pub folder: pulumi_wasm_rust::Output<String>,
+        pub folder: pulumi_wasm_rust::InputOrOutput<String>,
         /// `true` to find the organization that the folder belongs, `false` to avoid the lookup. It searches up the tree. (defaults to `false`)
         #[builder(into, default)]
-        pub lookup_organization: pulumi_wasm_rust::Output<Option<bool>>,
+        pub lookup_organization: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GetFolderResult {
@@ -35,11 +35,17 @@ pub mod get_folder {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetFolderArgs) -> GetFolderResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetFolderArgs,
+    ) -> GetFolderResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let folder_binding = args.folder.get_inner();
-        let lookup_organization_binding = args.lookup_organization.get_inner();
+        let folder_binding = args.folder.get_output(context).get_inner();
+        let lookup_organization_binding = args
+            .lookup_organization
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:organizations/getFolder:getFolder".into(),
             version: super::super::super::get_version(),
@@ -89,7 +95,7 @@ pub mod get_folder {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -184,58 +184,58 @@
 /// $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
 /// ```
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// Configuration block for the broker nodes of the Kafka cluster.
         #[builder(into)]
-        pub broker_node_group_info: pulumi_wasm_rust::Output<
+        pub broker_node_group_info: pulumi_wasm_rust::InputOrOutput<
             super::super::types::msk::ClusterBrokerNodeGroupInfo,
         >,
         /// Configuration block for specifying a client authentication. See below.
         #[builder(into, default)]
-        pub client_authentication: pulumi_wasm_rust::Output<
+        pub client_authentication: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::msk::ClusterClientAuthentication>,
         >,
         /// Name of the MSK cluster.
         #[builder(into, default)]
-        pub cluster_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub cluster_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
         #[builder(into, default)]
-        pub configuration_info: pulumi_wasm_rust::Output<
+        pub configuration_info: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::msk::ClusterConfigurationInfo>,
         >,
         /// Configuration block for specifying encryption. See below.
         #[builder(into, default)]
-        pub encryption_info: pulumi_wasm_rust::Output<
+        pub encryption_info: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::msk::ClusterEncryptionInfo>,
         >,
         /// Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         #[builder(into, default)]
-        pub enhanced_monitoring: pulumi_wasm_rust::Output<Option<String>>,
+        pub enhanced_monitoring: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specify the desired Kafka software version.
         #[builder(into)]
-        pub kafka_version: pulumi_wasm_rust::Output<String>,
+        pub kafka_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
         #[builder(into, default)]
-        pub logging_info: pulumi_wasm_rust::Output<
+        pub logging_info: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::msk::ClusterLoggingInfo>,
         >,
         /// The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
         #[builder(into)]
-        pub number_of_broker_nodes: pulumi_wasm_rust::Output<i32>,
+        pub number_of_broker_nodes: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Configuration block for JMX and Node monitoring for the MSK cluster. See below.
         #[builder(into, default)]
-        pub open_monitoring: pulumi_wasm_rust::Output<
+        pub open_monitoring: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::msk::ClusterOpenMonitoring>,
         >,
         /// Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
         #[builder(into, default)]
-        pub storage_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -322,21 +322,46 @@ pub mod cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ClusterArgs) -> ClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ClusterArgs,
+    ) -> ClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let broker_node_group_info_binding = args.broker_node_group_info.get_inner();
-        let client_authentication_binding = args.client_authentication.get_inner();
-        let cluster_name_binding = args.cluster_name.get_inner();
-        let configuration_info_binding = args.configuration_info.get_inner();
-        let encryption_info_binding = args.encryption_info.get_inner();
-        let enhanced_monitoring_binding = args.enhanced_monitoring.get_inner();
-        let kafka_version_binding = args.kafka_version.get_inner();
-        let logging_info_binding = args.logging_info.get_inner();
-        let number_of_broker_nodes_binding = args.number_of_broker_nodes.get_inner();
-        let open_monitoring_binding = args.open_monitoring.get_inner();
-        let storage_mode_binding = args.storage_mode.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let broker_node_group_info_binding = args
+            .broker_node_group_info
+            .get_output(context)
+            .get_inner();
+        let client_authentication_binding = args
+            .client_authentication
+            .get_output(context)
+            .get_inner();
+        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
+        let configuration_info_binding = args
+            .configuration_info
+            .get_output(context)
+            .get_inner();
+        let encryption_info_binding = args
+            .encryption_info
+            .get_output(context)
+            .get_inner();
+        let enhanced_monitoring_binding = args
+            .enhanced_monitoring
+            .get_output(context)
+            .get_inner();
+        let kafka_version_binding = args.kafka_version.get_output(context).get_inner();
+        let logging_info_binding = args.logging_info.get_output(context).get_inner();
+        let number_of_broker_nodes_binding = args
+            .number_of_broker_nodes
+            .get_output(context)
+            .get_inner();
+        let open_monitoring_binding = args
+            .open_monitoring
+            .get_output(context)
+            .get_inner();
+        let storage_mode_binding = args.storage_mode.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:msk/cluster:Cluster".into(),
             name: name.to_string(),
@@ -478,7 +503,7 @@ pub mod cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

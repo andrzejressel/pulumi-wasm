@@ -75,7 +75,7 @@
 /// ```
 ///
 pub mod region_target_tcp_proxy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionTargetTcpProxyArgs {
@@ -84,10 +84,10 @@ pub mod region_target_tcp_proxy {
         ///
         /// - - -
         #[builder(into)]
-        pub backend_service: pulumi_wasm_rust::Output<String>,
+        pub backend_service: pulumi_wasm_rust::InputOrOutput<String>,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -96,25 +96,25 @@ pub mod region_target_tcp_proxy {
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// This field only applies when the forwarding rule that references
         /// this target proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
         #[builder(into, default)]
-        pub proxy_bind: pulumi_wasm_rust::Output<Option<bool>>,
+        pub proxy_bind: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the type of proxy header to append before sending data to
         /// the backend.
         /// Default value is `NONE`.
         /// Possible values are: `NONE`, `PROXY_V1`.
         #[builder(into, default)]
-        pub proxy_header: pulumi_wasm_rust::Output<Option<String>>,
+        pub proxy_header: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Region in which the created target TCP proxy should reside.
         /// If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RegionTargetTcpProxyResult {
@@ -159,18 +159,22 @@ pub mod region_target_tcp_proxy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RegionTargetTcpProxyArgs,
     ) -> RegionTargetTcpProxyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backend_service_binding = args.backend_service.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let proxy_bind_binding = args.proxy_bind.get_inner();
-        let proxy_header_binding = args.proxy_header.get_inner();
-        let region_binding = args.region.get_inner();
+        let backend_service_binding = args
+            .backend_service
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let proxy_bind_binding = args.proxy_bind.get_output(context).get_inner();
+        let proxy_header_binding = args.proxy_header.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/regionTargetTcpProxy:RegionTargetTcpProxy".into(),
             name: name.to_string(),
@@ -238,7 +242,7 @@ pub mod region_target_tcp_proxy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

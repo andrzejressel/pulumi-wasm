@@ -53,25 +53,25 @@
 /// ```
 ///
 pub mod mesh {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MeshArgs {
         /// A free-text description of the resource. Max length 1024 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. If set to a valid TCP port (1-65535), instructs the SIDECAR proxy to listen on the
         /// specified port of localhost (127.0.0.1) address. The SIDECAR proxy will expect all traffic to
         /// be redirected to this port regardless of its actual ip:port destination. If unset, a port
         /// '15001' is used as the interception port. This will is applicable only for sidecar proxy
         /// deployments.
         #[builder(into, default)]
-        pub interception_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub interception_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Set of label tags associated with the Mesh resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Short name of the Mesh resource to be created.
@@ -79,11 +79,11 @@ pub mod mesh {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MeshResult {
@@ -129,14 +129,21 @@ pub mod mesh {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MeshArgs) -> MeshResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MeshArgs,
+    ) -> MeshResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let interception_port_binding = args.interception_port.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let interception_port_binding = args
+            .interception_port
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networkservices/mesh:Mesh".into(),
             name: name.to_string(),
@@ -196,7 +203,7 @@ pub mod mesh {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

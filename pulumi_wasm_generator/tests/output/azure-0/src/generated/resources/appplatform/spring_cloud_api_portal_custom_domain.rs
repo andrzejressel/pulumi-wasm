@@ -59,19 +59,19 @@
 /// ```
 ///
 pub mod spring_cloud_api_portal_custom_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudApiPortalCustomDomainArgs {
         /// The name which should be used for this Spring Cloud API Portal Domain. Changing this forces a new Spring Cloud API Portal Domain to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal Domain to be created.
         #[builder(into)]
-        pub spring_cloud_api_portal_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_api_portal_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud API Portal Domain.
         #[builder(into, default)]
-        pub thumbprint: pulumi_wasm_rust::Output<Option<String>>,
+        pub thumbprint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudApiPortalCustomDomainResult {
@@ -87,16 +87,18 @@ pub mod spring_cloud_api_portal_custom_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SpringCloudApiPortalCustomDomainArgs,
     ) -> SpringCloudApiPortalCustomDomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let spring_cloud_api_portal_id_binding = args
             .spring_cloud_api_portal_id
+            .get_output(context)
             .get_inner();
-        let thumbprint_binding = args.thumbprint.get_inner();
+        let thumbprint_binding = args.thumbprint.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain"
                 .into(),
@@ -128,7 +130,7 @@ pub mod spring_cloud_api_portal_custom_domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

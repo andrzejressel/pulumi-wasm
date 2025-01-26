@@ -52,19 +52,19 @@
 /// ```
 ///
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
         /// The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
         #[builder(into, default)]
-        pub xml_content: pulumi_wasm_rust::Output<Option<String>>,
+        pub xml_content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A link to a Policy XML Document, which must be publicly available.
         #[builder(into, default)]
-        pub xml_link: pulumi_wasm_rust::Output<Option<String>>,
+        pub xml_link: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PolicyResult {
@@ -79,12 +79,19 @@ pub mod policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyArgs) -> PolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyArgs,
+    ) -> PolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding = args.api_management_id.get_inner();
-        let xml_content_binding = args.xml_content.get_inner();
-        let xml_link_binding = args.xml_link.get_inner();
+        let api_management_id_binding = args
+            .api_management_id
+            .get_output(context)
+            .get_inner();
+        let xml_content_binding = args.xml_content.get_output(context).get_inner();
+        let xml_link_binding = args.xml_link.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/policy:Policy".into(),
             name: name.to_string(),
@@ -115,7 +122,7 @@ pub mod policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -271,31 +271,31 @@
 /// ```
 ///
 pub mod patch_deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PatchDeploymentArgs {
         /// Description of the patch deployment. Length of the description is limited to 1024 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Duration of the patch. After the duration ends, the patch times out. A duration in seconds with up to nine fractional
         /// digits, terminated by 's'. Example: "3.5s"
         #[builder(into, default)]
-        pub duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// VM instances to patch.
         /// Structure is documented below.
         #[builder(into)]
-        pub instance_filter: pulumi_wasm_rust::Output<
+        pub instance_filter: pulumi_wasm_rust::InputOrOutput<
             super::super::types::osconfig::PatchDeploymentInstanceFilter,
         >,
         /// Schedule a one-time execution.
         #[builder(into, default)]
-        pub one_time_schedule: pulumi_wasm_rust::Output<
+        pub one_time_schedule: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::osconfig::PatchDeploymentOneTimeSchedule>,
         >,
         /// Patch configuration that is applied.
         #[builder(into, default)]
-        pub patch_config: pulumi_wasm_rust::Output<
+        pub patch_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::osconfig::PatchDeploymentPatchConfig>,
         >,
         /// A name for the patch deployment in the project. When creating a name the following rules apply:
@@ -305,17 +305,17 @@ pub mod patch_deployment {
         /// * Must end with a number or a letter.
         /// * Must be unique within the project.
         #[builder(into)]
-        pub patch_deployment_id: pulumi_wasm_rust::Output<String>,
+        pub patch_deployment_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Schedule recurring executions.
         #[builder(into, default)]
-        pub recurring_schedule: pulumi_wasm_rust::Output<
+        pub recurring_schedule: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::osconfig::PatchDeploymentRecurringSchedule>,
         >,
         /// Rollout strategy of the patch job.
         #[builder(into, default)]
-        pub rollout: pulumi_wasm_rust::Output<
+        pub rollout: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::osconfig::PatchDeploymentRollout>,
         >,
     }
@@ -372,18 +372,34 @@ pub mod patch_deployment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PatchDeploymentArgs) -> PatchDeploymentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PatchDeploymentArgs,
+    ) -> PatchDeploymentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let duration_binding = args.duration.get_inner();
-        let instance_filter_binding = args.instance_filter.get_inner();
-        let one_time_schedule_binding = args.one_time_schedule.get_inner();
-        let patch_config_binding = args.patch_config.get_inner();
-        let patch_deployment_id_binding = args.patch_deployment_id.get_inner();
-        let project_binding = args.project.get_inner();
-        let recurring_schedule_binding = args.recurring_schedule.get_inner();
-        let rollout_binding = args.rollout.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let duration_binding = args.duration.get_output(context).get_inner();
+        let instance_filter_binding = args
+            .instance_filter
+            .get_output(context)
+            .get_inner();
+        let one_time_schedule_binding = args
+            .one_time_schedule
+            .get_output(context)
+            .get_inner();
+        let patch_config_binding = args.patch_config.get_output(context).get_inner();
+        let patch_deployment_id_binding = args
+            .patch_deployment_id
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let recurring_schedule_binding = args
+            .recurring_schedule
+            .get_output(context)
+            .get_inner();
+        let rollout_binding = args.rollout.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:osconfig/patchDeployment:PatchDeployment".into(),
             name: name.to_string(),
@@ -468,7 +484,7 @@ pub mod patch_deployment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

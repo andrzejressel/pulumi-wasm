@@ -35,19 +35,19 @@
 /// $ pulumi import aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c,someKey
 /// ```
 pub mod keyvaluestore_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeyvaluestoreKeyArgs {
         /// Key to put.
         #[builder(into)]
-        pub key: pulumi_wasm_rust::Output<String>,
+        pub key: pulumi_wasm_rust::InputOrOutput<String>,
         /// Amazon Resource Name (ARN) of the Key Value Store.
         #[builder(into)]
-        pub key_value_store_arn: pulumi_wasm_rust::Output<String>,
+        pub key_value_store_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Value to put.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct KeyvaluestoreKeyResult {
@@ -64,12 +64,19 @@ pub mod keyvaluestore_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: KeyvaluestoreKeyArgs) -> KeyvaluestoreKeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: KeyvaluestoreKeyArgs,
+    ) -> KeyvaluestoreKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let key_binding = args.key.get_inner();
-        let key_value_store_arn_binding = args.key_value_store_arn.get_inner();
-        let value_binding = args.value.get_inner();
+        let key_binding = args.key.get_output(context).get_inner();
+        let key_value_store_arn_binding = args
+            .key_value_store_arn
+            .get_output(context)
+            .get_inner();
+        let value_binding = args.value.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/keyvaluestoreKey:KeyvaluestoreKey".into(),
             name: name.to_string(),
@@ -103,7 +110,7 @@ pub mod keyvaluestore_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

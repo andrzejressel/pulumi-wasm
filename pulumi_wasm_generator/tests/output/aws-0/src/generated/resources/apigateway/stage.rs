@@ -33,57 +33,57 @@
 /// $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
 /// ```
 pub mod stage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StageArgs {
         /// Enables access logs for the API stage. See Access Log Settings below.
         #[builder(into, default)]
-        pub access_log_settings: pulumi_wasm_rust::Output<
+        pub access_log_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apigateway::StageAccessLogSettings>,
         >,
         /// Whether a cache cluster is enabled for the stage
         #[builder(into, default)]
-        pub cache_cluster_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub cache_cluster_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         #[builder(into, default)]
-        pub cache_cluster_size: pulumi_wasm_rust::Output<Option<String>>,
+        pub cache_cluster_size: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration settings of a canary deployment. See Canary Settings below.
         #[builder(into, default)]
-        pub canary_settings: pulumi_wasm_rust::Output<
+        pub canary_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apigateway::StageCanarySettings>,
         >,
         /// Identifier of a client certificate for the stage.
         #[builder(into, default)]
-        pub client_certificate_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_certificate_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the deployment that the stage points to
         #[builder(into)]
-        pub deployment: pulumi_wasm_rust::Output<String>,
+        pub deployment: pulumi_wasm_rust::InputOrOutput<String>,
         /// Description of the stage.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Version of the associated API documentation
         #[builder(into, default)]
-        pub documentation_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub documentation_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the associated REST API
         #[builder(into)]
-        pub rest_api: pulumi_wasm_rust::Output<String>,
+        pub rest_api: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the stage
         #[builder(into)]
-        pub stage_name: pulumi_wasm_rust::Output<String>,
+        pub stage_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map that defines the stage variables
         #[builder(into, default)]
-        pub variables: pulumi_wasm_rust::Output<
+        pub variables: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Whether active tracing with X-ray is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub xray_tracing_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub xray_tracing_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct StageResult {
@@ -141,22 +141,47 @@ pub mod stage {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StageArgs) -> StageResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StageArgs,
+    ) -> StageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_log_settings_binding = args.access_log_settings.get_inner();
-        let cache_cluster_enabled_binding = args.cache_cluster_enabled.get_inner();
-        let cache_cluster_size_binding = args.cache_cluster_size.get_inner();
-        let canary_settings_binding = args.canary_settings.get_inner();
-        let client_certificate_id_binding = args.client_certificate_id.get_inner();
-        let deployment_binding = args.deployment.get_inner();
-        let description_binding = args.description.get_inner();
-        let documentation_version_binding = args.documentation_version.get_inner();
-        let rest_api_binding = args.rest_api.get_inner();
-        let stage_name_binding = args.stage_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let variables_binding = args.variables.get_inner();
-        let xray_tracing_enabled_binding = args.xray_tracing_enabled.get_inner();
+        let access_log_settings_binding = args
+            .access_log_settings
+            .get_output(context)
+            .get_inner();
+        let cache_cluster_enabled_binding = args
+            .cache_cluster_enabled
+            .get_output(context)
+            .get_inner();
+        let cache_cluster_size_binding = args
+            .cache_cluster_size
+            .get_output(context)
+            .get_inner();
+        let canary_settings_binding = args
+            .canary_settings
+            .get_output(context)
+            .get_inner();
+        let client_certificate_id_binding = args
+            .client_certificate_id
+            .get_output(context)
+            .get_inner();
+        let deployment_binding = args.deployment.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let documentation_version_binding = args
+            .documentation_version
+            .get_output(context)
+            .get_inner();
+        let rest_api_binding = args.rest_api.get_output(context).get_inner();
+        let stage_name_binding = args.stage_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let variables_binding = args.variables.get_output(context).get_inner();
+        let xray_tracing_enabled_binding = args
+            .xray_tracing_enabled
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/stage:Stage".into(),
             name: name.to_string(),
@@ -272,7 +297,7 @@ pub mod stage {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

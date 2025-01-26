@@ -39,7 +39,7 @@
 /// ```
 ///
 pub mod dps_shared_access_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DpsSharedAccessPolicyArgs {
@@ -47,34 +47,34 @@ pub mod dps_shared_access_policy {
         ///
         /// > **NOTE** When `enrollment_read` is set to `true`, `registration_read` must also be set to true. This is a limitation of the Azure REST API
         #[builder(into, default)]
-        pub enrollment_read: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enrollment_read: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data.
         ///
         /// > **NOTE** When `registration_write` is set to `true`, `enrollment_read`, `registration_read`, and `registration_write` must also be set to true. This is a requirement of the Azure API.
         #[builder(into, default)]
-        pub enrollment_write: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enrollment_write: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub iothub_dps_name: pulumi_wasm_rust::Output<String>,
+        pub iothub_dps_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations.
         #[builder(into, default)]
-        pub registration_read: pulumi_wasm_rust::Output<Option<bool>>,
+        pub registration_read: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations.
         ///
         /// > **NOTE** When `registration_write` is set to `true`, `registration_read` must also be set to true. This is a requirement of the Azure API.
         #[builder(into, default)]
-        pub registration_write: pulumi_wasm_rust::Output<Option<bool>>,
+        pub registration_write: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service.
         ///
         /// > **NOTE** At least one of `registration_read`, `registration_write`, `service_config`, `enrollment_read`, `enrollment_write` permissions must be set to `true`.
         #[builder(into, default)]
-        pub service_config: pulumi_wasm_rust::Output<Option<bool>>,
+        pub service_config: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct DpsSharedAccessPolicyResult {
@@ -116,19 +116,38 @@ pub mod dps_shared_access_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DpsSharedAccessPolicyArgs,
     ) -> DpsSharedAccessPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let enrollment_read_binding = args.enrollment_read.get_inner();
-        let enrollment_write_binding = args.enrollment_write.get_inner();
-        let iothub_dps_name_binding = args.iothub_dps_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let registration_read_binding = args.registration_read.get_inner();
-        let registration_write_binding = args.registration_write.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let service_config_binding = args.service_config.get_inner();
+        let enrollment_read_binding = args
+            .enrollment_read
+            .get_output(context)
+            .get_inner();
+        let enrollment_write_binding = args
+            .enrollment_write
+            .get_output(context)
+            .get_inner();
+        let iothub_dps_name_binding = args
+            .iothub_dps_name
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let registration_read_binding = args
+            .registration_read
+            .get_output(context)
+            .get_inner();
+        let registration_write_binding = args
+            .registration_write
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let service_config_binding = args.service_config.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy".into(),
             name: name.to_string(),
@@ -206,7 +225,7 @@ pub mod dps_shared_access_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

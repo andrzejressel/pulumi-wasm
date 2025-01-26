@@ -398,7 +398,7 @@
 /// ```
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
@@ -406,68 +406,68 @@ pub mod cluster {
         /// Default value: "AUTH_MODE_DISABLED" Possible values: ["AUTH_MODE_UNSPECIFIED", "AUTH_MODE_IAM_AUTH",
         /// "AUTH_MODE_DISABLED"]
         #[builder(into, default)]
-        pub authorization_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub authorization_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Cross cluster replication config
         #[builder(into, default)]
-        pub cross_cluster_replication_config: pulumi_wasm_rust::Output<
+        pub cross_cluster_replication_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::redis::ClusterCrossClusterReplicationConfig>,
         >,
         /// Optional. Indicates if the cluster is deletion protected or not. If the value if set to true, any delete cluster
         /// operation will fail. Default value is true.
         #[builder(into, default)]
-        pub deletion_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Maintenance policy for a cluster
         #[builder(into, default)]
-        pub maintenance_policy: pulumi_wasm_rust::Output<
+        pub maintenance_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::redis::ClusterMaintenancePolicy>,
         >,
         /// Unique name of the resource in this scope including project and location using the form:
         /// projects/{projectId}/locations/{locationId}/clusters/{clusterId}
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The nodeType for the Redis cluster. If not provided, REDIS_HIGHMEM_MEDIUM will be used as default Possible values:
         /// ["REDIS_SHARED_CORE_NANO", "REDIS_HIGHMEM_MEDIUM", "REDIS_HIGHMEM_XLARGE", "REDIS_STANDARD_SMALL"]
         #[builder(into, default)]
-        pub node_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub node_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Persistence config (RDB, AOF) for the cluster.
         #[builder(into, default)]
-        pub persistence_config: pulumi_wasm_rust::Output<
+        pub persistence_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::redis::ClusterPersistenceConfig>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. Each PscConfig configures the consumer network where two
         /// network addresses will be designated to the cluster for client access.
         /// Currently, only one PscConfig is supported.
         /// Structure is documented below.
         #[builder(into)]
-        pub psc_configs: pulumi_wasm_rust::Output<
+        pub psc_configs: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::redis::ClusterPscConfig>,
         >,
         /// Configure Redis Cluster behavior using a subset of native Redis configuration parameters. Please check Memorystore
         /// documentation for the list of supported parameters:
         /// https://cloud.google.com/memorystore/docs/cluster/supported-instance-configurations
         #[builder(into, default)]
-        pub redis_configs: pulumi_wasm_rust::Output<
+        pub redis_configs: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the region of the Redis cluster.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. The number of replica nodes per shard.
         #[builder(into, default)]
-        pub replica_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub replica_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Required. Number of shards for the Redis cluster.
         #[builder(into)]
-        pub shard_count: pulumi_wasm_rust::Output<i32>,
+        pub shard_count: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Optional. The in-transit encryption for the Redis cluster. If not provided, encryption is disabled for the cluster.
         /// Default value: "TRANSIT_ENCRYPTION_MODE_DISABLED" Possible values: ["TRANSIT_ENCRYPTION_MODE_UNSPECIFIED",
         /// "TRANSIT_ENCRYPTION_MODE_DISABLED", "TRANSIT_ENCRYPTION_MODE_SERVER_AUTHENTICATION"]
         #[builder(into, default)]
-        pub transit_encryption_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub transit_encryption_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Immutable. Zone distribution config for Memorystore Redis cluster.
         #[builder(into, default)]
-        pub zone_distribution_config: pulumi_wasm_rust::Output<
+        pub zone_distribution_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::redis::ClusterZoneDistributionConfig>,
         >,
     }
@@ -565,28 +565,49 @@ pub mod cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ClusterArgs) -> ClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ClusterArgs,
+    ) -> ClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authorization_mode_binding = args.authorization_mode.get_inner();
+        let authorization_mode_binding = args
+            .authorization_mode
+            .get_output(context)
+            .get_inner();
         let cross_cluster_replication_config_binding = args
             .cross_cluster_replication_config
+            .get_output(context)
             .get_inner();
         let deletion_protection_enabled_binding = args
             .deletion_protection_enabled
+            .get_output(context)
             .get_inner();
-        let maintenance_policy_binding = args.maintenance_policy.get_inner();
-        let name_binding = args.name.get_inner();
-        let node_type_binding = args.node_type.get_inner();
-        let persistence_config_binding = args.persistence_config.get_inner();
-        let project_binding = args.project.get_inner();
-        let psc_configs_binding = args.psc_configs.get_inner();
-        let redis_configs_binding = args.redis_configs.get_inner();
-        let region_binding = args.region.get_inner();
-        let replica_count_binding = args.replica_count.get_inner();
-        let shard_count_binding = args.shard_count.get_inner();
-        let transit_encryption_mode_binding = args.transit_encryption_mode.get_inner();
-        let zone_distribution_config_binding = args.zone_distribution_config.get_inner();
+        let maintenance_policy_binding = args
+            .maintenance_policy
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let node_type_binding = args.node_type.get_output(context).get_inner();
+        let persistence_config_binding = args
+            .persistence_config
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let psc_configs_binding = args.psc_configs.get_output(context).get_inner();
+        let redis_configs_binding = args.redis_configs.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let replica_count_binding = args.replica_count.get_output(context).get_inner();
+        let shard_count_binding = args.shard_count.get_output(context).get_inner();
+        let transit_encryption_mode_binding = args
+            .transit_encryption_mode
+            .get_output(context)
+            .get_inner();
+        let zone_distribution_config_binding = args
+            .zone_distribution_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:redis/cluster:Cluster".into(),
             name: name.to_string(),
@@ -728,7 +749,7 @@ pub mod cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

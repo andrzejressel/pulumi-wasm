@@ -17,46 +17,46 @@
 ///         Name: HelloWorld
 /// ```
 pub mod snapshot_import {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotImportArgs {
         /// The client-specific data. Detailed below.
         #[builder(into, default)]
-        pub client_data: pulumi_wasm_rust::Output<
+        pub client_data: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ebs::SnapshotImportClientData>,
         >,
         /// The description string for the import snapshot task.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Information about the disk container. Detailed below.
         #[builder(into)]
-        pub disk_container: pulumi_wasm_rust::Output<
+        pub disk_container: pulumi_wasm_rust::InputOrOutput<
             super::super::types::ebs::SnapshotImportDiskContainer,
         >,
         /// Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         #[builder(into, default)]
-        pub encrypted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether to permanently restore an archived snapshot.
         #[builder(into, default)]
-        pub permanent_restore: pulumi_wasm_rust::Output<Option<bool>>,
+        pub permanent_restore: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
         #[builder(into, default)]
-        pub role_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         #[builder(into, default)]
-        pub storage_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the snapshot.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         #[builder(into, default)]
-        pub temporary_restore_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub temporary_restore_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct SnapshotImportResult {
@@ -107,19 +107,29 @@ pub mod snapshot_import {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SnapshotImportArgs) -> SnapshotImportResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SnapshotImportArgs,
+    ) -> SnapshotImportResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let client_data_binding = args.client_data.get_inner();
-        let description_binding = args.description.get_inner();
-        let disk_container_binding = args.disk_container.get_inner();
-        let encrypted_binding = args.encrypted.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let permanent_restore_binding = args.permanent_restore.get_inner();
-        let role_name_binding = args.role_name.get_inner();
-        let storage_tier_binding = args.storage_tier.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let temporary_restore_days_binding = args.temporary_restore_days.get_inner();
+        let client_data_binding = args.client_data.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let disk_container_binding = args.disk_container.get_output(context).get_inner();
+        let encrypted_binding = args.encrypted.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let permanent_restore_binding = args
+            .permanent_restore
+            .get_output(context)
+            .get_inner();
+        let role_name_binding = args.role_name.get_output(context).get_inner();
+        let storage_tier_binding = args.storage_tier.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let temporary_restore_days_binding = args
+            .temporary_restore_days
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ebs/snapshotImport:SnapshotImport".into(),
             name: name.to_string(),
@@ -223,7 +233,7 @@ pub mod snapshot_import {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

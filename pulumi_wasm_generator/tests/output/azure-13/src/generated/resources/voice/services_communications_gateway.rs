@@ -66,58 +66,58 @@
 /// ```
 ///
 pub mod services_communications_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServicesCommunicationsGatewayArgs {
         /// Details of API bridge functionality, if required.
         #[builder(into, default)]
-        pub api_bridge: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_bridge: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the scope at which the auto-generated domain name can be re-used. Possible values are `TenantReuse`, `SubscriptionReuse`, `ResourceGroupReuse` and `NoReuse` . Changing this forces a new resource to be created. Defaults to `TenantReuse`.
         #[builder(into, default)]
-        pub auto_generated_domain_name_label_scope: pulumi_wasm_rust::Output<
+        pub auto_generated_domain_name_label_scope: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The voice codecs expected for communication with Teams. Possible values are `PCMA`, `PCMU`,`G722`,`G722_2`,`SILK_8` and `SILK_16`.
         #[builder(into)]
-        pub codecs: pulumi_wasm_rust::Output<String>,
+        pub codecs: pulumi_wasm_rust::InputOrOutput<String>,
         /// How to connect back to the operator network, e.g. MAPS. Possible values is `PublicAddress`. Changing this forces a new Voice Services Communications Gateways to be created.
         #[builder(into)]
-        pub connectivity: pulumi_wasm_rust::Output<String>,
+        pub connectivity: pulumi_wasm_rust::InputOrOutput<String>,
         /// How to handle 911 calls. Possible values are `Standard` and `DirectToEsrp`.
         #[builder(into)]
-        pub e911_type: pulumi_wasm_rust::Output<String>,
+        pub e911_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of dial strings used for emergency calling.
         #[builder(into, default)]
-        pub emergency_dial_strings: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub emergency_dial_strings: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the Azure Region where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer.
         #[builder(into, default)]
-        pub microsoft_teams_voicemail_pilot_number: pulumi_wasm_rust::Output<
+        pub microsoft_teams_voicemail_pilot_number: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the name which should be used for this Voice Services Communications Gateways. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether an on-premises Mobile Control Point is in use.
         #[builder(into, default)]
-        pub on_prem_mcp_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub on_prem_mcp_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Voice Services Communications GatewaysAvailable supports platform types. Possible values are `OperatorConnect`, `TeamsPhoneMobile`.
         #[builder(into)]
-        pub platforms: pulumi_wasm_rust::Output<Vec<String>>,
+        pub platforms: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Specifies the name of the Resource Group where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `service_location` block as defined below.
         #[builder(into)]
-        pub service_locations: pulumi_wasm_rust::Output<
+        pub service_locations: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::voice::ServicesCommunicationsGatewayServiceLocation>,
         >,
         /// A mapping of tags which should be assigned to the Voice Services Communications Gateways.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -165,29 +165,44 @@ pub mod services_communications_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ServicesCommunicationsGatewayArgs,
     ) -> ServicesCommunicationsGatewayResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_bridge_binding = args.api_bridge.get_inner();
+        let api_bridge_binding = args.api_bridge.get_output(context).get_inner();
         let auto_generated_domain_name_label_scope_binding = args
             .auto_generated_domain_name_label_scope
+            .get_output(context)
             .get_inner();
-        let codecs_binding = args.codecs.get_inner();
-        let connectivity_binding = args.connectivity.get_inner();
-        let e911_type_binding = args.e911_type.get_inner();
-        let emergency_dial_strings_binding = args.emergency_dial_strings.get_inner();
-        let location_binding = args.location.get_inner();
+        let codecs_binding = args.codecs.get_output(context).get_inner();
+        let connectivity_binding = args.connectivity.get_output(context).get_inner();
+        let e911_type_binding = args.e911_type.get_output(context).get_inner();
+        let emergency_dial_strings_binding = args
+            .emergency_dial_strings
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let microsoft_teams_voicemail_pilot_number_binding = args
             .microsoft_teams_voicemail_pilot_number
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let on_prem_mcp_enabled_binding = args.on_prem_mcp_enabled.get_inner();
-        let platforms_binding = args.platforms.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let service_locations_binding = args.service_locations.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let on_prem_mcp_enabled_binding = args
+            .on_prem_mcp_enabled
+            .get_output(context)
+            .get_inner();
+        let platforms_binding = args.platforms.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let service_locations_binding = args
+            .service_locations
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway"
                 .into(),
@@ -296,7 +311,7 @@ pub mod services_communications_gateway {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -76,7 +76,7 @@
 /// ```
 ///
 pub mod table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableArgs {
@@ -84,35 +84,35 @@ pub mod table {
         ///
         /// -----
         #[builder(into, default)]
-        pub automated_backup_policy: pulumi_wasm_rust::Output<
+        pub automated_backup_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigtable::TableAutomatedBackupPolicy>,
         >,
         /// Duration to retain change stream data for the table. Set to 0 to disable. Must be between 1 and 7 days.
         #[builder(into, default)]
-        pub change_stream_retention: pulumi_wasm_rust::Output<Option<String>>,
+        pub change_stream_retention: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A group of columns within a table which share a common configuration. This can be specified multiple times. Structure is documented below.
         #[builder(into, default)]
-        pub column_families: pulumi_wasm_rust::Output<
+        pub column_families: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::bigtable::TableColumnFamily>>,
         >,
         /// A field to make the table protected against data loss i.e. when set to PROTECTED, deleting the table, the column families in the table, and the instance containing the table would be prohibited. If not provided, deletion protection will be set to UNPROTECTED.
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Bigtable instance.
         #[builder(into)]
-        pub instance_name: pulumi_wasm_rust::Output<String>,
+        pub instance_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the table. Must be 1-50 characters and must only contain hyphens, underscores, periods, letters and numbers.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of predefined keys to split the table on.
         /// !> **Warning:** Modifying the `split_keys` of an existing table will cause the provider
         /// to delete/recreate the entire `gcp.bigtable.Table` resource.
         #[builder(into, default)]
-        pub split_keys: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub split_keys: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct TableResult {
@@ -146,17 +146,33 @@ pub mod table {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TableArgs) -> TableResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TableArgs,
+    ) -> TableResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let automated_backup_policy_binding = args.automated_backup_policy.get_inner();
-        let change_stream_retention_binding = args.change_stream_retention.get_inner();
-        let column_families_binding = args.column_families.get_inner();
-        let deletion_protection_binding = args.deletion_protection.get_inner();
-        let instance_name_binding = args.instance_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let split_keys_binding = args.split_keys.get_inner();
+        let automated_backup_policy_binding = args
+            .automated_backup_policy
+            .get_output(context)
+            .get_inner();
+        let change_stream_retention_binding = args
+            .change_stream_retention
+            .get_output(context)
+            .get_inner();
+        let column_families_binding = args
+            .column_families
+            .get_output(context)
+            .get_inner();
+        let deletion_protection_binding = args
+            .deletion_protection
+            .get_output(context)
+            .get_inner();
+        let instance_name_binding = args.instance_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let split_keys_binding = args.split_keys.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigtable/table:Table".into(),
             name: name.to_string(),
@@ -222,7 +238,7 @@ pub mod table {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

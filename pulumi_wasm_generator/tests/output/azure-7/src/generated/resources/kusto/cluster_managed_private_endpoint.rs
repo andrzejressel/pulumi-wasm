@@ -55,31 +55,33 @@
 /// ```
 ///
 pub mod cluster_managed_private_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterManagedPrivateEndpointArgs {
         /// The name of the Kusto Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The group id in which the managed private endpoint is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub group_id: pulumi_wasm_rust::Output<String>,
+        pub group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Managed Private Endpoints to create. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARM resource ID of the resource for which the managed private endpoint is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub private_link_resource_id: pulumi_wasm_rust::Output<String>,
+        pub private_link_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The region of the resource to which the managed private endpoint is created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub private_link_resource_region: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_link_resource_region: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The user request message.
         #[builder(into, default)]
-        pub request_message: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ClusterManagedPrivateEndpointResult {
@@ -103,20 +105,31 @@ pub mod cluster_managed_private_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ClusterManagedPrivateEndpointArgs,
     ) -> ClusterManagedPrivateEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_name_binding = args.cluster_name.get_inner();
-        let group_id_binding = args.group_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let private_link_resource_id_binding = args.private_link_resource_id.get_inner();
+        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
+        let group_id_binding = args.group_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let private_link_resource_id_binding = args
+            .private_link_resource_id
+            .get_output(context)
+            .get_inner();
         let private_link_resource_region_binding = args
             .private_link_resource_region
+            .get_output(context)
             .get_inner();
-        let request_message_binding = args.request_message.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let request_message_binding = args
+            .request_message
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint"
                 .into(),
@@ -176,7 +189,7 @@ pub mod cluster_managed_private_endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

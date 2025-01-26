@@ -102,54 +102,54 @@
 /// ```
 ///
 pub mod compute_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ComputeInstanceArgs {
         /// A `assign_to_user` block as defined below. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created.
         #[builder(into, default)]
-        pub assign_to_user: pulumi_wasm_rust::Output<
+        pub assign_to_user: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::machinelearning::ComputeInstanceAssignToUser>,
         >,
         /// The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created.
         #[builder(into, default)]
-        pub authorization_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub authorization_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Instance to be created.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::machinelearning::ComputeInstanceIdentity>,
         >,
         /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created.
         #[builder(into, default)]
-        pub local_auth_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_auth_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created.
         #[builder(into)]
-        pub machine_learning_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub machine_learning_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         #[builder(into, default)]
-        pub node_public_ip_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub node_public_ip_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A `ssh` block as defined below. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created.
         #[builder(into, default)]
-        pub ssh: pulumi_wasm_rust::Output<
+        pub ssh: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::machinelearning::ComputeInstanceSsh>,
         >,
         /// Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created.
         #[builder(into, default)]
-        pub subnet_resource_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnet_resource_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Virtual Machine Size. Changing this forces a new Machine Learning Compute Instance to be created.
         #[builder(into)]
-        pub virtual_machine_size: pulumi_wasm_rust::Output<String>,
+        pub virtual_machine_size: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ComputeInstanceResult {
@@ -190,23 +190,43 @@ pub mod compute_instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ComputeInstanceArgs) -> ComputeInstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ComputeInstanceArgs,
+    ) -> ComputeInstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let assign_to_user_binding = args.assign_to_user.get_inner();
-        let authorization_type_binding = args.authorization_type.get_inner();
-        let description_binding = args.description.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let local_auth_enabled_binding = args.local_auth_enabled.get_inner();
+        let assign_to_user_binding = args.assign_to_user.get_output(context).get_inner();
+        let authorization_type_binding = args
+            .authorization_type
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let local_auth_enabled_binding = args
+            .local_auth_enabled
+            .get_output(context)
+            .get_inner();
         let machine_learning_workspace_id_binding = args
             .machine_learning_workspace_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let node_public_ip_enabled_binding = args.node_public_ip_enabled.get_inner();
-        let ssh_binding = args.ssh.get_inner();
-        let subnet_resource_id_binding = args.subnet_resource_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let virtual_machine_size_binding = args.virtual_machine_size.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let node_public_ip_enabled_binding = args
+            .node_public_ip_enabled
+            .get_output(context)
+            .get_inner();
+        let ssh_binding = args.ssh.get_output(context).get_inner();
+        let subnet_resource_id_binding = args
+            .subnet_resource_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let virtual_machine_size_binding = args
+            .virtual_machine_size
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:machinelearning/computeInstance:ComputeInstance".into(),
             name: name.to_string(),
@@ -300,7 +320,7 @@ pub mod compute_instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

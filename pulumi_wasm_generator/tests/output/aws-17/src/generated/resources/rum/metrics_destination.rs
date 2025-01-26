@@ -25,22 +25,22 @@
 /// $ pulumi import aws:rum/metricsDestination:MetricsDestination example example
 /// ```
 pub mod metrics_destination {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MetricsDestinationArgs {
         /// The name of the CloudWatch RUM app monitor that will send the metrics.
         #[builder(into)]
-        pub app_monitor_name: pulumi_wasm_rust::Output<String>,
+        pub app_monitor_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Defines the destination to send the metrics to. Valid values are `CloudWatch` and `Evidently`. If you specify `Evidently`, you must also specify the ARN of the CloudWatchEvidently experiment that is to be the destination and an IAM role that has permission to write to the experiment.
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::Output<String>,
+        pub destination: pulumi_wasm_rust::InputOrOutput<String>,
         /// Use this parameter only if Destination is Evidently. This parameter specifies the ARN of the Evidently experiment that will receive the extended metrics.
         #[builder(into, default)]
-        pub destination_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub destination_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// This parameter is required if Destination is Evidently. If Destination is CloudWatch, do not use this parameter.
         #[builder(into, default)]
-        pub iam_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub iam_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MetricsDestinationResult {
@@ -57,13 +57,23 @@ pub mod metrics_destination {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MetricsDestinationArgs) -> MetricsDestinationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MetricsDestinationArgs,
+    ) -> MetricsDestinationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_monitor_name_binding = args.app_monitor_name.get_inner();
-        let destination_binding = args.destination.get_inner();
-        let destination_arn_binding = args.destination_arn.get_inner();
-        let iam_role_arn_binding = args.iam_role_arn.get_inner();
+        let app_monitor_name_binding = args
+            .app_monitor_name
+            .get_output(context)
+            .get_inner();
+        let destination_binding = args.destination.get_output(context).get_inner();
+        let destination_arn_binding = args
+            .destination_arn
+            .get_output(context)
+            .get_inner();
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rum/metricsDestination:MetricsDestination".into(),
             name: name.to_string(),
@@ -101,7 +111,7 @@ pub mod metrics_destination {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,32 +1,32 @@
 pub mod get_listener_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetListenerRuleArgs {
         /// List of actions associated with the rule, sorted by `order`.
         /// Detailed below.
         #[builder(into, default)]
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::lb::GetListenerRuleAction>>,
         >,
         /// ARN of the Listener Rule.
         /// Either `arn` or `listener_arn` must be set.
         #[builder(into, default)]
-        pub arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Set of conditions associated with the rule.
         /// Detailed below.
         #[builder(into, default)]
-        pub conditions: pulumi_wasm_rust::Output<
+        pub conditions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::lb::GetListenerRuleCondition>>,
         >,
         /// ARN of the associated Listener.
         /// Either `arn` or `listener_arn` must be set.
         #[builder(into, default)]
-        pub listener_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub listener_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Priority of the Listener Rule within the Listener.
         /// Must be set if `listener_arn` is set, otherwise must not be set.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<f64>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
     }
     #[allow(dead_code)]
     pub struct GetListenerRuleResult {
@@ -53,14 +53,17 @@ pub mod get_listener_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetListenerRuleArgs) -> GetListenerRuleResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetListenerRuleArgs,
+    ) -> GetListenerRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_inner();
-        let arn_binding = args.arn.get_inner();
-        let conditions_binding = args.conditions.get_inner();
-        let listener_arn_binding = args.listener_arn.get_inner();
-        let priority_binding = args.priority.get_inner();
+        let actions_binding = args.actions.get_output(context).get_inner();
+        let arn_binding = args.arn.get_output(context).get_inner();
+        let conditions_binding = args.conditions.get_output(context).get_inner();
+        let listener_arn_binding = args.listener_arn.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lb/getListenerRule:getListenerRule".into(),
             version: super::super::super::get_version(),
@@ -110,7 +113,7 @@ pub mod get_listener_rule {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

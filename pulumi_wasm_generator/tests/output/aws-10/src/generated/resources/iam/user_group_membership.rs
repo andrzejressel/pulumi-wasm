@@ -50,16 +50,16 @@
 /// $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
 /// ```
 pub mod user_group_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserGroupMembershipArgs {
         /// A list of IAM Groups to add the user to
         #[builder(into)]
-        pub groups: pulumi_wasm_rust::Output<Vec<String>>,
+        pub groups: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The name of the IAM User to add to groups
         #[builder(into)]
-        pub user: pulumi_wasm_rust::Output<String>,
+        pub user: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserGroupMembershipResult {
@@ -73,13 +73,14 @@ pub mod user_group_membership {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: UserGroupMembershipArgs,
     ) -> UserGroupMembershipResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let groups_binding = args.groups.get_inner();
-        let user_binding = args.user.get_inner();
+        let groups_binding = args.groups.get_output(context).get_inner();
+        let user_binding = args.user.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/userGroupMembership:UserGroupMembership".into(),
             name: name.to_string(),
@@ -103,7 +104,7 @@ pub mod user_group_membership {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

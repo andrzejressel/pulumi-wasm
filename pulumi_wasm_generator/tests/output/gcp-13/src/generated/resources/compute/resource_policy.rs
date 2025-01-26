@@ -222,17 +222,17 @@
 /// ```
 ///
 pub mod resource_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourcePolicyArgs {
         /// An optional description of this resource. Provide this property when you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Replication consistency group for asynchronous disk replication.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub disk_consistency_group_policy: pulumi_wasm_rust::Output<
+        pub disk_consistency_group_policy: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::ResourcePolicyDiskConsistencyGroupPolicy,
             >,
@@ -240,13 +240,13 @@ pub mod resource_policy {
         /// Resource policy for instances used for placement configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub group_placement_policy: pulumi_wasm_rust::Output<
+        pub group_placement_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::ResourcePolicyGroupPlacementPolicy>,
         >,
         /// Resource policy for scheduling instance operations.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub instance_schedule_policy: pulumi_wasm_rust::Output<
+        pub instance_schedule_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::ResourcePolicyInstanceSchedulePolicy>,
         >,
         /// The name of the resource, provided by the client when initially creating
@@ -260,18 +260,18 @@ pub mod resource_policy {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Region where resource policy resides.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Policy for creating snapshots of persistent disks.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub snapshot_schedule_policy: pulumi_wasm_rust::Output<
+        pub snapshot_schedule_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::ResourcePolicySnapshotSchedulePolicy>,
         >,
     }
@@ -324,19 +324,33 @@ pub mod resource_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ResourcePolicyArgs) -> ResourcePolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ResourcePolicyArgs,
+    ) -> ResourcePolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let disk_consistency_group_policy_binding = args
             .disk_consistency_group_policy
+            .get_output(context)
             .get_inner();
-        let group_placement_policy_binding = args.group_placement_policy.get_inner();
-        let instance_schedule_policy_binding = args.instance_schedule_policy.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let snapshot_schedule_policy_binding = args.snapshot_schedule_policy.get_inner();
+        let group_placement_policy_binding = args
+            .group_placement_policy
+            .get_output(context)
+            .get_inner();
+        let instance_schedule_policy_binding = args
+            .instance_schedule_policy
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let snapshot_schedule_policy_binding = args
+            .snapshot_schedule_policy
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/resourcePolicy:ResourcePolicy".into(),
             name: name.to_string(),
@@ -405,7 +419,7 @@ pub mod resource_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

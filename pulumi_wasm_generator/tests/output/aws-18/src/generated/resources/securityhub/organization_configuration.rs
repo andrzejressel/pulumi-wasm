@@ -77,19 +77,19 @@
 /// $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
 /// ```
 pub mod organization_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationConfigurationArgs {
         /// Whether to automatically enable Security Hub for new accounts in the organization.
         #[builder(into)]
-        pub auto_enable: pulumi_wasm_rust::Output<bool>,
+        pub auto_enable: pulumi_wasm_rust::InputOrOutput<bool>,
         /// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
         #[builder(into, default)]
-        pub auto_enable_standards: pulumi_wasm_rust::Output<Option<String>>,
+        pub auto_enable_standards: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Provides information about the way an organization is configured in Security Hub.
         #[builder(into, default)]
-        pub organization_configuration: pulumi_wasm_rust::Output<
+        pub organization_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::securityhub::OrganizationConfigurationOrganizationConfiguration,
             >,
@@ -111,15 +111,20 @@ pub mod organization_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OrganizationConfigurationArgs,
     ) -> OrganizationConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_enable_binding = args.auto_enable.get_inner();
-        let auto_enable_standards_binding = args.auto_enable_standards.get_inner();
+        let auto_enable_binding = args.auto_enable.get_output(context).get_inner();
+        let auto_enable_standards_binding = args
+            .auto_enable_standards
+            .get_output(context)
+            .get_inner();
         let organization_configuration_binding = args
             .organization_configuration
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/organizationConfiguration:OrganizationConfiguration"
@@ -152,7 +157,7 @@ pub mod organization_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

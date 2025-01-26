@@ -35,90 +35,90 @@
 /// ```
 ///
 pub mod service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceArgs {
         /// One or more `additional_location` blocks as defined below.
         #[builder(into, default)]
-        pub additional_locations: pulumi_wasm_rust::Output<
+        pub additional_locations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::ServiceAdditionalLocation>>,
         >,
         /// One or more `certificate` blocks (up to 10) as defined below.
         #[builder(into, default)]
-        pub certificates: pulumi_wasm_rust::Output<
+        pub certificates: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::ServiceCertificate>>,
         >,
         /// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         #[builder(into, default)]
-        pub client_certificate_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub client_certificate_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A `delegation` block as defined below.
         #[builder(into, default)]
-        pub delegation: pulumi_wasm_rust::Output<
+        pub delegation: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceDelegation>,
         >,
         /// Disable the gateway in main region? This is only supported when `additional_location` is set.
         #[builder(into, default)]
-        pub gateway_disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub gateway_disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A `hostname_configuration` block as defined below.
         #[builder(into, default)]
-        pub hostname_configuration: pulumi_wasm_rust::Output<
+        pub hostname_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceHostnameConfiguration>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceIdentity>,
         >,
         /// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         #[builder(into, default)]
-        pub min_api_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub min_api_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the API Management Service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Email address from which the notification will be sent.
         #[builder(into, default)]
-        pub notification_sender_email: pulumi_wasm_rust::Output<Option<String>>,
+        pub notification_sender_email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `protocols` block as defined below.
         #[builder(into, default)]
-        pub protocols: pulumi_wasm_rust::Output<
+        pub protocols: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceProtocols>,
         >,
         /// ID of a standard SKU IPv4 Public IP.
         ///
         /// > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
         #[builder(into, default)]
-        pub public_ip_address_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_ip_address_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Is public access to the service allowed? Defaults to `true`.
         ///
         /// > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The email of publisher/company.
         #[builder(into)]
-        pub publisher_email: pulumi_wasm_rust::Output<String>,
+        pub publisher_email: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of publisher/company.
         #[builder(into)]
-        pub publisher_name: pulumi_wasm_rust::Output<String>,
+        pub publisher_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `security` block as defined below.
         #[builder(into, default)]
-        pub security: pulumi_wasm_rust::Output<
+        pub security: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceSecurity>,
         >,
         /// A `sign_in` block as defined below.
         #[builder(into, default)]
-        pub sign_in: pulumi_wasm_rust::Output<
+        pub sign_in: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceSignIn>,
         >,
         /// A `sign_up` block as defined below.
         #[builder(into, default)]
-        pub sign_up: pulumi_wasm_rust::Output<
+        pub sign_up: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceSignUp>,
         >,
         /// `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
@@ -127,20 +127,20 @@ pub mod service {
         ///
         /// > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags assigned to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `tenant_access` block as defined below.
         #[builder(into, default)]
-        pub tenant_access: pulumi_wasm_rust::Output<
+        pub tenant_access: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceTenantAccess>,
         >,
         /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         #[builder(into, default)]
-        pub virtual_network_configuration: pulumi_wasm_rust::Output<
+        pub virtual_network_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::apimanagement::ServiceVirtualNetworkConfiguration,
             >,
@@ -149,12 +149,12 @@ pub mod service {
         ///
         /// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         #[builder(into, default)]
-        pub virtual_network_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_network_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of Availability Zones in which this API Management service should be located.
         ///
         /// > **NOTE:** Availability zones are only supported in the Premium tier.
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ServiceResult {
@@ -269,43 +269,75 @@ pub mod service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServiceArgs) -> ServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServiceArgs,
+    ) -> ServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let additional_locations_binding = args.additional_locations.get_inner();
-        let certificates_binding = args.certificates.get_inner();
+        let additional_locations_binding = args
+            .additional_locations
+            .get_output(context)
+            .get_inner();
+        let certificates_binding = args.certificates.get_output(context).get_inner();
         let client_certificate_enabled_binding = args
             .client_certificate_enabled
+            .get_output(context)
             .get_inner();
-        let delegation_binding = args.delegation.get_inner();
-        let gateway_disabled_binding = args.gateway_disabled.get_inner();
-        let hostname_configuration_binding = args.hostname_configuration.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let min_api_version_binding = args.min_api_version.get_inner();
-        let name_binding = args.name.get_inner();
+        let delegation_binding = args.delegation.get_output(context).get_inner();
+        let gateway_disabled_binding = args
+            .gateway_disabled
+            .get_output(context)
+            .get_inner();
+        let hostname_configuration_binding = args
+            .hostname_configuration
+            .get_output(context)
+            .get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let min_api_version_binding = args
+            .min_api_version
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let notification_sender_email_binding = args
             .notification_sender_email
+            .get_output(context)
             .get_inner();
-        let protocols_binding = args.protocols.get_inner();
-        let public_ip_address_id_binding = args.public_ip_address_id.get_inner();
+        let protocols_binding = args.protocols.get_output(context).get_inner();
+        let public_ip_address_id_binding = args
+            .public_ip_address_id
+            .get_output(context)
+            .get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
-        let publisher_email_binding = args.publisher_email.get_inner();
-        let publisher_name_binding = args.publisher_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let security_binding = args.security.get_inner();
-        let sign_in_binding = args.sign_in.get_inner();
-        let sign_up_binding = args.sign_up.get_inner();
-        let sku_name_binding = args.sku_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tenant_access_binding = args.tenant_access.get_inner();
+        let publisher_email_binding = args
+            .publisher_email
+            .get_output(context)
+            .get_inner();
+        let publisher_name_binding = args.publisher_name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let security_binding = args.security.get_output(context).get_inner();
+        let sign_in_binding = args.sign_in.get_output(context).get_inner();
+        let sign_up_binding = args.sign_up.get_output(context).get_inner();
+        let sku_name_binding = args.sku_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tenant_access_binding = args.tenant_access.get_output(context).get_inner();
         let virtual_network_configuration_binding = args
             .virtual_network_configuration
+            .get_output(context)
             .get_inner();
-        let virtual_network_type_binding = args.virtual_network_type.get_inner();
-        let zones_binding = args.zones.get_inner();
+        let virtual_network_type_binding = args
+            .virtual_network_type
+            .get_output(context)
+            .get_inner();
+        let zones_binding = args.zones.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/service:Service".into(),
             name: name.to_string(),
@@ -521,7 +553,7 @@ pub mod service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

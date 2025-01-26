@@ -25,19 +25,19 @@
 /// $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
 /// ```
 pub mod resolver_rule_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverRuleAssociationArgs {
         /// A name for the association that you're creating between a resolver rule and a VPC.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the resolver rule that you want to associate with the VPC.
         #[builder(into)]
-        pub resolver_rule_id: pulumi_wasm_rust::Output<String>,
+        pub resolver_rule_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the VPC that you want to associate the resolver rule with.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResolverRuleAssociationResult {
@@ -53,14 +53,18 @@ pub mod resolver_rule_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ResolverRuleAssociationArgs,
     ) -> ResolverRuleAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let resolver_rule_id_binding = args.resolver_rule_id.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resolver_rule_id_binding = args
+            .resolver_rule_id
+            .get_output(context)
+            .get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/resolverRuleAssociation:ResolverRuleAssociation".into(),
             name: name.to_string(),
@@ -91,7 +95,7 @@ pub mod resolver_rule_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

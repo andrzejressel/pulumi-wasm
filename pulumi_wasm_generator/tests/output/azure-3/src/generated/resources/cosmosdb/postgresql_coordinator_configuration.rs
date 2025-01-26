@@ -48,19 +48,19 @@
 /// ```
 ///
 pub mod postgresql_coordinator_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PostgresqlCoordinatorConfigurationArgs {
         /// The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The value of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PostgresqlCoordinatorConfigurationResult {
@@ -76,14 +76,15 @@ pub mod postgresql_coordinator_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PostgresqlCoordinatorConfigurationArgs,
     ) -> PostgresqlCoordinatorConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_id_binding = args.cluster_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let value_binding = args.value.get_inner();
+        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let value_binding = args.value.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration"
                 .into(),
@@ -115,7 +116,7 @@ pub mod postgresql_coordinator_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

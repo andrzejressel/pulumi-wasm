@@ -13,13 +13,13 @@
 /// $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
 /// ```
 pub mod domain_dkim {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainDkimArgs {
         /// Verified domain name to generate DKIM tokens for.
         #[builder(into)]
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DomainDkimResult {
@@ -37,10 +37,14 @@ pub mod domain_dkim {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DomainDkimArgs) -> DomainDkimResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DomainDkimArgs,
+    ) -> DomainDkimResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_binding = args.domain.get_inner();
+        let domain_binding = args.domain.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/domainDkim:DomainDkim".into(),
             name: name.to_string(),
@@ -60,7 +64,7 @@ pub mod domain_dkim {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

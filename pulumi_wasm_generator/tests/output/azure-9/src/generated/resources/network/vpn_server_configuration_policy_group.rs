@@ -60,27 +60,27 @@
 /// ```
 ///
 pub mod vpn_server_configuration_policy_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpnServerConfigurationPolicyGroupArgs {
         /// Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub is_default: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_default: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `policy` blocks as documented below.
         #[builder(into)]
-        pub policies: pulumi_wasm_rust::Output<
+        pub policies: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::network::VpnServerConfigurationPolicyGroupPolicy>,
         >,
         /// The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub vpn_server_configuration_id: pulumi_wasm_rust::Output<String>,
+        pub vpn_server_configuration_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpnServerConfigurationPolicyGroupResult {
@@ -102,17 +102,19 @@ pub mod vpn_server_configuration_policy_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpnServerConfigurationPolicyGroupArgs,
     ) -> VpnServerConfigurationPolicyGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let is_default_binding = args.is_default.get_inner();
-        let name_binding = args.name.get_inner();
-        let policies_binding = args.policies.get_inner();
-        let priority_binding = args.priority.get_inner();
+        let is_default_binding = args.is_default.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let policies_binding = args.policies.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
         let vpn_server_configuration_id_binding = args
             .vpn_server_configuration_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup"
@@ -159,7 +161,7 @@ pub mod vpn_server_configuration_policy_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -78,51 +78,51 @@
 /// ```
 ///
 pub mod network_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkPolicyArgs {
         /// User-provided description for this network policy.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// IP address range in CIDR notation used to create internet access and external IP access.
         /// An RFC 1918 CIDR block, with a "/26" prefix, is required. The range cannot overlap with any
         /// prefixes either in the consumer VPC network or in use by the private clouds attached to that VPC network.
         #[builder(into)]
-        pub edge_services_cidr: pulumi_wasm_rust::Output<String>,
+        pub edge_services_cidr: pulumi_wasm_rust::InputOrOutput<String>,
         /// Network service that allows External IP addresses to be assigned to VMware workloads.
         /// This service can only be enabled when internetAccess is also enabled.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub external_ip: pulumi_wasm_rust::Output<
+        pub external_ip: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::vmwareengine::NetworkPolicyExternalIp>,
         >,
         /// Network service that allows VMware workloads to access the internet.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub internet_access: pulumi_wasm_rust::Output<
+        pub internet_access: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::vmwareengine::NetworkPolicyInternetAccess>,
         >,
         /// The resource name of the location (region) to create the new network policy in.
         /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
         /// For example: projects/my-project/locations/us-central1
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Network Policy.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The relative resource name of the VMware Engine network. Specify the name in the following form:
         /// projects/{project}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId} where {project}
         /// can either be a project number or a project ID.
         #[builder(into)]
-        pub vmware_engine_network: pulumi_wasm_rust::Output<String>,
+        pub vmware_engine_network: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkPolicyResult {
@@ -177,17 +177,30 @@ pub mod network_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NetworkPolicyArgs) -> NetworkPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NetworkPolicyArgs,
+    ) -> NetworkPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let edge_services_cidr_binding = args.edge_services_cidr.get_inner();
-        let external_ip_binding = args.external_ip.get_inner();
-        let internet_access_binding = args.internet_access.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let vmware_engine_network_binding = args.vmware_engine_network.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let edge_services_cidr_binding = args
+            .edge_services_cidr
+            .get_output(context)
+            .get_inner();
+        let external_ip_binding = args.external_ip.get_output(context).get_inner();
+        let internet_access_binding = args
+            .internet_access
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let vmware_engine_network_binding = args
+            .vmware_engine_network
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vmwareengine/networkPolicy:NetworkPolicy".into(),
             name: name.to_string(),
@@ -265,7 +278,7 @@ pub mod network_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

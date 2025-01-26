@@ -112,7 +112,7 @@
 /// ```
 ///
 pub mod automation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AutomationArgs {
@@ -126,15 +126,15 @@ pub mod automation {
         /// details. **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field 'effective_annotations' for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The delivery_pipeline for the resource
         #[builder(into)]
-        pub delivery_pipeline: pulumi_wasm_rust::Output<String>,
+        pub delivery_pipeline: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. Description of the 'Automation'. Max length is 255 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Labels are attributes that can be set and used by both the user and by Cloud Deploy. Labels must meet the
         /// following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and
         /// dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a
@@ -143,35 +143,35 @@ pub mod automation {
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the `Automation`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. List of Automation rules associated with the Automation resource. Must have at least one rule and limited to 250 rules per Delivery Pipeline. Note: the order of the rules here is not the same as the order of execution.
         /// Structure is documented below.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::clouddeploy::AutomationRule>,
         >,
         /// Required. Selected resources to which the automation will be applied.
         /// Structure is documented below.
         #[builder(into)]
-        pub selector: pulumi_wasm_rust::Output<
+        pub selector: pulumi_wasm_rust::InputOrOutput<
             super::super::types::clouddeploy::AutomationSelector,
         >,
         /// Required. Email address of the user-managed IAM service account that creates Cloud Deploy release and rollout resources.
         #[builder(into)]
-        pub service_account: pulumi_wasm_rust::Output<String>,
+        pub service_account: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. When Suspended, automation is deactivated from execution.
         #[builder(into, default)]
-        pub suspended: pulumi_wasm_rust::Output<Option<bool>>,
+        pub suspended: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct AutomationResult {
@@ -245,20 +245,30 @@ pub mod automation {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AutomationArgs) -> AutomationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AutomationArgs,
+    ) -> AutomationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let delivery_pipeline_binding = args.delivery_pipeline.get_inner();
-        let description_binding = args.description.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let rules_binding = args.rules.get_inner();
-        let selector_binding = args.selector.get_inner();
-        let service_account_binding = args.service_account.get_inner();
-        let suspended_binding = args.suspended.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let delivery_pipeline_binding = args
+            .delivery_pipeline
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let rules_binding = args.rules.get_output(context).get_inner();
+        let selector_binding = args.selector.get_output(context).get_inner();
+        let service_account_binding = args
+            .service_account
+            .get_output(context)
+            .get_inner();
+        let suspended_binding = args.suspended.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:clouddeploy/automation:Automation".into(),
             name: name.to_string(),
@@ -366,7 +376,7 @@ pub mod automation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

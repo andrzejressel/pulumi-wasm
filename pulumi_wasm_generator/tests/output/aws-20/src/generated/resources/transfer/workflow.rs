@@ -63,26 +63,26 @@
 /// $ pulumi import aws:transfer/workflow:Workflow example example
 /// ```
 pub mod workflow {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkflowArgs {
         /// A textual description for the workflow.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
         #[builder(into, default)]
-        pub on_exception_steps: pulumi_wasm_rust::Output<
+        pub on_exception_steps: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::transfer::WorkflowOnExceptionStep>>,
         >,
         /// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         #[builder(into)]
-        pub steps: pulumi_wasm_rust::Output<
+        pub steps: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::transfer::WorkflowStep>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -113,13 +113,20 @@ pub mod workflow {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkflowArgs) -> WorkflowResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkflowArgs,
+    ) -> WorkflowResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let on_exception_steps_binding = args.on_exception_steps.get_inner();
-        let steps_binding = args.steps.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let on_exception_steps_binding = args
+            .on_exception_steps
+            .get_output(context)
+            .get_inner();
+        let steps_binding = args.steps.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:transfer/workflow:Workflow".into(),
             name: name.to_string(),
@@ -163,7 +170,7 @@ pub mod workflow {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -437,7 +437,7 @@
 /// ```
 ///
 pub mod metastore_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MetastoreServiceArgs {
@@ -445,80 +445,80 @@ pub mod metastore_service {
         /// Default value is `MYSQL`.
         /// Possible values are: `MYSQL`, `SPANNER`.
         #[builder(into, default)]
-        pub database_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub database_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates if the dataproc metastore should be protected against accidental deletions.
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Information used to configure the Dataproc Metastore service to encrypt
         /// customer data at rest.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub encryption_config: pulumi_wasm_rust::Output<
+        pub encryption_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceEncryptionConfig>,
         >,
         /// Configuration information specific to running Hive metastore software as the metastore service.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub hive_metastore_config: pulumi_wasm_rust::Output<
+        pub hive_metastore_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceHiveMetastoreConfig>,
         >,
         /// User-defined labels for the metastore service.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the metastore service should reside.
         /// The default value is `global`.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The one hour maintenance window of the metastore service.
         /// This specifies when the service can be restarted for maintenance purposes in UTC time.
         /// Maintenance window is not needed for services with the `SPANNER` database type.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub maintenance_window: pulumi_wasm_rust::Output<
+        pub maintenance_window: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceMaintenanceWindow>,
         >,
         /// The setting that defines how metastore metadata should be integrated with external services and systems.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub metadata_integration: pulumi_wasm_rust::Output<
+        pub metadata_integration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceMetadataIntegration>,
         >,
         /// The relative resource name of the VPC network on which the instance can be accessed. It is specified in the following form:
         /// "projects/{projectNumber}/global/networks/{network_id}".
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::Output<Option<String>>,
+        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The configuration specifying the network settings for the Dataproc Metastore service.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceNetworkConfig>,
         >,
         /// The TCP port at which the metastore service is reached. Default: 9083.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The release channel of the service. If unspecified, defaults to `STABLE`.
         /// Default value is `STABLE`.
         /// Possible values are: `CANARY`, `STABLE`.
         #[builder(into, default)]
-        pub release_channel: pulumi_wasm_rust::Output<Option<String>>,
+        pub release_channel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Represents the scaling configuration of a metastore service.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub scaling_config: pulumi_wasm_rust::Output<
+        pub scaling_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceScalingConfig>,
         >,
         /// The configuration of scheduled backup for the metastore service.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub scheduled_backup: pulumi_wasm_rust::Output<
+        pub scheduled_backup: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceScheduledBackup>,
         >,
         /// The ID of the metastore service. The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
@@ -528,17 +528,17 @@ pub mod metastore_service {
         ///
         /// - - -
         #[builder(into)]
-        pub service_id: pulumi_wasm_rust::Output<String>,
+        pub service_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The configuration specifying telemetry settings for the Dataproc Metastore service. If unspecified defaults to JSON.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub telemetry_config: pulumi_wasm_rust::Output<
+        pub telemetry_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::MetastoreServiceTelemetryConfig>,
         >,
         /// The tier of the service.
         /// Possible values are: `DEVELOPER`, `ENTERPRISE`.
         #[builder(into, default)]
-        pub tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MetastoreServiceResult {
@@ -648,27 +648,55 @@ pub mod metastore_service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MetastoreServiceArgs) -> MetastoreServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MetastoreServiceArgs,
+    ) -> MetastoreServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let database_type_binding = args.database_type.get_inner();
-        let deletion_protection_binding = args.deletion_protection.get_inner();
-        let encryption_config_binding = args.encryption_config.get_inner();
-        let hive_metastore_config_binding = args.hive_metastore_config.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let maintenance_window_binding = args.maintenance_window.get_inner();
-        let metadata_integration_binding = args.metadata_integration.get_inner();
-        let network_binding = args.network.get_inner();
-        let network_config_binding = args.network_config.get_inner();
-        let port_binding = args.port.get_inner();
-        let project_binding = args.project.get_inner();
-        let release_channel_binding = args.release_channel.get_inner();
-        let scaling_config_binding = args.scaling_config.get_inner();
-        let scheduled_backup_binding = args.scheduled_backup.get_inner();
-        let service_id_binding = args.service_id.get_inner();
-        let telemetry_config_binding = args.telemetry_config.get_inner();
-        let tier_binding = args.tier.get_inner();
+        let database_type_binding = args.database_type.get_output(context).get_inner();
+        let deletion_protection_binding = args
+            .deletion_protection
+            .get_output(context)
+            .get_inner();
+        let encryption_config_binding = args
+            .encryption_config
+            .get_output(context)
+            .get_inner();
+        let hive_metastore_config_binding = args
+            .hive_metastore_config
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let maintenance_window_binding = args
+            .maintenance_window
+            .get_output(context)
+            .get_inner();
+        let metadata_integration_binding = args
+            .metadata_integration
+            .get_output(context)
+            .get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let network_config_binding = args.network_config.get_output(context).get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let release_channel_binding = args
+            .release_channel
+            .get_output(context)
+            .get_inner();
+        let scaling_config_binding = args.scaling_config.get_output(context).get_inner();
+        let scheduled_backup_binding = args
+            .scheduled_backup
+            .get_output(context)
+            .get_inner();
+        let service_id_binding = args.service_id.get_output(context).get_inner();
+        let telemetry_config_binding = args
+            .telemetry_config
+            .get_output(context)
+            .get_inner();
+        let tier_binding = args.tier.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/metastoreService:MetastoreService".into(),
             name: name.to_string(),
@@ -828,7 +856,7 @@ pub mod metastore_service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

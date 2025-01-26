@@ -26,22 +26,22 @@
 /// $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
 /// ```
 pub mod subnet_cidr_reservation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubnetCidrReservationArgs {
         /// The CIDR block for the reservation.
         #[builder(into)]
-        pub cidr_block: pulumi_wasm_rust::Output<String>,
+        pub cidr_block: pulumi_wasm_rust::InputOrOutput<String>,
         /// A brief description of the reservation.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of reservation to create. Valid values: `explicit`, `prefix`
         #[builder(into)]
-        pub reservation_type: pulumi_wasm_rust::Output<String>,
+        pub reservation_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the subnet to create the reservation for.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubnetCidrReservationResult {
@@ -61,15 +61,19 @@ pub mod subnet_cidr_reservation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SubnetCidrReservationArgs,
     ) -> SubnetCidrReservationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cidr_block_binding = args.cidr_block.get_inner();
-        let description_binding = args.description.get_inner();
-        let reservation_type_binding = args.reservation_type.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
+        let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let reservation_type_binding = args
+            .reservation_type
+            .get_output(context)
+            .get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/subnetCidrReservation:SubnetCidrReservation".into(),
             name: name.to_string(),
@@ -110,7 +114,7 @@ pub mod subnet_cidr_reservation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

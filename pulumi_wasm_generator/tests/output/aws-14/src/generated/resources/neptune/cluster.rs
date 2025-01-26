@@ -41,110 +41,116 @@
 /// $ pulumi import aws:neptune/cluster:Cluster example my-cluster
 /// ```
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
         #[builder(into, default)]
-        pub allow_major_version_upgrade: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_major_version_upgrade: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         #[builder(into, default)]
-        pub apply_immediately: pulumi_wasm_rust::Output<Option<bool>>,
+        pub apply_immediately: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         #[builder(into, default)]
-        pub availability_zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub availability_zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The days to retain backups for. Default `1`
         #[builder(into, default)]
-        pub backup_retention_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub backup_retention_period: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         #[builder(into, default)]
-        pub cluster_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         #[builder(into, default)]
-        pub cluster_identifier_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub cluster_identifier_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If set to true, tags are copied to any snapshot of the DB cluster that is created.
         #[builder(into, default)]
-        pub copy_tags_to_snapshot: pulumi_wasm_rust::Output<Option<bool>>,
+        pub copy_tags_to_snapshot: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit` and `slowquery`.
         #[builder(into, default)]
-        pub enable_cloudwatch_logs_exports: pulumi_wasm_rust::Output<
+        pub enable_cloudwatch_logs_exports: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
         #[builder(into, default)]
-        pub engine: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The database engine version.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
         #[builder(into, default)]
-        pub final_snapshot_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub final_snapshot_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The global cluster identifier specified on `aws.neptune.GlobalCluster`.
         #[builder(into, default)]
-        pub global_cluster_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub global_cluster_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         #[builder(into, default)]
-        pub iam_database_authentication_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub iam_database_authentication_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
         #[builder(into, default)]
-        pub iam_roles: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub iam_roles: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ARN for the KMS encryption key. When specifying `kms_key_arn`, `storage_encrypted` needs to be set to true.
         #[builder(into, default)]
-        pub kms_key_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A cluster parameter group to associate with the cluster.
         #[builder(into, default)]
-        pub neptune_cluster_parameter_group_name: pulumi_wasm_rust::Output<
+        pub neptune_cluster_parameter_group_name: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The name of the DB parameter group to apply to all instances of the DB cluster.
         #[builder(into, default)]
-        pub neptune_instance_parameter_group_name: pulumi_wasm_rust::Output<
+        pub neptune_instance_parameter_group_name: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// A Neptune subnet group to associate with this Neptune instance.
         #[builder(into, default)]
-        pub neptune_subnet_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub neptune_subnet_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The port on which the Neptune accepts connections. Default is `8182`.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         #[builder(into, default)]
-        pub preferred_backup_window: pulumi_wasm_rust::Output<Option<String>>,
+        pub preferred_backup_window: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         #[builder(into, default)]
-        pub preferred_maintenance_window: pulumi_wasm_rust::Output<Option<String>>,
+        pub preferred_maintenance_window: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         #[builder(into, default)]
-        pub replication_source_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub replication_source_identifier: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         #[builder(into, default)]
-        pub serverless_v2_scaling_configuration: pulumi_wasm_rust::Output<
+        pub serverless_v2_scaling_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::neptune::ClusterServerlessV2ScalingConfiguration>,
         >,
         /// Determines whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         #[builder(into, default)]
-        pub skip_final_snapshot: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_final_snapshot: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         #[builder(into, default)]
-        pub snapshot_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub snapshot_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether the Neptune cluster is encrypted. The default is `false` if not specified.
         #[builder(into, default)]
-        pub storage_encrypted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub storage_encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Storage type associated with the cluster `standard/iopt1`. Default: `standard`
         #[builder(into, default)]
-        pub storage_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of VPC security groups to associate with the Cluster
         #[builder(into, default)]
-        pub vpc_security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub vpc_security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ClusterResult {
@@ -237,63 +243,112 @@ pub mod cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ClusterArgs) -> ClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ClusterArgs,
+    ) -> ClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let allow_major_version_upgrade_binding = args
             .allow_major_version_upgrade
+            .get_output(context)
             .get_inner();
-        let apply_immediately_binding = args.apply_immediately.get_inner();
-        let availability_zones_binding = args.availability_zones.get_inner();
-        let backup_retention_period_binding = args.backup_retention_period.get_inner();
-        let cluster_identifier_binding = args.cluster_identifier.get_inner();
+        let apply_immediately_binding = args
+            .apply_immediately
+            .get_output(context)
+            .get_inner();
+        let availability_zones_binding = args
+            .availability_zones
+            .get_output(context)
+            .get_inner();
+        let backup_retention_period_binding = args
+            .backup_retention_period
+            .get_output(context)
+            .get_inner();
+        let cluster_identifier_binding = args
+            .cluster_identifier
+            .get_output(context)
+            .get_inner();
         let cluster_identifier_prefix_binding = args
             .cluster_identifier_prefix
+            .get_output(context)
             .get_inner();
-        let copy_tags_to_snapshot_binding = args.copy_tags_to_snapshot.get_inner();
-        let deletion_protection_binding = args.deletion_protection.get_inner();
+        let copy_tags_to_snapshot_binding = args
+            .copy_tags_to_snapshot
+            .get_output(context)
+            .get_inner();
+        let deletion_protection_binding = args
+            .deletion_protection
+            .get_output(context)
+            .get_inner();
         let enable_cloudwatch_logs_exports_binding = args
             .enable_cloudwatch_logs_exports
+            .get_output(context)
             .get_inner();
-        let engine_binding = args.engine.get_inner();
-        let engine_version_binding = args.engine_version.get_inner();
+        let engine_binding = args.engine.get_output(context).get_inner();
+        let engine_version_binding = args.engine_version.get_output(context).get_inner();
         let final_snapshot_identifier_binding = args
             .final_snapshot_identifier
+            .get_output(context)
             .get_inner();
         let global_cluster_identifier_binding = args
             .global_cluster_identifier
+            .get_output(context)
             .get_inner();
         let iam_database_authentication_enabled_binding = args
             .iam_database_authentication_enabled
+            .get_output(context)
             .get_inner();
-        let iam_roles_binding = args.iam_roles.get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_inner();
+        let iam_roles_binding = args.iam_roles.get_output(context).get_inner();
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
         let neptune_cluster_parameter_group_name_binding = args
             .neptune_cluster_parameter_group_name
+            .get_output(context)
             .get_inner();
         let neptune_instance_parameter_group_name_binding = args
             .neptune_instance_parameter_group_name
+            .get_output(context)
             .get_inner();
         let neptune_subnet_group_name_binding = args
             .neptune_subnet_group_name
+            .get_output(context)
             .get_inner();
-        let port_binding = args.port.get_inner();
-        let preferred_backup_window_binding = args.preferred_backup_window.get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let preferred_backup_window_binding = args
+            .preferred_backup_window
+            .get_output(context)
+            .get_inner();
         let preferred_maintenance_window_binding = args
             .preferred_maintenance_window
+            .get_output(context)
             .get_inner();
         let replication_source_identifier_binding = args
             .replication_source_identifier
+            .get_output(context)
             .get_inner();
         let serverless_v2_scaling_configuration_binding = args
             .serverless_v2_scaling_configuration
+            .get_output(context)
             .get_inner();
-        let skip_final_snapshot_binding = args.skip_final_snapshot.get_inner();
-        let snapshot_identifier_binding = args.snapshot_identifier.get_inner();
-        let storage_encrypted_binding = args.storage_encrypted.get_inner();
-        let storage_type_binding = args.storage_type.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_security_group_ids_binding = args.vpc_security_group_ids.get_inner();
+        let skip_final_snapshot_binding = args
+            .skip_final_snapshot
+            .get_output(context)
+            .get_inner();
+        let snapshot_identifier_binding = args
+            .snapshot_identifier
+            .get_output(context)
+            .get_inner();
+        let storage_encrypted_binding = args
+            .storage_encrypted
+            .get_output(context)
+            .get_inner();
+        let storage_type_binding = args.storage_type.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_security_group_ids_binding = args
+            .vpc_security_group_ids
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:neptune/cluster:Cluster".into(),
             name: name.to_string(),
@@ -534,7 +589,7 @@ pub mod cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

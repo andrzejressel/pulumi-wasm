@@ -29,22 +29,24 @@
 /// $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
 /// ```
 pub mod lb_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LbCertificateArgs {
         /// The domain name (e.g., example.com) for your SSL/TLS certificate.
         #[builder(into, default)]
-        pub domain_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The load balancer name where you want to create the SSL/TLS certificate.
         #[builder(into)]
-        pub lb_name: pulumi_wasm_rust::Output<String>,
+        pub lb_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The SSL/TLS certificate name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Set of domains that should be SANs in the issued certificate. `domain_name` attribute is automatically added as a Subject Alternative Name.
         #[builder(into, default)]
-        pub subject_alternative_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub subject_alternative_names: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
     }
     #[allow(dead_code)]
     pub struct LbCertificateResult {
@@ -69,14 +71,19 @@ pub mod lb_certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LbCertificateArgs) -> LbCertificateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LbCertificateArgs,
+    ) -> LbCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_name_binding = args.domain_name.get_inner();
-        let lb_name_binding = args.lb_name.get_inner();
-        let name_binding = args.name.get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let lb_name_binding = args.lb_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let subject_alternative_names_binding = args
             .subject_alternative_names
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/lbCertificate:LbCertificate".into(),
@@ -127,7 +134,7 @@ pub mod lb_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

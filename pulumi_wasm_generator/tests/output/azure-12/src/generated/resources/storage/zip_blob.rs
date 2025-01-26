@@ -1,40 +1,40 @@
 pub mod zip_blob {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZipBlobArgs {
         #[builder(into, default)]
-        pub access_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub cache_control: pulumi_wasm_rust::Output<Option<String>>,
+        pub cache_control: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub content: pulumi_wasm_rust::Output<Option<String>>,
+        pub content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub content_md5: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_md5: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub content_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub encryption_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub encryption_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub parallelism: pulumi_wasm_rust::Output<Option<i32>>,
+        pub parallelism: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub source_content: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub source_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub storage_account_name: pulumi_wasm_rust::Output<String>,
+        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub storage_container_name: pulumi_wasm_rust::Output<String>,
+        pub storage_container_name: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZipBlobResult {
@@ -61,24 +61,37 @@ pub mod zip_blob {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ZipBlobArgs) -> ZipBlobResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ZipBlobArgs,
+    ) -> ZipBlobResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_tier_binding = args.access_tier.get_inner();
-        let cache_control_binding = args.cache_control.get_inner();
-        let content_binding = args.content.get_inner();
-        let content_md5_binding = args.content_md5.get_inner();
-        let content_type_binding = args.content_type.get_inner();
-        let encryption_scope_binding = args.encryption_scope.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let parallelism_binding = args.parallelism.get_inner();
-        let size_binding = args.size.get_inner();
-        let source_content_binding = args.source_content.get_inner();
-        let source_uri_binding = args.source_uri.get_inner();
-        let storage_account_name_binding = args.storage_account_name.get_inner();
-        let storage_container_name_binding = args.storage_container_name.get_inner();
-        let type__binding = args.type_.get_inner();
+        let access_tier_binding = args.access_tier.get_output(context).get_inner();
+        let cache_control_binding = args.cache_control.get_output(context).get_inner();
+        let content_binding = args.content.get_output(context).get_inner();
+        let content_md5_binding = args.content_md5.get_output(context).get_inner();
+        let content_type_binding = args.content_type.get_output(context).get_inner();
+        let encryption_scope_binding = args
+            .encryption_scope
+            .get_output(context)
+            .get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parallelism_binding = args.parallelism.get_output(context).get_inner();
+        let size_binding = args.size.get_output(context).get_inner();
+        let source_content_binding = args.source_content.get_output(context).get_inner();
+        let source_uri_binding = args.source_uri.get_output(context).get_inner();
+        let storage_account_name_binding = args
+            .storage_account_name
+            .get_output(context)
+            .get_inner();
+        let storage_container_name_binding = args
+            .storage_container_name
+            .get_output(context)
+            .get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/zipBlob:ZipBlob".into(),
             name: name.to_string(),
@@ -196,7 +209,7 @@ pub mod zip_blob {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

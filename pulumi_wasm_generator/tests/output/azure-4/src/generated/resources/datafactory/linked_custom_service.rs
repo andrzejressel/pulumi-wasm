@@ -58,45 +58,45 @@
 /// ```
 ///
 pub mod linked_custom_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedCustomServiceArgs {
         /// A map of additional properties to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description for the Data Factory Linked Service.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `integration_runtime` block as defined below.
         #[builder(into, default)]
-        pub integration_runtime: pulumi_wasm_rust::Output<
+        pub integration_runtime: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::LinkedCustomServiceIntegrationRuntime,
             >,
         >,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of parameters to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Please refer to Microsoft.DataFactory factories/linkedservices for the type values syntax. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
         /// A JSON object that contains the properties of the Data Factory Linked Service.
         #[builder(into)]
-        pub type_properties_json: pulumi_wasm_rust::Output<String>,
+        pub type_properties_json: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LinkedCustomServiceResult {
@@ -132,20 +132,33 @@ pub mod linked_custom_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LinkedCustomServiceArgs,
     ) -> LinkedCustomServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let additional_properties_binding = args.additional_properties.get_inner();
-        let annotations_binding = args.annotations.get_inner();
-        let data_factory_id_binding = args.data_factory_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let integration_runtime_binding = args.integration_runtime.get_inner();
-        let name_binding = args.name.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let type__binding = args.type_.get_inner();
-        let type_properties_json_binding = args.type_properties_json.get_inner();
+        let additional_properties_binding = args
+            .additional_properties
+            .get_output(context)
+            .get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let data_factory_id_binding = args
+            .data_factory_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let integration_runtime_binding = args
+            .integration_runtime
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let type_properties_json_binding = args
+            .type_properties_json
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/linkedCustomService:LinkedCustomService".into(),
             name: name.to_string(),
@@ -218,7 +231,7 @@ pub mod linked_custom_service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

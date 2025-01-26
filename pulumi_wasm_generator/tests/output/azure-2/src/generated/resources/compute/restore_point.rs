@@ -90,21 +90,23 @@
 /// ```
 ///
 pub mod restore_point {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RestorePointArgs {
         /// Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub crash_consistency_mode_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub crash_consistency_mode_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub excluded_disks: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub excluded_disks: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub virtual_machine_restore_point_collection_id: pulumi_wasm_rust::Output<
+        pub virtual_machine_restore_point_collection_id: pulumi_wasm_rust::InputOrOutput<
             String,
         >,
     }
@@ -124,16 +126,22 @@ pub mod restore_point {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RestorePointArgs) -> RestorePointResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RestorePointArgs,
+    ) -> RestorePointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let crash_consistency_mode_enabled_binding = args
             .crash_consistency_mode_enabled
+            .get_output(context)
             .get_inner();
-        let excluded_disks_binding = args.excluded_disks.get_inner();
-        let name_binding = args.name.get_inner();
+        let excluded_disks_binding = args.excluded_disks.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let virtual_machine_restore_point_collection_id_binding = args
             .virtual_machine_restore_point_collection_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/restorePoint:RestorePoint".into(),
@@ -172,7 +180,7 @@ pub mod restore_point {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,19 +1,19 @@
 pub mod get_vpc_dhcp_options {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetVpcDhcpOptionsArgs {
         /// EC2 DHCP Options ID.
         #[builder(into, default)]
-        pub dhcp_options_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub dhcp_options_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of custom filters as described below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetVpcDhcpOptionsFilter>>,
         >,
         /// Map of tags assigned to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -49,12 +49,18 @@ pub mod get_vpc_dhcp_options {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetVpcDhcpOptionsArgs) -> GetVpcDhcpOptionsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetVpcDhcpOptionsArgs,
+    ) -> GetVpcDhcpOptionsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dhcp_options_id_binding = args.dhcp_options_id.get_inner();
-        let filters_binding = args.filters.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let dhcp_options_id_binding = args
+            .dhcp_options_id
+            .get_output(context)
+            .get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions".into(),
             version: super::super::super::get_version(),
@@ -111,7 +117,7 @@ pub mod get_vpc_dhcp_options {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

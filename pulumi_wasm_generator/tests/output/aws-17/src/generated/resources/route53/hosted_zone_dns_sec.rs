@@ -69,7 +69,7 @@
 /// $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
 /// ```
 pub mod hosted_zone_dns_sec {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostedZoneDnsSecArgs {
@@ -77,10 +77,10 @@ pub mod hosted_zone_dns_sec {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub hosted_zone_id: pulumi_wasm_rust::Output<String>,
+        pub hosted_zone_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
         #[builder(into, default)]
-        pub signing_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub signing_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct HostedZoneDnsSecResult {
@@ -95,11 +95,15 @@ pub mod hosted_zone_dns_sec {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HostedZoneDnsSecArgs) -> HostedZoneDnsSecResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HostedZoneDnsSecArgs,
+    ) -> HostedZoneDnsSecResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let hosted_zone_id_binding = args.hosted_zone_id.get_inner();
-        let signing_status_binding = args.signing_status.get_inner();
+        let hosted_zone_id_binding = args.hosted_zone_id.get_output(context).get_inner();
+        let signing_status_binding = args.signing_status.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/hostedZoneDnsSec:HostedZoneDnsSec".into(),
             name: name.to_string(),
@@ -123,7 +127,7 @@ pub mod hosted_zone_dns_sec {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

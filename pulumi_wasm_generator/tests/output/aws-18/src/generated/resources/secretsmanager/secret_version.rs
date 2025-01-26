@@ -55,24 +55,24 @@
 /// $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
 /// ```
 pub mod secret_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecretVersionArgs {
         /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` is not set. Needs to be encoded to base64.
         #[builder(into, default)]
-        pub secret_binary: pulumi_wasm_rust::Output<Option<String>>,
+        pub secret_binary: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         #[builder(into)]
-        pub secret_id: pulumi_wasm_rust::Output<String>,
+        pub secret_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` is not set.
         #[builder(into, default)]
-        pub secret_string: pulumi_wasm_rust::Output<Option<String>>,
+        pub secret_string: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
         ///
         /// > **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
         #[builder(into, default)]
-        pub version_stages: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub version_stages: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct SecretVersionResult {
@@ -95,13 +95,17 @@ pub mod secret_version {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SecretVersionArgs) -> SecretVersionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SecretVersionArgs,
+    ) -> SecretVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let secret_binary_binding = args.secret_binary.get_inner();
-        let secret_id_binding = args.secret_id.get_inner();
-        let secret_string_binding = args.secret_string.get_inner();
-        let version_stages_binding = args.version_stages.get_inner();
+        let secret_binary_binding = args.secret_binary.get_output(context).get_inner();
+        let secret_id_binding = args.secret_id.get_output(context).get_inner();
+        let secret_string_binding = args.secret_string.get_output(context).get_inner();
+        let version_stages_binding = args.version_stages.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:secretsmanager/secretVersion:SecretVersion".into(),
             name: name.to_string(),
@@ -145,7 +149,7 @@ pub mod secret_version {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -61,22 +61,24 @@
 /// $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
 /// ```
 pub mod cluster_activity_stream {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterActivityStreamArgs {
         /// Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
         #[builder(into, default)]
-        pub engine_native_audit_fields_included: pulumi_wasm_rust::Output<Option<bool>>,
+        pub engine_native_audit_fields_included: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
         #[builder(into)]
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
         #[builder(into)]
-        pub mode: pulumi_wasm_rust::Output<String>,
+        pub mode: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the DB cluster.
         #[builder(into)]
-        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ClusterActivityStreamResult {
@@ -96,6 +98,7 @@ pub mod cluster_activity_stream {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ClusterActivityStreamArgs,
     ) -> ClusterActivityStreamResult {
@@ -103,10 +106,11 @@ pub mod cluster_activity_stream {
         use std::collections::HashMap;
         let engine_native_audit_fields_included_binding = args
             .engine_native_audit_fields_included
+            .get_output(context)
             .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let mode_binding = args.mode.get_inner();
-        let resource_arn_binding = args.resource_arn.get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let mode_binding = args.mode.get_output(context).get_inner();
+        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/clusterActivityStream:ClusterActivityStream".into(),
             name: name.to_string(),
@@ -147,7 +151,7 @@ pub mod cluster_activity_stream {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,11 +1,11 @@
 pub mod get_bucket {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBucketArgs {
         /// Name of the bucket
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetBucketResult {
@@ -31,10 +31,13 @@ pub mod get_bucket {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetBucketArgs) -> GetBucketResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetBucketArgs,
+    ) -> GetBucketResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:s3/getBucket:getBucket".into(),
             version: super::super::super::get_version(),
@@ -74,7 +77,7 @@ pub mod get_bucket {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,17 +1,17 @@
 pub mod get_standard {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetStandardArgs {
         /// The name of this Logic App.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Logic App exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `site_config` object as defined below.
         #[builder(into, default)]
-        pub site_config: pulumi_wasm_rust::Output<
+        pub site_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::super::types::logicapps::GetStandardSiteConfig>,
         >,
     }
@@ -87,12 +87,18 @@ pub mod get_standard {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetStandardArgs) -> GetStandardResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetStandardArgs,
+    ) -> GetStandardResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let site_config_binding = args.site_config.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let site_config_binding = args.site_config.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:logicapps/getStandard:getStandard".into(),
             version: super::super::super::get_version(),
@@ -197,7 +203,7 @@ pub mod get_standard {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

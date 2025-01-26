@@ -36,31 +36,31 @@
 /// ```
 ///
 pub mod embedded {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EmbeddedArgs {
         /// A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
         #[builder(into)]
-        pub administrators: pulumi_wasm_rust::Output<Vec<String>>,
+        pub administrators: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the PowerBI Embedded. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the PowerBI Embedded should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -87,16 +87,23 @@ pub mod embedded {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EmbeddedArgs) -> EmbeddedResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EmbeddedArgs,
+    ) -> EmbeddedResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let administrators_binding = args.administrators.get_inner();
-        let location_binding = args.location.get_inner();
-        let mode_binding = args.mode.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_name_binding = args.sku_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let administrators_binding = args.administrators.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let mode_binding = args.mode.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_name_binding = args.sku_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:powerbi/embedded:Embedded".into(),
             name: name.to_string(),
@@ -155,7 +162,7 @@ pub mod embedded {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

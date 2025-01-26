@@ -121,41 +121,41 @@
 /// $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
 /// ```
 pub mod eip {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EipArgs {
         /// IP address from an EC2 BYOIP pool. This option is only available for VPC EIPs.
         #[builder(into, default)]
-        pub address: pulumi_wasm_rust::Output<Option<String>>,
+        pub address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User-specified primary or secondary private IP address to associate with the Elastic IP address. If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         #[builder(into, default)]
-        pub associate_with_private_ip: pulumi_wasm_rust::Output<Option<String>>,
+        pub associate_with_private_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID  of a customer-owned address pool. For more on customer owned IP addressed check out [Customer-owned IP addresses guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing).
         #[builder(into, default)]
-        pub customer_owned_ipv4_pool: pulumi_wasm_rust::Output<Option<String>>,
+        pub customer_owned_ipv4_pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates if this EIP is for use in VPC (`vpc`).
         #[builder(into, default)]
-        pub domain: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// EC2 instance ID.
         #[builder(into, default)]
-        pub instance: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it.
         #[builder(into, default)]
-        pub ipam_pool_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipam_pool_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Location from which the IP address is advertised. Use this parameter to limit the address to this location.
         #[builder(into, default)]
-        pub network_border_group: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_border_group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Network interface ID to associate with.
         #[builder(into, default)]
-        pub network_interface: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_interface: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// EC2 IPv4 address pool identifier or `amazon`.
         /// This option is only available for VPC EIPs.
         #[builder(into, default)]
-        pub public_ipv4_pool: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_ipv4_pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Boolean if the EIP is in a VPC or not. Use `domain` instead.
@@ -166,7 +166,7 @@ pub mod eip {
         /// > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error but `address` will be used in the
         /// case both options are defined as the api only requires one or the other.
         #[builder(into, default)]
-        pub vpc: pulumi_wasm_rust::Output<Option<bool>>,
+        pub vpc: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct EipResult {
@@ -229,22 +229,39 @@ pub mod eip {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EipArgs) -> EipResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EipArgs,
+    ) -> EipResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let address_binding = args.address.get_inner();
+        let address_binding = args.address.get_output(context).get_inner();
         let associate_with_private_ip_binding = args
             .associate_with_private_ip
+            .get_output(context)
             .get_inner();
-        let customer_owned_ipv4_pool_binding = args.customer_owned_ipv4_pool.get_inner();
-        let domain_binding = args.domain.get_inner();
-        let instance_binding = args.instance.get_inner();
-        let ipam_pool_id_binding = args.ipam_pool_id.get_inner();
-        let network_border_group_binding = args.network_border_group.get_inner();
-        let network_interface_binding = args.network_interface.get_inner();
-        let public_ipv4_pool_binding = args.public_ipv4_pool.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_binding = args.vpc.get_inner();
+        let customer_owned_ipv4_pool_binding = args
+            .customer_owned_ipv4_pool
+            .get_output(context)
+            .get_inner();
+        let domain_binding = args.domain.get_output(context).get_inner();
+        let instance_binding = args.instance.get_output(context).get_inner();
+        let ipam_pool_id_binding = args.ipam_pool_id.get_output(context).get_inner();
+        let network_border_group_binding = args
+            .network_border_group
+            .get_output(context)
+            .get_inner();
+        let network_interface_binding = args
+            .network_interface
+            .get_output(context)
+            .get_inner();
+        let public_ipv4_pool_binding = args
+            .public_ipv4_pool
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_binding = args.vpc.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/eip:Eip".into(),
             name: name.to_string(),
@@ -364,7 +381,7 @@ pub mod eip {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

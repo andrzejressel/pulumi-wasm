@@ -1,20 +1,20 @@
 pub mod get_docker_image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDockerImageArgs {
         /// The image name to fetch. If no digest or tag is provided, then the latest modified image will be used.
         #[builder(into)]
-        pub image_name: pulumi_wasm_rust::Output<String>,
+        pub image_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location of the artifact registry.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The project ID in which the resource belongs. If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The last part of the repository name to fetch from.
         #[builder(into)]
-        pub repository_id: pulumi_wasm_rust::Output<String>,
+        pub repository_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetDockerImageResult {
@@ -51,13 +51,16 @@ pub mod get_docker_image {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetDockerImageArgs) -> GetDockerImageResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetDockerImageArgs,
+    ) -> GetDockerImageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let image_name_binding = args.image_name.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
-        let repository_id_binding = args.repository_id.get_inner();
+        let image_name_binding = args.image_name.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let repository_id_binding = args.repository_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:artifactregistry/getDockerImage:getDockerImage".into(),
             version: super::super::super::get_version(),
@@ -121,7 +124,7 @@ pub mod get_docker_image {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

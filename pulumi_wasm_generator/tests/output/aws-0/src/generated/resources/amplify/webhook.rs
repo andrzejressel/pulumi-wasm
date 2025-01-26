@@ -34,19 +34,19 @@
 /// $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
 /// ```
 pub mod webhook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebhookArgs {
         /// Unique ID for an Amplify app.
         #[builder(into)]
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name for a branch that is part of the Amplify app.
         #[builder(into)]
-        pub branch_name: pulumi_wasm_rust::Output<String>,
+        pub branch_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Description for a webhook.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct WebhookResult {
@@ -65,12 +65,16 @@ pub mod webhook {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WebhookArgs) -> WebhookResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WebhookArgs,
+    ) -> WebhookResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_id_binding = args.app_id.get_inner();
-        let branch_name_binding = args.branch_name.get_inner();
-        let description_binding = args.description.get_inner();
+        let app_id_binding = args.app_id.get_output(context).get_inner();
+        let branch_name_binding = args.branch_name.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:amplify/webhook:Webhook".into(),
             name: name.to_string(),
@@ -107,7 +111,7 @@ pub mod webhook {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

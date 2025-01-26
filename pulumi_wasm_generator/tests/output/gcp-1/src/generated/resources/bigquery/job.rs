@@ -334,46 +334,46 @@
 /// ```
 ///
 pub mod job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobArgs {
         /// Copies a table.
         #[builder(into, default)]
-        pub copy: pulumi_wasm_rust::Output<
+        pub copy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::JobCopy>,
         >,
         /// Configures an extract job.
         #[builder(into, default)]
-        pub extract: pulumi_wasm_rust::Output<
+        pub extract: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::JobExtract>,
         >,
         /// The ID of the job. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-). The maximum length is 1,024 characters.
         #[builder(into)]
-        pub job_id: pulumi_wasm_rust::Output<String>,
+        pub job_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Job timeout in milliseconds. If this time limit is exceeded, BigQuery may attempt to terminate the job.
         #[builder(into, default)]
-        pub job_timeout_ms: pulumi_wasm_rust::Output<Option<String>>,
+        pub job_timeout_ms: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The labels associated with this job. You can use these to organize and group your jobs. **Note**: This field is
         /// non-authoritative, and will only manage the labels present in your configuration. Please refer to the field
         /// 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configures a load job.
         #[builder(into, default)]
-        pub load: pulumi_wasm_rust::Output<
+        pub load: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::JobLoad>,
         >,
         /// Specifies where the error occurred, if present.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configures a query job.
         #[builder(into, default)]
-        pub query: pulumi_wasm_rust::Output<
+        pub query: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::JobQuery>,
         >,
     }
@@ -434,18 +434,22 @@ pub mod job {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: JobArgs) -> JobResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: JobArgs,
+    ) -> JobResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let copy_binding = args.copy.get_inner();
-        let extract_binding = args.extract.get_inner();
-        let job_id_binding = args.job_id.get_inner();
-        let job_timeout_ms_binding = args.job_timeout_ms.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let load_binding = args.load.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
-        let query_binding = args.query.get_inner();
+        let copy_binding = args.copy.get_output(context).get_inner();
+        let extract_binding = args.extract.get_output(context).get_inner();
+        let job_id_binding = args.job_id.get_output(context).get_inner();
+        let job_timeout_ms_binding = args.job_timeout_ms.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let load_binding = args.load.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let query_binding = args.query.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/job:Job".into(),
             name: name.to_string(),
@@ -533,7 +537,7 @@ pub mod job {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

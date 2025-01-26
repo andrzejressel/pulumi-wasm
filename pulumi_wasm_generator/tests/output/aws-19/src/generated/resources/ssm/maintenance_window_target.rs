@@ -79,31 +79,31 @@
 /// $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
 /// ```
 pub mod maintenance_window_target {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MaintenanceWindowTargetArgs {
         /// The description of the maintenance window target.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the maintenance window target.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
         #[builder(into, default)]
-        pub owner_information: pulumi_wasm_rust::Output<Option<String>>,
+        pub owner_information: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
         #[builder(into)]
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
         /// (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
         #[builder(into)]
-        pub targets: pulumi_wasm_rust::Output<
+        pub targets: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::ssm::MaintenanceWindowTargetTarget>,
         >,
         /// The Id of the maintenance window to register the target with.
         #[builder(into)]
-        pub window_id: pulumi_wasm_rust::Output<String>,
+        pub window_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MaintenanceWindowTargetResult {
@@ -128,17 +128,21 @@ pub mod maintenance_window_target {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: MaintenanceWindowTargetArgs,
     ) -> MaintenanceWindowTargetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let owner_information_binding = args.owner_information.get_inner();
-        let resource_type_binding = args.resource_type.get_inner();
-        let targets_binding = args.targets.get_inner();
-        let window_id_binding = args.window_id.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let owner_information_binding = args
+            .owner_information
+            .get_output(context)
+            .get_inner();
+        let resource_type_binding = args.resource_type.get_output(context).get_inner();
+        let targets_binding = args.targets.get_output(context).get_inner();
+        let window_id_binding = args.window_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget".into(),
             name: name.to_string(),
@@ -190,7 +194,7 @@ pub mod maintenance_window_target {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

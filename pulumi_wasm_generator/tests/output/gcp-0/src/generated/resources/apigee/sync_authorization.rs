@@ -80,7 +80,7 @@
 /// ```
 ///
 pub mod sync_authorization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SyncAuthorizationArgs {
@@ -89,13 +89,13 @@ pub mod sync_authorization {
         /// You might specify multiple service accounts, for example, if you have multiple environments and wish to assign a unique service account to each one.
         /// The service accounts must have **Apigee Synchronizer Manager** role. See also [Create service accounts](https://cloud.google.com/apigee/docs/hybrid/v1.8/sa-about#create-the-service-accounts).
         #[builder(into)]
-        pub identities: pulumi_wasm_rust::Output<Vec<String>>,
+        pub identities: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Name of the Apigee organization.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SyncAuthorizationResult {
@@ -117,11 +117,15 @@ pub mod sync_authorization {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SyncAuthorizationArgs) -> SyncAuthorizationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SyncAuthorizationArgs,
+    ) -> SyncAuthorizationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let identities_binding = args.identities.get_inner();
-        let name_binding = args.name.get_inner();
+        let identities_binding = args.identities.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/syncAuthorization:SyncAuthorization".into(),
             name: name.to_string(),
@@ -148,7 +152,7 @@ pub mod sync_authorization {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

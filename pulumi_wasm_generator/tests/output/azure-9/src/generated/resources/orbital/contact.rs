@@ -102,28 +102,28 @@
 /// ```
 ///
 pub mod contact {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContactArgs {
         /// ID of the orbital contact profile. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub contact_profile_id: pulumi_wasm_rust::Output<String>,
+        pub contact_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the Azure ground station. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub ground_station_name: pulumi_wasm_rust::Output<String>,
+        pub ground_station_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Contact. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Reservation end time of the Contact. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub reservation_end_time: pulumi_wasm_rust::Output<String>,
+        pub reservation_end_time: pulumi_wasm_rust::InputOrOutput<String>,
         /// Reservation start time of the Contact. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub reservation_start_time: pulumi_wasm_rust::Output<String>,
+        pub reservation_start_time: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the spacecraft which the contact will be made to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub spacecraft_id: pulumi_wasm_rust::Output<String>,
+        pub spacecraft_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ContactResult {
@@ -144,15 +144,31 @@ pub mod contact {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ContactArgs) -> ContactResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ContactArgs,
+    ) -> ContactResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let contact_profile_id_binding = args.contact_profile_id.get_inner();
-        let ground_station_name_binding = args.ground_station_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let reservation_end_time_binding = args.reservation_end_time.get_inner();
-        let reservation_start_time_binding = args.reservation_start_time.get_inner();
-        let spacecraft_id_binding = args.spacecraft_id.get_inner();
+        let contact_profile_id_binding = args
+            .contact_profile_id
+            .get_output(context)
+            .get_inner();
+        let ground_station_name_binding = args
+            .ground_station_name
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let reservation_end_time_binding = args
+            .reservation_end_time
+            .get_output(context)
+            .get_inner();
+        let reservation_start_time_binding = args
+            .reservation_start_time
+            .get_output(context)
+            .get_inner();
+        let spacecraft_id_binding = args.spacecraft_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:orbital/contact:Contact".into(),
             name: name.to_string(),
@@ -204,7 +220,7 @@ pub mod contact {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

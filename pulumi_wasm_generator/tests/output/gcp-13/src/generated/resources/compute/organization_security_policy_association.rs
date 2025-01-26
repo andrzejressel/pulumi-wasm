@@ -82,22 +82,22 @@
 /// ```
 ///
 pub mod organization_security_policy_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationSecurityPolicyAssociationArgs {
         /// The resource that the security policy is attached to.
         #[builder(into)]
-        pub attachment_id: pulumi_wasm_rust::Output<String>,
+        pub attachment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name for an association.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The security policy ID of the association.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub policy_id: pulumi_wasm_rust::Output<String>,
+        pub policy_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OrganizationSecurityPolicyAssociationResult {
@@ -118,14 +118,15 @@ pub mod organization_security_policy_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OrganizationSecurityPolicyAssociationArgs,
     ) -> OrganizationSecurityPolicyAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attachment_id_binding = args.attachment_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let policy_id_binding = args.policy_id.get_inner();
+        let attachment_id_binding = args.attachment_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let policy_id_binding = args.policy_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/organizationSecurityPolicyAssociation:OrganizationSecurityPolicyAssociation"
                 .into(),
@@ -160,7 +161,7 @@ pub mod organization_security_policy_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

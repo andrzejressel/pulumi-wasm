@@ -47,54 +47,54 @@
 /// ```
 ///
 pub mod backend {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackendArgs {
         /// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `credentials` block as documented below.
         #[builder(into, default)]
-        pub credentials: pulumi_wasm_rust::Output<
+        pub credentials: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::BackendCredentials>,
         >,
         /// The description of the backend.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the API Management backend. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The protocol used by the backend host. Possible values are `http` or `soap`.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `proxy` block as documented below.
         #[builder(into, default)]
-        pub proxy: pulumi_wasm_rust::Output<
+        pub proxy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::BackendProxy>,
         >,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
         #[builder(into, default)]
-        pub resource_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `service_fabric_cluster` block as documented below.
         #[builder(into, default)]
-        pub service_fabric_cluster: pulumi_wasm_rust::Output<
+        pub service_fabric_cluster: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::BackendServiceFabricCluster>,
         >,
         /// The title of the backend.
         #[builder(into, default)]
-        pub title: pulumi_wasm_rust::Output<Option<String>>,
+        pub title: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `tls` block as documented below.
         #[builder(into, default)]
-        pub tls: pulumi_wasm_rust::Output<
+        pub tls: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apimanagement::BackendTls>,
         >,
         /// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         #[builder(into)]
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackendResult {
@@ -135,21 +135,34 @@ pub mod backend {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BackendArgs) -> BackendResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BackendArgs,
+    ) -> BackendResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args.api_management_name.get_inner();
-        let credentials_binding = args.credentials.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let proxy_binding = args.proxy.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let resource_id_binding = args.resource_id.get_inner();
-        let service_fabric_cluster_binding = args.service_fabric_cluster.get_inner();
-        let title_binding = args.title.get_inner();
-        let tls_binding = args.tls.get_inner();
-        let url_binding = args.url.get_inner();
+        let api_management_name_binding = args
+            .api_management_name
+            .get_output(context)
+            .get_inner();
+        let credentials_binding = args.credentials.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let proxy_binding = args.proxy.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let resource_id_binding = args.resource_id.get_output(context).get_inner();
+        let service_fabric_cluster_binding = args
+            .service_fabric_cluster
+            .get_output(context)
+            .get_inner();
+        let title_binding = args.title.get_output(context).get_inner();
+        let tls_binding = args.tls.get_output(context).get_inner();
+        let url_binding = args.url.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/backend:Backend".into(),
             name: name.to_string(),
@@ -243,7 +256,7 @@ pub mod backend {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

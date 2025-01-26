@@ -26,25 +26,25 @@
 /// $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
 /// ```
 pub mod endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointArgs {
         /// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
         #[builder(into, default)]
-        pub access_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         #[builder(into, default)]
-        pub customer_owned_ipv4_pool: pulumi_wasm_rust::Output<Option<String>>,
+        pub customer_owned_ipv4_pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of the Outpost to contain this endpoint.
         #[builder(into)]
-        pub outpost_id: pulumi_wasm_rust::Output<String>,
+        pub outpost_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifier of the EC2 Security Group.
         #[builder(into)]
-        pub security_group_id: pulumi_wasm_rust::Output<String>,
+        pub security_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifier of the EC2 Subnet.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EndpointResult {
@@ -73,14 +73,24 @@ pub mod endpoint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EndpointArgs) -> EndpointResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EndpointArgs,
+    ) -> EndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_type_binding = args.access_type.get_inner();
-        let customer_owned_ipv4_pool_binding = args.customer_owned_ipv4_pool.get_inner();
-        let outpost_id_binding = args.outpost_id.get_inner();
-        let security_group_id_binding = args.security_group_id.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
+        let access_type_binding = args.access_type.get_output(context).get_inner();
+        let customer_owned_ipv4_pool_binding = args
+            .customer_owned_ipv4_pool
+            .get_output(context)
+            .get_inner();
+        let outpost_id_binding = args.outpost_id.get_output(context).get_inner();
+        let security_group_id_binding = args
+            .security_group_id
+            .get_output(context)
+            .get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3outposts/endpoint:Endpoint".into(),
             name: name.to_string(),
@@ -137,7 +147,7 @@ pub mod endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

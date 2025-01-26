@@ -37,16 +37,16 @@
 /// $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:123456789012:example
 /// ```
 pub mod data_protection_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataProtectionPolicyArgs {
         /// The ARN of the SNS topic
         #[builder(into)]
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DataProtectionPolicyResult {
@@ -60,13 +60,14 @@ pub mod data_protection_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DataProtectionPolicyArgs,
     ) -> DataProtectionPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_inner();
-        let policy_binding = args.policy.get_inner();
+        let arn_binding = args.arn.get_output(context).get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sns/dataProtectionPolicy:DataProtectionPolicy".into(),
             name: name.to_string(),
@@ -90,7 +91,7 @@ pub mod data_protection_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

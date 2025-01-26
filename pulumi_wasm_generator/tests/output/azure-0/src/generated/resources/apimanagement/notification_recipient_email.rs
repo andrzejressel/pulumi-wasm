@@ -45,19 +45,19 @@
 /// ```
 ///
 pub mod notification_recipient_email {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NotificationRecipientEmailArgs {
         /// The ID of the API Management Service from which to create this Notification Recipient Email. Changing this forces a new API Management Notification Recipient Email to be created.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The recipient email address. Changing this forces a new API Management Notification Recipient Email to be created.
         #[builder(into)]
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Notification Name to be received. Changing this forces a new API Management Notification Recipient Email to be created. Possible values are `AccountClosedPublisher`, `BCC`, `NewApplicationNotificationMessage`, `NewIssuePublisherNotificationMessage`, `PurchasePublisherNotificationMessage`, `QuotaLimitApproachingPublisherNotificationMessage`, and `RequestPublisherNotificationMessage`.
         #[builder(into)]
-        pub notification_type: pulumi_wasm_rust::Output<String>,
+        pub notification_type: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NotificationRecipientEmailResult {
@@ -73,14 +73,21 @@ pub mod notification_recipient_email {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NotificationRecipientEmailArgs,
     ) -> NotificationRecipientEmailResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding = args.api_management_id.get_inner();
-        let email_binding = args.email.get_inner();
-        let notification_type_binding = args.notification_type.get_inner();
+        let api_management_id_binding = args
+            .api_management_id
+            .get_output(context)
+            .get_inner();
+        let email_binding = args.email.get_output(context).get_inner();
+        let notification_type_binding = args
+            .notification_type
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail"
                 .into(),
@@ -112,7 +119,7 @@ pub mod notification_recipient_email {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

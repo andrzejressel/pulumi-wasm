@@ -135,7 +135,7 @@
 /// ```
 ///
 pub mod v_2_vm {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct V2VmArgs {
@@ -143,13 +143,13 @@ pub mod v_2_vm {
         /// as `accelerator_type`. If neither is specified, `accelerator_type` defaults to 'v2-8'.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub accelerator_config: pulumi_wasm_rust::Output<
+        pub accelerator_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::tpu::V2VmAcceleratorConfig>,
         >,
         /// TPU accelerator type for the TPU. `accelerator_type` cannot be used at the same time as
         /// `accelerator_config`. If neither is specified, `accelerator_type` defaults to 'v2-8'.
         #[builder(into, default)]
-        pub accelerator_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub accelerator_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The CIDR block that the TPU node will use when selecting an IP address. This CIDR block must
         /// be a /29 block; the Compute Engine networks API forbids a smaller block, and using a larger
         /// block would be wasteful (a node can only consume one IP address). Errors will occur if the
@@ -157,79 +157,79 @@ pub mod v_2_vm {
         /// with any subnetworks in the user's provided network, or the provided network is peered with
         /// another network that is using that CIDR block.
         #[builder(into, default)]
-        pub cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The additional data disks for the Node.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub data_disks: pulumi_wasm_rust::Output<
+        pub data_disks: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::tpu::V2VmDataDisk>>,
         >,
         /// Text description of the TPU.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Resource labels to represent user-provided metadata.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Custom metadata to apply to the TPU Node. Can set startup-script and shutdown-script.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The immutable name of the TPU.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Network configurations for the TPU node.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::tpu::V2VmNetworkConfig>,
         >,
         /// Repeated network configurations for the TPU node. This field is used to specify multiple
         /// network configs for the TPU node.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub network_configs: pulumi_wasm_rust::Output<
+        pub network_configs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::tpu::V2VmNetworkConfig>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Runtime version for the TPU.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub runtime_version: pulumi_wasm_rust::Output<String>,
+        pub runtime_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// The scheduling options for this node.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub scheduling_config: pulumi_wasm_rust::Output<
+        pub scheduling_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::tpu::V2VmSchedulingConfig>,
         >,
         /// The Google Cloud Platform Service Account to be used by the TPU node VMs. If None is
         /// specified, the default compute service account will be used.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub service_account: pulumi_wasm_rust::Output<
+        pub service_account: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::tpu::V2VmServiceAccount>,
         >,
         /// Shielded Instance options.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub shielded_instance_config: pulumi_wasm_rust::Output<
+        pub shielded_instance_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::tpu::V2VmShieldedInstanceConfig>,
         >,
         /// Tags to apply to the TPU Node. Tags are used to identify valid sources or targets for network firewalls.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The GCP location for the TPU. If it is not provided, the provider zone is used.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct V2VmResult {
@@ -344,26 +344,51 @@ pub mod v_2_vm {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: V2VmArgs) -> V2VmResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: V2VmArgs,
+    ) -> V2VmResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accelerator_config_binding = args.accelerator_config.get_inner();
-        let accelerator_type_binding = args.accelerator_type.get_inner();
-        let cidr_block_binding = args.cidr_block.get_inner();
-        let data_disks_binding = args.data_disks.get_inner();
-        let description_binding = args.description.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_config_binding = args.network_config.get_inner();
-        let network_configs_binding = args.network_configs.get_inner();
-        let project_binding = args.project.get_inner();
-        let runtime_version_binding = args.runtime_version.get_inner();
-        let scheduling_config_binding = args.scheduling_config.get_inner();
-        let service_account_binding = args.service_account.get_inner();
-        let shielded_instance_config_binding = args.shielded_instance_config.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let accelerator_config_binding = args
+            .accelerator_config
+            .get_output(context)
+            .get_inner();
+        let accelerator_type_binding = args
+            .accelerator_type
+            .get_output(context)
+            .get_inner();
+        let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
+        let data_disks_binding = args.data_disks.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_config_binding = args.network_config.get_output(context).get_inner();
+        let network_configs_binding = args
+            .network_configs
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let runtime_version_binding = args
+            .runtime_version
+            .get_output(context)
+            .get_inner();
+        let scheduling_config_binding = args
+            .scheduling_config
+            .get_output(context)
+            .get_inner();
+        let service_account_binding = args
+            .service_account
+            .get_output(context)
+            .get_inner();
+        let shielded_instance_config_binding = args
+            .shielded_instance_config
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:tpu/v2Vm:V2Vm".into(),
             name: name.to_string(),
@@ -522,7 +547,7 @@ pub mod v_2_vm {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

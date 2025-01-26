@@ -203,59 +203,59 @@
 /// $ pulumi import aws:pipes/pipe:Pipe example my-pipe
 /// ```
 pub mod pipe {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PipeArgs {
         /// A description of the pipe. At most 512 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         #[builder(into, default)]
-        pub desired_state: pulumi_wasm_rust::Output<Option<String>>,
+        pub desired_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
         #[builder(into, default)]
-        pub enrichment: pulumi_wasm_rust::Output<Option<String>>,
+        pub enrichment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Parameters to configure enrichment for your pipe. Detailed below.
         #[builder(into, default)]
-        pub enrichment_parameters: pulumi_wasm_rust::Output<
+        pub enrichment_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pipes::PipeEnrichmentParameters>,
         >,
         /// Logging configuration settings for the pipe. Detailed below.
         #[builder(into, default)]
-        pub log_configuration: pulumi_wasm_rust::Output<
+        pub log_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pipes::PipeLogConfiguration>,
         >,
         /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of the role that allows the pipe to send data to the target.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         #[builder(into)]
-        pub source: pulumi_wasm_rust::Output<String>,
+        pub source: pulumi_wasm_rust::InputOrOutput<String>,
         /// Parameters to configure a source for the pipe. Detailed below.
         #[builder(into, default)]
-        pub source_parameters: pulumi_wasm_rust::Output<
+        pub source_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pipes::PipeSourceParameters>,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Target resource of the pipe (typically an ARN).
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub target: pulumi_wasm_rust::Output<String>,
+        pub target: pulumi_wasm_rust::InputOrOutput<String>,
         /// Parameters to configure a target for your pipe. Detailed below.
         #[builder(into, default)]
-        pub target_parameters: pulumi_wasm_rust::Output<
+        pub target_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pipes::PipeTargetParameters>,
         >,
     }
@@ -310,22 +310,38 @@ pub mod pipe {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PipeArgs) -> PipeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PipeArgs,
+    ) -> PipeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let desired_state_binding = args.desired_state.get_inner();
-        let enrichment_binding = args.enrichment.get_inner();
-        let enrichment_parameters_binding = args.enrichment_parameters.get_inner();
-        let log_configuration_binding = args.log_configuration.get_inner();
-        let name_binding = args.name.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let source_binding = args.source.get_inner();
-        let source_parameters_binding = args.source_parameters.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_binding = args.target.get_inner();
-        let target_parameters_binding = args.target_parameters.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let desired_state_binding = args.desired_state.get_output(context).get_inner();
+        let enrichment_binding = args.enrichment.get_output(context).get_inner();
+        let enrichment_parameters_binding = args
+            .enrichment_parameters
+            .get_output(context)
+            .get_inner();
+        let log_configuration_binding = args
+            .log_configuration
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
+        let source_parameters_binding = args
+            .source_parameters
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_binding = args.target.get_output(context).get_inner();
+        let target_parameters_binding = args
+            .target_parameters
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:pipes/pipe:Pipe".into(),
             name: name.to_string(),
@@ -432,7 +448,7 @@ pub mod pipe {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

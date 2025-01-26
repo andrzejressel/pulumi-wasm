@@ -39,37 +39,37 @@
 /// $ pulumi import aws:securityhub/automationRule:AutomationRule example arn:aws:securityhub:us-west-2:123456789012:automation-rule/473eddde-f5c4-4ae5-85c7-e922f271fffc
 /// ```
 pub mod automation_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AutomationRuleArgs {
         /// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
         #[builder(into, default)]
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::securityhub::AutomationRuleAction>>,
         >,
         /// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         #[builder(into, default)]
-        pub criteria: pulumi_wasm_rust::Output<
+        pub criteria: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::securityhub::AutomationRuleCriteria>,
         >,
         /// The description of the rule.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
         #[builder(into, default)]
-        pub is_terminal: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_terminal: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the rule.
         #[builder(into)]
-        pub rule_name: pulumi_wasm_rust::Output<String>,
+        pub rule_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         #[builder(into)]
-        pub rule_order: pulumi_wasm_rust::Output<i32>,
+        pub rule_order: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Whether the rule is active after it is created.
         #[builder(into, default)]
-        pub rule_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub rule_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -106,17 +106,21 @@ pub mod automation_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AutomationRuleArgs) -> AutomationRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AutomationRuleArgs,
+    ) -> AutomationRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_inner();
-        let criteria_binding = args.criteria.get_inner();
-        let description_binding = args.description.get_inner();
-        let is_terminal_binding = args.is_terminal.get_inner();
-        let rule_name_binding = args.rule_name.get_inner();
-        let rule_order_binding = args.rule_order.get_inner();
-        let rule_status_binding = args.rule_status.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let actions_binding = args.actions.get_output(context).get_inner();
+        let criteria_binding = args.criteria.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let is_terminal_binding = args.is_terminal.get_output(context).get_inner();
+        let rule_name_binding = args.rule_name.get_output(context).get_inner();
+        let rule_order_binding = args.rule_order.get_output(context).get_inner();
+        let rule_status_binding = args.rule_status.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/automationRule:AutomationRule".into(),
             name: name.to_string(),
@@ -188,7 +192,7 @@ pub mod automation_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

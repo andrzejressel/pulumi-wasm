@@ -29,22 +29,22 @@
 /// $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
 /// ```
 pub mod adm_channel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AdmChannelArgs {
         /// The application ID.
         #[builder(into)]
-        pub application_id: pulumi_wasm_rust::Output<String>,
+        pub application_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         #[builder(into)]
-        pub client_id: pulumi_wasm_rust::Output<String>,
+        pub client_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
         #[builder(into)]
-        pub client_secret: pulumi_wasm_rust::Output<String>,
+        pub client_secret: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies whether to enable the channel. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct AdmChannelResult {
@@ -61,13 +61,17 @@ pub mod adm_channel {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AdmChannelArgs) -> AdmChannelResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AdmChannelArgs,
+    ) -> AdmChannelResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_inner();
-        let client_id_binding = args.client_id.get_inner();
-        let client_secret_binding = args.client_secret.get_inner();
-        let enabled_binding = args.enabled.get_inner();
+        let application_id_binding = args.application_id.get_output(context).get_inner();
+        let client_id_binding = args.client_id.get_output(context).get_inner();
+        let client_secret_binding = args.client_secret.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:pinpoint/admChannel:AdmChannel".into(),
             name: name.to_string(),
@@ -105,7 +109,7 @@ pub mod adm_channel {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

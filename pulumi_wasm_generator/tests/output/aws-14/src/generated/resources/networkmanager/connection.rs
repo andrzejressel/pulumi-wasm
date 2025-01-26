@@ -27,31 +27,31 @@
 /// $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
 /// ```
 pub mod connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionArgs {
         /// The ID of the second device in the connection.
         #[builder(into)]
-        pub connected_device_id: pulumi_wasm_rust::Output<String>,
+        pub connected_device_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the link for the second device.
         #[builder(into, default)]
-        pub connected_link_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub connected_link_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A description of the connection.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the first device in the connection.
         #[builder(into)]
-        pub device_id: pulumi_wasm_rust::Output<String>,
+        pub device_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the global network.
         #[builder(into)]
-        pub global_network_id: pulumi_wasm_rust::Output<String>,
+        pub global_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the link for the first device.
         #[builder(into, default)]
-        pub link_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub link_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -84,16 +84,29 @@ pub mod connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectionArgs) -> ConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectionArgs,
+    ) -> ConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let connected_device_id_binding = args.connected_device_id.get_inner();
-        let connected_link_id_binding = args.connected_link_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let device_id_binding = args.device_id.get_inner();
-        let global_network_id_binding = args.global_network_id.get_inner();
-        let link_id_binding = args.link_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let connected_device_id_binding = args
+            .connected_device_id
+            .get_output(context)
+            .get_inner();
+        let connected_link_id_binding = args
+            .connected_link_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let device_id_binding = args.device_id.get_output(context).get_inner();
+        let global_network_id_binding = args
+            .global_network_id
+            .get_output(context)
+            .get_inner();
+        let link_id_binding = args.link_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/connection:Connection".into(),
             name: name.to_string(),
@@ -158,7 +171,7 @@ pub mod connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

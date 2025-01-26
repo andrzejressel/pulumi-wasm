@@ -96,16 +96,16 @@
 /// ```
 ///
 pub mod managed_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedCertificateArgs {
         /// The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created.
         #[builder(into)]
-        pub custom_hostname_binding_id: pulumi_wasm_rust::Output<String>,
+        pub custom_hostname_binding_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the App Service Managed Certificate.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -138,13 +138,18 @@ pub mod managed_certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ManagedCertificateArgs) -> ManagedCertificateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ManagedCertificateArgs,
+    ) -> ManagedCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let custom_hostname_binding_id_binding = args
             .custom_hostname_binding_id
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/managedCertificate:ManagedCertificate".into(),
             name: name.to_string(),
@@ -192,7 +197,7 @@ pub mod managed_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

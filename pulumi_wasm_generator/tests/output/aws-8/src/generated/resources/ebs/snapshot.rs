@@ -28,33 +28,33 @@
 /// $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
 /// ```
 pub mod snapshot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotArgs {
         /// A description of what the snapshot is.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
         #[builder(into, default)]
-        pub outpost_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub outpost_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether to permanently restore an archived snapshot.
         #[builder(into, default)]
-        pub permanent_restore: pulumi_wasm_rust::Output<Option<bool>>,
+        pub permanent_restore: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         #[builder(into, default)]
-        pub storage_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         #[builder(into, default)]
-        pub temporary_restore_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub temporary_restore_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The Volume ID of which to make a snapshot.
         #[builder(into)]
-        pub volume_id: pulumi_wasm_rust::Output<String>,
+        pub volume_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SnapshotResult {
@@ -97,16 +97,26 @@ pub mod snapshot {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SnapshotArgs) -> SnapshotResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SnapshotArgs,
+    ) -> SnapshotResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let outpost_arn_binding = args.outpost_arn.get_inner();
-        let permanent_restore_binding = args.permanent_restore.get_inner();
-        let storage_tier_binding = args.storage_tier.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let temporary_restore_days_binding = args.temporary_restore_days.get_inner();
-        let volume_id_binding = args.volume_id.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let outpost_arn_binding = args.outpost_arn.get_output(context).get_inner();
+        let permanent_restore_binding = args
+            .permanent_restore
+            .get_output(context)
+            .get_inner();
+        let storage_tier_binding = args.storage_tier.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let temporary_restore_days_binding = args
+            .temporary_restore_days
+            .get_output(context)
+            .get_inner();
+        let volume_id_binding = args.volume_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ebs/snapshot:Snapshot".into(),
             name: name.to_string(),
@@ -189,7 +199,7 @@ pub mod snapshot {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -20,19 +20,19 @@
 /// }
 /// ```
 pub mod logpush_ownership_challenge {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogpushOwnershipChallengeArgs {
         /// The account identifier to target for the resource. Must provide only one of `account_id`, `zone_id`.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Uniquely identifies a resource (such as an s3 bucket) where data will be pushed. Additional configuration parameters supported by the destination may be included. See [Logpush destination documentation](https://developers.cloudflare.com/logs/logpush/logpush-configuration-api/understanding-logpush-api/#destination). **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub destination_conf: pulumi_wasm_rust::Output<String>,
+        pub destination_conf: pulumi_wasm_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. Must provide only one of `account_id`, `zone_id`.
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LogpushOwnershipChallengeResult {
@@ -50,14 +50,18 @@ pub mod logpush_ownership_challenge {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LogpushOwnershipChallengeArgs,
     ) -> LogpushOwnershipChallengeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let destination_conf_binding = args.destination_conf.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let destination_conf_binding = args
+            .destination_conf
+            .get_output(context)
+            .get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/logpushOwnershipChallenge:LogpushOwnershipChallenge"
                 .into(),
@@ -92,7 +96,7 @@ pub mod logpush_ownership_challenge {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

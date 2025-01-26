@@ -74,109 +74,109 @@
 /// $ pulumi import aws:iot/topicRule:TopicRule rule <name>
 /// ```
 pub mod topic_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TopicRuleArgs {
         #[builder(into, default)]
-        pub cloudwatch_alarms: pulumi_wasm_rust::Output<
+        pub cloudwatch_alarms: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleCloudwatchAlarm>>,
         >,
         #[builder(into, default)]
-        pub cloudwatch_logs: pulumi_wasm_rust::Output<
+        pub cloudwatch_logs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleCloudwatchLog>>,
         >,
         #[builder(into, default)]
-        pub cloudwatch_metrics: pulumi_wasm_rust::Output<
+        pub cloudwatch_metrics: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleCloudwatchMetric>>,
         >,
         /// The description of the rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub dynamodbs: pulumi_wasm_rust::Output<
+        pub dynamodbs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleDynamodb>>,
         >,
         #[builder(into, default)]
-        pub dynamodbv2s: pulumi_wasm_rust::Output<
+        pub dynamodbv2s: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleDynamodbv2>>,
         >,
         #[builder(into, default)]
-        pub elasticsearch: pulumi_wasm_rust::Output<
+        pub elasticsearch: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleElasticsearch>>,
         >,
         /// Specifies whether the rule is enabled.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
         #[builder(into, default)]
-        pub error_action: pulumi_wasm_rust::Output<
+        pub error_action: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iot::TopicRuleErrorAction>,
         >,
         #[builder(into, default)]
-        pub firehoses: pulumi_wasm_rust::Output<
+        pub firehoses: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleFirehose>>,
         >,
         #[builder(into, default)]
-        pub https: pulumi_wasm_rust::Output<
+        pub https: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleHttp>>,
         >,
         #[builder(into, default)]
-        pub iot_analytics: pulumi_wasm_rust::Output<
+        pub iot_analytics: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleIotAnalytic>>,
         >,
         #[builder(into, default)]
-        pub iot_events: pulumi_wasm_rust::Output<
+        pub iot_events: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleIotEvent>>,
         >,
         #[builder(into, default)]
-        pub kafkas: pulumi_wasm_rust::Output<
+        pub kafkas: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleKafka>>,
         >,
         #[builder(into, default)]
-        pub kineses: pulumi_wasm_rust::Output<
+        pub kineses: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleKinesis>>,
         >,
         #[builder(into, default)]
-        pub lambdas: pulumi_wasm_rust::Output<
+        pub lambdas: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleLambda>>,
         >,
         /// The name of the rule.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub republishes: pulumi_wasm_rust::Output<
+        pub republishes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleRepublish>>,
         >,
         #[builder(into, default)]
-        pub s3: pulumi_wasm_rust::Output<
+        pub s3: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleS3>>,
         >,
         #[builder(into, default)]
-        pub sns: pulumi_wasm_rust::Output<
+        pub sns: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleSns>>,
         >,
         /// The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
         #[builder(into)]
-        pub sql: pulumi_wasm_rust::Output<String>,
+        pub sql: pulumi_wasm_rust::InputOrOutput<String>,
         /// The version of the SQL rules engine to use when evaluating the rule.
         #[builder(into)]
-        pub sql_version: pulumi_wasm_rust::Output<String>,
+        pub sql_version: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub sqs: pulumi_wasm_rust::Output<
+        pub sqs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleSqs>>,
         >,
         #[builder(into, default)]
-        pub step_functions: pulumi_wasm_rust::Output<
+        pub step_functions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleStepFunction>>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timestreams: pulumi_wasm_rust::Output<
+        pub timestreams: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::TopicRuleTimestream>>,
         >,
     }
@@ -268,35 +268,48 @@ pub mod topic_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TopicRuleArgs) -> TopicRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TopicRuleArgs,
+    ) -> TopicRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cloudwatch_alarms_binding = args.cloudwatch_alarms.get_inner();
-        let cloudwatch_logs_binding = args.cloudwatch_logs.get_inner();
-        let cloudwatch_metrics_binding = args.cloudwatch_metrics.get_inner();
-        let description_binding = args.description.get_inner();
-        let dynamodbs_binding = args.dynamodbs.get_inner();
-        let dynamodbv2s_binding = args.dynamodbv2s.get_inner();
-        let elasticsearch_binding = args.elasticsearch.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let error_action_binding = args.error_action.get_inner();
-        let firehoses_binding = args.firehoses.get_inner();
-        let https_binding = args.https.get_inner();
-        let iot_analytics_binding = args.iot_analytics.get_inner();
-        let iot_events_binding = args.iot_events.get_inner();
-        let kafkas_binding = args.kafkas.get_inner();
-        let kineses_binding = args.kineses.get_inner();
-        let lambdas_binding = args.lambdas.get_inner();
-        let name_binding = args.name.get_inner();
-        let republishes_binding = args.republishes.get_inner();
-        let s3_binding = args.s3.get_inner();
-        let sns_binding = args.sns.get_inner();
-        let sql_binding = args.sql.get_inner();
-        let sql_version_binding = args.sql_version.get_inner();
-        let sqs_binding = args.sqs.get_inner();
-        let step_functions_binding = args.step_functions.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timestreams_binding = args.timestreams.get_inner();
+        let cloudwatch_alarms_binding = args
+            .cloudwatch_alarms
+            .get_output(context)
+            .get_inner();
+        let cloudwatch_logs_binding = args
+            .cloudwatch_logs
+            .get_output(context)
+            .get_inner();
+        let cloudwatch_metrics_binding = args
+            .cloudwatch_metrics
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let dynamodbs_binding = args.dynamodbs.get_output(context).get_inner();
+        let dynamodbv2s_binding = args.dynamodbv2s.get_output(context).get_inner();
+        let elasticsearch_binding = args.elasticsearch.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let error_action_binding = args.error_action.get_output(context).get_inner();
+        let firehoses_binding = args.firehoses.get_output(context).get_inner();
+        let https_binding = args.https.get_output(context).get_inner();
+        let iot_analytics_binding = args.iot_analytics.get_output(context).get_inner();
+        let iot_events_binding = args.iot_events.get_output(context).get_inner();
+        let kafkas_binding = args.kafkas.get_output(context).get_inner();
+        let kineses_binding = args.kineses.get_output(context).get_inner();
+        let lambdas_binding = args.lambdas.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let republishes_binding = args.republishes.get_output(context).get_inner();
+        let s3_binding = args.s3.get_output(context).get_inner();
+        let sns_binding = args.sns.get_output(context).get_inner();
+        let sql_binding = args.sql.get_output(context).get_inner();
+        let sql_version_binding = args.sql_version.get_output(context).get_inner();
+        let sqs_binding = args.sqs.get_output(context).get_inner();
+        let step_functions_binding = args.step_functions.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timestreams_binding = args.timestreams.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/topicRule:TopicRule".into(),
             name: name.to_string(),
@@ -494,7 +507,7 @@ pub mod topic_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

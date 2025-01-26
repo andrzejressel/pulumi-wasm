@@ -49,26 +49,26 @@
 /// ```
 ///
 pub mod instance_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceSettingsArgs {
         /// The metadata key/value pairs assigned to all the instances in the corresponding scope.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::InstanceSettingsMetadata>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A reference to the zone where the machine resides.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct InstanceSettingsResult {
@@ -93,12 +93,16 @@ pub mod instance_settings {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InstanceSettingsArgs) -> InstanceSettingsResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InstanceSettingsArgs,
+    ) -> InstanceSettingsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let metadata_binding = args.metadata.get_inner();
-        let project_binding = args.project.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/instanceSettings:InstanceSettings".into(),
             name: name.to_string(),
@@ -132,7 +136,7 @@ pub mod instance_settings {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

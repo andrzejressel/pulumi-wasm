@@ -46,31 +46,31 @@
 /// ```
 ///
 pub mod policy_set_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicySetDefinitionArgs {
         /// The description of the policy set definition.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The display name of the policy set definition.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub management_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub management_group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<Option<String>>,
+        pub metadata: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the policy set definition. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<Option<String>>,
+        pub parameters: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `policy_definition_group` blocks as defined below.
         #[builder(into, default)]
-        pub policy_definition_groups: pulumi_wasm_rust::Output<
+        pub policy_definition_groups: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::policy::PolicySetDefinitionPolicyDefinitionGroup,
@@ -79,14 +79,14 @@ pub mod policy_set_definition {
         >,
         /// One or more `policy_definition_reference` blocks as defined below.
         #[builder(into)]
-        pub policy_definition_references: pulumi_wasm_rust::Output<
+        pub policy_definition_references: pulumi_wasm_rust::InputOrOutput<
             Vec<
                 super::super::types::policy::PolicySetDefinitionPolicyDefinitionReference,
             >,
         >,
         /// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub policy_type: pulumi_wasm_rust::Output<String>,
+        pub policy_type: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PolicySetDefinitionResult {
@@ -124,22 +124,30 @@ pub mod policy_set_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PolicySetDefinitionArgs,
     ) -> PolicySetDefinitionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let management_group_id_binding = args.management_group_id.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let policy_definition_groups_binding = args.policy_definition_groups.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let management_group_id_binding = args
+            .management_group_id
+            .get_output(context)
+            .get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let policy_definition_groups_binding = args
+            .policy_definition_groups
+            .get_output(context)
+            .get_inner();
         let policy_definition_references_binding = args
             .policy_definition_references
+            .get_output(context)
             .get_inner();
-        let policy_type_binding = args.policy_type.get_inner();
+        let policy_type_binding = args.policy_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:policy/policySetDefinition:PolicySetDefinition".into(),
             name: name.to_string(),
@@ -212,7 +220,7 @@ pub mod policy_set_definition {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

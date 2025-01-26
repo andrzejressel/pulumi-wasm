@@ -119,43 +119,43 @@
 /// ```
 ///
 pub mod repository_workflow_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryWorkflowConfigArgs {
         /// Optional. Optional schedule (in cron format) for automatic creation of compilation results.
         #[builder(into, default)]
-        pub cron_schedule: pulumi_wasm_rust::Output<Option<String>>,
+        pub cron_schedule: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. If left unset, a default InvocationConfig will be used.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub invocation_config: pulumi_wasm_rust::Output<
+        pub invocation_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::dataform::RepositoryWorkflowConfigInvocationConfig,
             >,
         >,
         /// The workflow's name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A reference to the region
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the release config whose releaseCompilationResult should be executed. Must be in the format projects/*/locations/*/repositories/*/releaseConfigs/*.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub release_config: pulumi_wasm_rust::Output<String>,
+        pub release_config: pulumi_wasm_rust::InputOrOutput<String>,
         /// A reference to the Dataform repository
         #[builder(into, default)]
-        pub repository: pulumi_wasm_rust::Output<Option<String>>,
+        pub repository: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Specifies the time zone to be used when interpreting cronSchedule. Must be a time zone name from the time zone database (https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). If left unspecified, the default is UTC.
         #[builder(into, default)]
-        pub time_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RepositoryWorkflowConfigResult {
@@ -197,19 +197,23 @@ pub mod repository_workflow_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RepositoryWorkflowConfigArgs,
     ) -> RepositoryWorkflowConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cron_schedule_binding = args.cron_schedule.get_inner();
-        let invocation_config_binding = args.invocation_config.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let release_config_binding = args.release_config.get_inner();
-        let repository_binding = args.repository.get_inner();
-        let time_zone_binding = args.time_zone.get_inner();
+        let cron_schedule_binding = args.cron_schedule.get_output(context).get_inner();
+        let invocation_config_binding = args
+            .invocation_config
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let release_config_binding = args.release_config.get_output(context).get_inner();
+        let repository_binding = args.repository.get_output(context).get_inner();
+        let time_zone_binding = args.time_zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataform/repositoryWorkflowConfig:RepositoryWorkflowConfig"
                 .into(),
@@ -279,7 +283,7 @@ pub mod repository_workflow_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

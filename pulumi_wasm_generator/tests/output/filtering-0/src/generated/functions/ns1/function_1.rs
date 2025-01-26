@@ -1,14 +1,14 @@
 pub mod function_1 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct Function1Args {
         #[builder(into, default)]
-        pub common_type: pulumi_wasm_rust::Output<
+        pub common_type: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::super::types::common::CommonType>,
         >,
         #[builder(into, default)]
-        pub type1: pulumi_wasm_rust::Output<
+        pub type1: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::super::types::ns1::Type1>,
         >,
     }
@@ -20,11 +20,14 @@ pub mod function_1 {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: Function1Args) -> Function1Result {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: Function1Args,
+    ) -> Function1Result {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let common_type_binding = args.common_type.get_inner();
-        let type1_binding = args.type1.get_inner();
+        let common_type_binding = args.common_type.get_output(context).get_inner();
+        let type1_binding = args.type1.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "example:ns1:Function1".into(),
             version: super::super::super::get_version(),
@@ -44,7 +47,7 @@ pub mod function_1 {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

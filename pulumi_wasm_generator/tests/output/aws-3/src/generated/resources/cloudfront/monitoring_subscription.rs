@@ -33,16 +33,16 @@
 /// $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
 /// ```
 pub mod monitoring_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MonitoringSubscriptionArgs {
         /// The ID of the distribution that you are enabling metrics for.
         #[builder(into)]
-        pub distribution_id: pulumi_wasm_rust::Output<String>,
+        pub distribution_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         #[builder(into)]
-        pub monitoring_subscription: pulumi_wasm_rust::Output<
+        pub monitoring_subscription: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudfront::MonitoringSubscriptionMonitoringSubscription,
         >,
     }
@@ -60,13 +60,20 @@ pub mod monitoring_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: MonitoringSubscriptionArgs,
     ) -> MonitoringSubscriptionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let distribution_id_binding = args.distribution_id.get_inner();
-        let monitoring_subscription_binding = args.monitoring_subscription.get_inner();
+        let distribution_id_binding = args
+            .distribution_id
+            .get_output(context)
+            .get_inner();
+        let monitoring_subscription_binding = args
+            .monitoring_subscription
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/monitoringSubscription:MonitoringSubscription".into(),
             name: name.to_string(),
@@ -90,7 +97,7 @@ pub mod monitoring_subscription {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

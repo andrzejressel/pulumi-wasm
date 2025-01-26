@@ -1,20 +1,20 @@
 pub mod get_job_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetJobDefinitionArgs {
         /// ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         #[builder(into, default)]
-        pub arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The revision of the job definition.
         #[builder(into, default)]
-        pub revision: pulumi_wasm_rust::Output<Option<i32>>,
+        pub revision: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The status of the job definition.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetJobDefinitionResult {
@@ -54,13 +54,16 @@ pub mod get_job_definition {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetJobDefinitionArgs) -> GetJobDefinitionResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetJobDefinitionArgs,
+    ) -> GetJobDefinitionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_inner();
-        let name_binding = args.name.get_inner();
-        let revision_binding = args.revision.get_inner();
-        let status_binding = args.status.get_inner();
+        let arn_binding = args.arn.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let revision_binding = args.revision.get_output(context).get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:batch/getJobDefinition:getJobDefinition".into(),
             version: super::super::super::get_version(),
@@ -127,7 +130,7 @@ pub mod get_job_definition {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

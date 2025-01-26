@@ -112,16 +112,16 @@
 /// ```
 ///
 pub mod app_check_service_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppCheckServiceConfigArgs {
         #[builder(into, default)]
-        pub enforcement_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub enforcement_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The identifier of the service to configure enforcement. Currently, the following service IDs are supported:
         /// firebasestorage.googleapis.com (Cloud Storage for Firebase)
         /// firebasedatabase.googleapis.com (Firebase Realtime Database)
@@ -131,7 +131,7 @@ pub mod app_check_service_config {
         ///
         /// - - -
         #[builder(into)]
-        pub service_id: pulumi_wasm_rust::Output<String>,
+        pub service_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AppCheckServiceConfigResult {
@@ -156,14 +156,18 @@ pub mod app_check_service_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AppCheckServiceConfigArgs,
     ) -> AppCheckServiceConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let enforcement_mode_binding = args.enforcement_mode.get_inner();
-        let project_binding = args.project.get_inner();
-        let service_id_binding = args.service_id.get_inner();
+        let enforcement_mode_binding = args
+            .enforcement_mode
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let service_id_binding = args.service_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/appCheckServiceConfig:AppCheckServiceConfig".into(),
             name: name.to_string(),
@@ -197,7 +201,7 @@ pub mod app_check_service_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

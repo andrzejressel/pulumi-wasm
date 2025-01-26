@@ -35,48 +35,48 @@
 /// If the data needs to be stored securily as a secret, consider using the RandomPassword resource instead.
 ///
 pub mod random_string {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RandomStringArgs {
         /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         #[builder(into, default)]
-        pub keepers: pulumi_wasm_rust::Output<
+        pub keepers: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The length of the string desired. The minimum value for length is 1 and, length must also be >= (`min_upper` + `min_lower` + `min_numeric` + `min_special`).
         #[builder(into)]
-        pub length: pulumi_wasm_rust::Output<i32>,
+        pub length: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Include lowercase alphabet characters in the result. Default value is `true`.
         #[builder(into, default)]
-        pub lower: pulumi_wasm_rust::Output<Option<bool>>,
+        pub lower: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Minimum number of lowercase alphabet characters in the result. Default value is `0`.
         #[builder(into, default)]
-        pub min_lower: pulumi_wasm_rust::Output<Option<i32>>,
+        pub min_lower: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Minimum number of numeric characters in the result. Default value is `0`.
         #[builder(into, default)]
-        pub min_numeric: pulumi_wasm_rust::Output<Option<i32>>,
+        pub min_numeric: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Minimum number of special characters in the result. Default value is `0`.
         #[builder(into, default)]
-        pub min_special: pulumi_wasm_rust::Output<Option<i32>>,
+        pub min_special: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Minimum number of uppercase alphabet characters in the result. Default value is `0`.
         #[builder(into, default)]
-        pub min_upper: pulumi_wasm_rust::Output<Option<i32>>,
+        pub min_upper: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Include numeric characters in the result. Default value is `true`. **NOTE**: This is deprecated, use `numeric` instead.
         #[builder(into, default)]
-        pub number: pulumi_wasm_rust::Output<Option<bool>>,
+        pub number: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Include numeric characters in the result. Default value is `true`.
         #[builder(into, default)]
-        pub numeric: pulumi_wasm_rust::Output<Option<bool>>,
+        pub numeric: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Supply your own list of special characters to use for string generation.  This overrides the default character list in the special argument.  The `special` argument must still be set to true for any overwritten characters to be used in generation.
         #[builder(into, default)]
-        pub override_special: pulumi_wasm_rust::Output<Option<String>>,
+        pub override_special: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Include special characters in the result. These are `!@#$%&*()-_=+[]{}<>:?`. Default value is `true`.
         #[builder(into, default)]
-        pub special: pulumi_wasm_rust::Output<Option<bool>>,
+        pub special: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Include uppercase alphabet characters in the result. Default value is `true`.
         #[builder(into, default)]
-        pub upper: pulumi_wasm_rust::Output<Option<bool>>,
+        pub upper: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct RandomStringResult {
@@ -113,21 +113,28 @@ pub mod random_string {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RandomStringArgs) -> RandomStringResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RandomStringArgs,
+    ) -> RandomStringResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let keepers_binding = args.keepers.get_inner();
-        let length_binding = args.length.get_inner();
-        let lower_binding = args.lower.get_inner();
-        let min_lower_binding = args.min_lower.get_inner();
-        let min_numeric_binding = args.min_numeric.get_inner();
-        let min_special_binding = args.min_special.get_inner();
-        let min_upper_binding = args.min_upper.get_inner();
-        let number_binding = args.number.get_inner();
-        let numeric_binding = args.numeric.get_inner();
-        let override_special_binding = args.override_special.get_inner();
-        let special_binding = args.special.get_inner();
-        let upper_binding = args.upper.get_inner();
+        let keepers_binding = args.keepers.get_output(context).get_inner();
+        let length_binding = args.length.get_output(context).get_inner();
+        let lower_binding = args.lower.get_output(context).get_inner();
+        let min_lower_binding = args.min_lower.get_output(context).get_inner();
+        let min_numeric_binding = args.min_numeric.get_output(context).get_inner();
+        let min_special_binding = args.min_special.get_output(context).get_inner();
+        let min_upper_binding = args.min_upper.get_output(context).get_inner();
+        let number_binding = args.number.get_output(context).get_inner();
+        let numeric_binding = args.numeric.get_output(context).get_inner();
+        let override_special_binding = args
+            .override_special
+            .get_output(context)
+            .get_inner();
+        let special_binding = args.special.get_output(context).get_inner();
+        let upper_binding = args.upper.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "random:index/randomString:RandomString".into(),
             name: name.to_string(),
@@ -224,7 +231,7 @@ pub mod random_string {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

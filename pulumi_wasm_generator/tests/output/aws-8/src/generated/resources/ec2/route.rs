@@ -77,58 +77,58 @@
 /// $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
 /// ```
 pub mod route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteArgs {
         /// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
         #[builder(into, default)]
-        pub carrier_gateway_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub carrier_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of a core network.
         #[builder(into, default)]
-        pub core_network_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub core_network_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The destination CIDR block.
         #[builder(into, default)]
-        pub destination_cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub destination_cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The destination IPv6 CIDR block.
         #[builder(into, default)]
-        pub destination_ipv6_cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub destination_ipv6_cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of a managed prefix list destination.
         ///
         /// One of the following target arguments must be supplied:
         #[builder(into, default)]
-        pub destination_prefix_list_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub destination_prefix_list_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of a VPC Egress Only Internet Gateway.
         #[builder(into, default)]
-        pub egress_only_gateway_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub egress_only_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of a VPC internet gateway or a virtual private gateway. Specify `local` when updating a previously imported local route.
         #[builder(into, default)]
-        pub gateway_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of a Outpost local gateway.
         #[builder(into, default)]
-        pub local_gateway_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub local_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of a VPC NAT gateway.
         #[builder(into, default)]
-        pub nat_gateway_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub nat_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of an EC2 network interface.
         #[builder(into, default)]
-        pub network_interface_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_interface_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the routing table.
         ///
         /// One of the following destination arguments must be supplied:
         #[builder(into)]
-        pub route_table_id: pulumi_wasm_rust::Output<String>,
+        pub route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifier of an EC2 Transit Gateway.
         #[builder(into, default)]
-        pub transit_gateway_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub transit_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of a VPC Endpoint.
         #[builder(into, default)]
-        pub vpc_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of a VPC peering connection.
         ///
         /// Note that the default route, mapping the VPC's CIDR block to "local", is created implicitly and cannot be specified.
         #[builder(into, default)]
-        pub vpc_peering_connection_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_peering_connection_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RouteResult {
@@ -179,28 +179,59 @@ pub mod route {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RouteArgs) -> RouteResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RouteArgs,
+    ) -> RouteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let carrier_gateway_id_binding = args.carrier_gateway_id.get_inner();
-        let core_network_arn_binding = args.core_network_arn.get_inner();
-        let destination_cidr_block_binding = args.destination_cidr_block.get_inner();
+        let carrier_gateway_id_binding = args
+            .carrier_gateway_id
+            .get_output(context)
+            .get_inner();
+        let core_network_arn_binding = args
+            .core_network_arn
+            .get_output(context)
+            .get_inner();
+        let destination_cidr_block_binding = args
+            .destination_cidr_block
+            .get_output(context)
+            .get_inner();
         let destination_ipv6_cidr_block_binding = args
             .destination_ipv6_cidr_block
+            .get_output(context)
             .get_inner();
         let destination_prefix_list_id_binding = args
             .destination_prefix_list_id
+            .get_output(context)
             .get_inner();
-        let egress_only_gateway_id_binding = args.egress_only_gateway_id.get_inner();
-        let gateway_id_binding = args.gateway_id.get_inner();
-        let local_gateway_id_binding = args.local_gateway_id.get_inner();
-        let nat_gateway_id_binding = args.nat_gateway_id.get_inner();
-        let network_interface_id_binding = args.network_interface_id.get_inner();
-        let route_table_id_binding = args.route_table_id.get_inner();
-        let transit_gateway_id_binding = args.transit_gateway_id.get_inner();
-        let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_inner();
+        let egress_only_gateway_id_binding = args
+            .egress_only_gateway_id
+            .get_output(context)
+            .get_inner();
+        let gateway_id_binding = args.gateway_id.get_output(context).get_inner();
+        let local_gateway_id_binding = args
+            .local_gateway_id
+            .get_output(context)
+            .get_inner();
+        let nat_gateway_id_binding = args.nat_gateway_id.get_output(context).get_inner();
+        let network_interface_id_binding = args
+            .network_interface_id
+            .get_output(context)
+            .get_inner();
+        let route_table_id_binding = args.route_table_id.get_output(context).get_inner();
+        let transit_gateway_id_binding = args
+            .transit_gateway_id
+            .get_output(context)
+            .get_inner();
+        let vpc_endpoint_id_binding = args
+            .vpc_endpoint_id
+            .get_output(context)
+            .get_inner();
         let vpc_peering_connection_id_binding = args
             .vpc_peering_connection_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/route:Route".into(),
@@ -321,7 +352,7 @@ pub mod route {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,14 +1,14 @@
 pub mod get_hosting_channel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetHostingChannelArgs {
         /// The ID of the channel. Use `channel_id = "live"` for the default channel of a site.
         #[builder(into)]
-        pub channel_id: pulumi_wasm_rust::Output<String>,
+        pub channel_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the site this channel belongs to.
         #[builder(into)]
-        pub site_id: pulumi_wasm_rust::Output<String>,
+        pub site_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetHostingChannelResult {
@@ -33,11 +33,14 @@ pub mod get_hosting_channel {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetHostingChannelArgs) -> GetHostingChannelResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetHostingChannelArgs,
+    ) -> GetHostingChannelResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let channel_id_binding = args.channel_id.get_inner();
-        let site_id_binding = args.site_id.get_inner();
+        let channel_id_binding = args.channel_id.get_output(context).get_inner();
+        let site_id_binding = args.site_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:firebase/getHostingChannel:getHostingChannel".into(),
             version: super::super::super::get_version(),
@@ -84,7 +87,7 @@ pub mod get_hosting_channel {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

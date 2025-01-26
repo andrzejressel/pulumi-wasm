@@ -123,57 +123,59 @@
 /// $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
 /// ```
 pub mod certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateArgs {
         /// ARN of an ACM PCA
         #[builder(into, default)]
-        pub certificate_authority_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_authority_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Certificate's PEM-formatted public key
         #[builder(into, default)]
-        pub certificate_body: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Certificate's PEM-formatted chain
         /// * Creating a private CA issued certificate
         #[builder(into, default)]
-        pub certificate_chain: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_chain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Fully qualified domain name (FQDN) in the certificate.
         #[builder(into, default)]
-        pub domain_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amount of time to start automatic renewal process before expiration.
         /// Has no effect if less than 60 days.
         /// Represented by either
         /// a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
         /// or a string such as `2160h`.
         #[builder(into, default)]
-        pub early_renewal_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub early_renewal_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
         #[builder(into, default)]
-        pub key_algorithm: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_algorithm: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block used to set certificate options. Detailed below.
         #[builder(into, default)]
-        pub options: pulumi_wasm_rust::Output<
+        pub options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::acm::CertificateOptions>,
         >,
         /// Certificate's PEM-formatted private key
         #[builder(into, default)]
-        pub private_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Set of domains that should be SANs in the issued certificate.
         /// To remove all elements of a previously configured list, set this value equal to an empty list (`[]`)
         #[builder(into, default)]
-        pub subject_alternative_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub subject_alternative_names: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
         #[builder(into, default)]
-        pub validation_method: pulumi_wasm_rust::Output<Option<String>>,
+        pub validation_method: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
         /// * Importing an existing certificate
         #[builder(into, default)]
-        pub validation_options: pulumi_wasm_rust::Output<
+        pub validation_options: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::acm::CertificateValidationOption>>,
         >,
     }
@@ -251,25 +253,46 @@ pub mod certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CertificateArgs) -> CertificateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CertificateArgs,
+    ) -> CertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let certificate_authority_arn_binding = args
             .certificate_authority_arn
+            .get_output(context)
             .get_inner();
-        let certificate_body_binding = args.certificate_body.get_inner();
-        let certificate_chain_binding = args.certificate_chain.get_inner();
-        let domain_name_binding = args.domain_name.get_inner();
-        let early_renewal_duration_binding = args.early_renewal_duration.get_inner();
-        let key_algorithm_binding = args.key_algorithm.get_inner();
-        let options_binding = args.options.get_inner();
-        let private_key_binding = args.private_key.get_inner();
+        let certificate_body_binding = args
+            .certificate_body
+            .get_output(context)
+            .get_inner();
+        let certificate_chain_binding = args
+            .certificate_chain
+            .get_output(context)
+            .get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let early_renewal_duration_binding = args
+            .early_renewal_duration
+            .get_output(context)
+            .get_inner();
+        let key_algorithm_binding = args.key_algorithm.get_output(context).get_inner();
+        let options_binding = args.options.get_output(context).get_inner();
+        let private_key_binding = args.private_key.get_output(context).get_inner();
         let subject_alternative_names_binding = args
             .subject_alternative_names
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let validation_method_binding = args.validation_method.get_inner();
-        let validation_options_binding = args.validation_options.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let validation_method_binding = args
+            .validation_method
+            .get_output(context)
+            .get_inner();
+        let validation_options_binding = args
+            .validation_options
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:acm/certificate:Certificate".into(),
             name: name.to_string(),
@@ -396,7 +419,7 @@ pub mod certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

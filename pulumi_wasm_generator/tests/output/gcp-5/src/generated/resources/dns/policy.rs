@@ -66,7 +66,7 @@
 /// ```
 ///
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
@@ -75,38 +75,38 @@ pub mod policy {
         /// Names such as .internal are not available when an alternative name server is specified.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub alternative_name_server_config: pulumi_wasm_rust::Output<
+        pub alternative_name_server_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dns::PolicyAlternativeNameServerConfig>,
         >,
         /// A textual description field. Defaults to 'Managed by Pulumi'.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Allows networks bound to this policy to receive DNS queries sent
         /// by VMs or applications over VPN connections. When enabled, a
         /// virtual IP address will be allocated from each of the sub-networks
         /// that are bound to this policy.
         #[builder(into, default)]
-        pub enable_inbound_forwarding: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_inbound_forwarding: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Controls whether logging is enabled for the networks bound to this policy.
         /// Defaults to no logging if not set.
         #[builder(into, default)]
-        pub enable_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_logging: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// User assigned name for this policy.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of network names specifying networks to which this policy is applied.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub networks: pulumi_wasm_rust::Output<
+        pub networks: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::dns::PolicyNetwork>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PolicyResult {
@@ -145,20 +145,26 @@ pub mod policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyArgs) -> PolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyArgs,
+    ) -> PolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let alternative_name_server_config_binding = args
             .alternative_name_server_config
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let enable_inbound_forwarding_binding = args
             .enable_inbound_forwarding
+            .get_output(context)
             .get_inner();
-        let enable_logging_binding = args.enable_logging.get_inner();
-        let name_binding = args.name.get_inner();
-        let networks_binding = args.networks.get_inner();
-        let project_binding = args.project.get_inner();
+        let enable_logging_binding = args.enable_logging.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let networks_binding = args.networks.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dns/policy:Policy".into(),
             name: name.to_string(),
@@ -217,7 +223,7 @@ pub mod policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

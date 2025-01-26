@@ -31,15 +31,15 @@
 /// $ pulumi import aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy example 123456789012
 /// ```
 pub mod access_grants_instance_resource_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessGrantsInstanceResourcePolicyArgs {
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The policy document.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccessGrantsInstanceResourcePolicyResult {
@@ -52,13 +52,14 @@ pub mod access_grants_instance_resource_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AccessGrantsInstanceResourcePolicyArgs,
     ) -> AccessGrantsInstanceResourcePolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let policy_binding = args.policy.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy"
                 .into(),
@@ -83,7 +84,7 @@ pub mod access_grants_instance_resource_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -89,116 +89,122 @@
 /// ```
 ///
 pub mod virtual_machine {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualMachineArgs {
         /// An `additional_capabilities` block as defined below.
         #[builder(into, default)]
-        pub additional_capabilities: pulumi_wasm_rust::Output<
+        pub additional_capabilities: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::VirtualMachineAdditionalCapabilities>,
         >,
         /// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub availability_set_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_set_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `boot_diagnostics` block as defined below.
         #[builder(into, default)]
-        pub boot_diagnostics: pulumi_wasm_rust::Output<
+        pub boot_diagnostics: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::VirtualMachineBootDiagnostics>,
         >,
         /// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
         ///
         /// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
         #[builder(into, default)]
-        pub delete_data_disks_on_termination: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_data_disks_on_termination: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
         ///
         /// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
         #[builder(into, default)]
-        pub delete_os_disk_on_termination: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_os_disk_on_termination: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::VirtualMachineIdentity>,
         >,
         /// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
         #[builder(into, default)]
-        pub license_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub license_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of Network Interface IDs which should be associated with the Virtual Machine.
         #[builder(into)]
-        pub network_interface_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub network_interface_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
         #[builder(into, default)]
-        pub os_profile: pulumi_wasm_rust::Output<
+        pub os_profile: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::VirtualMachineOsProfile>,
         >,
         /// (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
         #[builder(into, default)]
-        pub os_profile_linux_config: pulumi_wasm_rust::Output<
+        pub os_profile_linux_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::VirtualMachineOsProfileLinuxConfig>,
         >,
         /// One or more `os_profile_secrets` blocks as defined below.
         #[builder(into, default)]
-        pub os_profile_secrets: pulumi_wasm_rust::Output<
+        pub os_profile_secrets: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::VirtualMachineOsProfileSecret>>,
         >,
         /// (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
         #[builder(into, default)]
-        pub os_profile_windows_config: pulumi_wasm_rust::Output<
+        pub os_profile_windows_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::VirtualMachineOsProfileWindowsConfig>,
         >,
         /// A `plan` block as defined below.
         #[builder(into, default)]
-        pub plan: pulumi_wasm_rust::Output<
+        pub plan: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::VirtualMachinePlan>,
         >,
         /// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
         #[builder(into, default)]
-        pub primary_network_interface_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub primary_network_interface_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         #[builder(into, default)]
-        pub proximity_placement_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub proximity_placement_group_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `storage_data_disk` blocks as defined below.
         ///
         /// > **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
         #[builder(into, default)]
-        pub storage_data_disks: pulumi_wasm_rust::Output<
+        pub storage_data_disks: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::VirtualMachineStorageDataDisk>>,
         >,
         /// A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub storage_image_reference: pulumi_wasm_rust::Output<
+        pub storage_image_reference: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::VirtualMachineStorageImageReference>,
         >,
         /// A `storage_os_disk` block as defined below.
         #[builder(into)]
-        pub storage_os_disk: pulumi_wasm_rust::Output<
+        pub storage_os_disk: pulumi_wasm_rust::InputOrOutput<
             super::super::types::compute::VirtualMachineStorageOsDisk,
         >,
         /// A mapping of tags to assign to the Virtual Machine.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
         #[builder(into)]
-        pub vm_size: pulumi_wasm_rust::Output<String>,
+        pub vm_size: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
         ///
         /// > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         ///
         /// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::Output<Option<String>>,
+        pub zones: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VirtualMachineResult {
@@ -289,43 +295,82 @@ pub mod virtual_machine {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VirtualMachineArgs) -> VirtualMachineResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VirtualMachineArgs,
+    ) -> VirtualMachineResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let additional_capabilities_binding = args.additional_capabilities.get_inner();
-        let availability_set_id_binding = args.availability_set_id.get_inner();
-        let boot_diagnostics_binding = args.boot_diagnostics.get_inner();
+        let additional_capabilities_binding = args
+            .additional_capabilities
+            .get_output(context)
+            .get_inner();
+        let availability_set_id_binding = args
+            .availability_set_id
+            .get_output(context)
+            .get_inner();
+        let boot_diagnostics_binding = args
+            .boot_diagnostics
+            .get_output(context)
+            .get_inner();
         let delete_data_disks_on_termination_binding = args
             .delete_data_disks_on_termination
+            .get_output(context)
             .get_inner();
         let delete_os_disk_on_termination_binding = args
             .delete_os_disk_on_termination
+            .get_output(context)
             .get_inner();
-        let identity_binding = args.identity.get_inner();
-        let license_type_binding = args.license_type.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_interface_ids_binding = args.network_interface_ids.get_inner();
-        let os_profile_binding = args.os_profile.get_inner();
-        let os_profile_linux_config_binding = args.os_profile_linux_config.get_inner();
-        let os_profile_secrets_binding = args.os_profile_secrets.get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let license_type_binding = args.license_type.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_interface_ids_binding = args
+            .network_interface_ids
+            .get_output(context)
+            .get_inner();
+        let os_profile_binding = args.os_profile.get_output(context).get_inner();
+        let os_profile_linux_config_binding = args
+            .os_profile_linux_config
+            .get_output(context)
+            .get_inner();
+        let os_profile_secrets_binding = args
+            .os_profile_secrets
+            .get_output(context)
+            .get_inner();
         let os_profile_windows_config_binding = args
             .os_profile_windows_config
+            .get_output(context)
             .get_inner();
-        let plan_binding = args.plan.get_inner();
+        let plan_binding = args.plan.get_output(context).get_inner();
         let primary_network_interface_id_binding = args
             .primary_network_interface_id
+            .get_output(context)
             .get_inner();
         let proximity_placement_group_id_binding = args
             .proximity_placement_group_id
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let storage_data_disks_binding = args.storage_data_disks.get_inner();
-        let storage_image_reference_binding = args.storage_image_reference.get_inner();
-        let storage_os_disk_binding = args.storage_os_disk.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vm_size_binding = args.vm_size.get_inner();
-        let zones_binding = args.zones.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let storage_data_disks_binding = args
+            .storage_data_disks
+            .get_output(context)
+            .get_inner();
+        let storage_image_reference_binding = args
+            .storage_image_reference
+            .get_output(context)
+            .get_inner();
+        let storage_os_disk_binding = args
+            .storage_os_disk
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vm_size_binding = args.vm_size.get_output(context).get_inner();
+        let zones_binding = args.zones.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/virtualMachine:VirtualMachine".into(),
             name: name.to_string(),
@@ -503,7 +548,7 @@ pub mod virtual_machine {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

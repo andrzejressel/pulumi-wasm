@@ -71,21 +71,21 @@
 /// ```
 ///
 pub mod web_resource {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebResourceArgs {
         /// Container for the address and type of a site for which a verification token will be verified.
         /// Structure is documented below.
         #[builder(into)]
-        pub site: pulumi_wasm_rust::Output<
+        pub site: pulumi_wasm_rust::InputOrOutput<
             super::super::types::siteverification::WebResourceSite,
         >,
         /// The verification method for the Site Verification system to use to verify
         /// this site or domain.
         /// Possible values are: `ANALYTICS`, `DNS_CNAME`, `DNS_TXT`, `FILE`, `META`, `TAG_MANAGER`.
         #[builder(into)]
-        pub verification_method: pulumi_wasm_rust::Output<String>,
+        pub verification_method: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WebResourceResult {
@@ -108,11 +108,18 @@ pub mod web_resource {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WebResourceArgs) -> WebResourceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WebResourceArgs,
+    ) -> WebResourceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let site_binding = args.site.get_inner();
-        let verification_method_binding = args.verification_method.get_inner();
+        let site_binding = args.site.get_output(context).get_inner();
+        let verification_method_binding = args
+            .verification_method
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:siteverification/webResource:WebResource".into(),
             name: name.to_string(),
@@ -142,7 +149,7 @@ pub mod web_resource {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,11 +1,11 @@
 pub mod get_namespace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetNamespaceArgs {
         /// The name of the namespace.
         #[builder(into)]
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub namespace_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetNamespaceResult {
@@ -33,10 +33,13 @@ pub mod get_namespace {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetNamespaceArgs) -> GetNamespaceResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetNamespaceArgs,
+    ) -> GetNamespaceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let namespace_name_binding = args.namespace_name.get_inner();
+        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshiftserverless/getNamespace:getNamespace".into(),
             version: super::super::super::get_version(),
@@ -79,7 +82,7 @@ pub mod get_namespace {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

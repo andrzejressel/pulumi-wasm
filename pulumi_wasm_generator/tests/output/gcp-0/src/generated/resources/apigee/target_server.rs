@@ -124,40 +124,40 @@
 /// ```
 ///
 pub mod target_server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetServerArgs {
         /// A human-readable description of this TargetServer.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Apigee environment group associated with the Apigee environment,
         /// in the format `organizations/{{org_name}}/environments/{{env_name}}`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub env_id: pulumi_wasm_rust::Output<String>,
+        pub env_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The host name this target connects to. Value must be a valid hostname as described by RFC-1123.
         #[builder(into)]
-        pub host: pulumi_wasm_rust::Output<String>,
+        pub host: pulumi_wasm_rust::InputOrOutput<String>,
         /// Enabling/disabling a TargetServer is useful when TargetServers are used in load balancing configurations, and one or more TargetServers need to taken out of rotation periodically. Defaults to true.
         #[builder(into, default)]
-        pub is_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The resource id of this reference. Values must match the regular expression [\w\s-.]+.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The port number this target connects to on the given host. Value must be between 1 and 65535, inclusive.
         #[builder(into)]
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Immutable. The protocol used by this TargetServer.
         /// Possible values are: `HTTP`, `HTTP2`, `GRPC_TARGET`, `GRPC`, `EXTERNAL_CALLOUT`.
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies TLS configuration info for this TargetServer. The JSON name is sSLInfo for legacy/backwards compatibility reasons -- Edge originally supported SSL, and the name is still used for TLS configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub s_sl_info: pulumi_wasm_rust::Output<
+        pub s_sl_info: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::apigee::TargetServerSSlInfo>,
         >,
     }
@@ -192,17 +192,21 @@ pub mod target_server {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TargetServerArgs) -> TargetServerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TargetServerArgs,
+    ) -> TargetServerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let env_id_binding = args.env_id.get_inner();
-        let host_binding = args.host.get_inner();
-        let is_enabled_binding = args.is_enabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let port_binding = args.port.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let s_sl_info_binding = args.s_sl_info.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let env_id_binding = args.env_id.get_output(context).get_inner();
+        let host_binding = args.host.get_output(context).get_inner();
+        let is_enabled_binding = args.is_enabled.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let s_sl_info_binding = args.s_sl_info.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/targetServer:TargetServer".into(),
             name: name.to_string(),
@@ -268,7 +272,7 @@ pub mod target_server {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

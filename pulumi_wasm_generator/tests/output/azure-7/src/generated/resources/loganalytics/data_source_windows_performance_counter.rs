@@ -47,31 +47,31 @@
 /// ```
 ///
 pub mod data_source_windows_performance_counter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataSourceWindowsPerformanceCounterArgs {
         /// The friendly name of the performance counter.
         #[builder(into)]
-        pub counter_name: pulumi_wasm_rust::Output<String>,
+        pub counter_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances.
         #[builder(into)]
-        pub instance_name: pulumi_wasm_rust::Output<String>,
+        pub instance_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The time of sample interval in seconds. Supports values between 10 and 2147483647.
         #[builder(into)]
-        pub interval_seconds: pulumi_wasm_rust::Output<i32>,
+        pub interval_seconds: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The object name of the Log Analytics Windows Performance Counter DataSource.
         #[builder(into)]
-        pub object_name: pulumi_wasm_rust::Output<String>,
+        pub object_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created.
         #[builder(into)]
-        pub workspace_name: pulumi_wasm_rust::Output<String>,
+        pub workspace_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DataSourceWindowsPerformanceCounterResult {
@@ -95,18 +95,25 @@ pub mod data_source_windows_performance_counter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DataSourceWindowsPerformanceCounterArgs,
     ) -> DataSourceWindowsPerformanceCounterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let counter_name_binding = args.counter_name.get_inner();
-        let instance_name_binding = args.instance_name.get_inner();
-        let interval_seconds_binding = args.interval_seconds.get_inner();
-        let name_binding = args.name.get_inner();
-        let object_name_binding = args.object_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let workspace_name_binding = args.workspace_name.get_inner();
+        let counter_name_binding = args.counter_name.get_output(context).get_inner();
+        let instance_name_binding = args.instance_name.get_output(context).get_inner();
+        let interval_seconds_binding = args
+            .interval_seconds
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let object_name_binding = args.object_name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let workspace_name_binding = args.workspace_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter"
                 .into(),
@@ -166,7 +173,7 @@ pub mod data_source_windows_performance_counter {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

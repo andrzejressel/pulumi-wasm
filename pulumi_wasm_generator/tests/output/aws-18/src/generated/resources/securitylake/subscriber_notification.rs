@@ -52,20 +52,20 @@
 /// }
 /// ```
 pub mod subscriber_notification {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriberNotificationArgs {
         /// Specify the configuration using which you want to create the subscriber notification..
         #[builder(into, default)]
-        pub configuration: pulumi_wasm_rust::Output<
+        pub configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::securitylake::SubscriberNotificationConfiguration,
             >,
         >,
         /// The subscriber ID for the notification subscription.
         #[builder(into)]
-        pub subscriber_id: pulumi_wasm_rust::Output<String>,
+        pub subscriber_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubscriberNotificationResult {
@@ -87,13 +87,14 @@ pub mod subscriber_notification {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SubscriberNotificationArgs,
     ) -> SubscriberNotificationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let configuration_binding = args.configuration.get_inner();
-        let subscriber_id_binding = args.subscriber_id.get_inner();
+        let configuration_binding = args.configuration.get_output(context).get_inner();
+        let subscriber_id_binding = args.subscriber_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securitylake/subscriberNotification:SubscriberNotification"
                 .into(),
@@ -124,7 +125,7 @@ pub mod subscriber_notification {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

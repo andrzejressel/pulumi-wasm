@@ -55,38 +55,38 @@
 /// $ pulumi import aws:datazone/domain:Domain example domain-id-12345678
 /// ```
 pub mod domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainArgs {
         /// Description of the Domain.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of the role used by DataZone to configure the Domain.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub domain_execution_role: pulumi_wasm_rust::Output<String>,
+        pub domain_execution_role: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN of the KMS key used to encrypt the Amazon DataZone domain, metadata and reporting data.
         #[builder(into, default)]
-        pub kms_key_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the Domain.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
         #[builder(into, default)]
-        pub single_sign_on: pulumi_wasm_rust::Output<
+        pub single_sign_on: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datazone::DomainSingleSignOn>,
         >,
         /// Whether to skip the deletion check for the Domain.
         #[builder(into, default)]
-        pub skip_deletion_check: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_deletion_check: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datazone::DomainTimeouts>,
         >,
     }
@@ -127,17 +127,30 @@ pub mod domain {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DomainArgs) -> DomainResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DomainArgs,
+    ) -> DomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let domain_execution_role_binding = args.domain_execution_role.get_inner();
-        let kms_key_identifier_binding = args.kms_key_identifier.get_inner();
-        let name_binding = args.name.get_inner();
-        let single_sign_on_binding = args.single_sign_on.get_inner();
-        let skip_deletion_check_binding = args.skip_deletion_check.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let domain_execution_role_binding = args
+            .domain_execution_role
+            .get_output(context)
+            .get_inner();
+        let kms_key_identifier_binding = args
+            .kms_key_identifier
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let single_sign_on_binding = args.single_sign_on.get_output(context).get_inner();
+        let skip_deletion_check_binding = args
+            .skip_deletion_check
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datazone/domain:Domain".into(),
             name: name.to_string(),
@@ -212,7 +225,7 @@ pub mod domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -84,25 +84,25 @@
 /// ```
 ///
 pub mod enrichment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnrichmentArgs {
         /// The list of endpoints which will be enriched.
         #[builder(into)]
-        pub endpoint_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub endpoint_names: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The IoTHub name of the enrichment. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub iothub_name: pulumi_wasm_rust::Output<String>,
+        pub iothub_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The key of the enrichment. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key: pulumi_wasm_rust::Output<String>,
+        pub key: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
         #[builder(into)]
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EnrichmentResult {
@@ -121,14 +121,21 @@ pub mod enrichment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EnrichmentArgs) -> EnrichmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EnrichmentArgs,
+    ) -> EnrichmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let endpoint_names_binding = args.endpoint_names.get_inner();
-        let iothub_name_binding = args.iothub_name.get_inner();
-        let key_binding = args.key.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let value_binding = args.value.get_inner();
+        let endpoint_names_binding = args.endpoint_names.get_output(context).get_inner();
+        let iothub_name_binding = args.iothub_name.get_output(context).get_inner();
+        let key_binding = args.key.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let value_binding = args.value.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/enrichment:Enrichment".into(),
             name: name.to_string(),
@@ -173,7 +180,7 @@ pub mod enrichment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -31,58 +31,58 @@
 /// ```
 ///
 pub mod event_hub_namespace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventHubNamespaceArgs {
         /// Is Auto Inflate enabled for the EventHub Namespace?
         #[builder(into, default)]
-        pub auto_inflate_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_inflate_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`.
         #[builder(into, default)]
-        pub capacity: pulumi_wasm_rust::Output<Option<i32>>,
+        pub capacity: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub dedicated_cluster_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub dedicated_cluster_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eventhub::EventHubNamespaceIdentity>,
         >,
         /// Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`.
         #[builder(into, default)]
-        pub local_authentication_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_authentication_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         #[builder(into, default)]
-        pub maximum_throughput_units: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_throughput_units: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
         ///
         /// > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         #[builder(into, default)]
-        pub minimum_tls_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub minimum_tls_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `network_rulesets` block as defined below.
         #[builder(into, default)]
-        pub network_rulesets: pulumi_wasm_rust::Output<
+        pub network_rulesets: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eventhub::EventHubNamespaceNetworkRulesets>,
         >,
         /// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -141,27 +141,51 @@ pub mod event_hub_namespace {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EventHubNamespaceArgs) -> EventHubNamespaceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EventHubNamespaceArgs,
+    ) -> EventHubNamespaceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auto_inflate_enabled_binding = args.auto_inflate_enabled.get_inner();
-        let capacity_binding = args.capacity.get_inner();
-        let dedicated_cluster_id_binding = args.dedicated_cluster_id.get_inner();
-        let identity_binding = args.identity.get_inner();
+        let auto_inflate_enabled_binding = args
+            .auto_inflate_enabled
+            .get_output(context)
+            .get_inner();
+        let capacity_binding = args.capacity.get_output(context).get_inner();
+        let dedicated_cluster_id_binding = args
+            .dedicated_cluster_id
+            .get_output(context)
+            .get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
         let local_authentication_enabled_binding = args
             .local_authentication_enabled
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let maximum_throughput_units_binding = args.maximum_throughput_units.get_inner();
-        let minimum_tls_version_binding = args.minimum_tls_version.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_rulesets_binding = args.network_rulesets.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let maximum_throughput_units_binding = args
+            .maximum_throughput_units
+            .get_output(context)
+            .get_inner();
+        let minimum_tls_version_binding = args
+            .minimum_tls_version
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_rulesets_binding = args
+            .network_rulesets
+            .get_output(context)
+            .get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:eventhub/eventHubNamespace:EventHubNamespace".into(),
             name: name.to_string(),
@@ -287,7 +311,7 @@ pub mod event_hub_namespace {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -142,7 +142,7 @@
 /// ```
 ///
 pub mod membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MembershipArgs {
@@ -151,18 +151,18 @@ pub mod membership {
         /// https://cloud.google.com/kubernetes-engine/docs/how-to/workload-identity
         /// Structure is documented below.
         #[builder(into, default)]
-        pub authority: pulumi_wasm_rust::Output<
+        pub authority: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkehub::MembershipAuthority>,
         >,
         /// The name of this entity type to be displayed on the console. This field is unavailable in v1 of the API.
         ///
         /// > **Warning:** `description` is deprecated and will be removed in a future major release.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If this Membership is a Kubernetes API server hosted on GKE, this is a self link to its GCP resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub endpoint: pulumi_wasm_rust::Output<
+        pub endpoint: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkehub::MembershipEndpoint>,
         >,
         /// Labels to apply to this membership.
@@ -170,23 +170,23 @@ pub mod membership {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Location of the membership.
         /// The default value is `global`.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The client-provided identifier of the membership.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub membership_id: pulumi_wasm_rust::Output<String>,
+        pub membership_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MembershipResult {
@@ -240,16 +240,20 @@ pub mod membership {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MembershipArgs) -> MembershipResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MembershipArgs,
+    ) -> MembershipResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authority_binding = args.authority.get_inner();
-        let description_binding = args.description.get_inner();
-        let endpoint_binding = args.endpoint.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let membership_id_binding = args.membership_id.get_inner();
-        let project_binding = args.project.get_inner();
+        let authority_binding = args.authority.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let endpoint_binding = args.endpoint.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let membership_id_binding = args.membership_id.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkehub/membership:Membership".into(),
             name: name.to_string(),
@@ -317,7 +321,7 @@ pub mod membership {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

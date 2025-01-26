@@ -63,18 +63,18 @@
 /// $ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
 /// ```
 pub mod proactive_engagement {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProactiveEngagementArgs {
         /// One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
         #[builder(into, default)]
-        pub emergency_contacts: pulumi_wasm_rust::Output<
+        pub emergency_contacts: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::shield::ProactiveEngagementEmergencyContact>>,
         >,
         /// Boolean value indicating if Proactive Engagement should be enabled or not.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
     }
     #[allow(dead_code)]
     pub struct ProactiveEngagementResult {
@@ -90,13 +90,17 @@ pub mod proactive_engagement {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ProactiveEngagementArgs,
     ) -> ProactiveEngagementResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let emergency_contacts_binding = args.emergency_contacts.get_inner();
-        let enabled_binding = args.enabled.get_inner();
+        let emergency_contacts_binding = args
+            .emergency_contacts
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:shield/proactiveEngagement:ProactiveEngagement".into(),
             name: name.to_string(),
@@ -120,7 +124,7 @@ pub mod proactive_engagement {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

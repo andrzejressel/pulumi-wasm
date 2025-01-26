@@ -1,32 +1,32 @@
 pub mod get_objects {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetObjectsArgs {
         /// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// Character used to group keys (Default: none)
         #[builder(into, default)]
-        pub delimiter: pulumi_wasm_rust::Output<Option<String>>,
+        pub delimiter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Encodes keys using this method (Default: none; besides none, only "url" can be used)
         #[builder(into, default)]
-        pub encoding_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub encoding_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Boolean specifying whether to populate the owner list (Default: false)
         #[builder(into, default)]
-        pub fetch_owner: pulumi_wasm_rust::Output<Option<bool>>,
+        pub fetch_owner: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Maximum object keys to return (Default: 1000)
         #[builder(into, default)]
-        pub max_keys: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_keys: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Limits results to object keys with this prefix (Default: none)
         #[builder(into, default)]
-        pub prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
         #[builder(into, default)]
-        pub request_payer: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_payer: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
         #[builder(into, default)]
-        pub start_after: pulumi_wasm_rust::Output<Option<String>>,
+        pub start_after: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetObjectsResult {
@@ -53,17 +53,20 @@ pub mod get_objects {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetObjectsArgs) -> GetObjectsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetObjectsArgs,
+    ) -> GetObjectsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let delimiter_binding = args.delimiter.get_inner();
-        let encoding_type_binding = args.encoding_type.get_inner();
-        let fetch_owner_binding = args.fetch_owner.get_inner();
-        let max_keys_binding = args.max_keys.get_inner();
-        let prefix_binding = args.prefix.get_inner();
-        let request_payer_binding = args.request_payer.get_inner();
-        let start_after_binding = args.start_after.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let delimiter_binding = args.delimiter.get_output(context).get_inner();
+        let encoding_type_binding = args.encoding_type.get_output(context).get_inner();
+        let fetch_owner_binding = args.fetch_owner.get_output(context).get_inner();
+        let max_keys_binding = args.max_keys.get_output(context).get_inner();
+        let prefix_binding = args.prefix.get_output(context).get_inner();
+        let request_payer_binding = args.request_payer.get_output(context).get_inner();
+        let start_after_binding = args.start_after.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:s3/getObjects:getObjects".into(),
             version: super::super::super::get_version(),
@@ -143,7 +146,7 @@ pub mod get_objects {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

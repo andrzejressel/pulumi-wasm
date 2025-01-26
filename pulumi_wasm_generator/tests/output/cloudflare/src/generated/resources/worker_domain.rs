@@ -26,25 +26,25 @@
 /// ```
 ///
 pub mod worker_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkerDomainArgs {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Worker environment. Defaults to `production`.
         #[builder(into, default)]
-        pub environment: pulumi_wasm_rust::Output<Option<String>>,
+        pub environment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Hostname of the Worker Domain.
         #[builder(into)]
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of worker script to attach the domain to.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_wasm_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkerDomainResult {
@@ -63,14 +63,18 @@ pub mod worker_domain {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkerDomainArgs) -> WorkerDomainResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkerDomainArgs,
+    ) -> WorkerDomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let environment_binding = args.environment.get_inner();
-        let hostname_binding = args.hostname.get_inner();
-        let service_binding = args.service.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let environment_binding = args.environment.get_output(context).get_inner();
+        let hostname_binding = args.hostname.get_output(context).get_inner();
+        let service_binding = args.service.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/workerDomain:WorkerDomain".into(),
             name: name.to_string(),
@@ -115,7 +119,7 @@ pub mod worker_domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

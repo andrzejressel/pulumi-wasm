@@ -30,19 +30,19 @@
 ///       appServiceSlotName: ${exampleSlot.name}
 /// ```
 pub mod active_slot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ActiveSlotArgs {
         /// The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub app_service_name: pulumi_wasm_rust::Output<String>,
+        pub app_service_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
         #[builder(into)]
-        pub app_service_slot_name: pulumi_wasm_rust::Output<String>,
+        pub app_service_slot_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ActiveSlotResult {
@@ -57,12 +57,25 @@ pub mod active_slot {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ActiveSlotArgs) -> ActiveSlotResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ActiveSlotArgs,
+    ) -> ActiveSlotResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_service_name_binding = args.app_service_name.get_inner();
-        let app_service_slot_name_binding = args.app_service_slot_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let app_service_name_binding = args
+            .app_service_name
+            .get_output(context)
+            .get_inner();
+        let app_service_slot_name_binding = args
+            .app_service_slot_name
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/activeSlot:ActiveSlot".into(),
             name: name.to_string(),
@@ -93,7 +106,7 @@ pub mod active_slot {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

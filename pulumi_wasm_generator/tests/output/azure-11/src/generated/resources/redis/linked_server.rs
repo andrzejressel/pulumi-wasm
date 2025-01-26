@@ -63,25 +63,25 @@
 /// ```
 ///
 pub mod linked_server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedServerArgs {
         /// The ID of the linked Redis cache. Changing this forces a new Redis to be created.
         #[builder(into)]
-        pub linked_redis_cache_id: pulumi_wasm_rust::Output<String>,
+        pub linked_redis_cache_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location of the linked Redis cache. Changing this forces a new Redis to be created.
         #[builder(into)]
-        pub linked_redis_cache_location: pulumi_wasm_rust::Output<String>,
+        pub linked_redis_cache_location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Redis caches exists. Changing this forces a new Redis to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         #[builder(into)]
-        pub server_role: pulumi_wasm_rust::Output<String>,
+        pub server_role: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
         #[builder(into)]
-        pub target_redis_cache_name: pulumi_wasm_rust::Output<String>,
+        pub target_redis_cache_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LinkedServerResult {
@@ -104,16 +104,30 @@ pub mod linked_server {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LinkedServerArgs) -> LinkedServerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LinkedServerArgs,
+    ) -> LinkedServerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let linked_redis_cache_id_binding = args.linked_redis_cache_id.get_inner();
+        let linked_redis_cache_id_binding = args
+            .linked_redis_cache_id
+            .get_output(context)
+            .get_inner();
         let linked_redis_cache_location_binding = args
             .linked_redis_cache_location
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let server_role_binding = args.server_role.get_inner();
-        let target_redis_cache_name_binding = args.target_redis_cache_name.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let server_role_binding = args.server_role.get_output(context).get_inner();
+        let target_redis_cache_name_binding = args
+            .target_redis_cache_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:redis/linkedServer:LinkedServer".into(),
             name: name.to_string(),
@@ -164,7 +178,7 @@ pub mod linked_server {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

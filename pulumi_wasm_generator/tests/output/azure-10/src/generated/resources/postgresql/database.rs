@@ -51,25 +51,25 @@
 /// ```
 ///
 pub mod database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatabaseArgs {
         /// Specifies the Charset for the PostgreSQL Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Changing this forces a new resource to be created.
         #[builder(into)]
-        pub charset: pulumi_wasm_rust::Output<String>,
+        pub charset: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the Collation for the PostgreSQL Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Note that Microsoft uses different [notation](https://msdn.microsoft.com/library/windows/desktop/dd373814.aspx) - en-US instead of en_US. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub collation: pulumi_wasm_rust::Output<String>,
+        pub collation: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server_name: pulumi_wasm_rust::Output<String>,
+        pub server_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DatabaseResult {
@@ -88,14 +88,21 @@ pub mod database {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DatabaseArgs) -> DatabaseResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DatabaseArgs,
+    ) -> DatabaseResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let charset_binding = args.charset.get_inner();
-        let collation_binding = args.collation.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let server_name_binding = args.server_name.get_inner();
+        let charset_binding = args.charset.get_output(context).get_inner();
+        let collation_binding = args.collation.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let server_name_binding = args.server_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:postgresql/database:Database".into(),
             name: name.to_string(),
@@ -140,7 +147,7 @@ pub mod database {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

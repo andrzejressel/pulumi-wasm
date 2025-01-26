@@ -107,7 +107,7 @@
 /// ```
 ///
 pub mod target {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetArgs {
@@ -116,40 +116,40 @@ pub mod target {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Information specifying an Anthos Cluster.
         #[builder(into, default)]
-        pub anthos_cluster: pulumi_wasm_rust::Output<
+        pub anthos_cluster: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::clouddeploy::TargetAnthosCluster>,
         >,
         /// Optional. Map of entity IDs to their associated entities. Associated entities allows specifying places other than the deployment target for specific features. For example, the Gateway API canary can be configured to deploy the HTTPRoute to a different cluster(s) than the deployment cluster using associated entities. An entity ID must consist of lower-case letters, numbers, and hyphens, start with a letter and end with a letter or a number, and have a max length of 63 characters. In other words, it must match the following regex: `^a-z?$`.
         #[builder(into, default)]
-        pub associated_entities: pulumi_wasm_rust::Output<
+        pub associated_entities: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::clouddeploy::TargetAssociatedEntity>>,
         >,
         /// Optional. Information specifying a Custom Target.
         #[builder(into, default)]
-        pub custom_target: pulumi_wasm_rust::Output<
+        pub custom_target: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::clouddeploy::TargetCustomTarget>,
         >,
         /// Optional. The deploy parameters to use for this target.
         #[builder(into, default)]
-        pub deploy_parameters: pulumi_wasm_rust::Output<
+        pub deploy_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Optional. Description of the `Target`. Max length is 255 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configurations for all execution that relates to this `Target`. Each `ExecutionEnvironmentUsage` value may only be used in a single configuration; using the same value multiple times is an error. When one or more configurations are specified, they must include the `RENDER` and `DEPLOY` `ExecutionEnvironmentUsage` values. When no configurations are specified, execution will use the default specified in `DefaultPool`.
         #[builder(into, default)]
-        pub execution_configs: pulumi_wasm_rust::Output<
+        pub execution_configs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::clouddeploy::TargetExecutionConfig>>,
         >,
         /// Information specifying a GKE Cluster.
         #[builder(into, default)]
-        pub gke: pulumi_wasm_rust::Output<
+        pub gke: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::clouddeploy::TargetGke>,
         >,
         /// Optional. Labels are attributes that can be set and used by both the user and by Google Cloud Deploy. Labels must meet the following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a lowercase letter or international character. * Each resource is limited to a maximum of 64 labels. Both keys and values are additionally constrained to be <= 128 bytes.
@@ -157,15 +157,15 @@ pub mod target {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Information specifying a multiTarget.
         #[builder(into, default)]
-        pub multi_target: pulumi_wasm_rust::Output<
+        pub multi_target: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::clouddeploy::TargetMultiTarget>,
         >,
         /// Name of the `Target`. Format is `a-z?`.
@@ -174,16 +174,16 @@ pub mod target {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Whether or not the `Target` requires approval.
         #[builder(into, default)]
-        pub require_approval: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_approval: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Information specifying a Cloud Run deployment target.
         #[builder(into, default)]
-        pub run: pulumi_wasm_rust::Output<
+        pub run: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::clouddeploy::TargetRun>,
         >,
     }
@@ -275,24 +275,40 @@ pub mod target {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TargetArgs) -> TargetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TargetArgs,
+    ) -> TargetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let anthos_cluster_binding = args.anthos_cluster.get_inner();
-        let associated_entities_binding = args.associated_entities.get_inner();
-        let custom_target_binding = args.custom_target.get_inner();
-        let deploy_parameters_binding = args.deploy_parameters.get_inner();
-        let description_binding = args.description.get_inner();
-        let execution_configs_binding = args.execution_configs.get_inner();
-        let gke_binding = args.gke.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let multi_target_binding = args.multi_target.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let require_approval_binding = args.require_approval.get_inner();
-        let run_binding = args.run.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let anthos_cluster_binding = args.anthos_cluster.get_output(context).get_inner();
+        let associated_entities_binding = args
+            .associated_entities
+            .get_output(context)
+            .get_inner();
+        let custom_target_binding = args.custom_target.get_output(context).get_inner();
+        let deploy_parameters_binding = args
+            .deploy_parameters
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let execution_configs_binding = args
+            .execution_configs
+            .get_output(context)
+            .get_inner();
+        let gke_binding = args.gke.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let multi_target_binding = args.multi_target.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let require_approval_binding = args
+            .require_approval
+            .get_output(context)
+            .get_inner();
+        let run_binding = args.run.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:clouddeploy/target:Target".into(),
             name: name.to_string(),
@@ -431,7 +447,7 @@ pub mod target {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

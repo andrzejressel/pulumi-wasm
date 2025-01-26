@@ -34,19 +34,19 @@
 /// $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
 /// ```
 pub mod apns_sandbox_channel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApnsSandboxChannelArgs {
         /// The application ID.
         #[builder(into)]
-        pub application_id: pulumi_wasm_rust::Output<String>,
+        pub application_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
         #[builder(into, default)]
-        pub bundle_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub bundle_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The pem encoded TLS Certificate from Apple.
         #[builder(into, default)]
-        pub certificate: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The default authentication method used for APNs Sandbox.
         /// __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
         /// You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
@@ -56,24 +56,26 @@ pub mod apns_sandbox_channel {
         ///
         /// If you choose to use __Certificate credentials__ you will have to provide:
         #[builder(into, default)]
-        pub default_authentication_method: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_authentication_method: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Whether the channel is enabled or disabled. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Certificate Private Key file (ie. `.key` file).
         ///
         /// If you choose to use __Key credentials__ you will have to provide:
         #[builder(into, default)]
-        pub private_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         #[builder(into, default)]
-        pub team_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub team_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The `.p8` file that you download from your Apple developer account when you create an authentication key.
         #[builder(into, default)]
-        pub token_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub token_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
         #[builder(into, default)]
-        pub token_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub token_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ApnsSandboxChannelResult {
@@ -109,20 +111,25 @@ pub mod apns_sandbox_channel {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApnsSandboxChannelArgs) -> ApnsSandboxChannelResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApnsSandboxChannelArgs,
+    ) -> ApnsSandboxChannelResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_id_binding = args.application_id.get_inner();
-        let bundle_id_binding = args.bundle_id.get_inner();
-        let certificate_binding = args.certificate.get_inner();
+        let application_id_binding = args.application_id.get_output(context).get_inner();
+        let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
+        let certificate_binding = args.certificate.get_output(context).get_inner();
         let default_authentication_method_binding = args
             .default_authentication_method
+            .get_output(context)
             .get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let private_key_binding = args.private_key.get_inner();
-        let team_id_binding = args.team_id.get_inner();
-        let token_key_binding = args.token_key.get_inner();
-        let token_key_id_binding = args.token_key_id.get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let private_key_binding = args.private_key.get_output(context).get_inner();
+        let team_id_binding = args.team_id.get_output(context).get_inner();
+        let token_key_binding = args.token_key.get_output(context).get_inner();
+        let token_key_id_binding = args.token_key_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel".into(),
             name: name.to_string(),
@@ -195,7 +202,7 @@ pub mod apns_sandbox_channel {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

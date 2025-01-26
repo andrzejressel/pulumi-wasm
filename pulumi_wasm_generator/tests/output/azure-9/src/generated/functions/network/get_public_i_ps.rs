@@ -1,20 +1,20 @@
 pub mod get_public_i_ps {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPublicIPsArgs {
         /// The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
         #[builder(into, default)]
-        pub allocation_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub allocation_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Filter to include IP Addresses which are attached to a device, such as a VM/LB (`Attached`) or unattached (`Unattached`).
         #[builder(into, default)]
-        pub attachment_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub attachment_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A prefix match used for the IP Addresses `name` field, case sensitive.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the resource group.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetPublicIPsResult {
@@ -33,13 +33,25 @@ pub mod get_public_i_ps {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetPublicIPsArgs) -> GetPublicIPsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetPublicIPsArgs,
+    ) -> GetPublicIPsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allocation_type_binding = args.allocation_type.get_inner();
-        let attachment_status_binding = args.attachment_status.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let allocation_type_binding = args
+            .allocation_type
+            .get_output(context)
+            .get_inner();
+        let attachment_status_binding = args
+            .attachment_status
+            .get_output(context)
+            .get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:network/getPublicIPs:getPublicIPs".into(),
             version: super::super::super::get_version(),
@@ -82,7 +94,7 @@ pub mod get_public_i_ps {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -30,45 +30,45 @@
 /// ```
 ///
 pub mod account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountArgs {
         /// A `cors` block as defined below
         #[builder(into, default)]
-        pub cors: pulumi_wasm_rust::Output<
+        pub cors: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::maps::AccountCors>,
         >,
         /// One or more `data_store` blocks as defined below.
         #[builder(into, default)]
-        pub data_stores: pulumi_wasm_rust::Output<
+        pub data_stores: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::maps::AccountDataStore>>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::maps::AccountIdentity>,
         >,
         /// Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
         #[builder(into, default)]
-        pub local_authentication_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_authentication_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Azure Maps Account. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** Gen1 SKUs (`S0` and `S1`) are deprecated and can no longer be used for new deployments, which should instead use a Gen2 SKU (`G2`) - more information can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-maps/how-to-manage-pricing-tier).
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the Azure Maps Account.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -113,20 +113,28 @@ pub mod account {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccountArgs) -> AccountResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccountArgs,
+    ) -> AccountResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cors_binding = args.cors.get_inner();
-        let data_stores_binding = args.data_stores.get_inner();
-        let identity_binding = args.identity.get_inner();
+        let cors_binding = args.cors.get_output(context).get_inner();
+        let data_stores_binding = args.data_stores.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
         let local_authentication_enabled_binding = args
             .local_authentication_enabled
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_name_binding = args.sku_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_name_binding = args.sku_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:maps/account:Account".into(),
             name: name.to_string(),
@@ -208,7 +216,7 @@ pub mod account {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

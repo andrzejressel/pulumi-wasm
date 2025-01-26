@@ -68,103 +68,107 @@
 /// $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
 /// ```
 pub mod load_balancer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoadBalancerArgs {
         /// Access Logs block. See below.
         #[builder(into, default)]
-        pub access_logs: pulumi_wasm_rust::Output<
+        pub access_logs: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alb::LoadBalancerAccessLogs>,
         >,
         /// Client keep alive value in seconds. The valid range is 60-604800 seconds. The default is 3600 seconds.
         #[builder(into, default)]
-        pub client_keep_alive: pulumi_wasm_rust::Output<Option<i32>>,
+        pub client_keep_alive: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Connection Logs block. See below. Only valid for Load Balancers of type `application`.
         #[builder(into, default)]
-        pub connection_logs: pulumi_wasm_rust::Output<
+        pub connection_logs: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alb::LoadBalancerConnectionLogs>,
         >,
         /// ID of the customer owned ipv4 pool to use for this load balancer.
         #[builder(into, default)]
-        pub customer_owned_ipv4_pool: pulumi_wasm_rust::Output<Option<String>>,
+        pub customer_owned_ipv4_pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         #[builder(into, default)]
-        pub desync_mitigation_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub desync_mitigation_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// How traffic is distributed among the load balancer Availability Zones. Possible values are `any_availability_zone` (default), `availability_zone_affinity`, or `partial_availability_zone_affinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
         #[builder(into, default)]
-        pub dns_record_client_routing_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub dns_record_client_routing_policy: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         #[builder(into, default)]
-        pub drop_invalid_header_fields: pulumi_wasm_rust::Output<Option<bool>>,
+        pub drop_invalid_header_fields: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         #[builder(into, default)]
-        pub enable_cross_zone_load_balancing: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_cross_zone_load_balancing: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         #[builder(into, default)]
-        pub enable_deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
         #[builder(into, default)]
-        pub enable_http2: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_http2: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         #[builder(into, default)]
-        pub enable_tls_version_and_cipher_suite_headers: pulumi_wasm_rust::Output<
+        pub enable_tls_version_and_cipher_suite_headers: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         #[builder(into, default)]
-        pub enable_waf_fail_open: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_waf_fail_open: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
         #[builder(into, default)]
-        pub enable_xff_client_port: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_xff_client_port: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether zonal shift is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub enable_zonal_shift: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_zonal_shift: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether inbound security group rules are enforced for traffic originating from a PrivateLink. Only valid for Load Balancers of type `network`. The possible values are `on` and `off`.
         #[builder(into, default)]
-        pub enforce_security_group_inbound_rules_on_private_link_traffic: pulumi_wasm_rust::Output<
+        pub enforce_security_group_inbound_rules_on_private_link_traffic: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// Time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         #[builder(into, default)]
-        pub idle_timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub idle_timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// If true, the LB will be internal. Defaults to `false`.
         #[builder(into, default)]
-        pub internal: pulumi_wasm_rust::Output<Option<bool>>,
+        pub internal: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         #[builder(into, default)]
-        pub ip_address_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         #[builder(into, default)]
-        pub load_balancer_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub load_balancer_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
         #[builder(into, default)]
-        pub preserve_host_header: pulumi_wasm_rust::Output<Option<bool>>,
+        pub preserve_host_header: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         #[builder(into, default)]
-        pub security_groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub security_groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
         #[builder(into, default)]
-        pub subnet_mappings: pulumi_wasm_rust::Output<
+        pub subnet_mappings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::alb::LoadBalancerSubnetMapping>>,
         >,
         /// List of subnet IDs to attach to the LB. For Load Balancers of type `network` subnets can only be added (see [Availability Zones](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#availability-zones)), deleting a subnet for load balancers of type `network` will force a recreation of the resource.
         #[builder(into, default)]
-        pub subnets: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub subnets: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
         #[builder(into, default)]
-        pub xff_header_processing_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub xff_header_processing_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LoadBalancerResult {
@@ -252,49 +256,96 @@ pub mod load_balancer {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LoadBalancerArgs) -> LoadBalancerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LoadBalancerArgs,
+    ) -> LoadBalancerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_logs_binding = args.access_logs.get_inner();
-        let client_keep_alive_binding = args.client_keep_alive.get_inner();
-        let connection_logs_binding = args.connection_logs.get_inner();
-        let customer_owned_ipv4_pool_binding = args.customer_owned_ipv4_pool.get_inner();
-        let desync_mitigation_mode_binding = args.desync_mitigation_mode.get_inner();
+        let access_logs_binding = args.access_logs.get_output(context).get_inner();
+        let client_keep_alive_binding = args
+            .client_keep_alive
+            .get_output(context)
+            .get_inner();
+        let connection_logs_binding = args
+            .connection_logs
+            .get_output(context)
+            .get_inner();
+        let customer_owned_ipv4_pool_binding = args
+            .customer_owned_ipv4_pool
+            .get_output(context)
+            .get_inner();
+        let desync_mitigation_mode_binding = args
+            .desync_mitigation_mode
+            .get_output(context)
+            .get_inner();
         let dns_record_client_routing_policy_binding = args
             .dns_record_client_routing_policy
+            .get_output(context)
             .get_inner();
         let drop_invalid_header_fields_binding = args
             .drop_invalid_header_fields
+            .get_output(context)
             .get_inner();
         let enable_cross_zone_load_balancing_binding = args
             .enable_cross_zone_load_balancing
+            .get_output(context)
             .get_inner();
         let enable_deletion_protection_binding = args
             .enable_deletion_protection
+            .get_output(context)
             .get_inner();
-        let enable_http2_binding = args.enable_http2.get_inner();
+        let enable_http2_binding = args.enable_http2.get_output(context).get_inner();
         let enable_tls_version_and_cipher_suite_headers_binding = args
             .enable_tls_version_and_cipher_suite_headers
+            .get_output(context)
             .get_inner();
-        let enable_waf_fail_open_binding = args.enable_waf_fail_open.get_inner();
-        let enable_xff_client_port_binding = args.enable_xff_client_port.get_inner();
-        let enable_zonal_shift_binding = args.enable_zonal_shift.get_inner();
+        let enable_waf_fail_open_binding = args
+            .enable_waf_fail_open
+            .get_output(context)
+            .get_inner();
+        let enable_xff_client_port_binding = args
+            .enable_xff_client_port
+            .get_output(context)
+            .get_inner();
+        let enable_zonal_shift_binding = args
+            .enable_zonal_shift
+            .get_output(context)
+            .get_inner();
         let enforce_security_group_inbound_rules_on_private_link_traffic_binding = args
             .enforce_security_group_inbound_rules_on_private_link_traffic
+            .get_output(context)
             .get_inner();
-        let idle_timeout_binding = args.idle_timeout.get_inner();
-        let internal_binding = args.internal.get_inner();
-        let ip_address_type_binding = args.ip_address_type.get_inner();
-        let load_balancer_type_binding = args.load_balancer_type.get_inner();
-        let name_binding = args.name.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let preserve_host_header_binding = args.preserve_host_header.get_inner();
-        let security_groups_binding = args.security_groups.get_inner();
-        let subnet_mappings_binding = args.subnet_mappings.get_inner();
-        let subnets_binding = args.subnets.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let idle_timeout_binding = args.idle_timeout.get_output(context).get_inner();
+        let internal_binding = args.internal.get_output(context).get_inner();
+        let ip_address_type_binding = args
+            .ip_address_type
+            .get_output(context)
+            .get_inner();
+        let load_balancer_type_binding = args
+            .load_balancer_type
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let preserve_host_header_binding = args
+            .preserve_host_header
+            .get_output(context)
+            .get_inner();
+        let security_groups_binding = args
+            .security_groups
+            .get_output(context)
+            .get_inner();
+        let subnet_mappings_binding = args
+            .subnet_mappings
+            .get_output(context)
+            .get_inner();
+        let subnets_binding = args.subnets.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let xff_header_processing_mode_binding = args
             .xff_header_processing_mode
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:alb/loadBalancer:LoadBalancer".into(),
@@ -512,7 +563,7 @@ pub mod load_balancer {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -30,39 +30,41 @@
 /// $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
 /// ```
 pub mod composite_alarm {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CompositeAlarmArgs {
         /// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
         #[builder(into, default)]
-        pub actions_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub actions_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Actions will be suppressed if the suppressor alarm is in the ALARM state.
         #[builder(into, default)]
-        pub actions_suppressor: pulumi_wasm_rust::Output<
+        pub actions_suppressor: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::CompositeAlarmActionsSuppressor>,
         >,
         /// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         #[builder(into, default)]
-        pub alarm_actions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub alarm_actions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The description for the composite alarm.
         #[builder(into, default)]
-        pub alarm_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub alarm_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name for the composite alarm. This name must be unique within the region.
         #[builder(into)]
-        pub alarm_name: pulumi_wasm_rust::Output<String>,
+        pub alarm_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
         #[builder(into)]
-        pub alarm_rule: pulumi_wasm_rust::Output<String>,
+        pub alarm_rule: pulumi_wasm_rust::InputOrOutput<String>,
         /// The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         #[builder(into, default)]
-        pub insufficient_data_actions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub insufficient_data_actions: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         #[builder(into, default)]
-        pub ok_actions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ok_actions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -101,20 +103,34 @@ pub mod composite_alarm {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CompositeAlarmArgs) -> CompositeAlarmResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CompositeAlarmArgs,
+    ) -> CompositeAlarmResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let actions_enabled_binding = args.actions_enabled.get_inner();
-        let actions_suppressor_binding = args.actions_suppressor.get_inner();
-        let alarm_actions_binding = args.alarm_actions.get_inner();
-        let alarm_description_binding = args.alarm_description.get_inner();
-        let alarm_name_binding = args.alarm_name.get_inner();
-        let alarm_rule_binding = args.alarm_rule.get_inner();
+        let actions_enabled_binding = args
+            .actions_enabled
+            .get_output(context)
+            .get_inner();
+        let actions_suppressor_binding = args
+            .actions_suppressor
+            .get_output(context)
+            .get_inner();
+        let alarm_actions_binding = args.alarm_actions.get_output(context).get_inner();
+        let alarm_description_binding = args
+            .alarm_description
+            .get_output(context)
+            .get_inner();
+        let alarm_name_binding = args.alarm_name.get_output(context).get_inner();
+        let alarm_rule_binding = args.alarm_rule.get_output(context).get_inner();
         let insufficient_data_actions_binding = args
             .insufficient_data_actions
+            .get_output(context)
             .get_inner();
-        let ok_actions_binding = args.ok_actions.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let ok_actions_binding = args.ok_actions.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/compositeAlarm:CompositeAlarm".into(),
             name: name.to_string(),
@@ -193,7 +209,7 @@ pub mod composite_alarm {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

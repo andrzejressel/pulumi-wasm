@@ -55,7 +55,7 @@
 /// ```
 ///
 pub mod authorized_orgs_desc {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthorizedOrgsDescArgs {
@@ -64,7 +64,7 @@ pub mod authorized_orgs_desc {
         /// "ASSET_TYPE_CREDENTIAL_STRENGTH".
         /// Possible values are: `ASSET_TYPE_DEVICE`, `ASSET_TYPE_CREDENTIAL_STRENGTH`.
         #[builder(into, default)]
-        pub asset_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub asset_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The direction of the authorization relationship between this organization
         /// and the organizations listed in the "orgs" field. The valid values for this
         /// field include the following:
@@ -81,11 +81,11 @@ pub mod authorized_orgs_desc {
         /// "AuthorizedOrgsDesc" resource.
         /// Possible values are: `AUTHORIZATION_DIRECTION_TO`, `AUTHORIZATION_DIRECTION_FROM`.
         #[builder(into, default)]
-        pub authorization_direction: pulumi_wasm_rust::Output<Option<String>>,
+        pub authorization_direction: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A granular control type for authorization levels. Valid value is "AUTHORIZATION_TYPE_TRUST".
         /// Possible values are: `AUTHORIZATION_TYPE_TRUST`.
         #[builder(into, default)]
-        pub authorization_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub authorization_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Resource name for the `AuthorizedOrgsDesc`. Format:
         /// `accessPolicies/{access_policy}/authorizedOrgsDescs/{authorized_orgs_desc}`.
         /// The `authorized_orgs_desc` component must begin with a letter, followed by
@@ -95,15 +95,15 @@ pub mod authorized_orgs_desc {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The list of organization ids in this AuthorizedOrgsDesc.
         /// Format: `organizations/<org_number>`
         /// Example: `organizations/123456`
         #[builder(into, default)]
-        pub orgs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub orgs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Required. Resource name for the access policy which owns this `AuthorizedOrgsDesc`.
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AuthorizedOrgsDescResult {
@@ -155,15 +155,25 @@ pub mod authorized_orgs_desc {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AuthorizedOrgsDescArgs) -> AuthorizedOrgsDescResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AuthorizedOrgsDescArgs,
+    ) -> AuthorizedOrgsDescResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let asset_type_binding = args.asset_type.get_inner();
-        let authorization_direction_binding = args.authorization_direction.get_inner();
-        let authorization_type_binding = args.authorization_type.get_inner();
-        let name_binding = args.name.get_inner();
-        let orgs_binding = args.orgs.get_inner();
-        let parent_binding = args.parent.get_inner();
+        let asset_type_binding = args.asset_type.get_output(context).get_inner();
+        let authorization_direction_binding = args
+            .authorization_direction
+            .get_output(context)
+            .get_inner();
+        let authorization_type_binding = args
+            .authorization_type
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let orgs_binding = args.orgs.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:accesscontextmanager/authorizedOrgsDesc:AuthorizedOrgsDesc"
                 .into(),
@@ -222,7 +232,7 @@ pub mod authorized_orgs_desc {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

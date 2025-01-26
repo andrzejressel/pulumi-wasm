@@ -57,7 +57,7 @@
 /// ```
 ///
 pub mod share {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ShareArgs {
@@ -65,40 +65,40 @@ pub mod share {
         ///
         /// ~>**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
         #[builder(into, default)]
-        pub access_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `acl` blocks as defined below.
         #[builder(into, default)]
-        pub acls: pulumi_wasm_rust::Output<
+        pub acls: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::storage::ShareAcl>>,
         >,
         /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         ///
         /// ~>**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
         #[builder(into, default)]
-        pub enabled_protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub enabled_protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of MetaData for this File Share.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The maximum size of the share, in gigabytes.
         ///
         /// ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `azure.storage.Account`.
         ///
         /// ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         #[builder(into)]
-        pub quota: pulumi_wasm_rust::Output<i32>,
+        pub quota: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         #[builder(into, default)]
-        pub storage_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
         #[builder(into, default)]
-        pub storage_account_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ShareResult {
@@ -141,17 +141,30 @@ pub mod share {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ShareArgs) -> ShareResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ShareArgs,
+    ) -> ShareResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_tier_binding = args.access_tier.get_inner();
-        let acls_binding = args.acls.get_inner();
-        let enabled_protocol_binding = args.enabled_protocol.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let quota_binding = args.quota.get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
-        let storage_account_name_binding = args.storage_account_name.get_inner();
+        let access_tier_binding = args.access_tier.get_output(context).get_inner();
+        let acls_binding = args.acls.get_output(context).get_inner();
+        let enabled_protocol_binding = args
+            .enabled_protocol
+            .get_output(context)
+            .get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let quota_binding = args.quota.get_output(context).get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
+        let storage_account_name_binding = args
+            .storage_account_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/share:Share".into(),
             name: name.to_string(),
@@ -223,7 +236,7 @@ pub mod share {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

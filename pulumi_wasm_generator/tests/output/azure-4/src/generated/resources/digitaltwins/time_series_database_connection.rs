@@ -117,40 +117,42 @@
 /// ```
 ///
 pub mod time_series_database_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TimeSeriesDatabaseConnectionArgs {
         /// The ID of the Digital Twins. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub digital_twins_id: pulumi_wasm_rust::Output<String>,
+        pub digital_twins_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         #[builder(into, default)]
-        pub eventhub_consumer_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub eventhub_consumer_group_name: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Name of the Event Hub. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub eventhub_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// URI of the Event Hub Namespace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub eventhub_namespace_endpoint_uri: pulumi_wasm_rust::Output<String>,
+        pub eventhub_namespace_endpoint_uri: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Event Hub Namespace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub eventhub_namespace_id: pulumi_wasm_rust::Output<String>,
+        pub eventhub_namespace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub kusto_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub kusto_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// URI of the Kusto Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub kusto_cluster_uri: pulumi_wasm_rust::Output<String>,
+        pub kusto_cluster_uri: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the Kusto Database. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub kusto_database_name: pulumi_wasm_rust::Output<String>,
+        pub kusto_database_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub kusto_table_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kusto_table_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TimeSeriesDatabaseConnectionResult {
@@ -180,25 +182,46 @@ pub mod time_series_database_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TimeSeriesDatabaseConnectionArgs,
     ) -> TimeSeriesDatabaseConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let digital_twins_id_binding = args.digital_twins_id.get_inner();
+        let digital_twins_id_binding = args
+            .digital_twins_id
+            .get_output(context)
+            .get_inner();
         let eventhub_consumer_group_name_binding = args
             .eventhub_consumer_group_name
+            .get_output(context)
             .get_inner();
-        let eventhub_name_binding = args.eventhub_name.get_inner();
+        let eventhub_name_binding = args.eventhub_name.get_output(context).get_inner();
         let eventhub_namespace_endpoint_uri_binding = args
             .eventhub_namespace_endpoint_uri
+            .get_output(context)
             .get_inner();
-        let eventhub_namespace_id_binding = args.eventhub_namespace_id.get_inner();
-        let kusto_cluster_id_binding = args.kusto_cluster_id.get_inner();
-        let kusto_cluster_uri_binding = args.kusto_cluster_uri.get_inner();
-        let kusto_database_name_binding = args.kusto_database_name.get_inner();
-        let kusto_table_name_binding = args.kusto_table_name.get_inner();
-        let name_binding = args.name.get_inner();
+        let eventhub_namespace_id_binding = args
+            .eventhub_namespace_id
+            .get_output(context)
+            .get_inner();
+        let kusto_cluster_id_binding = args
+            .kusto_cluster_id
+            .get_output(context)
+            .get_inner();
+        let kusto_cluster_uri_binding = args
+            .kusto_cluster_uri
+            .get_output(context)
+            .get_inner();
+        let kusto_database_name_binding = args
+            .kusto_database_name
+            .get_output(context)
+            .get_inner();
+        let kusto_table_name_binding = args
+            .kusto_table_name
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection"
                 .into(),
@@ -279,7 +302,7 @@ pub mod time_series_database_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -49,19 +49,19 @@
 /// ```
 ///
 pub mod fleet_update_strategy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FleetUpdateStrategyArgs {
         /// The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
         #[builder(into)]
-        pub kubernetes_fleet_manager_id: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_fleet_manager_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Kubernetes Fleet Update Strategy. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `stage` blocks as defined below.
         #[builder(into)]
-        pub stages: pulumi_wasm_rust::Output<
+        pub stages: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::containerservice::FleetUpdateStrategyStage>,
         >,
     }
@@ -81,6 +81,7 @@ pub mod fleet_update_strategy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FleetUpdateStrategyArgs,
     ) -> FleetUpdateStrategyResult {
@@ -88,9 +89,10 @@ pub mod fleet_update_strategy {
         use std::collections::HashMap;
         let kubernetes_fleet_manager_id_binding = args
             .kubernetes_fleet_manager_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let stages_binding = args.stages.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let stages_binding = args.stages.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy"
                 .into(),
@@ -122,7 +124,7 @@ pub mod fleet_update_strategy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

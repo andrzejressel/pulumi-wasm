@@ -69,39 +69,39 @@
 /// ```
 ///
 pub mod managed_hardware_security_module_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedHardwareSecurityModuleKeyArgs {
         /// Specifies the curve to use when creating an `EC-HSM` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field is required if `key_type` is `EC-HSM`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub curve: pulumi_wasm_rust::Output<Option<String>>,
+        pub curve: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created.
         #[builder(into, default)]
-        pub expiration_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub expiration_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
         #[builder(into)]
-        pub key_opts: pulumi_wasm_rust::Output<Vec<String>>,
+        pub key_opts: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA-HSM` or `oct-HSM`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub key_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub key_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the Key Type to use for this Key Vault Managed Hardware Security Module Key. Possible values are `EC-HSM`, `oct-HSM` and `RSA-HSM`. More details see [HSM-protected keys](https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys#hsm-protected-keys). Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key_type: pulumi_wasm_rust::Output<String>,
+        pub key_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the ID of the Key Vault Managed Hardware Security Module that they key will be owned by. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub managed_hsm_id: pulumi_wasm_rust::Output<String>,
+        pub managed_hsm_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Key Vault Managed Hardware Security Module Key. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         ///
         /// > **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
         #[builder(into, default)]
-        pub not_before_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub not_before_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -137,20 +137,27 @@ pub mod managed_hardware_security_module_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ManagedHardwareSecurityModuleKeyArgs,
     ) -> ManagedHardwareSecurityModuleKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let curve_binding = args.curve.get_inner();
-        let expiration_date_binding = args.expiration_date.get_inner();
-        let key_opts_binding = args.key_opts.get_inner();
-        let key_size_binding = args.key_size.get_inner();
-        let key_type_binding = args.key_type.get_inner();
-        let managed_hsm_id_binding = args.managed_hsm_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let not_before_date_binding = args.not_before_date.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let curve_binding = args.curve.get_output(context).get_inner();
+        let expiration_date_binding = args
+            .expiration_date
+            .get_output(context)
+            .get_inner();
+        let key_opts_binding = args.key_opts.get_output(context).get_inner();
+        let key_size_binding = args.key_size.get_output(context).get_inner();
+        let key_type_binding = args.key_type.get_output(context).get_inner();
+        let managed_hsm_id_binding = args.managed_hsm_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let not_before_date_binding = args
+            .not_before_date
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey"
                 .into(),
@@ -227,7 +234,7 @@ pub mod managed_hardware_security_module_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

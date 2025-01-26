@@ -1,18 +1,18 @@
 pub mod get_namespace_disaster_recovery_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetNamespaceDisasterRecoveryConfigArgs {
         #[builder(into, default)]
-        pub alias_authorization_rule_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub alias_authorization_rule_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub namespace_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub namespace_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub resource_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetNamespaceDisasterRecoveryConfigResult {
@@ -34,17 +34,22 @@ pub mod get_namespace_disaster_recovery_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetNamespaceDisasterRecoveryConfigArgs,
     ) -> GetNamespaceDisasterRecoveryConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let alias_authorization_rule_id_binding = args
             .alias_authorization_rule_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let namespace_id_binding = args.namespace_id.get_inner();
-        let namespace_name_binding = args.namespace_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let namespace_id_binding = args.namespace_id.get_output(context).get_inner();
+        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig"
                 .into(),
@@ -107,7 +112,7 @@ pub mod get_namespace_disaster_recovery_config {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

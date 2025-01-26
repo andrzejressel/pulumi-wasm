@@ -42,32 +42,38 @@
 /// ```
 ///
 pub mod storage_defender {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StorageDefenderArgs {
         /// The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
         #[builder(into, default)]
-        pub malware_scanning_on_upload_cap_gb_per_month: pulumi_wasm_rust::Output<
+        pub malware_scanning_on_upload_cap_gb_per_month: pulumi_wasm_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Whether On Upload malware scanning should be enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub malware_scanning_on_upload_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub malware_scanning_on_upload_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
         #[builder(into, default)]
-        pub override_subscription_settings_enabled: pulumi_wasm_rust::Output<
+        pub override_subscription_settings_enabled: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
         #[builder(into, default)]
-        pub scan_results_event_grid_topic_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub scan_results_event_grid_topic_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub sensitive_data_discovery_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub sensitive_data_discovery_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct StorageDefenderResult {
@@ -92,25 +98,37 @@ pub mod storage_defender {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StorageDefenderArgs) -> StorageDefenderResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StorageDefenderArgs,
+    ) -> StorageDefenderResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let malware_scanning_on_upload_cap_gb_per_month_binding = args
             .malware_scanning_on_upload_cap_gb_per_month
+            .get_output(context)
             .get_inner();
         let malware_scanning_on_upload_enabled_binding = args
             .malware_scanning_on_upload_enabled
+            .get_output(context)
             .get_inner();
         let override_subscription_settings_enabled_binding = args
             .override_subscription_settings_enabled
+            .get_output(context)
             .get_inner();
         let scan_results_event_grid_topic_id_binding = args
             .scan_results_event_grid_topic_id
+            .get_output(context)
             .get_inner();
         let sensitive_data_discovery_enabled_binding = args
             .sensitive_data_discovery_enabled
+            .get_output(context)
             .get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:securitycenter/storageDefender:StorageDefender".into(),
             name: name.to_string(),
@@ -162,7 +180,7 @@ pub mod storage_defender {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

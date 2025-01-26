@@ -73,113 +73,113 @@
 /// ```
 ///
 pub mod volume {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VolumeArgs {
         /// Backup configuration for the volume.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub backup_config: pulumi_wasm_rust::Output<
+        pub backup_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::netapp::VolumeBackupConfig>,
         >,
         /// Capacity of the volume (in GiB).
         #[builder(into)]
-        pub capacity_gib: pulumi_wasm_rust::Output<String>,
+        pub capacity_gib: pulumi_wasm_rust::InputOrOutput<String>,
         /// Policy to determine if the volume should be deleted forcefully.
         /// Volumes may have nested snapshot resources. Deleting such a volume will fail.
         /// Setting this parameter to FORCE will delete volumes including nested snapshots.
         /// Possible values: DEFAULT, FORCE.
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Export policy of the volume for NFSV3 and/or NFSV4.1 access.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub export_policy: pulumi_wasm_rust::Output<
+        pub export_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::netapp::VolumeExportPolicy>,
         >,
         /// Flag indicating if the volume is a kerberos volume or not, export policy rules control kerberos security modes (krb5, krb5i, krb5p).
         #[builder(into, default)]
-        pub kerberos_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub kerberos_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Labels as key value pairs. Example: `{ "owner": "Bob", "department": "finance", "purpose": "testing" }`.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Optional. Flag indicating if the volume will be a large capacity volume or a regular volume.
         #[builder(into, default)]
-        pub large_capacity: pulumi_wasm_rust::Output<Option<bool>>,
+        pub large_capacity: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the pool location. Usually a region name, expect for some STANDARD service level pools which require a zone name.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. Flag indicating if the volume will have an IP address per node for volumes supporting multiple IP endpoints.
         /// Only the volume with largeCapacity will be allowed to have multiple endpoints.
         #[builder(into, default)]
-        pub multiple_endpoints: pulumi_wasm_rust::Output<Option<bool>>,
+        pub multiple_endpoints: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the volume. Needs to be unique per location.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The protocol of the volume. Allowed combinations are `['NFSV3']`, `['NFSV4']`, `['SMB']`, `['NFSV3', 'NFSV4']`, `['SMB', 'NFSV3']` and `['SMB', 'NFSV4']`.
         /// Each value may be one of: `NFSV3`, `NFSV4`, `SMB`.
         #[builder(into)]
-        pub protocols: pulumi_wasm_rust::Output<Vec<String>>,
+        pub protocols: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Used to create this volume from a snapshot (= cloning) or an backup.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub restore_parameters: pulumi_wasm_rust::Output<
+        pub restore_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::netapp::VolumeRestoreParameters>,
         >,
         /// List of actions that are restricted on this volume.
         /// Each value may be one of: `DELETE`.
         #[builder(into, default)]
-        pub restricted_actions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub restricted_actions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Security Style of the Volume. Use UNIX to use UNIX or NFSV4 ACLs for file permissions.
         /// Use NTFS to use NTFS ACLs for file permissions. Can only be set for volumes which use SMB together with NFS as protocol.
         /// Possible values are: `NTFS`, `UNIX`.
         #[builder(into, default)]
-        pub security_style: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_style: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Share name (SMB) or export path (NFS) of the volume. Needs to be unique per location.
         #[builder(into)]
-        pub share_name: pulumi_wasm_rust::Output<String>,
+        pub share_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Settings for volumes with SMB access.
         /// Each value may be one of: `ENCRYPT_DATA`, `BROWSABLE`, `CHANGE_NOTIFY`, `NON_BROWSABLE`, `OPLOCKS`, `SHOW_SNAPSHOT`, `SHOW_PREVIOUS_VERSIONS`, `ACCESS_BASED_ENUMERATION`, `CONTINUOUSLY_AVAILABLE`.
         #[builder(into, default)]
-        pub smb_settings: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub smb_settings: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// If enabled, a NFS volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots. Will enable "Previous Versions" support for SMB.
         #[builder(into, default)]
-        pub snapshot_directory: pulumi_wasm_rust::Output<Option<bool>>,
+        pub snapshot_directory: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Snapshot policy defines the schedule for automatic snapshot creation.
         /// To disable automatic snapshot creation you have to remove the whole snapshot_policy block.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub snapshot_policy: pulumi_wasm_rust::Output<
+        pub snapshot_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::netapp::VolumeSnapshotPolicy>,
         >,
         /// Name of the storage pool to create the volume in. Pool needs enough spare capacity to accommodate the volume.
         #[builder(into)]
-        pub storage_pool: pulumi_wasm_rust::Output<String>,
+        pub storage_pool: pulumi_wasm_rust::InputOrOutput<String>,
         /// Tiering policy for the volume.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub tiering_policy: pulumi_wasm_rust::Output<
+        pub tiering_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::netapp::VolumeTieringPolicy>,
         >,
         /// Unix permission the mount point will be created with. Default is 0770. Applicable for UNIX security style volumes only.
         #[builder(into, default)]
-        pub unix_permissions: pulumi_wasm_rust::Output<Option<String>>,
+        pub unix_permissions: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VolumeResult {
@@ -312,32 +312,60 @@ pub mod volume {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VolumeArgs) -> VolumeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VolumeArgs,
+    ) -> VolumeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backup_config_binding = args.backup_config.get_inner();
-        let capacity_gib_binding = args.capacity_gib.get_inner();
-        let deletion_policy_binding = args.deletion_policy.get_inner();
-        let description_binding = args.description.get_inner();
-        let export_policy_binding = args.export_policy.get_inner();
-        let kerberos_enabled_binding = args.kerberos_enabled.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let large_capacity_binding = args.large_capacity.get_inner();
-        let location_binding = args.location.get_inner();
-        let multiple_endpoints_binding = args.multiple_endpoints.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let protocols_binding = args.protocols.get_inner();
-        let restore_parameters_binding = args.restore_parameters.get_inner();
-        let restricted_actions_binding = args.restricted_actions.get_inner();
-        let security_style_binding = args.security_style.get_inner();
-        let share_name_binding = args.share_name.get_inner();
-        let smb_settings_binding = args.smb_settings.get_inner();
-        let snapshot_directory_binding = args.snapshot_directory.get_inner();
-        let snapshot_policy_binding = args.snapshot_policy.get_inner();
-        let storage_pool_binding = args.storage_pool.get_inner();
-        let tiering_policy_binding = args.tiering_policy.get_inner();
-        let unix_permissions_binding = args.unix_permissions.get_inner();
+        let backup_config_binding = args.backup_config.get_output(context).get_inner();
+        let capacity_gib_binding = args.capacity_gib.get_output(context).get_inner();
+        let deletion_policy_binding = args
+            .deletion_policy
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let export_policy_binding = args.export_policy.get_output(context).get_inner();
+        let kerberos_enabled_binding = args
+            .kerberos_enabled
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let large_capacity_binding = args.large_capacity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let multiple_endpoints_binding = args
+            .multiple_endpoints
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let protocols_binding = args.protocols.get_output(context).get_inner();
+        let restore_parameters_binding = args
+            .restore_parameters
+            .get_output(context)
+            .get_inner();
+        let restricted_actions_binding = args
+            .restricted_actions
+            .get_output(context)
+            .get_inner();
+        let security_style_binding = args.security_style.get_output(context).get_inner();
+        let share_name_binding = args.share_name.get_output(context).get_inner();
+        let smb_settings_binding = args.smb_settings.get_output(context).get_inner();
+        let snapshot_directory_binding = args
+            .snapshot_directory
+            .get_output(context)
+            .get_inner();
+        let snapshot_policy_binding = args
+            .snapshot_policy
+            .get_output(context)
+            .get_inner();
+        let storage_pool_binding = args.storage_pool.get_output(context).get_inner();
+        let tiering_policy_binding = args.tiering_policy.get_output(context).get_inner();
+        let unix_permissions_binding = args
+            .unix_permissions
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:netapp/volume:Volume".into(),
             name: name.to_string(),
@@ -562,7 +590,7 @@ pub mod volume {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

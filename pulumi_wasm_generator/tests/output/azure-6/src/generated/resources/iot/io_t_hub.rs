@@ -123,76 +123,76 @@
 /// ```
 ///
 pub mod io_t_hub {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IoTHubArgs {
         #[builder(into, default)]
-        pub cloud_to_device: pulumi_wasm_rust::Output<
+        pub cloud_to_device: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iot::IoTHubCloudToDevice>,
         >,
         /// An `endpoint` block as defined below.
         #[builder(into, default)]
-        pub endpoints: pulumi_wasm_rust::Output<
+        pub endpoints: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::IoTHubEndpoint>>,
         >,
         #[builder(into, default)]
-        pub enrichments: pulumi_wasm_rust::Output<
+        pub enrichments: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::IoTHubEnrichment>>,
         >,
         /// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
         #[builder(into, default)]
-        pub event_hub_partition_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub event_hub_partition_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         #[builder(into, default)]
-        pub event_hub_retention_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub event_hub_retention_in_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         ///
         /// > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         #[builder(into, default)]
-        pub fallback_route: pulumi_wasm_rust::Output<
+        pub fallback_route: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iot::IoTHubFallbackRoute>,
         >,
         /// A `file_upload` block as defined below.
         #[builder(into, default)]
-        pub file_upload: pulumi_wasm_rust::Output<
+        pub file_upload: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iot::IoTHubFileUpload>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iot::IoTHubIdentity>,
         >,
         /// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         #[builder(into, default)]
-        pub local_authentication_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_authentication_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub min_tls_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub min_tls_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `network_rule_set` block as defined below.
         #[builder(into, default)]
-        pub network_rule_sets: pulumi_wasm_rust::Output<
+        pub network_rule_sets: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::IoTHubNetworkRuleSet>>,
         >,
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub routes: pulumi_wasm_rust::Output<
+        pub routes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::IoTHubRoute>>,
         >,
         /// A `sku` block as defined below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<super::super::types::iot::IoTHubSku>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<super::super::types::iot::IoTHubSku>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -268,35 +268,55 @@ pub mod io_t_hub {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: IoTHubArgs) -> IoTHubResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: IoTHubArgs,
+    ) -> IoTHubResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cloud_to_device_binding = args.cloud_to_device.get_inner();
-        let endpoints_binding = args.endpoints.get_inner();
-        let enrichments_binding = args.enrichments.get_inner();
+        let cloud_to_device_binding = args
+            .cloud_to_device
+            .get_output(context)
+            .get_inner();
+        let endpoints_binding = args.endpoints.get_output(context).get_inner();
+        let enrichments_binding = args.enrichments.get_output(context).get_inner();
         let event_hub_partition_count_binding = args
             .event_hub_partition_count
+            .get_output(context)
             .get_inner();
         let event_hub_retention_in_days_binding = args
             .event_hub_retention_in_days
+            .get_output(context)
             .get_inner();
-        let fallback_route_binding = args.fallback_route.get_inner();
-        let file_upload_binding = args.file_upload.get_inner();
-        let identity_binding = args.identity.get_inner();
+        let fallback_route_binding = args.fallback_route.get_output(context).get_inner();
+        let file_upload_binding = args.file_upload.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
         let local_authentication_enabled_binding = args
             .local_authentication_enabled
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let min_tls_version_binding = args.min_tls_version.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_rule_sets_binding = args.network_rule_sets.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let min_tls_version_binding = args
+            .min_tls_version
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_rule_sets_binding = args
+            .network_rule_sets
+            .get_output(context)
+            .get_inner();
         let public_network_access_enabled_binding = args
             .public_network_access_enabled
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let routes_binding = args.routes.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let routes_binding = args.routes.get_output(context).get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/ioTHub:IoTHub".into(),
             name: name.to_string(),
@@ -456,7 +476,7 @@ pub mod io_t_hub {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

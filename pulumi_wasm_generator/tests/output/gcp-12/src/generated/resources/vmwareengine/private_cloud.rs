@@ -108,45 +108,47 @@
 /// ```
 ///
 pub mod private_cloud {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrivateCloudArgs {
         /// The number of hours to delay this request. You can set this value to an hour between 0 to 8, where setting it to 0
         /// starts the deletion request immediately. If no value is set, a default value is set at the API Level.
         #[builder(into, default)]
-        pub deletion_delay_hours: pulumi_wasm_rust::Output<Option<i32>>,
+        pub deletion_delay_hours: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// User-provided description for this private cloud.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location where the PrivateCloud should reside.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The management cluster for this private cloud. This used for creating and managing the default cluster.
         /// Structure is documented below.
         #[builder(into)]
-        pub management_cluster: pulumi_wasm_rust::Output<
+        pub management_cluster: pulumi_wasm_rust::InputOrOutput<
             super::super::types::vmwareengine::PrivateCloudManagementCluster,
         >,
         /// The ID of the PrivateCloud.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Network configuration in the consumer project with which the peering has to be done.
         /// Structure is documented below.
         #[builder(into)]
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::vmwareengine::PrivateCloudNetworkConfig,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// While set true, deletion_delay_hours value will be sent in the request even for zero value of the field. This field is
         /// only useful for setting 0 value to the deletion_delay_hours field. It can be used both alone and together with
         /// deletion_delay_hours.
         #[builder(into, default)]
-        pub send_deletion_delay_hours_if_zero: pulumi_wasm_rust::Output<Option<bool>>,
+        pub send_deletion_delay_hours_if_zero: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Initial type of the private cloud. Possible values: ["STANDARD", "TIME_LIMITED", "STRETCHED"]
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PrivateCloudResult {
@@ -201,20 +203,31 @@ pub mod private_cloud {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PrivateCloudArgs) -> PrivateCloudResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PrivateCloudArgs,
+    ) -> PrivateCloudResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let deletion_delay_hours_binding = args.deletion_delay_hours.get_inner();
-        let description_binding = args.description.get_inner();
-        let location_binding = args.location.get_inner();
-        let management_cluster_binding = args.management_cluster.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_config_binding = args.network_config.get_inner();
-        let project_binding = args.project.get_inner();
+        let deletion_delay_hours_binding = args
+            .deletion_delay_hours
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let management_cluster_binding = args
+            .management_cluster
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_config_binding = args.network_config.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let send_deletion_delay_hours_if_zero_binding = args
             .send_deletion_delay_hours_if_zero
+            .get_output(context)
             .get_inner();
-        let type__binding = args.type_.get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vmwareengine/privateCloud:PrivateCloud".into(),
             name: name.to_string(),
@@ -302,7 +315,7 @@ pub mod private_cloud {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

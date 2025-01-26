@@ -47,29 +47,29 @@
 /// ```
 ///
 pub mod capacity_reservation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CapacityReservationArgs {
         /// The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub capacity_reservation_group_id: pulumi_wasm_rust::Output<String>,
+        pub capacity_reservation_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `sku` block as defined below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<
+        pub sku: pulumi_wasm_rust::InputOrOutput<
             super::super::types::compute::CapacityReservationSku,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CapacityReservationResult {
@@ -93,6 +93,7 @@ pub mod capacity_reservation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CapacityReservationArgs,
     ) -> CapacityReservationResult {
@@ -100,11 +101,12 @@ pub mod capacity_reservation {
         use std::collections::HashMap;
         let capacity_reservation_group_id_binding = args
             .capacity_reservation_group_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/capacityReservation:CapacityReservation".into(),
             name: name.to_string(),
@@ -149,7 +151,7 @@ pub mod capacity_reservation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

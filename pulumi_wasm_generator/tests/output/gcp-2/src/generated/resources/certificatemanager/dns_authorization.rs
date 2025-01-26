@@ -69,28 +69,28 @@
 /// ```
 ///
 pub mod dns_authorization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DnsAuthorizationArgs {
         /// A human-readable description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A domain which is being authorized. A DnsAuthorization resource covers a
         /// single domain and its wildcard, e.g. authorization for "example.com" can
         /// be used to issue certificates for "example.com" and "*.example.com".
         #[builder(into)]
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_wasm_rust::InputOrOutput<String>,
         /// Set of label tags associated with the DNS Authorization resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Certificate Manager location. If not specified, "global" is used.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the resource; provided by the client when the resource is created.
         /// The name must be 1-64 characters long, and match the regular expression [a-zA-Z][a-zA-Z0-9_-]* which means the first character must be a letter,
         /// and all following characters must be a dash, underscore, letter or digit.
@@ -98,11 +98,11 @@ pub mod dns_authorization {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// type of DNS authorization. If unset during the resource creation, FIXED_RECORD will
         /// be used for global resources, and PER_PROJECT_RECORD will be used for other locations.
         /// FIXED_RECORD DNS authorization uses DNS-01 validation method
@@ -111,7 +111,7 @@ pub mod dns_authorization {
         /// projects.
         /// Possible values are: `FIXED_RECORD`, `PER_PROJECT_RECORD`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DnsAuthorizationResult {
@@ -170,16 +170,20 @@ pub mod dns_authorization {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DnsAuthorizationArgs) -> DnsAuthorizationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DnsAuthorizationArgs,
+    ) -> DnsAuthorizationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let domain_binding = args.domain.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let type__binding = args.type_.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let domain_binding = args.domain.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificatemanager/dnsAuthorization:DnsAuthorization".into(),
             name: name.to_string(),
@@ -247,7 +251,7 @@ pub mod dns_authorization {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

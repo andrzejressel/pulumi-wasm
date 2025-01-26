@@ -1,5 +1,5 @@
 pub mod get_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetInstanceArgs {
@@ -7,12 +7,12 @@ pub mod get_instance {
         /// several valid keys, for a full reference, check out
         /// [describe-instances in the AWS CLI reference][1].
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetInstanceFilter>>,
         >,
         /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         #[builder(into, default)]
-        pub get_password_data: pulumi_wasm_rust::Output<Option<bool>>,
+        pub get_password_data: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
         ///
         /// > **NOTE:** At least one of `filter`, `instance_tags`, or `instance_id` must be specified.
@@ -21,19 +21,19 @@ pub mod get_instance {
         /// this call will fail. Ensure that your search is specific enough to return
         /// a single Instance ID only.
         #[builder(into, default)]
-        pub get_user_data: pulumi_wasm_rust::Output<Option<bool>>,
+        pub get_user_data: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specify the exact Instance ID with which to populate the data source.
         #[builder(into, default)]
-        pub instance_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags, each pair of which must
         /// exactly match a pair on the desired Instance.
         #[builder(into, default)]
-        pub instance_tags: pulumi_wasm_rust::Output<
+        pub instance_tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the Instance.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -155,15 +155,21 @@ pub mod get_instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetInstanceArgs) -> GetInstanceResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetInstanceArgs,
+    ) -> GetInstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let get_password_data_binding = args.get_password_data.get_inner();
-        let get_user_data_binding = args.get_user_data.get_inner();
-        let instance_id_binding = args.instance_id.get_inner();
-        let instance_tags_binding = args.instance_tags.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let get_password_data_binding = args
+            .get_password_data
+            .get_output(context)
+            .get_inner();
+        let get_user_data_binding = args.get_user_data.get_output(context).get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let instance_tags_binding = args.instance_tags.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getInstance:getInstance".into(),
             version: super::super::super::get_version(),
@@ -340,7 +346,7 @@ pub mod get_instance {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

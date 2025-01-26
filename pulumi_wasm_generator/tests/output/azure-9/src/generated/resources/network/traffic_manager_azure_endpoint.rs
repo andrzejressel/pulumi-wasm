@@ -57,16 +57,16 @@
 /// ```
 ///
 pub mod traffic_manager_azure_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrafficManagerAzureEndpointArgs {
         /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
         #[builder(into, default)]
-        pub always_serve_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub always_serve_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// One or more `custom_header` blocks as defined below.
         #[builder(into, default)]
-        pub custom_headers: pulumi_wasm_rust::Output<
+        pub custom_headers: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::TrafficManagerAzureEndpointCustomHeader,
@@ -75,30 +75,30 @@ pub mod traffic_manager_azure_endpoint {
         >,
         /// Is the endpoint enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
         #[builder(into, default)]
-        pub geo_mappings: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub geo_mappings: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the Azure Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub profile_id: pulumi_wasm_rust::Output<String>,
+        pub profile_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub subnets: pulumi_wasm_rust::Output<
+        pub subnets: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::network::TrafficManagerAzureEndpointSubnet>>,
         >,
         /// The ID of the Azure Resource which should be used as a target.
         #[builder(into)]
-        pub target_resource_id: pulumi_wasm_rust::Output<String>,
+        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`. Defaults to `1`.
         #[builder(into, default)]
-        pub weight: pulumi_wasm_rust::Output<Option<i32>>,
+        pub weight: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct TrafficManagerAzureEndpointResult {
@@ -136,21 +136,28 @@ pub mod traffic_manager_azure_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TrafficManagerAzureEndpointArgs,
     ) -> TrafficManagerAzureEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let always_serve_enabled_binding = args.always_serve_enabled.get_inner();
-        let custom_headers_binding = args.custom_headers.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let geo_mappings_binding = args.geo_mappings.get_inner();
-        let name_binding = args.name.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let profile_id_binding = args.profile_id.get_inner();
-        let subnets_binding = args.subnets.get_inner();
-        let target_resource_id_binding = args.target_resource_id.get_inner();
-        let weight_binding = args.weight.get_inner();
+        let always_serve_enabled_binding = args
+            .always_serve_enabled
+            .get_output(context)
+            .get_inner();
+        let custom_headers_binding = args.custom_headers.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let geo_mappings_binding = args.geo_mappings.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let profile_id_binding = args.profile_id.get_output(context).get_inner();
+        let subnets_binding = args.subnets.get_output(context).get_inner();
+        let target_resource_id_binding = args
+            .target_resource_id
+            .get_output(context)
+            .get_inner();
+        let weight_binding = args.weight.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint"
                 .into(),
@@ -231,7 +238,7 @@ pub mod traffic_manager_azure_endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

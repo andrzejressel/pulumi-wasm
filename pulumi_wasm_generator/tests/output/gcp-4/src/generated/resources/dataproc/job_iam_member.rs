@@ -151,16 +151,16 @@
 /// ```
 ///
 pub mod job_iam_member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobIAMMemberArgs {
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataproc::JobIamMemberCondition>,
         >,
         #[builder(into)]
-        pub job_id: pulumi_wasm_rust::Output<String>,
+        pub job_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identities that will be granted the privilege in `role`.
         /// Each entry can have one of the following values:
         /// * **allUsers**: A special identifier that represents anyone who is on the internet; with or without a Google account.
@@ -170,22 +170,22 @@ pub mod job_iam_member {
         /// * **group:{emailid}**: An email address that represents a Google group. For example, admins@example.com.
         /// * **domain:{domain}**: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
         #[builder(into)]
-        pub member: pulumi_wasm_rust::Output<String>,
+        pub member: pulumi_wasm_rust::InputOrOutput<String>,
         /// The project in which the job belongs. If it
         /// is not provided, the provider will use a default.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The region in which the job belongs. If it
         /// is not provided, the provider will use a default.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The role that should be applied. Only one
         /// `gcp.dataproc.JobIAMBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
         ///
         /// `gcp.dataproc.JobIAMPolicy` only:
         #[builder(into)]
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct JobIAMMemberResult {
@@ -221,15 +221,19 @@ pub mod job_iam_member {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: JobIAMMemberArgs) -> JobIAMMemberResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: JobIAMMemberArgs,
+    ) -> JobIAMMemberResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_inner();
-        let job_id_binding = args.job_id.get_inner();
-        let member_binding = args.member.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let role_binding = args.role.get_inner();
+        let condition_binding = args.condition.get_output(context).get_inner();
+        let job_id_binding = args.job_id.get_output(context).get_inner();
+        let member_binding = args.member.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let role_binding = args.role.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/jobIAMMember:JobIAMMember".into(),
             name: name.to_string(),
@@ -284,7 +288,7 @@ pub mod job_iam_member {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

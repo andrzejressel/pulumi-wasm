@@ -9,25 +9,25 @@
 /// ```
 ///
 pub mod virtual_machine_availability_group_listener {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualMachineAvailabilityGroupListenerArgs {
         /// The name of the Availability Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub availability_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
         #[builder(into, default)]
-        pub load_balancer_configuration: pulumi_wasm_rust::Output<
+        pub load_balancer_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::mssql::VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration,
             >,
         >,
         /// One or more `multi_subnet_ip_configuration` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub multi_subnet_ip_configurations: pulumi_wasm_rust::Output<
+        pub multi_subnet_ip_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::mssql::VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration,
@@ -36,20 +36,20 @@ pub mod virtual_machine_availability_group_listener {
         >,
         /// The name which should be used for the Microsoft SQL Virtual Machine Availability Group Listener. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The port of the listener. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub replicas: pulumi_wasm_rust::Output<
+        pub replicas: pulumi_wasm_rust::InputOrOutput<
             Vec<
                 super::super::types::mssql::VirtualMachineAvailabilityGroupListenerReplica,
             >,
         >,
         /// The ID of the SQL Virtual Machine Group to create the listener. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub sql_virtual_machine_group_id: pulumi_wasm_rust::Output<String>,
+        pub sql_virtual_machine_group_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VirtualMachineAvailabilityGroupListenerResult {
@@ -89,23 +89,30 @@ pub mod virtual_machine_availability_group_listener {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VirtualMachineAvailabilityGroupListenerArgs,
     ) -> VirtualMachineAvailabilityGroupListenerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let availability_group_name_binding = args.availability_group_name.get_inner();
+        let availability_group_name_binding = args
+            .availability_group_name
+            .get_output(context)
+            .get_inner();
         let load_balancer_configuration_binding = args
             .load_balancer_configuration
+            .get_output(context)
             .get_inner();
         let multi_subnet_ip_configurations_binding = args
             .multi_subnet_ip_configurations
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let port_binding = args.port.get_inner();
-        let replicas_binding = args.replicas.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let replicas_binding = args.replicas.get_output(context).get_inner();
         let sql_virtual_machine_group_id_binding = args
             .sql_virtual_machine_group_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener"
@@ -166,7 +173,7 @@ pub mod virtual_machine_availability_group_listener {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

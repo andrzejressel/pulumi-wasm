@@ -41,16 +41,16 @@
 /// $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
 /// ```
 pub mod lb_https_redirection_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LbHttpsRedirectionPolicyArgs {
         /// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The name of the load balancer to which you want to enable http to https redirection.
         #[builder(into)]
-        pub lb_name: pulumi_wasm_rust::Output<String>,
+        pub lb_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LbHttpsRedirectionPolicyResult {
@@ -64,13 +64,14 @@ pub mod lb_https_redirection_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LbHttpsRedirectionPolicyArgs,
     ) -> LbHttpsRedirectionPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let enabled_binding = args.enabled.get_inner();
-        let lb_name_binding = args.lb_name.get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let lb_name_binding = args.lb_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy"
                 .into(),
@@ -95,7 +96,7 @@ pub mod lb_https_redirection_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

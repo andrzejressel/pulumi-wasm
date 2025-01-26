@@ -51,19 +51,19 @@
 /// ```
 ///
 pub mod data_connector_aws_cloud_trail {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataConnectorAwsCloudTrailArgs {
         /// The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
         #[builder(into)]
-        pub aws_role_arn: pulumi_wasm_rust::Output<String>,
+        pub aws_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DataConnectorAwsCloudTrailResult {
@@ -79,16 +79,18 @@ pub mod data_connector_aws_cloud_trail {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DataConnectorAwsCloudTrailArgs,
     ) -> DataConnectorAwsCloudTrailResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_role_arn_binding = args.aws_role_arn.get_inner();
+        let aws_role_arn_binding = args.aws_role_arn.get_output(context).get_inner();
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail"
                 .into(),
@@ -120,7 +122,7 @@ pub mod data_connector_aws_cloud_trail {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

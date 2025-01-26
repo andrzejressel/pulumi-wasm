@@ -32,16 +32,16 @@
 /// $ pulumi import aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 /// ```
 pub mod sql_injection_match_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlInjectionMatchSetArgs {
         /// The name or description of the SQL Injection Match Set.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The parts of web requests that you want AWS WAF to inspect for malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
         #[builder(into, default)]
-        pub sql_injection_match_tuples: pulumi_wasm_rust::Output<
+        pub sql_injection_match_tuples: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::waf::SqlInjectionMatchSetSqlInjectionMatchTuple>,
             >,
@@ -63,14 +63,16 @@ pub mod sql_injection_match_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SqlInjectionMatchSetArgs,
     ) -> SqlInjectionMatchSetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let sql_injection_match_tuples_binding = args
             .sql_injection_match_tuples
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet".into(),
@@ -95,7 +97,7 @@ pub mod sql_injection_match_set {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

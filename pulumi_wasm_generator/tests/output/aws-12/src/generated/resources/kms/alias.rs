@@ -28,20 +28,20 @@
 /// $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
 /// ```
 pub mod alias {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AliasArgs {
         /// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates an unique alias beginning with the specified prefix.
         /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier for the key for which the alias is for, can be either an ARN or key_id.
         #[builder(into)]
-        pub target_key_id: pulumi_wasm_rust::Output<String>,
+        pub target_key_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AliasResult {
@@ -61,12 +61,16 @@ pub mod alias {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AliasArgs) -> AliasResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AliasArgs,
+    ) -> AliasResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let target_key_id_binding = args.target_key_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let target_key_id_binding = args.target_key_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kms/alias:Alias".into(),
             name: name.to_string(),
@@ -103,7 +107,7 @@ pub mod alias {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

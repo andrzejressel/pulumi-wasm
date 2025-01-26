@@ -80,36 +80,36 @@
 /// ```
 ///
 pub mod datastore_fileshare {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatastoreFileshareArgs {
         /// The access key of the Storage Account. Conflicts with `shared_access_signature`.
         #[builder(into, default)]
-        pub account_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
         #[builder(into, default)]
-        pub service_data_identity: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_data_identity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
         #[builder(into, default)]
-        pub shared_access_signature: pulumi_wasm_rust::Output<Option<String>>,
+        pub shared_access_signature: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Storage Account File Share. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into)]
-        pub storage_fileshare_id: pulumi_wasm_rust::Output<String>,
+        pub storage_fileshare_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DatastoreFileshareResult {
@@ -138,17 +138,30 @@ pub mod datastore_fileshare {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DatastoreFileshareArgs) -> DatastoreFileshareResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DatastoreFileshareArgs,
+    ) -> DatastoreFileshareResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_key_binding = args.account_key.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let service_data_identity_binding = args.service_data_identity.get_inner();
-        let shared_access_signature_binding = args.shared_access_signature.get_inner();
-        let storage_fileshare_id_binding = args.storage_fileshare_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let workspace_id_binding = args.workspace_id.get_inner();
+        let account_key_binding = args.account_key.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let service_data_identity_binding = args
+            .service_data_identity
+            .get_output(context)
+            .get_inner();
+        let shared_access_signature_binding = args
+            .shared_access_signature
+            .get_output(context)
+            .get_inner();
+        let storage_fileshare_id_binding = args
+            .storage_fileshare_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:machinelearning/datastoreFileshare:DatastoreFileshare".into(),
             name: name.to_string(),
@@ -217,7 +230,7 @@ pub mod datastore_fileshare {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

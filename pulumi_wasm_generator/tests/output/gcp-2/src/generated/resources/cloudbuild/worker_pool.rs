@@ -111,7 +111,7 @@
 /// ```
 ///
 pub mod worker_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkerPoolArgs {
@@ -119,37 +119,37 @@ pub mod worker_pool {
         /// limitations. **Note**: This field is non-authoritative, and will only manage the annotations present in your
         /// configuration. Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A user-specified, human-readable name for the `WorkerPool`. If provided, this value must be 1-63 characters.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// User-defined name of the `WorkerPool`.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Network configuration for the `WorkerPool`. Structure is documented below.
         #[builder(into, default)]
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::WorkerPoolNetworkConfig>,
         >,
         /// Private Service Connect configuration for the pool.
         #[builder(into, default)]
-        pub private_service_connect: pulumi_wasm_rust::Output<
+        pub private_service_connect: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::WorkerPoolPrivateServiceConnect>,
         >,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration to be used for a creating workers in the `WorkerPool`. Structure is documented below.
         #[builder(into, default)]
-        pub worker_config: pulumi_wasm_rust::Output<
+        pub worker_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::WorkerPoolWorkerConfig>,
         >,
     }
@@ -202,17 +202,24 @@ pub mod worker_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkerPoolArgs) -> WorkerPoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkerPoolArgs,
+    ) -> WorkerPoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_config_binding = args.network_config.get_inner();
-        let private_service_connect_binding = args.private_service_connect.get_inner();
-        let project_binding = args.project.get_inner();
-        let worker_config_binding = args.worker_config.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_config_binding = args.network_config.get_output(context).get_inner();
+        let private_service_connect_binding = args
+            .private_service_connect
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let worker_config_binding = args.worker_config.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudbuild/workerPool:WorkerPool".into(),
             name: name.to_string(),
@@ -296,7 +303,7 @@ pub mod worker_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -63,7 +63,7 @@
 /// $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
 /// ```
 pub mod proxy_target {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProxyTargetArgs {
@@ -71,16 +71,16 @@ pub mod proxy_target {
         ///
         /// **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         #[builder(into, default)]
-        pub db_cluster_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub db_cluster_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// DB instance identifier.
         #[builder(into, default)]
-        pub db_instance_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub db_instance_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the DB proxy.
         #[builder(into)]
-        pub db_proxy_name: pulumi_wasm_rust::Output<String>,
+        pub db_proxy_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the target group.
         #[builder(into)]
-        pub target_group_name: pulumi_wasm_rust::Output<String>,
+        pub target_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ProxyTargetResult {
@@ -111,13 +111,26 @@ pub mod proxy_target {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProxyTargetArgs) -> ProxyTargetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProxyTargetArgs,
+    ) -> ProxyTargetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let db_cluster_identifier_binding = args.db_cluster_identifier.get_inner();
-        let db_instance_identifier_binding = args.db_instance_identifier.get_inner();
-        let db_proxy_name_binding = args.db_proxy_name.get_inner();
-        let target_group_name_binding = args.target_group_name.get_inner();
+        let db_cluster_identifier_binding = args
+            .db_cluster_identifier
+            .get_output(context)
+            .get_inner();
+        let db_instance_identifier_binding = args
+            .db_instance_identifier
+            .get_output(context)
+            .get_inner();
+        let db_proxy_name_binding = args.db_proxy_name.get_output(context).get_inner();
+        let target_group_name_binding = args
+            .target_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/proxyTarget:ProxyTarget".into(),
             name: name.to_string(),
@@ -173,7 +186,7 @@ pub mod proxy_target {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

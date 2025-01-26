@@ -107,7 +107,7 @@
 /// ```
 ///
 pub mod workflow_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkflowTemplateArgs {
@@ -119,10 +119,10 @@ pub mod workflow_template {
         /// cluster](https://www.terraform.io/dataproc/docs/concepts/workflows/using-workflows#configuring_or_selecting_a_cluster),
         /// the cluster is deleted.
         #[builder(into, default)]
-        pub dag_timeout: pulumi_wasm_rust::Output<Option<String>>,
+        pub dag_timeout: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. The Directed Acyclic Graph of Jobs to submit.
         #[builder(into)]
-        pub jobs: pulumi_wasm_rust::Output<
+        pub jobs: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::dataproc::WorkflowTemplateJob>,
         >,
         /// Optional. The labels to associate with this template. These labels will be propagated to all jobs and clusters created
@@ -132,32 +132,32 @@ pub mod workflow_template {
         /// associated with a template. **Note**: This field is non-authoritative, and will only manage the labels present in your
         /// configuration. Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Output only. The resource name of the workflow template, as described in https://cloud.google.com/apis/design/resource_names. * For `projects.regions.workflowTemplates`, the resource name of the template has the following format: `projects/{project_id}/regions/{region}/workflowTemplates/{template_id}` * For `projects.locations.workflowTemplates`, the resource name of the template has the following format: `projects/{project_id}/locations/{location}/workflowTemplates/{template_id}`
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Template parameters whose values are substituted into the template. Values for parameters must be provided
         /// when the template is instantiated.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::dataproc::WorkflowTemplateParameter>>,
         >,
         /// Required. WorkflowTemplate scheduling information.
         #[builder(into)]
-        pub placement: pulumi_wasm_rust::Output<
+        pub placement: pulumi_wasm_rust::InputOrOutput<
             super::super::types::dataproc::WorkflowTemplatePlacement,
         >,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Output only. The current version of this workflow template.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<i32>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct WorkflowTemplateResult {
@@ -215,18 +215,22 @@ pub mod workflow_template {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WorkflowTemplateArgs) -> WorkflowTemplateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WorkflowTemplateArgs,
+    ) -> WorkflowTemplateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dag_timeout_binding = args.dag_timeout.get_inner();
-        let jobs_binding = args.jobs.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let parameters_binding = args.parameters.get_inner();
-        let placement_binding = args.placement.get_inner();
-        let project_binding = args.project.get_inner();
-        let version_binding = args.version.get_inner();
+        let dag_timeout_binding = args.dag_timeout.get_output(context).get_inner();
+        let jobs_binding = args.jobs.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parameters_binding = args.parameters.get_output(context).get_inner();
+        let placement_binding = args.placement.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataproc/workflowTemplate:WorkflowTemplate".into(),
             name: name.to_string(),
@@ -311,7 +315,7 @@ pub mod workflow_template {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

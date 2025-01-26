@@ -1,13 +1,14 @@
-use anyhow::Error;
 use pulumi_wasm_providers_random::random_string;
 use pulumi_wasm_providers_random::random_string::RandomStringArgs;
-use pulumi_wasm_rust::Output;
 use pulumi_wasm_rust::{add_export, pulumi_main};
+use pulumi_wasm_rust::{Output, PulumiContext};
 
-#[pulumi_main]
-fn test_main() -> Result<(), Error> {
-    let length: Output<i32> = Output::new(&4);
+pulumi_main!();
+
+fn pulumi_main(context: &PulumiContext) -> anyhow::Result<()> {
+    let length: Output<i32> = Output::new(context, &4);
     let random_string_1 = random_string::create(
+        context,
         "test_1",
         RandomStringArgs::builder().length(length).build_struct(),
     );
@@ -15,6 +16,7 @@ fn test_main() -> Result<(), Error> {
     let new_length = random_string_1.result.map(|s| s.len() as i32);
 
     let random_string_2 = random_string::create(
+        context,
         "test_2",
         RandomStringArgs::builder()
             .length(new_length)
@@ -22,6 +24,7 @@ fn test_main() -> Result<(), Error> {
     );
 
     let random_string_3 = random_string::create(
+        context,
         "test_3",
         RandomStringArgs::builder()
             .length(random_string_2.length.map(|i| i * 2))

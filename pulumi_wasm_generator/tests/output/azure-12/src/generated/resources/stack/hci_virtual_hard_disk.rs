@@ -43,51 +43,51 @@
 /// ```
 ///
 pub mod hci_virtual_hard_disk {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HciVirtualHardDiskArgs {
         /// The block size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         #[builder(into, default)]
-        pub block_size_in_bytes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub block_size_in_bytes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the Custom Location where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         #[builder(into)]
-        pub custom_location_id: pulumi_wasm_rust::Output<String>,
+        pub custom_location_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The format of the disk file. Possible values are `vhdx` and `vhd`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         #[builder(into, default)]
-        pub disk_file_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub disk_file_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The size of the disk in GB. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         #[builder(into)]
-        pub disk_size_in_gb: pulumi_wasm_rust::Output<i32>,
+        pub disk_size_in_gb: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Whether to enable dynamic sizing for the Azure Stack HCI Virtual Hard Disk. Defaults to `false`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         #[builder(into, default)]
-        pub dynamic_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub dynamic_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The hypervisor generation of the Azure Stack HCI Virtual Hard Disk. Possible values are `V1` and `V2`. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         #[builder(into, default)]
-        pub hyperv_generation: pulumi_wasm_rust::Output<Option<String>>,
+        pub hyperv_generation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Azure Region where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The logical sector size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         #[builder(into, default)]
-        pub logical_sector_in_bytes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub logical_sector_in_bytes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name which should be used for this Azure Stack HCI Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The physical sector size of the disk in bytes. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         #[builder(into, default)]
-        pub physical_sector_in_bytes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub physical_sector_in_bytes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name of the Resource Group where the Azure Stack HCI Virtual Hard Disk should exist. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Azure Stack HCI Storage Path used for this Virtual Hard Disk. Changing this forces a new Azure Stack HCI Virtual Hard Disk to be created.
         ///
         /// > **Note:** If `storage_path_id` is not specified, the Virtual Hard Disk will be placed in a high availability Storage Path. If you experience a diff you may need to add this to `ignore_changes`.
         #[builder(into, default)]
-        pub storage_path_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_path_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Azure Stack HCI Virtual Hard Disk.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -128,22 +128,56 @@ pub mod hci_virtual_hard_disk {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HciVirtualHardDiskArgs) -> HciVirtualHardDiskResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HciVirtualHardDiskArgs,
+    ) -> HciVirtualHardDiskResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let block_size_in_bytes_binding = args.block_size_in_bytes.get_inner();
-        let custom_location_id_binding = args.custom_location_id.get_inner();
-        let disk_file_format_binding = args.disk_file_format.get_inner();
-        let disk_size_in_gb_binding = args.disk_size_in_gb.get_inner();
-        let dynamic_enabled_binding = args.dynamic_enabled.get_inner();
-        let hyperv_generation_binding = args.hyperv_generation.get_inner();
-        let location_binding = args.location.get_inner();
-        let logical_sector_in_bytes_binding = args.logical_sector_in_bytes.get_inner();
-        let name_binding = args.name.get_inner();
-        let physical_sector_in_bytes_binding = args.physical_sector_in_bytes.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let storage_path_id_binding = args.storage_path_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let block_size_in_bytes_binding = args
+            .block_size_in_bytes
+            .get_output(context)
+            .get_inner();
+        let custom_location_id_binding = args
+            .custom_location_id
+            .get_output(context)
+            .get_inner();
+        let disk_file_format_binding = args
+            .disk_file_format
+            .get_output(context)
+            .get_inner();
+        let disk_size_in_gb_binding = args
+            .disk_size_in_gb
+            .get_output(context)
+            .get_inner();
+        let dynamic_enabled_binding = args
+            .dynamic_enabled
+            .get_output(context)
+            .get_inner();
+        let hyperv_generation_binding = args
+            .hyperv_generation
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let logical_sector_in_bytes_binding = args
+            .logical_sector_in_bytes
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let physical_sector_in_bytes_binding = args
+            .physical_sector_in_bytes
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let storage_path_id_binding = args
+            .storage_path_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:stack/hciVirtualHardDisk:HciVirtualHardDisk".into(),
             name: name.to_string(),
@@ -244,7 +278,7 @@ pub mod hci_virtual_hard_disk {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

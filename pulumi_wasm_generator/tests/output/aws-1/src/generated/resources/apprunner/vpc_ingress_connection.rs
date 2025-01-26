@@ -24,24 +24,24 @@
 /// $ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
 /// ```
 pub mod vpc_ingress_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcIngressConnectionArgs {
         /// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
         #[builder(into)]
-        pub ingress_vpc_configuration: pulumi_wasm_rust::Output<
+        pub ingress_vpc_configuration: pulumi_wasm_rust::InputOrOutput<
             super::super::types::apprunner::VpcIngressConnectionIngressVpcConfiguration,
         >,
         /// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
         #[builder(into)]
-        pub service_arn: pulumi_wasm_rust::Output<String>,
+        pub service_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -75,6 +75,7 @@ pub mod vpc_ingress_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpcIngressConnectionArgs,
     ) -> VpcIngressConnectionResult {
@@ -82,10 +83,11 @@ pub mod vpc_ingress_connection {
         use std::collections::HashMap;
         let ingress_vpc_configuration_binding = args
             .ingress_vpc_configuration
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let service_arn_binding = args.service_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let service_arn_binding = args.service_arn.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apprunner/vpcIngressConnection:VpcIngressConnection".into(),
             name: name.to_string(),
@@ -135,7 +137,7 @@ pub mod vpc_ingress_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

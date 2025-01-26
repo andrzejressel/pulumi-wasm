@@ -25,25 +25,25 @@
 /// $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
 /// ```
 pub mod endpoint_access {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointAccessArgs {
         /// The name of the endpoint.
         #[builder(into)]
-        pub endpoint_name: pulumi_wasm_rust::Output<String>,
+        pub endpoint_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
         #[builder(into, default)]
-        pub owner_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub owner_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An array of VPC subnet IDs to associate with the endpoint.
         #[builder(into)]
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// An array of security group IDs to associate with the workgroup.
         #[builder(into, default)]
-        pub vpc_security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub vpc_security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the workgroup.
         #[builder(into)]
-        pub workgroup_name: pulumi_wasm_rust::Output<String>,
+        pub workgroup_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EndpointAccessResult {
@@ -72,14 +72,21 @@ pub mod endpoint_access {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EndpointAccessArgs) -> EndpointAccessResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EndpointAccessArgs,
+    ) -> EndpointAccessResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let endpoint_name_binding = args.endpoint_name.get_inner();
-        let owner_account_binding = args.owner_account.get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_inner();
-        let vpc_security_group_ids_binding = args.vpc_security_group_ids.get_inner();
-        let workgroup_name_binding = args.workgroup_name.get_inner();
+        let endpoint_name_binding = args.endpoint_name.get_output(context).get_inner();
+        let owner_account_binding = args.owner_account.get_output(context).get_inner();
+        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
+        let vpc_security_group_ids_binding = args
+            .vpc_security_group_ids
+            .get_output(context)
+            .get_inner();
+        let workgroup_name_binding = args.workgroup_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:redshiftserverless/endpointAccess:EndpointAccess".into(),
             name: name.to_string(),
@@ -136,7 +143,7 @@ pub mod endpoint_access {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -60,36 +60,36 @@
 /// ```
 ///
 pub mod v_2_folder_mute_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct V2FolderMuteConfigArgs {
         /// A description of the mute config.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An expression that defines the filter to apply across create/update
         /// events of findings. While creating a filter string, be mindful of
         /// the scope in which the mute configuration is being created. E.g.,
         /// If a filter contains project = X but is created under the
         /// project = Y scope, it might not match any findings.
         #[builder(into)]
-        pub filter: pulumi_wasm_rust::Output<String>,
+        pub filter: pulumi_wasm_rust::InputOrOutput<String>,
         /// The folder whose Cloud Security Command Center the Mute
         /// Config lives in.
         #[builder(into)]
-        pub folder: pulumi_wasm_rust::Output<String>,
+        pub folder: pulumi_wasm_rust::InputOrOutput<String>,
         /// location Id is provided by folder. If not provided, Use global as default.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Unique identifier provided by the client within the parent scope.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub mute_config_id: pulumi_wasm_rust::Output<String>,
+        pub mute_config_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of the mute config.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct V2FolderMuteConfigResult {
@@ -134,15 +134,19 @@ pub mod v_2_folder_mute_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: V2FolderMuteConfigArgs) -> V2FolderMuteConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: V2FolderMuteConfigArgs,
+    ) -> V2FolderMuteConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let filter_binding = args.filter.get_inner();
-        let folder_binding = args.folder.get_inner();
-        let location_binding = args.location.get_inner();
-        let mute_config_id_binding = args.mute_config_id.get_inner();
-        let type__binding = args.type_.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
+        let folder_binding = args.folder.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let mute_config_id_binding = args.mute_config_id.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securitycenter/v2FolderMuteConfig:V2FolderMuteConfig".into(),
             name: name.to_string(),
@@ -206,7 +210,7 @@ pub mod v_2_folder_mute_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

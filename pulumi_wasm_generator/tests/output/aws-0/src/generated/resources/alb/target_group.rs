@@ -113,86 +113,94 @@
 /// $ pulumi import aws:alb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
 /// ```
 pub mod target_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetGroupArgs {
         /// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         #[builder(into, default)]
-        pub connection_termination: pulumi_wasm_rust::Output<Option<bool>>,
+        pub connection_termination: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         #[builder(into, default)]
-        pub deregistration_delay: pulumi_wasm_rust::Output<Option<i32>>,
+        pub deregistration_delay: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Health Check configuration block. Detailed below.
         #[builder(into, default)]
-        pub health_check: pulumi_wasm_rust::Output<
+        pub health_check: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alb::TargetGroupHealthCheck>,
         >,
         /// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
         #[builder(into, default)]
-        pub ip_address_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         #[builder(into, default)]
-        pub lambda_multi_value_headers_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub lambda_multi_value_headers_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
         #[builder(into, default)]
-        pub load_balancing_algorithm_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub load_balancing_algorithm_type: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
         #[builder(into, default)]
-        pub load_balancing_anomaly_mitigation: pulumi_wasm_rust::Output<Option<String>>,
+        pub load_balancing_anomaly_mitigation: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
         #[builder(into, default)]
-        pub load_balancing_cross_zone_enabled: pulumi_wasm_rust::Output<Option<String>>,
+        pub load_balancing_cross_zone_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
         #[builder(into, default)]
-        pub preserve_client_ip: pulumi_wasm_rust::Output<Option<String>>,
+        pub preserve_client_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Protocol to use for routing traffic to the targets.
         /// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
         /// Required when `target_type` is `instance`, `ip`, or `alb`.
         /// Does not apply when `target_type` is `lambda`.
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
         #[builder(into, default)]
-        pub protocol_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub protocol_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
         #[builder(into, default)]
-        pub proxy_protocol_v2: pulumi_wasm_rust::Output<Option<bool>>,
+        pub proxy_protocol_v2: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         #[builder(into, default)]
-        pub slow_start: pulumi_wasm_rust::Output<Option<i32>>,
+        pub slow_start: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Stickiness configuration block. Detailed below.
         #[builder(into, default)]
-        pub stickiness: pulumi_wasm_rust::Output<
+        pub stickiness: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alb::TargetGroupStickiness>,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
         #[builder(into, default)]
-        pub target_failovers: pulumi_wasm_rust::Output<
+        pub target_failovers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::alb::TargetGroupTargetFailover>>,
         >,
         /// Target health requirements block. See target_group_health for more information.
         #[builder(into, default)]
-        pub target_group_health: pulumi_wasm_rust::Output<
+        pub target_group_health: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::alb::TargetGroupTargetGroupHealth>,
         >,
         /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         #[builder(into, default)]
-        pub target_health_states: pulumi_wasm_rust::Output<
+        pub target_health_states: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::alb::TargetGroupTargetHealthState>>,
         >,
         /// Type of target that you must specify when registering targets with this target group.
@@ -207,10 +215,10 @@ pub mod target_group {
         ///
         /// Application Load Balancers do not support the `alb` target type.
         #[builder(into, default)]
-        pub target_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         #[builder(into, default)]
-        pub vpc_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TargetGroupResult {
@@ -300,40 +308,75 @@ pub mod target_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TargetGroupArgs) -> TargetGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TargetGroupArgs,
+    ) -> TargetGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let connection_termination_binding = args.connection_termination.get_inner();
-        let deregistration_delay_binding = args.deregistration_delay.get_inner();
-        let health_check_binding = args.health_check.get_inner();
-        let ip_address_type_binding = args.ip_address_type.get_inner();
+        let connection_termination_binding = args
+            .connection_termination
+            .get_output(context)
+            .get_inner();
+        let deregistration_delay_binding = args
+            .deregistration_delay
+            .get_output(context)
+            .get_inner();
+        let health_check_binding = args.health_check.get_output(context).get_inner();
+        let ip_address_type_binding = args
+            .ip_address_type
+            .get_output(context)
+            .get_inner();
         let lambda_multi_value_headers_enabled_binding = args
             .lambda_multi_value_headers_enabled
+            .get_output(context)
             .get_inner();
         let load_balancing_algorithm_type_binding = args
             .load_balancing_algorithm_type
+            .get_output(context)
             .get_inner();
         let load_balancing_anomaly_mitigation_binding = args
             .load_balancing_anomaly_mitigation
+            .get_output(context)
             .get_inner();
         let load_balancing_cross_zone_enabled_binding = args
             .load_balancing_cross_zone_enabled
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let port_binding = args.port.get_inner();
-        let preserve_client_ip_binding = args.preserve_client_ip.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let protocol_version_binding = args.protocol_version.get_inner();
-        let proxy_protocol_v2_binding = args.proxy_protocol_v2.get_inner();
-        let slow_start_binding = args.slow_start.get_inner();
-        let stickiness_binding = args.stickiness.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_failovers_binding = args.target_failovers.get_inner();
-        let target_group_health_binding = args.target_group_health.get_inner();
-        let target_health_states_binding = args.target_health_states.get_inner();
-        let target_type_binding = args.target_type.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let preserve_client_ip_binding = args
+            .preserve_client_ip
+            .get_output(context)
+            .get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let protocol_version_binding = args
+            .protocol_version
+            .get_output(context)
+            .get_inner();
+        let proxy_protocol_v2_binding = args
+            .proxy_protocol_v2
+            .get_output(context)
+            .get_inner();
+        let slow_start_binding = args.slow_start.get_output(context).get_inner();
+        let stickiness_binding = args.stickiness.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_failovers_binding = args
+            .target_failovers
+            .get_output(context)
+            .get_inner();
+        let target_group_health_binding = args
+            .target_group_health
+            .get_output(context)
+            .get_inner();
+        let target_health_states_binding = args
+            .target_health_states
+            .get_output(context)
+            .get_inner();
+        let target_type_binding = args.target_type.get_output(context).get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:alb/targetGroup:TargetGroup".into(),
             name: name.to_string(),
@@ -516,7 +559,7 @@ pub mod target_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

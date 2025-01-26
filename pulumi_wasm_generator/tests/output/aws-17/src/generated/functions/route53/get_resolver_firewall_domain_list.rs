@@ -1,5 +1,5 @@
 pub mod get_resolver_firewall_domain_list {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetResolverFirewallDomainListArgs {
@@ -7,7 +7,7 @@ pub mod get_resolver_firewall_domain_list {
         ///
         /// The following attribute is additionally exported:
         #[builder(into)]
-        pub firewall_domain_list_id: pulumi_wasm_rust::Output<String>,
+        pub firewall_domain_list_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetResolverFirewallDomainListResult {
@@ -29,11 +29,15 @@ pub mod get_resolver_firewall_domain_list {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetResolverFirewallDomainListArgs,
     ) -> GetResolverFirewallDomainListResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let firewall_domain_list_id_binding = args.firewall_domain_list_id.get_inner();
+        let firewall_domain_list_id_binding = args
+            .firewall_domain_list_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList"
                 .into(),
@@ -80,7 +84,7 @@ pub mod get_resolver_firewall_domain_list {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

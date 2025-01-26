@@ -1,22 +1,22 @@
 pub mod get_log_view_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetLogViewIamPolicyArgs {
         /// The bucket of the resource Used to find the parent resource to bind the IAM policy to
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location of the resource. The supported locations are: global, us-central1, us-east1, us-west1, asia-east1, europe-west1. Used to find the parent resource to bind the IAM policy to. If not specified,
         /// the value will be parsed from the identifier of the parent resource. If no location is provided in the parent identifier and no
         /// location is specified, it is taken from the provider configuration.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Used to find the parent resource to bind the IAM policy to
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The parent of the resource. Used to find the parent resource to bind the IAM policy to
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetLogViewIamPolicyResult {
@@ -36,13 +36,16 @@ pub mod get_log_view_iam_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetLogViewIamPolicyArgs) -> GetLogViewIamPolicyResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetLogViewIamPolicyArgs,
+    ) -> GetLogViewIamPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let parent_binding = args.parent.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:logging/getLogViewIamPolicy:getLogViewIamPolicy".into(),
             version: super::super::super::get_version(),
@@ -88,7 +91,7 @@ pub mod get_log_view_iam_policy {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -75,51 +75,55 @@
 /// $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
 /// ```
 pub mod vpc {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcArgs {
         /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
         #[builder(into, default)]
-        pub assign_generated_ipv6_cidr_block: pulumi_wasm_rust::Output<Option<bool>>,
+        pub assign_generated_ipv6_cidr_block: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
         #[builder(into, default)]
-        pub cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         #[builder(into, default)]
-        pub enable_dns_hostnames: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_dns_hostnames: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
         #[builder(into, default)]
-        pub enable_dns_support: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_dns_support: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
         #[builder(into, default)]
-        pub enable_network_address_usage_metrics: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_network_address_usage_metrics: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
         #[builder(into, default)]
-        pub instance_tenancy: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance_tenancy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         #[builder(into, default)]
-        pub ipv4_ipam_pool_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv4_ipam_pool_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
         #[builder(into, default)]
-        pub ipv4_netmask_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub ipv4_netmask_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         #[builder(into, default)]
-        pub ipv6_cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv6_cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// By default when an IPv6 CIDR is assigned to a VPC a default ipv6_cidr_block_network_border_group will be set to the region of the VPC. This can be changed to restrict advertisement of public addresses to specific Network Border Groups such as LocalZones.
         #[builder(into, default)]
-        pub ipv6_cidr_block_network_border_group: pulumi_wasm_rust::Output<
+        pub ipv6_cidr_block_network_border_group: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
         #[builder(into, default)]
-        pub ipv6_ipam_pool_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv6_ipam_pool_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values are from `44` to `60` in increments of 4.
         #[builder(into, default)]
-        pub ipv6_netmask_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub ipv6_netmask_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -180,28 +184,59 @@ pub mod vpc {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VpcArgs) -> VpcResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VpcArgs,
+    ) -> VpcResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let assign_generated_ipv6_cidr_block_binding = args
             .assign_generated_ipv6_cidr_block
+            .get_output(context)
             .get_inner();
-        let cidr_block_binding = args.cidr_block.get_inner();
-        let enable_dns_hostnames_binding = args.enable_dns_hostnames.get_inner();
-        let enable_dns_support_binding = args.enable_dns_support.get_inner();
+        let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
+        let enable_dns_hostnames_binding = args
+            .enable_dns_hostnames
+            .get_output(context)
+            .get_inner();
+        let enable_dns_support_binding = args
+            .enable_dns_support
+            .get_output(context)
+            .get_inner();
         let enable_network_address_usage_metrics_binding = args
             .enable_network_address_usage_metrics
+            .get_output(context)
             .get_inner();
-        let instance_tenancy_binding = args.instance_tenancy.get_inner();
-        let ipv4_ipam_pool_id_binding = args.ipv4_ipam_pool_id.get_inner();
-        let ipv4_netmask_length_binding = args.ipv4_netmask_length.get_inner();
-        let ipv6_cidr_block_binding = args.ipv6_cidr_block.get_inner();
+        let instance_tenancy_binding = args
+            .instance_tenancy
+            .get_output(context)
+            .get_inner();
+        let ipv4_ipam_pool_id_binding = args
+            .ipv4_ipam_pool_id
+            .get_output(context)
+            .get_inner();
+        let ipv4_netmask_length_binding = args
+            .ipv4_netmask_length
+            .get_output(context)
+            .get_inner();
+        let ipv6_cidr_block_binding = args
+            .ipv6_cidr_block
+            .get_output(context)
+            .get_inner();
         let ipv6_cidr_block_network_border_group_binding = args
             .ipv6_cidr_block_network_border_group
+            .get_output(context)
             .get_inner();
-        let ipv6_ipam_pool_id_binding = args.ipv6_ipam_pool_id.get_inner();
-        let ipv6_netmask_length_binding = args.ipv6_netmask_length.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let ipv6_ipam_pool_id_binding = args
+            .ipv6_ipam_pool_id
+            .get_output(context)
+            .get_inner();
+        let ipv6_netmask_length_binding = args
+            .ipv6_netmask_length
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpc:Vpc".into(),
             name: name.to_string(),
@@ -329,7 +364,7 @@ pub mod vpc {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

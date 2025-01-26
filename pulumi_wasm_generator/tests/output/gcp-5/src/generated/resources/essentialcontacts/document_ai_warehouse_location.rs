@@ -35,38 +35,40 @@
 /// This resource does not support import.
 ///
 pub mod document_ai_warehouse_location {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DocumentAiWarehouseLocationArgs {
         /// The access control mode for accessing the customer data.
         /// Possible values are: `ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_GCI`, `ACL_MODE_DOCUMENT_LEVEL_ACCESS_CONTROL_BYOID`, `ACL_MODE_UNIVERSAL_ACCESS`.
         #[builder(into)]
-        pub access_control_mode: pulumi_wasm_rust::Output<String>,
+        pub access_control_mode: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of database used to store customer data.
         /// Possible values are: `DB_INFRA_SPANNER`, `DB_CLOUD_SQL_POSTGRES`.
         #[builder(into)]
-        pub database_type: pulumi_wasm_rust::Output<String>,
+        pub database_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The default role for the person who create a document.
         /// Possible values are: `DOCUMENT_ADMIN`, `DOCUMENT_EDITOR`, `DOCUMENT_VIEWER`.
         #[builder(into, default)]
-        pub document_creator_default_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub document_creator_default_role: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The KMS key used for CMEK encryption. It is required that
         /// the kms key is in the same region as the endpoint. The
         /// same key will be used for all provisioned resources, if
         /// encryption is available. If the kmsKey is left empty, no
         /// encryption will be enforced.
         #[builder(into, default)]
-        pub kms_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location in which the instance is to be provisioned. It takes the form projects/{projectNumber}/locations/{location}.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The unique identifier of the project.
         #[builder(into)]
-        pub project_number: pulumi_wasm_rust::Output<String>,
+        pub project_number: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DocumentAiWarehouseLocationResult {
@@ -98,19 +100,24 @@ pub mod document_ai_warehouse_location {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DocumentAiWarehouseLocationArgs,
     ) -> DocumentAiWarehouseLocationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_control_mode_binding = args.access_control_mode.get_inner();
-        let database_type_binding = args.database_type.get_inner();
+        let access_control_mode_binding = args
+            .access_control_mode
+            .get_output(context)
+            .get_inner();
+        let database_type_binding = args.database_type.get_output(context).get_inner();
         let document_creator_default_role_binding = args
             .document_creator_default_role
+            .get_output(context)
             .get_inner();
-        let kms_key_binding = args.kms_key.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_number_binding = args.project_number.get_inner();
+        let kms_key_binding = args.kms_key.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_number_binding = args.project_number.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:essentialcontacts/documentAiWarehouseLocation:DocumentAiWarehouseLocation"
                 .into(),
@@ -163,7 +170,7 @@ pub mod document_ai_warehouse_location {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

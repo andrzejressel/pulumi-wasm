@@ -30,33 +30,33 @@
 /// $ pulumi import aws:ecr/repository:Repository service test-service
 /// ```
 pub mod repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryArgs {
         /// Encryption configuration for the repository. See below for schema.
         #[builder(into, default)]
-        pub encryption_configurations: pulumi_wasm_rust::Output<
+        pub encryption_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ecr::RepositoryEncryptionConfiguration>>,
         >,
         /// If `true`, will delete the repository even if it contains images.
         /// Defaults to `false`.
         #[builder(into, default)]
-        pub force_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         #[builder(into, default)]
-        pub image_scanning_configuration: pulumi_wasm_rust::Output<
+        pub image_scanning_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ecr::RepositoryImageScanningConfiguration>,
         >,
         /// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         #[builder(into, default)]
-        pub image_tag_mutability: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_tag_mutability: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the repository.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -96,19 +96,28 @@ pub mod repository {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RepositoryArgs) -> RepositoryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RepositoryArgs,
+    ) -> RepositoryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let encryption_configurations_binding = args
             .encryption_configurations
+            .get_output(context)
             .get_inner();
-        let force_delete_binding = args.force_delete.get_inner();
+        let force_delete_binding = args.force_delete.get_output(context).get_inner();
         let image_scanning_configuration_binding = args
             .image_scanning_configuration
+            .get_output(context)
             .get_inner();
-        let image_tag_mutability_binding = args.image_tag_mutability.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let image_tag_mutability_binding = args
+            .image_tag_mutability
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecr/repository:Repository".into(),
             name: name.to_string(),
@@ -172,7 +181,7 @@ pub mod repository {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

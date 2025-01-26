@@ -88,36 +88,36 @@
 /// ```
 ///
 pub mod custom_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomDomainArgs {
         /// The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `developer_portal` blocks as defined below.
         #[builder(into, default)]
-        pub developer_portals: pulumi_wasm_rust::Output<
+        pub developer_portals: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::CustomDomainDeveloperPortal>>,
         >,
         /// One or more `gateway` blocks as defined below.
         #[builder(into, default)]
-        pub gateways: pulumi_wasm_rust::Output<
+        pub gateways: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::CustomDomainGateway>>,
         >,
         /// One or more `management` blocks as defined below.
         #[builder(into, default)]
-        pub managements: pulumi_wasm_rust::Output<
+        pub managements: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::CustomDomainManagement>>,
         >,
         /// One or more `portal` blocks as defined below.
         #[builder(into, default)]
-        pub portals: pulumi_wasm_rust::Output<
+        pub portals: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::CustomDomainPortal>>,
         >,
         /// One or more `scm` blocks as defined below.
         #[builder(into, default)]
-        pub scms: pulumi_wasm_rust::Output<
+        pub scms: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::CustomDomainScm>>,
         >,
     }
@@ -150,15 +150,25 @@ pub mod custom_domain {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CustomDomainArgs) -> CustomDomainResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CustomDomainArgs,
+    ) -> CustomDomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding = args.api_management_id.get_inner();
-        let developer_portals_binding = args.developer_portals.get_inner();
-        let gateways_binding = args.gateways.get_inner();
-        let managements_binding = args.managements.get_inner();
-        let portals_binding = args.portals.get_inner();
-        let scms_binding = args.scms.get_inner();
+        let api_management_id_binding = args
+            .api_management_id
+            .get_output(context)
+            .get_inner();
+        let developer_portals_binding = args
+            .developer_portals
+            .get_output(context)
+            .get_inner();
+        let gateways_binding = args.gateways.get_output(context).get_inner();
+        let managements_binding = args.managements.get_output(context).get_inner();
+        let portals_binding = args.portals.get_output(context).get_inner();
+        let scms_binding = args.scms.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/customDomain:CustomDomain".into(),
             name: name.to_string(),
@@ -210,7 +220,7 @@ pub mod custom_domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

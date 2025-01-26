@@ -1,22 +1,22 @@
 pub mod get_data_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDataSetArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier for the data set.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub data_set_id: pulumi_wasm_rust::Output<String>,
+        pub data_set_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -73,13 +73,16 @@ pub mod get_data_set {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetDataSetArgs) -> GetDataSetResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetDataSetArgs,
+    ) -> GetDataSetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_inner();
-        let data_set_id_binding = args.data_set_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tags_all_binding = args.tags_all.get_inner();
+        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
+        let data_set_id_binding = args.data_set_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tags_all_binding = args.tags_all.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:quicksight/getDataSet:getDataSet".into(),
             version: super::super::super::get_version(),
@@ -155,7 +158,7 @@ pub mod get_data_set {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

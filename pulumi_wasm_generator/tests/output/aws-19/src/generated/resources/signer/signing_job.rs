@@ -52,24 +52,24 @@
 /// $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee
 /// ```
 pub mod signing_job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SigningJobArgs {
         /// The S3 bucket in which to save your signed object. See Destination below for details.
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::Output<
+        pub destination: pulumi_wasm_rust::InputOrOutput<
             super::super::types::signer::SigningJobDestination,
         >,
         /// Set this argument to `true` to ignore signing job failures and retrieve failed status and reason. Default `false`.
         #[builder(into, default)]
-        pub ignore_signing_job_failure: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ignore_signing_job_failure: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the profile to initiate the signing operation.
         #[builder(into)]
-        pub profile_name: pulumi_wasm_rust::Output<String>,
+        pub profile_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The S3 bucket that contains the object to sign. See Source below for details.
         #[builder(into)]
-        pub source: pulumi_wasm_rust::Output<
+        pub source: pulumi_wasm_rust::InputOrOutput<
             super::super::types::signer::SigningJobSource,
         >,
     }
@@ -124,15 +124,20 @@ pub mod signing_job {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SigningJobArgs) -> SigningJobResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SigningJobArgs,
+    ) -> SigningJobResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let destination_binding = args.destination.get_inner();
+        let destination_binding = args.destination.get_output(context).get_inner();
         let ignore_signing_job_failure_binding = args
             .ignore_signing_job_failure
+            .get_output(context)
             .get_inner();
-        let profile_name_binding = args.profile_name.get_inner();
-        let source_binding = args.source.get_inner();
+        let profile_name_binding = args.profile_name.get_output(context).get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:signer/signingJob:SigningJob".into(),
             name: name.to_string(),
@@ -212,7 +217,7 @@ pub mod signing_job {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

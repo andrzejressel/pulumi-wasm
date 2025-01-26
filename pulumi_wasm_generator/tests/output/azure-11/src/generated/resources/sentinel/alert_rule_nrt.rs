@@ -55,81 +55,81 @@
 /// ```
 ///
 pub mod alert_rule_nrt {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AlertRuleNrtArgs {
         /// An `alert_details_override` block as defined below.
         #[builder(into, default)]
-        pub alert_details_overrides: pulumi_wasm_rust::Output<
+        pub alert_details_overrides: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::sentinel::AlertRuleNrtAlertDetailsOverride>>,
         >,
         /// The GUID of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         #[builder(into, default)]
-        pub alert_rule_template_guid: pulumi_wasm_rust::Output<Option<String>>,
+        pub alert_rule_template_guid: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The version of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         #[builder(into, default)]
-        pub alert_rule_template_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub alert_rule_template_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of string key-value pairs of columns to be attached to this Sentinel NRT Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts.
         #[builder(into, default)]
-        pub custom_details: pulumi_wasm_rust::Output<
+        pub custom_details: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The description of this Sentinel NRT Alert Rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The friendly name of this Sentinel NRT Alert Rule.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of `entity_mapping` blocks as defined below.
         #[builder(into, default)]
-        pub entity_mappings: pulumi_wasm_rust::Output<
+        pub entity_mappings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::sentinel::AlertRuleNrtEntityMapping>>,
         >,
         /// A `event_grouping` block as defined below.
         #[builder(into)]
-        pub event_grouping: pulumi_wasm_rust::Output<
+        pub event_grouping: pulumi_wasm_rust::InputOrOutput<
             super::super::types::sentinel::AlertRuleNrtEventGrouping,
         >,
         /// A `incident` block as defined below.
         #[builder(into, default)]
-        pub incident: pulumi_wasm_rust::Output<
+        pub incident: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sentinel::AlertRuleNrtIncident>,
         >,
         /// The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The query of this Sentinel NRT Alert Rule.
         #[builder(into)]
-        pub query: pulumi_wasm_rust::Output<String>,
+        pub query: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of `sentinel_entity_mapping` blocks as defined below.
         ///
         /// > **NOTE:** `entity_mapping` and `sentinel_entity_mapping` together can't exceed 5.
         #[builder(into, default)]
-        pub sentinel_entity_mappings: pulumi_wasm_rust::Output<
+        pub sentinel_entity_mappings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::sentinel::AlertRuleNrtSentinelEntityMapping>>,
         >,
         /// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
         #[builder(into)]
-        pub severity: pulumi_wasm_rust::Output<String>,
+        pub severity: pulumi_wasm_rust::InputOrOutput<String>,
         /// If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`.
         #[builder(into, default)]
-        pub suppression_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub suppression_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`.
         #[builder(into, default)]
-        pub suppression_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub suppression_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`, `InitialAccess`, `LateralMovement`, `Persistence`, `PreAttack`, `PrivilegeEscalation`, `Reconnaissance` and `ResourceDevelopment`.
         #[builder(into, default)]
-        pub tactics: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tactics: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A list of techniques of attacks by which to classify the rule.
         #[builder(into, default)]
-        pub techniques: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub techniques: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct AlertRuleNrtResult {
@@ -190,32 +190,56 @@ pub mod alert_rule_nrt {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AlertRuleNrtArgs) -> AlertRuleNrtResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AlertRuleNrtArgs,
+    ) -> AlertRuleNrtResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alert_details_overrides_binding = args.alert_details_overrides.get_inner();
-        let alert_rule_template_guid_binding = args.alert_rule_template_guid.get_inner();
+        let alert_details_overrides_binding = args
+            .alert_details_overrides
+            .get_output(context)
+            .get_inner();
+        let alert_rule_template_guid_binding = args
+            .alert_rule_template_guid
+            .get_output(context)
+            .get_inner();
         let alert_rule_template_version_binding = args
             .alert_rule_template_version
+            .get_output(context)
             .get_inner();
-        let custom_details_binding = args.custom_details.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let entity_mappings_binding = args.entity_mappings.get_inner();
-        let event_grouping_binding = args.event_grouping.get_inner();
-        let incident_binding = args.incident.get_inner();
+        let custom_details_binding = args.custom_details.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let entity_mappings_binding = args
+            .entity_mappings
+            .get_output(context)
+            .get_inner();
+        let event_grouping_binding = args.event_grouping.get_output(context).get_inner();
+        let incident_binding = args.incident.get_output(context).get_inner();
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let query_binding = args.query.get_inner();
-        let sentinel_entity_mappings_binding = args.sentinel_entity_mappings.get_inner();
-        let severity_binding = args.severity.get_inner();
-        let suppression_duration_binding = args.suppression_duration.get_inner();
-        let suppression_enabled_binding = args.suppression_enabled.get_inner();
-        let tactics_binding = args.tactics.get_inner();
-        let techniques_binding = args.techniques.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let query_binding = args.query.get_output(context).get_inner();
+        let sentinel_entity_mappings_binding = args
+            .sentinel_entity_mappings
+            .get_output(context)
+            .get_inner();
+        let severity_binding = args.severity.get_output(context).get_inner();
+        let suppression_duration_binding = args
+            .suppression_duration
+            .get_output(context)
+            .get_inner();
+        let suppression_enabled_binding = args
+            .suppression_enabled
+            .get_output(context)
+            .get_inner();
+        let tactics_binding = args.tactics.get_output(context).get_inner();
+        let techniques_binding = args.techniques.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/alertRuleNrt:AlertRuleNrt".into(),
             name: name.to_string(),
@@ -358,7 +382,7 @@ pub mod alert_rule_nrt {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

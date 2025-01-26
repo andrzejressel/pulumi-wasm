@@ -1,18 +1,18 @@
 pub mod get_topic {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetTopicArgs {
         /// The name of this Service Bus Topic.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the ServiceBus Namespace where the Service Bus Topic exists.
         #[builder(into, default)]
-        pub namespace_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub namespace_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub resource_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetTopicResult {
@@ -47,13 +47,19 @@ pub mod get_topic {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetTopicArgs) -> GetTopicResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetTopicArgs,
+    ) -> GetTopicResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let namespace_id_binding = args.namespace_id.get_inner();
-        let namespace_name_binding = args.namespace_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let namespace_id_binding = args.namespace_id.get_output(context).get_inner();
+        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:servicebus/getTopic:getTopic".into(),
             version: super::super::super::get_version(),
@@ -123,7 +129,7 @@ pub mod get_topic {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

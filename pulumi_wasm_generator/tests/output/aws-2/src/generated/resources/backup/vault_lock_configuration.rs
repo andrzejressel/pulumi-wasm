@@ -27,22 +27,22 @@
 /// $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
 /// ```
 pub mod vault_lock_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VaultLockConfigurationArgs {
         /// Name of the backup vault to add a lock configuration for.
         #[builder(into)]
-        pub backup_vault_name: pulumi_wasm_rust::Output<String>,
+        pub backup_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
         #[builder(into, default)]
-        pub changeable_for_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub changeable_for_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The maximum retention period that the vault retains its recovery points.
         #[builder(into, default)]
-        pub max_retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The minimum retention period that the vault retains its recovery points.
         #[builder(into, default)]
-        pub min_retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub min_retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct VaultLockConfigurationResult {
@@ -62,15 +62,28 @@ pub mod vault_lock_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VaultLockConfigurationArgs,
     ) -> VaultLockConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backup_vault_name_binding = args.backup_vault_name.get_inner();
-        let changeable_for_days_binding = args.changeable_for_days.get_inner();
-        let max_retention_days_binding = args.max_retention_days.get_inner();
-        let min_retention_days_binding = args.min_retention_days.get_inner();
+        let backup_vault_name_binding = args
+            .backup_vault_name
+            .get_output(context)
+            .get_inner();
+        let changeable_for_days_binding = args
+            .changeable_for_days
+            .get_output(context)
+            .get_inner();
+        let max_retention_days_binding = args
+            .max_retention_days
+            .get_output(context)
+            .get_inner();
+        let min_retention_days_binding = args
+            .min_retention_days
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:backup/vaultLockConfiguration:VaultLockConfiguration".into(),
             name: name.to_string(),
@@ -111,7 +124,7 @@ pub mod vault_lock_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

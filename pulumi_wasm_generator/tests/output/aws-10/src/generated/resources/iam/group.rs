@@ -24,16 +24,16 @@
 /// $ pulumi import aws:iam/group:Group developers developers
 /// ```
 pub mod group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GroupArgs {
         /// The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Path in which to create the group.
         #[builder(into, default)]
-        pub path: pulumi_wasm_rust::Output<Option<String>>,
+        pub path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GroupResult {
@@ -50,11 +50,15 @@ pub mod group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GroupArgs) -> GroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GroupArgs,
+    ) -> GroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let path_binding = args.path.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let path_binding = args.path.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/group:Group".into(),
             name: name.to_string(),
@@ -84,7 +88,7 @@ pub mod group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

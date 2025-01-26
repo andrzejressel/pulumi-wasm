@@ -106,17 +106,17 @@
 /// ```
 ///
 pub mod certificate_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateTemplateArgs {
         /// Optional. A human-readable description of scenarios this template is intended for.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Describes constraints on identities that may be appear in Certificates issued using this template. If this is omitted, then this template will not add restrictions on a certificate's identity.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub identity_constraints: pulumi_wasm_rust::Output<
+        pub identity_constraints: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::certificateauthority::CertificateTemplateIdentityConstraints,
             >,
@@ -125,7 +125,7 @@ pub mod certificate_template {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the resource
@@ -133,17 +133,17 @@ pub mod certificate_template {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. The maximum lifetime allowed for all issued certificates that use this template. If the issuing CaPool's IssuancePolicy specifies a maximum lifetime the minimum of the two durations will be the maximum lifetime for issued. Note that if the issuing CertificateAuthority expires before a Certificate's requested maximum_lifetime, the effective lifetime will be explicitly truncated to match it.
         #[builder(into, default)]
-        pub maximum_lifetime: pulumi_wasm_rust::Output<Option<String>>,
+        pub maximum_lifetime: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource name for this CertificateTemplate in the format `projects/*/locations/*/certificateTemplates/*`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Describes the set of X.509 extensions that may appear in a Certificate issued using this CertificateTemplate. If a certificate request sets extensions that don't appear in the passthrough_extensions, those extensions will be dropped. If the issuing CaPool's IssuancePolicy defines baseline_values that don't appear here, the certificate issuance request will fail. If this is omitted, then this template will not add restrictions on a certificate's X.509 extensions. These constraints do not apply to X.509 extensions set in this CertificateTemplate's predefined_values.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub passthrough_extensions: pulumi_wasm_rust::Output<
+        pub passthrough_extensions: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::certificateauthority::CertificateTemplatePassthroughExtensions,
             >,
@@ -151,7 +151,7 @@ pub mod certificate_template {
         /// Optional. A set of X.509 values that will be applied to all issued certificates that use this template. If the certificate request includes conflicting values for the same properties, they will be overwritten by the values defined here. If the issuing CaPool's IssuancePolicy defines conflicting baseline_values for the same properties, the certificate issuance request will fail.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub predefined_values: pulumi_wasm_rust::Output<
+        pub predefined_values: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::certificateauthority::CertificateTemplatePredefinedValues,
             >,
@@ -159,7 +159,7 @@ pub mod certificate_template {
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CertificateTemplateResult {
@@ -223,20 +223,33 @@ pub mod certificate_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CertificateTemplateArgs,
     ) -> CertificateTemplateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let identity_constraints_binding = args.identity_constraints.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let maximum_lifetime_binding = args.maximum_lifetime.get_inner();
-        let name_binding = args.name.get_inner();
-        let passthrough_extensions_binding = args.passthrough_extensions.get_inner();
-        let predefined_values_binding = args.predefined_values.get_inner();
-        let project_binding = args.project.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let identity_constraints_binding = args
+            .identity_constraints
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let maximum_lifetime_binding = args
+            .maximum_lifetime
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let passthrough_extensions_binding = args
+            .passthrough_extensions
+            .get_output(context)
+            .get_inner();
+        let predefined_values_binding = args
+            .predefined_values
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificateauthority/certificateTemplate:CertificateTemplate"
                 .into(),
@@ -322,7 +335,7 @@ pub mod certificate_template {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

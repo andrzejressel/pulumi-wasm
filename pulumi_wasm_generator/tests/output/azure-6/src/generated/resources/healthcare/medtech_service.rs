@@ -53,41 +53,41 @@
 /// ```
 ///
 pub mod medtech_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MedtechServiceArgs {
         /// Specifies the Device Mappings of the Med Tech Service.
         #[builder(into)]
-        pub device_mapping_json: pulumi_wasm_rust::Output<String>,
+        pub device_mapping_json: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the Consumer Group of the Event Hub to connect to.
         #[builder(into)]
-        pub eventhub_consumer_group_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_consumer_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Event Hub to connect to.
         #[builder(into)]
-        pub eventhub_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the namespace name of the Event Hub to connect to.
         #[builder(into)]
-        pub eventhub_namespace_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_namespace_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::healthcare::MedtechServiceIdentity>,
         >,
         /// Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the Healthcare Med Tech Service.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MedtechServiceResult {
@@ -118,20 +118,31 @@ pub mod medtech_service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MedtechServiceArgs) -> MedtechServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MedtechServiceArgs,
+    ) -> MedtechServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let device_mapping_json_binding = args.device_mapping_json.get_inner();
+        let device_mapping_json_binding = args
+            .device_mapping_json
+            .get_output(context)
+            .get_inner();
         let eventhub_consumer_group_name_binding = args
             .eventhub_consumer_group_name
+            .get_output(context)
             .get_inner();
-        let eventhub_name_binding = args.eventhub_name.get_inner();
-        let eventhub_namespace_name_binding = args.eventhub_namespace_name.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let workspace_id_binding = args.workspace_id.get_inner();
+        let eventhub_name_binding = args.eventhub_name.get_output(context).get_inner();
+        let eventhub_namespace_name_binding = args
+            .eventhub_namespace_name
+            .get_output(context)
+            .get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:healthcare/medtechService:MedtechService".into(),
             name: name.to_string(),
@@ -204,7 +215,7 @@ pub mod medtech_service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

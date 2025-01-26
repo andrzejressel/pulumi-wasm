@@ -25,43 +25,43 @@
 /// $ pulumi import aws:bedrock/agentDataSource:AgentDataSource example GWCMFMQF6T,EMDPPAYPZI
 /// ```
 pub mod agent_data_source {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AgentDataSourceArgs {
         /// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
         #[builder(into, default)]
-        pub data_deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Details about how the data source is stored. See `data_source_configuration` block for details.
         #[builder(into, default)]
-        pub data_source_configuration: pulumi_wasm_rust::Output<
+        pub data_source_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bedrock::AgentDataSourceDataSourceConfiguration>,
         >,
         /// Description of the data source.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Unique identifier of the knowledge base to which the data source belongs.
         #[builder(into)]
-        pub knowledge_base_id: pulumi_wasm_rust::Output<String>,
+        pub knowledge_base_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the data source.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         #[builder(into, default)]
-        pub server_side_encryption_configuration: pulumi_wasm_rust::Output<
+        pub server_side_encryption_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::bedrock::AgentDataSourceServerSideEncryptionConfiguration,
             >,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bedrock::AgentDataSourceTimeouts>,
         >,
         /// Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         #[builder(into, default)]
-        pub vector_ingestion_configuration: pulumi_wasm_rust::Output<
+        pub vector_ingestion_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::bedrock::AgentDataSourceVectorIngestionConfiguration,
             >,
@@ -105,22 +105,35 @@ pub mod agent_data_source {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AgentDataSourceArgs) -> AgentDataSourceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AgentDataSourceArgs,
+    ) -> AgentDataSourceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let data_deletion_policy_binding = args.data_deletion_policy.get_inner();
+        let data_deletion_policy_binding = args
+            .data_deletion_policy
+            .get_output(context)
+            .get_inner();
         let data_source_configuration_binding = args
             .data_source_configuration
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let knowledge_base_id_binding = args.knowledge_base_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let knowledge_base_id_binding = args
+            .knowledge_base_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let server_side_encryption_configuration_binding = args
             .server_side_encryption_configuration
+            .get_output(context)
             .get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let vector_ingestion_configuration_binding = args
             .vector_ingestion_configuration
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:bedrock/agentDataSource:AgentDataSource".into(),
@@ -190,7 +203,7 @@ pub mod agent_data_source {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -84,30 +84,30 @@
 /// ```
 ///
 pub mod resolver_forwarding_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverForwardingRuleArgs {
         /// Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         #[builder(into)]
-        pub dns_forwarding_ruleset_id: pulumi_wasm_rust::Output<String>,
+        pub dns_forwarding_ruleset_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Metadata attached to the Private DNS Resolver Forwarding Rule.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block as defined below.
         #[builder(into)]
-        pub target_dns_servers: pulumi_wasm_rust::Output<
+        pub target_dns_servers: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::privatedns::ResolverForwardingRuleTargetDnsServer>,
         >,
     }
@@ -135,6 +135,7 @@ pub mod resolver_forwarding_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ResolverForwardingRuleArgs,
     ) -> ResolverForwardingRuleResult {
@@ -142,12 +143,16 @@ pub mod resolver_forwarding_rule {
         use std::collections::HashMap;
         let dns_forwarding_ruleset_id_binding = args
             .dns_forwarding_ruleset_id
+            .get_output(context)
             .get_inner();
-        let domain_name_binding = args.domain_name.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let target_dns_servers_binding = args.target_dns_servers.get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let target_dns_servers_binding = args
+            .target_dns_servers
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:privatedns/resolverForwardingRule:ResolverForwardingRule"
                 .into(),
@@ -200,7 +205,7 @@ pub mod resolver_forwarding_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

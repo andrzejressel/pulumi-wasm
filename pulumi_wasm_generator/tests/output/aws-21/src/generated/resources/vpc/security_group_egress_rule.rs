@@ -34,42 +34,44 @@
 /// $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
 /// ```
 pub mod security_group_egress_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecurityGroupEgressRuleArgs {
         /// The destination IPv4 CIDR range.
         #[builder(into, default)]
-        pub cidr_ipv4: pulumi_wasm_rust::Output<Option<String>>,
+        pub cidr_ipv4: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The destination IPv6 CIDR range.
         #[builder(into, default)]
-        pub cidr_ipv6: pulumi_wasm_rust::Output<Option<String>>,
+        pub cidr_ipv6: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The security group rule description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
         #[builder(into, default)]
-        pub from_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub from_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
         #[builder(into)]
-        pub ip_protocol: pulumi_wasm_rust::Output<String>,
+        pub ip_protocol: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the destination prefix list.
         #[builder(into, default)]
-        pub prefix_list_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub prefix_list_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The destination security group that is referenced in the rule.
         #[builder(into, default)]
-        pub referenced_security_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub referenced_security_group_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ID of the security group.
         #[builder(into)]
-        pub security_group_id: pulumi_wasm_rust::Output<String>,
+        pub security_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
         #[builder(into, default)]
-        pub to_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub to_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct SecurityGroupEgressRuleResult {
@@ -109,23 +111,28 @@ pub mod security_group_egress_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SecurityGroupEgressRuleArgs,
     ) -> SecurityGroupEgressRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cidr_ipv4_binding = args.cidr_ipv4.get_inner();
-        let cidr_ipv6_binding = args.cidr_ipv6.get_inner();
-        let description_binding = args.description.get_inner();
-        let from_port_binding = args.from_port.get_inner();
-        let ip_protocol_binding = args.ip_protocol.get_inner();
-        let prefix_list_id_binding = args.prefix_list_id.get_inner();
+        let cidr_ipv4_binding = args.cidr_ipv4.get_output(context).get_inner();
+        let cidr_ipv6_binding = args.cidr_ipv6.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let from_port_binding = args.from_port.get_output(context).get_inner();
+        let ip_protocol_binding = args.ip_protocol.get_output(context).get_inner();
+        let prefix_list_id_binding = args.prefix_list_id.get_output(context).get_inner();
         let referenced_security_group_id_binding = args
             .referenced_security_group_id
+            .get_output(context)
             .get_inner();
-        let security_group_id_binding = args.security_group_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let to_port_binding = args.to_port.get_inner();
+        let security_group_id_binding = args
+            .security_group_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let to_port_binding = args.to_port.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule".into(),
             name: name.to_string(),
@@ -214,7 +221,7 @@ pub mod security_group_egress_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

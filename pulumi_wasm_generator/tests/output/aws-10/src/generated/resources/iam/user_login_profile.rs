@@ -33,22 +33,22 @@
 /// Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
 ///
 pub mod user_login_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserLoginProfileArgs {
         /// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
         #[builder(into, default)]
-        pub password_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub password_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
         #[builder(into, default)]
-        pub password_reset_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub password_reset_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
         #[builder(into, default)]
-        pub pgp_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub pgp_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IAM user's name.
         #[builder(into)]
-        pub user: pulumi_wasm_rust::Output<String>,
+        pub user: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserLoginProfileResult {
@@ -71,13 +71,23 @@ pub mod user_login_profile {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UserLoginProfileArgs) -> UserLoginProfileResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UserLoginProfileArgs,
+    ) -> UserLoginProfileResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let password_length_binding = args.password_length.get_inner();
-        let password_reset_required_binding = args.password_reset_required.get_inner();
-        let pgp_key_binding = args.pgp_key.get_inner();
-        let user_binding = args.user.get_inner();
+        let password_length_binding = args
+            .password_length
+            .get_output(context)
+            .get_inner();
+        let password_reset_required_binding = args
+            .password_reset_required
+            .get_output(context)
+            .get_inner();
+        let pgp_key_binding = args.pgp_key.get_output(context).get_inner();
+        let user_binding = args.user.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/userLoginProfile:UserLoginProfile".into(),
             name: name.to_string(),
@@ -124,7 +134,7 @@ pub mod user_login_profile {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

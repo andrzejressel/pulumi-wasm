@@ -96,14 +96,14 @@
 /// ```
 ///
 pub mod dataset {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatasetArgs {
         /// A nested object resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub encryption_spec: pulumi_wasm_rust::Output<
+        pub encryption_spec: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::healthcare::DatasetEncryptionSpec>,
         >,
         /// The location for the Dataset.
@@ -111,19 +111,19 @@ pub mod dataset {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource name for the Dataset.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The default timezone used by this dataset. Must be a either a valid IANA time zone name such as
         /// "America/New_York" or empty, which defaults to UTC. This is used for parsing times in resources
         /// (e.g., HL7 messages) where no explicit timezone is specified.
         #[builder(into, default)]
-        pub time_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DatasetResult {
@@ -153,14 +153,21 @@ pub mod dataset {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DatasetArgs) -> DatasetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DatasetArgs,
+    ) -> DatasetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let encryption_spec_binding = args.encryption_spec.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let time_zone_binding = args.time_zone.get_inner();
+        let encryption_spec_binding = args
+            .encryption_spec
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let time_zone_binding = args.time_zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/dataset:Dataset".into(),
             name: name.to_string(),
@@ -208,7 +215,7 @@ pub mod dataset {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

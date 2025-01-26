@@ -52,39 +52,39 @@
 /// $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
 /// ```
 pub mod caches_iscsi_volume {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CachesIscsiVolumeArgs {
         /// The Amazon Resource Name (ARN) of the gateway.
         #[builder(into)]
-        pub gateway_arn: pulumi_wasm_rust::Output<String>,
+        pub gateway_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
         #[builder(into, default)]
-        pub kms_encrypted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub kms_encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         #[builder(into, default)]
-        pub kms_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         #[builder(into)]
-        pub network_interface_id: pulumi_wasm_rust::Output<String>,
+        pub network_interface_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         #[builder(into, default)]
-        pub snapshot_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub snapshot_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         #[builder(into, default)]
-        pub source_volume_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_volume_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         #[builder(into)]
-        pub target_name: pulumi_wasm_rust::Output<String>,
+        pub target_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The size of the volume in bytes.
         #[builder(into)]
-        pub volume_size_in_bytes: pulumi_wasm_rust::Output<i32>,
+        pub volume_size_in_bytes: pulumi_wasm_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct CachesIscsiVolumeResult {
@@ -131,18 +131,31 @@ pub mod caches_iscsi_volume {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CachesIscsiVolumeArgs) -> CachesIscsiVolumeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CachesIscsiVolumeArgs,
+    ) -> CachesIscsiVolumeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let gateway_arn_binding = args.gateway_arn.get_inner();
-        let kms_encrypted_binding = args.kms_encrypted.get_inner();
-        let kms_key_binding = args.kms_key.get_inner();
-        let network_interface_id_binding = args.network_interface_id.get_inner();
-        let snapshot_id_binding = args.snapshot_id.get_inner();
-        let source_volume_arn_binding = args.source_volume_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_name_binding = args.target_name.get_inner();
-        let volume_size_in_bytes_binding = args.volume_size_in_bytes.get_inner();
+        let gateway_arn_binding = args.gateway_arn.get_output(context).get_inner();
+        let kms_encrypted_binding = args.kms_encrypted.get_output(context).get_inner();
+        let kms_key_binding = args.kms_key.get_output(context).get_inner();
+        let network_interface_id_binding = args
+            .network_interface_id
+            .get_output(context)
+            .get_inner();
+        let snapshot_id_binding = args.snapshot_id.get_output(context).get_inner();
+        let source_volume_arn_binding = args
+            .source_volume_arn
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_name_binding = args.target_name.get_output(context).get_inner();
+        let volume_size_in_bytes_binding = args
+            .volume_size_in_bytes
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume".into(),
             name: name.to_string(),
@@ -239,7 +252,7 @@ pub mod caches_iscsi_volume {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,14 +1,14 @@
 pub mod get_container_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetContainerDefinitionArgs {
         /// Name of the container definition
         #[builder(into)]
-        pub container_name: pulumi_wasm_rust::Output<String>,
+        pub container_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN of the task definition which contains the container
         #[builder(into)]
-        pub task_definition: pulumi_wasm_rust::Output<String>,
+        pub task_definition: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetContainerDefinitionResult {
@@ -41,11 +41,17 @@ pub mod get_container_definition {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetContainerDefinitionArgs) -> GetContainerDefinitionResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetContainerDefinitionArgs,
+    ) -> GetContainerDefinitionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let container_name_binding = args.container_name.get_inner();
-        let task_definition_binding = args.task_definition.get_inner();
+        let container_name_binding = args.container_name.get_output(context).get_inner();
+        let task_definition_binding = args
+            .task_definition
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ecs/getContainerDefinition:getContainerDefinition".into(),
             version: super::super::super::get_version(),
@@ -95,7 +101,7 @@ pub mod get_container_definition {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

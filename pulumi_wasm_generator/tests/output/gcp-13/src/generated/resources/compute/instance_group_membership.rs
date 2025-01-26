@@ -81,26 +81,26 @@
 /// ```
 ///
 pub mod instance_group_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceGroupMembershipArgs {
         /// An instance being added to the InstanceGroup
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
         /// Represents an Instance Group resource name that the instance belongs to.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub instance_group: pulumi_wasm_rust::Output<String>,
+        pub instance_group: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A reference to the zone where the instance group resides.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceGroupMembershipResult {
@@ -122,15 +122,16 @@ pub mod instance_group_membership {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: InstanceGroupMembershipArgs,
     ) -> InstanceGroupMembershipResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let instance_binding = args.instance.get_inner();
-        let instance_group_binding = args.instance_group.get_inner();
-        let project_binding = args.project.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let instance_binding = args.instance.get_output(context).get_inner();
+        let instance_group_binding = args.instance_group.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/instanceGroupMembership:InstanceGroupMembership".into(),
             name: name.to_string(),
@@ -168,7 +169,7 @@ pub mod instance_group_membership {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

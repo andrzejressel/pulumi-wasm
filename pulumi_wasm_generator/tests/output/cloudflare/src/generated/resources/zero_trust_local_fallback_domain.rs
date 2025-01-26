@@ -3,20 +3,20 @@
 /// requests will be passed back to other DNS servers configured on
 /// existing network interfaces on the device.
 pub mod zero_trust_local_fallback_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustLocalFallbackDomainArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub domains: pulumi_wasm_rust::Output<
+        pub domains: pulumi_wasm_rust::InputOrOutput<
             Vec<super::types::ZeroTrustLocalFallbackDomainDomain>,
         >,
         /// The settings policy for which to configure this fallback domain policy.
         #[builder(into, default)]
-        pub policy_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustLocalFallbackDomainResult {
@@ -33,14 +33,15 @@ pub mod zero_trust_local_fallback_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ZeroTrustLocalFallbackDomainArgs,
     ) -> ZeroTrustLocalFallbackDomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let domains_binding = args.domains.get_inner();
-        let policy_id_binding = args.policy_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let domains_binding = args.domains.get_output(context).get_inner();
+        let policy_id_binding = args.policy_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustLocalFallbackDomain:ZeroTrustLocalFallbackDomain"
                 .into(),
@@ -72,7 +73,7 @@ pub mod zero_trust_local_fallback_domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

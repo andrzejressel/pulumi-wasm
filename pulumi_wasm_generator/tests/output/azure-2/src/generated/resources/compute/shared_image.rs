@@ -44,104 +44,110 @@
 /// ```
 ///
 pub mod shared_image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedImageArgs {
         /// Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub accelerated_network_support_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub accelerated_network_support_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub architecture: pulumi_wasm_rust::Output<Option<String>>,
+        pub architecture: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created.
         ///
         /// > **Note:**: Only one of `trusted_launch_supported`, `trusted_launch_enabled`, `confidential_vm_supported` and `confidential_vm_enabled` can be specified.
         #[builder(into, default)]
-        pub confidential_vm_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub confidential_vm_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies if supports creation of both Confidential virtual machines and Gen2 virtual machines with standard security from a compatible Gen2 OS disk VHD or Gen2 Managed image. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub confidential_vm_supported: pulumi_wasm_rust::Output<Option<bool>>,
+        pub confidential_vm_supported: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A description of this Shared Image.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies if the Shared Image supports NVMe disks. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub disk_controller_type_nvme_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disk_controller_type_nvme_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         #[builder(into, default)]
-        pub disk_types_not_alloweds: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub disk_types_not_alloweds: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The end of life date in RFC3339 format of the Image.
         #[builder(into, default)]
-        pub end_of_life_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_of_life_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub eula: pulumi_wasm_rust::Output<Option<String>>,
+        pub eula: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub gallery_name: pulumi_wasm_rust::Output<String>,
+        pub gallery_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies if the Shared Image supports hibernation. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub hibernation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub hibernation_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The generation of HyperV that the Virtual Machine used to create the Shared Image is based on. Possible values are `V1` and `V2`. Defaults to `V1`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub hyper_v_generation: pulumi_wasm_rust::Output<Option<String>>,
+        pub hyper_v_generation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `identifier` block as defined below.
         #[builder(into)]
-        pub identifier: pulumi_wasm_rust::Output<
+        pub identifier: pulumi_wasm_rust::InputOrOutput<
             super::super::types::compute::SharedImageIdentifier,
         >,
         /// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Maximum memory in GB recommended for the Image.
         #[builder(into, default)]
-        pub max_recommended_memory_in_gb: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_recommended_memory_in_gb: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Maximum count of vCPUs recommended for the Image.
         #[builder(into, default)]
-        pub max_recommended_vcpu_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_recommended_vcpu_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Minimum memory in GB recommended for the Image.
         #[builder(into, default)]
-        pub min_recommended_memory_in_gb: pulumi_wasm_rust::Output<Option<i32>>,
+        pub min_recommended_memory_in_gb: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Minimum count of vCPUs recommended for the Image.
         #[builder(into, default)]
-        pub min_recommended_vcpu_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub min_recommended_vcpu_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub os_type: pulumi_wasm_rust::Output<String>,
+        pub os_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The URI containing the Privacy Statement associated with this Shared Image. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub privacy_statement_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub privacy_statement_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `purchase_plan` block as defined below.
         #[builder(into, default)]
-        pub purchase_plan: pulumi_wasm_rust::Output<
+        pub purchase_plan: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::SharedImagePurchasePlan>,
         >,
         /// The URI containing the Release Notes associated with this Shared Image.
         #[builder(into, default)]
-        pub release_note_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub release_note_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         ///
         /// !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
         #[builder(into, default)]
-        pub specialized: pulumi_wasm_rust::Output<Option<bool>>,
+        pub specialized: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A mapping of tags to assign to the Shared Image.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub trusted_launch_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub trusted_launch_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies if supports creation of both Trusted Launch virtual machines and Gen2 virtual machines with standard security created from the Shared Image. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub trusted_launch_supported: pulumi_wasm_rust::Output<Option<bool>>,
+        pub trusted_launch_supported: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct SharedImageResult {
@@ -216,51 +222,92 @@ pub mod shared_image {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SharedImageArgs) -> SharedImageResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SharedImageArgs,
+    ) -> SharedImageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let accelerated_network_support_enabled_binding = args
             .accelerated_network_support_enabled
+            .get_output(context)
             .get_inner();
-        let architecture_binding = args.architecture.get_inner();
-        let confidential_vm_enabled_binding = args.confidential_vm_enabled.get_inner();
+        let architecture_binding = args.architecture.get_output(context).get_inner();
+        let confidential_vm_enabled_binding = args
+            .confidential_vm_enabled
+            .get_output(context)
+            .get_inner();
         let confidential_vm_supported_binding = args
             .confidential_vm_supported
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let disk_controller_type_nvme_enabled_binding = args
             .disk_controller_type_nvme_enabled
+            .get_output(context)
             .get_inner();
-        let disk_types_not_alloweds_binding = args.disk_types_not_alloweds.get_inner();
-        let end_of_life_date_binding = args.end_of_life_date.get_inner();
-        let eula_binding = args.eula.get_inner();
-        let gallery_name_binding = args.gallery_name.get_inner();
-        let hibernation_enabled_binding = args.hibernation_enabled.get_inner();
-        let hyper_v_generation_binding = args.hyper_v_generation.get_inner();
-        let identifier_binding = args.identifier.get_inner();
-        let location_binding = args.location.get_inner();
+        let disk_types_not_alloweds_binding = args
+            .disk_types_not_alloweds
+            .get_output(context)
+            .get_inner();
+        let end_of_life_date_binding = args
+            .end_of_life_date
+            .get_output(context)
+            .get_inner();
+        let eula_binding = args.eula.get_output(context).get_inner();
+        let gallery_name_binding = args.gallery_name.get_output(context).get_inner();
+        let hibernation_enabled_binding = args
+            .hibernation_enabled
+            .get_output(context)
+            .get_inner();
+        let hyper_v_generation_binding = args
+            .hyper_v_generation
+            .get_output(context)
+            .get_inner();
+        let identifier_binding = args.identifier.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let max_recommended_memory_in_gb_binding = args
             .max_recommended_memory_in_gb
+            .get_output(context)
             .get_inner();
         let max_recommended_vcpu_count_binding = args
             .max_recommended_vcpu_count
+            .get_output(context)
             .get_inner();
         let min_recommended_memory_in_gb_binding = args
             .min_recommended_memory_in_gb
+            .get_output(context)
             .get_inner();
         let min_recommended_vcpu_count_binding = args
             .min_recommended_vcpu_count
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let os_type_binding = args.os_type.get_inner();
-        let privacy_statement_uri_binding = args.privacy_statement_uri.get_inner();
-        let purchase_plan_binding = args.purchase_plan.get_inner();
-        let release_note_uri_binding = args.release_note_uri.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let specialized_binding = args.specialized.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let trusted_launch_enabled_binding = args.trusted_launch_enabled.get_inner();
-        let trusted_launch_supported_binding = args.trusted_launch_supported.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let os_type_binding = args.os_type.get_output(context).get_inner();
+        let privacy_statement_uri_binding = args
+            .privacy_statement_uri
+            .get_output(context)
+            .get_inner();
+        let purchase_plan_binding = args.purchase_plan.get_output(context).get_inner();
+        let release_note_uri_binding = args
+            .release_note_uri
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let specialized_binding = args.specialized.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let trusted_launch_enabled_binding = args
+            .trusted_launch_enabled
+            .get_output(context)
+            .get_inner();
+        let trusted_launch_supported_binding = args
+            .trusted_launch_supported
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/sharedImage:SharedImage".into(),
             name: name.to_string(),
@@ -466,7 +513,7 @@ pub mod shared_image {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

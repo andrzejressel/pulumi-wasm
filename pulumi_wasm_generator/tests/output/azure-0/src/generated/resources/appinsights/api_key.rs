@@ -75,24 +75,24 @@
 /// ```
 ///
 pub mod api_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiKeyArgs {
         /// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub application_insights_id: pulumi_wasm_rust::Output<String>,
+        pub application_insights_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub read_permissions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub read_permissions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         ///
         /// > **Note:** At least one read or write permission must be defined.
         #[builder(into, default)]
-        pub write_permissions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub write_permissions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ApiKeyResult {
@@ -113,13 +113,26 @@ pub mod api_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApiKeyArgs) -> ApiKeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApiKeyArgs,
+    ) -> ApiKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_insights_id_binding = args.application_insights_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let read_permissions_binding = args.read_permissions.get_inner();
-        let write_permissions_binding = args.write_permissions.get_inner();
+        let application_insights_id_binding = args
+            .application_insights_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let read_permissions_binding = args
+            .read_permissions
+            .get_output(context)
+            .get_inner();
+        let write_permissions_binding = args
+            .write_permissions
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appinsights/apiKey:ApiKey".into(),
             name: name.to_string(),
@@ -160,7 +173,7 @@ pub mod api_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

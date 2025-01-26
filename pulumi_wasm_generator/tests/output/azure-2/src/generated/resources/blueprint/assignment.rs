@@ -99,46 +99,48 @@
 /// ```
 ///
 pub mod assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssignmentArgs {
         /// An `identity` block as defined below.
         #[builder(into)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             super::super::types::blueprint::AssignmentIdentity,
         >,
         /// The Azure location of the Assignment. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         #[builder(into, default)]
-        pub lock_exclude_actions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub lock_exclude_actions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
         #[builder(into, default)]
-        pub lock_exclude_principals: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub lock_exclude_principals: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`.
         #[builder(into, default)]
-        pub lock_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub lock_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// a JSON string to supply Blueprint Assignment parameter values.
         ///
         /// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         #[builder(into, default)]
-        pub parameter_values: pulumi_wasm_rust::Output<Option<String>>,
+        pub parameter_values: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// a JSON string to supply the Blueprint Resource Group information.
         ///
         /// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         #[builder(into, default)]
-        pub resource_groups: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_groups: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_subscription_id: pulumi_wasm_rust::Output<String>,
+        pub target_subscription_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Published Version of the blueprint to be assigned.
         #[builder(into)]
-        pub version_id: pulumi_wasm_rust::Output<String>,
+        pub version_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AssignmentResult {
@@ -180,19 +182,38 @@ pub mod assignment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AssignmentArgs) -> AssignmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AssignmentArgs,
+    ) -> AssignmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let lock_exclude_actions_binding = args.lock_exclude_actions.get_inner();
-        let lock_exclude_principals_binding = args.lock_exclude_principals.get_inner();
-        let lock_mode_binding = args.lock_mode.get_inner();
-        let name_binding = args.name.get_inner();
-        let parameter_values_binding = args.parameter_values.get_inner();
-        let resource_groups_binding = args.resource_groups.get_inner();
-        let target_subscription_id_binding = args.target_subscription_id.get_inner();
-        let version_id_binding = args.version_id.get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let lock_exclude_actions_binding = args
+            .lock_exclude_actions
+            .get_output(context)
+            .get_inner();
+        let lock_exclude_principals_binding = args
+            .lock_exclude_principals
+            .get_output(context)
+            .get_inner();
+        let lock_mode_binding = args.lock_mode.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parameter_values_binding = args
+            .parameter_values
+            .get_output(context)
+            .get_inner();
+        let resource_groups_binding = args
+            .resource_groups
+            .get_output(context)
+            .get_inner();
+        let target_subscription_id_binding = args
+            .target_subscription_id
+            .get_output(context)
+            .get_inner();
+        let version_id_binding = args.version_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:blueprint/assignment:Assignment".into(),
             name: name.to_string(),
@@ -284,7 +305,7 @@ pub mod assignment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

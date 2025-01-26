@@ -43,12 +43,12 @@
 /// ```
 ///
 pub mod vpn_server_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpnServerConfigurationArgs {
         #[builder(into, default)]
-        pub azure_active_directory_authentications: pulumi_wasm_rust::Output<
+        pub azure_active_directory_authentications: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::VpnServerConfigurationAzureActiveDirectoryAuthentication,
@@ -56,7 +56,7 @@ pub mod vpn_server_configuration {
             >,
         >,
         #[builder(into, default)]
-        pub client_revoked_certificates: pulumi_wasm_rust::Output<
+        pub client_revoked_certificates: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::VpnServerConfigurationClientRevokedCertificate,
@@ -64,7 +64,7 @@ pub mod vpn_server_configuration {
             >,
         >,
         #[builder(into, default)]
-        pub client_root_certificates: pulumi_wasm_rust::Output<
+        pub client_root_certificates: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::network::VpnServerConfigurationClientRootCertificate,
@@ -73,33 +73,33 @@ pub mod vpn_server_configuration {
         >,
         /// A `ipsec_policy` block as defined below.
         #[builder(into, default)]
-        pub ipsec_policy: pulumi_wasm_rust::Output<
+        pub ipsec_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::VpnServerConfigurationIpsecPolicy>,
         >,
         /// The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub radius: pulumi_wasm_rust::Output<
+        pub radius: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::VpnServerConfigurationRadius>,
         >,
         /// The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`.
         #[builder(into)]
-        pub vpn_authentication_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub vpn_authentication_types: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`.
         #[builder(into, default)]
-        pub vpn_protocols: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub vpn_protocols: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct VpnServerConfigurationResult {
@@ -151,6 +151,7 @@ pub mod vpn_server_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpnServerConfigurationArgs,
     ) -> VpnServerConfigurationResult {
@@ -158,19 +159,30 @@ pub mod vpn_server_configuration {
         use std::collections::HashMap;
         let azure_active_directory_authentications_binding = args
             .azure_active_directory_authentications
+            .get_output(context)
             .get_inner();
         let client_revoked_certificates_binding = args
             .client_revoked_certificates
+            .get_output(context)
             .get_inner();
-        let client_root_certificates_binding = args.client_root_certificates.get_inner();
-        let ipsec_policy_binding = args.ipsec_policy.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let radius_binding = args.radius.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpn_authentication_types_binding = args.vpn_authentication_types.get_inner();
-        let vpn_protocols_binding = args.vpn_protocols.get_inner();
+        let client_root_certificates_binding = args
+            .client_root_certificates
+            .get_output(context)
+            .get_inner();
+        let ipsec_policy_binding = args.ipsec_policy.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let radius_binding = args.radius.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpn_authentication_types_binding = args
+            .vpn_authentication_types
+            .get_output(context)
+            .get_inner();
+        let vpn_protocols_binding = args.vpn_protocols.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/vpnServerConfiguration:VpnServerConfiguration".into(),
             name: name.to_string(),
@@ -257,7 +269,7 @@ pub mod vpn_server_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

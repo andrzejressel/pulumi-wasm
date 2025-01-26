@@ -40,8 +40,10 @@ pub struct PulumiServiceImpl {
 }
 
 impl PulumiServiceImpl {
-    pub fn new(connector: impl PulumiConnector + 'static) -> PulumiServiceImpl {
-        let is_in_preview = connector.is_in_preview();
+    pub fn new(
+        connector: impl PulumiConnector + 'static,
+        is_in_preview: bool,
+    ) -> PulumiServiceImpl {
         Self {
             connector: Box::new(connector),
             is_in_preview,

@@ -122,44 +122,44 @@
 /// ```
 ///
 pub mod data_flow {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataFlowArgs {
         /// List of tags that can be used for describing the Data Factory Data Flow.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description for the Data Factory Data Flow.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level.
         #[builder(into, default)]
-        pub folder: pulumi_wasm_rust::Output<Option<String>>,
+        pub folder: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The script for the Data Factory Data Flow.
         #[builder(into, default)]
-        pub script: pulumi_wasm_rust::Output<Option<String>>,
+        pub script: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The script lines for the Data Factory Data Flow.
         #[builder(into, default)]
-        pub script_lines: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub script_lines: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// One or more `sink` blocks as defined below.
         #[builder(into)]
-        pub sinks: pulumi_wasm_rust::Output<
+        pub sinks: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::datafactory::DataFlowSink>,
         >,
         /// One or more `source` blocks as defined below.
         #[builder(into)]
-        pub sources: pulumi_wasm_rust::Output<
+        pub sources: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::datafactory::DataFlowSource>,
         >,
         /// One or more `transformation` blocks as defined below.
         #[builder(into, default)]
-        pub transformations: pulumi_wasm_rust::Output<
+        pub transformations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::datafactory::DataFlowTransformation>>,
         >,
     }
@@ -196,19 +196,29 @@ pub mod data_flow {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DataFlowArgs) -> DataFlowResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DataFlowArgs,
+    ) -> DataFlowResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let data_factory_id_binding = args.data_factory_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let folder_binding = args.folder.get_inner();
-        let name_binding = args.name.get_inner();
-        let script_binding = args.script.get_inner();
-        let script_lines_binding = args.script_lines.get_inner();
-        let sinks_binding = args.sinks.get_inner();
-        let sources_binding = args.sources.get_inner();
-        let transformations_binding = args.transformations.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let data_factory_id_binding = args
+            .data_factory_id
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let folder_binding = args.folder.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let script_binding = args.script.get_output(context).get_inner();
+        let script_lines_binding = args.script_lines.get_output(context).get_inner();
+        let sinks_binding = args.sinks.get_output(context).get_inner();
+        let sources_binding = args.sources.get_output(context).get_inner();
+        let transformations_binding = args
+            .transformations
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datafactory/dataFlow:DataFlow".into(),
             name: name.to_string(),
@@ -288,7 +298,7 @@ pub mod data_flow {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

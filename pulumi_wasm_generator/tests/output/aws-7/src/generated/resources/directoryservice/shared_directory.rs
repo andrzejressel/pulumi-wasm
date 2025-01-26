@@ -11,24 +11,24 @@
 /// $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
 /// ```
 pub mod shared_directory {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedDirectoryArgs {
         /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
         #[builder(into)]
-        pub directory_id: pulumi_wasm_rust::Output<String>,
+        pub directory_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
         #[builder(into, default)]
-        pub method: pulumi_wasm_rust::Output<Option<String>>,
+        pub method: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         #[builder(into, default)]
-        pub notes: pulumi_wasm_rust::Output<Option<String>>,
+        pub notes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub target: pulumi_wasm_rust::Output<
+        pub target: pulumi_wasm_rust::InputOrOutput<
             super::super::types::directoryservice::SharedDirectoryTarget,
         >,
     }
@@ -53,13 +53,17 @@ pub mod shared_directory {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SharedDirectoryArgs) -> SharedDirectoryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SharedDirectoryArgs,
+    ) -> SharedDirectoryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let directory_id_binding = args.directory_id.get_inner();
-        let method_binding = args.method.get_inner();
-        let notes_binding = args.notes.get_inner();
-        let target_binding = args.target.get_inner();
+        let directory_id_binding = args.directory_id.get_output(context).get_inner();
+        let method_binding = args.method.get_output(context).get_inner();
+        let notes_binding = args.notes.get_output(context).get_inner();
+        let target_binding = args.target.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directoryservice/sharedDirectory:SharedDirectory".into(),
             name: name.to_string(),
@@ -100,7 +104,7 @@ pub mod shared_directory {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

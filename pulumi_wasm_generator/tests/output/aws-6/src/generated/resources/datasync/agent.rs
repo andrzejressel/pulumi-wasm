@@ -64,36 +64,36 @@
 /// $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
 /// ```
 pub mod agent {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AgentArgs {
         /// DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
         #[builder(into, default)]
-        pub activation_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub activation_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
         #[builder(into, default)]
-        pub ip_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the DataSync Agent.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
         #[builder(into, default)]
-        pub private_link_endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_link_endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARNs of the security groups used to protect your data transfer task subnets.
         #[builder(into, default)]
-        pub security_group_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub security_group_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         #[builder(into, default)]
-        pub subnet_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub subnet_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
         #[builder(into, default)]
-        pub vpc_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AgentResult {
@@ -126,17 +126,30 @@ pub mod agent {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AgentArgs) -> AgentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AgentArgs,
+    ) -> AgentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let activation_key_binding = args.activation_key.get_inner();
-        let ip_address_binding = args.ip_address.get_inner();
-        let name_binding = args.name.get_inner();
-        let private_link_endpoint_binding = args.private_link_endpoint.get_inner();
-        let security_group_arns_binding = args.security_group_arns.get_inner();
-        let subnet_arns_binding = args.subnet_arns.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_endpoint_id_binding = args.vpc_endpoint_id.get_inner();
+        let activation_key_binding = args.activation_key.get_output(context).get_inner();
+        let ip_address_binding = args.ip_address.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let private_link_endpoint_binding = args
+            .private_link_endpoint
+            .get_output(context)
+            .get_inner();
+        let security_group_arns_binding = args
+            .security_group_arns
+            .get_output(context)
+            .get_inner();
+        let subnet_arns_binding = args.subnet_arns.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_endpoint_id_binding = args
+            .vpc_endpoint_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/agent:Agent".into(),
             name: name.to_string(),
@@ -208,7 +221,7 @@ pub mod agent {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

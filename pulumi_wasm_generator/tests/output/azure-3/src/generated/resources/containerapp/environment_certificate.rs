@@ -50,25 +50,25 @@
 /// ```
 ///
 pub mod environment_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentCertificateArgs {
         /// The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub certificate_blob_base64: pulumi_wasm_rust::Output<String>,
+        pub certificate_blob_base64: pulumi_wasm_rust::InputOrOutput<String>,
         /// The password for the Certificate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub certificate_password: pulumi_wasm_rust::Output<String>,
+        pub certificate_password: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub container_app_environment_id: pulumi_wasm_rust::Output<String>,
+        pub container_app_environment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -102,18 +102,26 @@ pub mod environment_certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EnvironmentCertificateArgs,
     ) -> EnvironmentCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_blob_base64_binding = args.certificate_blob_base64.get_inner();
-        let certificate_password_binding = args.certificate_password.get_inner();
+        let certificate_blob_base64_binding = args
+            .certificate_blob_base64
+            .get_output(context)
+            .get_inner();
+        let certificate_password_binding = args
+            .certificate_password
+            .get_output(context)
+            .get_inner();
         let container_app_environment_id_binding = args
             .container_app_environment_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerapp/environmentCertificate:EnvironmentCertificate"
                 .into(),
@@ -174,7 +182,7 @@ pub mod environment_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

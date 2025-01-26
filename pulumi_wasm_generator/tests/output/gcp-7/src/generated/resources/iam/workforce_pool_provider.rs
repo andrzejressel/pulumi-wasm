@@ -221,7 +221,7 @@
 /// ```
 ///
 pub mod workforce_pool_provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkforcePoolProviderArgs {
@@ -231,7 +231,7 @@ pub mod workforce_pool_provider {
         /// The expression must output a boolean representing whether to allow the federation.
         /// The following keywords may be referenced in the expressions:
         #[builder(into, default)]
-        pub attribute_condition: pulumi_wasm_rust::Output<Option<String>>,
+        pub attribute_condition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Maps attributes from the authentication credentials issued by an external identity provider
         /// to Google Cloud attributes, such as `subject` and `segment`.
         /// Each key must be a string specifying the Google Cloud IAM attribute to map to.
@@ -275,37 +275,37 @@ pub mod workforce_pool_provider {
         /// An object containing a list of `"key": value` pairs.
         /// Example: `{ "name": "wrench", "mass": "1.3kg", "count": "3" }`.
         #[builder(into, default)]
-        pub attribute_mapping: pulumi_wasm_rust::Output<
+        pub attribute_mapping: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A user-specified description of the provider. Cannot exceed 256 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the provider is disabled. You cannot use a disabled provider to exchange tokens.
         /// However, existing tokens still grant access.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A user-specified display name for the provider. Cannot exceed 32 characters.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The configuration for OAuth 2.0 client used to get the additional user
         /// attributes. This should be used when users can't get the desired claims
         /// in authentication credentials. Currently this configuration is only
         /// supported with OIDC protocol.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub extra_attributes_oauth2_client: pulumi_wasm_rust::Output<
+        pub extra_attributes_oauth2_client: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::iam::WorkforcePoolProviderExtraAttributesOauth2Client,
             >,
         >,
         /// The location for the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Represents an OpenId Connect 1.0 identity provider.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub oidc: pulumi_wasm_rust::Output<
+        pub oidc: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iam::WorkforcePoolProviderOidc>,
         >,
         /// The ID for the provider, which becomes the final component of the resource name.
@@ -315,11 +315,11 @@ pub mod workforce_pool_provider {
         ///
         /// - - -
         #[builder(into)]
-        pub provider_id: pulumi_wasm_rust::Output<String>,
+        pub provider_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Represents a SAML identity provider.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub saml: pulumi_wasm_rust::Output<
+        pub saml: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iam::WorkforcePoolProviderSaml>,
         >,
         /// The ID to use for the pool, which becomes the final component of the resource name.
@@ -327,7 +327,7 @@ pub mod workforce_pool_provider {
         /// It must start with a letter, and cannot have a trailing hyphen.
         /// The prefix `gcp-` is reserved for use by Google, and may not be specified.
         #[builder(into)]
-        pub workforce_pool_id: pulumi_wasm_rust::Output<String>,
+        pub workforce_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkforcePoolProviderResult {
@@ -439,24 +439,35 @@ pub mod workforce_pool_provider {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: WorkforcePoolProviderArgs,
     ) -> WorkforcePoolProviderResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attribute_condition_binding = args.attribute_condition.get_inner();
-        let attribute_mapping_binding = args.attribute_mapping.get_inner();
-        let description_binding = args.description.get_inner();
-        let disabled_binding = args.disabled.get_inner();
-        let display_name_binding = args.display_name.get_inner();
+        let attribute_condition_binding = args
+            .attribute_condition
+            .get_output(context)
+            .get_inner();
+        let attribute_mapping_binding = args
+            .attribute_mapping
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
         let extra_attributes_oauth2_client_binding = args
             .extra_attributes_oauth2_client
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let oidc_binding = args.oidc.get_inner();
-        let provider_id_binding = args.provider_id.get_inner();
-        let saml_binding = args.saml.get_inner();
-        let workforce_pool_id_binding = args.workforce_pool_id.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let oidc_binding = args.oidc.get_output(context).get_inner();
+        let provider_id_binding = args.provider_id.get_output(context).get_inner();
+        let saml_binding = args.saml.get_output(context).get_inner();
+        let workforce_pool_id_binding = args
+            .workforce_pool_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iam/workforcePoolProvider:WorkforcePoolProvider".into(),
             name: name.to_string(),
@@ -549,7 +560,7 @@ pub mod workforce_pool_provider {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

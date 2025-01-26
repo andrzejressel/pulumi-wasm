@@ -124,7 +124,7 @@
 /// ```
 ///
 pub mod disk {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DiskArgs {
@@ -134,17 +134,17 @@ pub mod disk {
         /// * READ_WRITE_MANY
         /// * READ_ONLY_SINGLE
         #[builder(into, default)]
-        pub access_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A nested object resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub async_primary_disk: pulumi_wasm_rust::Output<
+        pub async_primary_disk: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::DiskAsyncPrimaryDisk>,
         >,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Encrypts the disk using a customer-supplied encryption key.
         /// After you encrypt a disk with a customer-supplied key, you must
         /// provide the same key if you use the disk later (e.g. to create a disk
@@ -156,18 +156,18 @@ pub mod disk {
         /// you do not need to provide a key to use the disk later.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub disk_encryption_key: pulumi_wasm_rust::Output<
+        pub disk_encryption_key: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::DiskDiskEncryptionKey>,
         >,
         /// Whether this disk is using confidential compute mode.
         /// Note: Only supported on hyperdisk skus, disk_encryption_key is required when setting to true
         #[builder(into, default)]
-        pub enable_confidential_compute: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_confidential_compute: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of features to enable on the guest operating system.
         /// Applicable only for bootable disks.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub guest_os_features: pulumi_wasm_rust::Output<
+        pub guest_os_features: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::DiskGuestOsFeature>>,
         >,
         /// The image from which to initialize this disk. This can be
@@ -180,26 +180,26 @@ pub mod disk {
         /// For instance, the image `centos-6-v20180104` includes its family name `centos-6`.
         /// These images can be referred by family name here.
         #[builder(into, default)]
-        pub image: pulumi_wasm_rust::Output<Option<String>>,
+        pub image: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the disk interface to use for attaching this disk, which is either SCSI or NVME. The default is SCSI.
         ///
         /// > **Warning:** `interface` is deprecated and will be removed in a future major release. This field is no longer used and can be safely removed from your configurations; disk interfaces are automatically determined on attachment.
         #[builder(into, default)]
-        pub interface: pulumi_wasm_rust::Output<Option<String>>,
+        pub interface: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Labels to apply to this disk.  A list of key->value pairs.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Any applicable license URI.
         #[builder(into, default)]
-        pub licenses: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub licenses: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Indicates whether or not the disk can be read/write attached to more than one instance.
         #[builder(into, default)]
-        pub multi_writer: pulumi_wasm_rust::Output<Option<bool>>,
+        pub multi_writer: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -211,28 +211,28 @@ pub mod disk {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Physical block size of the persistent disk, in bytes. If not present
         /// in a request, a default value is used. Currently supported sizes
         /// are 4096 and 16384, other sizes may be added in the future.
         /// If an unsupported value is requested, the error message will list
         /// the supported values for the caller's project.
         #[builder(into, default)]
-        pub physical_block_size_bytes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub physical_block_size_bytes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates how many IOPS must be provisioned for the disk.
         /// Note: Updating currently is only supported by hyperdisk skus without the need to delete and recreate the disk, hyperdisk
         /// allows for an update of IOPS every 4 hours. To update your hyperdisk more frequently, you'll need to manually delete and recreate it
         #[builder(into, default)]
-        pub provisioned_iops: pulumi_wasm_rust::Output<Option<i32>>,
+        pub provisioned_iops: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Indicates how much Throughput must be provisioned for the disk.
         /// Note: Updating currently is only supported by hyperdisk skus without the need to delete and recreate the disk, hyperdisk
         /// allows for an update of Throughput every 4 hours. To update your hyperdisk more frequently, you'll need to manually delete and recreate it
         #[builder(into, default)]
-        pub provisioned_throughput: pulumi_wasm_rust::Output<Option<i32>>,
+        pub provisioned_throughput: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Resource policies applied to this disk for automatic snapshot creations.
         /// ~>**NOTE** This value does not support updating the
         /// resource policy, as resource policies can not be updated more than
@@ -240,7 +240,7 @@ pub mod disk {
         /// `gcp.compute.DiskResourcePolicyAttachment`
         /// to allow for updating the resource policy attached to the disk.
         #[builder(into, default)]
-        pub resource_policies: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub resource_policies: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Size of the persistent disk, specified in GB. You can specify this
         /// field when creating a persistent disk using the `image` or
         /// `snapshot` parameter, or specify it alone to create an empty
@@ -253,7 +253,7 @@ pub mod disk {
         /// You can add `lifecycle.prevent_destroy` in the config to prevent destroying
         /// and recreating.
         #[builder(into, default)]
-        pub size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The source snapshot used to create this disk. You can provide this as
         /// a partial or full URL to the resource. If the snapshot is in another
         /// project than this disk, you must supply a full URL. For example, the
@@ -262,7 +262,7 @@ pub mod disk {
         /// * `projects/project/global/snapshots/snapshot`
         /// * `global/snapshots/snapshot`
         #[builder(into, default)]
-        pub snapshot: pulumi_wasm_rust::Output<Option<String>>,
+        pub snapshot: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The source disk used to create this disk. You can provide this as a partial or full URL to the resource.
         /// For example, the following are valid values:
         /// * https://www.googleapis.com/compute/v1/projects/{project}/zones/{zone}/disks/{disk}
@@ -272,12 +272,12 @@ pub mod disk {
         /// * zones/{zone}/disks/{disk}
         /// * regions/{region}/disks/{disk}
         #[builder(into, default)]
-        pub source_disk: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_disk: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The customer-supplied encryption key of the source image. Required if
         /// the source image is protected by a customer-supplied encryption key.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub source_image_encryption_key: pulumi_wasm_rust::Output<
+        pub source_image_encryption_key: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::DiskSourceImageEncryptionKey>,
         >,
         /// The customer-supplied encryption key of the source snapshot. Required
@@ -285,7 +285,7 @@ pub mod disk {
         /// key.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub source_snapshot_encryption_key: pulumi_wasm_rust::Output<
+        pub source_snapshot_encryption_key: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::DiskSourceSnapshotEncryptionKey>,
         >,
         /// The URL or the name of the storage pool in which the new disk is created.
@@ -295,14 +295,14 @@ pub mod disk {
         /// * /zones/{zone}/storagePools/{storagePool}
         /// * /{storagePool}
         #[builder(into, default)]
-        pub storage_pool: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// URL of the disk type resource describing which disk type to use to
         /// create the disk. Provide this when creating the disk.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A reference to the zone where the disk resides.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DiskResult {
@@ -503,42 +503,68 @@ pub mod disk {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DiskArgs) -> DiskResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DiskArgs,
+    ) -> DiskResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_mode_binding = args.access_mode.get_inner();
-        let async_primary_disk_binding = args.async_primary_disk.get_inner();
-        let description_binding = args.description.get_inner();
-        let disk_encryption_key_binding = args.disk_encryption_key.get_inner();
+        let access_mode_binding = args.access_mode.get_output(context).get_inner();
+        let async_primary_disk_binding = args
+            .async_primary_disk
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let disk_encryption_key_binding = args
+            .disk_encryption_key
+            .get_output(context)
+            .get_inner();
         let enable_confidential_compute_binding = args
             .enable_confidential_compute
+            .get_output(context)
             .get_inner();
-        let guest_os_features_binding = args.guest_os_features.get_inner();
-        let image_binding = args.image.get_inner();
-        let interface_binding = args.interface.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let licenses_binding = args.licenses.get_inner();
-        let multi_writer_binding = args.multi_writer.get_inner();
-        let name_binding = args.name.get_inner();
+        let guest_os_features_binding = args
+            .guest_os_features
+            .get_output(context)
+            .get_inner();
+        let image_binding = args.image.get_output(context).get_inner();
+        let interface_binding = args.interface.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let licenses_binding = args.licenses.get_output(context).get_inner();
+        let multi_writer_binding = args.multi_writer.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let physical_block_size_bytes_binding = args
             .physical_block_size_bytes
+            .get_output(context)
             .get_inner();
-        let project_binding = args.project.get_inner();
-        let provisioned_iops_binding = args.provisioned_iops.get_inner();
-        let provisioned_throughput_binding = args.provisioned_throughput.get_inner();
-        let resource_policies_binding = args.resource_policies.get_inner();
-        let size_binding = args.size.get_inner();
-        let snapshot_binding = args.snapshot.get_inner();
-        let source_disk_binding = args.source_disk.get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let provisioned_iops_binding = args
+            .provisioned_iops
+            .get_output(context)
+            .get_inner();
+        let provisioned_throughput_binding = args
+            .provisioned_throughput
+            .get_output(context)
+            .get_inner();
+        let resource_policies_binding = args
+            .resource_policies
+            .get_output(context)
+            .get_inner();
+        let size_binding = args.size.get_output(context).get_inner();
+        let snapshot_binding = args.snapshot.get_output(context).get_inner();
+        let source_disk_binding = args.source_disk.get_output(context).get_inner();
         let source_image_encryption_key_binding = args
             .source_image_encryption_key
+            .get_output(context)
             .get_inner();
         let source_snapshot_encryption_key_binding = args
             .source_snapshot_encryption_key
+            .get_output(context)
             .get_inner();
-        let storage_pool_binding = args.storage_pool.get_inner();
-        let type__binding = args.type_.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let storage_pool_binding = args.storage_pool.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/disk:Disk".into(),
             name: name.to_string(),
@@ -759,7 +785,7 @@ pub mod disk {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

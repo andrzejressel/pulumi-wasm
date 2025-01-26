@@ -23,50 +23,50 @@
 /// $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
 /// ```
 pub mod volume {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VolumeArgs {
         /// The AZ where the EBS volume will exist.
         #[builder(into)]
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_wasm_rust::InputOrOutput<String>,
         /// If true, the disk will be encrypted.
         #[builder(into, default)]
-        pub encrypted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
         #[builder(into, default)]
-        pub final_snapshot: pulumi_wasm_rust::Output<Option<bool>>,
+        pub final_snapshot: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         #[builder(into, default)]
-        pub iops: pulumi_wasm_rust::Output<Option<i32>>,
+        pub iops: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         #[builder(into, default)]
-        pub multi_attach_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub multi_attach_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Amazon Resource Name (ARN) of the Outpost.
         #[builder(into, default)]
-        pub outpost_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub outpost_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The size of the drive in GiBs.
         #[builder(into, default)]
-        pub size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A snapshot to base the EBS volume off of.
         #[builder(into, default)]
-        pub snapshot_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub snapshot_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         ///
         /// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         #[builder(into, default)]
-        pub throughput: pulumi_wasm_rust::Output<Option<i32>>,
+        pub throughput: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VolumeResult {
@@ -109,21 +109,31 @@ pub mod volume {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VolumeArgs) -> VolumeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VolumeArgs,
+    ) -> VolumeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args.availability_zone.get_inner();
-        let encrypted_binding = args.encrypted.get_inner();
-        let final_snapshot_binding = args.final_snapshot.get_inner();
-        let iops_binding = args.iops.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let multi_attach_enabled_binding = args.multi_attach_enabled.get_inner();
-        let outpost_arn_binding = args.outpost_arn.get_inner();
-        let size_binding = args.size.get_inner();
-        let snapshot_id_binding = args.snapshot_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let throughput_binding = args.throughput.get_inner();
-        let type__binding = args.type_.get_inner();
+        let availability_zone_binding = args
+            .availability_zone
+            .get_output(context)
+            .get_inner();
+        let encrypted_binding = args.encrypted.get_output(context).get_inner();
+        let final_snapshot_binding = args.final_snapshot.get_output(context).get_inner();
+        let iops_binding = args.iops.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let multi_attach_enabled_binding = args
+            .multi_attach_enabled
+            .get_output(context)
+            .get_inner();
+        let outpost_arn_binding = args.outpost_arn.get_output(context).get_inner();
+        let size_binding = args.size.get_output(context).get_inner();
+        let snapshot_id_binding = args.snapshot_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let throughput_binding = args.throughput.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ebs/volume:Volume".into(),
             name: name.to_string(),
@@ -223,7 +233,7 @@ pub mod volume {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

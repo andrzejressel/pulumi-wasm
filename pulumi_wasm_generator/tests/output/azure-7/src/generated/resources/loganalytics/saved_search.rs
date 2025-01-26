@@ -46,34 +46,34 @@
 /// ```
 ///
 pub mod saved_search {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SavedSearchArgs {
         /// The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub category: pulumi_wasm_rust::Output<String>,
+        pub category: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The function alias if the query serves as a function. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub function_alias: pulumi_wasm_rust::Output<Option<String>>,
+        pub function_alias: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
         #[builder(into, default)]
-        pub function_parameters: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub function_parameters: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The query expression for the saved search. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub query: pulumi_wasm_rust::Output<String>,
+        pub query: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -102,19 +102,27 @@ pub mod saved_search {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SavedSearchArgs) -> SavedSearchResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SavedSearchArgs,
+    ) -> SavedSearchResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let category_binding = args.category.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let function_alias_binding = args.function_alias.get_inner();
-        let function_parameters_binding = args.function_parameters.get_inner();
+        let category_binding = args.category.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let function_alias_binding = args.function_alias.get_output(context).get_inner();
+        let function_parameters_binding = args
+            .function_parameters
+            .get_output(context)
+            .get_inner();
         let log_analytics_workspace_id_binding = args
             .log_analytics_workspace_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let query_binding = args.query.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let query_binding = args.query.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:loganalytics/savedSearch:SavedSearch".into(),
             name: name.to_string(),
@@ -180,7 +188,7 @@ pub mod saved_search {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

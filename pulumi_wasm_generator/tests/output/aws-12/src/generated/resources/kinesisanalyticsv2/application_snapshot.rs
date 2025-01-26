@@ -26,16 +26,16 @@
 /// $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
 /// ```
 pub mod application_snapshot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationSnapshotArgs {
         /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         #[builder(into)]
-        pub application_name: pulumi_wasm_rust::Output<String>,
+        pub application_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the application snapshot.
         #[builder(into)]
-        pub snapshot_name: pulumi_wasm_rust::Output<String>,
+        pub snapshot_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApplicationSnapshotResult {
@@ -53,13 +53,17 @@ pub mod application_snapshot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ApplicationSnapshotArgs,
     ) -> ApplicationSnapshotResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_name_binding = args.application_name.get_inner();
-        let snapshot_name_binding = args.snapshot_name.get_inner();
+        let application_name_binding = args
+            .application_name
+            .get_output(context)
+            .get_inner();
+        let snapshot_name_binding = args.snapshot_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot"
                 .into(),
@@ -90,7 +94,7 @@ pub mod application_snapshot {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

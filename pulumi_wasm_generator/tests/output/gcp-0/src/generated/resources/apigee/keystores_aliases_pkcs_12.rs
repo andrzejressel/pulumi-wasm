@@ -25,33 +25,33 @@
 /// ```
 ///
 pub mod keystores_aliases_pkcs_12 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeystoresAliasesPkcs12Args {
         /// Alias Name
         #[builder(into)]
-        pub alias: pulumi_wasm_rust::Output<String>,
+        pub alias: pulumi_wasm_rust::InputOrOutput<String>,
         /// Environment associated with the alias
         #[builder(into)]
-        pub environment: pulumi_wasm_rust::Output<String>,
+        pub environment: pulumi_wasm_rust::InputOrOutput<String>,
         /// PKCS12 file content
         ///
         /// - - -
         #[builder(into)]
-        pub file: pulumi_wasm_rust::Output<String>,
+        pub file: pulumi_wasm_rust::InputOrOutput<String>,
         /// Hash of the pkcs file
         #[builder(into)]
-        pub filehash: pulumi_wasm_rust::Output<String>,
+        pub filehash: pulumi_wasm_rust::InputOrOutput<String>,
         /// Keystore Name
         #[builder(into)]
-        pub keystore: pulumi_wasm_rust::Output<String>,
+        pub keystore: pulumi_wasm_rust::InputOrOutput<String>,
         /// Organization ID associated with the alias, without organization/ prefix
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Password for the PKCS12 file if it's encrypted
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct KeystoresAliasesPkcs12Result {
@@ -84,18 +84,19 @@ pub mod keystores_aliases_pkcs_12 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: KeystoresAliasesPkcs12Args,
     ) -> KeystoresAliasesPkcs12Result {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_inner();
-        let environment_binding = args.environment.get_inner();
-        let file_binding = args.file.get_inner();
-        let filehash_binding = args.filehash.get_inner();
-        let keystore_binding = args.keystore.get_inner();
-        let org_id_binding = args.org_id.get_inner();
-        let password_binding = args.password.get_inner();
+        let alias_binding = args.alias.get_output(context).get_inner();
+        let environment_binding = args.environment.get_output(context).get_inner();
+        let file_binding = args.file.get_output(context).get_inner();
+        let filehash_binding = args.filehash.get_output(context).get_inner();
+        let keystore_binding = args.keystore.get_output(context).get_inner();
+        let org_id_binding = args.org_id.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/keystoresAliasesPkcs12:KeystoresAliasesPkcs12".into(),
             name: name.to_string(),
@@ -160,7 +161,7 @@ pub mod keystores_aliases_pkcs_12 {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

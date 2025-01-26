@@ -64,25 +64,25 @@
 /// ```
 ///
 pub mod registry_token {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegistryTokenArgs {
         /// The name of the Container Registry. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub container_registry_name: pulumi_wasm_rust::Output<String>,
+        pub container_registry_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Should the Container Registry token be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the token. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Container Registry Scope Map associated with the token.
         #[builder(into)]
-        pub scope_map_id: pulumi_wasm_rust::Output<String>,
+        pub scope_map_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RegistryTokenResult {
@@ -101,14 +101,24 @@ pub mod registry_token {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RegistryTokenArgs) -> RegistryTokenResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RegistryTokenArgs,
+    ) -> RegistryTokenResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let container_registry_name_binding = args.container_registry_name.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let scope_map_id_binding = args.scope_map_id.get_inner();
+        let container_registry_name_binding = args
+            .container_registry_name
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let scope_map_id_binding = args.scope_map_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerservice/registryToken:RegistryToken".into(),
             name: name.to_string(),
@@ -153,7 +163,7 @@ pub mod registry_token {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

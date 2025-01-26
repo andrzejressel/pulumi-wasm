@@ -29,21 +29,21 @@
 /// $ pulumi import aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery example ipam-res-disco-0178368ad2146a492
 /// ```
 pub mod vpc_ipam_resource_discovery {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcIpamResourceDiscoveryArgs {
         /// A description for the IPAM Resource Discovery.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
         #[builder(into)]
-        pub operating_regions: pulumi_wasm_rust::Output<
+        pub operating_regions: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::ec2::VpcIpamResourceDiscoveryOperatingRegion>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -77,14 +77,18 @@ pub mod vpc_ipam_resource_discovery {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpcIpamResourceDiscoveryArgs,
     ) -> VpcIpamResourceDiscoveryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let operating_regions_binding = args.operating_regions.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let operating_regions_binding = args
+            .operating_regions
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery".into(),
             name: name.to_string(),
@@ -130,7 +134,7 @@ pub mod vpc_ipam_resource_discovery {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

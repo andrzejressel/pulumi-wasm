@@ -73,40 +73,46 @@
 /// ```
 ///
 pub mod spring_cloud_app_cosmos_db_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudAppCosmosDBAssociationArgs {
         /// Specifies the API type which should be used when connecting to the CosmosDB Account. Possible values are `cassandra`, `gremlin`, `mongo`, `sql` or `table`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_type: pulumi_wasm_rust::Output<String>,
+        pub api_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the CosmosDB Account access key.
         #[builder(into)]
-        pub cosmosdb_access_key: pulumi_wasm_rust::Output<String>,
+        pub cosmosdb_access_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the ID of the CosmosDB Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cosmosdb_account_id: pulumi_wasm_rust::Output<String>,
+        pub cosmosdb_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Cassandra Keyspace which the Spring Cloud App should be associated with. Should only be set when `api_type` is `cassandra`.
         #[builder(into, default)]
-        pub cosmosdb_cassandra_keyspace_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub cosmosdb_cassandra_keyspace_name: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the name of the Gremlin Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
         #[builder(into, default)]
-        pub cosmosdb_gremlin_database_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub cosmosdb_gremlin_database_name: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the name of the Gremlin Graph which the Spring Cloud App should be associated with. Should only be set when `api_type` is `gremlin`.
         #[builder(into, default)]
-        pub cosmosdb_gremlin_graph_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub cosmosdb_gremlin_graph_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Mongo Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `mongo`.
         #[builder(into, default)]
-        pub cosmosdb_mongo_database_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub cosmosdb_mongo_database_name: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
         #[builder(into, default)]
-        pub cosmosdb_sql_database_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub cosmosdb_sql_database_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub spring_cloud_app_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_app_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudAppCosmosDBAssociationResult {
@@ -136,31 +142,46 @@ pub mod spring_cloud_app_cosmos_db_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SpringCloudAppCosmosDBAssociationArgs,
     ) -> SpringCloudAppCosmosDBAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_type_binding = args.api_type.get_inner();
-        let cosmosdb_access_key_binding = args.cosmosdb_access_key.get_inner();
-        let cosmosdb_account_id_binding = args.cosmosdb_account_id.get_inner();
+        let api_type_binding = args.api_type.get_output(context).get_inner();
+        let cosmosdb_access_key_binding = args
+            .cosmosdb_access_key
+            .get_output(context)
+            .get_inner();
+        let cosmosdb_account_id_binding = args
+            .cosmosdb_account_id
+            .get_output(context)
+            .get_inner();
         let cosmosdb_cassandra_keyspace_name_binding = args
             .cosmosdb_cassandra_keyspace_name
+            .get_output(context)
             .get_inner();
         let cosmosdb_gremlin_database_name_binding = args
             .cosmosdb_gremlin_database_name
+            .get_output(context)
             .get_inner();
         let cosmosdb_gremlin_graph_name_binding = args
             .cosmosdb_gremlin_graph_name
+            .get_output(context)
             .get_inner();
         let cosmosdb_mongo_database_name_binding = args
             .cosmosdb_mongo_database_name
+            .get_output(context)
             .get_inner();
         let cosmosdb_sql_database_name_binding = args
             .cosmosdb_sql_database_name
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let spring_cloud_app_id_binding = args.spring_cloud_app_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let spring_cloud_app_id_binding = args
+            .spring_cloud_app_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation"
                 .into(),
@@ -241,7 +262,7 @@ pub mod spring_cloud_app_cosmos_db_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -93,7 +93,7 @@
 /// ```
 ///
 pub mod trust_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrustConfigArgs {
@@ -101,7 +101,7 @@ pub mod trust_config {
         /// the certificate is parseable, proof of private key possession is established, and constraints on the certificate's SAN field are met.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub allowlisted_certificates: pulumi_wasm_rust::Output<
+        pub allowlisted_certificates: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::certificatemanager::TrustConfigAllowlistedCertificate,
@@ -110,12 +110,12 @@ pub mod trust_config {
         >,
         /// One or more paragraphs of text description of a trust config.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Set of label tags associated with the trust config.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The trust config location.
@@ -123,19 +123,19 @@ pub mod trust_config {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// A user-defined name of the trust config. Trust config names must be unique globally.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Set of trust stores to perform validation against.
         /// This field is supported when TrustConfig is configured with Load Balancers, currently not supported for SPIFFE certificate validation.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub trust_stores: pulumi_wasm_rust::Output<
+        pub trust_stores: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::certificatemanager::TrustConfigTrustStore>>,
         >,
     }
@@ -197,16 +197,23 @@ pub mod trust_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TrustConfigArgs) -> TrustConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TrustConfigArgs,
+    ) -> TrustConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allowlisted_certificates_binding = args.allowlisted_certificates.get_inner();
-        let description_binding = args.description.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let trust_stores_binding = args.trust_stores.get_inner();
+        let allowlisted_certificates_binding = args
+            .allowlisted_certificates
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let trust_stores_binding = args.trust_stores.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificatemanager/trustConfig:TrustConfig".into(),
             name: name.to_string(),
@@ -277,7 +284,7 @@ pub mod trust_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

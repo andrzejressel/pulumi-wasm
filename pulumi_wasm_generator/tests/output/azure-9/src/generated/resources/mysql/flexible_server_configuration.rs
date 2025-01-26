@@ -50,22 +50,22 @@
 /// ```
 ///
 pub mod flexible_server_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FlexibleServerConfigurationArgs {
         /// Specifies the name of the MySQL Flexible Server Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which the MySQL Flexible Server exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server_name: pulumi_wasm_rust::Output<String>,
+        pub server_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FlexibleServerConfigurationResult {
@@ -83,15 +83,19 @@ pub mod flexible_server_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FlexibleServerConfigurationArgs,
     ) -> FlexibleServerConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let server_name_binding = args.server_name.get_inner();
-        let value_binding = args.value.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let server_name_binding = args.server_name.get_output(context).get_inner();
+        let value_binding = args.value.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration"
                 .into(),
@@ -130,7 +134,7 @@ pub mod flexible_server_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

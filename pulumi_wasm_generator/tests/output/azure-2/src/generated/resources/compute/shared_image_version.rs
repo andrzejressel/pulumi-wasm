@@ -42,7 +42,7 @@
 /// ```
 ///
 pub mod shared_image_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedImageVersionArgs {
@@ -52,61 +52,61 @@ pub mod shared_image_version {
         ///
         /// > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         #[builder(into, default)]
-        pub blob_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub blob_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether this Shared Image Version can be deleted from the Azure Regions this is replicated to. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub deletion_of_replicated_locations_enabled: pulumi_wasm_rust::Output<
+        pub deletion_of_replicated_locations_enabled: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The end of life date in RFC3339 format of the Image Version.
         #[builder(into, default)]
-        pub end_of_life_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_of_life_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         #[builder(into, default)]
-        pub exclude_from_latest: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exclude_from_latest: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub gallery_name: pulumi_wasm_rust::Output<String>,
+        pub gallery_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub image_name: pulumi_wasm_rust::Output<String>,
+        pub image_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
         ///
         /// > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         #[builder(into, default)]
-        pub managed_image_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub managed_image_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
         #[builder(into, default)]
-        pub os_disk_snapshot_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub os_disk_snapshot_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Mode to be used for replication. Possible values are `Full` and `Shallow`. Defaults to `Full`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub replication_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub replication_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         #[builder(into, default)]
-        pub storage_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A collection of tags which should be applied to this resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// One or more `target_region` blocks as documented below.
         #[builder(into)]
-        pub target_regions: pulumi_wasm_rust::Output<
+        pub target_regions: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::compute::SharedImageVersionTargetRegion>,
         >,
     }
@@ -165,26 +165,52 @@ pub mod shared_image_version {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SharedImageVersionArgs) -> SharedImageVersionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SharedImageVersionArgs,
+    ) -> SharedImageVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let blob_uri_binding = args.blob_uri.get_inner();
+        let blob_uri_binding = args.blob_uri.get_output(context).get_inner();
         let deletion_of_replicated_locations_enabled_binding = args
             .deletion_of_replicated_locations_enabled
+            .get_output(context)
             .get_inner();
-        let end_of_life_date_binding = args.end_of_life_date.get_inner();
-        let exclude_from_latest_binding = args.exclude_from_latest.get_inner();
-        let gallery_name_binding = args.gallery_name.get_inner();
-        let image_name_binding = args.image_name.get_inner();
-        let location_binding = args.location.get_inner();
-        let managed_image_id_binding = args.managed_image_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let os_disk_snapshot_id_binding = args.os_disk_snapshot_id.get_inner();
-        let replication_mode_binding = args.replication_mode.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_regions_binding = args.target_regions.get_inner();
+        let end_of_life_date_binding = args
+            .end_of_life_date
+            .get_output(context)
+            .get_inner();
+        let exclude_from_latest_binding = args
+            .exclude_from_latest
+            .get_output(context)
+            .get_inner();
+        let gallery_name_binding = args.gallery_name.get_output(context).get_inner();
+        let image_name_binding = args.image_name.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let managed_image_id_binding = args
+            .managed_image_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let os_disk_snapshot_id_binding = args
+            .os_disk_snapshot_id
+            .get_output(context)
+            .get_inner();
+        let replication_mode_binding = args
+            .replication_mode
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_regions_binding = args.target_regions.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/sharedImageVersion:SharedImageVersion".into(),
             name: name.to_string(),
@@ -299,7 +325,7 @@ pub mod shared_image_version {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

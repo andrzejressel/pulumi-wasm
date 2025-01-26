@@ -37,47 +37,49 @@
 /// $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
 /// ```
 pub mod classification_job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClassificationJobArgs {
         /// The custom data identifiers to use for data analysis and classification.
         #[builder(into, default)]
-        pub custom_data_identifier_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub custom_data_identifier_ids: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// A custom description of the job. The description can contain as many as 200 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether to analyze all existing, eligible objects immediately after the job is created.
         #[builder(into, default)]
-        pub initial_run: pulumi_wasm_rust::Output<Option<bool>>,
+        pub initial_run: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
         #[builder(into, default)]
-        pub job_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub job_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
         #[builder(into)]
-        pub job_type: pulumi_wasm_rust::Output<String>,
+        pub job_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
         #[builder(into)]
-        pub s3_job_definition: pulumi_wasm_rust::Output<
+        pub s3_job_definition: pulumi_wasm_rust::InputOrOutput<
             super::super::types::macie2::ClassificationJobS3JobDefinition,
         >,
         /// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
         #[builder(into, default)]
-        pub sampling_percentage: pulumi_wasm_rust::Output<Option<i32>>,
+        pub sampling_percentage: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         #[builder(into, default)]
-        pub schedule_frequency: pulumi_wasm_rust::Output<
+        pub schedule_frequency: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::macie2::ClassificationJobScheduleFrequency>,
         >,
         /// A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -127,22 +129,36 @@ pub mod classification_job {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ClassificationJobArgs) -> ClassificationJobResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ClassificationJobArgs,
+    ) -> ClassificationJobResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let custom_data_identifier_ids_binding = args
             .custom_data_identifier_ids
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let initial_run_binding = args.initial_run.get_inner();
-        let job_status_binding = args.job_status.get_inner();
-        let job_type_binding = args.job_type.get_inner();
-        let name_binding = args.name.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let s3_job_definition_binding = args.s3_job_definition.get_inner();
-        let sampling_percentage_binding = args.sampling_percentage.get_inner();
-        let schedule_frequency_binding = args.schedule_frequency.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let initial_run_binding = args.initial_run.get_output(context).get_inner();
+        let job_status_binding = args.job_status.get_output(context).get_inner();
+        let job_type_binding = args.job_type.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let s3_job_definition_binding = args
+            .s3_job_definition
+            .get_output(context)
+            .get_inner();
+        let sampling_percentage_binding = args
+            .sampling_percentage
+            .get_output(context)
+            .get_inner();
+        let schedule_frequency_binding = args
+            .schedule_frequency
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:macie2/classificationJob:ClassificationJob".into(),
             name: name.to_string(),
@@ -244,7 +260,7 @@ pub mod classification_job {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

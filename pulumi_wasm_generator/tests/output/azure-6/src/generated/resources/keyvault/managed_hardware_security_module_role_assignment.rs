@@ -9,26 +9,26 @@
 /// ```
 ///
 pub mod managed_hardware_security_module_role_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedHardwareSecurityModuleRoleAssignmentArgs {
         /// The ID of a Managed Hardware Security Module resource. Changing this forces a new Managed Hardware Security Module to be created.
         /// *
         #[builder(into)]
-        pub managed_hsm_id: pulumi_wasm_rust::Output<String>,
+        pub managed_hsm_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name in GUID notation which should be used for this Managed Hardware Security Module Role Assignment. Changing this forces a new Managed Hardware Security Module to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The principal ID to be assigned to this role. It can point to a user, service principal, or security group. Changing this forces a new Managed Hardware Security Module to be created.
         #[builder(into)]
-        pub principal_id: pulumi_wasm_rust::Output<String>,
+        pub principal_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource ID of the role definition to assign. Changing this forces a new Managed Hardware Security Module to be created.
         #[builder(into)]
-        pub role_definition_id: pulumi_wasm_rust::Output<String>,
+        pub role_definition_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the scope to create the role assignment. Changing this forces a new Managed Hardware Security Module to be created.
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ManagedHardwareSecurityModuleRoleAssignmentResult {
@@ -51,16 +51,20 @@ pub mod managed_hardware_security_module_role_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ManagedHardwareSecurityModuleRoleAssignmentArgs,
     ) -> ManagedHardwareSecurityModuleRoleAssignmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let managed_hsm_id_binding = args.managed_hsm_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let principal_id_binding = args.principal_id.get_inner();
-        let role_definition_id_binding = args.role_definition_id.get_inner();
-        let scope_binding = args.scope.get_inner();
+        let managed_hsm_id_binding = args.managed_hsm_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let principal_id_binding = args.principal_id.get_output(context).get_inner();
+        let role_definition_id_binding = args
+            .role_definition_id
+            .get_output(context)
+            .get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment"
                 .into(),
@@ -109,7 +113,7 @@ pub mod managed_hardware_security_module_role_assignment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

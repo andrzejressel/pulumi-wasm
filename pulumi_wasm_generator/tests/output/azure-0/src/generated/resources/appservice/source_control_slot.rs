@@ -62,40 +62,40 @@
 /// ```
 ///
 pub mod source_control_slot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SourceControlSlotArgs {
         /// The URL for the repository. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub branch: pulumi_wasm_rust::Output<Option<String>>,
+        pub branch: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub github_action_configuration: pulumi_wasm_rust::Output<
+        pub github_action_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::appservice::SourceControlSlotGithubActionConfiguration,
             >,
         >,
         /// The branch name to use for deployments. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub repo_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub repo_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should the Deployment Rollback be enabled? Defaults to `false` Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub rollback_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub rollback_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Function App Slots are not supported at this time.
         #[builder(into)]
-        pub slot_id: pulumi_wasm_rust::Output<String>,
+        pub slot_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Should the Slot use local Git configuration. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub use_local_git: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_local_git: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Should code be deployed manually. Set to `true` to disable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub use_manual_integration: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_manual_integration: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub use_mercurial: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_mercurial: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct SourceControlSlotResult {
@@ -130,19 +130,30 @@ pub mod source_control_slot {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SourceControlSlotArgs) -> SourceControlSlotResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SourceControlSlotArgs,
+    ) -> SourceControlSlotResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let branch_binding = args.branch.get_inner();
+        let branch_binding = args.branch.get_output(context).get_inner();
         let github_action_configuration_binding = args
             .github_action_configuration
+            .get_output(context)
             .get_inner();
-        let repo_url_binding = args.repo_url.get_inner();
-        let rollback_enabled_binding = args.rollback_enabled.get_inner();
-        let slot_id_binding = args.slot_id.get_inner();
-        let use_local_git_binding = args.use_local_git.get_inner();
-        let use_manual_integration_binding = args.use_manual_integration.get_inner();
-        let use_mercurial_binding = args.use_mercurial.get_inner();
+        let repo_url_binding = args.repo_url.get_output(context).get_inner();
+        let rollback_enabled_binding = args
+            .rollback_enabled
+            .get_output(context)
+            .get_inner();
+        let slot_id_binding = args.slot_id.get_output(context).get_inner();
+        let use_local_git_binding = args.use_local_git.get_output(context).get_inner();
+        let use_manual_integration_binding = args
+            .use_manual_integration
+            .get_output(context)
+            .get_inner();
+        let use_mercurial_binding = args.use_mercurial.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/sourceControlSlot:SourceControlSlot".into(),
             name: name.to_string(),
@@ -214,7 +225,7 @@ pub mod source_control_slot {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

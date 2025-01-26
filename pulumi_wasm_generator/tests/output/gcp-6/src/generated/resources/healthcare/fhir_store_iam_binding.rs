@@ -128,12 +128,12 @@
 /// ```
 ///
 pub mod fhir_store_iam_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FhirStoreIamBindingArgs {
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::healthcare::FhirStoreIamBindingCondition>,
         >,
         /// The FHIR store ID, in the form
@@ -141,7 +141,7 @@ pub mod fhir_store_iam_binding {
         /// `{location_name}/{dataset_name}/{fhir_store_name}`. In the second form, the provider's
         /// project setting will be used as a fallback.
         #[builder(into)]
-        pub fhir_store_id: pulumi_wasm_rust::Output<String>,
+        pub fhir_store_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identities that will be granted the privilege in `role`.
         /// Each entry can have one of the following values:
         /// * **allUsers**: A special identifier that represents anyone who is on the internet; with or without a Google account.
@@ -151,12 +151,12 @@ pub mod fhir_store_iam_binding {
         /// * **group:{emailid}**: An email address that represents a Google group. For example, admins@example.com.
         /// * **domain:{domain}**: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
         #[builder(into)]
-        pub members: pulumi_wasm_rust::Output<Vec<String>>,
+        pub members: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The role that should be applied. Only one
         /// `gcp.healthcare.FhirStoreIamBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FhirStoreIamBindingResult {
@@ -189,15 +189,16 @@ pub mod fhir_store_iam_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FhirStoreIamBindingArgs,
     ) -> FhirStoreIamBindingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let condition_binding = args.condition.get_inner();
-        let fhir_store_id_binding = args.fhir_store_id.get_inner();
-        let members_binding = args.members.get_inner();
-        let role_binding = args.role.get_inner();
+        let condition_binding = args.condition.get_output(context).get_inner();
+        let fhir_store_id_binding = args.fhir_store_id.get_output(context).get_inner();
+        let members_binding = args.members.get_output(context).get_inner();
+        let role_binding = args.role.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/fhirStoreIamBinding:FhirStoreIamBinding".into(),
             name: name.to_string(),
@@ -238,7 +239,7 @@ pub mod fhir_store_iam_binding {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

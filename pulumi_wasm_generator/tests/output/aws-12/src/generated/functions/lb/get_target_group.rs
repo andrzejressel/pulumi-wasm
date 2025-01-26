@@ -1,21 +1,23 @@
 pub mod get_target_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetTargetGroupArgs {
         /// Full ARN of the target group.
         #[builder(into, default)]
-        pub arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub load_balancing_anomaly_mitigation: pulumi_wasm_rust::Output<Option<String>>,
+        pub load_balancing_anomaly_mitigation: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Unique name of the target group.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
         ///
         /// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -53,15 +55,19 @@ pub mod get_target_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetTargetGroupArgs) -> GetTargetGroupResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetTargetGroupArgs,
+    ) -> GetTargetGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_inner();
+        let arn_binding = args.arn.get_output(context).get_inner();
         let load_balancing_anomaly_mitigation_binding = args
             .load_balancing_anomaly_mitigation
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lb/getTargetGroup:getTargetGroup".into(),
             version: super::super::super::get_version(),
@@ -152,7 +158,7 @@ pub mod get_target_group {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

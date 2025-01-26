@@ -21,19 +21,19 @@
 /// }
 /// ```
 pub mod multicast_group_source {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MulticastGroupSourceArgs {
         /// The IP address assigned to the transit gateway multicast group.
         #[builder(into)]
-        pub group_ip_address: pulumi_wasm_rust::Output<String>,
+        pub group_ip_address: pulumi_wasm_rust::InputOrOutput<String>,
         /// The group members' network interface ID to register with the transit gateway multicast group.
         #[builder(into)]
-        pub network_interface_id: pulumi_wasm_rust::Output<String>,
+        pub network_interface_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the transit gateway multicast domain.
         #[builder(into)]
-        pub transit_gateway_multicast_domain_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_multicast_domain_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MulticastGroupSourceResult {
@@ -49,15 +49,23 @@ pub mod multicast_group_source {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: MulticastGroupSourceArgs,
     ) -> MulticastGroupSourceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let group_ip_address_binding = args.group_ip_address.get_inner();
-        let network_interface_id_binding = args.network_interface_id.get_inner();
+        let group_ip_address_binding = args
+            .group_ip_address
+            .get_output(context)
+            .get_inner();
+        let network_interface_id_binding = args
+            .network_interface_id
+            .get_output(context)
+            .get_inner();
         let transit_gateway_multicast_domain_id_binding = args
             .transit_gateway_multicast_domain_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/multicastGroupSource:MulticastGroupSource"
@@ -90,7 +98,7 @@ pub mod multicast_group_source {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

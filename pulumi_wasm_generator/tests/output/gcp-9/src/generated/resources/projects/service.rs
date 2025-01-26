@@ -39,7 +39,7 @@
 /// infrastructure and run `pulumi up` to add them to state.
 ///
 pub mod service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceArgs {
@@ -48,7 +48,7 @@ pub mod service {
         /// will be returned if the service to be disabled has usage in last 30 days.
         /// Defaults to `false`.
         #[builder(into, default)]
-        pub check_if_service_has_usage_on_destroy: pulumi_wasm_rust::Output<
+        pub check_if_service_has_usage_on_destroy: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// If `true`, services that are enabled
@@ -56,16 +56,16 @@ pub mod service {
         /// destroyed. If `false` or unset, an error will be generated if any enabled
         /// services depend on this service when destroying it.
         #[builder(into, default)]
-        pub disable_dependent_services: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_dependent_services: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub disable_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_on_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The project ID. If not provided, the provider project
         /// is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The service to enable.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServiceResult {
@@ -92,18 +92,27 @@ pub mod service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServiceArgs) -> ServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServiceArgs,
+    ) -> ServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let check_if_service_has_usage_on_destroy_binding = args
             .check_if_service_has_usage_on_destroy
+            .get_output(context)
             .get_inner();
         let disable_dependent_services_binding = args
             .disable_dependent_services
+            .get_output(context)
             .get_inner();
-        let disable_on_destroy_binding = args.disable_on_destroy.get_inner();
-        let project_binding = args.project.get_inner();
-        let service_binding = args.service.get_inner();
+        let disable_on_destroy_binding = args
+            .disable_on_destroy
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let service_binding = args.service.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:projects/service:Service".into(),
             name: name.to_string(),
@@ -148,7 +157,7 @@ pub mod service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

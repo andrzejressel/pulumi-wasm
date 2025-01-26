@@ -95,13 +95,13 @@
 /// ```
 ///
 pub mod entitlement {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct entitlementArgs {
         /// AdditionalNotificationTargets includes email addresses to be notified.
         #[builder(into, default)]
-        pub additional_notification_targets: pulumi_wasm_rust::Output<
+        pub additional_notification_targets: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::privilegedaccessmanager::EntitlementAdditionalNotificationTargets,
             >,
@@ -109,7 +109,7 @@ pub mod entitlement {
         /// The approvals needed before access will be granted to a requester. No approvals will be needed if this field is null.
         /// Different types of approval workflows that can be used to gate privileged access granting.
         #[builder(into, default)]
-        pub approval_workflow: pulumi_wasm_rust::Output<
+        pub approval_workflow: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::privilegedaccessmanager::EntitlementApprovalWorkflow,
             >,
@@ -117,35 +117,35 @@ pub mod entitlement {
         /// Who can create Grants using Entitlement. This list should contain at most one entry
         /// Structure is documented below.
         #[builder(into)]
-        pub eligible_users: pulumi_wasm_rust::Output<
+        pub eligible_users: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::privilegedaccessmanager::EntitlementEligibleUser>,
         >,
         /// The ID to use for this Entitlement. This will become the last part of the resource name.
         /// This value should be 4-63 characters, and valid characters are "[a-z]", "[0-9]", and "-". The first character should be from [a-z].
         /// This value should be unique among all other Entitlements under the specified `parent`.
         #[builder(into)]
-        pub entitlement_id: pulumi_wasm_rust::Output<String>,
+        pub entitlement_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The region of the Entitlement resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The maximum amount of time for which access would be granted for a request.
         /// A requester can choose to ask for access for less than this duration but never more.
         /// Format: calculate the time in seconds and concatenate it with 's' i.e. 2 hours = "7200s", 45 minutes = "2700s"
         #[builder(into)]
-        pub max_request_duration: pulumi_wasm_rust::Output<String>,
+        pub max_request_duration: pulumi_wasm_rust::InputOrOutput<String>,
         /// Format: projects/{project-id|project-number} or organizations/{organization-number} or folders/{folder-number}
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// Privileged access that this service can be used to gate.
         /// Structure is documented below.
         #[builder(into)]
-        pub privileged_access: pulumi_wasm_rust::Output<
+        pub privileged_access: pulumi_wasm_rust::InputOrOutput<
             super::super::types::privilegedaccessmanager::EntitlementPrivilegedAccess,
         >,
         /// Defines the ways in which a requester should provide the justification while requesting for access.
         /// Structure is documented below.
         #[builder(into)]
-        pub requester_justification_config: pulumi_wasm_rust::Output<
+        pub requester_justification_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::privilegedaccessmanager::EntitlementRequesterJustificationConfig,
         >,
     }
@@ -209,21 +209,36 @@ pub mod entitlement {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: entitlementArgs) -> entitlementResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: entitlementArgs,
+    ) -> entitlementResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let additional_notification_targets_binding = args
             .additional_notification_targets
+            .get_output(context)
             .get_inner();
-        let approval_workflow_binding = args.approval_workflow.get_inner();
-        let eligible_users_binding = args.eligible_users.get_inner();
-        let entitlement_id_binding = args.entitlement_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let max_request_duration_binding = args.max_request_duration.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let privileged_access_binding = args.privileged_access.get_inner();
+        let approval_workflow_binding = args
+            .approval_workflow
+            .get_output(context)
+            .get_inner();
+        let eligible_users_binding = args.eligible_users.get_output(context).get_inner();
+        let entitlement_id_binding = args.entitlement_id.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let max_request_duration_binding = args
+            .max_request_duration
+            .get_output(context)
+            .get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let privileged_access_binding = args
+            .privileged_access
+            .get_output(context)
+            .get_inner();
         let requester_justification_config_binding = args
             .requester_justification_config
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:privilegedaccessmanager/entitlement:entitlement".into(),
@@ -312,7 +327,7 @@ pub mod entitlement {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

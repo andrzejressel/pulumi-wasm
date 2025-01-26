@@ -61,26 +61,26 @@
 /// ```
 ///
 pub mod document_ai_warehouse_document_schema {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DocumentAiWarehouseDocumentSchemaArgs {
         /// Name of the schema given by the user.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Tells whether the document is a folder or a typical document.
         #[builder(into, default)]
-        pub document_is_folder: pulumi_wasm_rust::Output<Option<bool>>,
+        pub document_is_folder: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The unique identifier of the project.
         #[builder(into)]
-        pub project_number: pulumi_wasm_rust::Output<String>,
+        pub project_number: pulumi_wasm_rust::InputOrOutput<String>,
         /// Defines the metadata for a schema property.
         /// Structure is documented below.
         #[builder(into)]
-        pub property_definitions: pulumi_wasm_rust::Output<
+        pub property_definitions: pulumi_wasm_rust::InputOrOutput<
             Vec<
                 super::super::types::essentialcontacts::DocumentAiWarehouseDocumentSchemaPropertyDefinition,
             >,
@@ -111,16 +111,23 @@ pub mod document_ai_warehouse_document_schema {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DocumentAiWarehouseDocumentSchemaArgs,
     ) -> DocumentAiWarehouseDocumentSchemaResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_inner();
-        let document_is_folder_binding = args.document_is_folder.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_number_binding = args.project_number.get_inner();
-        let property_definitions_binding = args.property_definitions.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let document_is_folder_binding = args
+            .document_is_folder
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_number_binding = args.project_number.get_output(context).get_inner();
+        let property_definitions_binding = args
+            .property_definitions
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:essentialcontacts/documentAiWarehouseDocumentSchema:DocumentAiWarehouseDocumentSchema"
                 .into(),
@@ -169,7 +176,7 @@ pub mod document_ai_warehouse_document_schema {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

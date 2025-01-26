@@ -1,20 +1,20 @@
 pub mod get_layer_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetLayerVersionArgs {
         /// Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
         #[builder(into, default)]
-        pub compatible_architecture: pulumi_wasm_rust::Output<Option<String>>,
+        pub compatible_architecture: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
         #[builder(into, default)]
-        pub compatible_runtime: pulumi_wasm_rust::Output<Option<String>>,
+        pub compatible_runtime: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the lambda layer.
         #[builder(into)]
-        pub layer_name: pulumi_wasm_rust::Output<String>,
+        pub layer_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::Output<Option<i32>>,
+        pub version: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct GetLayerVersionResult {
@@ -54,13 +54,22 @@ pub mod get_layer_version {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetLayerVersionArgs) -> GetLayerVersionResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetLayerVersionArgs,
+    ) -> GetLayerVersionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let compatible_architecture_binding = args.compatible_architecture.get_inner();
-        let compatible_runtime_binding = args.compatible_runtime.get_inner();
-        let layer_name_binding = args.layer_name.get_inner();
-        let version_binding = args.version.get_inner();
+        let compatible_architecture_binding = args
+            .compatible_architecture
+            .get_output(context)
+            .get_inner();
+        let compatible_runtime_binding = args
+            .compatible_runtime
+            .get_output(context)
+            .get_inner();
+        let layer_name_binding = args.layer_name.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lambda/getLayerVersion:getLayerVersion".into(),
             version: super::super::super::get_version(),
@@ -136,7 +145,7 @@ pub mod get_layer_version {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

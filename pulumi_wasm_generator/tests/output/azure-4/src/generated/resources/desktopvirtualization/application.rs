@@ -74,40 +74,40 @@
 /// ```
 ///
 pub mod application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationArgs {
         /// Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub application_group_id: pulumi_wasm_rust::Output<String>,
+        pub application_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
         #[builder(into)]
-        pub command_line_argument_policy: pulumi_wasm_rust::Output<String>,
+        pub command_line_argument_policy: pulumi_wasm_rust::InputOrOutput<String>,
         /// Command Line Arguments for Virtual Desktop Application.
         #[builder(into, default)]
-        pub command_line_arguments: pulumi_wasm_rust::Output<Option<String>>,
+        pub command_line_arguments: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Option to set a description for the Virtual Desktop Application.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Option to set a friendly name for the Virtual Desktop Application.
         #[builder(into, default)]
-        pub friendly_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub friendly_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The index of the icon you wish to use.
         #[builder(into, default)]
-        pub icon_index: pulumi_wasm_rust::Output<Option<i32>>,
+        pub icon_index: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the path for an icon which will be used for this Virtual Desktop Application.
         #[builder(into, default)]
-        pub icon_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub icon_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Virtual Desktop Application. Changing the name forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The file path location of the app on the Virtual Desktop OS.
         #[builder(into)]
-        pub path: pulumi_wasm_rust::Output<String>,
+        pub path: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies whether to show the RemoteApp program in the RD Web Access server.
         #[builder(into, default)]
-        pub show_in_portal: pulumi_wasm_rust::Output<Option<bool>>,
+        pub show_in_portal: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ApplicationResult {
@@ -136,21 +136,32 @@ pub mod application {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApplicationArgs) -> ApplicationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApplicationArgs,
+    ) -> ApplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_group_id_binding = args.application_group_id.get_inner();
+        let application_group_id_binding = args
+            .application_group_id
+            .get_output(context)
+            .get_inner();
         let command_line_argument_policy_binding = args
             .command_line_argument_policy
+            .get_output(context)
             .get_inner();
-        let command_line_arguments_binding = args.command_line_arguments.get_inner();
-        let description_binding = args.description.get_inner();
-        let friendly_name_binding = args.friendly_name.get_inner();
-        let icon_index_binding = args.icon_index.get_inner();
-        let icon_path_binding = args.icon_path.get_inner();
-        let name_binding = args.name.get_inner();
-        let path_binding = args.path.get_inner();
-        let show_in_portal_binding = args.show_in_portal.get_inner();
+        let command_line_arguments_binding = args
+            .command_line_arguments
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let friendly_name_binding = args.friendly_name.get_output(context).get_inner();
+        let icon_index_binding = args.icon_index.get_output(context).get_inner();
+        let icon_path_binding = args.icon_path.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let path_binding = args.path.get_output(context).get_inner();
+        let show_in_portal_binding = args.show_in_portal.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:desktopvirtualization/application:Application".into(),
             name: name.to_string(),
@@ -230,7 +241,7 @@ pub mod application {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

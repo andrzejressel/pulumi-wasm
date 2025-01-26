@@ -38,40 +38,40 @@
 /// $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
 /// ```
 pub mod organization_managed_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationManagedRuleArgs {
         /// Description of the rule
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of AWS account identifiers to exclude from the rule
         #[builder(into, default)]
-        pub excluded_accounts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub excluded_accounts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A string in JSON format that is passed to the AWS Config Rule Lambda Function
         #[builder(into, default)]
-        pub input_parameters: pulumi_wasm_rust::Output<Option<String>>,
+        pub input_parameters: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         #[builder(into, default)]
-        pub maximum_execution_frequency: pulumi_wasm_rust::Output<Option<String>>,
+        pub maximum_execution_frequency: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the rule
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of the AWS resource to evaluate
         #[builder(into, default)]
-        pub resource_id_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_id_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of types of AWS resources to evaluate
         #[builder(into, default)]
-        pub resource_types_scopes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub resource_types_scopes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
         #[builder(into)]
-        pub rule_identifier: pulumi_wasm_rust::Output<String>,
+        pub rule_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Tag key of AWS resources to evaluate
         #[builder(into, default)]
-        pub tag_key_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub tag_key_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Tag value of AWS resources to evaluate
         #[builder(into, default)]
-        pub tag_value_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub tag_value_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct OrganizationManagedRuleResult {
@@ -103,23 +103,43 @@ pub mod organization_managed_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OrganizationManagedRuleArgs,
     ) -> OrganizationManagedRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let excluded_accounts_binding = args.excluded_accounts.get_inner();
-        let input_parameters_binding = args.input_parameters.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let excluded_accounts_binding = args
+            .excluded_accounts
+            .get_output(context)
+            .get_inner();
+        let input_parameters_binding = args
+            .input_parameters
+            .get_output(context)
+            .get_inner();
         let maximum_execution_frequency_binding = args
             .maximum_execution_frequency
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_id_scope_binding = args.resource_id_scope.get_inner();
-        let resource_types_scopes_binding = args.resource_types_scopes.get_inner();
-        let rule_identifier_binding = args.rule_identifier.get_inner();
-        let tag_key_scope_binding = args.tag_key_scope.get_inner();
-        let tag_value_scope_binding = args.tag_value_scope.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_id_scope_binding = args
+            .resource_id_scope
+            .get_output(context)
+            .get_inner();
+        let resource_types_scopes_binding = args
+            .resource_types_scopes
+            .get_output(context)
+            .get_inner();
+        let rule_identifier_binding = args
+            .rule_identifier
+            .get_output(context)
+            .get_inner();
+        let tag_key_scope_binding = args.tag_key_scope.get_output(context).get_inner();
+        let tag_value_scope_binding = args
+            .tag_value_scope
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/organizationManagedRule:OrganizationManagedRule".into(),
             name: name.to_string(),
@@ -202,7 +222,7 @@ pub mod organization_managed_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

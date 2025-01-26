@@ -72,29 +72,29 @@
 /// $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
 /// ```
 pub mod connector_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectorProfileArgs {
         /// Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         #[builder(into)]
-        pub connection_mode: pulumi_wasm_rust::Output<String>,
+        pub connection_mode: pulumi_wasm_rust::InputOrOutput<String>,
         /// The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
         #[builder(into, default)]
-        pub connector_label: pulumi_wasm_rust::Output<Option<String>>,
+        pub connector_label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         #[builder(into)]
-        pub connector_profile_config: pulumi_wasm_rust::Output<
+        pub connector_profile_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::appflow::ConnectorProfileConnectorProfileConfig,
         >,
         /// The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         #[builder(into)]
-        pub connector_type: pulumi_wasm_rust::Output<String>,
+        pub connector_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         #[builder(into, default)]
-        pub kms_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ConnectorProfileResult {
@@ -120,15 +120,28 @@ pub mod connector_profile {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectorProfileArgs) -> ConnectorProfileResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectorProfileArgs,
+    ) -> ConnectorProfileResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let connection_mode_binding = args.connection_mode.get_inner();
-        let connector_label_binding = args.connector_label.get_inner();
-        let connector_profile_config_binding = args.connector_profile_config.get_inner();
-        let connector_type_binding = args.connector_type.get_inner();
-        let kms_arn_binding = args.kms_arn.get_inner();
-        let name_binding = args.name.get_inner();
+        let connection_mode_binding = args
+            .connection_mode
+            .get_output(context)
+            .get_inner();
+        let connector_label_binding = args
+            .connector_label
+            .get_output(context)
+            .get_inner();
+        let connector_profile_config_binding = args
+            .connector_profile_config
+            .get_output(context)
+            .get_inner();
+        let connector_type_binding = args.connector_type.get_output(context).get_inner();
+        let kms_arn_binding = args.kms_arn.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appflow/connectorProfile:ConnectorProfile".into(),
             name: name.to_string(),
@@ -186,7 +199,7 @@ pub mod connector_profile {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -45,51 +45,51 @@
 /// $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
 /// ```
 pub mod workspace_saml_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceSamlConfigurationArgs {
         /// The admin role values.
         #[builder(into, default)]
-        pub admin_role_values: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub admin_role_values: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The allowed organizations.
         #[builder(into, default)]
-        pub allowed_organizations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub allowed_organizations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The editor role values.
         #[builder(into)]
-        pub editor_role_values: pulumi_wasm_rust::Output<Vec<String>>,
+        pub editor_role_values: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The email assertion.
         #[builder(into, default)]
-        pub email_assertion: pulumi_wasm_rust::Output<Option<String>>,
+        pub email_assertion: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The groups assertion.
         #[builder(into, default)]
-        pub groups_assertion: pulumi_wasm_rust::Output<Option<String>>,
+        pub groups_assertion: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IDP Metadata URL. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
         #[builder(into, default)]
-        pub idp_metadata_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub idp_metadata_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IDP Metadata XML. Note that either `idp_metadata_url` or `idp_metadata_xml` (but not both) must be specified.
         #[builder(into, default)]
-        pub idp_metadata_xml: pulumi_wasm_rust::Output<Option<String>>,
+        pub idp_metadata_xml: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The login assertion.
         #[builder(into, default)]
-        pub login_assertion: pulumi_wasm_rust::Output<Option<String>>,
+        pub login_assertion: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The login validity duration.
         #[builder(into, default)]
-        pub login_validity_duration: pulumi_wasm_rust::Output<Option<i32>>,
+        pub login_validity_duration: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name assertion.
         #[builder(into, default)]
-        pub name_assertion: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_assertion: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The org assertion.
         #[builder(into, default)]
-        pub org_assertion: pulumi_wasm_rust::Output<Option<String>>,
+        pub org_assertion: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The role assertion.
         #[builder(into, default)]
-        pub role_assertion: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_assertion: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The workspace id.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkspaceSamlConfigurationResult {
@@ -129,24 +129,52 @@ pub mod workspace_saml_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: WorkspaceSamlConfigurationArgs,
     ) -> WorkspaceSamlConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let admin_role_values_binding = args.admin_role_values.get_inner();
-        let allowed_organizations_binding = args.allowed_organizations.get_inner();
-        let editor_role_values_binding = args.editor_role_values.get_inner();
-        let email_assertion_binding = args.email_assertion.get_inner();
-        let groups_assertion_binding = args.groups_assertion.get_inner();
-        let idp_metadata_url_binding = args.idp_metadata_url.get_inner();
-        let idp_metadata_xml_binding = args.idp_metadata_xml.get_inner();
-        let login_assertion_binding = args.login_assertion.get_inner();
-        let login_validity_duration_binding = args.login_validity_duration.get_inner();
-        let name_assertion_binding = args.name_assertion.get_inner();
-        let org_assertion_binding = args.org_assertion.get_inner();
-        let role_assertion_binding = args.role_assertion.get_inner();
-        let workspace_id_binding = args.workspace_id.get_inner();
+        let admin_role_values_binding = args
+            .admin_role_values
+            .get_output(context)
+            .get_inner();
+        let allowed_organizations_binding = args
+            .allowed_organizations
+            .get_output(context)
+            .get_inner();
+        let editor_role_values_binding = args
+            .editor_role_values
+            .get_output(context)
+            .get_inner();
+        let email_assertion_binding = args
+            .email_assertion
+            .get_output(context)
+            .get_inner();
+        let groups_assertion_binding = args
+            .groups_assertion
+            .get_output(context)
+            .get_inner();
+        let idp_metadata_url_binding = args
+            .idp_metadata_url
+            .get_output(context)
+            .get_inner();
+        let idp_metadata_xml_binding = args
+            .idp_metadata_xml
+            .get_output(context)
+            .get_inner();
+        let login_assertion_binding = args
+            .login_assertion
+            .get_output(context)
+            .get_inner();
+        let login_validity_duration_binding = args
+            .login_validity_duration
+            .get_output(context)
+            .get_inner();
+        let name_assertion_binding = args.name_assertion.get_output(context).get_inner();
+        let org_assertion_binding = args.org_assertion.get_output(context).get_inner();
+        let role_assertion_binding = args.role_assertion.get_output(context).get_inner();
+        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration"
                 .into(),
@@ -251,7 +279,7 @@ pub mod workspace_saml_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -162,18 +162,18 @@
 /// ```
 ///
 pub mod ha_vpn_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HaVpnGatewayArgs {
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IP family of the gateway IPs for the HA-VPN gateway interfaces. If not specified, IPV4 will be used.
         /// Default value is `IPV4`.
         /// Possible values are: `IPV4`, `IPV6`.
         #[builder(into, default)]
-        pub gateway_ip_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub gateway_ip_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035.  Specifically, the name must be 1-63 characters long and
@@ -182,30 +182,30 @@ pub mod ha_vpn_gateway {
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The network this VPN gateway is accepting traffic for.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The region this gateway should sit in.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The stack type for this VPN gateway to identify the IP protocols that are enabled.
         /// If not specified, IPV4_ONLY will be used.
         /// Default value is `IPV4_ONLY`.
         /// Possible values are: `IPV4_ONLY`, `IPV4_IPV6`, `IPV6_ONLY`.
         #[builder(into, default)]
-        pub stack_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub stack_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of interfaces on this VPN gateway.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub vpn_interfaces: pulumi_wasm_rust::Output<
+        pub vpn_interfaces: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::HaVpnGatewayVpnInterface>>,
         >,
     }
@@ -252,17 +252,24 @@ pub mod ha_vpn_gateway {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HaVpnGatewayArgs) -> HaVpnGatewayResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HaVpnGatewayArgs,
+    ) -> HaVpnGatewayResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let gateway_ip_version_binding = args.gateway_ip_version.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let stack_type_binding = args.stack_type.get_inner();
-        let vpn_interfaces_binding = args.vpn_interfaces.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let gateway_ip_version_binding = args
+            .gateway_ip_version
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let stack_type_binding = args.stack_type.get_output(context).get_inner();
+        let vpn_interfaces_binding = args.vpn_interfaces.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/haVpnGateway:HaVpnGateway".into(),
             name: name.to_string(),
@@ -331,7 +338,7 @@ pub mod ha_vpn_gateway {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

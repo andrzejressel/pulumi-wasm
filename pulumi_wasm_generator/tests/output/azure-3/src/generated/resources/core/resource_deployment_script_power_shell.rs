@@ -52,26 +52,26 @@
 /// ```
 ///
 pub mod resource_deployment_script_power_shell {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceDeploymentScriptPowerShellArgs {
         /// Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub cleanup_preference: pulumi_wasm_rust::Output<Option<String>>,
+        pub cleanup_preference: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub command_line: pulumi_wasm_rust::Output<Option<String>>,
+        pub command_line: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub container: pulumi_wasm_rust::Output<
+        pub container: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::core::ResourceDeploymentScriptPowerShellContainer,
             >,
         >,
         /// An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub environment_variables: pulumi_wasm_rust::Output<
+        pub environment_variables: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::core::ResourceDeploymentScriptPowerShellEnvironmentVariable,
@@ -80,51 +80,51 @@ pub mod resource_deployment_script_power_shell {
         >,
         /// Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub force_update_tag: pulumi_wasm_rust::Output<Option<String>>,
+        pub force_update_tag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::core::ResourceDeploymentScriptPowerShellIdentity>,
         >,
         /// Specifies the Azure Region where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Resource Deployment Script. The name length must be from 1 to 260 characters. The name can only contain alphanumeric, underscore, parentheses, hyphen and period, and it cannot end with a period. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Uri for the script. This is the entry point for the external script. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub primary_script_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub primary_script_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into)]
-        pub retention_interval: pulumi_wasm_rust::Output<String>,
+        pub retention_interval: pulumi_wasm_rust::InputOrOutput<String>,
         /// Script body. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub script_content: pulumi_wasm_rust::Output<Option<String>>,
+        pub script_content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub storage_account: pulumi_wasm_rust::Output<
+        pub storage_account: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::core::ResourceDeploymentScriptPowerShellStorageAccount,
             >,
         >,
         /// Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub supporting_script_uris: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub supporting_script_uris: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A mapping of tags which should be assigned to the Resource Deployment Script.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::Output<Option<String>>,
+        pub timeout: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the version of the Azure PowerShell that should be used in the format `X.Y` (e.g. `9.7`). A canonical list of versions [is available from the Microsoft Container Registry API](https://mcr.microsoft.com/v2/azure-powershell/tags/list). Changing this forces a new Resource Deployment Script to be created.
         #[builder(into)]
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResourceDeploymentScriptPowerShellResult {
@@ -188,28 +188,53 @@ pub mod resource_deployment_script_power_shell {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ResourceDeploymentScriptPowerShellArgs,
     ) -> ResourceDeploymentScriptPowerShellResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cleanup_preference_binding = args.cleanup_preference.get_inner();
-        let command_line_binding = args.command_line.get_inner();
-        let container_binding = args.container.get_inner();
-        let environment_variables_binding = args.environment_variables.get_inner();
-        let force_update_tag_binding = args.force_update_tag.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let primary_script_uri_binding = args.primary_script_uri.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let retention_interval_binding = args.retention_interval.get_inner();
-        let script_content_binding = args.script_content.get_inner();
-        let storage_account_binding = args.storage_account.get_inner();
-        let supporting_script_uris_binding = args.supporting_script_uris.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeout_binding = args.timeout.get_inner();
-        let version_binding = args.version.get_inner();
+        let cleanup_preference_binding = args
+            .cleanup_preference
+            .get_output(context)
+            .get_inner();
+        let command_line_binding = args.command_line.get_output(context).get_inner();
+        let container_binding = args.container.get_output(context).get_inner();
+        let environment_variables_binding = args
+            .environment_variables
+            .get_output(context)
+            .get_inner();
+        let force_update_tag_binding = args
+            .force_update_tag
+            .get_output(context)
+            .get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let primary_script_uri_binding = args
+            .primary_script_uri
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let retention_interval_binding = args
+            .retention_interval
+            .get_output(context)
+            .get_inner();
+        let script_content_binding = args.script_content.get_output(context).get_inner();
+        let storage_account_binding = args
+            .storage_account
+            .get_output(context)
+            .get_inner();
+        let supporting_script_uris_binding = args
+            .supporting_script_uris
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeout_binding = args.timeout.get_output(context).get_inner();
+        let version_binding = args.version.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell"
                 .into(),
@@ -342,7 +367,7 @@ pub mod resource_deployment_script_power_shell {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

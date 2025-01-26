@@ -51,34 +51,34 @@
 /// }
 /// ```
 pub mod ssl_negotiation_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SslNegotiationPolicyArgs {
         /// An SSL Negotiation policy attribute. Each has two properties:
         #[builder(into, default)]
-        pub attributes: pulumi_wasm_rust::Output<
+        pub attributes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::elb::SslNegotiationPolicyAttribute>>,
         >,
         /// The load balancer port to which the policy
         /// should be applied. This must be an active listener on the load
         /// balancer.
         #[builder(into)]
-        pub lb_port: pulumi_wasm_rust::Output<i32>,
+        pub lb_port: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The load balancer to which the policy
         /// should be attached.
         #[builder(into)]
-        pub load_balancer: pulumi_wasm_rust::Output<String>,
+        pub load_balancer: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the SSL negotiation policy.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         ///
         /// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
         ///
         /// > **NOTE:** The AWS documentation references Server Order Preference, which the AWS Elastic Load Balancing API refers to as `Server-Defined-Cipher-Order`. If you wish to set Server Order Preference, use this value instead.
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -111,16 +111,17 @@ pub mod ssl_negotiation_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SslNegotiationPolicyArgs,
     ) -> SslNegotiationPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let attributes_binding = args.attributes.get_inner();
-        let lb_port_binding = args.lb_port.get_inner();
-        let load_balancer_binding = args.load_balancer.get_inner();
-        let name_binding = args.name.get_inner();
-        let triggers_binding = args.triggers.get_inner();
+        let attributes_binding = args.attributes.get_output(context).get_inner();
+        let lb_port_binding = args.lb_port.get_output(context).get_inner();
+        let load_balancer_binding = args.load_balancer.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let triggers_binding = args.triggers.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elb/sslNegotiationPolicy:SslNegotiationPolicy".into(),
             name: name.to_string(),
@@ -165,7 +166,7 @@ pub mod ssl_negotiation_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

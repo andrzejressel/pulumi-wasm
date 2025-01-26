@@ -1,22 +1,22 @@
 pub mod get_patch_baseline {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPatchBaselineArgs {
         /// Filters the results against the baselines default_baseline field.
         #[builder(into, default)]
-        pub default_baseline: pulumi_wasm_rust::Output<Option<bool>>,
+        pub default_baseline: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Filter results by the baseline name prefix.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specified OS for the baseline. Valid values: `AMAZON_LINUX`, `AMAZON_LINUX_2`, `UBUNTU`, `REDHAT_ENTERPRISE_LINUX`, `SUSE`, `CENTOS`, `ORACLE_LINUX`, `DEBIAN`, `MACOS`, `RASPBIAN` and `ROCKY_LINUX`.
         #[builder(into, default)]
-        pub operating_system: pulumi_wasm_rust::Output<Option<String>>,
+        pub operating_system: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub owner: pulumi_wasm_rust::Output<String>,
+        pub owner: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetPatchBaselineResult {
@@ -59,13 +59,22 @@ pub mod get_patch_baseline {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetPatchBaselineArgs) -> GetPatchBaselineResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetPatchBaselineArgs,
+    ) -> GetPatchBaselineResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let default_baseline_binding = args.default_baseline.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let operating_system_binding = args.operating_system.get_inner();
-        let owner_binding = args.owner.get_inner();
+        let default_baseline_binding = args
+            .default_baseline
+            .get_output(context)
+            .get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let operating_system_binding = args
+            .operating_system
+            .get_output(context)
+            .get_inner();
+        let owner_binding = args.owner.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssm/getPatchBaseline:getPatchBaseline".into(),
             version: super::super::super::get_version(),
@@ -138,7 +147,7 @@ pub mod get_patch_baseline {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

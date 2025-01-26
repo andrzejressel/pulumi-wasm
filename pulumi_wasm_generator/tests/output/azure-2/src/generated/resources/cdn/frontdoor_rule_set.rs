@@ -41,16 +41,16 @@
 /// ```
 ///
 pub mod frontdoor_rule_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorRuleSetArgs {
         /// The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created.
         #[builder(into)]
-        pub cdn_frontdoor_profile_id: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FrontdoorRuleSetResult {
@@ -63,11 +63,18 @@ pub mod frontdoor_rule_set {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FrontdoorRuleSetArgs) -> FrontdoorRuleSetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FrontdoorRuleSetArgs,
+    ) -> FrontdoorRuleSetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cdn_frontdoor_profile_id_binding = args.cdn_frontdoor_profile_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let cdn_frontdoor_profile_id_binding = args
+            .cdn_frontdoor_profile_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorRuleSet:FrontdoorRuleSet".into(),
             name: name.to_string(),
@@ -91,7 +98,7 @@ pub mod frontdoor_rule_set {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

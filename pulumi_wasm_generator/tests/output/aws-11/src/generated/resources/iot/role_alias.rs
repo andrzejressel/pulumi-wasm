@@ -36,22 +36,22 @@
 /// $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
 /// ```
 pub mod role_alias {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoleAliasArgs {
         /// The name of the role alias.
         #[builder(into)]
-        pub alias: pulumi_wasm_rust::Output<String>,
+        pub alias: pulumi_wasm_rust::InputOrOutput<String>,
         /// The duration of the credential, in seconds. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 900 seconds (15 minutes) to 43200 seconds (12 hours).
         #[builder(into, default)]
-        pub credential_duration: pulumi_wasm_rust::Output<Option<i32>>,
+        pub credential_duration: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The identity of the role to which the alias refers.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -78,13 +78,20 @@ pub mod role_alias {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RoleAliasArgs) -> RoleAliasResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RoleAliasArgs,
+    ) -> RoleAliasResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alias_binding = args.alias.get_inner();
-        let credential_duration_binding = args.credential_duration.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let alias_binding = args.alias.get_output(context).get_inner();
+        let credential_duration_binding = args
+            .credential_duration
+            .get_output(context)
+            .get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/roleAlias:RoleAlias".into(),
             name: name.to_string(),
@@ -128,7 +135,7 @@ pub mod role_alias {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

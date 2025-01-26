@@ -69,34 +69,34 @@
 /// ```
 ///
 pub mod output_synapse {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OutputSynapseArgs {
         /// The name of the Azure SQL database. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub database: pulumi_wasm_rust::Output<String>,
+        pub database: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The password that will be used to connect to the Azure SQL database.
         #[builder(into)]
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the SQL server containing the Azure SQL database. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server: pulumi_wasm_rust::Output<String>,
+        pub server: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_name: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the table in the Azure SQL database. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub table: pulumi_wasm_rust::Output<String>,
+        pub table: pulumi_wasm_rust::InputOrOutput<String>,
         /// The user name that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub user: pulumi_wasm_rust::Output<String>,
+        pub user: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OutputSynapseResult {
@@ -121,19 +121,27 @@ pub mod output_synapse {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: OutputSynapseArgs) -> OutputSynapseResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: OutputSynapseArgs,
+    ) -> OutputSynapseResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let database_binding = args.database.get_inner();
-        let name_binding = args.name.get_inner();
-        let password_binding = args.password.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let server_binding = args.server.get_inner();
+        let database_binding = args.database.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let server_binding = args.server.get_output(context).get_inner();
         let stream_analytics_job_name_binding = args
             .stream_analytics_job_name
+            .get_output(context)
             .get_inner();
-        let table_binding = args.table.get_inner();
-        let user_binding = args.user.get_inner();
+        let table_binding = args.table.get_output(context).get_inner();
+        let user_binding = args.user.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:streamanalytics/outputSynapse:OutputSynapse".into(),
             name: name.to_string(),
@@ -199,7 +207,7 @@ pub mod output_synapse {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

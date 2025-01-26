@@ -75,7 +75,7 @@
 /// ```
 ///
 pub mod static_web_app_function_app_registration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StaticWebAppFunctionAppRegistrationArgs {
@@ -85,10 +85,10 @@ pub mod static_web_app_function_app_registration {
         ///
         /// > **NOTE:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
         #[builder(into)]
-        pub function_app_id: pulumi_wasm_rust::Output<String>,
+        pub function_app_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Static Web App to register the Function App to as a backend. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub static_web_app_id: pulumi_wasm_rust::Output<String>,
+        pub static_web_app_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct StaticWebAppFunctionAppRegistrationResult {
@@ -106,13 +106,20 @@ pub mod static_web_app_function_app_registration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: StaticWebAppFunctionAppRegistrationArgs,
     ) -> StaticWebAppFunctionAppRegistrationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let function_app_id_binding = args.function_app_id.get_inner();
-        let static_web_app_id_binding = args.static_web_app_id.get_inner();
+        let function_app_id_binding = args
+            .function_app_id
+            .get_output(context)
+            .get_inner();
+        let static_web_app_id_binding = args
+            .static_web_app_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration"
                 .into(),
@@ -137,7 +144,7 @@ pub mod static_web_app_function_app_registration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

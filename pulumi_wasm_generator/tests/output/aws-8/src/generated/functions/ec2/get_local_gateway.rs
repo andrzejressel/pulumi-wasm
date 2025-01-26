@@ -1,27 +1,27 @@
 pub mod get_local_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetLocalGatewayArgs {
         /// Custom filter block as described below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetLocalGatewayFilter>>,
         >,
         /// Id of the specific Local Gateway to retrieve.
         #[builder(into, default)]
-        pub id: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Current state of the desired Local Gateway.
         /// Can be either `"pending"` or `"available"`.
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::Output<Option<String>>,
+        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired Local Gateway.
         ///
         /// More complex filters can be expressed using one or more `filter` sub-blocks,
         /// which take the following arguments:
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -43,13 +43,16 @@ pub mod get_local_gateway {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetLocalGatewayArgs) -> GetLocalGatewayResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetLocalGatewayArgs,
+    ) -> GetLocalGatewayResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let id_binding = args.id.get_inner();
-        let state_binding = args.state.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let id_binding = args.id.get_output(context).get_inner();
+        let state_binding = args.state.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getLocalGateway:getLocalGateway".into(),
             version: super::super::super::get_version(),
@@ -92,7 +95,7 @@ pub mod get_local_gateway {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -32,7 +32,7 @@
 /// ```
 ///
 pub mod firewall_endpoint_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FirewallEndpointAssociationArgs {
@@ -40,16 +40,16 @@ pub mod firewall_endpoint_association {
         /// > **Note:** The API will reject the request if this value is set to true when creating the resource,
         /// otherwise on an update the association can be disabled.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The URL of the firewall endpoint that is being associated.
         #[builder(into)]
-        pub firewall_endpoint: pulumi_wasm_rust::Output<String>,
+        pub firewall_endpoint: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of key/value label pairs to assign to the resource.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location (zone) of the firewall endpoint association.
@@ -57,20 +57,20 @@ pub mod firewall_endpoint_association {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the firewall endpoint association resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URL of the network that is being associated.
         #[builder(into)]
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the parent this firewall endpoint association belongs to.
         /// Format: projects/{project_id}.
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URL of the TlsInspectionPolicy that is being associated.
         #[builder(into, default)]
-        pub tls_inspection_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub tls_inspection_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FirewallEndpointAssociationResult {
@@ -126,19 +126,26 @@ pub mod firewall_endpoint_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FirewallEndpointAssociationArgs,
     ) -> FirewallEndpointAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let disabled_binding = args.disabled.get_inner();
-        let firewall_endpoint_binding = args.firewall_endpoint.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let tls_inspection_policy_binding = args.tls_inspection_policy.get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let firewall_endpoint_binding = args
+            .firewall_endpoint
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let tls_inspection_policy_binding = args
+            .tls_inspection_policy
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:networksecurity/firewallEndpointAssociation:FirewallEndpointAssociation"
                 .into(),
@@ -226,7 +233,7 @@ pub mod firewall_endpoint_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

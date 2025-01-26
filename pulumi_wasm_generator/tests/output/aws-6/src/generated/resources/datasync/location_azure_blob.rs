@@ -35,36 +35,36 @@
 /// $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 /// ```
 pub mod location_azure_blob {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LocationAzureBlobArgs {
         /// The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
         #[builder(into, default)]
-        pub access_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of DataSync Agent ARNs with which this location will be associated.
         #[builder(into)]
-        pub agent_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub agent_arns: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         #[builder(into)]
-        pub authentication_type: pulumi_wasm_rust::Output<String>,
+        pub authentication_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         #[builder(into, default)]
-        pub blob_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub blob_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URL of the Azure Blob Storage container involved in your transfer.
         #[builder(into)]
-        pub container_url: pulumi_wasm_rust::Output<String>,
+        pub container_url: pulumi_wasm_rust::InputOrOutput<String>,
         /// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         #[builder(into, default)]
-        pub sas_configuration: pulumi_wasm_rust::Output<
+        pub sas_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datasync::LocationAzureBlobSasConfiguration>,
         >,
         /// Path segments if you want to limit your transfer to a virtual directory in the container.
         #[builder(into, default)]
-        pub subdirectory: pulumi_wasm_rust::Output<Option<String>>,
+        pub subdirectory: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -102,17 +102,27 @@ pub mod location_azure_blob {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LocationAzureBlobArgs) -> LocationAzureBlobResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LocationAzureBlobArgs,
+    ) -> LocationAzureBlobResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_tier_binding = args.access_tier.get_inner();
-        let agent_arns_binding = args.agent_arns.get_inner();
-        let authentication_type_binding = args.authentication_type.get_inner();
-        let blob_type_binding = args.blob_type.get_inner();
-        let container_url_binding = args.container_url.get_inner();
-        let sas_configuration_binding = args.sas_configuration.get_inner();
-        let subdirectory_binding = args.subdirectory.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let access_tier_binding = args.access_tier.get_output(context).get_inner();
+        let agent_arns_binding = args.agent_arns.get_output(context).get_inner();
+        let authentication_type_binding = args
+            .authentication_type
+            .get_output(context)
+            .get_inner();
+        let blob_type_binding = args.blob_type.get_output(context).get_inner();
+        let container_url_binding = args.container_url.get_output(context).get_inner();
+        let sas_configuration_binding = args
+            .sas_configuration
+            .get_output(context)
+            .get_inner();
+        let subdirectory_binding = args.subdirectory.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datasync/locationAzureBlob:LocationAzureBlob".into(),
             name: name.to_string(),
@@ -187,7 +197,7 @@ pub mod location_azure_blob {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

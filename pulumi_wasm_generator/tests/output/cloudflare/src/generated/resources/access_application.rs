@@ -15,124 +15,126 @@
 /// ```
 ///
 pub mod access_application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessApplicationArgs {
         /// The account identifier to target for the resource. Conflicts with `zone_id`.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// When set to true, users can authenticate to this application using their WARP session. When set to false this application will always require direct IdP authentication. This setting always overrides the organization setting for WARP authentication.
         #[builder(into, default)]
-        pub allow_authenticate_via_warp: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_authenticate_via_warp: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The identity providers selected for the application.
         #[builder(into, default)]
-        pub allowed_idps: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub allowed_idps: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The logo URL of the app launcher.
         #[builder(into, default)]
-        pub app_launcher_logo_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub app_launcher_logo_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Option to show/hide applications in App Launcher. Defaults to `true`.
         #[builder(into, default)]
-        pub app_launcher_visible: pulumi_wasm_rust::Output<Option<bool>>,
+        pub app_launcher_visible: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Option to skip identity provider selection if only one is configured in `allowed_idps`. Defaults to `false`.
         #[builder(into, default)]
-        pub auto_redirect_to_identity: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_redirect_to_identity: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The background color of the app launcher.
         #[builder(into, default)]
-        pub bg_color: pulumi_wasm_rust::Output<Option<String>>,
+        pub bg_color: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// CORS configuration for the Access Application. See below for reference structure.
         #[builder(into, default)]
-        pub cors_headers: pulumi_wasm_rust::Output<
+        pub cors_headers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::AccessApplicationCorsHeader>>,
         >,
         /// Option that returns a custom error message when a user is denied access to the application.
         #[builder(into, default)]
-        pub custom_deny_message: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_deny_message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Option that redirects to a custom URL when a user is denied access to the application via identity based rules.
         #[builder(into, default)]
-        pub custom_deny_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_deny_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Option that redirects to a custom URL when a user is denied access to the application via non identity rules.
         #[builder(into, default)]
-        pub custom_non_identity_deny_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_non_identity_deny_url: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The custom pages selected for the application.
         #[builder(into, default)]
-        pub custom_pages: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub custom_pages: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The primary hostname and path that Access will secure. If the app is visible in the App Launcher dashboard, this is the domain that will be displayed.
         #[builder(into, default)]
-        pub domain: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Option to provide increased security against compromised authorization tokens and CSRF attacks by requiring an additional "binding" cookie on requests. Defaults to `false`.
         #[builder(into, default)]
-        pub enable_binding_cookie: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_binding_cookie: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The footer links of the app launcher.
         #[builder(into, default)]
-        pub footer_links: pulumi_wasm_rust::Output<
+        pub footer_links: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::AccessApplicationFooterLink>>,
         >,
         /// The background color of the header bar in the app launcher.
         #[builder(into, default)]
-        pub header_bg_color: pulumi_wasm_rust::Output<Option<String>>,
+        pub header_bg_color: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Option to add the `HttpOnly` cookie flag to access tokens.
         #[builder(into, default)]
-        pub http_only_cookie_attribute: pulumi_wasm_rust::Output<Option<bool>>,
+        pub http_only_cookie_attribute: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The landing page design of the app launcher.
         #[builder(into, default)]
-        pub landing_page_design: pulumi_wasm_rust::Output<
+        pub landing_page_design: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::AccessApplicationLandingPageDesign>,
         >,
         /// Image URL for the logo shown in the app launcher dashboard.
         #[builder(into, default)]
-        pub logo_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub logo_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Friendly name of the Access Application.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Allows options preflight requests to bypass Access authentication and go directly to the origin. Cannot turn on if cors_headers is set. Defaults to `false`.
         #[builder(into, default)]
-        pub options_preflight_bypass: pulumi_wasm_rust::Output<Option<bool>>,
+        pub options_preflight_bypass: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The policies associated with the application, in ascending order of precedence. Warning: Do not use this field while you still have this application ID referenced as `application_id` in any `cloudflare.AccessPolicy` resource, as it can result in an inconsistent state.
         #[builder(into, default)]
-        pub policies: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub policies: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// SaaS configuration for the Access Application.
         #[builder(into, default)]
-        pub saas_app: pulumi_wasm_rust::Output<
+        pub saas_app: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::AccessApplicationSaasApp>,
         >,
         /// Defines the same-site cookie setting for access tokens. Available values: `none`, `lax`, `strict`.
         #[builder(into, default)]
-        pub same_site_cookie_attribute: pulumi_wasm_rust::Output<Option<String>>,
+        pub same_site_cookie_attribute: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for provisioning to this application via SCIM. This is currently in closed beta.
         #[builder(into, default)]
-        pub scim_config: pulumi_wasm_rust::Output<
+        pub scim_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::types::AccessApplicationScimConfig>,
         >,
         /// List of domains that access will secure. Only present for self_hosted, vnc, and ssh applications. Always includes the value set as `domain`.
         #[builder(into, default)]
-        pub self_hosted_domains: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub self_hosted_domains: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Option to return a 401 status code in service authentication rules on failed requests. Defaults to `false`.
         #[builder(into, default)]
-        pub service_auth401_redirect: pulumi_wasm_rust::Output<Option<bool>>,
+        pub service_auth401_redirect: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// How often a user will be forced to re-authorise. Must be in the format `48h` or `2h45m`. Defaults to `24h`.
         #[builder(into, default)]
-        pub session_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub session_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Option to skip the App Launcher landing page. Defaults to `false`.
         #[builder(into, default)]
-        pub skip_app_launcher_login_page: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_app_launcher_login_page: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Option to skip the authorization interstitial when using the CLI. Defaults to `false`.
         #[builder(into, default)]
-        pub skip_interstitial: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_interstitial: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The itags associated with the application.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The payload for an infrastructure application which defines the port, protocol, and target attributes. Only applicable to Infrastructure Applications, in which case this field is required.
         #[builder(into, default)]
-        pub target_criterias: pulumi_wasm_rust::Output<
+        pub target_criterias: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::AccessApplicationTargetCriteria>>,
         >,
         /// The application type. Available values: `app_launcher`, `bookmark`, `biso`, `dash_sso`, `saas`, `self_hosted`, `ssh`, `vnc`, `warp`, `infrastructure`. Defaults to `self_hosted`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The zone identifier to target for the resource. Conflicts with `account_id`.
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AccessApplicationResult {
@@ -223,55 +225,104 @@ pub mod access_application {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccessApplicationArgs) -> AccessApplicationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccessApplicationArgs,
+    ) -> AccessApplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
         let allow_authenticate_via_warp_binding = args
             .allow_authenticate_via_warp
+            .get_output(context)
             .get_inner();
-        let allowed_idps_binding = args.allowed_idps.get_inner();
-        let app_launcher_logo_url_binding = args.app_launcher_logo_url.get_inner();
-        let app_launcher_visible_binding = args.app_launcher_visible.get_inner();
+        let allowed_idps_binding = args.allowed_idps.get_output(context).get_inner();
+        let app_launcher_logo_url_binding = args
+            .app_launcher_logo_url
+            .get_output(context)
+            .get_inner();
+        let app_launcher_visible_binding = args
+            .app_launcher_visible
+            .get_output(context)
+            .get_inner();
         let auto_redirect_to_identity_binding = args
             .auto_redirect_to_identity
+            .get_output(context)
             .get_inner();
-        let bg_color_binding = args.bg_color.get_inner();
-        let cors_headers_binding = args.cors_headers.get_inner();
-        let custom_deny_message_binding = args.custom_deny_message.get_inner();
-        let custom_deny_url_binding = args.custom_deny_url.get_inner();
+        let bg_color_binding = args.bg_color.get_output(context).get_inner();
+        let cors_headers_binding = args.cors_headers.get_output(context).get_inner();
+        let custom_deny_message_binding = args
+            .custom_deny_message
+            .get_output(context)
+            .get_inner();
+        let custom_deny_url_binding = args
+            .custom_deny_url
+            .get_output(context)
+            .get_inner();
         let custom_non_identity_deny_url_binding = args
             .custom_non_identity_deny_url
+            .get_output(context)
             .get_inner();
-        let custom_pages_binding = args.custom_pages.get_inner();
-        let domain_binding = args.domain.get_inner();
-        let enable_binding_cookie_binding = args.enable_binding_cookie.get_inner();
-        let footer_links_binding = args.footer_links.get_inner();
-        let header_bg_color_binding = args.header_bg_color.get_inner();
+        let custom_pages_binding = args.custom_pages.get_output(context).get_inner();
+        let domain_binding = args.domain.get_output(context).get_inner();
+        let enable_binding_cookie_binding = args
+            .enable_binding_cookie
+            .get_output(context)
+            .get_inner();
+        let footer_links_binding = args.footer_links.get_output(context).get_inner();
+        let header_bg_color_binding = args
+            .header_bg_color
+            .get_output(context)
+            .get_inner();
         let http_only_cookie_attribute_binding = args
             .http_only_cookie_attribute
+            .get_output(context)
             .get_inner();
-        let landing_page_design_binding = args.landing_page_design.get_inner();
-        let logo_url_binding = args.logo_url.get_inner();
-        let name_binding = args.name.get_inner();
-        let options_preflight_bypass_binding = args.options_preflight_bypass.get_inner();
-        let policies_binding = args.policies.get_inner();
-        let saas_app_binding = args.saas_app.get_inner();
+        let landing_page_design_binding = args
+            .landing_page_design
+            .get_output(context)
+            .get_inner();
+        let logo_url_binding = args.logo_url.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let options_preflight_bypass_binding = args
+            .options_preflight_bypass
+            .get_output(context)
+            .get_inner();
+        let policies_binding = args.policies.get_output(context).get_inner();
+        let saas_app_binding = args.saas_app.get_output(context).get_inner();
         let same_site_cookie_attribute_binding = args
             .same_site_cookie_attribute
+            .get_output(context)
             .get_inner();
-        let scim_config_binding = args.scim_config.get_inner();
-        let self_hosted_domains_binding = args.self_hosted_domains.get_inner();
-        let service_auth401_redirect_binding = args.service_auth401_redirect.get_inner();
-        let session_duration_binding = args.session_duration.get_inner();
+        let scim_config_binding = args.scim_config.get_output(context).get_inner();
+        let self_hosted_domains_binding = args
+            .self_hosted_domains
+            .get_output(context)
+            .get_inner();
+        let service_auth401_redirect_binding = args
+            .service_auth401_redirect
+            .get_output(context)
+            .get_inner();
+        let session_duration_binding = args
+            .session_duration
+            .get_output(context)
+            .get_inner();
         let skip_app_launcher_login_page_binding = args
             .skip_app_launcher_login_page
+            .get_output(context)
             .get_inner();
-        let skip_interstitial_binding = args.skip_interstitial.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_criterias_binding = args.target_criterias.get_inner();
-        let type__binding = args.type_.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let skip_interstitial_binding = args
+            .skip_interstitial
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_criterias_binding = args
+            .target_criterias
+            .get_output(context)
+            .get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/accessApplication:AccessApplication".into(),
             name: name.to_string(),
@@ -522,7 +573,7 @@ pub mod access_application {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

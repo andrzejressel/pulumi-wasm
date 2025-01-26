@@ -44,45 +44,45 @@
 /// $ pulumi import aws:datazone/environment:Environment example dzd_d2i7tzk3tnjjf4,5vpywijpwryec0
 /// ```
 pub mod environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentArgs {
         /// The ID of the Amazon Web Services account where the environment exists
         #[builder(into, default)]
-        pub account_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Web Services region where the environment exists.
         #[builder(into, default)]
-        pub account_region: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The blueprint with which the environment is created.
         #[builder(into, default)]
-        pub blueprint_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub blueprint_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the domain where the environment exists.
         #[builder(into)]
-        pub domain_identifier: pulumi_wasm_rust::Output<String>,
+        pub domain_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The business glossary terms that can be used in this environment.
         #[builder(into, default)]
-        pub glossary_terms: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub glossary_terms: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the environment.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the profile with which the environment is created.
         #[builder(into)]
-        pub profile_identifier: pulumi_wasm_rust::Output<String>,
+        pub profile_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project where the environment exists.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub project_identifier: pulumi_wasm_rust::Output<String>,
+        pub project_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datazone::EnvironmentTimeouts>,
         >,
         /// The user parameters that are used in the environment. See User Parameters for more information.
         #[builder(into, default)]
-        pub user_parameters: pulumi_wasm_rust::Output<
+        pub user_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::datazone::EnvironmentUserParameter>>,
         >,
     }
@@ -132,20 +132,42 @@ pub mod environment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EnvironmentArgs) -> EnvironmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EnvironmentArgs,
+    ) -> EnvironmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_identifier_binding = args.account_identifier.get_inner();
-        let account_region_binding = args.account_region.get_inner();
-        let blueprint_identifier_binding = args.blueprint_identifier.get_inner();
-        let description_binding = args.description.get_inner();
-        let domain_identifier_binding = args.domain_identifier.get_inner();
-        let glossary_terms_binding = args.glossary_terms.get_inner();
-        let name_binding = args.name.get_inner();
-        let profile_identifier_binding = args.profile_identifier.get_inner();
-        let project_identifier_binding = args.project_identifier.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
-        let user_parameters_binding = args.user_parameters.get_inner();
+        let account_identifier_binding = args
+            .account_identifier
+            .get_output(context)
+            .get_inner();
+        let account_region_binding = args.account_region.get_output(context).get_inner();
+        let blueprint_identifier_binding = args
+            .blueprint_identifier
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let domain_identifier_binding = args
+            .domain_identifier
+            .get_output(context)
+            .get_inner();
+        let glossary_terms_binding = args.glossary_terms.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let profile_identifier_binding = args
+            .profile_identifier
+            .get_output(context)
+            .get_inner();
+        let project_identifier_binding = args
+            .project_identifier
+            .get_output(context)
+            .get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let user_parameters_binding = args
+            .user_parameters
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datazone/environment:Environment".into(),
             name: name.to_string(),
@@ -247,7 +269,7 @@ pub mod environment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

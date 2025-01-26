@@ -56,20 +56,20 @@
 /// ```
 ///
 pub mod entity_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EntityTypeArgs {
         /// The name of this entity type to be displayed on the console.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Enables fuzzy entity extraction during classification.
         #[builder(into, default)]
-        pub enable_fuzzy_extraction: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_fuzzy_extraction: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The collection of entity entries associated with the entity type.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub entities: pulumi_wasm_rust::Output<
+        pub entities: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::diagflow::EntityTypeEntity>>,
         >,
         /// Indicates the kind of entity type.
@@ -82,11 +82,11 @@ pub mod entity_type {
         ///
         /// - - -
         #[builder(into)]
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EntityTypeResult {
@@ -120,14 +120,21 @@ pub mod entity_type {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EntityTypeArgs) -> EntityTypeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EntityTypeArgs,
+    ) -> EntityTypeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_inner();
-        let enable_fuzzy_extraction_binding = args.enable_fuzzy_extraction.get_inner();
-        let entities_binding = args.entities.get_inner();
-        let kind_binding = args.kind.get_inner();
-        let project_binding = args.project.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enable_fuzzy_extraction_binding = args
+            .enable_fuzzy_extraction
+            .get_output(context)
+            .get_inner();
+        let entities_binding = args.entities.get_output(context).get_inner();
+        let kind_binding = args.kind.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:diagflow/entityType:EntityType".into(),
             name: name.to_string(),
@@ -175,7 +182,7 @@ pub mod entity_type {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

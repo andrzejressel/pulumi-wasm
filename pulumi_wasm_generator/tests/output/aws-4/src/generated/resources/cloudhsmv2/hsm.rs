@@ -28,22 +28,22 @@
 /// $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
 /// ```
 pub mod hsm {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HsmArgs {
         /// The IDs of AZ in which HSM module will be located. Conflicts with `subnet_id`.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of Cloud HSM v2 cluster to which HSM will be added.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The IP address of HSM module. Must be within the CIDR of selected subnet.
         #[builder(into, default)]
-        pub ip_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of subnet in which HSM module will be located. Conflicts with `availability_zone`.
         #[builder(into, default)]
-        pub subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct HsmResult {
@@ -66,13 +66,20 @@ pub mod hsm {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HsmArgs) -> HsmResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HsmArgs,
+    ) -> HsmResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args.availability_zone.get_inner();
-        let cluster_id_binding = args.cluster_id.get_inner();
-        let ip_address_binding = args.ip_address.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
+        let availability_zone_binding = args
+            .availability_zone
+            .get_output(context)
+            .get_inner();
+        let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
+        let ip_address_binding = args.ip_address.get_output(context).get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudhsmv2/hsm:Hsm".into(),
             name: name.to_string(),
@@ -119,7 +126,7 @@ pub mod hsm {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

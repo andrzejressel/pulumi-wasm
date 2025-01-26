@@ -31,18 +31,18 @@
 /// $ pulumi import aws:waf/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 /// ```
 pub mod ip_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IpSetArgs {
         /// One or more pairs specifying the IP address type (IPV4 or IPV6) and the IP address range (in CIDR format) from which web requests originate.
         #[builder(into, default)]
-        pub ip_set_descriptors: pulumi_wasm_rust::Output<
+        pub ip_set_descriptors: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::waf::IpSetIpSetDescriptor>>,
         >,
         /// The name or description of the IPSet.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct IpSetResult {
@@ -59,11 +59,18 @@ pub mod ip_set {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: IpSetArgs) -> IpSetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: IpSetArgs,
+    ) -> IpSetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let ip_set_descriptors_binding = args.ip_set_descriptors.get_inner();
-        let name_binding = args.name.get_inner();
+        let ip_set_descriptors_binding = args
+            .ip_set_descriptors
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:waf/ipSet:IpSet".into(),
             name: name.to_string(),
@@ -90,7 +97,7 @@ pub mod ip_set {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

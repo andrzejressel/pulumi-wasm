@@ -44,37 +44,37 @@
 /// $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
 /// ```
 pub mod cost_category {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CostCategoryArgs {
         /// Default value for the cost category.
         #[builder(into, default)]
-        pub default_value: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_value: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub effective_start: pulumi_wasm_rust::Output<Option<String>>,
+        pub effective_start: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Unique name for the Cost Category.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Rule schema version in this particular Cost Category.
         #[builder(into)]
-        pub rule_version: pulumi_wasm_rust::Output<String>,
+        pub rule_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block for the Cost Category rules used to categorize costs. See below.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::costexplorer::CostCategoryRule>,
         >,
         /// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         #[builder(into, default)]
-        pub split_charge_rules: pulumi_wasm_rust::Output<
+        pub split_charge_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::costexplorer::CostCategorySplitChargeRule>>,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -115,16 +115,26 @@ pub mod cost_category {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CostCategoryArgs) -> CostCategoryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CostCategoryArgs,
+    ) -> CostCategoryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let default_value_binding = args.default_value.get_inner();
-        let effective_start_binding = args.effective_start.get_inner();
-        let name_binding = args.name.get_inner();
-        let rule_version_binding = args.rule_version.get_inner();
-        let rules_binding = args.rules.get_inner();
-        let split_charge_rules_binding = args.split_charge_rules.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let default_value_binding = args.default_value.get_output(context).get_inner();
+        let effective_start_binding = args
+            .effective_start
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let rule_version_binding = args.rule_version.get_output(context).get_inner();
+        let rules_binding = args.rules.get_output(context).get_inner();
+        let split_charge_rules_binding = args
+            .split_charge_rules
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:costexplorer/costCategory:CostCategory".into(),
             name: name.to_string(),
@@ -192,7 +202,7 @@ pub mod cost_category {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

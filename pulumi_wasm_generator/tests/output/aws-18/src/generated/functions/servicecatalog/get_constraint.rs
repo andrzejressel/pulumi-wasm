@@ -1,19 +1,19 @@
 pub mod get_constraint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetConstraintArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Description of the constraint.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Constraint identifier.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetConstraintResult {
@@ -38,12 +38,18 @@ pub mod get_constraint {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetConstraintArgs) -> GetConstraintResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetConstraintArgs,
+    ) -> GetConstraintResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let accept_language_binding = args.accept_language.get_inner();
-        let description_binding = args.description.get_inner();
-        let id_binding = args.id.get_inner();
+        let accept_language_binding = args
+            .accept_language
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let id_binding = args.id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:servicecatalog/getConstraint:getConstraint".into(),
             version: super::super::super::get_version(),
@@ -91,7 +97,7 @@ pub mod get_constraint {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

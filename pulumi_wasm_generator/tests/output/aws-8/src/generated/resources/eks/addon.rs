@@ -147,43 +147,43 @@
 /// $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
 /// ```
 pub mod addon {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AddonArgs {
         /// Name of the EKS add-on. The name must match one of
         /// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         #[builder(into)]
-        pub addon_name: pulumi_wasm_rust::Output<String>,
+        pub addon_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The version of the EKS add-on. The version must
         /// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         #[builder(into, default)]
-        pub addon_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub addon_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the EKS Cluster.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// custom configuration values for addons with single JSON string. This JSON string value must match the JSON schema derived from [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html).
         #[builder(into, default)]
-        pub configuration_values: pulumi_wasm_rust::Output<Option<String>>,
+        pub configuration_values: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block with EKS Pod Identity association settings. See `pod_identity_association` below for details.
         #[builder(into, default)]
-        pub pod_identity_associations: pulumi_wasm_rust::Output<
+        pub pod_identity_associations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::eks::AddonPodIdentityAssociation>>,
         >,
         /// Indicates if you want to preserve the created resources when deleting the EKS add-on.
         #[builder(into, default)]
-        pub preserve: pulumi_wasm_rust::Output<Option<bool>>,
+        pub preserve: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Define how to resolve parameter value conflicts when migrating an existing add-on to an Amazon EKS add-on or when applying version updates to the add-on. Valid values are `NONE`, `OVERWRITE` and `PRESERVE`. Note that `PRESERVE` is only valid on addon update, not for initial addon creation. If you need to set this to `PRESERVE`, use the `resolve_conflicts_on_create` and `resolve_conflicts_on_update` attributes instead. For more details check [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         #[builder(into, default)]
-        pub resolve_conflicts: pulumi_wasm_rust::Output<Option<String>>,
+        pub resolve_conflicts: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// How to resolve field value conflicts when migrating a self-managed add-on to an Amazon EKS add-on. Valid values are `NONE` and `OVERWRITE`. For more details see the [CreateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html) API Docs.
         #[builder(into, default)]
-        pub resolve_conflicts_on_create: pulumi_wasm_rust::Output<Option<String>>,
+        pub resolve_conflicts_on_create: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// How to resolve field value conflicts for an Amazon EKS add-on if you've changed a value from the Amazon EKS default value. Valid values are `NONE`, `OVERWRITE`, and `PRESERVE`. For more details see the [UpdateAddon](https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAddon.html) API Docs.
         #[builder(into, default)]
-        pub resolve_conflicts_on_update: pulumi_wasm_rust::Output<Option<String>>,
+        pub resolve_conflicts_on_update: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of an
         /// existing IAM role to bind to the add-on's service account. The role must be
         /// assigned the IAM permissions required by the add-on. If you don't specify
@@ -196,10 +196,10 @@ pub mod addon {
         /// for service accounts on your cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html)
         /// in the Amazon EKS User Guide.
         #[builder(into, default)]
-        pub service_account_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_account_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -260,26 +260,42 @@ pub mod addon {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AddonArgs) -> AddonResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AddonArgs,
+    ) -> AddonResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let addon_name_binding = args.addon_name.get_inner();
-        let addon_version_binding = args.addon_version.get_inner();
-        let cluster_name_binding = args.cluster_name.get_inner();
-        let configuration_values_binding = args.configuration_values.get_inner();
+        let addon_name_binding = args.addon_name.get_output(context).get_inner();
+        let addon_version_binding = args.addon_version.get_output(context).get_inner();
+        let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
+        let configuration_values_binding = args
+            .configuration_values
+            .get_output(context)
+            .get_inner();
         let pod_identity_associations_binding = args
             .pod_identity_associations
+            .get_output(context)
             .get_inner();
-        let preserve_binding = args.preserve.get_inner();
-        let resolve_conflicts_binding = args.resolve_conflicts.get_inner();
+        let preserve_binding = args.preserve.get_output(context).get_inner();
+        let resolve_conflicts_binding = args
+            .resolve_conflicts
+            .get_output(context)
+            .get_inner();
         let resolve_conflicts_on_create_binding = args
             .resolve_conflicts_on_create
+            .get_output(context)
             .get_inner();
         let resolve_conflicts_on_update_binding = args
             .resolve_conflicts_on_update
+            .get_output(context)
             .get_inner();
-        let service_account_role_arn_binding = args.service_account_role_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let service_account_role_arn_binding = args
+            .service_account_role_arn
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:eks/addon:Addon".into(),
             name: name.to_string(),
@@ -378,7 +394,7 @@ pub mod addon {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

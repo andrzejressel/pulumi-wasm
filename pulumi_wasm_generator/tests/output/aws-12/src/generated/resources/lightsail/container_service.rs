@@ -91,25 +91,25 @@
 /// $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
 /// ```
 pub mod container_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContainerServiceArgs {
         /// A Boolean value indicating whether the container service is disabled. Defaults to `false`.
         #[builder(into, default)]
-        pub is_disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name for the container service. Names must be of length 1 to 63, and be
         /// unique within each AWS Region in your Lightsail account.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The power specification for the container service. The power specifies the amount of memory,
         /// the number of vCPUs, and the monthly price of each node of the container service.
         /// Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
         #[builder(into)]
-        pub power: pulumi_wasm_rust::Output<String>,
+        pub power: pulumi_wasm_rust::InputOrOutput<String>,
         /// An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See Private Registry Access below for more details.
         #[builder(into, default)]
-        pub private_registry_access: pulumi_wasm_rust::Output<
+        pub private_registry_access: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::lightsail::ContainerServicePrivateRegistryAccess>,
         >,
         /// The public domain names to use with the container service, such as example.com
@@ -118,19 +118,19 @@ pub mod container_service {
         /// service. If you don't specify public domain names, then you can use the default domain of the container service.
         /// Defined below.
         #[builder(into, default)]
-        pub public_domain_names: pulumi_wasm_rust::Output<
+        pub public_domain_names: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::lightsail::ContainerServicePublicDomainNames>,
         >,
         /// The scale specification for the container service. The scale specifies the allocated compute
         /// nodes of the container service.
         #[builder(into)]
-        pub scale: pulumi_wasm_rust::Output<i32>,
+        pub scale: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Map of container service tags. To create a key-only tag, use an empty string as the value. To tag at launch, specify the tags in the Launch Template. If
         /// configured with a provider
         /// `default_tags` configuration block
         /// present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -198,16 +198,26 @@ pub mod container_service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ContainerServiceArgs) -> ContainerServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ContainerServiceArgs,
+    ) -> ContainerServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let is_disabled_binding = args.is_disabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let power_binding = args.power.get_inner();
-        let private_registry_access_binding = args.private_registry_access.get_inner();
-        let public_domain_names_binding = args.public_domain_names.get_inner();
-        let scale_binding = args.scale.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let is_disabled_binding = args.is_disabled.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let power_binding = args.power.get_output(context).get_inner();
+        let private_registry_access_binding = args
+            .private_registry_access
+            .get_output(context)
+            .get_inner();
+        let public_domain_names_binding = args
+            .public_domain_names
+            .get_output(context)
+            .get_inner();
+        let scale_binding = args.scale.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/containerService:ContainerService".into(),
             name: name.to_string(),
@@ -296,7 +306,7 @@ pub mod container_service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

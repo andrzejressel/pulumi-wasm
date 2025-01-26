@@ -35,7 +35,7 @@
 ///       arguments: {}
 /// ```
 pub mod iam_member_remove {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IamMemberRemoveArgs {
@@ -46,13 +46,13 @@ pub mod iam_member_remove {
         /// * **group:{emailid}**: An email address that represents a Google group. For example, admins@example.com.
         /// * **domain:{domain}**: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
         #[builder(into)]
-        pub member: pulumi_wasm_rust::Output<String>,
+        pub member: pulumi_wasm_rust::InputOrOutput<String>,
         /// The project id of the target project.
         #[builder(into)]
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_wasm_rust::InputOrOutput<String>,
         /// The target role that should be removed.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IamMemberRemoveResult {
@@ -72,12 +72,16 @@ pub mod iam_member_remove {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: IamMemberRemoveArgs) -> IamMemberRemoveResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: IamMemberRemoveArgs,
+    ) -> IamMemberRemoveResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let member_binding = args.member.get_inner();
-        let project_binding = args.project.get_inner();
-        let role_binding = args.role.get_inner();
+        let member_binding = args.member.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let role_binding = args.role.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:projects/iamMemberRemove:IamMemberRemove".into(),
             name: name.to_string(),
@@ -108,7 +112,7 @@ pub mod iam_member_remove {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

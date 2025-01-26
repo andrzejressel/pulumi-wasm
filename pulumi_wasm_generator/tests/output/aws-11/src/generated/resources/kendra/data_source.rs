@@ -439,50 +439,50 @@
 /// $ pulumi import aws:kendra/dataSource:DataSource example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
 /// ```
 pub mod data_source {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataSourceArgs {
         /// A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
         #[builder(into, default)]
-        pub configuration: pulumi_wasm_rust::Output<
+        pub configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::kendra::DataSourceConfiguration>,
         >,
         /// A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
         #[builder(into, default)]
-        pub custom_document_enrichment_configuration: pulumi_wasm_rust::Output<
+        pub custom_document_enrichment_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::kendra::DataSourceCustomDocumentEnrichmentConfiguration,
             >,
         >,
         /// A description for the Data Source connector.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The identifier of the index for your Amazon Kendra data source.
         #[builder(into)]
-        pub index_id: pulumi_wasm_rust::Output<String>,
+        pub index_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
         #[builder(into, default)]
-        pub language_code: pulumi_wasm_rust::Output<Option<String>>,
+        pub language_code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A name for your data source connector.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `role_arn` parameter when the `type` parameter is set to `CUSTOM`. The `role_arn` parameter is required for all other data sources.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::Output<Option<String>>,
+        pub schedule: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DataSourceResult {
@@ -537,21 +537,26 @@ pub mod data_source {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DataSourceArgs) -> DataSourceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DataSourceArgs,
+    ) -> DataSourceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let configuration_binding = args.configuration.get_inner();
+        let configuration_binding = args.configuration.get_output(context).get_inner();
         let custom_document_enrichment_configuration_binding = args
             .custom_document_enrichment_configuration
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let index_id_binding = args.index_id.get_inner();
-        let language_code_binding = args.language_code.get_inner();
-        let name_binding = args.name.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let schedule_binding = args.schedule.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let type__binding = args.type_.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let index_id_binding = args.index_id.get_output(context).get_inner();
+        let language_code_binding = args.language_code.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let schedule_binding = args.schedule.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kendra/dataSource:DataSource".into(),
             name: name.to_string(),
@@ -652,7 +657,7 @@ pub mod data_source {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

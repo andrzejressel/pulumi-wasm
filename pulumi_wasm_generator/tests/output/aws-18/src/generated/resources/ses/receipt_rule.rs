@@ -40,64 +40,64 @@
 /// $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
 /// ```
 pub mod receipt_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReceiptRuleArgs {
         /// A list of Add Header Action blocks. Documented below.
         #[builder(into, default)]
-        pub add_header_actions: pulumi_wasm_rust::Output<
+        pub add_header_actions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ses::ReceiptRuleAddHeaderAction>>,
         >,
         /// The name of the rule to place this rule after
         #[builder(into, default)]
-        pub after: pulumi_wasm_rust::Output<Option<String>>,
+        pub after: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of Bounce Action blocks. Documented below.
         #[builder(into, default)]
-        pub bounce_actions: pulumi_wasm_rust::Output<
+        pub bounce_actions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ses::ReceiptRuleBounceAction>>,
         >,
         /// If true, the rule will be enabled
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of Lambda Action blocks. Documented below.
         #[builder(into, default)]
-        pub lambda_actions: pulumi_wasm_rust::Output<
+        pub lambda_actions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ses::ReceiptRuleLambdaAction>>,
         >,
         /// The name of the rule
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of email addresses
         #[builder(into, default)]
-        pub recipients: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub recipients: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the rule set
         #[builder(into)]
-        pub rule_set_name: pulumi_wasm_rust::Output<String>,
+        pub rule_set_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of S3 Action blocks. Documented below.
         #[builder(into, default)]
-        pub s3_actions: pulumi_wasm_rust::Output<
+        pub s3_actions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ses::ReceiptRuleS3Action>>,
         >,
         /// If true, incoming emails will be scanned for spam and viruses
         #[builder(into, default)]
-        pub scan_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub scan_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A list of SNS Action blocks. Documented below.
         #[builder(into, default)]
-        pub sns_actions: pulumi_wasm_rust::Output<
+        pub sns_actions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ses::ReceiptRuleSnsAction>>,
         >,
         /// A list of Stop Action blocks. Documented below.
         #[builder(into, default)]
-        pub stop_actions: pulumi_wasm_rust::Output<
+        pub stop_actions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ses::ReceiptRuleStopAction>>,
         >,
         /// `Require` or `Optional`
         #[builder(into, default)]
-        pub tls_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub tls_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of WorkMail Action blocks. Documented below.
         #[builder(into, default)]
-        pub workmail_actions: pulumi_wasm_rust::Output<
+        pub workmail_actions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ses::ReceiptRuleWorkmailAction>>,
         >,
     }
@@ -152,23 +152,33 @@ pub mod receipt_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ReceiptRuleArgs) -> ReceiptRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ReceiptRuleArgs,
+    ) -> ReceiptRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let add_header_actions_binding = args.add_header_actions.get_inner();
-        let after_binding = args.after.get_inner();
-        let bounce_actions_binding = args.bounce_actions.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let lambda_actions_binding = args.lambda_actions.get_inner();
-        let name_binding = args.name.get_inner();
-        let recipients_binding = args.recipients.get_inner();
-        let rule_set_name_binding = args.rule_set_name.get_inner();
-        let s3_actions_binding = args.s3_actions.get_inner();
-        let scan_enabled_binding = args.scan_enabled.get_inner();
-        let sns_actions_binding = args.sns_actions.get_inner();
-        let stop_actions_binding = args.stop_actions.get_inner();
-        let tls_policy_binding = args.tls_policy.get_inner();
-        let workmail_actions_binding = args.workmail_actions.get_inner();
+        let add_header_actions_binding = args
+            .add_header_actions
+            .get_output(context)
+            .get_inner();
+        let after_binding = args.after.get_output(context).get_inner();
+        let bounce_actions_binding = args.bounce_actions.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let lambda_actions_binding = args.lambda_actions.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let recipients_binding = args.recipients.get_output(context).get_inner();
+        let rule_set_name_binding = args.rule_set_name.get_output(context).get_inner();
+        let s3_actions_binding = args.s3_actions.get_output(context).get_inner();
+        let scan_enabled_binding = args.scan_enabled.get_output(context).get_inner();
+        let sns_actions_binding = args.sns_actions.get_output(context).get_inner();
+        let stop_actions_binding = args.stop_actions.get_output(context).get_inner();
+        let tls_policy_binding = args.tls_policy.get_output(context).get_inner();
+        let workmail_actions_binding = args
+            .workmail_actions
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/receiptRule:ReceiptRule".into(),
             name: name.to_string(),
@@ -279,7 +289,7 @@ pub mod receipt_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -47,16 +47,16 @@
 /// ```
 ///
 pub mod ip_group_cidr {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IPGroupCIDRArgs {
         #[builder(into)]
-        pub cidr: pulumi_wasm_rust::Output<String>,
+        pub cidr: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the destination IP Group.
         /// Changing this forces a new IP Group CIDR to be created.
         #[builder(into)]
-        pub ip_group_id: pulumi_wasm_rust::Output<String>,
+        pub ip_group_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IPGroupCIDRResult {
@@ -69,11 +69,15 @@ pub mod ip_group_cidr {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: IPGroupCIDRArgs) -> IPGroupCIDRResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: IPGroupCIDRArgs,
+    ) -> IPGroupCIDRResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cidr_binding = args.cidr.get_inner();
-        let ip_group_id_binding = args.ip_group_id.get_inner();
+        let cidr_binding = args.cidr.get_output(context).get_inner();
+        let ip_group_id_binding = args.ip_group_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/iPGroupCIDR:IPGroupCIDR".into(),
             name: name.to_string(),
@@ -97,7 +101,7 @@ pub mod ip_group_cidr {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

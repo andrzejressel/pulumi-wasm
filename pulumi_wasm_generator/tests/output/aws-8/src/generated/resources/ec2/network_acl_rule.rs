@@ -52,19 +52,19 @@
 /// $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
 /// ```
 pub mod network_acl_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkAclRuleArgs {
         /// The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         #[builder(into, default)]
-        pub cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         #[builder(into, default)]
-        pub egress: pulumi_wasm_rust::Output<Option<bool>>,
+        pub egress: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The from port to match.
         #[builder(into, default)]
-        pub from_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub from_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         ///
         /// > **NOTE:** If the value of `protocol` is `-1` or `all`, the `from_port` and `to_port` values will be ignored and the rule will apply to all ports.
@@ -73,28 +73,28 @@ pub mod network_acl_rule {
         ///
         /// > Note: For more information on ICMP types and codes, see here: https://www.iana.org/assignments/icmp-parameters/icmp-parameters.xhtml
         #[builder(into, default)]
-        pub icmp_code: pulumi_wasm_rust::Output<Option<i32>>,
+        pub icmp_code: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         #[builder(into, default)]
-        pub icmp_type: pulumi_wasm_rust::Output<Option<i32>>,
+        pub icmp_type: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The IPv6 CIDR block to allow or deny.
         #[builder(into, default)]
-        pub ipv6_cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv6_cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the network ACL.
         #[builder(into)]
-        pub network_acl_id: pulumi_wasm_rust::Output<String>,
+        pub network_acl_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The protocol. A value of -1 means all protocols.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
         /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
         #[builder(into)]
-        pub rule_action: pulumi_wasm_rust::Output<String>,
+        pub rule_action: pulumi_wasm_rust::InputOrOutput<String>,
         /// The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
         #[builder(into)]
-        pub rule_number: pulumi_wasm_rust::Output<i32>,
+        pub rule_number: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The to port to match.
         #[builder(into, default)]
-        pub to_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub to_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct NetworkAclRuleResult {
@@ -131,20 +131,27 @@ pub mod network_acl_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NetworkAclRuleArgs) -> NetworkAclRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NetworkAclRuleArgs,
+    ) -> NetworkAclRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cidr_block_binding = args.cidr_block.get_inner();
-        let egress_binding = args.egress.get_inner();
-        let from_port_binding = args.from_port.get_inner();
-        let icmp_code_binding = args.icmp_code.get_inner();
-        let icmp_type_binding = args.icmp_type.get_inner();
-        let ipv6_cidr_block_binding = args.ipv6_cidr_block.get_inner();
-        let network_acl_id_binding = args.network_acl_id.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let rule_action_binding = args.rule_action.get_inner();
-        let rule_number_binding = args.rule_number.get_inner();
-        let to_port_binding = args.to_port.get_inner();
+        let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
+        let egress_binding = args.egress.get_output(context).get_inner();
+        let from_port_binding = args.from_port.get_output(context).get_inner();
+        let icmp_code_binding = args.icmp_code.get_output(context).get_inner();
+        let icmp_type_binding = args.icmp_type.get_output(context).get_inner();
+        let ipv6_cidr_block_binding = args
+            .ipv6_cidr_block
+            .get_output(context)
+            .get_inner();
+        let network_acl_id_binding = args.network_acl_id.get_output(context).get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let rule_action_binding = args.rule_action.get_output(context).get_inner();
+        let rule_number_binding = args.rule_number.get_output(context).get_inner();
+        let to_port_binding = args.to_port.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/networkAclRule:NetworkAclRule".into(),
             name: name.to_string(),
@@ -231,7 +238,7 @@ pub mod network_acl_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

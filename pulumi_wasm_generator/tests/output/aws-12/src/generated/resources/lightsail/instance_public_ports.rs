@@ -35,16 +35,16 @@
 /// }
 /// ```
 pub mod instance_public_ports {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstancePublicPortsArgs {
         /// Name of the Lightsail Instance.
         #[builder(into)]
-        pub instance_name: pulumi_wasm_rust::Output<String>,
+        pub instance_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
         #[builder(into)]
-        pub port_infos: pulumi_wasm_rust::Output<
+        pub port_infos: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::lightsail::InstancePublicPortsPortInfo>,
         >,
     }
@@ -62,13 +62,14 @@ pub mod instance_public_ports {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: InstancePublicPortsArgs,
     ) -> InstancePublicPortsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let instance_name_binding = args.instance_name.get_inner();
-        let port_infos_binding = args.port_infos.get_inner();
+        let instance_name_binding = args.instance_name.get_output(context).get_inner();
+        let port_infos_binding = args.port_infos.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/instancePublicPorts:InstancePublicPorts".into(),
             name: name.to_string(),
@@ -92,7 +93,7 @@ pub mod instance_public_ports {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

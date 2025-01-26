@@ -110,50 +110,50 @@
 /// $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
 /// ```
 pub mod custom_db_engine_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomDbEngineVersionArgs {
         /// The name of the Amazon S3 bucket that contains the database installation files.
         #[builder(into, default)]
-        pub database_installation_files_s3_bucket_name: pulumi_wasm_rust::Output<
+        pub database_installation_files_s3_bucket_name: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The prefix for the Amazon S3 bucket that contains the database installation files.
         #[builder(into, default)]
-        pub database_installation_files_s3_prefix: pulumi_wasm_rust::Output<
+        pub database_installation_files_s3_prefix: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The description of the CEV.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
         #[builder(into)]
-        pub engine: pulumi_wasm_rust::Output<String>,
+        pub engine: pulumi_wasm_rust::InputOrOutput<String>,
         /// The version of the database engine.
         #[builder(into)]
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the manifest file within the local filesystem. Conflicts with `manifest`.
         #[builder(into, default)]
-        pub filename: pulumi_wasm_rust::Output<Option<String>>,
+        pub filename: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
         #[builder(into, default)]
-        pub manifest: pulumi_wasm_rust::Output<Option<String>>,
+        pub manifest: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
         #[builder(into, default)]
-        pub manifest_hash: pulumi_wasm_rust::Output<Option<String>>,
+        pub manifest_hash: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
         #[builder(into, default)]
-        pub source_image_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_image_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -211,6 +211,7 @@ pub mod custom_db_engine_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CustomDbEngineVersionArgs,
     ) -> CustomDbEngineVersionResult {
@@ -218,20 +219,25 @@ pub mod custom_db_engine_version {
         use std::collections::HashMap;
         let database_installation_files_s3_bucket_name_binding = args
             .database_installation_files_s3_bucket_name
+            .get_output(context)
             .get_inner();
         let database_installation_files_s3_prefix_binding = args
             .database_installation_files_s3_prefix
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let engine_binding = args.engine.get_inner();
-        let engine_version_binding = args.engine_version.get_inner();
-        let filename_binding = args.filename.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let manifest_binding = args.manifest.get_inner();
-        let manifest_hash_binding = args.manifest_hash.get_inner();
-        let source_image_id_binding = args.source_image_id.get_inner();
-        let status_binding = args.status.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let engine_binding = args.engine.get_output(context).get_inner();
+        let engine_version_binding = args.engine_version.get_output(context).get_inner();
+        let filename_binding = args.filename.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let manifest_binding = args.manifest.get_output(context).get_inner();
+        let manifest_hash_binding = args.manifest_hash.get_output(context).get_inner();
+        let source_image_id_binding = args
+            .source_image_id
+            .get_output(context)
+            .get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/customDbEngineVersion:CustomDbEngineVersion".into(),
             name: name.to_string(),
@@ -346,7 +352,7 @@ pub mod custom_db_engine_version {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

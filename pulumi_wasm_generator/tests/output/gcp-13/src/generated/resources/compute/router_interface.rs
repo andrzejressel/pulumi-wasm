@@ -42,7 +42,7 @@
 /// ```
 ///
 pub mod router_interface {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouterInterfaceArgs {
@@ -50,34 +50,34 @@ pub mod router_interface {
         /// VLAN interconnect for this interface. Changing this forces a new interface to
         /// be created. Only one of `vpn_tunnel`, `interconnect_attachment` or `subnetwork` can be specified.
         #[builder(into, default)]
-        pub interconnect_attachment: pulumi_wasm_rust::Output<Option<String>>,
+        pub interconnect_attachment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// IP address and range of the interface. The IP range must be
         /// in the RFC3927 link-local IP space. Changing this forces a new interface to be created.
         #[builder(into, default)]
-        pub ip_range: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// IP version of this interface. Can be either IPV4 or IPV6.
         #[builder(into, default)]
-        pub ip_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A unique name for the interface, required by GCE. Changing
         /// this forces a new interface to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The regional private internal IP address that is used
         /// to establish BGP sessions to a VM instance acting as a third-party Router Appliance. Changing this forces a new interface to be created.
         #[builder(into, default)]
-        pub private_ip_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which this interface's routerbelongs.
         /// If it is not provided, the provider project is used. Changing this forces a new interface to be created.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the interface that is redundant to
         /// this interface. Changing this forces a new interface to be created.
         #[builder(into, default)]
-        pub redundant_interface: pulumi_wasm_rust::Output<Option<String>>,
+        pub redundant_interface: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The region this interface's router sits in.
         /// If not specified, the project region will be used. Changing this forces a new interface to be created.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the router this interface will be attached to.
         /// Changing this forces a new interface to be created.
         ///
@@ -85,16 +85,16 @@ pub mod router_interface {
         ///
         /// - - -
         #[builder(into)]
-        pub router: pulumi_wasm_rust::Output<String>,
+        pub router: pulumi_wasm_rust::InputOrOutput<String>,
         /// The URI of the subnetwork resource that this interface
         /// belongs to, which must be in the same region as the Cloud Router. When you establish a BGP session to a VM instance using this interface, the VM instance must belong to the same subnetwork as the subnetwork specified here. Changing this forces a new interface to be created. Only one of `vpn_tunnel`, `interconnect_attachment` or `subnetwork` can be specified.
         #[builder(into, default)]
-        pub subnetwork: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnetwork: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name or resource link to the VPN tunnel this
         /// interface will be linked to. Changing this forces a new interface to be created. Only
         /// one of `vpn_tunnel`, `interconnect_attachment` or `subnetwork` can be specified.
         #[builder(into, default)]
-        pub vpn_tunnel: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpn_tunnel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RouterInterfaceResult {
@@ -141,20 +141,33 @@ pub mod router_interface {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RouterInterfaceArgs) -> RouterInterfaceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RouterInterfaceArgs,
+    ) -> RouterInterfaceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let interconnect_attachment_binding = args.interconnect_attachment.get_inner();
-        let ip_range_binding = args.ip_range.get_inner();
-        let ip_version_binding = args.ip_version.get_inner();
-        let name_binding = args.name.get_inner();
-        let private_ip_address_binding = args.private_ip_address.get_inner();
-        let project_binding = args.project.get_inner();
-        let redundant_interface_binding = args.redundant_interface.get_inner();
-        let region_binding = args.region.get_inner();
-        let router_binding = args.router.get_inner();
-        let subnetwork_binding = args.subnetwork.get_inner();
-        let vpn_tunnel_binding = args.vpn_tunnel.get_inner();
+        let interconnect_attachment_binding = args
+            .interconnect_attachment
+            .get_output(context)
+            .get_inner();
+        let ip_range_binding = args.ip_range.get_output(context).get_inner();
+        let ip_version_binding = args.ip_version.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let private_ip_address_binding = args
+            .private_ip_address
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let redundant_interface_binding = args
+            .redundant_interface
+            .get_output(context)
+            .get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let router_binding = args.router.get_output(context).get_inner();
+        let subnetwork_binding = args.subnetwork.get_output(context).get_inner();
+        let vpn_tunnel_binding = args.vpn_tunnel.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/routerInterface:RouterInterface".into(),
             name: name.to_string(),
@@ -241,7 +254,7 @@ pub mod router_interface {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

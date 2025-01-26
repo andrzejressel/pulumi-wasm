@@ -51,19 +51,19 @@
 /// $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
 /// ```
 pub mod object_lambda_access_point_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ObjectLambdaAccessPointPolicyArgs {
         /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Object Lambda Access Point.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Object Lambda Access Point resource policy document.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ObjectLambdaAccessPointPolicyResult {
@@ -81,14 +81,15 @@ pub mod object_lambda_access_point_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ObjectLambdaAccessPointPolicyArgs,
     ) -> ObjectLambdaAccessPointPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let policy_binding = args.policy.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy"
                 .into(),
@@ -123,7 +124,7 @@ pub mod object_lambda_access_point_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

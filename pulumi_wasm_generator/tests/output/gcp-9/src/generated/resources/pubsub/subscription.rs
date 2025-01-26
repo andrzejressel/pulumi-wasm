@@ -445,7 +445,7 @@
 /// ```
 ///
 pub mod subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriptionArgs {
@@ -465,13 +465,13 @@ pub mod subscription {
         /// If the subscriber never acknowledges the message, the Pub/Sub system
         /// will eventually redeliver the message.
         #[builder(into, default)]
-        pub ack_deadline_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub ack_deadline_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// If delivery to BigQuery is used with this subscription, this field is used to configure it.
         /// Either pushConfig, bigQueryConfig or cloudStorageConfig can be set, but not combined.
         /// If all three are empty, then the subscriber will pull and ack messages using API methods.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub bigquery_config: pulumi_wasm_rust::Output<
+        pub bigquery_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pubsub::SubscriptionBigqueryConfig>,
         >,
         /// If delivery to Cloud Storage is used with this subscription, this field is used to configure it.
@@ -479,7 +479,7 @@ pub mod subscription {
         /// If all three are empty, then the subscriber will pull and ack messages using API methods.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloud_storage_config: pulumi_wasm_rust::Output<
+        pub cloud_storage_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pubsub::SubscriptionCloudStorageConfig>,
         >,
         /// A policy that specifies the conditions for dead lettering messages in
@@ -491,7 +491,7 @@ pub mod subscription {
         /// permission to Acknowledge() messages on this subscription.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub dead_letter_policy: pulumi_wasm_rust::Output<
+        pub dead_letter_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pubsub::SubscriptionDeadLetterPolicy>,
         >,
         /// If `true`, Pub/Sub provides the following guarantees for the delivery
@@ -501,12 +501,12 @@ pub mod subscription {
         /// Note that subscribers may still receive multiple copies of a message when `enable_exactly_once_delivery`
         /// is true if the message was published multiple times by a publisher client. These copies are considered distinct by Pub/Sub and have distinct messageId values
         #[builder(into, default)]
-        pub enable_exactly_once_delivery: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_exactly_once_delivery: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If `true`, messages published with the same orderingKey in PubsubMessage will be delivered to
         /// the subscribers in the order in which they are received by the Pub/Sub system. Otherwise, they
         /// may be delivered in any order.
         #[builder(into, default)]
-        pub enable_message_ordering: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_message_ordering: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A policy that specifies the conditions for this subscription's expiration.
         /// A subscription is considered active as long as any connected subscriber
         /// is successfully consuming messages from the subscription or is issuing
@@ -516,7 +516,7 @@ pub mod subscription {
         /// is 1 day.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub expiration_policy: pulumi_wasm_rust::Output<
+        pub expiration_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pubsub::SubscriptionExpirationPolicy>,
         >,
         /// The subscription only delivers the messages that match the filter.
@@ -524,13 +524,13 @@ pub mod subscription {
         /// by their attributes. The maximum length of a filter is 256 bytes. After creating the subscription,
         /// you can't modify the filter.
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::Output<Option<String>>,
+        pub filter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A set of key/value label pairs to assign to this Subscription.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// How long to retain unacknowledged messages in the subscription's
@@ -542,20 +542,20 @@ pub mod subscription {
         /// A duration in seconds with up to nine fractional digits, terminated
         /// by 's'. Example: `"600.5s"`.
         #[builder(into, default)]
-        pub message_retention_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub message_retention_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the subscription.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If push delivery is used with this subscription, this field is used to
         /// configure it. An empty pushConfig signifies that the subscriber will
         /// pull and ack messages using API methods.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub push_config: pulumi_wasm_rust::Output<
+        pub push_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pubsub::SubscriptionPushConfig>,
         >,
         /// Indicates whether to retain acknowledged messages. If `true`, then
@@ -563,13 +563,13 @@ pub mod subscription {
         /// they are acknowledged, until they fall out of the
         /// messageRetentionDuration window.
         #[builder(into, default)]
-        pub retain_acked_messages: pulumi_wasm_rust::Output<Option<bool>>,
+        pub retain_acked_messages: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A policy that specifies how Pub/Sub retries message delivery for this subscription.
         /// If not set, the default retry policy is applied. This generally implies that messages will be retried as soon as possible for healthy subscribers.
         /// RetryPolicy will be triggered on NACKs or acknowledgement deadline exceeded events for a given message
         /// Structure is documented below.
         #[builder(into, default)]
-        pub retry_policy: pulumi_wasm_rust::Output<
+        pub retry_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pubsub::SubscriptionRetryPolicy>,
         >,
         /// A reference to a Topic resource, of the form projects/{project}/topics/{{name}}
@@ -579,7 +579,7 @@ pub mod subscription {
         ///
         /// - - -
         #[builder(into)]
-        pub topic: pulumi_wasm_rust::Output<String>,
+        pub topic: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubscriptionResult {
@@ -712,29 +712,56 @@ pub mod subscription {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SubscriptionArgs) -> SubscriptionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SubscriptionArgs,
+    ) -> SubscriptionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let ack_deadline_seconds_binding = args.ack_deadline_seconds.get_inner();
-        let bigquery_config_binding = args.bigquery_config.get_inner();
-        let cloud_storage_config_binding = args.cloud_storage_config.get_inner();
-        let dead_letter_policy_binding = args.dead_letter_policy.get_inner();
+        let ack_deadline_seconds_binding = args
+            .ack_deadline_seconds
+            .get_output(context)
+            .get_inner();
+        let bigquery_config_binding = args
+            .bigquery_config
+            .get_output(context)
+            .get_inner();
+        let cloud_storage_config_binding = args
+            .cloud_storage_config
+            .get_output(context)
+            .get_inner();
+        let dead_letter_policy_binding = args
+            .dead_letter_policy
+            .get_output(context)
+            .get_inner();
         let enable_exactly_once_delivery_binding = args
             .enable_exactly_once_delivery
+            .get_output(context)
             .get_inner();
-        let enable_message_ordering_binding = args.enable_message_ordering.get_inner();
-        let expiration_policy_binding = args.expiration_policy.get_inner();
-        let filter_binding = args.filter.get_inner();
-        let labels_binding = args.labels.get_inner();
+        let enable_message_ordering_binding = args
+            .enable_message_ordering
+            .get_output(context)
+            .get_inner();
+        let expiration_policy_binding = args
+            .expiration_policy
+            .get_output(context)
+            .get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
         let message_retention_duration_binding = args
             .message_retention_duration
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let push_config_binding = args.push_config.get_inner();
-        let retain_acked_messages_binding = args.retain_acked_messages.get_inner();
-        let retry_policy_binding = args.retry_policy.get_inner();
-        let topic_binding = args.topic.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let push_config_binding = args.push_config.get_output(context).get_inner();
+        let retain_acked_messages_binding = args
+            .retain_acked_messages
+            .get_output(context)
+            .get_inner();
+        let retry_policy_binding = args.retry_policy.get_output(context).get_inner();
+        let topic_binding = args.topic.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:pubsub/subscription:Subscription".into(),
             name: name.to_string(),
@@ -862,7 +889,7 @@ pub mod subscription {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

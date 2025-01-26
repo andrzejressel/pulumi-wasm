@@ -526,7 +526,7 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
@@ -535,36 +535,36 @@ pub mod instance {
         ///
         /// - - -
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Customer-managed encryption key name, in the format projects/*/locations/*/keyRings/*/cryptoKeys/*.
         #[builder(into, default)]
-        pub kms_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Labels as key value pairs.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the Instance.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Private settings for private instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub private_config: pulumi_wasm_rust::Output<
+        pub private_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::securesourcemanager::InstancePrivateConfig>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for Workforce Identity Federation to support third party identity provider.
         /// If unset, defaults to the Google OIDC IdP.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub workforce_identity_federation_config: pulumi_wasm_rust::Output<
+        pub workforce_identity_federation_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::securesourcemanager::InstanceWorkforceIdentityFederationConfig,
             >,
@@ -633,17 +633,22 @@ pub mod instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InstanceArgs) -> InstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InstanceArgs,
+    ) -> InstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let instance_id_binding = args.instance_id.get_inner();
-        let kms_key_binding = args.kms_key.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let private_config_binding = args.private_config.get_inner();
-        let project_binding = args.project.get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let kms_key_binding = args.kms_key.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let private_config_binding = args.private_config.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let workforce_identity_federation_config_binding = args
             .workforce_identity_federation_config
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securesourcemanager/instance:Instance".into(),
@@ -727,7 +732,7 @@ pub mod instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

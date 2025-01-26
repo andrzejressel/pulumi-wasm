@@ -27,22 +27,22 @@
 /// $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
 /// ```
 pub mod studio_lifecycle_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StudioLifecycleConfigArgs {
         /// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
         #[builder(into)]
-        pub studio_lifecycle_config_app_type: pulumi_wasm_rust::Output<String>,
+        pub studio_lifecycle_config_app_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
         #[builder(into)]
-        pub studio_lifecycle_config_content: pulumi_wasm_rust::Output<String>,
+        pub studio_lifecycle_config_content: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Studio Lifecycle Configuration to create.
         #[builder(into)]
-        pub studio_lifecycle_config_name: pulumi_wasm_rust::Output<String>,
+        pub studio_lifecycle_config_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -70,6 +70,7 @@ pub mod studio_lifecycle_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: StudioLifecycleConfigArgs,
     ) -> StudioLifecycleConfigResult {
@@ -77,14 +78,17 @@ pub mod studio_lifecycle_config {
         use std::collections::HashMap;
         let studio_lifecycle_config_app_type_binding = args
             .studio_lifecycle_config_app_type
+            .get_output(context)
             .get_inner();
         let studio_lifecycle_config_content_binding = args
             .studio_lifecycle_config_content
+            .get_output(context)
             .get_inner();
         let studio_lifecycle_config_name_binding = args
             .studio_lifecycle_config_name
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig".into(),
             name: name.to_string(),
@@ -128,7 +132,7 @@ pub mod studio_lifecycle_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

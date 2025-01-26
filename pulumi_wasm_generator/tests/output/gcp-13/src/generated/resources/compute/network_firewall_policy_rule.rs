@@ -108,60 +108,60 @@
 /// ```
 ///
 pub mod network_firewall_policy_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkFirewallPolicyRuleArgs {
         /// The Action to perform when the client connection triggers the rule. Valid actions are "allow", "deny", "goto_next" and "apply_security_profile_group".
         #[builder(into)]
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_wasm_rust::InputOrOutput<String>,
         /// An optional description for this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The direction in which this rule applies.
         /// Possible values are: `INGRESS`, `EGRESS`.
         #[builder(into)]
-        pub direction: pulumi_wasm_rust::Output<String>,
+        pub direction: pulumi_wasm_rust::InputOrOutput<String>,
         /// Denotes whether the firewall policy rule is disabled. When set to true, the firewall policy rule is not enforced and
         /// traffic behaves as if it did not exist. If this is unspecified, the firewall policy rule will be enabled.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Denotes whether to enable logging for a particular rule. If logging is enabled, logs will be exported to the configured
         /// export destination in Stackdriver. Logs may be exported to BigQuery or Pub/Sub. Note: you cannot enable logging on
         /// "goto_next" rules.
         #[builder(into, default)]
-        pub enable_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_logging: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The firewall policy of the resource.
         #[builder(into)]
-        pub firewall_policy: pulumi_wasm_rust::Output<String>,
+        pub firewall_policy: pulumi_wasm_rust::InputOrOutput<String>,
         /// A match condition that incoming traffic is evaluated against. If it evaluates to true, the corresponding 'action' is enforced.
         /// Structure is documented below.
         #[builder(into)]
-        pub match_: pulumi_wasm_rust::Output<
+        pub match_: pulumi_wasm_rust::InputOrOutput<
             super::super::types::compute::NetworkFirewallPolicyRuleMatch,
         >,
         /// An integer indicating the priority of a rule in the list.
         /// The priority must be a positive value between 0 and 2147483647.
         /// Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest prority.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An optional name for the rule. This field is not a unique identifier and can be updated.
         #[builder(into, default)]
-        pub rule_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub rule_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A fully-qualified URL of a SecurityProfile resource instance. Example:
         /// https://networksecurity.googleapis.com/v1/projects/{project}/locations/{location}/securityProfileGroups/my-security-profile-group
         /// Must be specified if action = 'apply_security_profile_group' and cannot be specified for other actions.
         #[builder(into, default)]
-        pub security_profile_group: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_profile_group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of secure tags that controls which instances the firewall rule applies to. If targetSecureTag are specified, then
         /// the firewall rule applies only to instances in the VPC network that have one of those EFFECTIVE secure tags, if all the
         /// targetSecureTag are in INEFFECTIVE state, then this rule will be ignored. targetSecureTag may not be set at the same
         /// time as targetServiceAccounts. If neither targetServiceAccounts nor targetSecureTag are specified, the firewall rule
         /// applies to all instances on the specified network. Maximum number of target label tags allowed is 256.
         #[builder(into, default)]
-        pub target_secure_tags: pulumi_wasm_rust::Output<
+        pub target_secure_tags: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::compute::NetworkFirewallPolicyRuleTargetSecureTag,
@@ -170,11 +170,13 @@ pub mod network_firewall_policy_rule {
         >,
         /// A list of service accounts indicating the sets of instances that are applied with this rule.
         #[builder(into, default)]
-        pub target_service_accounts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub target_service_accounts: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Boolean flag indicating if the traffic should be TLS decrypted. Can be set only if action =
         /// 'apply_security_profile_group' and cannot be set for other actions.
         #[builder(into, default)]
-        pub tls_inspect: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tls_inspect: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct NetworkFirewallPolicyRuleResult {
@@ -239,25 +241,38 @@ pub mod network_firewall_policy_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NetworkFirewallPolicyRuleArgs,
     ) -> NetworkFirewallPolicyRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let action_binding = args.action.get_inner();
-        let description_binding = args.description.get_inner();
-        let direction_binding = args.direction.get_inner();
-        let disabled_binding = args.disabled.get_inner();
-        let enable_logging_binding = args.enable_logging.get_inner();
-        let firewall_policy_binding = args.firewall_policy.get_inner();
-        let match__binding = args.match_.get_inner();
-        let priority_binding = args.priority.get_inner();
-        let project_binding = args.project.get_inner();
-        let rule_name_binding = args.rule_name.get_inner();
-        let security_profile_group_binding = args.security_profile_group.get_inner();
-        let target_secure_tags_binding = args.target_secure_tags.get_inner();
-        let target_service_accounts_binding = args.target_service_accounts.get_inner();
-        let tls_inspect_binding = args.tls_inspect.get_inner();
+        let action_binding = args.action.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let direction_binding = args.direction.get_output(context).get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let enable_logging_binding = args.enable_logging.get_output(context).get_inner();
+        let firewall_policy_binding = args
+            .firewall_policy
+            .get_output(context)
+            .get_inner();
+        let match__binding = args.match_.get_output(context).get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let rule_name_binding = args.rule_name.get_output(context).get_inner();
+        let security_profile_group_binding = args
+            .security_profile_group
+            .get_output(context)
+            .get_inner();
+        let target_secure_tags_binding = args
+            .target_secure_tags
+            .get_output(context)
+            .get_inner();
+        let target_service_accounts_binding = args
+            .target_service_accounts
+            .get_output(context)
+            .get_inner();
+        let tls_inspect_binding = args.tls_inspect.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/networkFirewallPolicyRule:NetworkFirewallPolicyRule"
                 .into(),
@@ -375,7 +390,7 @@ pub mod network_firewall_policy_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -24,22 +24,22 @@
 /// $ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
 /// ```
 pub mod service_linked_role {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceLinkedRoleArgs {
         /// The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
         #[builder(into)]
-        pub aws_service_name: pulumi_wasm_rust::Output<String>,
+        pub aws_service_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Additional string appended to the role name. Not all AWS services support custom suffixes.
         #[builder(into, default)]
-        pub custom_suffix: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_suffix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description of the role.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -74,13 +74,20 @@ pub mod service_linked_role {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServiceLinkedRoleArgs) -> ServiceLinkedRoleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServiceLinkedRoleArgs,
+    ) -> ServiceLinkedRoleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_service_name_binding = args.aws_service_name.get_inner();
-        let custom_suffix_binding = args.custom_suffix.get_inner();
-        let description_binding = args.description.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let aws_service_name_binding = args
+            .aws_service_name
+            .get_output(context)
+            .get_inner();
+        let custom_suffix_binding = args.custom_suffix.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/serviceLinkedRole:ServiceLinkedRole".into(),
             name: name.to_string(),
@@ -136,7 +143,7 @@ pub mod service_linked_role {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

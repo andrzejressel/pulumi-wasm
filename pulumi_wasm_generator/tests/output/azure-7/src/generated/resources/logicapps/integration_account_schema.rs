@@ -41,28 +41,28 @@
 /// ```
 ///
 pub mod integration_account_schema {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationAccountSchemaArgs {
         /// The content of the Logic App Integration Account Schema.
         #[builder(into)]
-        pub content: pulumi_wasm_rust::Output<String>,
+        pub content: pulumi_wasm_rust::InputOrOutput<String>,
         /// The file name of the Logic App Integration Account Schema.
         #[builder(into, default)]
-        pub file_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub file_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Schema to be created.
         #[builder(into)]
-        pub integration_account_name: pulumi_wasm_rust::Output<String>,
+        pub integration_account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The metadata of the Logic App Integration Account Schema.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<Option<String>>,
+        pub metadata: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Logic App Integration Account Schema. Changing this forces a new Logic App Integration Account Schema to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Logic App Integration Account Schema should exist. Changing this forces a new Logic App Integration Account Schema to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IntegrationAccountSchemaResult {
@@ -84,17 +84,24 @@ pub mod integration_account_schema {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IntegrationAccountSchemaArgs,
     ) -> IntegrationAccountSchemaResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let content_binding = args.content.get_inner();
-        let file_name_binding = args.file_name.get_inner();
-        let integration_account_name_binding = args.integration_account_name.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let content_binding = args.content.get_output(context).get_inner();
+        let file_name_binding = args.file_name.get_output(context).get_inner();
+        let integration_account_name_binding = args
+            .integration_account_name
+            .get_output(context)
+            .get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/integrationAccountSchema:IntegrationAccountSchema"
                 .into(),
@@ -147,7 +154,7 @@ pub mod integration_account_schema {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

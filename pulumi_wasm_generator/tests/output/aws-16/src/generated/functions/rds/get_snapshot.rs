@@ -1,36 +1,36 @@
 pub mod get_snapshot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSnapshotArgs {
         /// Returns the list of snapshots created by the specific db_instance
         #[builder(into, default)]
-        pub db_instance_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub db_instance_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Returns information on a specific snapshot_id.
         #[builder(into, default)]
-        pub db_snapshot_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub db_snapshot_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Set this value to true to include manual DB snapshots that are public and can be
         /// copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
         #[builder(into, default)]
-        pub include_public: pulumi_wasm_rust::Output<Option<bool>>,
+        pub include_public: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Set this value to true to include shared manual DB snapshots from other
         /// AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
         /// The default is `false`.
         #[builder(into, default)]
-        pub include_shared: pulumi_wasm_rust::Output<Option<bool>>,
+        pub include_shared: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If more than one result is returned, use the most
         /// recent Snapshot.
         #[builder(into, default)]
-        pub most_recent: pulumi_wasm_rust::Output<Option<bool>>,
+        pub most_recent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Type of snapshots to be returned. If you don't specify a SnapshotType
         /// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
         /// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
         #[builder(into, default)]
-        pub snapshot_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub snapshot_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Mapping of tags, each pair of which must exactly match
         /// a pair on the desired DB snapshot.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -85,16 +85,25 @@ pub mod get_snapshot {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetSnapshotArgs) -> GetSnapshotResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetSnapshotArgs,
+    ) -> GetSnapshotResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let db_instance_identifier_binding = args.db_instance_identifier.get_inner();
-        let db_snapshot_identifier_binding = args.db_snapshot_identifier.get_inner();
-        let include_public_binding = args.include_public.get_inner();
-        let include_shared_binding = args.include_shared.get_inner();
-        let most_recent_binding = args.most_recent.get_inner();
-        let snapshot_type_binding = args.snapshot_type.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let db_instance_identifier_binding = args
+            .db_instance_identifier
+            .get_output(context)
+            .get_inner();
+        let db_snapshot_identifier_binding = args
+            .db_snapshot_identifier
+            .get_output(context)
+            .get_inner();
+        let include_public_binding = args.include_public.get_output(context).get_inner();
+        let include_shared_binding = args.include_shared.get_output(context).get_inner();
+        let most_recent_binding = args.most_recent.get_output(context).get_inner();
+        let snapshot_type_binding = args.snapshot_type.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:rds/getSnapshot:getSnapshot".into(),
             version: super::super::super::get_version(),
@@ -209,7 +218,7 @@ pub mod get_snapshot {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

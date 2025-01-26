@@ -28,47 +28,47 @@
 /// ```
 ///
 pub mod prevention_discovery_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PreventionDiscoveryConfigArgs {
         /// Actions to execute at the completion of scanning
         /// Structure is documented below.
         #[builder(into, default)]
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::dataloss::PreventionDiscoveryConfigAction>>,
         >,
         /// Display Name (max 1000 Chars)
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Detection logic for profile generation
         #[builder(into, default)]
-        pub inspect_templates: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub inspect_templates: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Location to create the discovery config in.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// A nested object resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub org_config: pulumi_wasm_rust::Output<
+        pub org_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataloss::PreventionDiscoveryConfigOrgConfig>,
         >,
         /// The parent of the discovery config in any of the following formats:
         /// * `projects/{{project}}/locations/{{location}}`
         /// * `organizations/{{organization_id}}/locations/{{location}}`
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// Required. A status for this configuration
         /// Possible values are: `RUNNING`, `PAUSED`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Target to match against for determining what to scan and how frequently
         /// Structure is documented below.
         #[builder(into, default)]
-        pub targets: pulumi_wasm_rust::Output<
+        pub targets: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::dataloss::PreventionDiscoveryConfigTarget>>,
         >,
     }
@@ -124,19 +124,23 @@ pub mod prevention_discovery_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PreventionDiscoveryConfigArgs,
     ) -> PreventionDiscoveryConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let inspect_templates_binding = args.inspect_templates.get_inner();
-        let location_binding = args.location.get_inner();
-        let org_config_binding = args.org_config.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let status_binding = args.status.get_inner();
-        let targets_binding = args.targets.get_inner();
+        let actions_binding = args.actions.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let inspect_templates_binding = args
+            .inspect_templates
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let org_config_binding = args.org_config.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let targets_binding = args.targets.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataloss/preventionDiscoveryConfig:PreventionDiscoveryConfig"
                 .into(),
@@ -218,7 +222,7 @@ pub mod prevention_discovery_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -69,7 +69,7 @@
 /// ```
 ///
 pub mod account_network_rules {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountNetworkRulesArgs {
@@ -77,10 +77,10 @@ pub mod account_network_rules {
         ///
         /// > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
         #[builder(into, default)]
-        pub bypasses: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub bypasses: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
         #[builder(into)]
-        pub default_action: pulumi_wasm_rust::Output<String>,
+        pub default_action: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
         ///
         /// > **NOTE** Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules without prefix specified.
@@ -89,10 +89,10 @@ pub mod account_network_rules {
         ///
         /// > **NOTE** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
         #[builder(into, default)]
-        pub ip_rules: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ip_rules: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// One or more `private_link_access` block as defined below.
         #[builder(into, default)]
-        pub private_link_access_rules: pulumi_wasm_rust::Output<
+        pub private_link_access_rules: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::storage::AccountNetworkRulesPrivateLinkAccessRule,
@@ -101,12 +101,14 @@ pub mod account_network_rules {
         >,
         /// Specifies the ID of the storage account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of virtual network subnet ids to secure the storage account.
         ///
         /// > **NOTE** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
         #[builder(into, default)]
-        pub virtual_network_subnet_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub virtual_network_subnet_ids: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
     }
     #[allow(dead_code)]
     pub struct AccountNetworkRulesResult {
@@ -144,20 +146,26 @@ pub mod account_network_rules {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AccountNetworkRulesArgs,
     ) -> AccountNetworkRulesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bypasses_binding = args.bypasses.get_inner();
-        let default_action_binding = args.default_action.get_inner();
-        let ip_rules_binding = args.ip_rules.get_inner();
+        let bypasses_binding = args.bypasses.get_output(context).get_inner();
+        let default_action_binding = args.default_action.get_output(context).get_inner();
+        let ip_rules_binding = args.ip_rules.get_output(context).get_inner();
         let private_link_access_rules_binding = args
             .private_link_access_rules
+            .get_output(context)
             .get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
         let virtual_network_subnet_ids_binding = args
             .virtual_network_subnet_ids
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/accountNetworkRules:AccountNetworkRules".into(),
@@ -210,7 +218,7 @@ pub mod account_network_rules {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

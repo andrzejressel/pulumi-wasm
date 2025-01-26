@@ -55,23 +55,23 @@
 /// ```
 ///
 pub mod tag_value {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TagValueArgs {
         /// User-assigned description of the TagValue. Must not exceed 256 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Input only. The resource name of the new TagValue's parent. Must be of the form tagKeys/{tag_key_id}.
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// Input only. User-assigned short name for TagValue. The short name should be unique for TagValues within the same parent TagKey.
         /// The short name can have a maximum length of 256 characters. The permitted character set for the shortName includes all UTF-8 encoded Unicode characters except single quotes ('), double quotes ("), backslashes (\\), and forward slashes (/).
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub short_name: pulumi_wasm_rust::Output<String>,
+        pub short_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TagValueResult {
@@ -100,12 +100,16 @@ pub mod tag_value {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TagValueArgs) -> TagValueResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TagValueArgs,
+    ) -> TagValueResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let short_name_binding = args.short_name.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let short_name_binding = args.short_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:tags/tagValue:TagValue".into(),
             name: name.to_string(),
@@ -148,7 +152,7 @@ pub mod tag_value {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

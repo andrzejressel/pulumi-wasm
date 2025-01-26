@@ -53,34 +53,34 @@
 /// $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
 /// ```
 pub mod lifecycle_hook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LifecycleHookArgs {
         /// Name of the Auto Scaling group to which you want to assign the lifecycle hook
         #[builder(into)]
-        pub autoscaling_group_name: pulumi_wasm_rust::Output<String>,
+        pub autoscaling_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The value for this parameter can be either CONTINUE or ABANDON. The default value for this parameter is ABANDON.
         #[builder(into, default)]
-        pub default_result: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_result: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Defines the amount of time, in seconds, that can elapse before the lifecycle hook times out. When the lifecycle hook times out, Auto Scaling performs the action defined in the DefaultResult parameter
         #[builder(into, default)]
-        pub heartbeat_timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub heartbeat_timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Instance state to which you want to attach the lifecycle hook. For a list of lifecycle hook types, see [describe-lifecycle-hook-types](https://docs.aws.amazon.com/cli/latest/reference/autoscaling/describe-lifecycle-hook-types.html#examples)
         #[builder(into)]
-        pub lifecycle_transition: pulumi_wasm_rust::Output<String>,
+        pub lifecycle_transition: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the lifecycle hook.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Contains additional information that you want to include any time Auto Scaling sends a message to the notification target.
         #[builder(into, default)]
-        pub notification_metadata: pulumi_wasm_rust::Output<Option<String>>,
+        pub notification_metadata: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of the notification target that Auto Scaling will use to notify you when an instance is in the transition state for the lifecycle hook. This ARN target can be either an SQS queue or an SNS topic.
         #[builder(into, default)]
-        pub notification_target_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub notification_target_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LifecycleHookResult {
@@ -105,17 +105,36 @@ pub mod lifecycle_hook {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LifecycleHookArgs) -> LifecycleHookResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LifecycleHookArgs,
+    ) -> LifecycleHookResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let autoscaling_group_name_binding = args.autoscaling_group_name.get_inner();
-        let default_result_binding = args.default_result.get_inner();
-        let heartbeat_timeout_binding = args.heartbeat_timeout.get_inner();
-        let lifecycle_transition_binding = args.lifecycle_transition.get_inner();
-        let name_binding = args.name.get_inner();
-        let notification_metadata_binding = args.notification_metadata.get_inner();
-        let notification_target_arn_binding = args.notification_target_arn.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
+        let autoscaling_group_name_binding = args
+            .autoscaling_group_name
+            .get_output(context)
+            .get_inner();
+        let default_result_binding = args.default_result.get_output(context).get_inner();
+        let heartbeat_timeout_binding = args
+            .heartbeat_timeout
+            .get_output(context)
+            .get_inner();
+        let lifecycle_transition_binding = args
+            .lifecycle_transition
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let notification_metadata_binding = args
+            .notification_metadata
+            .get_output(context)
+            .get_inner();
+        let notification_target_arn_binding = args
+            .notification_target_arn
+            .get_output(context)
+            .get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:autoscaling/lifecycleHook:LifecycleHook".into(),
             name: name.to_string(),
@@ -181,7 +200,7 @@ pub mod lifecycle_hook {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

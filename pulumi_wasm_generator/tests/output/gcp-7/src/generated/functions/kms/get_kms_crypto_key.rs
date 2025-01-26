@@ -1,15 +1,15 @@
 pub mod get_kms_crypto_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetKmsCryptoKeyArgs {
         /// The `id` of the Google Cloud Platform KeyRing to which the key belongs.
         #[builder(into)]
-        pub key_ring: pulumi_wasm_rust::Output<String>,
+        pub key_ring: pulumi_wasm_rust::InputOrOutput<String>,
         /// The CryptoKey's name.
         /// A CryptoKey’s name belonging to the specified Google Cloud Platform KeyRing and match the regular expression `[a-zA-Z0-9_-]{1,63}`
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetKmsCryptoKeyResult {
@@ -50,11 +50,14 @@ pub mod get_kms_crypto_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetKmsCryptoKeyArgs) -> GetKmsCryptoKeyResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetKmsCryptoKeyArgs,
+    ) -> GetKmsCryptoKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let key_ring_binding = args.key_ring.get_inner();
-        let name_binding = args.name.get_inner();
+        let key_ring_binding = args.key_ring.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getKMSCryptoKey:getKMSCryptoKey".into(),
             version: super::super::super::get_version(),
@@ -116,7 +119,7 @@ pub mod get_kms_crypto_key {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

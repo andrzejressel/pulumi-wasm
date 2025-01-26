@@ -24,21 +24,21 @@
 /// $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
 /// ```
 pub mod recovery_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RecoveryGroupArgs {
         /// List of cell arns to add as nested fault domains within this recovery group
         #[builder(into, default)]
-        pub cells: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub cells: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A unique name describing the recovery group.
         ///
         /// The following argument are optional:
         #[builder(into)]
-        pub recovery_group_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -65,12 +65,19 @@ pub mod recovery_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RecoveryGroupArgs) -> RecoveryGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RecoveryGroupArgs,
+    ) -> RecoveryGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cells_binding = args.cells.get_inner();
-        let recovery_group_name_binding = args.recovery_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let cells_binding = args.cells.get_output(context).get_inner();
+        let recovery_group_name_binding = args
+            .recovery_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup".into(),
             name: name.to_string(),
@@ -107,7 +114,7 @@ pub mod recovery_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

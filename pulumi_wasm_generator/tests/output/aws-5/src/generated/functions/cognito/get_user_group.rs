@@ -1,14 +1,14 @@
 pub mod get_user_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetUserGroupArgs {
         /// Name of the user group.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// User pool the client belongs to.
         #[builder(into)]
-        pub user_pool_id: pulumi_wasm_rust::Output<String>,
+        pub user_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetUserGroupResult {
@@ -27,11 +27,14 @@ pub mod get_user_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetUserGroupArgs) -> GetUserGroupResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetUserGroupArgs,
+    ) -> GetUserGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let user_pool_id_binding = args.user_pool_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:cognito/getUserGroup:getUserGroup".into(),
             version: super::super::super::get_version(),
@@ -66,7 +69,7 @@ pub mod get_user_group {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

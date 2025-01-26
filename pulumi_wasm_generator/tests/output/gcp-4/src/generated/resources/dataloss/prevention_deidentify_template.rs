@@ -153,33 +153,33 @@
 /// ```
 ///
 pub mod prevention_deidentify_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PreventionDeidentifyTemplateArgs {
         /// Configuration of the deidentify template
         /// Structure is documented below.
         #[builder(into)]
-        pub deidentify_config: pulumi_wasm_rust::Output<
+        pub deidentify_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::dataloss::PreventionDeidentifyTemplateDeidentifyConfig,
         >,
         /// A description of the template.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// User set display name of the template.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The parent of the template in any of the following formats:
         /// * `projects/{{project}}`
         /// * `projects/{{project}}/locations/{{location}}`
         /// * `organizations/{{organization_id}}`
         /// * `organizations/{{organization_id}}/locations/{{location}}`
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// The template id can contain uppercase and lowercase letters, numbers, and hyphens; that is, it must match the regular
         /// expression: [a-zA-Z\d-_]+. The maximum length is 100 characters. Can be empty to allow the system to generate one.
         #[builder(into, default)]
-        pub template_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PreventionDeidentifyTemplateResult {
@@ -213,16 +213,20 @@ pub mod prevention_deidentify_template {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PreventionDeidentifyTemplateArgs,
     ) -> PreventionDeidentifyTemplateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let deidentify_config_binding = args.deidentify_config.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let template_id_binding = args.template_id.get_inner();
+        let deidentify_config_binding = args
+            .deidentify_config
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let template_id_binding = args.template_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataloss/preventionDeidentifyTemplate:PreventionDeidentifyTemplate"
                 .into(),
@@ -277,7 +281,7 @@ pub mod prevention_deidentify_template {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

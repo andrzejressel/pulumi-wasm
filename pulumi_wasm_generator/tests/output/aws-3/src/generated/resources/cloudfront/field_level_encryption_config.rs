@@ -56,21 +56,21 @@
 /// $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
 /// ```
 pub mod field_level_encryption_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FieldLevelEncryptionConfigArgs {
         /// An optional comment about the Field Level Encryption Config.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
         #[builder(into)]
-        pub content_type_profile_config: pulumi_wasm_rust::Output<
+        pub content_type_profile_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudfront::FieldLevelEncryptionConfigContentTypeProfileConfig,
         >,
         /// Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
         #[builder(into)]
-        pub query_arg_profile_config: pulumi_wasm_rust::Output<
+        pub query_arg_profile_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudfront::FieldLevelEncryptionConfigQueryArgProfileConfig,
         >,
     }
@@ -96,16 +96,21 @@ pub mod field_level_encryption_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FieldLevelEncryptionConfigArgs,
     ) -> FieldLevelEncryptionConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let comment_binding = args.comment.get_inner();
+        let comment_binding = args.comment.get_output(context).get_inner();
         let content_type_profile_config_binding = args
             .content_type_profile_config
+            .get_output(context)
             .get_inner();
-        let query_arg_profile_config_binding = args.query_arg_profile_config.get_inner();
+        let query_arg_profile_config_binding = args
+            .query_arg_profile_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig"
                 .into(),
@@ -143,7 +148,7 @@ pub mod field_level_encryption_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

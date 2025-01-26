@@ -1,24 +1,24 @@
 pub mod get_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetInstanceArgs {
         /// The name of the instance. One of `name` or `self_link` must be provided.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If `self_link` is provided, this value is ignored.  If neither `self_link`
         /// nor `project` are provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The self link of the instance. One of `name` or `self_link` must be provided.
         #[builder(into, default)]
-        pub self_link: pulumi_wasm_rust::Output<Option<String>>,
+        pub self_link: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The zone of the instance. If `self_link` is provided, this
         /// value is ignored.  If neither `self_link` nor `zone` are provided, the
         /// provider zone is used.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetInstanceResult {
@@ -135,13 +135,16 @@ pub mod get_instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetInstanceArgs) -> GetInstanceResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetInstanceArgs,
+    ) -> GetInstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let self_link_binding = args.self_link.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let self_link_binding = args.self_link.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getInstance:getInstance".into(),
             version: super::super::super::get_version(),
@@ -295,7 +298,7 @@ pub mod get_instance {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

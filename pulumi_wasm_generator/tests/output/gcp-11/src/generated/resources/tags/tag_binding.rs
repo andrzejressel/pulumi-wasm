@@ -71,19 +71,19 @@
 /// ```
 ///
 pub mod tag_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TagBindingArgs {
         /// The full resource name of the resource the TagValue is bound to. E.g. //cloudresourcemanager.googleapis.com/projects/123
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// The TagValue of the TagBinding. Must be of the form tagValues/456.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub tag_value: pulumi_wasm_rust::Output<String>,
+        pub tag_value: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TagBindingResult {
@@ -101,11 +101,15 @@ pub mod tag_binding {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TagBindingArgs) -> TagBindingResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TagBindingArgs,
+    ) -> TagBindingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let parent_binding = args.parent.get_inner();
-        let tag_value_binding = args.tag_value.get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let tag_value_binding = args.tag_value.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:tags/tagBinding:TagBinding".into(),
             name: name.to_string(),
@@ -132,7 +136,7 @@ pub mod tag_binding {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

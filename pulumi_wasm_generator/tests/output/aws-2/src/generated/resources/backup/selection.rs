@@ -154,33 +154,33 @@
 /// $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
 /// ```
 pub mod selection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SelectionArgs {
         /// A list of conditions that you define to assign resources to your backup plans using tags.
         #[builder(into, default)]
-        pub conditions: pulumi_wasm_rust::Output<
+        pub conditions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::backup::SelectionCondition>>,
         >,
         /// The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         #[builder(into)]
-        pub iam_role_arn: pulumi_wasm_rust::Output<String>,
+        pub iam_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The display name of a resource selection document.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
         #[builder(into, default)]
-        pub not_resources: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub not_resources: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The backup plan ID to be associated with the selection of resources.
         #[builder(into)]
-        pub plan_id: pulumi_wasm_rust::Output<String>,
+        pub plan_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         #[builder(into, default)]
-        pub resources: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub resources: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Tag-based conditions used to specify a set of resources to assign to a backup plan.
         #[builder(into, default)]
-        pub selection_tags: pulumi_wasm_rust::Output<
+        pub selection_tags: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::backup::SelectionSelectionTag>>,
         >,
     }
@@ -209,16 +209,20 @@ pub mod selection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SelectionArgs) -> SelectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SelectionArgs,
+    ) -> SelectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let conditions_binding = args.conditions.get_inner();
-        let iam_role_arn_binding = args.iam_role_arn.get_inner();
-        let name_binding = args.name.get_inner();
-        let not_resources_binding = args.not_resources.get_inner();
-        let plan_id_binding = args.plan_id.get_inner();
-        let resources_binding = args.resources.get_inner();
-        let selection_tags_binding = args.selection_tags.get_inner();
+        let conditions_binding = args.conditions.get_output(context).get_inner();
+        let iam_role_arn_binding = args.iam_role_arn.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let not_resources_binding = args.not_resources.get_output(context).get_inner();
+        let plan_id_binding = args.plan_id.get_output(context).get_inner();
+        let resources_binding = args.resources.get_output(context).get_inner();
+        let selection_tags_binding = args.selection_tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:backup/selection:Selection".into(),
             name: name.to_string(),
@@ -277,7 +281,7 @@ pub mod selection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

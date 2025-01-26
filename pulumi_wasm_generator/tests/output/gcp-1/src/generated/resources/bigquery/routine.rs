@@ -306,53 +306,53 @@
 /// ```
 ///
 pub mod routine {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoutineArgs {
         /// Input/output argument of a function or a stored procedure.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub arguments: pulumi_wasm_rust::Output<
+        pub arguments: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::bigquery::RoutineArgument>>,
         >,
         /// If set to DATA_MASKING, the function is validated and made available as a masking function. For more information, see https://cloud.google.com/bigquery/docs/user-defined-functions#custom-mask
         /// Possible values are: `DATA_MASKING`.
         #[builder(into, default)]
-        pub data_governance_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_governance_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the dataset containing this routine
         #[builder(into)]
-        pub dataset_id: pulumi_wasm_rust::Output<String>,
+        pub dataset_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The body of the routine. For functions, this is the expression in the AS clause.
         /// If language=SQL, it is the substring inside (but excluding) the parentheses.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub definition_body: pulumi_wasm_rust::Output<String>,
+        pub definition_body: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of the routine if defined.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The determinism level of the JavaScript UDF if defined.
         /// Possible values are: `DETERMINISM_LEVEL_UNSPECIFIED`, `DETERMINISTIC`, `NOT_DETERMINISTIC`.
         #[builder(into, default)]
-        pub determinism_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub determinism_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. If language = "JAVASCRIPT", this field stores the path of the
         /// imported JAVASCRIPT libraries.
         #[builder(into, default)]
-        pub imported_libraries: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub imported_libraries: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The language of the routine.
         /// Possible values are: `SQL`, `JAVASCRIPT`, `PYTHON`, `JAVA`, `SCALA`.
         #[builder(into, default)]
-        pub language: pulumi_wasm_rust::Output<Option<String>>,
+        pub language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Remote function specific options.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub remote_function_options: pulumi_wasm_rust::Output<
+        pub remote_function_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::RoutineRemoteFunctionOptions>,
         >,
         /// Optional. Can be set only if routineType = "TABLE_VALUED_FUNCTION".
@@ -360,7 +360,7 @@ pub mod routine {
         /// that references this routine. If present, then the columns in the evaluated table result will
         /// be cast to match the column types specificed in return table type, at query time.
         #[builder(into, default)]
-        pub return_table_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub return_table_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A JSON schema for the return type. Optional if language = "SQL"; required otherwise.
         /// If absent, the return type is inferred from definitionBody at query time in each query
         /// that references this routine. If present, then the evaluated result will be cast to
@@ -371,18 +371,18 @@ pub mod routine {
         /// cannot suppress the recurring diff this causes. As a workaround, we recommend using
         /// the schema as returned by the API.
         #[builder(into, default)]
-        pub return_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub return_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the the routine. The ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_). The maximum length is 256 characters.
         #[builder(into)]
-        pub routine_id: pulumi_wasm_rust::Output<String>,
+        pub routine_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of routine.
         /// Possible values are: `SCALAR_FUNCTION`, `PROCEDURE`, `TABLE_VALUED_FUNCTION`.
         #[builder(into)]
-        pub routine_type: pulumi_wasm_rust::Output<String>,
+        pub routine_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. If language is one of "PYTHON", "JAVA", "SCALA", this field stores the options for spark stored procedure.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spark_options: pulumi_wasm_rust::Output<
+        pub spark_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::RoutineSparkOptions>,
         >,
     }
@@ -459,24 +459,46 @@ pub mod routine {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RoutineArgs) -> RoutineResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RoutineArgs,
+    ) -> RoutineResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arguments_binding = args.arguments.get_inner();
-        let data_governance_type_binding = args.data_governance_type.get_inner();
-        let dataset_id_binding = args.dataset_id.get_inner();
-        let definition_body_binding = args.definition_body.get_inner();
-        let description_binding = args.description.get_inner();
-        let determinism_level_binding = args.determinism_level.get_inner();
-        let imported_libraries_binding = args.imported_libraries.get_inner();
-        let language_binding = args.language.get_inner();
-        let project_binding = args.project.get_inner();
-        let remote_function_options_binding = args.remote_function_options.get_inner();
-        let return_table_type_binding = args.return_table_type.get_inner();
-        let return_type_binding = args.return_type.get_inner();
-        let routine_id_binding = args.routine_id.get_inner();
-        let routine_type_binding = args.routine_type.get_inner();
-        let spark_options_binding = args.spark_options.get_inner();
+        let arguments_binding = args.arguments.get_output(context).get_inner();
+        let data_governance_type_binding = args
+            .data_governance_type
+            .get_output(context)
+            .get_inner();
+        let dataset_id_binding = args.dataset_id.get_output(context).get_inner();
+        let definition_body_binding = args
+            .definition_body
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let determinism_level_binding = args
+            .determinism_level
+            .get_output(context)
+            .get_inner();
+        let imported_libraries_binding = args
+            .imported_libraries
+            .get_output(context)
+            .get_inner();
+        let language_binding = args.language.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let remote_function_options_binding = args
+            .remote_function_options
+            .get_output(context)
+            .get_inner();
+        let return_table_type_binding = args
+            .return_table_type
+            .get_output(context)
+            .get_inner();
+        let return_type_binding = args.return_type.get_output(context).get_inner();
+        let routine_id_binding = args.routine_id.get_output(context).get_inner();
+        let routine_type_binding = args.routine_type.get_output(context).get_inner();
+        let spark_options_binding = args.spark_options.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/routine:Routine".into(),
             name: name.to_string(),
@@ -597,7 +619,7 @@ pub mod routine {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

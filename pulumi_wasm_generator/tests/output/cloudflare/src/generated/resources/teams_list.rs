@@ -29,30 +29,30 @@
 /// ```
 ///
 pub mod teams_list {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TeamsListArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The description of the teams list.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The items of the teams list.
         #[builder(into, default)]
-        pub items: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub items: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The items of the teams list that has explicit description.
         #[builder(into, default)]
-        pub items_with_descriptions: pulumi_wasm_rust::Output<
+        pub items_with_descriptions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::TeamsListItemsWithDescription>>,
         >,
         /// Name of the teams list.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The teams list type. Available values: `IP`, `SERIAL`, `URL`, `DOMAIN`, `EMAIL`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TeamsListResult {
@@ -75,15 +75,22 @@ pub mod teams_list {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TeamsListArgs) -> TeamsListResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TeamsListArgs,
+    ) -> TeamsListResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let description_binding = args.description.get_inner();
-        let items_binding = args.items.get_inner();
-        let items_with_descriptions_binding = args.items_with_descriptions.get_inner();
-        let name_binding = args.name.get_inner();
-        let type__binding = args.type_.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let items_binding = args.items.get_output(context).get_inner();
+        let items_with_descriptions_binding = args
+            .items_with_descriptions
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/teamsList:TeamsList".into(),
             name: name.to_string(),
@@ -135,7 +142,7 @@ pub mod teams_list {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

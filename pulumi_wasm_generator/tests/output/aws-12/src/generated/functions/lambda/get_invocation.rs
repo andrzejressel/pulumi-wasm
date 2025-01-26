@@ -1,18 +1,18 @@
 pub mod get_invocation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetInvocationArgs {
         /// Name of the lambda function.
         #[builder(into)]
-        pub function_name: pulumi_wasm_rust::Output<String>,
+        pub function_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// String in JSON format that is passed as payload to the lambda function.
         #[builder(into)]
-        pub input: pulumi_wasm_rust::Output<String>,
+        pub input: pulumi_wasm_rust::InputOrOutput<String>,
         /// Qualifier (a.k.a version) of the lambda function. Defaults
         /// to `$LATEST`.
         #[builder(into, default)]
-        pub qualifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub qualifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetInvocationResult {
@@ -28,12 +28,15 @@ pub mod get_invocation {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetInvocationArgs) -> GetInvocationResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetInvocationArgs,
+    ) -> GetInvocationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let function_name_binding = args.function_name.get_inner();
-        let input_binding = args.input.get_inner();
-        let qualifier_binding = args.qualifier.get_inner();
+        let function_name_binding = args.function_name.get_output(context).get_inner();
+        let input_binding = args.input.get_output(context).get_inner();
+        let qualifier_binding = args.qualifier.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lambda/getInvocation:getInvocation".into(),
             version: super::super::super::get_version(),
@@ -69,7 +72,7 @@ pub mod get_invocation {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

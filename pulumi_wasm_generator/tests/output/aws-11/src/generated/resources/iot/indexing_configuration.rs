@@ -43,20 +43,20 @@
 /// }
 /// ```
 pub mod indexing_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IndexingConfigurationArgs {
         /// Thing group indexing configuration. See below.
         #[builder(into, default)]
-        pub thing_group_indexing_configuration: pulumi_wasm_rust::Output<
+        pub thing_group_indexing_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::iot::IndexingConfigurationThingGroupIndexingConfiguration,
             >,
         >,
         /// Thing indexing configuration. See below.
         #[builder(into, default)]
-        pub thing_indexing_configuration: pulumi_wasm_rust::Output<
+        pub thing_indexing_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::iot::IndexingConfigurationThingIndexingConfiguration,
             >,
@@ -78,6 +78,7 @@ pub mod indexing_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IndexingConfigurationArgs,
     ) -> IndexingConfigurationResult {
@@ -85,9 +86,11 @@ pub mod indexing_configuration {
         use std::collections::HashMap;
         let thing_group_indexing_configuration_binding = args
             .thing_group_indexing_configuration
+            .get_output(context)
             .get_inner();
         let thing_indexing_configuration_binding = args
             .thing_indexing_configuration
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/indexingConfiguration:IndexingConfiguration".into(),
@@ -112,7 +115,7 @@ pub mod indexing_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

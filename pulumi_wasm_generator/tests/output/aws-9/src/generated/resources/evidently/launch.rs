@@ -202,40 +202,40 @@
 /// $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
 /// ```
 pub mod launch {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LaunchArgs {
         /// Specifies the description of the launch.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or up to five blocks that contain the feature and variations that are to be used for the launch. Detailed below.
         #[builder(into)]
-        pub groups: pulumi_wasm_rust::Output<
+        pub groups: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::evidently::LaunchGroup>,
         >,
         /// One or up to three blocks that define the metrics that will be used to monitor the launch performance. Detailed below.
         #[builder(into, default)]
-        pub metric_monitors: pulumi_wasm_rust::Output<
+        pub metric_monitors: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::evidently::LaunchMetricMonitor>>,
         >,
         /// The name for the new launch. Minimum length of `1`. Maximum length of `127`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name or ARN of the project that is to contain the new launch.
         #[builder(into)]
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_wasm_rust::InputOrOutput<String>,
         /// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
         #[builder(into, default)]
-        pub randomization_salt: pulumi_wasm_rust::Output<Option<String>>,
+        pub randomization_salt: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         #[builder(into, default)]
-        pub scheduled_splits_config: pulumi_wasm_rust::Output<
+        pub scheduled_splits_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::evidently::LaunchScheduledSplitsConfig>,
         >,
         /// Tags to apply to the launch. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -290,17 +290,30 @@ pub mod launch {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LaunchArgs) -> LaunchResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LaunchArgs,
+    ) -> LaunchResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let groups_binding = args.groups.get_inner();
-        let metric_monitors_binding = args.metric_monitors.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let randomization_salt_binding = args.randomization_salt.get_inner();
-        let scheduled_splits_config_binding = args.scheduled_splits_config.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let groups_binding = args.groups.get_output(context).get_inner();
+        let metric_monitors_binding = args
+            .metric_monitors
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let randomization_salt_binding = args
+            .randomization_salt
+            .get_output(context)
+            .get_inner();
+        let scheduled_splits_config_binding = args
+            .scheduled_splits_config
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:evidently/launch:Launch".into(),
             name: name.to_string(),
@@ -390,7 +403,7 @@ pub mod launch {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

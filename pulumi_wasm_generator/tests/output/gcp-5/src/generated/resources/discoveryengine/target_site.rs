@@ -100,7 +100,7 @@
 /// ```
 ///
 pub mod target_site {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetSiteArgs {
@@ -109,7 +109,7 @@ pub mod target_site {
         ///
         /// - - -
         #[builder(into)]
-        pub data_store_id: pulumi_wasm_rust::Output<String>,
+        pub data_store_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// If set to false, a uri_pattern is generated to include all pages whose
         /// address contains the provided_uri_pattern. If set to true, an uri_pattern
         /// is generated to try to be an exact match of the provided_uri_pattern or
@@ -117,23 +117,23 @@ pub mod target_site {
         /// provided_uri_pattern is always normalized to generate the URI pattern to
         /// be used by the search engine.
         #[builder(into, default)]
-        pub exact_match: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exact_match: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The geographic location where the data store should reside. The value can
         /// only be one of "global", "us" and "eu".
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user provided URI pattern from which the `generated_uri_pattern` is
         /// generated.
         #[builder(into)]
-        pub provided_uri_pattern: pulumi_wasm_rust::Output<String>,
+        pub provided_uri_pattern: pulumi_wasm_rust::InputOrOutput<String>,
         /// The possible target site types.
         /// Possible values are: `INCLUDE`, `EXCLUDE`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TargetSiteResult {
@@ -191,15 +191,22 @@ pub mod target_site {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TargetSiteArgs) -> TargetSiteResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TargetSiteArgs,
+    ) -> TargetSiteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let data_store_id_binding = args.data_store_id.get_inner();
-        let exact_match_binding = args.exact_match.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
-        let provided_uri_pattern_binding = args.provided_uri_pattern.get_inner();
-        let type__binding = args.type_.get_inner();
+        let data_store_id_binding = args.data_store_id.get_output(context).get_inner();
+        let exact_match_binding = args.exact_match.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let provided_uri_pattern_binding = args
+            .provided_uri_pattern
+            .get_output(context)
+            .get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:discoveryengine/targetSite:TargetSite".into(),
             name: name.to_string(),
@@ -275,7 +282,7 @@ pub mod target_site {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -125,28 +125,28 @@
 /// ```
 ///
 pub mod database_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatabaseInstanceArgs {
         /// The intended database state. Possible values: ACTIVE, DISABLED.
         #[builder(into, default)]
-        pub desired_state: pulumi_wasm_rust::Output<Option<String>>,
+        pub desired_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The globally unique identifier of the Firebase Realtime Database instance.
         /// Instance IDs cannot be reused after deletion.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A reference to the region where the Firebase Realtime database resides.
         /// Check all [available regions](https://firebase.google.com/docs/projects/locations#rtdb-locations)
         #[builder(into)]
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_wasm_rust::InputOrOutput<String>,
         /// The database type.
         /// Each project can create one default Firebase Realtime Database, which cannot be deleted once created.
         /// Creating user Databases is only available for projects on the Blaze plan.
@@ -154,7 +154,7 @@ pub mod database_instance {
         /// Default value is `USER_DATABASE`.
         /// Possible values are: `DEFAULT_DATABASE`, `USER_DATABASE`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DatabaseInstanceResult {
@@ -194,14 +194,18 @@ pub mod database_instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DatabaseInstanceArgs) -> DatabaseInstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DatabaseInstanceArgs,
+    ) -> DatabaseInstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let desired_state_binding = args.desired_state.get_inner();
-        let instance_id_binding = args.instance_id.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let type__binding = args.type_.get_inner();
+        let desired_state_binding = args.desired_state.get_output(context).get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/databaseInstance:DatabaseInstance".into(),
             name: name.to_string(),
@@ -255,7 +259,7 @@ pub mod database_instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

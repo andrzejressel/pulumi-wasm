@@ -95,30 +95,30 @@
 /// ```
 ///
 pub mod cache_blob_target {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CacheBlobTargetArgs {
         /// The name of the access policy applied to this target. Defaults to `default`.
         #[builder(into, default)]
-        pub access_policy_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_policy_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cache_name: pulumi_wasm_rust::Output<String>,
+        pub cache_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The client-facing file path of the HPC Cache Blob Target.
         #[builder(into)]
-        pub namespace_path: pulumi_wasm_rust::Output<String>,
+        pub namespace_path: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created.
         ///
         /// > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azure.storage.Container` Data Source/Resource as `resource_manager_id`.
         #[builder(into)]
-        pub storage_container_id: pulumi_wasm_rust::Output<String>,
+        pub storage_container_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CacheBlobTargetResult {
@@ -141,15 +141,28 @@ pub mod cache_blob_target {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CacheBlobTargetArgs) -> CacheBlobTargetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CacheBlobTargetArgs,
+    ) -> CacheBlobTargetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_policy_name_binding = args.access_policy_name.get_inner();
-        let cache_name_binding = args.cache_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let namespace_path_binding = args.namespace_path.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let storage_container_id_binding = args.storage_container_id.get_inner();
+        let access_policy_name_binding = args
+            .access_policy_name
+            .get_output(context)
+            .get_inner();
+        let cache_name_binding = args.cache_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let namespace_path_binding = args.namespace_path.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let storage_container_id_binding = args
+            .storage_container_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:hpc/cacheBlobTarget:CacheBlobTarget".into(),
             name: name.to_string(),
@@ -201,7 +214,7 @@ pub mod cache_blob_target {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

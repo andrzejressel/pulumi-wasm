@@ -1,17 +1,17 @@
 pub mod get_ipam_preview_next_cidr {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetIpamPreviewNextCidrArgs {
         /// Exclude a particular CIDR range from being returned by the pool.
         #[builder(into, default)]
-        pub disallowed_cidrs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub disallowed_cidrs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// ID of the pool to which you want to assign a CIDR.
         #[builder(into)]
-        pub ipam_pool_id: pulumi_wasm_rust::Output<String>,
+        pub ipam_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Netmask length of the CIDR you would like to preview from the IPAM pool.
         #[builder(into, default)]
-        pub netmask_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub netmask_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct GetIpamPreviewNextCidrResult {
@@ -27,12 +27,18 @@ pub mod get_ipam_preview_next_cidr {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetIpamPreviewNextCidrArgs) -> GetIpamPreviewNextCidrResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetIpamPreviewNextCidrArgs,
+    ) -> GetIpamPreviewNextCidrResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let disallowed_cidrs_binding = args.disallowed_cidrs.get_inner();
-        let ipam_pool_id_binding = args.ipam_pool_id.get_inner();
-        let netmask_length_binding = args.netmask_length.get_inner();
+        let disallowed_cidrs_binding = args
+            .disallowed_cidrs
+            .get_output(context)
+            .get_inner();
+        let ipam_pool_id_binding = args.ipam_pool_id.get_output(context).get_inner();
+        let netmask_length_binding = args.netmask_length.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr".into(),
             version: super::super::super::get_version(),
@@ -68,7 +74,7 @@ pub mod get_ipam_preview_next_cidr {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

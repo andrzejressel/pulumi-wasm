@@ -80,29 +80,29 @@
 /// $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
 /// ```
 pub mod deployment_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentConfigArgs {
         /// The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         #[builder(into, default)]
-        pub compute_platform: pulumi_wasm_rust::Output<Option<String>>,
+        pub compute_platform: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the deployment config.
         #[builder(into, default)]
-        pub deployment_config_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub deployment_config_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         #[builder(into, default)]
-        pub minimum_healthy_hosts: pulumi_wasm_rust::Output<
+        pub minimum_healthy_hosts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codedeploy::DeploymentConfigMinimumHealthyHosts>,
         >,
         /// A traffic_routing_config block. Traffic Routing Config is documented below.
         #[builder(into, default)]
-        pub traffic_routing_config: pulumi_wasm_rust::Output<
+        pub traffic_routing_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codedeploy::DeploymentConfigTrafficRoutingConfig>,
         >,
         /// A zonal_config block. Zonal Config is documented below.
         #[builder(into, default)]
-        pub zonal_config: pulumi_wasm_rust::Output<
+        pub zonal_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codedeploy::DeploymentConfigZonalConfig>,
         >,
     }
@@ -133,14 +133,30 @@ pub mod deployment_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DeploymentConfigArgs) -> DeploymentConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DeploymentConfigArgs,
+    ) -> DeploymentConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let compute_platform_binding = args.compute_platform.get_inner();
-        let deployment_config_name_binding = args.deployment_config_name.get_inner();
-        let minimum_healthy_hosts_binding = args.minimum_healthy_hosts.get_inner();
-        let traffic_routing_config_binding = args.traffic_routing_config.get_inner();
-        let zonal_config_binding = args.zonal_config.get_inner();
+        let compute_platform_binding = args
+            .compute_platform
+            .get_output(context)
+            .get_inner();
+        let deployment_config_name_binding = args
+            .deployment_config_name
+            .get_output(context)
+            .get_inner();
+        let minimum_healthy_hosts_binding = args
+            .minimum_healthy_hosts
+            .get_output(context)
+            .get_inner();
+        let traffic_routing_config_binding = args
+            .traffic_routing_config
+            .get_output(context)
+            .get_inner();
+        let zonal_config_binding = args.zonal_config.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codedeploy/deploymentConfig:DeploymentConfig".into(),
             name: name.to_string(),
@@ -191,7 +207,7 @@ pub mod deployment_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

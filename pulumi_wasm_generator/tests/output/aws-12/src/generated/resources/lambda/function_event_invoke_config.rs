@@ -134,13 +134,13 @@
 /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
 /// ```
 pub mod function_event_invoke_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionEventInvokeConfigArgs {
         /// Configuration block with destination configuration. See below for details.
         #[builder(into, default)]
-        pub destination_config: pulumi_wasm_rust::Output<
+        pub destination_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::lambda::FunctionEventInvokeConfigDestinationConfig,
             >,
@@ -149,16 +149,16 @@ pub mod function_event_invoke_config {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub function_name: pulumi_wasm_rust::Output<String>,
+        pub function_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         #[builder(into, default)]
-        pub maximum_event_age_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_event_age_in_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         #[builder(into, default)]
-        pub maximum_retry_attempts: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_retry_attempts: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Lambda Function published version, `$LATEST`, or Lambda Alias name.
         #[builder(into, default)]
-        pub qualifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub qualifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FunctionEventInvokeConfigResult {
@@ -184,18 +184,26 @@ pub mod function_event_invoke_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: FunctionEventInvokeConfigArgs,
     ) -> FunctionEventInvokeConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let destination_config_binding = args.destination_config.get_inner();
-        let function_name_binding = args.function_name.get_inner();
+        let destination_config_binding = args
+            .destination_config
+            .get_output(context)
+            .get_inner();
+        let function_name_binding = args.function_name.get_output(context).get_inner();
         let maximum_event_age_in_seconds_binding = args
             .maximum_event_age_in_seconds
+            .get_output(context)
             .get_inner();
-        let maximum_retry_attempts_binding = args.maximum_retry_attempts.get_inner();
-        let qualifier_binding = args.qualifier.get_inner();
+        let maximum_retry_attempts_binding = args
+            .maximum_retry_attempts
+            .get_output(context)
+            .get_inner();
+        let qualifier_binding = args.qualifier.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig"
                 .into(),
@@ -241,7 +249,7 @@ pub mod function_event_invoke_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

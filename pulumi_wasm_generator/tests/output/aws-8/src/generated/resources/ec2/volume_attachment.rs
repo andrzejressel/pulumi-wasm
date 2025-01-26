@@ -37,37 +37,39 @@
 /// $ pulumi import aws:ec2/volumeAttachment:VolumeAttachment example /dev/sdh:vol-049df61146c4d7901:i-12345678
 /// ```
 pub mod volume_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VolumeAttachmentArgs {
         /// The device name to expose to the instance (for
         /// example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
         #[builder(into)]
-        pub device_name: pulumi_wasm_rust::Output<String>,
+        pub device_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Set to `true` if you want to force the
         /// volume to detach. Useful if previous attempts failed, but use this option only
         /// as a last resort, as this can result in **data loss**. See
         /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         #[builder(into, default)]
-        pub force_detach: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_detach: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// ID of the Instance to attach to
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Set this to true if you do not wish
         /// to detach the volume from the instance to which it is attached at destroy
         /// time, and instead just remove the attachment from this provider state. This is
         /// useful when destroying an instance which has volumes created by some other
         /// means attached.
         #[builder(into, default)]
-        pub skip_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Set this to true to ensure that the target instance is stopped
         /// before trying to detach the volume. Stops the instance, if it is not already stopped.
         #[builder(into, default)]
-        pub stop_instance_before_detaching: pulumi_wasm_rust::Output<Option<bool>>,
+        pub stop_instance_before_detaching: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// ID of the Volume to be attached
         #[builder(into)]
-        pub volume_id: pulumi_wasm_rust::Output<String>,
+        pub volume_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VolumeAttachmentResult {
@@ -97,17 +99,22 @@ pub mod volume_attachment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VolumeAttachmentArgs) -> VolumeAttachmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VolumeAttachmentArgs,
+    ) -> VolumeAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let device_name_binding = args.device_name.get_inner();
-        let force_detach_binding = args.force_detach.get_inner();
-        let instance_id_binding = args.instance_id.get_inner();
-        let skip_destroy_binding = args.skip_destroy.get_inner();
+        let device_name_binding = args.device_name.get_output(context).get_inner();
+        let force_detach_binding = args.force_detach.get_output(context).get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let skip_destroy_binding = args.skip_destroy.get_output(context).get_inner();
         let stop_instance_before_detaching_binding = args
             .stop_instance_before_detaching
+            .get_output(context)
             .get_inner();
-        let volume_id_binding = args.volume_id.get_inner();
+        let volume_id_binding = args.volume_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/volumeAttachment:VolumeAttachment".into(),
             name: name.to_string(),
@@ -159,7 +166,7 @@ pub mod volume_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

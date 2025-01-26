@@ -34,13 +34,13 @@
 ///         - ${exampleAmazonsesVerificationRecord}
 /// ```
 pub mod domain_identity_verification {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainIdentityVerificationArgs {
         /// The domain name of the SES domain identity to verify.
         #[builder(into)]
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DomainIdentityVerificationResult {
@@ -54,12 +54,13 @@ pub mod domain_identity_verification {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DomainIdentityVerificationArgs,
     ) -> DomainIdentityVerificationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_binding = args.domain.get_inner();
+        let domain_binding = args.domain.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ses/domainIdentityVerification:DomainIdentityVerification"
                 .into(),
@@ -80,7 +81,7 @@ pub mod domain_identity_verification {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

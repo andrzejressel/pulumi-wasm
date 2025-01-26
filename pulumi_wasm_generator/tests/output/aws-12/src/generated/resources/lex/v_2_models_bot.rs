@@ -44,51 +44,51 @@
 /// $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
 /// ```
 pub mod v_2_models_bot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct V2modelsBotArgs {
         /// Provides information on additional privacy protections Amazon Lex should use with the bot's data. See `data_privacy`
         #[builder(into, default)]
-        pub data_privacies: pulumi_wasm_rust::Output<
+        pub data_privacies: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::lex::V2ModelsBotDataPrivacy>>,
         >,
         /// Description of the bot. It appears in lists to help you identify a particular bot.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         #[builder(into)]
-        pub idle_session_ttl_in_seconds: pulumi_wasm_rust::Output<i32>,
+        pub idle_session_ttl_in_seconds: pulumi_wasm_rust::InputOrOutput<i32>,
         /// List of bot members in a network to be created. See `bot_members`.
         #[builder(into, default)]
-        pub members: pulumi_wasm_rust::Output<
+        pub members: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::lex::V2ModelsBotMember>>,
         >,
         /// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of an IAM role that has permission to access the bot.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of tags to add to the bot. You can only add tags when you create a bot.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
         #[builder(into, default)]
-        pub test_bot_alias_tags: pulumi_wasm_rust::Output<
+        pub test_bot_alias_tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::lex::V2ModelsBotTimeouts>,
         >,
         /// Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct V2modelsBotResult {
@@ -132,21 +132,29 @@ pub mod v_2_models_bot {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: V2modelsBotArgs) -> V2modelsBotResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: V2modelsBotArgs,
+    ) -> V2modelsBotResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let data_privacies_binding = args.data_privacies.get_inner();
-        let description_binding = args.description.get_inner();
+        let data_privacies_binding = args.data_privacies.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let idle_session_ttl_in_seconds_binding = args
             .idle_session_ttl_in_seconds
+            .get_output(context)
             .get_inner();
-        let members_binding = args.members.get_inner();
-        let name_binding = args.name.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let test_bot_alias_tags_binding = args.test_bot_alias_tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
-        let type__binding = args.type_.get_inner();
+        let members_binding = args.members.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let test_bot_alias_tags_binding = args
+            .test_bot_alias_tags
+            .get_output(context)
+            .get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lex/v2modelsBot:V2modelsBot".into(),
             name: name.to_string(),
@@ -232,7 +240,7 @@ pub mod v_2_models_bot {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

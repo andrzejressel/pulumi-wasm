@@ -54,68 +54,74 @@
 /// ```
 ///
 pub mod network_security_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkSecurityRuleArgs {
         /// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         #[builder(into)]
-        pub access: pulumi_wasm_rust::Output<String>,
+        pub access: pulumi_wasm_rust::InputOrOutput<String>,
         /// A description for this rule. Restricted to 140 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
         #[builder(into, default)]
-        pub destination_address_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub destination_address_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
         #[builder(into, default)]
-        pub destination_address_prefixes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub destination_address_prefixes: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// A List of destination Application Security Group IDs
         #[builder(into, default)]
-        pub destination_application_security_group_ids: pulumi_wasm_rust::Output<
+        pub destination_application_security_group_ids: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
         #[builder(into, default)]
-        pub destination_port_range: pulumi_wasm_rust::Output<Option<String>>,
+        pub destination_port_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
         #[builder(into, default)]
-        pub destination_port_ranges: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub destination_port_ranges: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
         #[builder(into)]
-        pub direction: pulumi_wasm_rust::Output<String>,
+        pub direction: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub network_security_group_name: pulumi_wasm_rust::Output<String>,
+        pub network_security_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
         #[builder(into, default)]
-        pub source_address_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_address_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
         #[builder(into, default)]
-        pub source_address_prefixes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub source_address_prefixes: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// A List of source Application Security Group IDs
         #[builder(into, default)]
-        pub source_application_security_group_ids: pulumi_wasm_rust::Output<
+        pub source_application_security_group_ids: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
         #[builder(into, default)]
-        pub source_port_range: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_port_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of source ports or port ranges. This is required if `source_port_range` is not specified.
         #[builder(into, default)]
-        pub source_port_ranges: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub source_port_ranges: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct NetworkSecurityRuleResult {
@@ -165,39 +171,66 @@ pub mod network_security_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NetworkSecurityRuleArgs,
     ) -> NetworkSecurityRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_binding = args.access.get_inner();
-        let description_binding = args.description.get_inner();
+        let access_binding = args.access.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
         let destination_address_prefix_binding = args
             .destination_address_prefix
+            .get_output(context)
             .get_inner();
         let destination_address_prefixes_binding = args
             .destination_address_prefixes
+            .get_output(context)
             .get_inner();
         let destination_application_security_group_ids_binding = args
             .destination_application_security_group_ids
+            .get_output(context)
             .get_inner();
-        let destination_port_range_binding = args.destination_port_range.get_inner();
-        let destination_port_ranges_binding = args.destination_port_ranges.get_inner();
-        let direction_binding = args.direction.get_inner();
-        let name_binding = args.name.get_inner();
+        let destination_port_range_binding = args
+            .destination_port_range
+            .get_output(context)
+            .get_inner();
+        let destination_port_ranges_binding = args
+            .destination_port_ranges
+            .get_output(context)
+            .get_inner();
+        let direction_binding = args.direction.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let network_security_group_name_binding = args
             .network_security_group_name
+            .get_output(context)
             .get_inner();
-        let priority_binding = args.priority.get_inner();
-        let protocol_binding = args.protocol.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let source_address_prefix_binding = args.source_address_prefix.get_inner();
-        let source_address_prefixes_binding = args.source_address_prefixes.get_inner();
+        let priority_binding = args.priority.get_output(context).get_inner();
+        let protocol_binding = args.protocol.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let source_address_prefix_binding = args
+            .source_address_prefix
+            .get_output(context)
+            .get_inner();
+        let source_address_prefixes_binding = args
+            .source_address_prefixes
+            .get_output(context)
+            .get_inner();
         let source_application_security_group_ids_binding = args
             .source_application_security_group_ids
+            .get_output(context)
             .get_inner();
-        let source_port_range_binding = args.source_port_range.get_inner();
-        let source_port_ranges_binding = args.source_port_ranges.get_inner();
+        let source_port_range_binding = args
+            .source_port_range
+            .get_output(context)
+            .get_inner();
+        let source_port_ranges_binding = args
+            .source_port_ranges
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/networkSecurityRule:NetworkSecurityRule".into(),
             name: name.to_string(),
@@ -333,7 +366,7 @@ pub mod network_security_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

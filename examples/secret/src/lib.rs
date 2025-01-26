@@ -1,13 +1,15 @@
 use anyhow::Error;
 use pulumi_wasm_providers_random::random_bytes;
-use pulumi_wasm_rust::{add_export, pulumi_combine, pulumi_main, Output};
+use pulumi_wasm_rust::{add_export, pulumi_combine, pulumi_main, Output, PulumiContext};
 
-#[pulumi_main]
-fn test_main() -> Result<(), Error> {
-    let custom_secret = Output::new_secret(&10);
-    let non_secret = Output::new(&1);
+pulumi_main!();
+
+fn pulumi_main(context: &PulumiContext) -> Result<(), Error> {
+    let custom_secret = Output::new_secret(context, &10);
+    let non_secret = Output::new(context, &1);
 
     let secret = random_bytes::create(
+        context,
         "secret",
         random_bytes::RandomBytesArgs::builder()
             .length(custom_secret)

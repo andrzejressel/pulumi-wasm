@@ -85,26 +85,26 @@
 /// ```
 ///
 pub mod assessment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssessmentArgs {
         /// A map of additional data to associate with the assessment.
         #[builder(into, default)]
-        pub additional_data: pulumi_wasm_rust::Output<
+        pub additional_data: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
         #[builder(into)]
-        pub assessment_policy_id: pulumi_wasm_rust::Output<String>,
+        pub assessment_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `status` block as defined below.
         #[builder(into)]
-        pub status: pulumi_wasm_rust::Output<
+        pub status: pulumi_wasm_rust::InputOrOutput<
             super::super::types::securitycenter::AssessmentStatus,
         >,
         /// The ID of the target resource. Changing this forces a new security Assessment to be created.
         #[builder(into)]
-        pub target_resource_id: pulumi_wasm_rust::Output<String>,
+        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AssessmentResult {
@@ -125,13 +125,26 @@ pub mod assessment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AssessmentArgs) -> AssessmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AssessmentArgs,
+    ) -> AssessmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let additional_data_binding = args.additional_data.get_inner();
-        let assessment_policy_id_binding = args.assessment_policy_id.get_inner();
-        let status_binding = args.status.get_inner();
-        let target_resource_id_binding = args.target_resource_id.get_inner();
+        let additional_data_binding = args
+            .additional_data
+            .get_output(context)
+            .get_inner();
+        let assessment_policy_id_binding = args
+            .assessment_policy_id
+            .get_output(context)
+            .get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let target_resource_id_binding = args
+            .target_resource_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:securitycenter/assessment:Assessment".into(),
             name: name.to_string(),
@@ -169,7 +182,7 @@ pub mod assessment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

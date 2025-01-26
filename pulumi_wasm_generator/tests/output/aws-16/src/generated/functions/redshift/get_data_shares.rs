@@ -1,11 +1,11 @@
 pub mod get_data_shares {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDataSharesArgs {
         /// An array of all data shares in the current region. See `data_shares` below.
         #[builder(into, default)]
-        pub data_shares: pulumi_wasm_rust::Output<
+        pub data_shares: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::redshift::GetDataSharesDataShare>>,
         >,
     }
@@ -22,10 +22,13 @@ pub mod get_data_shares {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetDataSharesArgs) -> GetDataSharesResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetDataSharesArgs,
+    ) -> GetDataSharesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let data_shares_binding = args.data_shares.get_inner();
+        let data_shares_binding = args.data_shares.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshift/getDataShares:getDataShares".into(),
             version: super::super::super::get_version(),
@@ -44,7 +47,7 @@ pub mod get_data_shares {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

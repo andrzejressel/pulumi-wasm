@@ -173,67 +173,69 @@
 /// $ pulumi import aws:timestreaminfluxdb/dbInstance:DbInstance example 12345abcde
 /// ```
 pub mod db_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DbInstanceArgs {
         /// Amount of storage in GiB (gibibytes). The minimum value is 20, the maximum value is 16384.
         #[builder(into)]
-        pub allocated_storage: pulumi_wasm_rust::Output<i32>,
+        pub allocated_storage: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization. Along with `organization`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// Timestream for InfluxDB DB instance type to run InfluxDB on. Valid options are: `"db.influx.medium"`, `"db.influx.large"`, `"db.influx.xlarge"`, `"db.influx.2xlarge"`, `"db.influx.4xlarge"`, `"db.influx.8xlarge"`, `"db.influx.12xlarge"`, and `"db.influx.16xlarge"`.
         #[builder(into)]
-        pub db_instance_type: pulumi_wasm_rust::Output<String>,
+        pub db_instance_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the DB parameter group assigned to your DB instance. If added to an existing Timestream for InfluxDB instance or given a new value, will cause an in-place update to the instance. However, if an instance already has a value for `db_parameter_group_identifier`, removing `db_parameter_group_identifier` will cause the instance to be destroyed and recreated.
         #[builder(into, default)]
-        pub db_parameter_group_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub db_parameter_group_identifier: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Timestream for InfluxDB DB storage type to read and write InfluxDB data. You can choose between 3 different types of provisioned Influx IOPS included storage according to your workloads requirements: Influx IO Included 3000 IOPS, Influx IO Included 12000 IOPS, Influx IO Included 16000 IOPS. Valid options are: `"InfluxIOIncludedT1"`, `"InfluxIOIncludedT2"`, and `"InfluxIOIncludedT1"`. If you use `"InfluxIOIncludedT2" or "InfluxIOIncludedT3", the minimum value for `allocated_storage` is 400.
         #[builder(into, default)]
-        pub db_storage_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub db_storage_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `"SINGLE_AZ"`, `"WITH_MULTIAZ_STANDBY"`.
         #[builder(into, default)]
-        pub deployment_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub deployment_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for sending InfluxDB engine logs to a specified S3 bucket.
         #[builder(into, default)]
-        pub log_delivery_configuration: pulumi_wasm_rust::Output<
+        pub log_delivery_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::timestreaminfluxdb::DbInstanceLogDeliveryConfiguration,
             >,
         >,
         /// Name that uniquely identifies the DB instance when interacting with the Amazon Timestream for InfluxDB API and CLI commands. This name will also be a prefix included in the endpoint. DB instance names must be unique per customer and per region. The argument must start with a letter, cannot contain consecutive hyphens (`-`) and cannot end with a hyphen.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users. Along with `bucket`, `username`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
         #[builder(into)]
-        pub organization: pulumi_wasm_rust::Output<String>,
+        pub organization: pulumi_wasm_rust::InputOrOutput<String>,
         /// Password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `username`, and `organization`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
         #[builder(into)]
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
         #[builder(into, default)]
-        pub publicly_accessible: pulumi_wasm_rust::Output<Option<bool>>,
+        pub publicly_accessible: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::timestreaminfluxdb::DbInstanceTimeouts>,
         >,
         /// Username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. Along with `bucket`, `organization`, and `password`, this argument will be stored in the secret referred to by the `influx_auth_parameters_secret_arn` attribute.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of VPC security group IDs to associate with the DB instance.
         #[builder(into)]
-        pub vpc_security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub vpc_security_group_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// List of VPC subnet IDs to associate with the DB instance. Provide at least two VPC subnet IDs in different availability zones when deploying with a Multi-AZ standby.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub vpc_subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub vpc_subnet_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct DbInstanceResult {
@@ -297,29 +299,53 @@ pub mod db_instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DbInstanceArgs) -> DbInstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DbInstanceArgs,
+    ) -> DbInstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allocated_storage_binding = args.allocated_storage.get_inner();
-        let bucket_binding = args.bucket.get_inner();
-        let db_instance_type_binding = args.db_instance_type.get_inner();
+        let allocated_storage_binding = args
+            .allocated_storage
+            .get_output(context)
+            .get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let db_instance_type_binding = args
+            .db_instance_type
+            .get_output(context)
+            .get_inner();
         let db_parameter_group_identifier_binding = args
             .db_parameter_group_identifier
+            .get_output(context)
             .get_inner();
-        let db_storage_type_binding = args.db_storage_type.get_inner();
-        let deployment_type_binding = args.deployment_type.get_inner();
+        let db_storage_type_binding = args
+            .db_storage_type
+            .get_output(context)
+            .get_inner();
+        let deployment_type_binding = args
+            .deployment_type
+            .get_output(context)
+            .get_inner();
         let log_delivery_configuration_binding = args
             .log_delivery_configuration
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let organization_binding = args.organization.get_inner();
-        let password_binding = args.password.get_inner();
-        let publicly_accessible_binding = args.publicly_accessible.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
-        let username_binding = args.username.get_inner();
-        let vpc_security_group_ids_binding = args.vpc_security_group_ids.get_inner();
-        let vpc_subnet_ids_binding = args.vpc_subnet_ids.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let organization_binding = args.organization.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let publicly_accessible_binding = args
+            .publicly_accessible
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let username_binding = args.username.get_output(context).get_inner();
+        let vpc_security_group_ids_binding = args
+            .vpc_security_group_ids
+            .get_output(context)
+            .get_inner();
+        let vpc_subnet_ids_binding = args.vpc_subnet_ids.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:timestreaminfluxdb/dbInstance:DbInstance".into(),
             name: name.to_string(),
@@ -459,7 +485,7 @@ pub mod db_instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

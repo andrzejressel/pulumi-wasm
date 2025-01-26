@@ -25,19 +25,19 @@
 /// $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
 /// ```
 pub mod subnet_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubnetGroupArgs {
         /// A description of the subnet group.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the subnet group.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of VPC subnet IDs for the subnet group.
         #[builder(into)]
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct SubnetGroupResult {
@@ -54,12 +54,16 @@ pub mod subnet_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SubnetGroupArgs) -> SubnetGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SubnetGroupArgs,
+    ) -> SubnetGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dax/subnetGroup:SubnetGroup".into(),
             name: name.to_string(),
@@ -93,7 +97,7 @@ pub mod subnet_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

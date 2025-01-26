@@ -54,39 +54,39 @@
 /// ```
 ///
 pub mod resource_policy_exemption {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourcePolicyExemptionArgs {
         /// A description to use for this Policy Exemption.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A friendly display name to use for this Policy Exemption.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The category of this policy exemption. Possible values are `Waiver` and `Mitigated`.
         #[builder(into)]
-        pub exemption_category: pulumi_wasm_rust::Output<String>,
+        pub exemption_category: pulumi_wasm_rust::InputOrOutput<String>,
         /// The expiration date and time in UTC ISO 8601 format of this policy exemption.
         #[builder(into, default)]
-        pub expires_on: pulumi_wasm_rust::Output<Option<String>>,
+        pub expires_on: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::Output<Option<String>>,
+        pub metadata: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Policy Exemption. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Policy Assignment to be exempted at the specified Scope. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub policy_assignment_id: pulumi_wasm_rust::Output<String>,
+        pub policy_assignment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         #[builder(into, default)]
-        pub policy_definition_reference_ids: pulumi_wasm_rust::Output<
+        pub policy_definition_reference_ids: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The Resource ID where the Policy Exemption should be applied. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResourcePolicyExemptionResult {
@@ -116,22 +116,30 @@ pub mod resource_policy_exemption {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ResourcePolicyExemptionArgs,
     ) -> ResourcePolicyExemptionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let exemption_category_binding = args.exemption_category.get_inner();
-        let expires_on_binding = args.expires_on.get_inner();
-        let metadata_binding = args.metadata.get_inner();
-        let name_binding = args.name.get_inner();
-        let policy_assignment_id_binding = args.policy_assignment_id.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let exemption_category_binding = args
+            .exemption_category
+            .get_output(context)
+            .get_inner();
+        let expires_on_binding = args.expires_on.get_output(context).get_inner();
+        let metadata_binding = args.metadata.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let policy_assignment_id_binding = args
+            .policy_assignment_id
+            .get_output(context)
+            .get_inner();
         let policy_definition_reference_ids_binding = args
             .policy_definition_reference_ids
+            .get_output(context)
             .get_inner();
-        let resource_id_binding = args.resource_id.get_inner();
+        let resource_id_binding = args.resource_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:core/resourcePolicyExemption:ResourcePolicyExemption".into(),
             name: name.to_string(),
@@ -204,7 +212,7 @@ pub mod resource_policy_exemption {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

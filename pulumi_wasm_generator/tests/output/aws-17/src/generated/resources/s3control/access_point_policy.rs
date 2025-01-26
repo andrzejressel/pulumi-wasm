@@ -45,16 +45,16 @@
 /// $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
 /// ```
 pub mod access_point_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessPointPolicyArgs {
         /// The ARN of the access point that you want to associate with the specified policy.
         #[builder(into)]
-        pub access_point_arn: pulumi_wasm_rust::Output<String>,
+        pub access_point_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The policy that you want to apply to the specified access point.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccessPointPolicyResult {
@@ -69,11 +69,18 @@ pub mod access_point_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccessPointPolicyArgs) -> AccessPointPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccessPointPolicyArgs,
+    ) -> AccessPointPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_point_arn_binding = args.access_point_arn.get_inner();
-        let policy_binding = args.policy.get_inner();
+        let access_point_arn_binding = args
+            .access_point_arn
+            .get_output(context)
+            .get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3control/accessPointPolicy:AccessPointPolicy".into(),
             name: name.to_string(),
@@ -100,7 +107,7 @@ pub mod access_point_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

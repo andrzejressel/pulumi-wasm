@@ -113,7 +113,7 @@
 /// ```
 ///
 pub mod inference_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InferenceClusterArgs {
@@ -121,35 +121,35 @@ pub mod inference_cluster {
         ///
         /// > **NOTE:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
         #[builder(into, default)]
-        pub cluster_purpose: pulumi_wasm_rust::Output<Option<String>>,
+        pub cluster_purpose: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::machinelearning::InferenceClusterIdentity>,
         >,
         /// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into)]
-        pub kubernetes_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into)]
-        pub machine_learning_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub machine_learning_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into, default)]
-        pub ssl: pulumi_wasm_rust::Output<
+        pub ssl: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::machinelearning::InferenceClusterSsl>,
         >,
         /// A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -186,20 +186,31 @@ pub mod inference_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InferenceClusterArgs) -> InferenceClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InferenceClusterArgs,
+    ) -> InferenceClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_purpose_binding = args.cluster_purpose.get_inner();
-        let description_binding = args.description.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let kubernetes_cluster_id_binding = args.kubernetes_cluster_id.get_inner();
-        let location_binding = args.location.get_inner();
+        let cluster_purpose_binding = args
+            .cluster_purpose
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let kubernetes_cluster_id_binding = args
+            .kubernetes_cluster_id
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let machine_learning_workspace_id_binding = args
             .machine_learning_workspace_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let ssl_binding = args.ssl.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let ssl_binding = args.ssl.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:machinelearning/inferenceCluster:InferenceCluster".into(),
             name: name.to_string(),
@@ -272,7 +283,7 @@ pub mod inference_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

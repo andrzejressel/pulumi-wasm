@@ -90,32 +90,34 @@
 /// Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 ///
 pub mod global_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GlobalClusterArgs {
         /// Name for an automatically created database on cluster creation.
         #[builder(into, default)]
-        pub database_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub database_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
         #[builder(into, default)]
-        pub engine: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
         /// * **NOTE:** Upgrading major versions is not supported.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The global cluster identifier.
         #[builder(into)]
-        pub global_cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub global_cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
         #[builder(into, default)]
-        pub source_db_cluster_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_db_cluster_identifier: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         #[builder(into, default)]
-        pub storage_encrypted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub storage_encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GlobalClusterResult {
@@ -148,20 +150,32 @@ pub mod global_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GlobalClusterArgs) -> GlobalClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GlobalClusterArgs,
+    ) -> GlobalClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let database_name_binding = args.database_name.get_inner();
-        let deletion_protection_binding = args.deletion_protection.get_inner();
-        let engine_binding = args.engine.get_inner();
-        let engine_version_binding = args.engine_version.get_inner();
+        let database_name_binding = args.database_name.get_output(context).get_inner();
+        let deletion_protection_binding = args
+            .deletion_protection
+            .get_output(context)
+            .get_inner();
+        let engine_binding = args.engine.get_output(context).get_inner();
+        let engine_version_binding = args.engine_version.get_output(context).get_inner();
         let global_cluster_identifier_binding = args
             .global_cluster_identifier
+            .get_output(context)
             .get_inner();
         let source_db_cluster_identifier_binding = args
             .source_db_cluster_identifier
+            .get_output(context)
             .get_inner();
-        let storage_encrypted_binding = args.storage_encrypted.get_inner();
+        let storage_encrypted_binding = args
+            .storage_encrypted
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:docdb/globalCluster:GlobalCluster".into(),
             name: name.to_string(),
@@ -232,7 +246,7 @@ pub mod global_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

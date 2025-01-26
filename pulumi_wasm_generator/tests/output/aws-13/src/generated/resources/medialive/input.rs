@@ -33,52 +33,52 @@
 /// $ pulumi import aws:medialive/input:Input example 12345678
 /// ```
 pub mod input {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InputArgs {
         /// Destination settings for PUSH type inputs. See Destinations for more details.
         #[builder(into, default)]
-        pub destinations: pulumi_wasm_rust::Output<
+        pub destinations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::medialive::InputDestination>>,
         >,
         /// Settings for the devices. See Input Devices for more details.
         #[builder(into, default)]
-        pub input_devices: pulumi_wasm_rust::Output<
+        pub input_devices: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::medialive::InputInputDevice>>,
         >,
         /// List of input security groups.
         #[builder(into, default)]
-        pub input_security_groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub input_security_groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A list of the MediaConnect Flows. See Media Connect Flows for more details.
         #[builder(into, default)]
-        pub media_connect_flows: pulumi_wasm_rust::Output<
+        pub media_connect_flows: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::medialive::InputMediaConnectFlow>>,
         >,
         /// Name of the input.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of the role this input assumes during and after creation.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The source URLs for a PULL-type input. See Sources for more details.
         #[builder(into, default)]
-        pub sources: pulumi_wasm_rust::Output<
+        pub sources: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::medialive::InputSource>>,
         >,
         /// A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The different types of inputs that AWS Elemental MediaLive supports.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
         /// Settings for a private VPC Input. See VPC for more details.
         #[builder(into, default)]
-        pub vpc: pulumi_wasm_rust::Output<
+        pub vpc: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::medialive::InputVpc>,
         >,
     }
@@ -136,19 +136,29 @@ pub mod input {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InputArgs) -> InputResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InputArgs,
+    ) -> InputResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let destinations_binding = args.destinations.get_inner();
-        let input_devices_binding = args.input_devices.get_inner();
-        let input_security_groups_binding = args.input_security_groups.get_inner();
-        let media_connect_flows_binding = args.media_connect_flows.get_inner();
-        let name_binding = args.name.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let sources_binding = args.sources.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let type__binding = args.type_.get_inner();
-        let vpc_binding = args.vpc.get_inner();
+        let destinations_binding = args.destinations.get_output(context).get_inner();
+        let input_devices_binding = args.input_devices.get_output(context).get_inner();
+        let input_security_groups_binding = args
+            .input_security_groups
+            .get_output(context)
+            .get_inner();
+        let media_connect_flows_binding = args
+            .media_connect_flows
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let sources_binding = args.sources.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let vpc_binding = args.vpc.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:medialive/input:Input".into(),
             name: name.to_string(),
@@ -246,7 +256,7 @@ pub mod input {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

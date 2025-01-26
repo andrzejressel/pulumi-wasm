@@ -80,34 +80,34 @@
 /// ```
 ///
 pub mod collector_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CollectorPolicyArgs {
         /// An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
         #[builder(into)]
-        pub ipfx_emission: pulumi_wasm_rust::Output<
+        pub ipfx_emission: pulumi_wasm_rust::InputOrOutput<
             super::super::types::networkfunction::CollectorPolicyIpfxEmission,
         >,
         /// An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
         #[builder(into)]
-        pub ipfx_ingestion: pulumi_wasm_rust::Output<
+        pub ipfx_ingestion: pulumi_wasm_rust::InputOrOutput<
             super::super::types::networkfunction::CollectorPolicyIpfxIngestion,
         >,
         /// Specifies the Azure Region where the Network Function Collector Policy should exist. Changing this forces a new Network Function Collector Policy to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Network Function Collector Policy.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Azure Traffic Collector ID of the Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
         #[builder(into)]
-        pub traffic_collector_id: pulumi_wasm_rust::Output<String>,
+        pub traffic_collector_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CollectorPolicyResult {
@@ -134,15 +134,22 @@ pub mod collector_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CollectorPolicyArgs) -> CollectorPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CollectorPolicyArgs,
+    ) -> CollectorPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let ipfx_emission_binding = args.ipfx_emission.get_inner();
-        let ipfx_ingestion_binding = args.ipfx_ingestion.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let traffic_collector_id_binding = args.traffic_collector_id.get_inner();
+        let ipfx_emission_binding = args.ipfx_emission.get_output(context).get_inner();
+        let ipfx_ingestion_binding = args.ipfx_ingestion.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let traffic_collector_id_binding = args
+            .traffic_collector_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:networkfunction/collectorPolicy:CollectorPolicy".into(),
             name: name.to_string(),
@@ -194,7 +201,7 @@ pub mod collector_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

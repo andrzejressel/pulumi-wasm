@@ -2556,23 +2556,11 @@ dependencies = [
  "once_cell",
  "pulumi_wasm_build",
  "pulumi_wasm_common",
- "pulumi_wasm_rust_macro",
  "pulumi_wasm_wit",
  "serde",
  "serde_json",
  "uuid",
  "wit-bindgen",
-]
-
-[[package]]
-name = "pulumi_wasm_rust_macro"
-version = "0.0.0-DEV"
-dependencies = [
- "anyhow",
- "pulumi_wasm_providers_random",
- "pulumi_wasm_rust",
- "quote",
- "syn 2.0.96",
 ]
 
 [[package]]

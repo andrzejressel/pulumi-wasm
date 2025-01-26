@@ -16,13 +16,13 @@
 /// }
 /// ```
 pub mod security_token_service_preferences {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecurityTokenServicePreferencesArgs {
         /// The version of the STS global endpoint token. Valid values: `v1Token`, `v2Token`.
         #[builder(into)]
-        pub global_endpoint_token_version: pulumi_wasm_rust::Output<String>,
+        pub global_endpoint_token_version: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SecurityTokenServicePreferencesResult {
@@ -34,6 +34,7 @@ pub mod security_token_service_preferences {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SecurityTokenServicePreferencesArgs,
     ) -> SecurityTokenServicePreferencesResult {
@@ -41,6 +42,7 @@ pub mod security_token_service_preferences {
         use std::collections::HashMap;
         let global_endpoint_token_version_binding = args
             .global_endpoint_token_version
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/securityTokenServicePreferences:SecurityTokenServicePreferences"
@@ -59,7 +61,7 @@ pub mod security_token_service_preferences {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

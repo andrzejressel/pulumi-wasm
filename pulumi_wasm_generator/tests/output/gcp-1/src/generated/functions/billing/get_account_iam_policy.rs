@@ -1,11 +1,11 @@
 pub mod get_account_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAccountIamPolicyArgs {
         /// The billing account id.
         #[builder(into)]
-        pub billing_account_id: pulumi_wasm_rust::Output<String>,
+        pub billing_account_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetAccountIamPolicyResult {
@@ -21,10 +21,16 @@ pub mod get_account_iam_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAccountIamPolicyArgs) -> GetAccountIamPolicyResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAccountIamPolicyArgs,
+    ) -> GetAccountIamPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let billing_account_id_binding = args.billing_account_id.get_inner();
+        let billing_account_id_binding = args
+            .billing_account_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:billing/getAccountIamPolicy:getAccountIamPolicy".into(),
             version: super::super::super::get_version(),
@@ -49,7 +55,7 @@ pub mod get_account_iam_policy {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

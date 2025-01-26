@@ -55,46 +55,46 @@
 /// $ pulumi import aws:codebuild/fleet:Fleet name fleet-name
 /// ```
 pub mod fleet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FleetArgs {
         /// Number of machines allocated to the ﬂeet.
         #[builder(into)]
-        pub base_capacity: pulumi_wasm_rust::Output<i32>,
+        pub base_capacity: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Compute resources the compute fleet uses. See [compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         #[builder(into)]
-        pub compute_type: pulumi_wasm_rust::Output<String>,
+        pub compute_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Environment type of the compute fleet. See [environment types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html#environment.types) for more information and valid values.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub environment_type: pulumi_wasm_rust::Output<String>,
+        pub environment_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The service role associated with the compute fleet.
         #[builder(into, default)]
-        pub fleet_service_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub fleet_service_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Amazon Machine Image (AMI) of the compute fleet.
         #[builder(into, default)]
-        pub image_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Fleet name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
         #[builder(into, default)]
-        pub overflow_behavior: pulumi_wasm_rust::Output<Option<String>>,
+        pub overflow_behavior: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block. Detailed below. This option is only valid when your overflow behavior is `QUEUE`.
         #[builder(into, default)]
-        pub scaling_configuration: pulumi_wasm_rust::Output<
+        pub scaling_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codebuild::FleetScalingConfiguration>,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub vpc_configs: pulumi_wasm_rust::Output<
+        pub vpc_configs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::codebuild::FleetVpcConfig>>,
         >,
     }
@@ -146,19 +146,35 @@ pub mod fleet {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FleetArgs) -> FleetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FleetArgs,
+    ) -> FleetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let base_capacity_binding = args.base_capacity.get_inner();
-        let compute_type_binding = args.compute_type.get_inner();
-        let environment_type_binding = args.environment_type.get_inner();
-        let fleet_service_role_binding = args.fleet_service_role.get_inner();
-        let image_id_binding = args.image_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let overflow_behavior_binding = args.overflow_behavior.get_inner();
-        let scaling_configuration_binding = args.scaling_configuration.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_configs_binding = args.vpc_configs.get_inner();
+        let base_capacity_binding = args.base_capacity.get_output(context).get_inner();
+        let compute_type_binding = args.compute_type.get_output(context).get_inner();
+        let environment_type_binding = args
+            .environment_type
+            .get_output(context)
+            .get_inner();
+        let fleet_service_role_binding = args
+            .fleet_service_role
+            .get_output(context)
+            .get_inner();
+        let image_id_binding = args.image_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let overflow_behavior_binding = args
+            .overflow_behavior
+            .get_output(context)
+            .get_inner();
+        let scaling_configuration_binding = args
+            .scaling_configuration
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_configs_binding = args.vpc_configs.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codebuild/fleet:Fleet".into(),
             name: name.to_string(),
@@ -253,7 +269,7 @@ pub mod fleet {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

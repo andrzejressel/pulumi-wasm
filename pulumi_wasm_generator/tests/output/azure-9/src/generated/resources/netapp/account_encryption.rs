@@ -97,24 +97,24 @@
 /// ```
 ///
 pub mod account_encryption {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountEncryptionArgs {
         /// Specify the versionless ID of the encryption key.
         #[builder(into)]
-        pub encryption_key: pulumi_wasm_rust::Output<String>,
+        pub encryption_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
         #[builder(into)]
-        pub netapp_account_id: pulumi_wasm_rust::Output<String>,
+        pub netapp_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
         #[builder(into, default)]
-        pub system_assigned_identity_principal_id: pulumi_wasm_rust::Output<
+        pub system_assigned_identity_principal_id: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
         #[builder(into, default)]
-        pub user_assigned_identity_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_assigned_identity_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AccountEncryptionResult {
@@ -133,16 +133,25 @@ pub mod account_encryption {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccountEncryptionArgs) -> AccountEncryptionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccountEncryptionArgs,
+    ) -> AccountEncryptionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let encryption_key_binding = args.encryption_key.get_inner();
-        let netapp_account_id_binding = args.netapp_account_id.get_inner();
+        let encryption_key_binding = args.encryption_key.get_output(context).get_inner();
+        let netapp_account_id_binding = args
+            .netapp_account_id
+            .get_output(context)
+            .get_inner();
         let system_assigned_identity_principal_id_binding = args
             .system_assigned_identity_principal_id
+            .get_output(context)
             .get_inner();
         let user_assigned_identity_id_binding = args
             .user_assigned_identity_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:netapp/accountEncryption:AccountEncryption".into(),
@@ -181,7 +190,7 @@ pub mod account_encryption {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -62,32 +62,32 @@
 /// Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 ///
 pub mod ontap_storage_virtual_machine {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OntapStorageVirtualMachineArgs {
         /// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
         #[builder(into, default)]
-        pub active_directory_configuration: pulumi_wasm_rust::Output<
+        pub active_directory_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::fsx::OntapStorageVirtualMachineActiveDirectoryConfiguration,
             >,
         >,
         /// The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
         #[builder(into)]
-        pub file_system_id: pulumi_wasm_rust::Output<String>,
+        pub file_system_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
         #[builder(into, default)]
-        pub root_volume_security_style: pulumi_wasm_rust::Output<Option<String>>,
+        pub root_volume_security_style: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the password to use when logging on to the SVM using a secure shell (SSH) connection to the SVM's management endpoint. Doing so enables you to manage the SVM using the NetApp ONTAP CLI or REST API. If you do not specify a password, you can still use the file system's fsxadmin user to manage the SVM.
         #[builder(into, default)]
-        pub svm_admin_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub svm_admin_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -131,6 +131,7 @@ pub mod ontap_storage_virtual_machine {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OntapStorageVirtualMachineArgs,
     ) -> OntapStorageVirtualMachineResult {
@@ -138,14 +139,19 @@ pub mod ontap_storage_virtual_machine {
         use std::collections::HashMap;
         let active_directory_configuration_binding = args
             .active_directory_configuration
+            .get_output(context)
             .get_inner();
-        let file_system_id_binding = args.file_system_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let root_volume_security_style_binding = args
             .root_volume_security_style
+            .get_output(context)
             .get_inner();
-        let svm_admin_password_binding = args.svm_admin_password.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let svm_admin_password_binding = args
+            .svm_admin_password
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine"
                 .into(),
@@ -213,7 +219,7 @@ pub mod ontap_storage_virtual_machine {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

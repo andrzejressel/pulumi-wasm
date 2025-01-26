@@ -81,39 +81,39 @@
 /// $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
 /// ```
 pub mod template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TemplateArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Display name for the template.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A set of resource permissions on the template. Maximum of 64 items. See permissions.
         #[builder(into, default)]
-        pub permissions: pulumi_wasm_rust::Output<
+        pub permissions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::quicksight::TemplatePermission>>,
         >,
         /// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         #[builder(into, default)]
-        pub source_entity: pulumi_wasm_rust::Output<
+        pub source_entity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::quicksight::TemplateSourceEntity>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Identifier for the template.
         #[builder(into)]
-        pub template_id: pulumi_wasm_rust::Output<String>,
+        pub template_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A description of the current template version being created/updated.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub version_description: pulumi_wasm_rust::Output<String>,
+        pub version_description: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TemplateResult {
@@ -160,16 +160,23 @@ pub mod template {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TemplateArgs) -> TemplateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TemplateArgs,
+    ) -> TemplateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let permissions_binding = args.permissions.get_inner();
-        let source_entity_binding = args.source_entity.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let template_id_binding = args.template_id.get_inner();
-        let version_description_binding = args.version_description.get_inner();
+        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let permissions_binding = args.permissions.get_output(context).get_inner();
+        let source_entity_binding = args.source_entity.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let template_id_binding = args.template_id.get_output(context).get_inner();
+        let version_description_binding = args
+            .version_description
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/template:Template".into(),
             name: name.to_string(),
@@ -249,7 +256,7 @@ pub mod template {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

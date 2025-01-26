@@ -47,33 +47,33 @@
 /// ```
 ///
 pub mod express_route_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExpressRouteGatewayArgs {
         /// Specified whether this gateway accept traffic from non-Virtual WAN networks. Defaults to `false`.
         #[builder(into, default)]
-        pub allow_non_virtual_wan_traffic: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_non_virtual_wan_traffic: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the ExpressRoute gateway. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps).
         #[builder(into)]
-        pub scale_units: pulumi_wasm_rust::Output<i32>,
+        pub scale_units: pulumi_wasm_rust::InputOrOutput<i32>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_hub_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_hub_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ExpressRouteGatewayResult {
@@ -99,6 +99,7 @@ pub mod express_route_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ExpressRouteGatewayArgs,
     ) -> ExpressRouteGatewayResult {
@@ -106,13 +107,17 @@ pub mod express_route_gateway {
         use std::collections::HashMap;
         let allow_non_virtual_wan_traffic_binding = args
             .allow_non_virtual_wan_traffic
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let scale_units_binding = args.scale_units.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let virtual_hub_id_binding = args.virtual_hub_id.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let scale_units_binding = args.scale_units.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let virtual_hub_id_binding = args.virtual_hub_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/expressRouteGateway:ExpressRouteGateway".into(),
             name: name.to_string(),
@@ -171,7 +176,7 @@ pub mod express_route_gateway {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

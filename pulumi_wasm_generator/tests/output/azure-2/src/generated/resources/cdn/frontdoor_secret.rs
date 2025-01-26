@@ -556,19 +556,19 @@
 /// ```
 ///
 pub mod frontdoor_secret {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorSecretArgs {
         /// The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created.
         #[builder(into)]
-        pub cdn_frontdoor_profile_id: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `secret` block as defined below. Changing this forces a new Front Door Secret to be created.
         #[builder(into)]
-        pub secret: pulumi_wasm_rust::Output<
+        pub secret: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cdn::FrontdoorSecretSecret,
         >,
     }
@@ -589,12 +589,19 @@ pub mod frontdoor_secret {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FrontdoorSecretArgs) -> FrontdoorSecretResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FrontdoorSecretArgs,
+    ) -> FrontdoorSecretResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cdn_frontdoor_profile_id_binding = args.cdn_frontdoor_profile_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let secret_binding = args.secret.get_inner();
+        let cdn_frontdoor_profile_id_binding = args
+            .cdn_frontdoor_profile_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let secret_binding = args.secret.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cdn/frontdoorSecret:FrontdoorSecret".into(),
             name: name.to_string(),
@@ -628,7 +635,7 @@ pub mod frontdoor_secret {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -39,7 +39,7 @@
 /// ```
 ///
 pub mod shared_access_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedAccessPolicyArgs {
@@ -47,27 +47,27 @@ pub mod shared_access_policy {
         ///
         /// > **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
         #[builder(into, default)]
-        pub device_connect: pulumi_wasm_rust::Output<Option<bool>>,
+        pub device_connect: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub iothub_name: pulumi_wasm_rust::Output<String>,
+        pub iothub_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
         #[builder(into, default)]
-        pub registry_read: pulumi_wasm_rust::Output<Option<bool>>,
+        pub registry_read: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
         ///
         /// > **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
         #[builder(into, default)]
-        pub registry_write: pulumi_wasm_rust::Output<Option<bool>>,
+        pub registry_write: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
         #[builder(into, default)]
-        pub service_connect: pulumi_wasm_rust::Output<Option<bool>>,
+        pub service_connect: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct SharedAccessPolicyResult {
@@ -102,16 +102,26 @@ pub mod shared_access_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SharedAccessPolicyArgs) -> SharedAccessPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SharedAccessPolicyArgs,
+    ) -> SharedAccessPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let device_connect_binding = args.device_connect.get_inner();
-        let iothub_name_binding = args.iothub_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let registry_read_binding = args.registry_read.get_inner();
-        let registry_write_binding = args.registry_write.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let service_connect_binding = args.service_connect.get_inner();
+        let device_connect_binding = args.device_connect.get_output(context).get_inner();
+        let iothub_name_binding = args.iothub_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let registry_read_binding = args.registry_read.get_output(context).get_inner();
+        let registry_write_binding = args.registry_write.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let service_connect_binding = args
+            .service_connect
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/sharedAccessPolicy:SharedAccessPolicy".into(),
             name: name.to_string(),
@@ -182,7 +192,7 @@ pub mod shared_access_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

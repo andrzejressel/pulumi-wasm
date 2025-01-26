@@ -77,80 +77,80 @@
 /// ```
 ///
 pub mod metric_alert {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MetricAlertArgs {
         /// One or more `action` blocks as defined below.
         #[builder(into, default)]
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::MetricAlertAction>>,
         >,
         /// A `application_insights_web_test_location_availability_criteria` block as defined below.
         ///
         /// > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         #[builder(into, default)]
-        pub application_insights_web_test_location_availability_criteria: pulumi_wasm_rust::Output<
+        pub application_insights_web_test_location_availability_criteria: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::monitoring::MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria,
             >,
         >,
         /// Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
         #[builder(into, default)]
-        pub auto_mitigate: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_mitigate: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// One or more (static) `criteria` blocks as defined below.
         ///
         /// > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         #[builder(into, default)]
-        pub criterias: pulumi_wasm_rust::Output<
+        pub criterias: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::monitoring::MetricAlertCriteria>>,
         >,
         /// The description of this Metric Alert.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `dynamic_criteria` block as defined below.
         ///
         /// > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         #[builder(into, default)]
-        pub dynamic_criteria: pulumi_wasm_rust::Output<
+        pub dynamic_criteria: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::monitoring::MetricAlertDynamicCriteria>,
         >,
         /// Should this Metric Alert be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
         #[builder(into, default)]
-        pub frequency: pulumi_wasm_rust::Output<Option<String>>,
+        pub frequency: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Metric Alert. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A set of strings of resource IDs at which the metric criteria should be applied.
         #[builder(into)]
-        pub scopes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub scopes: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
         #[builder(into, default)]
-        pub severity: pulumi_wasm_rust::Output<Option<i32>>,
+        pub severity: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the target resource.
         ///
         /// > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         #[builder(into, default)]
-        pub target_resource_location: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_resource_location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
         ///
         /// > This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         #[builder(into, default)]
-        pub target_resource_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_resource_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
         #[builder(into, default)]
-        pub window_size: pulumi_wasm_rust::Output<Option<String>>,
+        pub window_size: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MetricAlertResult {
@@ -213,27 +213,44 @@ pub mod metric_alert {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MetricAlertArgs) -> MetricAlertResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MetricAlertArgs,
+    ) -> MetricAlertResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let actions_binding = args.actions.get_inner();
+        let actions_binding = args.actions.get_output(context).get_inner();
         let application_insights_web_test_location_availability_criteria_binding = args
             .application_insights_web_test_location_availability_criteria
+            .get_output(context)
             .get_inner();
-        let auto_mitigate_binding = args.auto_mitigate.get_inner();
-        let criterias_binding = args.criterias.get_inner();
-        let description_binding = args.description.get_inner();
-        let dynamic_criteria_binding = args.dynamic_criteria.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let frequency_binding = args.frequency.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let scopes_binding = args.scopes.get_inner();
-        let severity_binding = args.severity.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let target_resource_location_binding = args.target_resource_location.get_inner();
-        let target_resource_type_binding = args.target_resource_type.get_inner();
-        let window_size_binding = args.window_size.get_inner();
+        let auto_mitigate_binding = args.auto_mitigate.get_output(context).get_inner();
+        let criterias_binding = args.criterias.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let dynamic_criteria_binding = args
+            .dynamic_criteria
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let frequency_binding = args.frequency.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let scopes_binding = args.scopes.get_output(context).get_inner();
+        let severity_binding = args.severity.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let target_resource_location_binding = args
+            .target_resource_location
+            .get_output(context)
+            .get_inner();
+        let target_resource_type_binding = args
+            .target_resource_type
+            .get_output(context)
+            .get_inner();
+        let window_size_binding = args.window_size.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:monitoring/metricAlert:MetricAlert".into(),
             name: name.to_string(),
@@ -356,7 +373,7 @@ pub mod metric_alert {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -147,20 +147,20 @@
 /// ```
 ///
 pub mod bitbucket_server_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BitbucketServerConfigArgs {
         /// Immutable. API Key that will be attached to webhook. Once this field has been set, it cannot be changed.
         /// Changing this field will result in deleting/ recreating the resource.
         #[builder(into)]
-        pub api_key: pulumi_wasm_rust::Output<String>,
+        pub api_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID to use for the BitbucketServerConfig, which will become the final component of the BitbucketServerConfig's resource name.
         #[builder(into)]
-        pub config_id: pulumi_wasm_rust::Output<String>,
+        pub config_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Connected Bitbucket Server repositories for this config.
         #[builder(into, default)]
-        pub connected_repositories: pulumi_wasm_rust::Output<
+        pub connected_repositories: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::cloudbuild::BitbucketServerConfigConnectedRepository,
@@ -170,32 +170,32 @@ pub mod bitbucket_server_config {
         /// Immutable. The URI of the Bitbucket Server host. Once this field has been set, it cannot be changed.
         /// If you need to change it, please create another BitbucketServerConfig.
         #[builder(into)]
-        pub host_uri: pulumi_wasm_rust::Output<String>,
+        pub host_uri: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location of this bitbucket server config.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The network to be used when reaching out to the Bitbucket Server instance. The VPC network must be enabled for private
         /// service connection. This should be set if the Bitbucket Server instance is hosted on-premises and not reachable by
         /// public internet. If this field is left empty, no network peering will occur and calls to the Bitbucket Server instance
         /// will be made over the public internet. Must be in the format projects/{project}/global/networks/{network}, where
         /// {project} is a project number or id and {network} is the name of a VPC network in the project.
         #[builder(into, default)]
-        pub peered_network: pulumi_wasm_rust::Output<Option<String>>,
+        pub peered_network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Secret Manager secrets needed by the config.
         /// Structure is documented below.
         #[builder(into)]
-        pub secrets: pulumi_wasm_rust::Output<
+        pub secrets: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudbuild::BitbucketServerConfigSecrets,
         >,
         /// SSL certificate to use for requests to Bitbucket Server. The format should be PEM format but the extension can be one of
         /// .pem, .cer, or .crt.
         #[builder(into, default)]
-        pub ssl_ca: pulumi_wasm_rust::Output<Option<String>>,
+        pub ssl_ca: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Username of the account Cloud Build will use on Bitbucket Server.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BitbucketServerConfigResult {
@@ -244,21 +244,25 @@ pub mod bitbucket_server_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BitbucketServerConfigArgs,
     ) -> BitbucketServerConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_key_binding = args.api_key.get_inner();
-        let config_id_binding = args.config_id.get_inner();
-        let connected_repositories_binding = args.connected_repositories.get_inner();
-        let host_uri_binding = args.host_uri.get_inner();
-        let location_binding = args.location.get_inner();
-        let peered_network_binding = args.peered_network.get_inner();
-        let project_binding = args.project.get_inner();
-        let secrets_binding = args.secrets.get_inner();
-        let ssl_ca_binding = args.ssl_ca.get_inner();
-        let username_binding = args.username.get_inner();
+        let api_key_binding = args.api_key.get_output(context).get_inner();
+        let config_id_binding = args.config_id.get_output(context).get_inner();
+        let connected_repositories_binding = args
+            .connected_repositories
+            .get_output(context)
+            .get_inner();
+        let host_uri_binding = args.host_uri.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let peered_network_binding = args.peered_network.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let secrets_binding = args.secrets.get_output(context).get_inner();
+        let ssl_ca_binding = args.ssl_ca.get_output(context).get_inner();
+        let username_binding = args.username.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudbuild/bitbucketServerConfig:BitbucketServerConfig".into(),
             name: name.to_string(),
@@ -344,7 +348,7 @@ pub mod bitbucket_server_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

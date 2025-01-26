@@ -25,16 +25,16 @@
 /// $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
 /// ```
 pub mod delegated_administrator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DelegatedAdministratorArgs {
         /// The account ID number of the member account in the organization to register as a delegated administrator.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The service principal of the AWS service for which you want to make the member account a delegated administrator.
         #[builder(into)]
-        pub service_principal: pulumi_wasm_rust::Output<String>,
+        pub service_principal: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DelegatedAdministratorResult {
@@ -62,13 +62,17 @@ pub mod delegated_administrator {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DelegatedAdministratorArgs,
     ) -> DelegatedAdministratorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let service_principal_binding = args.service_principal.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let service_principal_binding = args
+            .service_principal
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:organizations/delegatedAdministrator:DelegatedAdministrator"
                 .into(),
@@ -114,7 +118,7 @@ pub mod delegated_administrator {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

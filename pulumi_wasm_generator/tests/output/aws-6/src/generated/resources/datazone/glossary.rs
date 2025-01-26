@@ -97,26 +97,26 @@
 /// $ pulumi import aws:datazone/glossary:Glossary example domain-id,glossary-id,owning-project-identifier
 /// ```
 pub mod glossary {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GlossaryArgs {
         /// Description of the glossary. Must have a length between 0 and 4096.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub domain_identifier: pulumi_wasm_rust::Output<String>,
+        pub domain_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the glossary. Must have length between 1 and 256.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the project that owns business glossary. Must follow regex of ^[a-zA-Z0-9_-]{1,36}$.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub owning_project_identifier: pulumi_wasm_rust::Output<String>,
+        pub owning_project_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Status of business glossary. Valid values are DISABLED and ENABLED.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GlossaryResult {
@@ -136,16 +136,24 @@ pub mod glossary {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GlossaryArgs) -> GlossaryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GlossaryArgs,
+    ) -> GlossaryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let domain_identifier_binding = args.domain_identifier.get_inner();
-        let name_binding = args.name.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let domain_identifier_binding = args
+            .domain_identifier
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let owning_project_identifier_binding = args
             .owning_project_identifier
+            .get_output(context)
             .get_inner();
-        let status_binding = args.status.get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datazone/glossary:Glossary".into(),
             name: name.to_string(),
@@ -190,7 +198,7 @@ pub mod glossary {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

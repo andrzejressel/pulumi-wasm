@@ -14,30 +14,32 @@
 /// $ pulumi import aws:cloudfront/function:Function test my_test_function
 /// ```
 pub mod function {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionArgs {
         /// Source code of the function
         #[builder(into)]
-        pub code: pulumi_wasm_rust::Output<String>,
+        pub code: pulumi_wasm_rust::InputOrOutput<String>,
         /// Comment.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of `aws.cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to on key value store per function.
         #[builder(into, default)]
-        pub key_value_store_associations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub key_value_store_associations: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Unique name for your CloudFront Function.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         #[builder(into, default)]
-        pub publish: pulumi_wasm_rust::Output<Option<bool>>,
+        pub publish: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub runtime: pulumi_wasm_rust::Output<String>,
+        pub runtime: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FunctionResult {
@@ -68,17 +70,22 @@ pub mod function {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FunctionArgs) -> FunctionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FunctionArgs,
+    ) -> FunctionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let code_binding = args.code.get_inner();
-        let comment_binding = args.comment.get_inner();
+        let code_binding = args.code.get_output(context).get_inner();
+        let comment_binding = args.comment.get_output(context).get_inner();
         let key_value_store_associations_binding = args
             .key_value_store_associations
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let publish_binding = args.publish.get_inner();
-        let runtime_binding = args.runtime.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let publish_binding = args.publish.get_output(context).get_inner();
+        let runtime_binding = args.runtime.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudfront/function:Function".into(),
             name: name.to_string(),
@@ -142,7 +149,7 @@ pub mod function {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

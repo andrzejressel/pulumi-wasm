@@ -174,29 +174,29 @@
 /// ```
 ///
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
         /// Dry-run policy. Audit-only policy, can be used to monitor how the policy would have impacted the existing and future resources if it's enforced.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub dry_run_spec: pulumi_wasm_rust::Output<
+        pub dry_run_spec: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::orgpolicy::PolicyDryRunSpec>,
         >,
         /// Immutable. The resource name of the Policy. Must be one of the following forms, where constraint_name is the name of the constraint which this Policy configures: * `projects/{project_number}/policies/{constraint_name}` * `folders/{folder_id}/policies/{constraint_name}` * `organizations/{organization_id}/policies/{constraint_name}` For example, "projects/123/policies/compute.disableSerialPortAccess". Note: `projects/{project_id}/policies/{constraint_name}` is also an acceptable name for API requests, but responses will return the name using the equivalent project number.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The parent of the resource.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// Basic information about the Organization Policy.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spec: pulumi_wasm_rust::Output<
+        pub spec: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::orgpolicy::PolicySpec>,
         >,
     }
@@ -226,13 +226,17 @@ pub mod policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyArgs) -> PolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyArgs,
+    ) -> PolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dry_run_spec_binding = args.dry_run_spec.get_inner();
-        let name_binding = args.name.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let spec_binding = args.spec.get_inner();
+        let dry_run_spec_binding = args.dry_run_spec.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let spec_binding = args.spec.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:orgpolicy/policy:Policy".into(),
             name: name.to_string(),
@@ -273,7 +277,7 @@ pub mod policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

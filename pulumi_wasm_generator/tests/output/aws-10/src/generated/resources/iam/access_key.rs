@@ -63,19 +63,19 @@
 /// Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
 ///
 pub mod access_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessKeyArgs {
         /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute. If providing a base-64 encoded PGP public key, make sure to provide the "raw" version and not the "armored" one (e.g. avoid passing the `-a` option to `gpg --export`).
         #[builder(into, default)]
-        pub pgp_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub pgp_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// IAM user to associate with this access key.
         #[builder(into)]
-        pub user: pulumi_wasm_rust::Output<String>,
+        pub user: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccessKeyResult {
@@ -102,12 +102,16 @@ pub mod access_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccessKeyArgs) -> AccessKeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccessKeyArgs,
+    ) -> AccessKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let pgp_key_binding = args.pgp_key.get_inner();
-        let status_binding = args.status.get_inner();
-        let user_binding = args.user.get_inner();
+        let pgp_key_binding = args.pgp_key.get_output(context).get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let user_binding = args.user.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/accessKey:AccessKey".into(),
             name: name.to_string(),
@@ -156,7 +160,7 @@ pub mod access_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

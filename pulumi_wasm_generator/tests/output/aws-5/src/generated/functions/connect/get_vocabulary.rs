@@ -1,22 +1,22 @@
 pub mod get_vocabulary {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetVocabularyArgs {
         /// Reference to the hosting Amazon Connect Instance
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Returns information on a specific Vocabulary by name
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the Vocabulary.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Returns information on a specific Vocabulary by Vocabulary id
         #[builder(into, default)]
-        pub vocabulary_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vocabulary_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetVocabularyResult {
@@ -45,13 +45,16 @@ pub mod get_vocabulary {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetVocabularyArgs) -> GetVocabularyResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetVocabularyArgs,
+    ) -> GetVocabularyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let instance_id_binding = args.instance_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vocabulary_id_binding = args.vocabulary_id.get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vocabulary_id_binding = args.vocabulary_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:connect/getVocabulary:getVocabulary".into(),
             version: super::super::super::get_version(),
@@ -109,7 +112,7 @@ pub mod get_vocabulary {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

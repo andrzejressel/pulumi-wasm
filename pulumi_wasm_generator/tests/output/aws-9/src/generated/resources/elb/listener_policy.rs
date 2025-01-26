@@ -80,22 +80,22 @@
 ///
 /// This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
 pub mod listener_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListenerPolicyArgs {
         /// The load balancer to attach the policy to.
         #[builder(into)]
-        pub load_balancer_name: pulumi_wasm_rust::Output<String>,
+        pub load_balancer_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The load balancer listener port to apply the policy to.
         #[builder(into)]
-        pub load_balancer_port: pulumi_wasm_rust::Output<i32>,
+        pub load_balancer_port: pulumi_wasm_rust::InputOrOutput<i32>,
         /// List of Policy Names to apply to the backend server.
         #[builder(into, default)]
-        pub policy_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub policy_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Map of arbitrary keys and values that, when changed, will trigger an update.
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -116,13 +116,23 @@ pub mod listener_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ListenerPolicyArgs) -> ListenerPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ListenerPolicyArgs,
+    ) -> ListenerPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let load_balancer_name_binding = args.load_balancer_name.get_inner();
-        let load_balancer_port_binding = args.load_balancer_port.get_inner();
-        let policy_names_binding = args.policy_names.get_inner();
-        let triggers_binding = args.triggers.get_inner();
+        let load_balancer_name_binding = args
+            .load_balancer_name
+            .get_output(context)
+            .get_inner();
+        let load_balancer_port_binding = args
+            .load_balancer_port
+            .get_output(context)
+            .get_inner();
+        let policy_names_binding = args.policy_names.get_output(context).get_inner();
+        let triggers_binding = args.triggers.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:elb/listenerPolicy:ListenerPolicy".into(),
             name: name.to_string(),
@@ -160,7 +170,7 @@ pub mod listener_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -121,7 +121,7 @@
 /// ```
 ///
 pub mod network_endpoint_list {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkEndpointListArgs {
@@ -130,22 +130,22 @@ pub mod network_endpoint_list {
         ///
         /// - - -
         #[builder(into)]
-        pub network_endpoint_group: pulumi_wasm_rust::Output<String>,
+        pub network_endpoint_group: pulumi_wasm_rust::InputOrOutput<String>,
         /// The network endpoints to be added to the enclosing network endpoint group
         /// (NEG). Each endpoint specifies an IP address and port, along with
         /// additional information depending on the NEG type.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub network_endpoints: pulumi_wasm_rust::Output<
+        pub network_endpoints: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::NetworkEndpointListNetworkEndpoint>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Zone where the containing network endpoint group is located.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NetworkEndpointListResult {
@@ -172,15 +172,22 @@ pub mod network_endpoint_list {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NetworkEndpointListArgs,
     ) -> NetworkEndpointListResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let network_endpoint_group_binding = args.network_endpoint_group.get_inner();
-        let network_endpoints_binding = args.network_endpoints.get_inner();
-        let project_binding = args.project.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let network_endpoint_group_binding = args
+            .network_endpoint_group
+            .get_output(context)
+            .get_inner();
+        let network_endpoints_binding = args
+            .network_endpoints
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/networkEndpointList:NetworkEndpointList".into(),
             name: name.to_string(),
@@ -218,7 +225,7 @@ pub mod network_endpoint_list {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

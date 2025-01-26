@@ -25,24 +25,24 @@
 /// $ pulumi import aws:location/routeCalculation:RouteCalculation example example
 /// ```
 pub mod route_calculation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteCalculationArgs {
         /// The name of the route calculator resource.
         #[builder(into)]
-        pub calculator_name: pulumi_wasm_rust::Output<String>,
+        pub calculator_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the data provider of traffic and road network data.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub data_source: pulumi_wasm_rust::Output<String>,
+        pub data_source: pulumi_wasm_rust::InputOrOutput<String>,
         /// The optional description for the route calculator resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -75,13 +75,20 @@ pub mod route_calculation {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RouteCalculationArgs) -> RouteCalculationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RouteCalculationArgs,
+    ) -> RouteCalculationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let calculator_name_binding = args.calculator_name.get_inner();
-        let data_source_binding = args.data_source.get_inner();
-        let description_binding = args.description.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let calculator_name_binding = args
+            .calculator_name
+            .get_output(context)
+            .get_inner();
+        let data_source_binding = args.data_source.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:location/routeCalculation:RouteCalculation".into(),
             name: name.to_string(),
@@ -131,7 +138,7 @@ pub mod route_calculation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

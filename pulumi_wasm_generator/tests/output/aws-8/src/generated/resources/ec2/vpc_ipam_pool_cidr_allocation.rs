@@ -88,25 +88,25 @@
 /// $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
 /// ```
 pub mod vpc_ipam_pool_cidr_allocation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcIpamPoolCidrAllocationArgs {
         /// The CIDR you want to assign to the pool.
         #[builder(into, default)]
-        pub cidr: pulumi_wasm_rust::Output<Option<String>>,
+        pub cidr: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description for the allocation.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Exclude a particular CIDR range from being returned by the pool.
         #[builder(into, default)]
-        pub disallowed_cidrs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub disallowed_cidrs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the pool to which you want to assign a CIDR.
         #[builder(into)]
-        pub ipam_pool_id: pulumi_wasm_rust::Output<String>,
+        pub ipam_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         #[builder(into, default)]
-        pub netmask_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub netmask_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct VpcIpamPoolCidrAllocationResult {
@@ -133,16 +133,20 @@ pub mod vpc_ipam_pool_cidr_allocation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpcIpamPoolCidrAllocationArgs,
     ) -> VpcIpamPoolCidrAllocationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cidr_binding = args.cidr.get_inner();
-        let description_binding = args.description.get_inner();
-        let disallowed_cidrs_binding = args.disallowed_cidrs.get_inner();
-        let ipam_pool_id_binding = args.ipam_pool_id.get_inner();
-        let netmask_length_binding = args.netmask_length.get_inner();
+        let cidr_binding = args.cidr.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let disallowed_cidrs_binding = args
+            .disallowed_cidrs
+            .get_output(context)
+            .get_inner();
+        let ipam_pool_id_binding = args.ipam_pool_id.get_output(context).get_inner();
+        let netmask_length_binding = args.netmask_length.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation".into(),
             name: name.to_string(),
@@ -199,7 +203,7 @@ pub mod vpc_ipam_pool_cidr_allocation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

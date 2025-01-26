@@ -53,22 +53,22 @@
 /// ```
 ///
 pub mod eventhub_namespace_disaster_recovery_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventhubNamespaceDisasterRecoveryConfigArgs {
         /// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub namespace_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the EventHub Namespace to replicate to.
         #[builder(into)]
-        pub partner_namespace_id: pulumi_wasm_rust::Output<String>,
+        pub partner_namespace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EventhubNamespaceDisasterRecoveryConfigResult {
@@ -86,15 +86,22 @@ pub mod eventhub_namespace_disaster_recovery_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EventhubNamespaceDisasterRecoveryConfigArgs,
     ) -> EventhubNamespaceDisasterRecoveryConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let namespace_name_binding = args.namespace_name.get_inner();
-        let partner_namespace_id_binding = args.partner_namespace_id.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let namespace_name_binding = args.namespace_name.get_output(context).get_inner();
+        let partner_namespace_id_binding = args
+            .partner_namespace_id
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig"
                 .into(),
@@ -133,7 +140,7 @@ pub mod eventhub_namespace_disaster_recovery_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

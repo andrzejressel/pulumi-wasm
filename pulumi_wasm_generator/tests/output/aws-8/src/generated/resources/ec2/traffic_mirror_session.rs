@@ -44,36 +44,36 @@
 /// $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
 /// ```
 pub mod traffic_mirror_session {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrafficMirrorSessionArgs {
         /// A description of the traffic mirror session.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
         #[builder(into)]
-        pub network_interface_id: pulumi_wasm_rust::Output<String>,
+        pub network_interface_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
         #[builder(into, default)]
-        pub packet_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub packet_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
         #[builder(into)]
-        pub session_number: pulumi_wasm_rust::Output<i32>,
+        pub session_number: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ID of the traffic mirror filter to be used
         #[builder(into)]
-        pub traffic_mirror_filter_id: pulumi_wasm_rust::Output<String>,
+        pub traffic_mirror_filter_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the traffic mirror target to be used
         #[builder(into)]
-        pub traffic_mirror_target_id: pulumi_wasm_rust::Output<String>,
+        pub traffic_mirror_target_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
         #[builder(into, default)]
-        pub virtual_network_id: pulumi_wasm_rust::Output<Option<i32>>,
+        pub virtual_network_id: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct TrafficMirrorSessionResult {
@@ -109,19 +109,32 @@ pub mod traffic_mirror_session {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TrafficMirrorSessionArgs,
     ) -> TrafficMirrorSessionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let network_interface_id_binding = args.network_interface_id.get_inner();
-        let packet_length_binding = args.packet_length.get_inner();
-        let session_number_binding = args.session_number.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let traffic_mirror_filter_id_binding = args.traffic_mirror_filter_id.get_inner();
-        let traffic_mirror_target_id_binding = args.traffic_mirror_target_id.get_inner();
-        let virtual_network_id_binding = args.virtual_network_id.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let network_interface_id_binding = args
+            .network_interface_id
+            .get_output(context)
+            .get_inner();
+        let packet_length_binding = args.packet_length.get_output(context).get_inner();
+        let session_number_binding = args.session_number.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let traffic_mirror_filter_id_binding = args
+            .traffic_mirror_filter_id
+            .get_output(context)
+            .get_inner();
+        let traffic_mirror_target_id_binding = args
+            .traffic_mirror_target_id
+            .get_output(context)
+            .get_inner();
+        let virtual_network_id_binding = args
+            .virtual_network_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/trafficMirrorSession:TrafficMirrorSession".into(),
             name: name.to_string(),
@@ -196,7 +209,7 @@ pub mod traffic_mirror_session {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

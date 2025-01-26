@@ -84,47 +84,47 @@
 /// $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
 /// ```
 pub mod trust {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrustArgs {
         /// Set of IPv4 addresses for the DNS server associated with the remote Directory.
         /// Can contain between 1 and 4 values.
         #[builder(into, default)]
-        pub conditional_forwarder_ip_addrs: pulumi_wasm_rust::Output<
+        pub conditional_forwarder_ip_addrs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Whether to delete the conditional forwarder when deleting the Trust relationship.
         #[builder(into, default)]
-        pub delete_associated_conditional_forwarder: pulumi_wasm_rust::Output<
+        pub delete_associated_conditional_forwarder: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// ID of the Directory.
         #[builder(into)]
-        pub directory_id: pulumi_wasm_rust::Output<String>,
+        pub directory_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Fully qualified domain name of the remote Directory.
         #[builder(into)]
-        pub remote_domain_name: pulumi_wasm_rust::Output<String>,
+        pub remote_domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether to enable selective authentication.
         /// Valid values are `Enabled` and `Disabled`.
         /// Default value is `Disabled`.
         #[builder(into, default)]
-        pub selective_auth: pulumi_wasm_rust::Output<Option<String>>,
+        pub selective_auth: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The direction of the Trust relationship.
         /// Valid values are `One-Way: Outgoing`, `One-Way: Incoming`, and `Two-Way`.
         #[builder(into)]
-        pub trust_direction: pulumi_wasm_rust::Output<String>,
+        pub trust_direction: pulumi_wasm_rust::InputOrOutput<String>,
         /// Password for the Trust.
         /// Does not need to match the passwords for either Directory.
         /// Can contain upper- and lower-case letters, numbers, and punctuation characters.
         /// May be up to 128 characters long.
         #[builder(into)]
-        pub trust_password: pulumi_wasm_rust::Output<String>,
+        pub trust_password: pulumi_wasm_rust::InputOrOutput<String>,
         /// Type of the Trust relationship.
         /// Valid values are `Forest` and `External`.
         /// Default value is `Forest`.
         #[builder(into, default)]
-        pub trust_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub trust_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TrustResult {
@@ -171,21 +171,33 @@ pub mod trust {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TrustArgs) -> TrustResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TrustArgs,
+    ) -> TrustResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let conditional_forwarder_ip_addrs_binding = args
             .conditional_forwarder_ip_addrs
+            .get_output(context)
             .get_inner();
         let delete_associated_conditional_forwarder_binding = args
             .delete_associated_conditional_forwarder
+            .get_output(context)
             .get_inner();
-        let directory_id_binding = args.directory_id.get_inner();
-        let remote_domain_name_binding = args.remote_domain_name.get_inner();
-        let selective_auth_binding = args.selective_auth.get_inner();
-        let trust_direction_binding = args.trust_direction.get_inner();
-        let trust_password_binding = args.trust_password.get_inner();
-        let trust_type_binding = args.trust_type.get_inner();
+        let directory_id_binding = args.directory_id.get_output(context).get_inner();
+        let remote_domain_name_binding = args
+            .remote_domain_name
+            .get_output(context)
+            .get_inner();
+        let selective_auth_binding = args.selective_auth.get_output(context).get_inner();
+        let trust_direction_binding = args
+            .trust_direction
+            .get_output(context)
+            .get_inner();
+        let trust_password_binding = args.trust_password.get_output(context).get_inner();
+        let trust_type_binding = args.trust_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directoryservice/trust:Trust".into(),
             name: name.to_string(),
@@ -266,7 +278,7 @@ pub mod trust {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

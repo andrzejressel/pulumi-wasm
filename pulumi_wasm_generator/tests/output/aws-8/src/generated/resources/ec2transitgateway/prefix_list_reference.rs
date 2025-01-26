@@ -52,24 +52,26 @@
 /// $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
 /// ```
 pub mod prefix_list_reference {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrefixListReferenceArgs {
         /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         #[builder(into, default)]
-        pub blackhole: pulumi_wasm_rust::Output<Option<bool>>,
+        pub blackhole: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Identifier of EC2 Prefix List.
         #[builder(into)]
-        pub prefix_list_id: pulumi_wasm_rust::Output<String>,
+        pub prefix_list_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Identifier of EC2 Transit Gateway Attachment.
         #[builder(into, default)]
-        pub transit_gateway_attachment_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub transit_gateway_attachment_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Identifier of EC2 Transit Gateway Route Table.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub transit_gateway_route_table_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PrefixListReferenceResult {
@@ -90,18 +92,21 @@ pub mod prefix_list_reference {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PrefixListReferenceArgs,
     ) -> PrefixListReferenceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let blackhole_binding = args.blackhole.get_inner();
-        let prefix_list_id_binding = args.prefix_list_id.get_inner();
+        let blackhole_binding = args.blackhole.get_output(context).get_inner();
+        let prefix_list_id_binding = args.prefix_list_id.get_output(context).get_inner();
         let transit_gateway_attachment_id_binding = args
             .transit_gateway_attachment_id
+            .get_output(context)
             .get_inner();
         let transit_gateway_route_table_id_binding = args
             .transit_gateway_route_table_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/prefixListReference:PrefixListReference"
@@ -144,7 +149,7 @@ pub mod prefix_list_reference {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

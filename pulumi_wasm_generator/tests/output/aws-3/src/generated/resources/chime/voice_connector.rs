@@ -26,24 +26,24 @@
 /// $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
 /// ```
 pub mod voice_connector {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VoiceConnectorArgs {
         /// The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         #[builder(into, default)]
-        pub aws_region: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Amazon Chime Voice Connector.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// When enabled, requires encryption for the Amazon Chime Voice Connector.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub require_encryption: pulumi_wasm_rust::Output<bool>,
+        pub require_encryption: pulumi_wasm_rust::InputOrOutput<bool>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -74,13 +74,20 @@ pub mod voice_connector {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VoiceConnectorArgs) -> VoiceConnectorResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VoiceConnectorArgs,
+    ) -> VoiceConnectorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_region_binding = args.aws_region.get_inner();
-        let name_binding = args.name.get_inner();
-        let require_encryption_binding = args.require_encryption.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let aws_region_binding = args.aws_region.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let require_encryption_binding = args
+            .require_encryption
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:chime/voiceConnector:VoiceConnector".into(),
             name: name.to_string(),
@@ -127,7 +134,7 @@ pub mod voice_connector {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

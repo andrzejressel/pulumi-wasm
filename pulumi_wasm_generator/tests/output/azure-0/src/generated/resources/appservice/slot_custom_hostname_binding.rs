@@ -61,26 +61,26 @@
 /// ```
 ///
 pub mod slot_custom_hostname_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SlotCustomHostnameBindingArgs {
         /// The ID of the App Service Slot. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub app_service_slot_id: pulumi_wasm_rust::Output<String>,
+        pub app_service_slot_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
         #[builder(into)]
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_wasm_rust::InputOrOutput<String>,
         /// The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub ssl_state: pulumi_wasm_rust::Output<Option<String>>,
+        pub ssl_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The SSL certificate thumbprint. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         #[builder(into, default)]
-        pub thumbprint: pulumi_wasm_rust::Output<Option<String>>,
+        pub thumbprint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SlotCustomHostnameBindingResult {
@@ -104,15 +104,19 @@ pub mod slot_custom_hostname_binding {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SlotCustomHostnameBindingArgs,
     ) -> SlotCustomHostnameBindingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_service_slot_id_binding = args.app_service_slot_id.get_inner();
-        let hostname_binding = args.hostname.get_inner();
-        let ssl_state_binding = args.ssl_state.get_inner();
-        let thumbprint_binding = args.thumbprint.get_inner();
+        let app_service_slot_id_binding = args
+            .app_service_slot_id
+            .get_output(context)
+            .get_inner();
+        let hostname_binding = args.hostname.get_output(context).get_inner();
+        let ssl_state_binding = args.ssl_state.get_output(context).get_inner();
+        let thumbprint_binding = args.thumbprint.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding"
                 .into(),
@@ -154,7 +158,7 @@ pub mod slot_custom_hostname_binding {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

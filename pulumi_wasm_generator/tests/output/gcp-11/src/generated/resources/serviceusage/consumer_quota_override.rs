@@ -138,19 +138,19 @@
 /// ```
 ///
 pub mod consumer_quota_override {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConsumerQuotaOverrideArgs {
         /// If this map is nonempty, then this override applies only to specific values for dimensions defined in the limit unit.
         #[builder(into, default)]
-        pub dimensions: pulumi_wasm_rust::Output<
+        pub dimensions: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// If the new quota would decrease the existing quota by more than 10%, the request is rejected.
         /// If `force` is `true`, that safety check is ignored.
         #[builder(into, default)]
-        pub force: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The limit on the metric, e.g. `/project/region`.
         /// > Make sure that `limit` is in a format that doesn't start with `1/` or contain curly braces.
         /// E.g. use `/project/user` instead of `1/{project}/{user}`.
@@ -158,20 +158,20 @@ pub mod consumer_quota_override {
         ///
         /// - - -
         #[builder(into)]
-        pub limit: pulumi_wasm_rust::Output<String>,
+        pub limit: pulumi_wasm_rust::InputOrOutput<String>,
         /// The metric that should be limited, e.g. `compute.googleapis.com/cpus`.
         #[builder(into)]
-        pub metric: pulumi_wasm_rust::Output<String>,
+        pub metric: pulumi_wasm_rust::InputOrOutput<String>,
         /// The overriding quota limit value. Can be any nonnegative integer, or -1 (unlimited quota).
         #[builder(into)]
-        pub override_value: pulumi_wasm_rust::Output<String>,
+        pub override_value: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The service that the metrics belong to, e.g. `compute.googleapis.com`.
         #[builder(into)]
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConsumerQuotaOverrideResult {
@@ -206,18 +206,19 @@ pub mod consumer_quota_override {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ConsumerQuotaOverrideArgs,
     ) -> ConsumerQuotaOverrideResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dimensions_binding = args.dimensions.get_inner();
-        let force_binding = args.force.get_inner();
-        let limit_binding = args.limit.get_inner();
-        let metric_binding = args.metric.get_inner();
-        let override_value_binding = args.override_value.get_inner();
-        let project_binding = args.project.get_inner();
-        let service_binding = args.service.get_inner();
+        let dimensions_binding = args.dimensions.get_output(context).get_inner();
+        let force_binding = args.force.get_output(context).get_inner();
+        let limit_binding = args.limit.get_output(context).get_inner();
+        let metric_binding = args.metric.get_output(context).get_inner();
+        let override_value_binding = args.override_value.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let service_binding = args.service.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:serviceusage/consumerQuotaOverride:ConsumerQuotaOverride".into(),
             name: name.to_string(),
@@ -279,7 +280,7 @@ pub mod consumer_quota_override {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

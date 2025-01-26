@@ -1,10 +1,10 @@
 pub mod get_default_tags {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDefaultTagsArgs {
         #[builder(into, default)]
-        pub id: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetDefaultTagsResult {
@@ -16,10 +16,13 @@ pub mod get_default_tags {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetDefaultTagsArgs) -> GetDefaultTagsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetDefaultTagsArgs,
+    ) -> GetDefaultTagsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let id_binding = args.id.get_inner();
+        let id_binding = args.id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:index/getDefaultTags:getDefaultTags".into(),
             version: super::super::get_version(),
@@ -38,7 +41,7 @@ pub mod get_default_tags {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

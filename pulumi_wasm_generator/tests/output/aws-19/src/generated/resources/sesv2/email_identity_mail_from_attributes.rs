@@ -32,19 +32,19 @@
 /// $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
 /// ```
 pub mod email_identity_mail_from_attributes {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EmailIdentityMailFromAttributesArgs {
         /// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
         #[builder(into, default)]
-        pub behavior_on_mx_failure: pulumi_wasm_rust::Output<Option<String>>,
+        pub behavior_on_mx_failure: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The verified email identity.
         #[builder(into)]
-        pub email_identity: pulumi_wasm_rust::Output<String>,
+        pub email_identity: pulumi_wasm_rust::InputOrOutput<String>,
         /// The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         #[builder(into, default)]
-        pub mail_from_domain: pulumi_wasm_rust::Output<Option<String>>,
+        pub mail_from_domain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EmailIdentityMailFromAttributesResult {
@@ -60,14 +60,21 @@ pub mod email_identity_mail_from_attributes {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EmailIdentityMailFromAttributesArgs,
     ) -> EmailIdentityMailFromAttributesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let behavior_on_mx_failure_binding = args.behavior_on_mx_failure.get_inner();
-        let email_identity_binding = args.email_identity.get_inner();
-        let mail_from_domain_binding = args.mail_from_domain.get_inner();
+        let behavior_on_mx_failure_binding = args
+            .behavior_on_mx_failure
+            .get_output(context)
+            .get_inner();
+        let email_identity_binding = args.email_identity.get_output(context).get_inner();
+        let mail_from_domain_binding = args
+            .mail_from_domain
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes"
                 .into(),
@@ -99,7 +106,7 @@ pub mod email_identity_mail_from_attributes {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

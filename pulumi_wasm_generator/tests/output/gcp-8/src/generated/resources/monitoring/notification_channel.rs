@@ -70,26 +70,26 @@
 /// ```
 ///
 pub mod notification_channel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NotificationChannelArgs {
         /// An optional human-readable description of this notification channel. This description may provide additional details, beyond the display name, for the channel. This may not exceed 1024 Unicode characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An optional human-readable name for this notification channel. It is recommended that you specify a non-empty and unique name in order to make it easier to identify the channels in your project, though this is not enforced. The display name is limited to 512 Unicode characters.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether notifications are forwarded to the described channel. This makes it possible to disable delivery of notifications to a particular channel without removing the channel from all alerting policies that reference the channel. This is a more convenient approach when the change is temporary and you want to receive notifications from the same set of alerting policies on the channel at some point in the future.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If true, the notification channel will be deleted regardless
         /// of its use in alert policies (the policies will be updated
         /// to remove the channel). If false, channels that are still
         /// referenced by an existing alerting policy will fail to be
         /// deleted in a delete operation.
         #[builder(into, default)]
-        pub force_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration fields that define the channel and its behavior. The
         /// permissible and required labels are specified in the
         /// NotificationChannelDescriptor corresponding to the type field.
@@ -97,13 +97,13 @@ pub mod notification_channel {
         /// determine if there are upstream changes to these fields. They can also be configured via
         /// the sensitive_labels block, but cannot be configured in both places.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Different notification type behaviors are configured primarily using the the `labels` field on this
         /// resource. This block contains the labels which contain secrets or passwords so that they can be marked
         /// sensitive and hidden from plan output. The name of the field, eg: password, will be the key
@@ -112,7 +112,7 @@ pub mod notification_channel {
         /// to a different credential configuration in the config will require an apply to update state.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub sensitive_labels: pulumi_wasm_rust::Output<
+        pub sensitive_labels: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::monitoring::NotificationChannelSensitiveLabels>,
         >,
         /// The type of the notification channel. This field matches the value of the NotificationChannelDescriptor.type field. See https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.notificationChannelDescriptors/list to get the list of valid values such as "email", "slack", etc...
@@ -120,10 +120,10 @@ pub mod notification_channel {
         ///
         /// - - -
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
         /// User-supplied key/value data that does not need to conform to the corresponding NotificationChannelDescriptor's schema, unlike the labels field. This field is intended to be used for organizing and identifying the NotificationChannel objects.The field can contain up to 64 entries. Each key and value is limited to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values can contain only lowercase letters, numerals, underscores, and dashes. Keys must begin with a letter.
         #[builder(into, default)]
-        pub user_labels: pulumi_wasm_rust::Output<
+        pub user_labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -184,20 +184,24 @@ pub mod notification_channel {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: NotificationChannelArgs,
     ) -> NotificationChannelResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let force_delete_binding = args.force_delete.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let project_binding = args.project.get_inner();
-        let sensitive_labels_binding = args.sensitive_labels.get_inner();
-        let type__binding = args.type_.get_inner();
-        let user_labels_binding = args.user_labels.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let force_delete_binding = args.force_delete.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let sensitive_labels_binding = args
+            .sensitive_labels
+            .get_output(context)
+            .get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let user_labels_binding = args.user_labels.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:monitoring/notificationChannel:NotificationChannel".into(),
             name: name.to_string(),
@@ -276,7 +280,7 @@ pub mod notification_channel {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

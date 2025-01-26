@@ -114,32 +114,32 @@
 /// ```
 ///
 pub mod experiment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExperimentArgs {
         /// A `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::chaosstudio::ExperimentIdentity>,
         >,
         /// The Azure Region where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Chaos Studio Experiment. Changing this forces a new Chaos Studio Experiment to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `selectors` blocks as defined below.
         #[builder(into)]
-        pub selectors: pulumi_wasm_rust::Output<
+        pub selectors: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::chaosstudio::ExperimentSelector>,
         >,
         /// One or more `steps` blocks as defined below.
         #[builder(into)]
-        pub steps: pulumi_wasm_rust::Output<
+        pub steps: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::chaosstudio::ExperimentStep>,
         >,
     }
@@ -168,15 +168,22 @@ pub mod experiment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ExperimentArgs) -> ExperimentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ExperimentArgs,
+    ) -> ExperimentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let selectors_binding = args.selectors.get_inner();
-        let steps_binding = args.steps.get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let selectors_binding = args.selectors.get_output(context).get_inner();
+        let steps_binding = args.steps.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:chaosstudio/experiment:Experiment".into(),
             name: name.to_string(),
@@ -228,7 +235,7 @@ pub mod experiment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

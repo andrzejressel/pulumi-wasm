@@ -203,14 +203,14 @@
 /// ```
 ///
 pub mod topic {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TopicArgs {
         /// Settings for ingestion from a data source into this topic.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub ingestion_data_source_settings: pulumi_wasm_rust::Output<
+        pub ingestion_data_source_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pubsub::TopicIngestionDataSourceSettings>,
         >,
         /// The resource name of the Cloud KMS CryptoKey to be used to protect access
@@ -219,13 +219,13 @@ pub mod topic {
         /// `roles/cloudkms.cryptoKeyEncrypterDecrypter` to use this feature.
         /// The expected format is `projects/*/locations/*/keyRings/*/cryptoKeys/*`
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A set of key/value label pairs to assign to this Topic.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Indicates the minimum duration to retain a message after it is published
@@ -237,13 +237,13 @@ pub mod topic {
         /// The rotation period has the format of a decimal number, followed by the
         /// letter `s` (seconds). Cannot be more than 31 days or less than 10 minutes.
         #[builder(into, default)]
-        pub message_retention_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub message_retention_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Policy constraining the set of Google Cloud Platform regions where
         /// messages published to the topic may be stored. If not present, then no
         /// constraints are in effect.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub message_storage_policy: pulumi_wasm_rust::Output<
+        pub message_storage_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pubsub::TopicMessageStoragePolicy>,
         >,
         /// Name of the topic.
@@ -251,15 +251,15 @@ pub mod topic {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Settings for validating messages published against a schema.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub schema_settings: pulumi_wasm_rust::Output<
+        pub schema_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::pubsub::TopicSchemaSettings>,
         >,
     }
@@ -326,21 +326,33 @@ pub mod topic {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TopicArgs) -> TopicResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TopicArgs,
+    ) -> TopicResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let ingestion_data_source_settings_binding = args
             .ingestion_data_source_settings
+            .get_output(context)
             .get_inner();
-        let kms_key_name_binding = args.kms_key_name.get_inner();
-        let labels_binding = args.labels.get_inner();
+        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
         let message_retention_duration_binding = args
             .message_retention_duration
+            .get_output(context)
             .get_inner();
-        let message_storage_policy_binding = args.message_storage_policy.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let schema_settings_binding = args.schema_settings.get_inner();
+        let message_storage_policy_binding = args
+            .message_storage_policy
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let schema_settings_binding = args
+            .schema_settings
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:pubsub/topic:Topic".into(),
             name: name.to_string(),
@@ -412,7 +424,7 @@ pub mod topic {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

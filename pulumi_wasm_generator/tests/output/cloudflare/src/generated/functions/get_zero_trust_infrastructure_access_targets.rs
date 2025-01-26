@@ -1,32 +1,32 @@
 pub mod get_zero_trust_infrastructure_access_targets {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetZeroTrustInfrastructureAccessTargetsArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A date and time after a target was created to filter on.
         #[builder(into, default)]
-        pub created_after: pulumi_wasm_rust::Output<Option<String>>,
+        pub created_after: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The hostname of the target.
         #[builder(into, default)]
-        pub hostname: pulumi_wasm_rust::Output<Option<String>>,
+        pub hostname: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Partial match to the hostname of a target
         #[builder(into, default)]
-        pub hostname_contains: pulumi_wasm_rust::Output<Option<String>>,
+        pub hostname_contains: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The target's IPv4 address.
         #[builder(into, default)]
-        pub ipv4: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv4: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The target's IPv6 address.
         #[builder(into, default)]
-        pub ipv6: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv6: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A date and time after a target was modified to filter on.
         #[builder(into, default)]
-        pub modified_after: pulumi_wasm_rust::Output<Option<String>>,
+        pub modified_after: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The private virtual network identifier for the target.
         #[builder(into, default)]
-        pub virtual_network_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_network_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetZeroTrustInfrastructureAccessTargetsResult {
@@ -57,18 +57,25 @@ pub mod get_zero_trust_infrastructure_access_targets {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetZeroTrustInfrastructureAccessTargetsArgs,
     ) -> GetZeroTrustInfrastructureAccessTargetsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let created_after_binding = args.created_after.get_inner();
-        let hostname_binding = args.hostname.get_inner();
-        let hostname_contains_binding = args.hostname_contains.get_inner();
-        let ipv4_binding = args.ipv4.get_inner();
-        let ipv6_binding = args.ipv6.get_inner();
-        let modified_after_binding = args.modified_after.get_inner();
-        let virtual_network_id_binding = args.virtual_network_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let created_after_binding = args.created_after.get_output(context).get_inner();
+        let hostname_binding = args.hostname.get_output(context).get_inner();
+        let hostname_contains_binding = args
+            .hostname_contains
+            .get_output(context)
+            .get_inner();
+        let ipv4_binding = args.ipv4.get_output(context).get_inner();
+        let ipv6_binding = args.ipv6.get_output(context).get_inner();
+        let modified_after_binding = args.modified_after.get_output(context).get_inner();
+        let virtual_network_id_binding = args
+            .virtual_network_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "cloudflare:index/getZeroTrustInfrastructureAccessTargets:getZeroTrustInfrastructureAccessTargets"
                 .into(),
@@ -140,7 +147,7 @@ pub mod get_zero_trust_infrastructure_access_targets {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

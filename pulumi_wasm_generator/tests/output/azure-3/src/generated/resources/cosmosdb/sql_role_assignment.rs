@@ -62,28 +62,28 @@
 /// ```
 ///
 pub mod sql_role_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlRoleAssignmentArgs {
         /// The name of the Cosmos DB Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The GUID as the name of the Cosmos DB SQL Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Principal (Client) in Azure Active Directory. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub principal_id: pulumi_wasm_rust::Output<String>,
+        pub principal_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the Cosmos DB SQL Role Assignment is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The resource ID of the Cosmos DB SQL Role Definition.
         #[builder(into)]
-        pub role_definition_id: pulumi_wasm_rust::Output<String>,
+        pub role_definition_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The data plane resource path for which access is being granted through this Cosmos DB SQL Role Assignment. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SqlRoleAssignmentResult {
@@ -104,15 +104,25 @@ pub mod sql_role_assignment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SqlRoleAssignmentArgs) -> SqlRoleAssignmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SqlRoleAssignmentArgs,
+    ) -> SqlRoleAssignmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_name_binding = args.account_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let principal_id_binding = args.principal_id.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let role_definition_id_binding = args.role_definition_id.get_inner();
-        let scope_binding = args.scope.get_inner();
+        let account_name_binding = args.account_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let principal_id_binding = args.principal_id.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let role_definition_id_binding = args
+            .role_definition_id
+            .get_output(context)
+            .get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment".into(),
             name: name.to_string(),
@@ -164,7 +174,7 @@ pub mod sql_role_assignment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

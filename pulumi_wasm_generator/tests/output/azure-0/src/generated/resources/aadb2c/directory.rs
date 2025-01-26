@@ -30,31 +30,31 @@
 /// ```
 ///
 pub mod directory {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DirectoryArgs {
         /// Country code of the B2C tenant. The `country_code` should be valid for the specified `data_residency_location`. See [official docs](https://aka.ms/B2CDataResidency) for valid country codes. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         #[builder(into, default)]
-        pub country_code: pulumi_wasm_rust::Output<Option<String>>,
+        pub country_code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Location in which the B2C tenant is hosted and data resides. The `data_residency_location` should be valid for the specified `country_code`. See [official docs](https://aka.ms/B2CDataResidenc) for more information. Changing this forces a new AAD B2C Directory to be created. Possible values are `Asia Pacific`, `Australia`, `Europe`, `Global` and `United States`.
         #[builder(into)]
-        pub data_residency_location: pulumi_wasm_rust::Output<String>,
+        pub data_residency_location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix. Changing this forces a new AAD B2C Directory to be created.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the AAD B2C Directory should exist. Changing this forces a new AAD B2C Directory to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Billing SKU for the B2C tenant. Must be one of: `PremiumP1` or `PremiumP2` (`Standard` is not supported). See [official docs](https://aka.ms/b2cBilling) for more information.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the AAD B2C Directory.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -87,16 +87,26 @@ pub mod directory {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DirectoryArgs) -> DirectoryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DirectoryArgs,
+    ) -> DirectoryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let country_code_binding = args.country_code.get_inner();
-        let data_residency_location_binding = args.data_residency_location.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let domain_name_binding = args.domain_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_name_binding = args.sku_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let country_code_binding = args.country_code.get_output(context).get_inner();
+        let data_residency_location_binding = args
+            .data_residency_location
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_name_binding = args.sku_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:aadb2c/directory:Directory".into(),
             name: name.to_string(),
@@ -164,7 +174,7 @@ pub mod directory {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

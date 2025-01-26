@@ -25,29 +25,29 @@
 /// $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975
 /// ```
 pub mod video_stream {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VideoStreamArgs {
         /// The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
         #[builder(into, default)]
-        pub data_retention_in_hours: pulumi_wasm_rust::Output<Option<i32>>,
+        pub data_retention_in_hours: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
         #[builder(into, default)]
-        pub device_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub device_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
         #[builder(into, default)]
-        pub media_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub media_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A name to identify the stream. This is unique to the
         /// AWS account and region the Stream is created in.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -83,15 +83,22 @@ pub mod video_stream {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VideoStreamArgs) -> VideoStreamResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VideoStreamArgs,
+    ) -> VideoStreamResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let data_retention_in_hours_binding = args.data_retention_in_hours.get_inner();
-        let device_name_binding = args.device_name.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let media_type_binding = args.media_type.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let data_retention_in_hours_binding = args
+            .data_retention_in_hours
+            .get_output(context)
+            .get_inner();
+        let device_name_binding = args.device_name.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let media_type_binding = args.media_type.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kinesis/videoStream:VideoStream".into(),
             name: name.to_string(),
@@ -155,7 +162,7 @@ pub mod video_stream {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

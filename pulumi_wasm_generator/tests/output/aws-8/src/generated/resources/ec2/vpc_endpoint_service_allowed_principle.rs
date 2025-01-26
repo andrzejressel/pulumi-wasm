@@ -25,16 +25,16 @@
 ///       arguments: {}
 /// ```
 pub mod vpc_endpoint_service_allowed_principle {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcEndpointServiceAllowedPrincipleArgs {
         /// The ARN of the principal to allow permissions.
         #[builder(into)]
-        pub principal_arn: pulumi_wasm_rust::Output<String>,
+        pub principal_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the VPC endpoint service to allow permission.
         #[builder(into)]
-        pub vpc_endpoint_service_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_endpoint_service_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcEndpointServiceAllowedPrincipleResult {
@@ -48,13 +48,17 @@ pub mod vpc_endpoint_service_allowed_principle {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpcEndpointServiceAllowedPrincipleArgs,
     ) -> VpcEndpointServiceAllowedPrincipleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let principal_arn_binding = args.principal_arn.get_inner();
-        let vpc_endpoint_service_id_binding = args.vpc_endpoint_service_id.get_inner();
+        let principal_arn_binding = args.principal_arn.get_output(context).get_inner();
+        let vpc_endpoint_service_id_binding = args
+            .vpc_endpoint_service_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpcEndpointServiceAllowedPrinciple:VpcEndpointServiceAllowedPrinciple"
                 .into(),
@@ -79,7 +83,7 @@ pub mod vpc_endpoint_service_allowed_principle {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -149,42 +149,42 @@
 /// $ pulumi import aws:workspaces/directory:Directory main d-4444444444
 /// ```
 pub mod directory {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DirectoryArgs {
         /// The directory identifier for registration in WorkSpaces service.
         #[builder(into)]
-        pub directory_id: pulumi_wasm_rust::Output<String>,
+        pub directory_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The identifiers of the IP access control groups associated with the directory.
         #[builder(into, default)]
-        pub ip_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ip_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Configuration of SAML authentication integration. Defined below.
         #[builder(into, default)]
-        pub saml_properties: pulumi_wasm_rust::Output<
+        pub saml_properties: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::workspaces::DirectorySamlProperties>,
         >,
         /// Permissions to enable or disable self-service capabilities. Defined below.
         #[builder(into, default)]
-        pub self_service_permissions: pulumi_wasm_rust::Output<
+        pub self_service_permissions: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::workspaces::DirectorySelfServicePermissions>,
         >,
         /// The identifiers of the subnets where the directory resides.
         #[builder(into, default)]
-        pub subnet_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of tags assigned to the WorkSpaces directory. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
         #[builder(into, default)]
-        pub workspace_access_properties: pulumi_wasm_rust::Output<
+        pub workspace_access_properties: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::workspaces::DirectoryWorkspaceAccessProperties>,
         >,
         /// Default properties that are used for creating WorkSpaces. Defined below.
         #[builder(into, default)]
-        pub workspace_creation_properties: pulumi_wasm_rust::Output<
+        pub workspace_creation_properties: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::workspaces::DirectoryWorkspaceCreationProperties>,
         >,
     }
@@ -241,20 +241,32 @@ pub mod directory {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DirectoryArgs) -> DirectoryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DirectoryArgs,
+    ) -> DirectoryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let directory_id_binding = args.directory_id.get_inner();
-        let ip_group_ids_binding = args.ip_group_ids.get_inner();
-        let saml_properties_binding = args.saml_properties.get_inner();
-        let self_service_permissions_binding = args.self_service_permissions.get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let directory_id_binding = args.directory_id.get_output(context).get_inner();
+        let ip_group_ids_binding = args.ip_group_ids.get_output(context).get_inner();
+        let saml_properties_binding = args
+            .saml_properties
+            .get_output(context)
+            .get_inner();
+        let self_service_permissions_binding = args
+            .self_service_permissions
+            .get_output(context)
+            .get_inner();
+        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let workspace_access_properties_binding = args
             .workspace_access_properties
+            .get_output(context)
             .get_inner();
         let workspace_creation_properties_binding = args
             .workspace_creation_properties
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:workspaces/directory:Directory".into(),
@@ -348,7 +360,7 @@ pub mod directory {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

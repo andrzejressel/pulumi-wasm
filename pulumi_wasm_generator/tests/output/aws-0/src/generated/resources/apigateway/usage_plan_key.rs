@@ -46,19 +46,19 @@
 /// $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
 /// ```
 pub mod usage_plan_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UsagePlanKeyArgs {
         /// Identifier of the API key resource.
         #[builder(into)]
-        pub key_id: pulumi_wasm_rust::Output<String>,
+        pub key_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Type of the API key resource. Currently, the valid key type is API_KEY.
         #[builder(into)]
-        pub key_type: pulumi_wasm_rust::Output<String>,
+        pub key_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Id of the usage plan resource representing to associate the key to.
         #[builder(into)]
-        pub usage_plan_id: pulumi_wasm_rust::Output<String>,
+        pub usage_plan_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UsagePlanKeyResult {
@@ -77,12 +77,16 @@ pub mod usage_plan_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UsagePlanKeyArgs) -> UsagePlanKeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UsagePlanKeyArgs,
+    ) -> UsagePlanKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let key_id_binding = args.key_id.get_inner();
-        let key_type_binding = args.key_type.get_inner();
-        let usage_plan_id_binding = args.usage_plan_id.get_inner();
+        let key_id_binding = args.key_id.get_output(context).get_inner();
+        let key_type_binding = args.key_type.get_output(context).get_inner();
+        let usage_plan_id_binding = args.usage_plan_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigateway/usagePlanKey:UsagePlanKey".into(),
             name: name.to_string(),
@@ -119,7 +123,7 @@ pub mod usage_plan_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

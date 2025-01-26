@@ -198,62 +198,62 @@
 /// ```
 ///
 pub mod listing {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListingArgs {
         /// Shared dataset i.e. BigQuery dataset source.
         /// Structure is documented below.
         #[builder(into)]
-        pub bigquery_dataset: pulumi_wasm_rust::Output<
+        pub bigquery_dataset: pulumi_wasm_rust::InputOrOutput<
             super::super::types::bigqueryanalyticshub::ListingBigqueryDataset,
         >,
         /// Categories of the listing. Up to two categories are allowed.
         #[builder(into, default)]
-        pub categories: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub categories: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
         #[builder(into)]
-        pub data_exchange_id: pulumi_wasm_rust::Output<String>,
+        pub data_exchange_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Details of the data provider who owns the source data.
         #[builder(into, default)]
-        pub data_provider: pulumi_wasm_rust::Output<
+        pub data_provider: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigqueryanalyticshub::ListingDataProvider>,
         >,
         /// Short description of the listing. The description must not contain Unicode non-characters and C0 and C1 control codes
         /// except tabs (HT), new lines (LF), carriage returns (CR), and page breaks (FF).
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Human-readable display name of the listing. The display name must contain only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces ( ), ampersands (&) and can't start or end with spaces.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Documentation describing the listing.
         #[builder(into, default)]
-        pub documentation: pulumi_wasm_rust::Output<Option<String>>,
+        pub documentation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Base64 encoded image representing the listing.
         #[builder(into, default)]
-        pub icon: pulumi_wasm_rust::Output<Option<String>>,
+        pub icon: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the listing. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
         #[builder(into)]
-        pub listing_id: pulumi_wasm_rust::Output<String>,
+        pub listing_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the location this data exchange listing.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Email or URL of the primary point of contact of the listing.
         #[builder(into, default)]
-        pub primary_contact: pulumi_wasm_rust::Output<Option<String>>,
+        pub primary_contact: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Details of the publisher who owns the listing and who can share the source data.
         #[builder(into, default)]
-        pub publisher: pulumi_wasm_rust::Output<
+        pub publisher: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigqueryanalyticshub::ListingPublisher>,
         >,
         /// Email or URL of the request access of the listing. Subscribers can use this reference to request access.
         #[builder(into, default)]
-        pub request_access: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_access: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If set, restricted export configuration will be propagated and enforced on the linked dataset.
         #[builder(into, default)]
-        pub restricted_export_config: pulumi_wasm_rust::Output<
+        pub restricted_export_config: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::bigqueryanalyticshub::ListingRestrictedExportConfig,
             >,
@@ -309,24 +309,40 @@ pub mod listing {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ListingArgs) -> ListingResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ListingArgs,
+    ) -> ListingResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bigquery_dataset_binding = args.bigquery_dataset.get_inner();
-        let categories_binding = args.categories.get_inner();
-        let data_exchange_id_binding = args.data_exchange_id.get_inner();
-        let data_provider_binding = args.data_provider.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let documentation_binding = args.documentation.get_inner();
-        let icon_binding = args.icon.get_inner();
-        let listing_id_binding = args.listing_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let primary_contact_binding = args.primary_contact.get_inner();
-        let project_binding = args.project.get_inner();
-        let publisher_binding = args.publisher.get_inner();
-        let request_access_binding = args.request_access.get_inner();
-        let restricted_export_config_binding = args.restricted_export_config.get_inner();
+        let bigquery_dataset_binding = args
+            .bigquery_dataset
+            .get_output(context)
+            .get_inner();
+        let categories_binding = args.categories.get_output(context).get_inner();
+        let data_exchange_id_binding = args
+            .data_exchange_id
+            .get_output(context)
+            .get_inner();
+        let data_provider_binding = args.data_provider.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let documentation_binding = args.documentation.get_output(context).get_inner();
+        let icon_binding = args.icon.get_output(context).get_inner();
+        let listing_id_binding = args.listing_id.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let primary_contact_binding = args
+            .primary_contact
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let publisher_binding = args.publisher.get_output(context).get_inner();
+        let request_access_binding = args.request_access.get_output(context).get_inner();
+        let restricted_export_config_binding = args
+            .restricted_export_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigqueryanalyticshub/listing:Listing".into(),
             name: name.to_string(),
@@ -444,7 +460,7 @@ pub mod listing {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

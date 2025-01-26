@@ -15,21 +15,21 @@
 /// $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1
 /// ```
 pub mod scaling_plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ScalingPlanArgs {
         /// CloudFormation stack or set of tags. You can create one scaling plan per application source.
         #[builder(into)]
-        pub application_source: pulumi_wasm_rust::Output<
+        pub application_source: pulumi_wasm_rust::InputOrOutput<
             super::super::types::autoscalingplans::ScalingPlanApplicationSource,
         >,
         /// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         #[builder(into)]
-        pub scaling_instructions: pulumi_wasm_rust::Output<
+        pub scaling_instructions: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::autoscalingplans::ScalingPlanScalingInstruction>,
         >,
     }
@@ -52,12 +52,22 @@ pub mod scaling_plan {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ScalingPlanArgs) -> ScalingPlanResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ScalingPlanArgs,
+    ) -> ScalingPlanResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_source_binding = args.application_source.get_inner();
-        let name_binding = args.name.get_inner();
-        let scaling_instructions_binding = args.scaling_instructions.get_inner();
+        let application_source_binding = args
+            .application_source
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let scaling_instructions_binding = args
+            .scaling_instructions
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:autoscalingplans/scalingPlan:ScalingPlan".into(),
             name: name.to_string(),
@@ -91,7 +101,7 @@ pub mod scaling_plan {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

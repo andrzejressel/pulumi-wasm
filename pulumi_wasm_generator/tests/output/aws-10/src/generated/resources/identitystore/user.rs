@@ -35,62 +35,62 @@
 /// $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
 /// ```
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
         /// Details about the user's address. At most 1 address is allowed. Detailed below.
         #[builder(into, default)]
-        pub addresses: pulumi_wasm_rust::Output<
+        pub addresses: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::identitystore::UserAddresses>,
         >,
         /// The name that is typically displayed when the user is referenced.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Details about the user's email. At most 1 email is allowed. Detailed below.
         #[builder(into, default)]
-        pub emails: pulumi_wasm_rust::Output<
+        pub emails: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::identitystore::UserEmails>,
         >,
         /// The globally unique identifier for the identity store that this user is in.
         #[builder(into)]
-        pub identity_store_id: pulumi_wasm_rust::Output<String>,
+        pub identity_store_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The user's geographical region or location.
         #[builder(into, default)]
-        pub locale: pulumi_wasm_rust::Output<Option<String>>,
+        pub locale: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Details about the user's full name. Detailed below.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<
+        pub name: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::identitystore::UserName>,
         >,
         /// An alternate name for the user.
         #[builder(into, default)]
-        pub nickname: pulumi_wasm_rust::Output<Option<String>>,
+        pub nickname: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         #[builder(into, default)]
-        pub phone_numbers: pulumi_wasm_rust::Output<
+        pub phone_numbers: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::identitystore::UserPhoneNumbers>,
         >,
         /// The preferred language of the user.
         #[builder(into, default)]
-        pub preferred_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub preferred_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An URL that may be associated with the user.
         #[builder(into, default)]
-        pub profile_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub profile_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user's time zone.
         #[builder(into, default)]
-        pub timezone: pulumi_wasm_rust::Output<Option<String>>,
+        pub timezone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The user's title.
         #[builder(into, default)]
-        pub title: pulumi_wasm_rust::Output<Option<String>>,
+        pub title: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The user type.
         #[builder(into, default)]
-        pub user_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct UserResult {
@@ -141,23 +141,33 @@ pub mod user {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UserArgs) -> UserResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UserArgs,
+    ) -> UserResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let addresses_binding = args.addresses.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let emails_binding = args.emails.get_inner();
-        let identity_store_id_binding = args.identity_store_id.get_inner();
-        let locale_binding = args.locale.get_inner();
-        let name_binding = args.name.get_inner();
-        let nickname_binding = args.nickname.get_inner();
-        let phone_numbers_binding = args.phone_numbers.get_inner();
-        let preferred_language_binding = args.preferred_language.get_inner();
-        let profile_url_binding = args.profile_url.get_inner();
-        let timezone_binding = args.timezone.get_inner();
-        let title_binding = args.title.get_inner();
-        let user_name_binding = args.user_name.get_inner();
-        let user_type_binding = args.user_type.get_inner();
+        let addresses_binding = args.addresses.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let emails_binding = args.emails.get_output(context).get_inner();
+        let identity_store_id_binding = args
+            .identity_store_id
+            .get_output(context)
+            .get_inner();
+        let locale_binding = args.locale.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let nickname_binding = args.nickname.get_output(context).get_inner();
+        let phone_numbers_binding = args.phone_numbers.get_output(context).get_inner();
+        let preferred_language_binding = args
+            .preferred_language
+            .get_output(context)
+            .get_inner();
+        let profile_url_binding = args.profile_url.get_output(context).get_inner();
+        let timezone_binding = args.timezone.get_output(context).get_inner();
+        let title_binding = args.title.get_output(context).get_inner();
+        let user_name_binding = args.user_name.get_output(context).get_inner();
+        let user_type_binding = args.user_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:identitystore/user:User".into(),
             name: name.to_string(),
@@ -271,7 +281,7 @@ pub mod user {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

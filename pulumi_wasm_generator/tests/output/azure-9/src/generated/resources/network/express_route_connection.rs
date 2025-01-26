@@ -104,39 +104,43 @@
 /// ```
 ///
 pub mod express_route_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExpressRouteConnectionArgs {
         /// The authorization key to establish the Express Route Connection.
         #[builder(into, default)]
-        pub authorization_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub authorization_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Is Internet security enabled for this Express Route Connection?
         #[builder(into, default)]
-        pub enable_internet_security: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_internet_security: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub express_route_circuit_peering_id: pulumi_wasm_rust::Output<String>,
+        pub express_route_circuit_peering_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`.
         #[builder(into, default)]
-        pub express_route_gateway_bypass_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub express_route_gateway_bypass_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub express_route_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub express_route_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`.
         #[builder(into, default)]
-        pub private_link_fast_path_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub private_link_fast_path_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A `routing` block as defined below.
         #[builder(into, default)]
-        pub routing: pulumi_wasm_rust::Output<
+        pub routing: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::ExpressRouteConnectionRouting>,
         >,
         /// The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
         #[builder(into, default)]
-        pub routing_weight: pulumi_wasm_rust::Output<Option<i32>>,
+        pub routing_weight: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct ExpressRouteConnectionResult {
@@ -166,26 +170,39 @@ pub mod express_route_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ExpressRouteConnectionArgs,
     ) -> ExpressRouteConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authorization_key_binding = args.authorization_key.get_inner();
-        let enable_internet_security_binding = args.enable_internet_security.get_inner();
+        let authorization_key_binding = args
+            .authorization_key
+            .get_output(context)
+            .get_inner();
+        let enable_internet_security_binding = args
+            .enable_internet_security
+            .get_output(context)
+            .get_inner();
         let express_route_circuit_peering_id_binding = args
             .express_route_circuit_peering_id
+            .get_output(context)
             .get_inner();
         let express_route_gateway_bypass_enabled_binding = args
             .express_route_gateway_bypass_enabled
+            .get_output(context)
             .get_inner();
-        let express_route_gateway_id_binding = args.express_route_gateway_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let express_route_gateway_id_binding = args
+            .express_route_gateway_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let private_link_fast_path_enabled_binding = args
             .private_link_fast_path_enabled
+            .get_output(context)
             .get_inner();
-        let routing_binding = args.routing.get_inner();
-        let routing_weight_binding = args.routing_weight.get_inner();
+        let routing_binding = args.routing.get_output(context).get_inner();
+        let routing_weight_binding = args.routing_weight.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/expressRouteConnection:ExpressRouteConnection".into(),
             name: name.to_string(),
@@ -258,7 +275,7 @@ pub mod express_route_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

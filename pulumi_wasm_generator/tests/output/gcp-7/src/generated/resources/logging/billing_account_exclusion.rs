@@ -24,28 +24,28 @@
 /// ```
 ///
 pub mod billing_account_exclusion {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BillingAccountExclusionArgs {
         /// The billing account to create the exclusion for.
         #[builder(into)]
-        pub billing_account: pulumi_wasm_rust::Output<String>,
+        pub billing_account: pulumi_wasm_rust::InputOrOutput<String>,
         /// A human-readable description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether this exclusion rule should be disabled or not. This defaults to
         /// false.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The filter to apply when excluding logs. Only log entries that match the filter are excluded.
         /// See [Advanced Log Filters](https://cloud.google.com/logging/docs/view/advanced-filters) for information on how to
         /// write a filter.
         #[builder(into)]
-        pub filter: pulumi_wasm_rust::Output<String>,
+        pub filter: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the logging exclusion.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BillingAccountExclusionResult {
@@ -68,16 +68,20 @@ pub mod billing_account_exclusion {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BillingAccountExclusionArgs,
     ) -> BillingAccountExclusionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let billing_account_binding = args.billing_account.get_inner();
-        let description_binding = args.description.get_inner();
-        let disabled_binding = args.disabled.get_inner();
-        let filter_binding = args.filter.get_inner();
-        let name_binding = args.name.get_inner();
+        let billing_account_binding = args
+            .billing_account
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let filter_binding = args.filter.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:logging/billingAccountExclusion:BillingAccountExclusion".into(),
             name: name.to_string(),
@@ -122,7 +126,7 @@ pub mod billing_account_exclusion {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

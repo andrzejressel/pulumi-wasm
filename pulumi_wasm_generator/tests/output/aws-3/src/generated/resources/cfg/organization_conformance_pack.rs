@@ -89,35 +89,35 @@
 /// $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
 /// ```
 pub mod organization_conformance_pack {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationConformancePackArgs {
         /// Amazon S3 bucket where AWS Config stores conformance pack templates. Delivery bucket must begin with `awsconfigconforms` prefix. Maximum length of 63.
         #[builder(into, default)]
-        pub delivery_s3_bucket: pulumi_wasm_rust::Output<Option<String>>,
+        pub delivery_s3_bucket: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The prefix for the Amazon S3 bucket. Maximum length of 1024.
         #[builder(into, default)]
-        pub delivery_s3_key_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub delivery_s3_key_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
         #[builder(into, default)]
-        pub excluded_accounts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub excluded_accounts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         #[builder(into, default)]
-        pub input_parameters: pulumi_wasm_rust::Output<
+        pub input_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::cfg::OrganizationConformancePackInputParameter>,
             >,
         >,
         /// The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
         #[builder(into, default)]
-        pub template_body: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         #[builder(into, default)]
-        pub template_s3_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_s3_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct OrganizationConformancePackResult {
@@ -147,18 +147,34 @@ pub mod organization_conformance_pack {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OrganizationConformancePackArgs,
     ) -> OrganizationConformancePackResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let delivery_s3_bucket_binding = args.delivery_s3_bucket.get_inner();
-        let delivery_s3_key_prefix_binding = args.delivery_s3_key_prefix.get_inner();
-        let excluded_accounts_binding = args.excluded_accounts.get_inner();
-        let input_parameters_binding = args.input_parameters.get_inner();
-        let name_binding = args.name.get_inner();
-        let template_body_binding = args.template_body.get_inner();
-        let template_s3_uri_binding = args.template_s3_uri.get_inner();
+        let delivery_s3_bucket_binding = args
+            .delivery_s3_bucket
+            .get_output(context)
+            .get_inner();
+        let delivery_s3_key_prefix_binding = args
+            .delivery_s3_key_prefix
+            .get_output(context)
+            .get_inner();
+        let excluded_accounts_binding = args
+            .excluded_accounts
+            .get_output(context)
+            .get_inner();
+        let input_parameters_binding = args
+            .input_parameters
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let template_body_binding = args.template_body.get_output(context).get_inner();
+        let template_s3_uri_binding = args
+            .template_s3_uri
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cfg/organizationConformancePack:OrganizationConformancePack"
                 .into(),
@@ -221,7 +237,7 @@ pub mod organization_conformance_pack {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

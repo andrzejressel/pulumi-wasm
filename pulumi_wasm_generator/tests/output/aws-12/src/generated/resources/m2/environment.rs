@@ -88,63 +88,65 @@
 /// $ pulumi import aws:m2/environment:Environment example 01234567890abcdef012345678
 /// ```
 pub mod environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentArgs {
         #[builder(into, default)]
-        pub apply_changes_during_maintenance_window: pulumi_wasm_rust::Output<
+        pub apply_changes_during_maintenance_window: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Engine type must be `microfocus` or `bluage`.
         #[builder(into)]
-        pub engine_type: pulumi_wasm_rust::Output<String>,
+        pub engine_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The specific version of the engine for the Environment.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Force update the environment even if applications are running.
         #[builder(into, default)]
-        pub force_update: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_update: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub high_availability_config: pulumi_wasm_rust::Output<
+        pub high_availability_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::m2::EnvironmentHighAvailabilityConfig>,
         >,
         /// M2 Instance Type.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub instance_type: pulumi_wasm_rust::Output<String>,
+        pub instance_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN of the KMS key to use for the Environment.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the runtime environment. Must be unique within the account.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configures the maintenance window that you want for the runtime environment. The maintenance window must have the format `ddd:hh24:mi-ddd:hh24:mi` and must be less than 24 hours. If not provided a random value will be used.
         #[builder(into, default)]
-        pub preferred_maintenance_window: pulumi_wasm_rust::Output<Option<String>>,
+        pub preferred_maintenance_window: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Allow applications deployed to this environment to be publicly accessible.
         #[builder(into, default)]
-        pub publicly_accessible: pulumi_wasm_rust::Output<Option<bool>>,
+        pub publicly_accessible: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// List of security group ids.
         #[builder(into, default)]
-        pub security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         #[builder(into, default)]
-        pub storage_configuration: pulumi_wasm_rust::Output<
+        pub storage_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::m2::EnvironmentStorageConfiguration>,
         >,
         /// List of subnet ids to deploy environment to.
         #[builder(into, default)]
-        pub subnet_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::m2::EnvironmentTimeouts>,
         >,
     }
@@ -203,29 +205,47 @@ pub mod environment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EnvironmentArgs) -> EnvironmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EnvironmentArgs,
+    ) -> EnvironmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let apply_changes_during_maintenance_window_binding = args
             .apply_changes_during_maintenance_window
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let engine_type_binding = args.engine_type.get_inner();
-        let engine_version_binding = args.engine_version.get_inner();
-        let force_update_binding = args.force_update.get_inner();
-        let high_availability_config_binding = args.high_availability_config.get_inner();
-        let instance_type_binding = args.instance_type.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let engine_type_binding = args.engine_type.get_output(context).get_inner();
+        let engine_version_binding = args.engine_version.get_output(context).get_inner();
+        let force_update_binding = args.force_update.get_output(context).get_inner();
+        let high_availability_config_binding = args
+            .high_availability_config
+            .get_output(context)
+            .get_inner();
+        let instance_type_binding = args.instance_type.get_output(context).get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let preferred_maintenance_window_binding = args
             .preferred_maintenance_window
+            .get_output(context)
             .get_inner();
-        let publicly_accessible_binding = args.publicly_accessible.get_inner();
-        let security_group_ids_binding = args.security_group_ids.get_inner();
-        let storage_configuration_binding = args.storage_configuration.get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let publicly_accessible_binding = args
+            .publicly_accessible
+            .get_output(context)
+            .get_inner();
+        let security_group_ids_binding = args
+            .security_group_ids
+            .get_output(context)
+            .get_inner();
+        let storage_configuration_binding = args
+            .storage_configuration
+            .get_output(context)
+            .get_inner();
+        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:m2/environment:Environment".into(),
             name: name.to_string(),
@@ -359,7 +379,7 @@ pub mod environment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

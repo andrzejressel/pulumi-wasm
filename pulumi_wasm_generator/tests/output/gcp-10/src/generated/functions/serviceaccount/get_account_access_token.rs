@@ -1,20 +1,20 @@
 pub mod get_account_access_token {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAccountAccessTokenArgs {
         /// Delegate chain of approvals needed to perform full impersonation. Specify the fully qualified service account name.  (e.g. `["projects/-/serviceAccounts/delegate-svc-account@project-id.iam.gserviceaccount.com"]`)
         #[builder(into, default)]
-        pub delegates: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub delegates: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Lifetime of the impersonated token (defaults to its max: `3600s`).
         #[builder(into, default)]
-        pub lifetime: pulumi_wasm_rust::Output<Option<String>>,
+        pub lifetime: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The scopes the new credential should have (e.g. `["cloud-platform"]`)
         #[builder(into)]
-        pub scopes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub scopes: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The service account _to_ impersonate (e.g. `service_B@your-project-id.iam.gserviceaccount.com`)
         #[builder(into)]
-        pub target_service_account: pulumi_wasm_rust::Output<String>,
+        pub target_service_account: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetAccountAccessTokenResult {
@@ -31,13 +31,19 @@ pub mod get_account_access_token {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAccountAccessTokenArgs) -> GetAccountAccessTokenResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAccountAccessTokenArgs,
+    ) -> GetAccountAccessTokenResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let delegates_binding = args.delegates.get_inner();
-        let lifetime_binding = args.lifetime.get_inner();
-        let scopes_binding = args.scopes.get_inner();
-        let target_service_account_binding = args.target_service_account.get_inner();
+        let delegates_binding = args.delegates.get_output(context).get_inner();
+        let lifetime_binding = args.lifetime.get_output(context).get_inner();
+        let scopes_binding = args.scopes.get_output(context).get_inner();
+        let target_service_account_binding = args
+            .target_service_account
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:serviceaccount/getAccountAccessToken:getAccountAccessToken"
                 .into(),
@@ -81,7 +87,7 @@ pub mod get_account_access_token {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

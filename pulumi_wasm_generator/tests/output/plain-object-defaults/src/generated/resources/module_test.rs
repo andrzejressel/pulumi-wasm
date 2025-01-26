@@ -1,22 +1,26 @@
 pub mod module_test {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct moduleTestArgs {
         #[builder(into, default)]
-        pub mod1: pulumi_wasm_rust::Output<Option<super::types::mod1::Typ>>,
+        pub mod1: pulumi_wasm_rust::InputOrOutput<Option<super::types::mod1::Typ>>,
         #[builder(into, default)]
-        pub val: pulumi_wasm_rust::Output<Option<super::types::Typ>>,
+        pub val: pulumi_wasm_rust::InputOrOutput<Option<super::types::Typ>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: moduleTestArgs) {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: moduleTestArgs,
+    ) {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let mod1_binding = args.mod1.get_inner();
-        let val_binding = args.val.get_inner();
+        let mod1_binding = args.mod1.get_output(context).get_inner();
+        let val_binding = args.val.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "example:index:moduleTest".into(),
             name: name.to_string(),
@@ -33,6 +37,6 @@ pub mod module_test {
             ]),
             results: Vec::from([]),
         };
-        register_interface::register(&request);
+        register_interface::register(context.get_inner(), &request);
     }
 }

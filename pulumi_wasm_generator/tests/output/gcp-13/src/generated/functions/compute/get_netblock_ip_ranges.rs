@@ -1,5 +1,5 @@
 pub mod get_netblock_ip_ranges {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetNetblockIpRangesArgs {
@@ -23,7 +23,7 @@ pub mod get_netblock_ip_ranges {
         ///
         /// * `legacy-health-checkers` - Corresponds to the IP addresses used for legacy style health checkers (used by Network Load Balancing). [ More details.](https://cloud.google.com/load-balancing/docs/health-checks)
         #[builder(into, default)]
-        pub range_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub range_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetNetblockIpRangesResult {
@@ -41,10 +41,13 @@ pub mod get_netblock_ip_ranges {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetNetblockIpRangesArgs) -> GetNetblockIpRangesResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetNetblockIpRangesArgs,
+    ) -> GetNetblockIpRangesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let range_type_binding = args.range_type.get_inner();
+        let range_type_binding = args.range_type.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getNetblockIPRanges:getNetblockIPRanges".into(),
             version: super::super::super::get_version(),
@@ -72,7 +75,7 @@ pub mod get_netblock_ip_ranges {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

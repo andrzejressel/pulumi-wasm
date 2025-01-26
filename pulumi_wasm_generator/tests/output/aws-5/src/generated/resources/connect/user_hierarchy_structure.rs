@@ -81,18 +81,18 @@
 /// $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
 /// ```
 pub mod user_hierarchy_structure {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserHierarchyStructureArgs {
         /// A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         #[builder(into)]
-        pub hierarchy_structure: pulumi_wasm_rust::Output<
+        pub hierarchy_structure: pulumi_wasm_rust::InputOrOutput<
             super::super::types::connect::UserHierarchyStructureHierarchyStructure,
         >,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserHierarchyStructureResult {
@@ -108,13 +108,17 @@ pub mod user_hierarchy_structure {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: UserHierarchyStructureArgs,
     ) -> UserHierarchyStructureResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let hierarchy_structure_binding = args.hierarchy_structure.get_inner();
-        let instance_id_binding = args.instance_id.get_inner();
+        let hierarchy_structure_binding = args
+            .hierarchy_structure
+            .get_output(context)
+            .get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:connect/userHierarchyStructure:UserHierarchyStructure".into(),
             name: name.to_string(),
@@ -138,7 +142,7 @@ pub mod user_hierarchy_structure {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

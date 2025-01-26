@@ -73,41 +73,41 @@
 /// $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
 /// ```
 pub mod server_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServerCertificateArgs {
         /// The contents of the public key certificate in
         /// PEM-encoded format.
         #[builder(into)]
-        pub certificate_body: pulumi_wasm_rust::Output<String>,
+        pub certificate_body: pulumi_wasm_rust::InputOrOutput<String>,
         /// The contents of the certificate chain.
         /// This is typically a concatenation of the PEM-encoded public key certificates
         /// of the chain.
         #[builder(into, default)]
-        pub certificate_chain: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_chain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Server Certificate. Do not include the
         /// path in this value. If omitted, the provider will assign a random, unique name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the specified
         /// prefix. Conflicts with `name`.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IAM path for the server certificate.  If it is not
         /// included, it defaults to a slash (/). If this certificate is for use with
         /// AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
         /// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
         #[builder(into, default)]
-        pub path: pulumi_wasm_rust::Output<Option<String>>,
+        pub path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The contents of the private key in PEM-encoded format.
         #[builder(into)]
-        pub private_key: pulumi_wasm_rust::Output<String>,
+        pub private_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// Map of resource tags for the server certificate. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         ///
         /// > **NOTE:** AWS performs behind-the-scenes modifications to some certificate files if they do not adhere to a specific format. These modifications will result in this provider forever believing that it needs to update the resources since the local and AWS file contents will not match after theses modifications occur. In order to prevent this from happening you must ensure that all your PEM-encoded files use UNIX line-breaks and that `certificate_body` contains only one certificate. All other certificates should go in `certificate_chain`. It is common for some Certificate Authorities to issue certificate files that have DOS line-breaks and that are actually multiple certificates concatenated together in order to form a full certificate chain.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -154,16 +154,26 @@ pub mod server_certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServerCertificateArgs) -> ServerCertificateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServerCertificateArgs,
+    ) -> ServerCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_body_binding = args.certificate_body.get_inner();
-        let certificate_chain_binding = args.certificate_chain.get_inner();
-        let name_binding = args.name.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let path_binding = args.path.get_inner();
-        let private_key_binding = args.private_key.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let certificate_body_binding = args
+            .certificate_body
+            .get_output(context)
+            .get_inner();
+        let certificate_chain_binding = args
+            .certificate_chain
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let path_binding = args.path.get_output(context).get_inner();
+        let private_key_binding = args.private_key.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/serverCertificate:ServerCertificate".into(),
             name: name.to_string(),
@@ -234,7 +244,7 @@ pub mod server_certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

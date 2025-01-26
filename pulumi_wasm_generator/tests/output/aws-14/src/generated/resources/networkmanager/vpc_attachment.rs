@@ -28,31 +28,31 @@
 /// $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
 /// ```
 pub mod vpc_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcAttachmentArgs {
         /// The ID of a core network for the VPC attachment.
         #[builder(into)]
-        pub core_network_id: pulumi_wasm_rust::Output<String>,
+        pub core_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Options for the VPC attachment.
         #[builder(into, default)]
-        pub options: pulumi_wasm_rust::Output<
+        pub options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::networkmanager::VpcAttachmentOptions>,
         >,
         /// The subnet ARN of the VPC attachment.
         #[builder(into)]
-        pub subnet_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_arns: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ARN of the VPC.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub vpc_arn: pulumi_wasm_rust::Output<String>,
+        pub vpc_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcAttachmentResult {
@@ -99,14 +99,21 @@ pub mod vpc_attachment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VpcAttachmentArgs) -> VpcAttachmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VpcAttachmentArgs,
+    ) -> VpcAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let core_network_id_binding = args.core_network_id.get_inner();
-        let options_binding = args.options.get_inner();
-        let subnet_arns_binding = args.subnet_arns.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_arn_binding = args.vpc_arn.get_inner();
+        let core_network_id_binding = args
+            .core_network_id
+            .get_output(context)
+            .get_inner();
+        let options_binding = args.options.get_output(context).get_inner();
+        let subnet_arns_binding = args.subnet_arns.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_arn_binding = args.vpc_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/vpcAttachment:VpcAttachment".into(),
             name: name.to_string(),
@@ -181,7 +188,7 @@ pub mod vpc_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

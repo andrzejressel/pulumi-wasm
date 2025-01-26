@@ -49,19 +49,19 @@
 /// * Where `{targetName}` is the name of the Target. For example `targetValue`.
 ///
 pub mod target {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetArgs {
         /// The Azure Region where the Chaos Studio Target should exist. Changing this forces a new Chaos Studio Target to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Target Resource Id within which this Chaos Studio Target should exist. Changing this forces a new Chaos Studio Target to be created.
         #[builder(into)]
-        pub target_resource_id: pulumi_wasm_rust::Output<String>,
+        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Chaos Studio Target. This has the format of [publisher]-[targetType] e.g. `Microsoft-StorageAccount`. For supported values please see this Target Type column in [this table](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-providers). Changing this forces a new Chaos Studio Target to be created.
         #[builder(into)]
-        pub target_type: pulumi_wasm_rust::Output<String>,
+        pub target_type: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TargetResult {
@@ -76,12 +76,19 @@ pub mod target {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TargetArgs) -> TargetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TargetArgs,
+    ) -> TargetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let target_resource_id_binding = args.target_resource_id.get_inner();
-        let target_type_binding = args.target_type.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let target_resource_id_binding = args
+            .target_resource_id
+            .get_output(context)
+            .get_inner();
+        let target_type_binding = args.target_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:chaosstudio/target:Target".into(),
             name: name.to_string(),
@@ -112,7 +119,7 @@ pub mod target {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -26,46 +26,46 @@
 /// $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
 /// ```
 pub mod device {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeviceArgs {
         /// The AWS location of the device. Documented below.
         #[builder(into, default)]
-        pub aws_location: pulumi_wasm_rust::Output<
+        pub aws_location: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::networkmanager::DeviceAwsLocation>,
         >,
         /// A description of the device.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the global network.
         #[builder(into)]
-        pub global_network_id: pulumi_wasm_rust::Output<String>,
+        pub global_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location of the device. Documented below.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<
+        pub location: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::networkmanager::DeviceLocation>,
         >,
         /// The model of device.
         #[builder(into, default)]
-        pub model: pulumi_wasm_rust::Output<Option<String>>,
+        pub model: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The serial number of the device.
         #[builder(into, default)]
-        pub serial_number: pulumi_wasm_rust::Output<Option<String>>,
+        pub serial_number: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the site.
         #[builder(into, default)]
-        pub site_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub site_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value tags for the device. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of device.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The vendor of the device.
         #[builder(into, default)]
-        pub vendor: pulumi_wasm_rust::Output<Option<String>>,
+        pub vendor: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DeviceResult {
@@ -106,19 +106,26 @@ pub mod device {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DeviceArgs) -> DeviceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DeviceArgs,
+    ) -> DeviceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_location_binding = args.aws_location.get_inner();
-        let description_binding = args.description.get_inner();
-        let global_network_id_binding = args.global_network_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let model_binding = args.model.get_inner();
-        let serial_number_binding = args.serial_number.get_inner();
-        let site_id_binding = args.site_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let type__binding = args.type_.get_inner();
-        let vendor_binding = args.vendor.get_inner();
+        let aws_location_binding = args.aws_location.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let global_network_id_binding = args
+            .global_network_id
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let model_binding = args.model.get_output(context).get_inner();
+        let serial_number_binding = args.serial_number.get_output(context).get_inner();
+        let site_id_binding = args.site_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let vendor_binding = args.vendor.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/device:Device".into(),
             name: name.to_string(),
@@ -204,7 +211,7 @@ pub mod device {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

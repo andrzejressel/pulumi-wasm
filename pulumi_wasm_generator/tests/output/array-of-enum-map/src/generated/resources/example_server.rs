@@ -1,10 +1,10 @@
 pub mod example_server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExampleServerArgs {
         #[builder(into, default)]
-        pub map_array_enum: pulumi_wasm_rust::Output<
+        pub map_array_enum: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     std::collections::HashMap<
@@ -32,10 +32,14 @@ pub mod example_server {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ExampleServerArgs) -> ExampleServerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ExampleServerArgs,
+    ) -> ExampleServerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let map_array_enum_binding = args.map_array_enum.get_inner();
+        let map_array_enum_binding = args.map_array_enum.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "example:index:ExampleServer".into(),
             name: name.to_string(),
@@ -52,7 +56,7 @@ pub mod example_server {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

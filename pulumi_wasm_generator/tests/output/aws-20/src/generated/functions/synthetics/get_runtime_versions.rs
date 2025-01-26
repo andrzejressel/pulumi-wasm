@@ -1,11 +1,11 @@
 pub mod get_runtime_versions {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRuntimeVersionsArgs {
         /// List of runtime versions. See `runtime_versions` attribute reference.
         #[builder(into, default)]
-        pub runtime_versions: pulumi_wasm_rust::Output<
+        pub runtime_versions: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::synthetics::GetRuntimeVersionsRuntimeVersion,
@@ -30,10 +30,16 @@ pub mod get_runtime_versions {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetRuntimeVersionsArgs) -> GetRuntimeVersionsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetRuntimeVersionsArgs,
+    ) -> GetRuntimeVersionsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let runtime_versions_binding = args.runtime_versions.get_inner();
+        let runtime_versions_binding = args
+            .runtime_versions
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:synthetics/getRuntimeVersions:getRuntimeVersions".into(),
             version: super::super::super::get_version(),
@@ -52,7 +58,7 @@ pub mod get_runtime_versions {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

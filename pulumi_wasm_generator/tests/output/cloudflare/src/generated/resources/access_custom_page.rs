@@ -20,28 +20,28 @@
 /// }
 /// ```
 pub mod access_custom_page {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessCustomPageArgs {
         /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Number of apps to display on the custom page.
         #[builder(into, default)]
-        pub app_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub app_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Custom HTML to display on the custom page.
         #[builder(into, default)]
-        pub custom_html: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_html: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Friendly name of the Access Custom Page configuration.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Type of Access custom page to create. Available values: `identity_denied`, `forbidden`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. Conflicts with `account_id`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AccessCustomPageResult {
@@ -62,15 +62,19 @@ pub mod access_custom_page {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AccessCustomPageArgs) -> AccessCustomPageResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AccessCustomPageArgs,
+    ) -> AccessCustomPageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let app_count_binding = args.app_count.get_inner();
-        let custom_html_binding = args.custom_html.get_inner();
-        let name_binding = args.name.get_inner();
-        let type__binding = args.type_.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let app_count_binding = args.app_count.get_output(context).get_inner();
+        let custom_html_binding = args.custom_html.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/accessCustomPage:AccessCustomPage".into(),
             name: name.to_string(),
@@ -122,7 +126,7 @@ pub mod access_custom_page {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

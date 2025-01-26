@@ -67,16 +67,16 @@
 /// ```
 ///
 pub mod subnet_network_security_group_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubnetNetworkSecurityGroupAssociationArgs {
         /// The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub network_security_group_id: pulumi_wasm_rust::Output<String>,
+        pub network_security_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Subnet. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubnetNetworkSecurityGroupAssociationResult {
@@ -90,6 +90,7 @@ pub mod subnet_network_security_group_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SubnetNetworkSecurityGroupAssociationArgs,
     ) -> SubnetNetworkSecurityGroupAssociationResult {
@@ -97,8 +98,9 @@ pub mod subnet_network_security_group_association {
         use std::collections::HashMap;
         let network_security_group_id_binding = args
             .network_security_group_id
+            .get_output(context)
             .get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation"
                 .into(),
@@ -123,7 +125,7 @@ pub mod subnet_network_security_group_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

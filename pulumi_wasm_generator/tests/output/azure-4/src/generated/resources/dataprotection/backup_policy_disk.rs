@@ -58,32 +58,34 @@
 /// ```
 ///
 pub mod backup_policy_disk {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupPolicyDiskArgs {
         /// Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created.
         #[builder(into)]
-        pub backup_repeating_time_intervals: pulumi_wasm_rust::Output<Vec<String>>,
+        pub backup_repeating_time_intervals: pulumi_wasm_rust::InputOrOutput<
+            Vec<String>,
+        >,
         /// The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
         #[builder(into)]
-        pub default_retention_duration: pulumi_wasm_rust::Output<String>,
+        pub default_retention_duration: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Backup Policy Disk. Changing this forces a new Backup Policy Disk to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Disk to be created.
         #[builder(into, default)]
-        pub retention_rules: pulumi_wasm_rust::Output<
+        pub retention_rules: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::dataprotection::BackupPolicyDiskRetentionRule>,
             >,
         >,
         /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
         #[builder(into, default)]
-        pub time_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created.
         #[builder(into)]
-        pub vault_id: pulumi_wasm_rust::Output<String>,
+        pub vault_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackupPolicyDiskResult {
@@ -108,19 +110,28 @@ pub mod backup_policy_disk {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BackupPolicyDiskArgs) -> BackupPolicyDiskResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BackupPolicyDiskArgs,
+    ) -> BackupPolicyDiskResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let backup_repeating_time_intervals_binding = args
             .backup_repeating_time_intervals
+            .get_output(context)
             .get_inner();
         let default_retention_duration_binding = args
             .default_retention_duration
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let retention_rules_binding = args.retention_rules.get_inner();
-        let time_zone_binding = args.time_zone.get_inner();
-        let vault_id_binding = args.vault_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let retention_rules_binding = args
+            .retention_rules
+            .get_output(context)
+            .get_inner();
+        let time_zone_binding = args.time_zone.get_output(context).get_inner();
+        let vault_id_binding = args.vault_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:dataprotection/backupPolicyDisk:BackupPolicyDisk".into(),
             name: name.to_string(),
@@ -172,7 +183,7 @@ pub mod backup_policy_disk {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -43,19 +43,19 @@
 /// ```
 ///
 pub mod express_route_circuit_authorization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExpressRouteCircuitAuthorizationArgs {
         /// The name of the Express Route Circuit in which to create the Authorization. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub express_route_circuit_name: pulumi_wasm_rust::Output<String>,
+        pub express_route_circuit_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ExpressRouteCircuitAuthorizationResult {
@@ -75,6 +75,7 @@ pub mod express_route_circuit_authorization {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ExpressRouteCircuitAuthorizationArgs,
     ) -> ExpressRouteCircuitAuthorizationResult {
@@ -82,9 +83,13 @@ pub mod express_route_circuit_authorization {
         use std::collections::HashMap;
         let express_route_circuit_name_binding = args
             .express_route_circuit_name
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization"
                 .into(),
@@ -122,7 +127,7 @@ pub mod express_route_circuit_authorization {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -57,24 +57,26 @@
 /// The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
 ///
 pub mod detector {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DetectorArgs {
         /// Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
         #[builder(into, default)]
-        pub datasources: pulumi_wasm_rust::Output<
+        pub datasources: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::guardduty::DetectorDatasources>,
         >,
         /// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         #[builder(into, default)]
-        pub enable: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
         #[builder(into, default)]
-        pub finding_publishing_frequency: pulumi_wasm_rust::Output<Option<String>>,
+        pub finding_publishing_frequency: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -105,15 +107,20 @@ pub mod detector {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DetectorArgs) -> DetectorResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DetectorArgs,
+    ) -> DetectorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let datasources_binding = args.datasources.get_inner();
-        let enable_binding = args.enable.get_inner();
+        let datasources_binding = args.datasources.get_output(context).get_inner();
+        let enable_binding = args.enable.get_output(context).get_inner();
         let finding_publishing_frequency_binding = args
             .finding_publishing_frequency
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:guardduty/detector:Detector".into(),
             name: name.to_string(),
@@ -160,7 +167,7 @@ pub mod detector {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

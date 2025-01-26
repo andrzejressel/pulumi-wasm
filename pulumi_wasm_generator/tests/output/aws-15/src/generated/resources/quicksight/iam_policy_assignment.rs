@@ -33,32 +33,32 @@
 /// $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
 /// ```
 pub mod iam_policy_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IamPolicyAssignmentArgs {
         /// Name of the assignment.
         #[builder(into)]
-        pub assignment_name: pulumi_wasm_rust::Output<String>,
+        pub assignment_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub assignment_status: pulumi_wasm_rust::Output<String>,
+        pub assignment_status: pulumi_wasm_rust::InputOrOutput<String>,
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         #[builder(into, default)]
-        pub identities: pulumi_wasm_rust::Output<
+        pub identities: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::quicksight::IamPolicyAssignmentIdentities>,
         >,
         /// Namespace that contains the assignment. Defaults to `default`.
         #[builder(into, default)]
-        pub namespace: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         #[builder(into, default)]
-        pub policy_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct IamPolicyAssignmentResult {
@@ -86,17 +86,24 @@ pub mod iam_policy_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IamPolicyAssignmentArgs,
     ) -> IamPolicyAssignmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let assignment_name_binding = args.assignment_name.get_inner();
-        let assignment_status_binding = args.assignment_status.get_inner();
-        let aws_account_id_binding = args.aws_account_id.get_inner();
-        let identities_binding = args.identities.get_inner();
-        let namespace_binding = args.namespace.get_inner();
-        let policy_arn_binding = args.policy_arn.get_inner();
+        let assignment_name_binding = args
+            .assignment_name
+            .get_output(context)
+            .get_inner();
+        let assignment_status_binding = args
+            .assignment_status
+            .get_output(context)
+            .get_inner();
+        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
+        let identities_binding = args.identities.get_output(context).get_inner();
+        let namespace_binding = args.namespace.get_output(context).get_inner();
+        let policy_arn_binding = args.policy_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/iamPolicyAssignment:IamPolicyAssignment".into(),
             name: name.to_string(),
@@ -151,7 +158,7 @@ pub mod iam_policy_assignment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

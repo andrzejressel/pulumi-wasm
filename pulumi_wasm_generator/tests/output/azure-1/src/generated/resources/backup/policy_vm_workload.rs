@@ -65,32 +65,32 @@
 /// ```
 ///
 pub mod policy_vm_workload {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyVMWorkloadArgs {
         /// The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `protection_policy` blocks as defined below.
         #[builder(into)]
-        pub protection_policies: pulumi_wasm_rust::Output<
+        pub protection_policies: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::backup::PolicyVmWorkloadProtectionPolicy>,
         >,
         /// The name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the VM Workload Backup Policy. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `settings` block as defined below.
         #[builder(into)]
-        pub settings: pulumi_wasm_rust::Output<
+        pub settings: pulumi_wasm_rust::InputOrOutput<
             super::super::types::backup::PolicyVmWorkloadSettings,
         >,
         /// The VM Workload type for the Backup Policy. Possible values are `SQLDataBase` and `SAPHanaDatabase`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub workload_type: pulumi_wasm_rust::Output<String>,
+        pub workload_type: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PolicyVMWorkloadResult {
@@ -115,15 +115,28 @@ pub mod policy_vm_workload {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyVMWorkloadArgs) -> PolicyVMWorkloadResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyVMWorkloadArgs,
+    ) -> PolicyVMWorkloadResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let protection_policies_binding = args.protection_policies.get_inner();
-        let recovery_vault_name_binding = args.recovery_vault_name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let settings_binding = args.settings.get_inner();
-        let workload_type_binding = args.workload_type.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let protection_policies_binding = args
+            .protection_policies
+            .get_output(context)
+            .get_inner();
+        let recovery_vault_name_binding = args
+            .recovery_vault_name
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let settings_binding = args.settings.get_output(context).get_inner();
+        let workload_type_binding = args.workload_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:backup/policyVMWorkload:PolicyVMWorkload".into(),
             name: name.to_string(),
@@ -175,7 +188,7 @@ pub mod policy_vm_workload {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

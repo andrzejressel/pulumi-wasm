@@ -40,22 +40,22 @@
 /// ```
 ///
 pub mod consumer_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConsumerGroupArgs {
         /// The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub eventhub_endpoint_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_endpoint_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the IoT Hub. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub iothub_name: pulumi_wasm_rust::Output<String>,
+        pub iothub_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of this Consumer Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConsumerGroupResult {
@@ -72,13 +72,23 @@ pub mod consumer_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConsumerGroupArgs) -> ConsumerGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConsumerGroupArgs,
+    ) -> ConsumerGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let eventhub_endpoint_name_binding = args.eventhub_endpoint_name.get_inner();
-        let iothub_name_binding = args.iothub_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let eventhub_endpoint_name_binding = args
+            .eventhub_endpoint_name
+            .get_output(context)
+            .get_inner();
+        let iothub_name_binding = args.iothub_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:iot/consumerGroup:ConsumerGroup".into(),
             name: name.to_string(),
@@ -116,7 +126,7 @@ pub mod consumer_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

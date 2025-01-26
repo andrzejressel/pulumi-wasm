@@ -92,31 +92,31 @@
 /// $ pulumi import aws:datazone/formType:FormType example domain_identifier,name,revision
 /// ```
 pub mod form_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FormTypeArgs {
         /// Description of form type. Must have a length of between 1 and 2048 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of the domain.
         #[builder(into)]
-        pub domain_identifier: pulumi_wasm_rust::Output<String>,
+        pub domain_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Object of the model of the form type that contains the following attributes.
         #[builder(into, default)]
-        pub model: pulumi_wasm_rust::Output<
+        pub model: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datazone::FormTypeModel>,
         >,
         /// Name of the form type. Must be the name of the structure in smithy document.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
         #[builder(into)]
-        pub owning_project_identifier: pulumi_wasm_rust::Output<String>,
+        pub owning_project_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datazone::FormTypeTimeouts>,
         >,
     }
@@ -156,18 +156,26 @@ pub mod form_type {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FormTypeArgs) -> FormTypeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FormTypeArgs,
+    ) -> FormTypeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let domain_identifier_binding = args.domain_identifier.get_inner();
-        let model_binding = args.model.get_inner();
-        let name_binding = args.name.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let domain_identifier_binding = args
+            .domain_identifier
+            .get_output(context)
+            .get_inner();
+        let model_binding = args.model.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let owning_project_identifier_binding = args
             .owning_project_identifier
+            .get_output(context)
             .get_inner();
-        let status_binding = args.status.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:datazone/formType:FormType".into(),
             name: name.to_string(),
@@ -244,7 +252,7 @@ pub mod form_type {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

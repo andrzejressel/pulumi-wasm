@@ -98,62 +98,62 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// The full name of the GCE network to connect the instance to. If not provided, 'default' will be used.
         #[builder(into, default)]
-        pub authorized_network: pulumi_wasm_rust::Output<Option<String>>,
+        pub authorized_network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A user-visible name for the instance.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Resource labels to represent user-provided metadata. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Maintenance policy for an instance.
         #[builder(into, default)]
-        pub maintenance_policy: pulumi_wasm_rust::Output<
+        pub maintenance_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::memcache::InstanceMaintenancePolicy>,
         >,
         /// User-specified parameters for this memcache instance.
         #[builder(into, default)]
-        pub memcache_parameters: pulumi_wasm_rust::Output<
+        pub memcache_parameters: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::memcache::InstanceMemcacheParameters>,
         >,
         /// The major version of Memcached software. If not provided, latest supported version will be used. Currently the latest
         /// supported major version is MEMCACHE_1_5. The minor version will be automatically determined by our system based on the
         /// latest supported minor version. Default value: "MEMCACHE_1_5" Possible values: ["MEMCACHE_1_5", "MEMCACHE_1_6_15"]
         #[builder(into, default)]
-        pub memcache_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub memcache_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource name of the instance.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for memcache nodes.
         /// Structure is documented below.
         #[builder(into)]
-        pub node_config: pulumi_wasm_rust::Output<
+        pub node_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::memcache::InstanceNodeConfig,
         >,
         /// Number of nodes in the memcache instance.
         #[builder(into)]
-        pub node_count: pulumi_wasm_rust::Output<i32>,
+        pub node_count: pulumi_wasm_rust::InputOrOutput<i32>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The region of the Memcache instance. If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Contains the name of allocated IP address ranges associated with the private service access connection for example,
         /// "test-default" associated with IP range 10.0.0.0/29.
         #[builder(into, default)]
-        pub reserved_ip_range_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub reserved_ip_range_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Zones where memcache nodes should be provisioned. If not provided, all zones will be used.
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
@@ -226,22 +226,41 @@ pub mod instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InstanceArgs) -> InstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InstanceArgs,
+    ) -> InstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authorized_network_binding = args.authorized_network.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let maintenance_policy_binding = args.maintenance_policy.get_inner();
-        let memcache_parameters_binding = args.memcache_parameters.get_inner();
-        let memcache_version_binding = args.memcache_version.get_inner();
-        let name_binding = args.name.get_inner();
-        let node_config_binding = args.node_config.get_inner();
-        let node_count_binding = args.node_count.get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let reserved_ip_range_ids_binding = args.reserved_ip_range_ids.get_inner();
-        let zones_binding = args.zones.get_inner();
+        let authorized_network_binding = args
+            .authorized_network
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let maintenance_policy_binding = args
+            .maintenance_policy
+            .get_output(context)
+            .get_inner();
+        let memcache_parameters_binding = args
+            .memcache_parameters
+            .get_output(context)
+            .get_inner();
+        let memcache_version_binding = args
+            .memcache_version
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let node_config_binding = args.node_config.get_output(context).get_inner();
+        let node_count_binding = args.node_count.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let reserved_ip_range_ids_binding = args
+            .reserved_ip_range_ids
+            .get_output(context)
+            .get_inner();
+        let zones_binding = args.zones.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:memcache/instance:Instance".into(),
             name: name.to_string(),
@@ -363,7 +382,7 @@ pub mod instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -85,26 +85,26 @@
 /// $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
 /// ```
 pub mod email_identity {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EmailIdentityArgs {
         /// The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
         #[builder(into, default)]
-        pub configuration_set_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub configuration_set_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The configuration of the DKIM authentication settings for an email domain identity.
         #[builder(into, default)]
-        pub dkim_signing_attributes: pulumi_wasm_rust::Output<
+        pub dkim_signing_attributes: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::sesv2::EmailIdentityDkimSigningAttributes>,
         >,
         /// The email address or domain to verify.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub email_identity: pulumi_wasm_rust::Output<String>,
+        pub email_identity: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -139,13 +139,23 @@ pub mod email_identity {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EmailIdentityArgs) -> EmailIdentityResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EmailIdentityArgs,
+    ) -> EmailIdentityResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let configuration_set_name_binding = args.configuration_set_name.get_inner();
-        let dkim_signing_attributes_binding = args.dkim_signing_attributes.get_inner();
-        let email_identity_binding = args.email_identity.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let configuration_set_name_binding = args
+            .configuration_set_name
+            .get_output(context)
+            .get_inner();
+        let dkim_signing_attributes_binding = args
+            .dkim_signing_attributes
+            .get_output(context)
+            .get_inner();
+        let email_identity_binding = args.email_identity.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/emailIdentity:EmailIdentity".into(),
             name: name.to_string(),
@@ -195,7 +205,7 @@ pub mod email_identity {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

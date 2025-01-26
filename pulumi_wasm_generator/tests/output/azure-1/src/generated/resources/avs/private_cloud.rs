@@ -44,46 +44,46 @@
 /// ```
 ///
 pub mod private_cloud {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrivateCloudArgs {
         /// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
         /// > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         #[builder(into, default)]
-        pub internet_connection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub internet_connection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Azure Region where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `management_cluster` block as defined below.
         /// > **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         #[builder(into)]
-        pub management_cluster: pulumi_wasm_rust::Output<
+        pub management_cluster: pulumi_wasm_rust::InputOrOutput<
             super::super::types::avs::PrivateCloudManagementCluster,
         >,
         /// The name which should be used for this Azure VMware Solution Private Cloud. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         #[builder(into)]
-        pub network_subnet_cidr: pulumi_wasm_rust::Output<String>,
+        pub network_subnet_cidr: pulumi_wasm_rust::InputOrOutput<String>,
         /// The password of the VMware NSX Manager cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         #[builder(into, default)]
-        pub nsxt_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub nsxt_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The password of the VMware vCenter Server cloudadmin. Changing this forces a new Azure VMware Solution Private Cloud to be created.
         #[builder(into, default)]
-        pub vcenter_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub vcenter_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PrivateCloudResult {
@@ -138,21 +138,38 @@ pub mod private_cloud {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PrivateCloudArgs) -> PrivateCloudResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PrivateCloudArgs,
+    ) -> PrivateCloudResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let internet_connection_enabled_binding = args
             .internet_connection_enabled
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let management_cluster_binding = args.management_cluster.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_subnet_cidr_binding = args.network_subnet_cidr.get_inner();
-        let nsxt_password_binding = args.nsxt_password.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_name_binding = args.sku_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vcenter_password_binding = args.vcenter_password.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let management_cluster_binding = args
+            .management_cluster
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_subnet_cidr_binding = args
+            .network_subnet_cidr
+            .get_output(context)
+            .get_inner();
+        let nsxt_password_binding = args.nsxt_password.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_name_binding = args.sku_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vcenter_password_binding = args
+            .vcenter_password
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:avs/privateCloud:PrivateCloud".into(),
             name: name.to_string(),
@@ -259,7 +276,7 @@ pub mod private_cloud {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

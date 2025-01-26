@@ -27,19 +27,19 @@
 /// ```
 ///
 pub mod zero_trust_gateway_proxy_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustGatewayProxyEndpointArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The networks CIDRs that will be allowed to initiate proxy connections.
         #[builder(into)]
-        pub ips: pulumi_wasm_rust::Output<Vec<String>>,
+        pub ips: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Name of the teams proxy endpoint.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustGatewayProxyEndpointResult {
@@ -57,14 +57,15 @@ pub mod zero_trust_gateway_proxy_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ZeroTrustGatewayProxyEndpointArgs,
     ) -> ZeroTrustGatewayProxyEndpointResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let ips_binding = args.ips.get_inner();
-        let name_binding = args.name.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let ips_binding = args.ips.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustGatewayProxyEndpoint:ZeroTrustGatewayProxyEndpoint"
                 .into(),
@@ -99,7 +100,7 @@ pub mod zero_trust_gateway_proxy_endpoint {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

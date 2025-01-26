@@ -96,16 +96,16 @@
 /// $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
 /// ```
 pub mod plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PlanArgs {
         /// The Amazon Resource Name (ARN) of the contact or escalation plan.
         #[builder(into)]
-        pub contact_id: pulumi_wasm_rust::Output<String>,
+        pub contact_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         #[builder(into)]
-        pub stages: pulumi_wasm_rust::Output<
+        pub stages: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::ssmcontacts::PlanStage>,
         >,
     }
@@ -122,11 +122,15 @@ pub mod plan {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PlanArgs) -> PlanResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PlanArgs,
+    ) -> PlanResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let contact_id_binding = args.contact_id.get_inner();
-        let stages_binding = args.stages.get_inner();
+        let contact_id_binding = args.contact_id.get_output(context).get_inner();
+        let stages_binding = args.stages.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssmcontacts/plan:Plan".into(),
             name: name.to_string(),
@@ -150,7 +154,7 @@ pub mod plan {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

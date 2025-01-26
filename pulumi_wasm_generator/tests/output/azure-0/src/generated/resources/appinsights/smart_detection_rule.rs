@@ -43,7 +43,7 @@
 /// ```
 ///
 pub mod smart_detection_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SmartDetectionRuleArgs {
@@ -51,19 +51,23 @@ pub mod smart_detection_rule {
         ///
         /// > **Note:** At least one read or write permission must be defined.
         #[builder(into, default)]
-        pub additional_email_recipients: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub additional_email_recipients: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The ID of the Application Insights component on which the Smart Detection Rule operates. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub application_insights_id: pulumi_wasm_rust::Output<String>,
+        pub application_insights_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Is the Application Insights Smart Detection Rule enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, `Potential memory leak detected`, `Potential security issue detected`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Abnormal rise in daily data volume`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Do emails get sent to subscription owners? Defaults to `true`.
         #[builder(into, default)]
-        pub send_emails_to_subscription_owners: pulumi_wasm_rust::Output<Option<bool>>,
+        pub send_emails_to_subscription_owners: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
     }
     #[allow(dead_code)]
     pub struct SmartDetectionRuleResult {
@@ -84,17 +88,26 @@ pub mod smart_detection_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SmartDetectionRuleArgs) -> SmartDetectionRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SmartDetectionRuleArgs,
+    ) -> SmartDetectionRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let additional_email_recipients_binding = args
             .additional_email_recipients
+            .get_output(context)
             .get_inner();
-        let application_insights_id_binding = args.application_insights_id.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let name_binding = args.name.get_inner();
+        let application_insights_id_binding = args
+            .application_insights_id
+            .get_output(context)
+            .get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let send_emails_to_subscription_owners_binding = args
             .send_emails_to_subscription_owners
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appinsights/smartDetectionRule:SmartDetectionRule".into(),
@@ -140,7 +153,7 @@ pub mod smart_detection_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

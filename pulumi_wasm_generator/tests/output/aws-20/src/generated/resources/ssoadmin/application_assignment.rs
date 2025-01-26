@@ -46,19 +46,19 @@
 /// $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::123456789012:application/id-12345678,abcd1234,USER
 /// ```
 pub mod application_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationAssignmentArgs {
         /// ARN of the application.
         #[builder(into)]
-        pub application_arn: pulumi_wasm_rust::Output<String>,
+        pub application_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// An identifier for an object in IAM Identity Center, such as a user or group.
         #[builder(into)]
-        pub principal_id: pulumi_wasm_rust::Output<String>,
+        pub principal_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
         #[builder(into)]
-        pub principal_type: pulumi_wasm_rust::Output<String>,
+        pub principal_type: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApplicationAssignmentResult {
@@ -74,14 +74,18 @@ pub mod application_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ApplicationAssignmentArgs,
     ) -> ApplicationAssignmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_arn_binding = args.application_arn.get_inner();
-        let principal_id_binding = args.principal_id.get_inner();
-        let principal_type_binding = args.principal_type.get_inner();
+        let application_arn_binding = args
+            .application_arn
+            .get_output(context)
+            .get_inner();
+        let principal_id_binding = args.principal_id.get_output(context).get_inner();
+        let principal_type_binding = args.principal_type.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssoadmin/applicationAssignment:ApplicationAssignment".into(),
             name: name.to_string(),
@@ -112,7 +116,7 @@ pub mod application_assignment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

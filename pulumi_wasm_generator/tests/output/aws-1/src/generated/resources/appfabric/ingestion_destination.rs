@@ -46,37 +46,37 @@
 /// }
 /// ```
 pub mod ingestion_destination {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IngestionDestinationArgs {
         /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
         #[builder(into)]
-        pub app_bundle_arn: pulumi_wasm_rust::Output<String>,
+        pub app_bundle_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Contains information about the destination of ingested data.
         #[builder(into, default)]
-        pub destination_configuration: pulumi_wasm_rust::Output<
+        pub destination_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::appfabric::IngestionDestinationDestinationConfiguration,
             >,
         >,
         /// The Amazon Resource Name (ARN) of the ingestion to use for the request.
         #[builder(into)]
-        pub ingestion_arn: pulumi_wasm_rust::Output<String>,
+        pub ingestion_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Contains information about how ingested data is processed.
         #[builder(into, default)]
-        pub processing_configuration: pulumi_wasm_rust::Output<
+        pub processing_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::appfabric::IngestionDestinationProcessingConfiguration,
             >,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appfabric::IngestionDestinationTimeouts>,
         >,
     }
@@ -117,19 +117,24 @@ pub mod ingestion_destination {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IngestionDestinationArgs,
     ) -> IngestionDestinationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_bundle_arn_binding = args.app_bundle_arn.get_inner();
+        let app_bundle_arn_binding = args.app_bundle_arn.get_output(context).get_inner();
         let destination_configuration_binding = args
             .destination_configuration
+            .get_output(context)
             .get_inner();
-        let ingestion_arn_binding = args.ingestion_arn.get_inner();
-        let processing_configuration_binding = args.processing_configuration.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let ingestion_arn_binding = args.ingestion_arn.get_output(context).get_inner();
+        let processing_configuration_binding = args
+            .processing_configuration
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appfabric/ingestionDestination:IngestionDestination".into(),
             name: name.to_string(),
@@ -187,7 +192,7 @@ pub mod ingestion_destination {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,21 +1,21 @@
 pub mod get_script {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetScriptArgs {
         /// List of the edges in the DAG. Defined below.
         #[builder(into)]
-        pub dag_edges: pulumi_wasm_rust::Output<
+        pub dag_edges: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::super::types::glue::GetScriptDagEdge>,
         >,
         /// List of the nodes in the DAG. Defined below.
         #[builder(into)]
-        pub dag_nodes: pulumi_wasm_rust::Output<
+        pub dag_nodes: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::super::types::glue::GetScriptDagNode>,
         >,
         /// Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
         #[builder(into, default)]
-        pub language: pulumi_wasm_rust::Output<Option<String>>,
+        pub language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetScriptResult {
@@ -37,12 +37,15 @@ pub mod get_script {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetScriptArgs) -> GetScriptResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetScriptArgs,
+    ) -> GetScriptResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let dag_edges_binding = args.dag_edges.get_inner();
-        let dag_nodes_binding = args.dag_nodes.get_inner();
-        let language_binding = args.language.get_inner();
+        let dag_edges_binding = args.dag_edges.get_output(context).get_inner();
+        let dag_nodes_binding = args.dag_nodes.get_output(context).get_inner();
+        let language_binding = args.language.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:glue/getScript:getScript".into(),
             version: super::super::super::get_version(),
@@ -81,7 +84,7 @@ pub mod get_script {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

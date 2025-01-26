@@ -28,25 +28,25 @@
 /// $ pulumi import aws:route53/trafficPolicyInstance:TrafficPolicyInstance test df579d9a-6396-410e-ac22-e7ad60cf9e7e
 /// ```
 pub mod traffic_policy_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrafficPolicyInstanceArgs {
         /// ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.
         #[builder(into)]
-        pub hosted_zone_id: pulumi_wasm_rust::Output<String>,
+        pub hosted_zone_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Domain name for which Amazon Route 53 responds to DNS queries by using the resource record sets that Route 53 creates for this traffic policy instance.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the traffic policy that you want to use to create resource record sets in the specified hosted zone.
         #[builder(into)]
-        pub traffic_policy_id: pulumi_wasm_rust::Output<String>,
+        pub traffic_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Version of the traffic policy
         #[builder(into)]
-        pub traffic_policy_version: pulumi_wasm_rust::Output<i32>,
+        pub traffic_policy_version: pulumi_wasm_rust::InputOrOutput<i32>,
         /// TTL that you want Amazon Route 53 to assign to all the resource record sets that it creates in the specified hosted zone.
         #[builder(into)]
-        pub ttl: pulumi_wasm_rust::Output<i32>,
+        pub ttl: pulumi_wasm_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct TrafficPolicyInstanceResult {
@@ -66,16 +66,23 @@ pub mod traffic_policy_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TrafficPolicyInstanceArgs,
     ) -> TrafficPolicyInstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let hosted_zone_id_binding = args.hosted_zone_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let traffic_policy_id_binding = args.traffic_policy_id.get_inner();
-        let traffic_policy_version_binding = args.traffic_policy_version.get_inner();
-        let ttl_binding = args.ttl.get_inner();
+        let hosted_zone_id_binding = args.hosted_zone_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let traffic_policy_id_binding = args
+            .traffic_policy_id
+            .get_output(context)
+            .get_inner();
+        let traffic_policy_version_binding = args
+            .traffic_policy_version
+            .get_output(context)
+            .get_inner();
+        let ttl_binding = args.ttl.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/trafficPolicyInstance:TrafficPolicyInstance".into(),
             name: name.to_string(),
@@ -120,7 +127,7 @@ pub mod traffic_policy_instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

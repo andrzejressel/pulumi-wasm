@@ -30,13 +30,13 @@
 /// }
 /// ```
 pub mod organization_configuration_feature {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationConfigurationFeatureArgs {
         /// Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
         #[builder(into, default)]
-        pub additional_configurations: pulumi_wasm_rust::Output<
+        pub additional_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::guardduty::OrganizationConfigurationFeatureAdditionalConfiguration,
@@ -45,13 +45,13 @@ pub mod organization_configuration_feature {
         >,
         /// The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         #[builder(into)]
-        pub auto_enable: pulumi_wasm_rust::Output<String>,
+        pub auto_enable: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the detector that configures the delegated administrator.
         #[builder(into)]
-        pub detector_id: pulumi_wasm_rust::Output<String>,
+        pub detector_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct OrganizationConfigurationFeatureResult {
@@ -75,6 +75,7 @@ pub mod organization_configuration_feature {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: OrganizationConfigurationFeatureArgs,
     ) -> OrganizationConfigurationFeatureResult {
@@ -82,10 +83,11 @@ pub mod organization_configuration_feature {
         use std::collections::HashMap;
         let additional_configurations_binding = args
             .additional_configurations
+            .get_output(context)
             .get_inner();
-        let auto_enable_binding = args.auto_enable.get_inner();
-        let detector_id_binding = args.detector_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let auto_enable_binding = args.auto_enable.get_output(context).get_inner();
+        let detector_id_binding = args.detector_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature"
                 .into(),
@@ -124,7 +126,7 @@ pub mod organization_configuration_feature {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

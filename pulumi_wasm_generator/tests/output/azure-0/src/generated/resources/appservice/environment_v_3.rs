@@ -74,51 +74,53 @@
 /// ```
 ///
 pub mod environment_v_3 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentV3Args {
         /// Should new Private Endpoint Connections be allowed. Defaults to `true`.
         #[builder(into, default)]
-        pub allow_new_private_endpoint_connections: pulumi_wasm_rust::Output<
+        pub allow_new_private_endpoint_connections: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Zero or more `cluster_setting` blocks as defined below.
         #[builder(into, default)]
-        pub cluster_settings: pulumi_wasm_rust::Output<
+        pub cluster_settings: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::appservice::EnvironmentV3ClusterSetting>>,
         >,
         /// This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub dedicated_host_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub dedicated_host_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub internal_load_balancing_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub internal_load_balancing_mode: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The name of the App Service Environment. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to enable remote debug. Defaults to `false`.
         #[builder(into, default)]
-        pub remote_debugging_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub remote_debugging_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
         ///
         /// > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE, this size cannot be changed.
         ///
         /// > **NOTE:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
         #[builder(into, default)]
-        pub zone_redundant: pulumi_wasm_rust::Output<Option<bool>>,
+        pub zone_redundant: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentV3Result {
@@ -178,23 +180,41 @@ pub mod environment_v_3 {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EnvironmentV3Args) -> EnvironmentV3Result {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EnvironmentV3Args,
+    ) -> EnvironmentV3Result {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let allow_new_private_endpoint_connections_binding = args
             .allow_new_private_endpoint_connections
+            .get_output(context)
             .get_inner();
-        let cluster_settings_binding = args.cluster_settings.get_inner();
-        let dedicated_host_count_binding = args.dedicated_host_count.get_inner();
+        let cluster_settings_binding = args
+            .cluster_settings
+            .get_output(context)
+            .get_inner();
+        let dedicated_host_count_binding = args
+            .dedicated_host_count
+            .get_output(context)
+            .get_inner();
         let internal_load_balancing_mode_binding = args
             .internal_load_balancing_mode
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let remote_debugging_enabled_binding = args.remote_debugging_enabled.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let subnet_id_binding = args.subnet_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let zone_redundant_binding = args.zone_redundant.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let remote_debugging_enabled_binding = args
+            .remote_debugging_enabled
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let zone_redundant_binding = args.zone_redundant.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/environmentV3:EnvironmentV3".into(),
             name: name.to_string(),
@@ -301,7 +321,7 @@ pub mod environment_v_3 {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

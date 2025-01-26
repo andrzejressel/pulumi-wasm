@@ -98,35 +98,35 @@
 /// ```
 ///
 pub mod repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryArgs {
         /// Description of the repository, which cannot exceed 500 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Initial configurations for the repository.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub initial_config: pulumi_wasm_rust::Output<
+        pub initial_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::securesourcemanager::RepositoryInitialConfig>,
         >,
         /// The name of the instance in which the repository is hosted.
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location for the Repository.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID for the Repository.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub repository_id: pulumi_wasm_rust::Output<String>,
+        pub repository_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RepositoryResult {
@@ -167,15 +167,19 @@ pub mod repository {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RepositoryArgs) -> RepositoryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RepositoryArgs,
+    ) -> RepositoryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let initial_config_binding = args.initial_config.get_inner();
-        let instance_binding = args.instance.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
-        let repository_id_binding = args.repository_id.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let initial_config_binding = args.initial_config.get_output(context).get_inner();
+        let instance_binding = args.instance.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let repository_id_binding = args.repository_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:securesourcemanager/repository:Repository".into(),
             name: name.to_string(),
@@ -242,7 +246,7 @@ pub mod repository {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

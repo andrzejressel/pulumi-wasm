@@ -65,16 +65,16 @@
 /// $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
 /// ```
 pub mod log_resource_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogResourcePolicyArgs {
         /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         #[builder(into)]
-        pub policy_document: pulumi_wasm_rust::Output<String>,
+        pub policy_document: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the resource policy.
         #[builder(into)]
-        pub policy_name: pulumi_wasm_rust::Output<String>,
+        pub policy_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LogResourcePolicyResult {
@@ -87,11 +87,18 @@ pub mod log_resource_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LogResourcePolicyArgs) -> LogResourcePolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LogResourcePolicyArgs,
+    ) -> LogResourcePolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let policy_document_binding = args.policy_document.get_inner();
-        let policy_name_binding = args.policy_name.get_inner();
+        let policy_document_binding = args
+            .policy_document
+            .get_output(context)
+            .get_inner();
+        let policy_name_binding = args.policy_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/logResourcePolicy:LogResourcePolicy".into(),
             name: name.to_string(),
@@ -115,7 +122,7 @@ pub mod log_resource_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

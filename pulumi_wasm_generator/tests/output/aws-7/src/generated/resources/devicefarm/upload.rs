@@ -32,22 +32,22 @@
 /// $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
 /// ```
 pub mod upload {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UploadArgs {
         /// The upload's content type (for example, application/octet-stream).
         #[builder(into, default)]
-        pub content_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The upload's file name. The name should not contain any forward slashes (/). If you are uploading an iOS app, the file name must end with the .ipa extension. If you are uploading an Android app, the file name must end with the .apk extension. For all others, the file name must end with the .zip file extension.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of the project for the upload.
         #[builder(into)]
-        pub project_arn: pulumi_wasm_rust::Output<String>,
+        pub project_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UploadResult {
@@ -72,13 +72,17 @@ pub mod upload {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: UploadArgs) -> UploadResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: UploadArgs,
+    ) -> UploadResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let content_type_binding = args.content_type.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_arn_binding = args.project_arn.get_inner();
-        let type__binding = args.type_.get_inner();
+        let content_type_binding = args.content_type.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_arn_binding = args.project_arn.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:devicefarm/upload:Upload".into(),
             name: name.to_string(),
@@ -128,7 +132,7 @@ pub mod upload {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -10,63 +10,63 @@
 /// ```
 ///
 pub mod load_balancer_monitor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoadBalancerMonitorArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Do not validate the certificate when monitor use HTTPS.  Only valid if `type` is "http" or "https".
         #[builder(into, default)]
-        pub allow_insecure: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_insecure: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// To be marked unhealthy the monitored origin must fail this healthcheck N consecutive times. Defaults to `0`.
         #[builder(into, default)]
-        pub consecutive_down: pulumi_wasm_rust::Output<Option<i32>>,
+        pub consecutive_down: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// To be marked healthy the monitored origin must pass this healthcheck N consecutive times. Defaults to `0`.
         #[builder(into, default)]
-        pub consecutive_up: pulumi_wasm_rust::Output<Option<i32>>,
+        pub consecutive_up: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Free text description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A case-insensitive sub-string to look for in the response body. If this string is not found, the origin will be marked as unhealthy. Only valid if `type` is "http" or "https".
         #[builder(into, default)]
-        pub expected_body: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The expected HTTP response code or code range of the health check. Eg `2xx`. Only valid and required if `type` is "http" or "https".
         #[builder(into, default)]
-        pub expected_codes: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_codes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Follow redirects if returned by the origin. Only valid if `type` is "http" or "https".
         #[builder(into, default)]
-        pub follow_redirects: pulumi_wasm_rust::Output<Option<bool>>,
+        pub follow_redirects: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The HTTP request headers to send in the health check. It is recommended you set a Host header by default. The User-Agent header cannot be overridden.
         #[builder(into, default)]
-        pub headers: pulumi_wasm_rust::Output<
+        pub headers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::types::LoadBalancerMonitorHeader>>,
         >,
         /// The interval between each health check. Shorter intervals may improve failover time, but will increase load on the origins as we check from multiple locations. Defaults to `60`.
         #[builder(into, default)]
-        pub interval: pulumi_wasm_rust::Output<Option<i32>>,
+        pub interval: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The method to use for the health check.
         #[builder(into, default)]
-        pub method: pulumi_wasm_rust::Output<Option<String>>,
+        pub method: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The endpoint path to health check against.
         #[builder(into, default)]
-        pub path: pulumi_wasm_rust::Output<Option<String>>,
+        pub path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The port number to use for the healthcheck, required when creating a TCP monitor.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Assign this monitor to emulate the specified zone while probing. Only valid if `type` is "http" or "https".
         #[builder(into, default)]
-        pub probe_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub probe_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Retries are attempted immediately. Defaults to `2`.
         #[builder(into, default)]
-        pub retries: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retries: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The timeout (in seconds) before marking the health check as failed. Defaults to `5`.
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The protocol to use for the healthcheck. Available values: `http`, `https`, `tcp`, `udp_icmp`, `icmp_ping`, `smtp`. Defaults to `http`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LoadBalancerMonitorResult {
@@ -116,28 +116,35 @@ pub mod load_balancer_monitor {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LoadBalancerMonitorArgs,
     ) -> LoadBalancerMonitorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let allow_insecure_binding = args.allow_insecure.get_inner();
-        let consecutive_down_binding = args.consecutive_down.get_inner();
-        let consecutive_up_binding = args.consecutive_up.get_inner();
-        let description_binding = args.description.get_inner();
-        let expected_body_binding = args.expected_body.get_inner();
-        let expected_codes_binding = args.expected_codes.get_inner();
-        let follow_redirects_binding = args.follow_redirects.get_inner();
-        let headers_binding = args.headers.get_inner();
-        let interval_binding = args.interval.get_inner();
-        let method_binding = args.method.get_inner();
-        let path_binding = args.path.get_inner();
-        let port_binding = args.port.get_inner();
-        let probe_zone_binding = args.probe_zone.get_inner();
-        let retries_binding = args.retries.get_inner();
-        let timeout_binding = args.timeout.get_inner();
-        let type__binding = args.type_.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let allow_insecure_binding = args.allow_insecure.get_output(context).get_inner();
+        let consecutive_down_binding = args
+            .consecutive_down
+            .get_output(context)
+            .get_inner();
+        let consecutive_up_binding = args.consecutive_up.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let expected_body_binding = args.expected_body.get_output(context).get_inner();
+        let expected_codes_binding = args.expected_codes.get_output(context).get_inner();
+        let follow_redirects_binding = args
+            .follow_redirects
+            .get_output(context)
+            .get_inner();
+        let headers_binding = args.headers.get_output(context).get_inner();
+        let interval_binding = args.interval.get_output(context).get_inner();
+        let method_binding = args.method.get_output(context).get_inner();
+        let path_binding = args.path.get_output(context).get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let probe_zone_binding = args.probe_zone.get_output(context).get_inner();
+        let retries_binding = args.retries.get_output(context).get_inner();
+        let timeout_binding = args.timeout.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/loadBalancerMonitor:LoadBalancerMonitor".into(),
             name: name.to_string(),
@@ -272,7 +279,7 @@ pub mod load_balancer_monitor {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

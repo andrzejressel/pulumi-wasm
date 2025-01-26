@@ -84,36 +84,36 @@
 /// ```
 ///
 pub mod table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableArgs {
         /// Specifies the configuration of a BigLake managed table. Structure is documented below
         #[builder(into, default)]
-        pub biglake_configuration: pulumi_wasm_rust::Output<
+        pub biglake_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::TableBiglakeConfiguration>,
         >,
         /// Specifies column names to use for data clustering.
         /// Up to four top-level columns are allowed, and should be specified in
         /// descending priority order.
         #[builder(into, default)]
-        pub clusterings: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub clusterings: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The dataset ID to create the table in.
         /// Changing this forces a new resource to be created.
         #[builder(into)]
-        pub dataset_id: pulumi_wasm_rust::Output<String>,
+        pub dataset_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether or not to allow the provider to destroy the instance. Unless this field is set to false
         /// in state, a `=destroy` or `=update` that would delete the instance will fail.
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The field description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies how the table should be encrypted.
         /// If left blank, the table will be encrypted with a Google-managed key; that process
         /// is transparent to the user.  Structure is documented below.
         #[builder(into, default)]
-        pub encryption_configuration: pulumi_wasm_rust::Output<
+        pub encryption_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::TableEncryptionConfiguration>,
         >,
         /// The time when this table expires, in
@@ -121,30 +121,30 @@ pub mod table {
         /// indefinitely. Expired tables will be deleted and their storage
         /// reclaimed.
         #[builder(into, default)]
-        pub expiration_time: pulumi_wasm_rust::Output<Option<i32>>,
+        pub expiration_time: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Describes the data format,
         /// location, and other properties of a table stored outside of BigQuery.
         /// By defining these properties, the data source can then be queried as
         /// if it were a standard BigQuery table. Structure is documented below.
         #[builder(into, default)]
-        pub external_data_configuration: pulumi_wasm_rust::Output<
+        pub external_data_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::TableExternalDataConfiguration>,
         >,
         /// A descriptive name for the table.
         #[builder(into, default)]
-        pub friendly_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub friendly_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of labels to assign to the resource.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// If specified, configures this table as a materialized view.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub materialized_view: pulumi_wasm_rust::Output<
+        pub materialized_view: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::TableMaterializedView>,
         >,
         /// The maximum staleness of data that could be
@@ -152,62 +152,62 @@ pub mod table {
         /// string encoding of [SQL IntervalValue
         /// type](https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#interval_type).
         #[builder(into, default)]
-        pub max_staleness: pulumi_wasm_rust::Output<Option<String>>,
+        pub max_staleness: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If specified, configures range-based
         /// partitioning for this table. Structure is documented below.
         #[builder(into, default)]
-        pub range_partitioning: pulumi_wasm_rust::Output<
+        pub range_partitioning: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::TableRangePartitioning>,
         >,
         /// If set to true, queries over this table
         /// require a partition filter that can be used for partition elimination to be
         /// specified.
         #[builder(into, default)]
-        pub require_partition_filter: pulumi_wasm_rust::Output<Option<bool>>,
+        pub require_partition_filter: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The tags attached to this table. Tag keys are
         /// globally unique. Tag key is expected to be in the namespaced format, for
         /// example "123456789012/environment" where 123456789012 is the ID of the
         /// parent organization or project resource for this tag key. Tag value is
         /// expected to be the short name, for example "Production".
         #[builder(into, default)]
-        pub resource_tags: pulumi_wasm_rust::Output<
+        pub resource_tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A JSON schema for the table.
         #[builder(into, default)]
-        pub schema: pulumi_wasm_rust::Output<Option<String>>,
+        pub schema: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Defines the primary key and foreign keys.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub table_constraints: pulumi_wasm_rust::Output<
+        pub table_constraints: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::TableTableConstraints>,
         >,
         /// A unique ID for the resource.
         /// Changing this forces a new resource to be created.
         #[builder(into)]
-        pub table_id: pulumi_wasm_rust::Output<String>,
+        pub table_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Replication info of a table created
         /// using "AS REPLICA" DDL like:
         /// `CREATE MATERIALIZED VIEW mv1 AS REPLICA OF src_mv`.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub table_replication_info: pulumi_wasm_rust::Output<
+        pub table_replication_info: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::TableTableReplicationInfo>,
         >,
         /// If specified, configures time-based
         /// partitioning for this table. Structure is documented below.
         #[builder(into, default)]
-        pub time_partitioning: pulumi_wasm_rust::Output<
+        pub time_partitioning: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::TableTimePartitioning>,
         >,
         /// If specified, configures this table as a view.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub view: pulumi_wasm_rust::Output<
+        pub view: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::bigquery::TableView>,
         >,
     }
@@ -359,33 +359,68 @@ pub mod table {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TableArgs) -> TableResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TableArgs,
+    ) -> TableResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let biglake_configuration_binding = args.biglake_configuration.get_inner();
-        let clusterings_binding = args.clusterings.get_inner();
-        let dataset_id_binding = args.dataset_id.get_inner();
-        let deletion_protection_binding = args.deletion_protection.get_inner();
-        let description_binding = args.description.get_inner();
-        let encryption_configuration_binding = args.encryption_configuration.get_inner();
-        let expiration_time_binding = args.expiration_time.get_inner();
+        let biglake_configuration_binding = args
+            .biglake_configuration
+            .get_output(context)
+            .get_inner();
+        let clusterings_binding = args.clusterings.get_output(context).get_inner();
+        let dataset_id_binding = args.dataset_id.get_output(context).get_inner();
+        let deletion_protection_binding = args
+            .deletion_protection
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let encryption_configuration_binding = args
+            .encryption_configuration
+            .get_output(context)
+            .get_inner();
+        let expiration_time_binding = args
+            .expiration_time
+            .get_output(context)
+            .get_inner();
         let external_data_configuration_binding = args
             .external_data_configuration
+            .get_output(context)
             .get_inner();
-        let friendly_name_binding = args.friendly_name.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let materialized_view_binding = args.materialized_view.get_inner();
-        let max_staleness_binding = args.max_staleness.get_inner();
-        let project_binding = args.project.get_inner();
-        let range_partitioning_binding = args.range_partitioning.get_inner();
-        let require_partition_filter_binding = args.require_partition_filter.get_inner();
-        let resource_tags_binding = args.resource_tags.get_inner();
-        let schema_binding = args.schema.get_inner();
-        let table_constraints_binding = args.table_constraints.get_inner();
-        let table_id_binding = args.table_id.get_inner();
-        let table_replication_info_binding = args.table_replication_info.get_inner();
-        let time_partitioning_binding = args.time_partitioning.get_inner();
-        let view_binding = args.view.get_inner();
+        let friendly_name_binding = args.friendly_name.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let materialized_view_binding = args
+            .materialized_view
+            .get_output(context)
+            .get_inner();
+        let max_staleness_binding = args.max_staleness.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let range_partitioning_binding = args
+            .range_partitioning
+            .get_output(context)
+            .get_inner();
+        let require_partition_filter_binding = args
+            .require_partition_filter
+            .get_output(context)
+            .get_inner();
+        let resource_tags_binding = args.resource_tags.get_output(context).get_inner();
+        let schema_binding = args.schema.get_output(context).get_inner();
+        let table_constraints_binding = args
+            .table_constraints
+            .get_output(context)
+            .get_inner();
+        let table_id_binding = args.table_id.get_output(context).get_inner();
+        let table_replication_info_binding = args
+            .table_replication_info
+            .get_output(context)
+            .get_inner();
+        let time_partitioning_binding = args
+            .time_partitioning
+            .get_output(context)
+            .get_inner();
+        let view_binding = args.view.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:bigquery/table:Table".into(),
             name: name.to_string(),
@@ -582,7 +617,7 @@ pub mod table {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -84,16 +84,16 @@
 /// $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
 /// ```
 pub mod web_acl_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebAclAssociationArgs {
         /// ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
         #[builder(into)]
-        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the WAF Regional WebACL to create an association.
         #[builder(into)]
-        pub web_acl_id: pulumi_wasm_rust::Output<String>,
+        pub web_acl_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WebAclAssociationResult {
@@ -106,11 +106,15 @@ pub mod web_acl_association {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WebAclAssociationArgs) -> WebAclAssociationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WebAclAssociationArgs,
+    ) -> WebAclAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let resource_arn_binding = args.resource_arn.get_inner();
-        let web_acl_id_binding = args.web_acl_id.get_inner();
+        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
+        let web_acl_id_binding = args.web_acl_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:wafregional/webAclAssociation:WebAclAssociation".into(),
             name: name.to_string(),
@@ -134,7 +138,7 @@ pub mod web_acl_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

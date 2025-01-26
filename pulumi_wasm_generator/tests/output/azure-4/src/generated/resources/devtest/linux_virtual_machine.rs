@@ -64,73 +64,73 @@
 /// ```
 ///
 pub mod linux_virtual_machine {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinuxVirtualMachineArgs {
         /// Can this Virtual Machine be claimed by users? Defaults to `true`.
         #[builder(into, default)]
-        pub allow_claim: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_claim: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub disallow_public_ip_address: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disallow_public_ip_address: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A `gallery_image_reference` block as defined below.
         #[builder(into)]
-        pub gallery_image_reference: pulumi_wasm_rust::Output<
+        pub gallery_image_reference: pulumi_wasm_rust::InputOrOutput<
             super::super::types::devtest::LinuxVirtualMachineGalleryImageReference,
         >,
         /// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
         #[builder(into, default)]
-        pub inbound_nat_rules: pulumi_wasm_rust::Output<
+        pub inbound_nat_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::devtest::LinuxVirtualMachineInboundNatRule>>,
         >,
         /// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub lab_name: pulumi_wasm_rust::Output<String>,
+        pub lab_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub lab_subnet_name: pulumi_wasm_rust::Output<String>,
+        pub lab_subnet_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub lab_virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub lab_virtual_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Any notes about the Virtual Machine.
         #[builder(into, default)]
-        pub notes: pulumi_wasm_rust::Output<Option<String>>,
+        pub notes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub size: pulumi_wasm_rust::Output<String>,
+        pub size: pulumi_wasm_rust::InputOrOutput<String>,
         /// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** One or either `password` or `ssh_key` must be specified.
         #[builder(into, default)]
-        pub ssh_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub ssh_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_type: pulumi_wasm_rust::Output<String>,
+        pub storage_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LinuxVirtualMachineResult {
@@ -190,30 +190,47 @@ pub mod linux_virtual_machine {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LinuxVirtualMachineArgs,
     ) -> LinuxVirtualMachineResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allow_claim_binding = args.allow_claim.get_inner();
+        let allow_claim_binding = args.allow_claim.get_output(context).get_inner();
         let disallow_public_ip_address_binding = args
             .disallow_public_ip_address
+            .get_output(context)
             .get_inner();
-        let gallery_image_reference_binding = args.gallery_image_reference.get_inner();
-        let inbound_nat_rules_binding = args.inbound_nat_rules.get_inner();
-        let lab_name_binding = args.lab_name.get_inner();
-        let lab_subnet_name_binding = args.lab_subnet_name.get_inner();
-        let lab_virtual_network_id_binding = args.lab_virtual_network_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let notes_binding = args.notes.get_inner();
-        let password_binding = args.password.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let size_binding = args.size.get_inner();
-        let ssh_key_binding = args.ssh_key.get_inner();
-        let storage_type_binding = args.storage_type.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let username_binding = args.username.get_inner();
+        let gallery_image_reference_binding = args
+            .gallery_image_reference
+            .get_output(context)
+            .get_inner();
+        let inbound_nat_rules_binding = args
+            .inbound_nat_rules
+            .get_output(context)
+            .get_inner();
+        let lab_name_binding = args.lab_name.get_output(context).get_inner();
+        let lab_subnet_name_binding = args
+            .lab_subnet_name
+            .get_output(context)
+            .get_inner();
+        let lab_virtual_network_id_binding = args
+            .lab_virtual_network_id
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let notes_binding = args.notes.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let size_binding = args.size.get_output(context).get_inner();
+        let ssh_key_binding = args.ssh_key.get_output(context).get_inner();
+        let storage_type_binding = args.storage_type.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let username_binding = args.username.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:devtest/linuxVirtualMachine:LinuxVirtualMachine".into(),
             name: name.to_string(),
@@ -348,7 +365,7 @@ pub mod linux_virtual_machine {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

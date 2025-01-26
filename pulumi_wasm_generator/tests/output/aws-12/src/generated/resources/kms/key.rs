@@ -278,7 +278,7 @@
 /// $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
 /// ```
 pub mod key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeyArgs {
@@ -287,51 +287,53 @@ pub mod key {
         /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
         /// The default value is `false`.
         #[builder(into, default)]
-        pub bypass_policy_lockout_safety_check: pulumi_wasm_rust::Output<Option<bool>>,
+        pub bypass_policy_lockout_safety_check: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
         #[builder(into, default)]
-        pub custom_key_store_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_key_store_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
         /// Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_256`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         #[builder(into, default)]
-        pub customer_master_key_spec: pulumi_wasm_rust::Output<Option<String>>,
+        pub customer_master_key_spec: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
         /// If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
         /// If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
         #[builder(into, default)]
-        pub deletion_window_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub deletion_window_in_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The description of the key as viewed in AWS console.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub enable_key_rotation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_key_rotation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether the key is enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub is_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`.
         /// Defaults to `ENCRYPT_DECRYPT`.
         #[builder(into, default)]
-        pub key_usage: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_usage: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
         #[builder(into, default)]
-        pub multi_region: pulumi_wasm_rust::Output<Option<bool>>,
+        pub multi_region: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
         ///
         /// > **NOTE:** Note: All KMS keys must have a key policy. If a key policy is not specified, AWS gives the KMS key a [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) that gives all principals in the owning account unlimited access to all KMS operations for the key. This default key policy effectively delegates all access control to IAM policies and KMS grants.
         #[builder(into, default)]
-        pub policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Custom period of time between each rotation date. Must be a number between 90 and 2560 (inclusive).
         #[builder(into, default)]
-        pub rotation_period_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub rotation_period_in_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Identifies the external key that serves as key material for the KMS key in an external key store.
         #[builder(into, default)]
-        pub xks_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub xks_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct KeyResult {
@@ -385,24 +387,44 @@ pub mod key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: KeyArgs) -> KeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: KeyArgs,
+    ) -> KeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let bypass_policy_lockout_safety_check_binding = args
             .bypass_policy_lockout_safety_check
+            .get_output(context)
             .get_inner();
-        let custom_key_store_id_binding = args.custom_key_store_id.get_inner();
-        let customer_master_key_spec_binding = args.customer_master_key_spec.get_inner();
-        let deletion_window_in_days_binding = args.deletion_window_in_days.get_inner();
-        let description_binding = args.description.get_inner();
-        let enable_key_rotation_binding = args.enable_key_rotation.get_inner();
-        let is_enabled_binding = args.is_enabled.get_inner();
-        let key_usage_binding = args.key_usage.get_inner();
-        let multi_region_binding = args.multi_region.get_inner();
-        let policy_binding = args.policy.get_inner();
-        let rotation_period_in_days_binding = args.rotation_period_in_days.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let xks_key_id_binding = args.xks_key_id.get_inner();
+        let custom_key_store_id_binding = args
+            .custom_key_store_id
+            .get_output(context)
+            .get_inner();
+        let customer_master_key_spec_binding = args
+            .customer_master_key_spec
+            .get_output(context)
+            .get_inner();
+        let deletion_window_in_days_binding = args
+            .deletion_window_in_days
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enable_key_rotation_binding = args
+            .enable_key_rotation
+            .get_output(context)
+            .get_inner();
+        let is_enabled_binding = args.is_enabled.get_output(context).get_inner();
+        let key_usage_binding = args.key_usage.get_output(context).get_inner();
+        let multi_region_binding = args.multi_region.get_output(context).get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
+        let rotation_period_in_days_binding = args
+            .rotation_period_in_days
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let xks_key_id_binding = args.xks_key_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kms/key:Key".into(),
             name: name.to_string(),
@@ -512,7 +534,7 @@ pub mod key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

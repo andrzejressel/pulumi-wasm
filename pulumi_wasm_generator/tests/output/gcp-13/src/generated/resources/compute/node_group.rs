@@ -147,7 +147,7 @@
 /// ```
 ///
 pub mod node_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NodeGroupArgs {
@@ -156,52 +156,52 @@ pub mod node_group {
         /// One of `initial_size` or `autoscaling_policy` must be configured on resource creation.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub autoscaling_policy: pulumi_wasm_rust::Output<
+        pub autoscaling_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::NodeGroupAutoscalingPolicy>,
         >,
         /// An optional textual description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The initial number of nodes in the node group. One of `initial_size` or `autoscaling_policy` must be configured on resource creation.
         #[builder(into, default)]
-        pub initial_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub initial_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the frequency of planned maintenance events. Set to one of the following:
         /// - AS_NEEDED: Hosts are eligible to receive infrastructure and hypervisor updates as they become available.
         /// - RECURRENT: Hosts receive planned infrastructure and hypervisor updates on a periodic basis, but not more frequently than every 28 days. This minimizes the number of planned maintenance operations on individual hosts and reduces the frequency of disruptions, both live migrations and terminations, on individual VMs.
         /// Possible values are: `AS_NEEDED`, `RECURRENT`.
         #[builder(into, default)]
-        pub maintenance_interval: pulumi_wasm_rust::Output<Option<String>>,
+        pub maintenance_interval: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies how to handle instances when a node in the group undergoes maintenance. Set to one of: DEFAULT, RESTART_IN_PLACE, or MIGRATE_WITHIN_NODE_GROUP. The default value is DEFAULT.
         #[builder(into, default)]
-        pub maintenance_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub maintenance_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// contains properties for the timeframe of maintenance
         /// Structure is documented below.
         #[builder(into, default)]
-        pub maintenance_window: pulumi_wasm_rust::Output<
+        pub maintenance_window: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::NodeGroupMaintenanceWindow>,
         >,
         /// Name of the resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URL of the node template to which this node group belongs.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub node_template: pulumi_wasm_rust::Output<String>,
+        pub node_template: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Share settings for the node group.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub share_settings: pulumi_wasm_rust::Output<
+        pub share_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::NodeGroupShareSettings>,
         >,
         /// Zone where this node group is located
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NodeGroupResult {
@@ -256,20 +256,36 @@ pub mod node_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NodeGroupArgs) -> NodeGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NodeGroupArgs,
+    ) -> NodeGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let autoscaling_policy_binding = args.autoscaling_policy.get_inner();
-        let description_binding = args.description.get_inner();
-        let initial_size_binding = args.initial_size.get_inner();
-        let maintenance_interval_binding = args.maintenance_interval.get_inner();
-        let maintenance_policy_binding = args.maintenance_policy.get_inner();
-        let maintenance_window_binding = args.maintenance_window.get_inner();
-        let name_binding = args.name.get_inner();
-        let node_template_binding = args.node_template.get_inner();
-        let project_binding = args.project.get_inner();
-        let share_settings_binding = args.share_settings.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let autoscaling_policy_binding = args
+            .autoscaling_policy
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let initial_size_binding = args.initial_size.get_output(context).get_inner();
+        let maintenance_interval_binding = args
+            .maintenance_interval
+            .get_output(context)
+            .get_inner();
+        let maintenance_policy_binding = args
+            .maintenance_policy
+            .get_output(context)
+            .get_inner();
+        let maintenance_window_binding = args
+            .maintenance_window
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let node_template_binding = args.node_template.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let share_settings_binding = args.share_settings.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/nodeGroup:NodeGroup".into(),
             name: name.to_string(),
@@ -365,7 +381,7 @@ pub mod node_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -45,7 +45,7 @@
 /// ```
 ///
 pub mod lien {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LienArgs {
@@ -53,17 +53,17 @@ pub mod lien {
         /// of the Lien, intended to be inspected programmatically. Maximum length of
         /// 200 characters.
         #[builder(into)]
-        pub origin: pulumi_wasm_rust::Output<String>,
+        pub origin: pulumi_wasm_rust::InputOrOutput<String>,
         /// A reference to the resource this Lien is attached to.
         /// The server will validate the parent against those for which Liens are supported.
         /// Since a variety of objects can have Liens against them, you must provide the type
         /// prefix (e.g. "projects/my-project-name").
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
         /// Concise user-visible strings indicating why an action cannot be performed
         /// on a resource. Maximum length of 200 characters.
         #[builder(into)]
-        pub reason: pulumi_wasm_rust::Output<String>,
+        pub reason: pulumi_wasm_rust::InputOrOutput<String>,
         /// The types of operations which should be blocked as a result of this Lien.
         /// Each value should correspond to an IAM permission. The server will validate
         /// the permissions against those for which Liens are supported.  An empty
@@ -73,7 +73,7 @@ pub mod lien {
         ///
         /// - - -
         #[builder(into)]
-        pub restrictions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub restrictions: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct LienResult {
@@ -107,13 +107,17 @@ pub mod lien {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LienArgs) -> LienResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LienArgs,
+    ) -> LienResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let origin_binding = args.origin.get_inner();
-        let parent_binding = args.parent.get_inner();
-        let reason_binding = args.reason.get_inner();
-        let restrictions_binding = args.restrictions.get_inner();
+        let origin_binding = args.origin.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
+        let reason_binding = args.reason.get_output(context).get_inner();
+        let restrictions_binding = args.restrictions.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:resourcemanager/lien:Lien".into(),
             name: name.to_string(),
@@ -157,7 +161,7 @@ pub mod lien {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

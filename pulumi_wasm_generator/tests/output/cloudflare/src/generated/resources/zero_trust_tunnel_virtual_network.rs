@@ -28,22 +28,22 @@
 /// ```
 ///
 pub mod zero_trust_tunnel_virtual_network {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustTunnelVirtualNetworkArgs {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Description of the tunnel virtual network.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether this virtual network is the default one for the account. This means IP Routes belong to this virtual network and Teams Clients in the account route through this virtual network, unless specified otherwise for each case.
         #[builder(into, default)]
-        pub is_default_network: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_default_network: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A user-friendly name chosen when the virtual network is created.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustTunnelVirtualNetworkResult {
@@ -61,15 +61,19 @@ pub mod zero_trust_tunnel_virtual_network {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ZeroTrustTunnelVirtualNetworkArgs,
     ) -> ZeroTrustTunnelVirtualNetworkResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let comment_binding = args.comment.get_inner();
-        let is_default_network_binding = args.is_default_network.get_inner();
-        let name_binding = args.name.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let comment_binding = args.comment.get_output(context).get_inner();
+        let is_default_network_binding = args
+            .is_default_network
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustTunnelVirtualNetwork:ZeroTrustTunnelVirtualNetwork"
                 .into(),
@@ -108,7 +112,7 @@ pub mod zero_trust_tunnel_virtual_network {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

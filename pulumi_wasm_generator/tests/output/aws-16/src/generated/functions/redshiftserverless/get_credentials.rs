@@ -1,17 +1,17 @@
 pub mod get_credentials {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetCredentialsArgs {
         /// The name of the database to get temporary authorization to log on to.
         #[builder(into, default)]
-        pub db_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub db_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
         #[builder(into, default)]
-        pub duration_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub duration_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name of the workgroup associated with the database.
         #[builder(into)]
-        pub workgroup_name: pulumi_wasm_rust::Output<String>,
+        pub workgroup_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetCredentialsResult {
@@ -31,12 +31,18 @@ pub mod get_credentials {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetCredentialsArgs) -> GetCredentialsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetCredentialsArgs,
+    ) -> GetCredentialsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let db_name_binding = args.db_name.get_inner();
-        let duration_seconds_binding = args.duration_seconds.get_inner();
-        let workgroup_name_binding = args.workgroup_name.get_inner();
+        let db_name_binding = args.db_name.get_output(context).get_inner();
+        let duration_seconds_binding = args
+            .duration_seconds
+            .get_output(context)
+            .get_inner();
+        let workgroup_name_binding = args.workgroup_name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:redshiftserverless/getCredentials:getCredentials".into(),
             version: super::super::super::get_version(),
@@ -78,7 +84,7 @@ pub mod get_credentials {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

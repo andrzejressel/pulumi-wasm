@@ -199,7 +199,7 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
@@ -207,23 +207,23 @@ pub mod instance {
         /// AUTH_DISABLED
         /// IAM_AUTH
         #[builder(into, default)]
-        pub authorization_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub authorization_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. If set to true deletion of the instance will fail.
         #[builder(into, default)]
-        pub deletion_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Required. Immutable. User inputs for the auto-created PSC connections.
         #[builder(into)]
-        pub desired_psc_auto_connections: pulumi_wasm_rust::Output<
+        pub desired_psc_auto_connections: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::memorystore::InstanceDesiredPscAutoConnection>,
         >,
         /// Optional. User-provided engine configurations for the instance.
         #[builder(into, default)]
-        pub engine_configs: pulumi_wasm_rust::Output<
+        pub engine_configs: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Optional. Immutable. Engine version of the instance.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. The ID to use for the instance, which will become the final component of
         /// the instance's resource name.
         /// This value is subject to the following restrictions:
@@ -236,24 +236,24 @@ pub mod instance {
         ///
         /// - - -
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. Labels to represent user-provided metadata.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type `memorystore.googleapis.com/CertificateAuthority`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. Standalone or cluster.
         /// Possible values:
         /// CLUSTER
         /// STANDALONE
         /// Possible values are: `CLUSTER`, `STANDALONE`.
         #[builder(into, default)]
-        pub mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Immutable. Machine type for individual nodes of the instance.
         /// Possible values:
         /// SHARED_CORE_NANO
@@ -261,33 +261,33 @@ pub mod instance {
         /// HIGHMEM_XLARGE
         /// STANDARD_SMALL
         #[builder(into, default)]
-        pub node_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub node_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Represents persistence configuration for a instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub persistence_config: pulumi_wasm_rust::Output<
+        pub persistence_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::memorystore::InstancePersistenceConfig>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Number of replica nodes per shard. If omitted the default is 0 replicas.
         #[builder(into, default)]
-        pub replica_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub replica_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Required. Number of shards for the instance.
         #[builder(into)]
-        pub shard_count: pulumi_wasm_rust::Output<i32>,
+        pub shard_count: pulumi_wasm_rust::InputOrOutput<i32>,
         /// Optional. Immutable. In-transit encryption mode of the instance.
         /// Possible values:
         /// TRANSIT_ENCRYPTION_DISABLED
         /// SERVER_AUTHENTICATION
         #[builder(into, default)]
-        pub transit_encryption_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub transit_encryption_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Zone distribution configuration for allocation of instance resources.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub zone_distribution_config: pulumi_wasm_rust::Output<
+        pub zone_distribution_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::memorystore::InstanceZoneDistributionConfig>,
         >,
     }
@@ -417,29 +417,47 @@ pub mod instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InstanceArgs) -> InstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InstanceArgs,
+    ) -> InstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authorization_mode_binding = args.authorization_mode.get_inner();
+        let authorization_mode_binding = args
+            .authorization_mode
+            .get_output(context)
+            .get_inner();
         let deletion_protection_enabled_binding = args
             .deletion_protection_enabled
+            .get_output(context)
             .get_inner();
         let desired_psc_auto_connections_binding = args
             .desired_psc_auto_connections
+            .get_output(context)
             .get_inner();
-        let engine_configs_binding = args.engine_configs.get_inner();
-        let engine_version_binding = args.engine_version.get_inner();
-        let instance_id_binding = args.instance_id.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let mode_binding = args.mode.get_inner();
-        let node_type_binding = args.node_type.get_inner();
-        let persistence_config_binding = args.persistence_config.get_inner();
-        let project_binding = args.project.get_inner();
-        let replica_count_binding = args.replica_count.get_inner();
-        let shard_count_binding = args.shard_count.get_inner();
-        let transit_encryption_mode_binding = args.transit_encryption_mode.get_inner();
-        let zone_distribution_config_binding = args.zone_distribution_config.get_inner();
+        let engine_configs_binding = args.engine_configs.get_output(context).get_inner();
+        let engine_version_binding = args.engine_version.get_output(context).get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let mode_binding = args.mode.get_output(context).get_inner();
+        let node_type_binding = args.node_type.get_output(context).get_inner();
+        let persistence_config_binding = args
+            .persistence_config
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let replica_count_binding = args.replica_count.get_output(context).get_inner();
+        let shard_count_binding = args.shard_count.get_output(context).get_inner();
+        let transit_encryption_mode_binding = args
+            .transit_encryption_mode
+            .get_output(context)
+            .get_inner();
+        let zone_distribution_config_binding = args
+            .zone_distribution_config
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:memorystore/instance:Instance".into(),
             name: name.to_string(),
@@ -597,7 +615,7 @@ pub mod instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

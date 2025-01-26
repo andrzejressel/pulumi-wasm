@@ -111,7 +111,7 @@
 /// ```
 ///
 pub mod backup_schedule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupScheduleArgs {
@@ -120,37 +120,37 @@ pub mod backup_schedule {
         ///
         /// - - -
         #[builder(into)]
-        pub database: pulumi_wasm_rust::Output<String>,
+        pub database: pulumi_wasm_rust::InputOrOutput<String>,
         /// The schedule creates only full backups..
         #[builder(into, default)]
-        pub full_backup_spec: pulumi_wasm_rust::Output<
+        pub full_backup_spec: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::spanner::BackupScheduleFullBackupSpec>,
         >,
         /// The schedule creates incremental backup chains.
         #[builder(into, default)]
-        pub incremental_backup_spec: pulumi_wasm_rust::Output<
+        pub incremental_backup_spec: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::spanner::BackupScheduleIncrementalBackupSpec>,
         >,
         /// The instance to create the database on.
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
         /// A unique identifier for the backup schedule, which cannot be changed after
         /// the backup schedule is created. Values are of the form [a-z][-a-z0-9]*[a-z0-9].
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// At what relative time in the future, compared to its creation time, the backup should be deleted, e.g. keep backups for 7 days.
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: '3.5s'.
         /// You can set this to a value up to 366 days.
         #[builder(into)]
-        pub retention_duration: pulumi_wasm_rust::Output<String>,
+        pub retention_duration: pulumi_wasm_rust::InputOrOutput<String>,
         /// Defines specifications of the backup schedule.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spec: pulumi_wasm_rust::Output<
+        pub spec: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::spanner::BackupScheduleSpec>,
         >,
     }
@@ -191,17 +191,30 @@ pub mod backup_schedule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BackupScheduleArgs) -> BackupScheduleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BackupScheduleArgs,
+    ) -> BackupScheduleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let database_binding = args.database.get_inner();
-        let full_backup_spec_binding = args.full_backup_spec.get_inner();
-        let incremental_backup_spec_binding = args.incremental_backup_spec.get_inner();
-        let instance_binding = args.instance.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let retention_duration_binding = args.retention_duration.get_inner();
-        let spec_binding = args.spec.get_inner();
+        let database_binding = args.database.get_output(context).get_inner();
+        let full_backup_spec_binding = args
+            .full_backup_spec
+            .get_output(context)
+            .get_inner();
+        let incremental_backup_spec_binding = args
+            .incremental_backup_spec
+            .get_output(context)
+            .get_inner();
+        let instance_binding = args.instance.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let retention_duration_binding = args
+            .retention_duration
+            .get_output(context)
+            .get_inner();
+        let spec_binding = args.spec.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:spanner/backupSchedule:BackupSchedule".into(),
             name: name.to_string(),
@@ -267,7 +280,7 @@ pub mod backup_schedule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

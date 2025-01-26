@@ -65,39 +65,39 @@
 /// ```
 ///
 pub mod tenant_inbound_saml_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TenantInboundSamlConfigArgs {
         /// Human friendly display name.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// If this config allows users to sign in with the provider.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// SAML IdP configuration when the project acts as the relying party
         /// Structure is documented below.
         #[builder(into)]
-        pub idp_config: pulumi_wasm_rust::Output<
+        pub idp_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::identityplatform::TenantInboundSamlConfigIdpConfig,
         >,
         /// The name of the InboundSamlConfig resource. Must start with 'saml.' and can only have alphanumeric characters,
         /// hyphens, underscores or periods. The part after 'saml.' must also start with a lowercase letter, end with an
         /// alphanumeric character, and have at least 2 characters.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// SAML SP (Service Provider) configuration when the project acts as the relying party to receive
         /// and accept an authentication assertion issued by a SAML identity provider.
         /// Structure is documented below.
         #[builder(into)]
-        pub sp_config: pulumi_wasm_rust::Output<
+        pub sp_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::identityplatform::TenantInboundSamlConfigSpConfig,
         >,
         /// The name of the tenant where this inbound SAML config resource exists
         #[builder(into)]
-        pub tenant: pulumi_wasm_rust::Output<String>,
+        pub tenant: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TenantInboundSamlConfigResult {
@@ -129,18 +129,19 @@ pub mod tenant_inbound_saml_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TenantInboundSamlConfigArgs,
     ) -> TenantInboundSamlConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let idp_config_binding = args.idp_config.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let sp_config_binding = args.sp_config.get_inner();
-        let tenant_binding = args.tenant.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let idp_config_binding = args.idp_config.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let sp_config_binding = args.sp_config.get_output(context).get_inner();
+        let tenant_binding = args.tenant.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:identityplatform/tenantInboundSamlConfig:TenantInboundSamlConfig"
                 .into(),
@@ -200,7 +201,7 @@ pub mod tenant_inbound_saml_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

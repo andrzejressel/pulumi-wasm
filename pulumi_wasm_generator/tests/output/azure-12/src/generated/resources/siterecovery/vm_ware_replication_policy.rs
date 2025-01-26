@@ -43,24 +43,24 @@
 /// ```
 ///
 pub mod vm_ware_replication_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VMWareReplicationPolicyArgs {
         /// Specifies the frequency at which to create application consistent recovery points. Must between `0` to `720`.
         #[builder(into)]
-        pub application_consistent_snapshot_frequency_in_minutes: pulumi_wasm_rust::Output<
+        pub application_consistent_snapshot_frequency_in_minutes: pulumi_wasm_rust::InputOrOutput<
             i32,
         >,
         /// The name which should be used for this Classic Replication Policy. Changing this forces a new Replication Policy to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the period up to which the recovery points will be retained. Must between `0` to `21600`.
         #[builder(into)]
-        pub recovery_point_retention_in_minutes: pulumi_wasm_rust::Output<i32>,
+        pub recovery_point_retention_in_minutes: pulumi_wasm_rust::InputOrOutput<i32>,
         /// ID of the Recovery Services Vault. Changing this forces a new Replication Policy to be created.
         #[builder(into)]
-        pub recovery_vault_id: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VMWareReplicationPolicyResult {
@@ -80,6 +80,7 @@ pub mod vm_ware_replication_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VMWareReplicationPolicyArgs,
     ) -> VMWareReplicationPolicyResult {
@@ -87,12 +88,17 @@ pub mod vm_ware_replication_policy {
         use std::collections::HashMap;
         let application_consistent_snapshot_frequency_in_minutes_binding = args
             .application_consistent_snapshot_frequency_in_minutes
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let recovery_point_retention_in_minutes_binding = args
             .recovery_point_retention_in_minutes
+            .get_output(context)
             .get_inner();
-        let recovery_vault_id_binding = args.recovery_vault_id.get_inner();
+        let recovery_vault_id_binding = args
+            .recovery_vault_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy"
                 .into(),
@@ -131,7 +137,7 @@ pub mod vm_ware_replication_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

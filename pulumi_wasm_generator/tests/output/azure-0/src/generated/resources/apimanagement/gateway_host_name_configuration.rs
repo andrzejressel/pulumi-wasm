@@ -68,37 +68,39 @@
 /// ```
 ///
 pub mod gateway_host_name_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GatewayHostNameConfigurationArgs {
         /// The ID of the API Management Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The certificate ID to be used for TLS connection establishment.
         #[builder(into)]
-        pub certificate_id: pulumi_wasm_rust::Output<String>,
+        pub certificate_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the API Management Gateway. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub gateway_name: pulumi_wasm_rust::Output<String>,
+        pub gateway_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The host name to use for the API Management Gateway Host Name Configuration.
         #[builder(into)]
-        pub host_name: pulumi_wasm_rust::Output<String>,
+        pub host_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether HTTP/2.0 is supported. Defaults to `true`.
         #[builder(into, default)]
-        pub http2_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub http2_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the API Management Gateway Host Name Configuration. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the API Management Gateway requests a client certificate.
         #[builder(into, default)]
-        pub request_client_certificate_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub request_client_certificate_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Whether TLS 1.0 is supported.
         #[builder(into, default)]
-        pub tls10_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tls10_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Whether TLS 1.1 is supported.
         #[builder(into, default)]
-        pub tls11_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tls11_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GatewayHostNameConfigurationResult {
@@ -126,22 +128,27 @@ pub mod gateway_host_name_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: GatewayHostNameConfigurationArgs,
     ) -> GatewayHostNameConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding = args.api_management_id.get_inner();
-        let certificate_id_binding = args.certificate_id.get_inner();
-        let gateway_name_binding = args.gateway_name.get_inner();
-        let host_name_binding = args.host_name.get_inner();
-        let http2_enabled_binding = args.http2_enabled.get_inner();
-        let name_binding = args.name.get_inner();
+        let api_management_id_binding = args
+            .api_management_id
+            .get_output(context)
+            .get_inner();
+        let certificate_id_binding = args.certificate_id.get_output(context).get_inner();
+        let gateway_name_binding = args.gateway_name.get_output(context).get_inner();
+        let host_name_binding = args.host_name.get_output(context).get_inner();
+        let http2_enabled_binding = args.http2_enabled.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request_client_certificate_enabled_binding = args
             .request_client_certificate_enabled
+            .get_output(context)
             .get_inner();
-        let tls10_enabled_binding = args.tls10_enabled.get_inner();
-        let tls11_enabled_binding = args.tls11_enabled.get_inner();
+        let tls10_enabled_binding = args.tls10_enabled.get_output(context).get_inner();
+        let tls11_enabled_binding = args.tls11_enabled.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration"
                 .into(),
@@ -215,7 +222,7 @@ pub mod gateway_host_name_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,14 +1,14 @@
 pub mod get_protection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetProtectionArgs {
         /// Unique identifier for the protection.
         #[builder(into, default)]
-        pub protection_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub protection_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN (Amazon Resource Name) of the resource being protected.
         #[builder(into, default)]
-        pub resource_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetProtectionResult {
@@ -24,11 +24,14 @@ pub mod get_protection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetProtectionArgs) -> GetProtectionResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetProtectionArgs,
+    ) -> GetProtectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let protection_id_binding = args.protection_id.get_inner();
-        let resource_arn_binding = args.resource_arn.get_inner();
+        let protection_id_binding = args.protection_id.get_output(context).get_inner();
+        let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:shield/getProtection:getProtection".into(),
             version: super::super::super::get_version(),
@@ -60,7 +63,7 @@ pub mod get_protection {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

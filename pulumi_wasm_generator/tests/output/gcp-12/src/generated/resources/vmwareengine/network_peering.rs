@@ -87,48 +87,52 @@
 /// ```
 ///
 pub mod network_peering {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkPeeringArgs {
         /// User-provided description for this network peering.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// True if custom routes are exported to the peered network; false otherwise.
         #[builder(into, default)]
-        pub export_custom_routes: pulumi_wasm_rust::Output<Option<bool>>,
+        pub export_custom_routes: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// True if all subnet routes with a public IP address range are exported; false otherwise.
         #[builder(into, default)]
-        pub export_custom_routes_with_public_ip: pulumi_wasm_rust::Output<Option<bool>>,
+        pub export_custom_routes_with_public_ip: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// True if custom routes are imported from the peered network; false otherwise.
         #[builder(into, default)]
-        pub import_custom_routes: pulumi_wasm_rust::Output<Option<bool>>,
+        pub import_custom_routes: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// True if custom routes are imported from the peered network; false otherwise.
         #[builder(into, default)]
-        pub import_custom_routes_with_public_ip: pulumi_wasm_rust::Output<Option<bool>>,
+        pub import_custom_routes_with_public_ip: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The ID of the Network Peering.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The relative resource name of the network to peer with a standard VMware Engine network.
         /// The provided network can be a consumer VPC network or another standard VMware Engine network.
         #[builder(into)]
-        pub peer_network: pulumi_wasm_rust::Output<String>,
+        pub peer_network: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of the network to peer with the VMware Engine network.
         /// Possible values are: `STANDARD`, `VMWARE_ENGINE_NETWORK`, `PRIVATE_SERVICES_ACCESS`, `NETAPP_CLOUD_VOLUMES`, `THIRD_PARTY_SERVICE`, `DELL_POWERSCALE`.
         #[builder(into)]
-        pub peer_network_type: pulumi_wasm_rust::Output<String>,
+        pub peer_network_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The relative resource name of the VMware Engine network. Specify the name in the following form:
         /// projects/{project}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId} where {project}
         /// can either be a project number or a project ID.
         #[builder(into)]
-        pub vmware_engine_network: pulumi_wasm_rust::Output<String>,
+        pub vmware_engine_network: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkPeeringResult {
@@ -184,23 +188,41 @@ pub mod network_peering {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NetworkPeeringArgs) -> NetworkPeeringResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NetworkPeeringArgs,
+    ) -> NetworkPeeringResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let export_custom_routes_binding = args.export_custom_routes.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let export_custom_routes_binding = args
+            .export_custom_routes
+            .get_output(context)
+            .get_inner();
         let export_custom_routes_with_public_ip_binding = args
             .export_custom_routes_with_public_ip
+            .get_output(context)
             .get_inner();
-        let import_custom_routes_binding = args.import_custom_routes.get_inner();
+        let import_custom_routes_binding = args
+            .import_custom_routes
+            .get_output(context)
+            .get_inner();
         let import_custom_routes_with_public_ip_binding = args
             .import_custom_routes_with_public_ip
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let peer_network_binding = args.peer_network.get_inner();
-        let peer_network_type_binding = args.peer_network_type.get_inner();
-        let project_binding = args.project.get_inner();
-        let vmware_engine_network_binding = args.vmware_engine_network.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let peer_network_binding = args.peer_network.get_output(context).get_inner();
+        let peer_network_type_binding = args
+            .peer_network_type
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let vmware_engine_network_binding = args
+            .vmware_engine_network
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:vmwareengine/networkPeering:NetworkPeering".into(),
             name: name.to_string(),
@@ -298,7 +320,7 @@ pub mod network_peering {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

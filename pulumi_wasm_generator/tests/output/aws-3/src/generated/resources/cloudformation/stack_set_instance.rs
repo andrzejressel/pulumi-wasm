@@ -116,44 +116,44 @@
 /// $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1,DELEGATED_ADMIN
 /// ```
 pub mod stack_set_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StackSetInstanceArgs {
         /// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         #[builder(into, default)]
-        pub call_as: pulumi_wasm_rust::Output<Option<String>>,
+        pub call_as: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
         #[builder(into, default)]
-        pub deployment_targets: pulumi_wasm_rust::Output<
+        pub deployment_targets: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::cloudformation::StackSetInstanceDeploymentTargets,
             >,
         >,
         /// Preferences for how AWS CloudFormation performs a stack set operation.
         #[builder(into, default)]
-        pub operation_preferences: pulumi_wasm_rust::Output<
+        pub operation_preferences: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::cloudformation::StackSetInstanceOperationPreferences,
             >,
         >,
         /// Key-value map of input parameters to override from the StackSet for this Instance.
         #[builder(into, default)]
-        pub parameter_overrides: pulumi_wasm_rust::Output<
+        pub parameter_overrides: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
         #[builder(into, default)]
-        pub retain_stack: pulumi_wasm_rust::Output<Option<bool>>,
+        pub retain_stack: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the StackSet.
         #[builder(into)]
-        pub stack_set_name: pulumi_wasm_rust::Output<String>,
+        pub stack_set_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct StackSetInstanceResult {
@@ -198,17 +198,30 @@ pub mod stack_set_instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StackSetInstanceArgs) -> StackSetInstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StackSetInstanceArgs,
+    ) -> StackSetInstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let call_as_binding = args.call_as.get_inner();
-        let deployment_targets_binding = args.deployment_targets.get_inner();
-        let operation_preferences_binding = args.operation_preferences.get_inner();
-        let parameter_overrides_binding = args.parameter_overrides.get_inner();
-        let region_binding = args.region.get_inner();
-        let retain_stack_binding = args.retain_stack.get_inner();
-        let stack_set_name_binding = args.stack_set_name.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let call_as_binding = args.call_as.get_output(context).get_inner();
+        let deployment_targets_binding = args
+            .deployment_targets
+            .get_output(context)
+            .get_inner();
+        let operation_preferences_binding = args
+            .operation_preferences
+            .get_output(context)
+            .get_inner();
+        let parameter_overrides_binding = args
+            .parameter_overrides
+            .get_output(context)
+            .get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let retain_stack_binding = args.retain_stack.get_output(context).get_inner();
+        let stack_set_name_binding = args.stack_set_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudformation/stackSetInstance:StackSetInstance".into(),
             name: name.to_string(),
@@ -283,7 +296,7 @@ pub mod stack_set_instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

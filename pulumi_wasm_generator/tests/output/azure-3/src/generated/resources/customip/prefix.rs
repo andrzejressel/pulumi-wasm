@@ -74,51 +74,53 @@
 /// ```
 ///
 pub mod prefix {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrefixArgs {
         /// The `cidr` of the Custom IP Prefix, either IPv4 or IPv6. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cidr: pulumi_wasm_rust::Output<String>,
+        pub cidr: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
         ///
         /// !> **Warning** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         #[builder(into, default)]
-        pub commissioning_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub commissioning_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
         ///
         /// !> **Warning** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         #[builder(into, default)]
-        pub internet_advertising_disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub internet_advertising_disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Custom IP Prefix. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the parent prefix. Only needed when creating a regional/child IPv6 prefix. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub parent_custom_ip_prefix_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent_custom_ip_prefix_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group in which to create the Custom IP Prefix. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The expiration date of the Route Origin Authorization (ROA) document which has been filed with the Routing Internet Registry (RIR) for this prefix. The expected format is `YYYY-MM-DD`. Required when provisioning an IPv4 prefix or IPv6 global prefix. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub roa_validity_end_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub roa_validity_end_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the Custom IP Prefix.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The signed base64-encoded authorization message, which will be sent to Microsoft for WAN verification. Required when provisioning an IPv4 prefix or IPv6 global prefix. Refer to [Azure documentation](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/create-custom-ip-address-prefix-cli#certificate-readiness) for more details about the process for your RIR. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub wan_validation_signed_message: pulumi_wasm_rust::Output<Option<String>>,
+        pub wan_validation_signed_message: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies a list of Availability Zones in which this Custom IP Prefix should be located. Should not be specified when creating an IPv6 global prefix. Changing this forces a new resource to be created.
         ///
         /// > **Note:** In regions with [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview), the Custom IP Prefix must be specified as either `Zone-redundant` or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct PrefixResult {
@@ -157,26 +159,42 @@ pub mod prefix {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PrefixArgs) -> PrefixResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PrefixArgs,
+    ) -> PrefixResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cidr_binding = args.cidr.get_inner();
-        let commissioning_enabled_binding = args.commissioning_enabled.get_inner();
+        let cidr_binding = args.cidr.get_output(context).get_inner();
+        let commissioning_enabled_binding = args
+            .commissioning_enabled
+            .get_output(context)
+            .get_inner();
         let internet_advertising_disabled_binding = args
             .internet_advertising_disabled
+            .get_output(context)
             .get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let parent_custom_ip_prefix_id_binding = args
             .parent_custom_ip_prefix_id
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let roa_validity_end_date_binding = args.roa_validity_end_date.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let roa_validity_end_date_binding = args
+            .roa_validity_end_date
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let wan_validation_signed_message_binding = args
             .wan_validation_signed_message
+            .get_output(context)
             .get_inner();
-        let zones_binding = args.zones.get_inner();
+        let zones_binding = args.zones.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:customip/prefix:Prefix".into(),
             name: name.to_string(),
@@ -263,7 +281,7 @@ pub mod prefix {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

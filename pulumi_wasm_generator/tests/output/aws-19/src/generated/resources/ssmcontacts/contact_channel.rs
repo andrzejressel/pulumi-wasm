@@ -62,24 +62,24 @@
 /// $ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
 /// ```
 pub mod contact_channel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContactChannelArgs {
         /// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
         #[builder(into)]
-        pub contact_id: pulumi_wasm_rust::Output<String>,
+        pub contact_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Block that contains contact engagement details. See details below.
         #[builder(into)]
-        pub delivery_address: pulumi_wasm_rust::Output<
+        pub delivery_address: pulumi_wasm_rust::InputOrOutput<
             super::super::types::ssmcontacts::ContactChannelDeliveryAddress,
         >,
         /// Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ContactChannelResult {
@@ -102,13 +102,20 @@ pub mod contact_channel {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ContactChannelArgs) -> ContactChannelResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ContactChannelArgs,
+    ) -> ContactChannelResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let contact_id_binding = args.contact_id.get_inner();
-        let delivery_address_binding = args.delivery_address.get_inner();
-        let name_binding = args.name.get_inner();
-        let type__binding = args.type_.get_inner();
+        let contact_id_binding = args.contact_id.get_output(context).get_inner();
+        let delivery_address_binding = args
+            .delivery_address
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ssmcontacts/contactChannel:ContactChannel".into(),
             name: name.to_string(),
@@ -152,7 +159,7 @@ pub mod contact_channel {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

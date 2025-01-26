@@ -53,25 +53,25 @@
 /// $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
 /// ```
 pub mod anomaly_monitor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AnomalyMonitorArgs {
         /// The dimensions to evaluate. Valid values: `SERVICE`.
         #[builder(into, default)]
-        pub monitor_dimension: pulumi_wasm_rust::Output<Option<String>>,
+        pub monitor_dimension: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
         #[builder(into, default)]
-        pub monitor_specification: pulumi_wasm_rust::Output<Option<String>>,
+        pub monitor_specification: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
         #[builder(into)]
-        pub monitor_type: pulumi_wasm_rust::Output<String>,
+        pub monitor_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the monitor.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -100,14 +100,24 @@ pub mod anomaly_monitor {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AnomalyMonitorArgs) -> AnomalyMonitorResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AnomalyMonitorArgs,
+    ) -> AnomalyMonitorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let monitor_dimension_binding = args.monitor_dimension.get_inner();
-        let monitor_specification_binding = args.monitor_specification.get_inner();
-        let monitor_type_binding = args.monitor_type.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let monitor_dimension_binding = args
+            .monitor_dimension
+            .get_output(context)
+            .get_inner();
+        let monitor_specification_binding = args
+            .monitor_specification
+            .get_output(context)
+            .get_inner();
+        let monitor_type_binding = args.monitor_type.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:costexplorer/anomalyMonitor:AnomalyMonitor".into(),
             name: name.to_string(),
@@ -158,7 +168,7 @@ pub mod anomaly_monitor {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -32,7 +32,7 @@
 /// ```
 ///
 pub mod project_default_network_tier {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectDefaultNetworkTierArgs {
@@ -41,11 +41,11 @@ pub mod project_default_network_tier {
         ///
         /// - - -
         #[builder(into)]
-        pub network_tier: pulumi_wasm_rust::Output<String>,
+        pub network_tier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ProjectDefaultNetworkTierResult {
@@ -63,13 +63,14 @@ pub mod project_default_network_tier {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ProjectDefaultNetworkTierArgs,
     ) -> ProjectDefaultNetworkTierResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let network_tier_binding = args.network_tier.get_inner();
-        let project_binding = args.project.get_inner();
+        let network_tier_binding = args.network_tier.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/projectDefaultNetworkTier:ProjectDefaultNetworkTier"
                 .into(),
@@ -94,7 +95,7 @@ pub mod project_default_network_tier {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

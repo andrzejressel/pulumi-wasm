@@ -47,22 +47,22 @@
 /// $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
 /// ```
 pub mod source_credential {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SourceCredentialArgs {
         /// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
         #[builder(into)]
-        pub auth_type: pulumi_wasm_rust::Output<String>,
+        pub auth_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The source provider used for this project.
         #[builder(into)]
-        pub server_type: pulumi_wasm_rust::Output<String>,
+        pub server_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
         #[builder(into)]
-        pub token: pulumi_wasm_rust::Output<String>,
+        pub token: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
         #[builder(into, default)]
-        pub user_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SourceCredentialResult {
@@ -81,13 +81,17 @@ pub mod source_credential {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SourceCredentialArgs) -> SourceCredentialResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SourceCredentialArgs,
+    ) -> SourceCredentialResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let auth_type_binding = args.auth_type.get_inner();
-        let server_type_binding = args.server_type.get_inner();
-        let token_binding = args.token.get_inner();
-        let user_name_binding = args.user_name.get_inner();
+        let auth_type_binding = args.auth_type.get_output(context).get_inner();
+        let server_type_binding = args.server_type.get_output(context).get_inner();
+        let token_binding = args.token.get_output(context).get_inner();
+        let user_name_binding = args.user_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codebuild/sourceCredential:SourceCredential".into(),
             name: name.to_string(),
@@ -128,7 +132,7 @@ pub mod source_credential {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

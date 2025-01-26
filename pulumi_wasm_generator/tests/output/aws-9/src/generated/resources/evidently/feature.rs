@@ -93,38 +93,38 @@
 /// $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example
 /// ```
 pub mod feature {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FeatureArgs {
         /// The name of the variation to use as the default variation. The default variation is served to users who are not allocated to any ongoing launches or experiments of this feature. This variation must also be listed in the `variations` structure. If you omit `default_variation`, the first variation listed in the `variations` structure is used as the default variation.
         #[builder(into, default)]
-        pub default_variation: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_variation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the description of the feature.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
         #[builder(into, default)]
-        pub entity_overrides: pulumi_wasm_rust::Output<
+        pub entity_overrides: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
         #[builder(into, default)]
-        pub evaluation_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub evaluation_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name for the new feature. Minimum length of `1`. Maximum length of `127`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name or ARN of the project that is to contain the new feature.
         #[builder(into)]
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_wasm_rust::InputOrOutput<String>,
         /// Tags to apply to the feature. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// One or more blocks that contain the configuration of the feature's different variations. Detailed below
         #[builder(into)]
-        pub variations: pulumi_wasm_rust::Output<
+        pub variations: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::evidently::FeatureVariation>,
         >,
     }
@@ -175,17 +175,30 @@ pub mod feature {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FeatureArgs) -> FeatureResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FeatureArgs,
+    ) -> FeatureResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let default_variation_binding = args.default_variation.get_inner();
-        let description_binding = args.description.get_inner();
-        let entity_overrides_binding = args.entity_overrides.get_inner();
-        let evaluation_strategy_binding = args.evaluation_strategy.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let variations_binding = args.variations.get_inner();
+        let default_variation_binding = args
+            .default_variation
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let entity_overrides_binding = args
+            .entity_overrides
+            .get_output(context)
+            .get_inner();
+        let evaluation_strategy_binding = args
+            .evaluation_strategy
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let variations_binding = args.variations.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:evidently/feature:Feature".into(),
             name: name.to_string(),
@@ -272,7 +285,7 @@ pub mod feature {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -37,19 +37,19 @@
 /// }
 /// ```
 pub mod group_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GroupMembershipArgs {
         /// The IAM Group name to attach the list of `users` to
         #[builder(into)]
-        pub group: pulumi_wasm_rust::Output<String>,
+        pub group: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name to identify the Group Membership
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of IAM User names to associate with the Group
         #[builder(into)]
-        pub users: pulumi_wasm_rust::Output<Vec<String>>,
+        pub users: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct GroupMembershipResult {
@@ -64,12 +64,16 @@ pub mod group_membership {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GroupMembershipArgs) -> GroupMembershipResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GroupMembershipArgs,
+    ) -> GroupMembershipResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let group_binding = args.group.get_inner();
-        let name_binding = args.name.get_inner();
-        let users_binding = args.users.get_inner();
+        let group_binding = args.group.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let users_binding = args.users.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/groupMembership:GroupMembership".into(),
             name: name.to_string(),
@@ -100,7 +104,7 @@ pub mod group_membership {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

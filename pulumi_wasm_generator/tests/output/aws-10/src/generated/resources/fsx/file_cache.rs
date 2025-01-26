@@ -48,49 +48,49 @@
 /// $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
 /// ```
 pub mod file_cache {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FileCacheArgs {
         /// A boolean flag indicating whether tags for the cache should be copied to data repository associations. This value defaults to false.
         #[builder(into, default)]
-        pub copy_tags_to_data_repository_associations: pulumi_wasm_rust::Output<
+        pub copy_tags_to_data_repository_associations: pulumi_wasm_rust::InputOrOutput<
             Option<bool>,
         >,
         /// See the `data_repository_association` configuration block. Max of 8.
         /// A list of up to 8 configurations for data repository associations (DRAs) to be created during the cache creation. The DRAs link the cache to either an Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol. The DRA configurations must meet the following requirements: 1) All configurations on the list must be of the same data repository type, either all S3 or all NFS. A cache can't link to different data repository types at the same time. 2) An NFS DRA must link to an NFS file system that supports the NFSv3 protocol. DRA automatic import and automatic export is not supported.
         #[builder(into, default)]
-        pub data_repository_associations: pulumi_wasm_rust::Output<
+        pub data_repository_associations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::fsx::FileCacheDataRepositoryAssociation>>,
         >,
         /// The type of cache that you're creating. The only supported value is `LUSTRE`.
         #[builder(into)]
-        pub file_cache_type: pulumi_wasm_rust::Output<String>,
+        pub file_cache_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The version for the type of cache that you're creating. The only supported value is `2.12`.
         #[builder(into)]
-        pub file_cache_type_version: pulumi_wasm_rust::Output<String>,
+        pub file_cache_type_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the ID of the AWS Key Management Service (AWS KMS) key to use for encrypting data on an Amazon File Cache. If a KmsKeyId isn't specified, the Amazon FSx-managed AWS KMS key for your account is used.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// See the `lustre_configuration` block. Required when `file_cache_type` is `LUSTRE`.
         #[builder(into, default)]
-        pub lustre_configurations: pulumi_wasm_rust::Output<
+        pub lustre_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::fsx::FileCacheLustreConfiguration>>,
         >,
         /// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
         #[builder(into, default)]
-        pub security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
         #[builder(into)]
-        pub storage_capacity: pulumi_wasm_rust::Output<i32>,
+        pub storage_capacity: pulumi_wasm_rust::InputOrOutput<i32>,
         /// A list of subnet IDs that the cache will be accessible from. You can specify only one subnet ID.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -148,23 +148,44 @@ pub mod file_cache {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: FileCacheArgs) -> FileCacheResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: FileCacheArgs,
+    ) -> FileCacheResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let copy_tags_to_data_repository_associations_binding = args
             .copy_tags_to_data_repository_associations
+            .get_output(context)
             .get_inner();
         let data_repository_associations_binding = args
             .data_repository_associations
+            .get_output(context)
             .get_inner();
-        let file_cache_type_binding = args.file_cache_type.get_inner();
-        let file_cache_type_version_binding = args.file_cache_type_version.get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let lustre_configurations_binding = args.lustre_configurations.get_inner();
-        let security_group_ids_binding = args.security_group_ids.get_inner();
-        let storage_capacity_binding = args.storage_capacity.get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let file_cache_type_binding = args
+            .file_cache_type
+            .get_output(context)
+            .get_inner();
+        let file_cache_type_version_binding = args
+            .file_cache_type_version
+            .get_output(context)
+            .get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let lustre_configurations_binding = args
+            .lustre_configurations
+            .get_output(context)
+            .get_inner();
+        let security_group_ids_binding = args
+            .security_group_ids
+            .get_output(context)
+            .get_inner();
+        let storage_capacity_binding = args
+            .storage_capacity
+            .get_output(context)
+            .get_inner();
+        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:fsx/fileCache:FileCache".into(),
             name: name.to_string(),
@@ -268,7 +289,7 @@ pub mod file_cache {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

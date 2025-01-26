@@ -32,36 +32,36 @@
 /// $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 /// ```
 pub mod routing_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoutingProfileArgs {
         /// Specifies the default outbound queue for the Routing Profile.
         #[builder(into)]
-        pub default_outbound_queue_id: pulumi_wasm_rust::Output<String>,
+        pub default_outbound_queue_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the description of the Routing Profile.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// One or more `media_concurrencies` blocks that specify the channels that agents can handle in the Contact Control Panel (CCP) for this Routing Profile. The `media_concurrencies` block is documented below.
         #[builder(into)]
-        pub media_concurrencies: pulumi_wasm_rust::Output<
+        pub media_concurrencies: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::connect::RoutingProfileMediaConcurrency>,
         >,
         /// Specifies the name of the Routing Profile.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
         #[builder(into, default)]
-        pub queue_configs: pulumi_wasm_rust::Output<
+        pub queue_configs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::connect::RoutingProfileQueueConfig>>,
         >,
         /// Tags to apply to the Routing Profile. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -101,18 +101,26 @@ pub mod routing_profile {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RoutingProfileArgs) -> RoutingProfileResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RoutingProfileArgs,
+    ) -> RoutingProfileResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let default_outbound_queue_id_binding = args
             .default_outbound_queue_id
+            .get_output(context)
             .get_inner();
-        let description_binding = args.description.get_inner();
-        let instance_id_binding = args.instance_id.get_inner();
-        let media_concurrencies_binding = args.media_concurrencies.get_inner();
-        let name_binding = args.name.get_inner();
-        let queue_configs_binding = args.queue_configs.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let media_concurrencies_binding = args
+            .media_concurrencies
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let queue_configs_binding = args.queue_configs.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:connect/routingProfile:RoutingProfile".into(),
             name: name.to_string(),
@@ -180,7 +188,7 @@ pub mod routing_profile {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

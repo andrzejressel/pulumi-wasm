@@ -153,7 +153,7 @@
 /// ```
 ///
 pub mod guest_policies {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GuestPoliciesArgs {
@@ -166,15 +166,15 @@ pub mod guest_policies {
         /// [handles assignment conflicts](https://cloud.google.com/compute/docs/os-config-management/create-guest-policy#handle-conflicts).
         /// Structure is documented below.
         #[builder(into)]
-        pub assignment: pulumi_wasm_rust::Output<
+        pub assignment: pulumi_wasm_rust::InputOrOutput<
             super::super::types::osconfig::GuestPoliciesAssignment,
         >,
         /// Description of the guest policy. Length of the description is limited to 1024 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The etag for this guest policy. If this is provided on update, it must match the server's etag.
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::Output<Option<String>>,
+        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The logical name of the guest policy in the project with the following restrictions:
         /// * Must contain only lowercase letters, numbers, and hyphens.
         /// * Must start with a letter.
@@ -182,24 +182,24 @@ pub mod guest_policies {
         /// * Must end with a number or a letter.
         /// * Must be unique within the project.
         #[builder(into)]
-        pub guest_policy_id: pulumi_wasm_rust::Output<String>,
+        pub guest_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of package repositories to configure on the VM instance. This is done before any other configs are applied so
         /// they can use these repos. Package repositories are only configured if the corresponding package manager(s) are
         /// available.
         #[builder(into, default)]
-        pub package_repositories: pulumi_wasm_rust::Output<
+        pub package_repositories: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::osconfig::GuestPoliciesPackageRepository>>,
         >,
         /// The software packages to be managed by this policy.
         #[builder(into, default)]
-        pub packages: pulumi_wasm_rust::Output<
+        pub packages: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::osconfig::GuestPoliciesPackage>>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of Recipes to install on the VM instance.
         #[builder(into, default)]
-        pub recipes: pulumi_wasm_rust::Output<
+        pub recipes: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::osconfig::GuestPoliciesRecipe>>,
         >,
     }
@@ -255,17 +255,27 @@ pub mod guest_policies {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GuestPoliciesArgs) -> GuestPoliciesResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GuestPoliciesArgs,
+    ) -> GuestPoliciesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let assignment_binding = args.assignment.get_inner();
-        let description_binding = args.description.get_inner();
-        let etag_binding = args.etag.get_inner();
-        let guest_policy_id_binding = args.guest_policy_id.get_inner();
-        let package_repositories_binding = args.package_repositories.get_inner();
-        let packages_binding = args.packages.get_inner();
-        let project_binding = args.project.get_inner();
-        let recipes_binding = args.recipes.get_inner();
+        let assignment_binding = args.assignment.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let etag_binding = args.etag.get_output(context).get_inner();
+        let guest_policy_id_binding = args
+            .guest_policy_id
+            .get_output(context)
+            .get_inner();
+        let package_repositories_binding = args
+            .package_repositories
+            .get_output(context)
+            .get_inner();
+        let packages_binding = args.packages.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let recipes_binding = args.recipes.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:osconfig/guestPolicies:GuestPolicies".into(),
             name: name.to_string(),
@@ -340,7 +350,7 @@ pub mod guest_policies {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

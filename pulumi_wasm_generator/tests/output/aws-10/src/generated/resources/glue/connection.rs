@@ -287,42 +287,42 @@
 /// $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
 /// ```
 pub mod connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionArgs {
         /// ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
         #[builder(into, default)]
-        pub catalog_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub catalog_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of key-value pairs used as parameters for this connection. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html).
         ///
         /// **Note:** Some connection types require the `SparkProperties` property with a JSON document that contains the actual connection properties. For specific examples, refer to Example Usage.
         #[builder(into, default)]
-        pub connection_properties: pulumi_wasm_rust::Output<
+        pub connection_properties: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Type of the connection. Valid values: `AZURECOSMOS`, `AZURESQL`, `BIGQUERY`, `CUSTOM`, `JDBC`, `KAFKA`, `MARKETPLACE`, `MONGODB`, `NETWORK`, `OPENSEARCH`, `SNOWFLAKE`. Defaults to `JDBC`.
         #[builder(into, default)]
-        pub connection_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub connection_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Description of the connection.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of criteria that can be used in selecting this connection.
         #[builder(into, default)]
-        pub match_criterias: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub match_criterias: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of the connection.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of physical connection requirements, such as VPC and SecurityGroup. See `physical_connection_requirements` Block for details.
         #[builder(into, default)]
-        pub physical_connection_requirements: pulumi_wasm_rust::Output<
+        pub physical_connection_requirements: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::glue::ConnectionPhysicalConnectionRequirements>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -365,19 +365,33 @@ pub mod connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectionArgs) -> ConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectionArgs,
+    ) -> ConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let catalog_id_binding = args.catalog_id.get_inner();
-        let connection_properties_binding = args.connection_properties.get_inner();
-        let connection_type_binding = args.connection_type.get_inner();
-        let description_binding = args.description.get_inner();
-        let match_criterias_binding = args.match_criterias.get_inner();
-        let name_binding = args.name.get_inner();
+        let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
+        let connection_properties_binding = args
+            .connection_properties
+            .get_output(context)
+            .get_inner();
+        let connection_type_binding = args
+            .connection_type
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let match_criterias_binding = args
+            .match_criterias
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let physical_connection_requirements_binding = args
             .physical_connection_requirements
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:glue/connection:Connection".into(),
             name: name.to_string(),
@@ -449,7 +463,7 @@ pub mod connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

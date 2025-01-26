@@ -33,16 +33,16 @@
 /// $ pulumi import aws:route53/resolverConfig:ResolverConfig example rslvr-rc-715aa20c73a23da7
 /// ```
 pub mod resolver_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverConfigArgs {
         /// Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
         #[builder(into)]
-        pub autodefined_reverse_flag: pulumi_wasm_rust::Output<String>,
+        pub autodefined_reverse_flag: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the VPC that the configuration is for.
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResolverConfigResult {
@@ -57,11 +57,18 @@ pub mod resolver_config {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ResolverConfigArgs) -> ResolverConfigResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ResolverConfigArgs,
+    ) -> ResolverConfigResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let autodefined_reverse_flag_binding = args.autodefined_reverse_flag.get_inner();
-        let resource_id_binding = args.resource_id.get_inner();
+        let autodefined_reverse_flag_binding = args
+            .autodefined_reverse_flag
+            .get_output(context)
+            .get_inner();
+        let resource_id_binding = args.resource_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:route53/resolverConfig:ResolverConfig".into(),
             name: name.to_string(),
@@ -88,7 +95,7 @@ pub mod resolver_config {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

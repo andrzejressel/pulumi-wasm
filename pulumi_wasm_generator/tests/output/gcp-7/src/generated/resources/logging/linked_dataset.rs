@@ -79,7 +79,7 @@
 /// ```
 ///
 pub mod linked_dataset {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedDatasetArgs {
@@ -88,7 +88,7 @@ pub mod linked_dataset {
         /// Views corresponding to the LogViews in the bucket.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub bigquery_datasets: pulumi_wasm_rust::Output<
+        pub bigquery_datasets: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::logging::LinkedDatasetBigqueryDataset>>,
         >,
         /// The bucket to which the linked dataset is attached.
@@ -96,19 +96,19 @@ pub mod linked_dataset {
         ///
         /// - - -
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// Describes this link. The maximum length of the description is 8000 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The id of the linked dataset.
         #[builder(into)]
-        pub link_id: pulumi_wasm_rust::Output<String>,
+        pub link_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The location of the linked dataset.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The parent of the linked dataset.
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LinkedDatasetResult {
@@ -146,15 +146,22 @@ pub mod linked_dataset {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: LinkedDatasetArgs) -> LinkedDatasetResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: LinkedDatasetArgs,
+    ) -> LinkedDatasetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bigquery_datasets_binding = args.bigquery_datasets.get_inner();
-        let bucket_binding = args.bucket.get_inner();
-        let description_binding = args.description.get_inner();
-        let link_id_binding = args.link_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let parent_binding = args.parent.get_inner();
+        let bigquery_datasets_binding = args
+            .bigquery_datasets
+            .get_output(context)
+            .get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let link_id_binding = args.link_id.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:logging/linkedDataset:LinkedDataset".into(),
             name: name.to_string(),
@@ -215,7 +222,7 @@ pub mod linked_dataset {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

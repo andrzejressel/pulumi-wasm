@@ -1,42 +1,42 @@
 pub mod get_subnet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSubnetArgs {
         /// Availability zone where the subnet must reside.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
         #[builder(into, default)]
-        pub availability_zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// CIDR block of the desired subnet.
         #[builder(into, default)]
-        pub cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the desired subnet must be the default subnet for its associated availability zone.
         #[builder(into, default)]
-        pub default_for_az: pulumi_wasm_rust::Output<Option<bool>>,
+        pub default_for_az: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetSubnetFilter>>,
         >,
         /// ID of the specific subnet to retrieve.
         #[builder(into, default)]
-        pub id: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// IPv6 CIDR block of the desired subnet.
         #[builder(into, default)]
-        pub ipv6_cidr_block: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv6_cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// State that the desired subnet must have.
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::Output<Option<String>>,
+        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags, each pair of which must exactly match a pair on the desired subnet.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ID of the VPC that the desired subnet belongs to.
         #[builder(into, default)]
-        pub vpc_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetSubnetResult {
@@ -89,19 +89,31 @@ pub mod get_subnet {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetSubnetArgs) -> GetSubnetResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetSubnetArgs,
+    ) -> GetSubnetResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let availability_zone_binding = args.availability_zone.get_inner();
-        let availability_zone_id_binding = args.availability_zone_id.get_inner();
-        let cidr_block_binding = args.cidr_block.get_inner();
-        let default_for_az_binding = args.default_for_az.get_inner();
-        let filters_binding = args.filters.get_inner();
-        let id_binding = args.id.get_inner();
-        let ipv6_cidr_block_binding = args.ipv6_cidr_block.get_inner();
-        let state_binding = args.state.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let availability_zone_binding = args
+            .availability_zone
+            .get_output(context)
+            .get_inner();
+        let availability_zone_id_binding = args
+            .availability_zone_id
+            .get_output(context)
+            .get_inner();
+        let cidr_block_binding = args.cidr_block.get_output(context).get_inner();
+        let default_for_az_binding = args.default_for_az.get_output(context).get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let id_binding = args.id.get_output(context).get_inner();
+        let ipv6_cidr_block_binding = args
+            .ipv6_cidr_block
+            .get_output(context)
+            .get_inner();
+        let state_binding = args.state.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getSubnet:getSubnet".into(),
             version: super::super::super::get_version(),
@@ -225,7 +237,7 @@ pub mod get_subnet {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

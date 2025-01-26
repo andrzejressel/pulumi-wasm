@@ -1,14 +1,14 @@
 pub mod get_function_url {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetFunctionUrlArgs {
         /// The name (or ARN) of the Lambda function.
         #[builder(into)]
-        pub function_name: pulumi_wasm_rust::Output<String>,
+        pub function_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Alias name or `"$LATEST"`.
         #[builder(into, default)]
-        pub qualifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub qualifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetFunctionUrlResult {
@@ -39,11 +39,14 @@ pub mod get_function_url {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetFunctionUrlArgs) -> GetFunctionUrlResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetFunctionUrlArgs,
+    ) -> GetFunctionUrlResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let function_name_binding = args.function_name.get_inner();
-        let qualifier_binding = args.qualifier.get_inner();
+        let function_name_binding = args.function_name.get_output(context).get_inner();
+        let qualifier_binding = args.qualifier.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lambda/getFunctionUrl:getFunctionUrl".into(),
             version: super::super::super::get_version(),
@@ -93,7 +96,7 @@ pub mod get_function_url {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

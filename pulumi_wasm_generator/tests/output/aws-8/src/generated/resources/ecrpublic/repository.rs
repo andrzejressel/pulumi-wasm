@@ -36,23 +36,23 @@
 /// $ pulumi import aws:ecrpublic/repository:Repository example example
 /// ```
 pub mod repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryArgs {
         /// Catalog data configuration for the repository. See below for schema.
         #[builder(into, default)]
-        pub catalog_data: pulumi_wasm_rust::Output<
+        pub catalog_data: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::ecrpublic::RepositoryCatalogData>,
         >,
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Name of the repository.
         #[builder(into)]
-        pub repository_name: pulumi_wasm_rust::Output<String>,
+        pub repository_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -84,13 +84,20 @@ pub mod repository {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RepositoryArgs) -> RepositoryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RepositoryArgs,
+    ) -> RepositoryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let catalog_data_binding = args.catalog_data.get_inner();
-        let force_destroy_binding = args.force_destroy.get_inner();
-        let repository_name_binding = args.repository_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let catalog_data_binding = args.catalog_data.get_output(context).get_inner();
+        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
+        let repository_name_binding = args
+            .repository_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ecrpublic/repository:Repository".into(),
             name: name.to_string(),
@@ -140,7 +147,7 @@ pub mod repository {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

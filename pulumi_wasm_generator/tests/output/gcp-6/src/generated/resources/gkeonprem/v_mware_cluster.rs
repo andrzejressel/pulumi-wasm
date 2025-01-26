@@ -210,7 +210,7 @@
 /// ```
 ///
 pub mod v_mware_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VMwareClusterArgs {
@@ -219,7 +219,7 @@ pub mod v_mware_cluster {
         /// In the future, references to other resource types might be allowed if
         /// admin clusters are modeled as their own resources.
         #[builder(into)]
-        pub admin_cluster_membership: pulumi_wasm_rust::Output<String>,
+        pub admin_cluster_membership: pulumi_wasm_rust::InputOrOutput<String>,
         /// Annotations on the VMware User Cluster. This field has the same restrictions as Kubernetes annotations. The total size
         /// of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required),
         /// separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with
@@ -227,84 +227,84 @@ pub mod v_mware_cluster {
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// 'effective_annotations' for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// AAGConfig specifies whether to spread VMware User Cluster nodes across at least three physical hosts in the datacenter.
         #[builder(into, default)]
-        pub anti_affinity_groups: pulumi_wasm_rust::Output<
+        pub anti_affinity_groups: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::VMwareClusterAntiAffinityGroups>,
         >,
         /// RBAC policy that will be applied and managed by GKE On-Prem.
         #[builder(into, default)]
-        pub authorization: pulumi_wasm_rust::Output<
+        pub authorization: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::VMwareClusterAuthorization>,
         >,
         /// Configuration for auto repairing.
         #[builder(into, default)]
-        pub auto_repair_config: pulumi_wasm_rust::Output<
+        pub auto_repair_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::VMwareClusterAutoRepairConfig>,
         >,
         /// VMware User Cluster control plane nodes must have either 1 or 3 replicas.
         /// Structure is documented below.
         #[builder(into)]
-        pub control_plane_node: pulumi_wasm_rust::Output<
+        pub control_plane_node: pulumi_wasm_rust::InputOrOutput<
             super::super::types::gkeonprem::VMwareClusterControlPlaneNode,
         >,
         /// VmwareDataplaneV2Config specifies configuration for Dataplane V2.
         #[builder(into, default)]
-        pub dataplane_v2: pulumi_wasm_rust::Output<
+        pub dataplane_v2: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::VMwareClusterDataplaneV2>,
         >,
         /// (Output)
         /// The description of the validation check.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Disable bundled ingress.
         #[builder(into, default)]
-        pub disable_bundled_ingress: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_bundled_ingress: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Enable control plane V2. Default to false.
         #[builder(into, default)]
-        pub enable_control_plane_v2: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_control_plane_v2: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Load Balancer configuration.
         #[builder(into, default)]
-        pub load_balancer: pulumi_wasm_rust::Output<
+        pub load_balancer: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::VMwareClusterLoadBalancer>,
         >,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The VMware cluster name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The VMware User Cluster network configuration.
         #[builder(into, default)]
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::VMwareClusterNetworkConfig>,
         >,
         /// The Anthos clusters on the VMware version for your user cluster.
         #[builder(into)]
-        pub on_prem_version: pulumi_wasm_rust::Output<String>,
+        pub on_prem_version: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Storage configuration.
         #[builder(into, default)]
-        pub storage: pulumi_wasm_rust::Output<
+        pub storage: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::VMwareClusterStorage>,
         >,
         /// Specifies upgrade policy for the cluster.
         #[builder(into, default)]
-        pub upgrade_policy: pulumi_wasm_rust::Output<
+        pub upgrade_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::VMwareClusterUpgradePolicy>,
         >,
         /// VmwareVCenterConfig specifies vCenter config for the user cluster. Inherited from the admin cluster.
         #[builder(into, default)]
-        pub vcenter: pulumi_wasm_rust::Output<
+        pub vcenter: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::VMwareClusterVcenter>,
         >,
         /// Enable VM tracking.
         #[builder(into, default)]
-        pub vm_tracking_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub vm_tracking_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct VMwareClusterResult {
@@ -435,29 +435,57 @@ pub mod v_mware_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VMwareClusterArgs) -> VMwareClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VMwareClusterArgs,
+    ) -> VMwareClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let admin_cluster_membership_binding = args.admin_cluster_membership.get_inner();
-        let annotations_binding = args.annotations.get_inner();
-        let anti_affinity_groups_binding = args.anti_affinity_groups.get_inner();
-        let authorization_binding = args.authorization.get_inner();
-        let auto_repair_config_binding = args.auto_repair_config.get_inner();
-        let control_plane_node_binding = args.control_plane_node.get_inner();
-        let dataplane_v2_binding = args.dataplane_v2.get_inner();
-        let description_binding = args.description.get_inner();
-        let disable_bundled_ingress_binding = args.disable_bundled_ingress.get_inner();
-        let enable_control_plane_v2_binding = args.enable_control_plane_v2.get_inner();
-        let load_balancer_binding = args.load_balancer.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_config_binding = args.network_config.get_inner();
-        let on_prem_version_binding = args.on_prem_version.get_inner();
-        let project_binding = args.project.get_inner();
-        let storage_binding = args.storage.get_inner();
-        let upgrade_policy_binding = args.upgrade_policy.get_inner();
-        let vcenter_binding = args.vcenter.get_inner();
-        let vm_tracking_enabled_binding = args.vm_tracking_enabled.get_inner();
+        let admin_cluster_membership_binding = args
+            .admin_cluster_membership
+            .get_output(context)
+            .get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let anti_affinity_groups_binding = args
+            .anti_affinity_groups
+            .get_output(context)
+            .get_inner();
+        let authorization_binding = args.authorization.get_output(context).get_inner();
+        let auto_repair_config_binding = args
+            .auto_repair_config
+            .get_output(context)
+            .get_inner();
+        let control_plane_node_binding = args
+            .control_plane_node
+            .get_output(context)
+            .get_inner();
+        let dataplane_v2_binding = args.dataplane_v2.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let disable_bundled_ingress_binding = args
+            .disable_bundled_ingress
+            .get_output(context)
+            .get_inner();
+        let enable_control_plane_v2_binding = args
+            .enable_control_plane_v2
+            .get_output(context)
+            .get_inner();
+        let load_balancer_binding = args.load_balancer.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_config_binding = args.network_config.get_output(context).get_inner();
+        let on_prem_version_binding = args
+            .on_prem_version
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let storage_binding = args.storage.get_output(context).get_inner();
+        let upgrade_policy_binding = args.upgrade_policy.get_output(context).get_inner();
+        let vcenter_binding = args.vcenter.get_output(context).get_inner();
+        let vm_tracking_enabled_binding = args
+            .vm_tracking_enabled
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkeonprem/vMwareCluster:VMwareCluster".into(),
             name: name.to_string(),
@@ -646,7 +674,7 @@ pub mod v_mware_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

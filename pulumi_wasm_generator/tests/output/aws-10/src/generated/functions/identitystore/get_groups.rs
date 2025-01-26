@@ -1,11 +1,11 @@
 pub mod get_groups {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetGroupsArgs {
         /// Identity Store ID associated with the Single Sign-On (SSO) Instance.
         #[builder(into)]
-        pub identity_store_id: pulumi_wasm_rust::Output<String>,
+        pub identity_store_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetGroupsResult {
@@ -21,10 +21,16 @@ pub mod get_groups {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetGroupsArgs) -> GetGroupsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetGroupsArgs,
+    ) -> GetGroupsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let identity_store_id_binding = args.identity_store_id.get_inner();
+        let identity_store_id_binding = args
+            .identity_store_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:identitystore/getGroups:getGroups".into(),
             version: super::super::super::get_version(),
@@ -46,7 +52,7 @@ pub mod get_groups {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

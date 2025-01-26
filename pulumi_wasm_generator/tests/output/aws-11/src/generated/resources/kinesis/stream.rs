@@ -31,43 +31,43 @@
 /// $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
 /// ```
 pub mod stream {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StreamArgs {
         /// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
         #[builder(into, default)]
-        pub arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         #[builder(into, default)]
-        pub encryption_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub encryption_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         #[builder(into, default)]
-        pub enforce_consumer_deletion: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enforce_consumer_deletion: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         #[builder(into, default)]
-        pub retention_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_period: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
         /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         #[builder(into, default)]
-        pub shard_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub shard_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         #[builder(into, default)]
-        pub shard_level_metrics: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub shard_level_metrics: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         #[builder(into, default)]
-        pub stream_mode_details: pulumi_wasm_rust::Output<
+        pub stream_mode_details: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::kinesis::StreamStreamModeDetails>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -107,21 +107,38 @@ pub mod stream {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StreamArgs) -> StreamResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StreamArgs,
+    ) -> StreamResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_inner();
-        let encryption_type_binding = args.encryption_type.get_inner();
+        let arn_binding = args.arn.get_output(context).get_inner();
+        let encryption_type_binding = args
+            .encryption_type
+            .get_output(context)
+            .get_inner();
         let enforce_consumer_deletion_binding = args
             .enforce_consumer_deletion
+            .get_output(context)
             .get_inner();
-        let kms_key_id_binding = args.kms_key_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let retention_period_binding = args.retention_period.get_inner();
-        let shard_count_binding = args.shard_count.get_inner();
-        let shard_level_metrics_binding = args.shard_level_metrics.get_inner();
-        let stream_mode_details_binding = args.stream_mode_details.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let kms_key_id_binding = args.kms_key_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let retention_period_binding = args
+            .retention_period
+            .get_output(context)
+            .get_inner();
+        let shard_count_binding = args.shard_count.get_output(context).get_inner();
+        let shard_level_metrics_binding = args
+            .shard_level_metrics
+            .get_output(context)
+            .get_inner();
+        let stream_mode_details_binding = args
+            .stream_mode_details
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kinesis/stream:Stream".into(),
             name: name.to_string(),
@@ -204,7 +221,7 @@ pub mod stream {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

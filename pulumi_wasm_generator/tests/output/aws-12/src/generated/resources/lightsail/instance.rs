@@ -75,48 +75,48 @@
 /// $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
 /// ```
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// The add on configuration for the instance. Detailed below.
         #[builder(into, default)]
-        pub add_on: pulumi_wasm_rust::Output<
+        pub add_on: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::lightsail::InstanceAddOn>,
         >,
         /// The Availability Zone in which to create your instance. A
         /// list of available zones can be obtained using the AWS CLI command:
         /// [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
         #[builder(into)]
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID for a virtual private server image. A list of available
         /// blueprint IDs can be obtained using the AWS CLI command:
         /// [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
         #[builder(into)]
-        pub blueprint_id: pulumi_wasm_rust::Output<String>,
+        pub blueprint_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The bundle of specification information. A list of available
         /// bundle IDs can be obtained using the AWS CLI command:
         /// [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
         #[builder(into)]
-        pub bundle_id: pulumi_wasm_rust::Output<String>,
+        pub bundle_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
         #[builder(into, default)]
-        pub ip_address_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of your key pair. Created in the
         /// Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
         #[builder(into, default)]
-        pub key_pair_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_pair_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Single lined launch script as a string to configure server with additional user data
         #[builder(into, default)]
-        pub user_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
@@ -176,18 +176,28 @@ pub mod instance {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InstanceArgs) -> InstanceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InstanceArgs,
+    ) -> InstanceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let add_on_binding = args.add_on.get_inner();
-        let availability_zone_binding = args.availability_zone.get_inner();
-        let blueprint_id_binding = args.blueprint_id.get_inner();
-        let bundle_id_binding = args.bundle_id.get_inner();
-        let ip_address_type_binding = args.ip_address_type.get_inner();
-        let key_pair_name_binding = args.key_pair_name.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let user_data_binding = args.user_data.get_inner();
+        let add_on_binding = args.add_on.get_output(context).get_inner();
+        let availability_zone_binding = args
+            .availability_zone
+            .get_output(context)
+            .get_inner();
+        let blueprint_id_binding = args.blueprint_id.get_output(context).get_inner();
+        let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
+        let ip_address_type_binding = args
+            .ip_address_type
+            .get_output(context)
+            .get_inner();
+        let key_pair_name_binding = args.key_pair_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let user_data_binding = args.user_data.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lightsail/instance:Instance".into(),
             name: name.to_string(),
@@ -290,7 +300,7 @@ pub mod instance {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

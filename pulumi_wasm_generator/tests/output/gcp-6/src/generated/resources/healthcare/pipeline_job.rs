@@ -282,14 +282,14 @@
 /// ```
 ///
 pub mod pipeline_job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PipelineJobArgs {
         /// Specifies the backfill configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub backfill_pipeline_job: pulumi_wasm_rust::Output<
+        pub backfill_pipeline_job: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::healthcare::PipelineJobBackfillPipelineJob>,
         >,
         /// Healthcare Dataset under which the Pipeline Job is to run
@@ -297,10 +297,10 @@ pub mod pipeline_job {
         ///
         /// - - -
         #[builder(into)]
-        pub dataset: pulumi_wasm_rust::Output<String>,
+        pub dataset: pulumi_wasm_rust::InputOrOutput<String>,
         /// If true, disables writing lineage for the pipeline.
         #[builder(into, default)]
-        pub disable_lineage: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_lineage: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// User-supplied key-value pairs used to organize Pipeline Jobs.
         /// Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of
         /// maximum 128 bytes, and must conform to the following PCRE regular expression:
@@ -315,25 +315,25 @@ pub mod pipeline_job {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Location where the Pipeline Job is to run
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies mapping configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub mapping_pipeline_job: pulumi_wasm_rust::Output<
+        pub mapping_pipeline_job: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::healthcare::PipelineJobMappingPipelineJob>,
         >,
         /// Specifies the name of the pipeline job. This field is user-assigned.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies reconciliation configuration.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub reconciliation_pipeline_job: pulumi_wasm_rust::Output<
+        pub reconciliation_pipeline_job: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::healthcare::PipelineJobReconciliationPipelineJob>,
         >,
     }
@@ -397,18 +397,32 @@ pub mod pipeline_job {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PipelineJobArgs) -> PipelineJobResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PipelineJobArgs,
+    ) -> PipelineJobResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let backfill_pipeline_job_binding = args.backfill_pipeline_job.get_inner();
-        let dataset_binding = args.dataset.get_inner();
-        let disable_lineage_binding = args.disable_lineage.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let mapping_pipeline_job_binding = args.mapping_pipeline_job.get_inner();
-        let name_binding = args.name.get_inner();
+        let backfill_pipeline_job_binding = args
+            .backfill_pipeline_job
+            .get_output(context)
+            .get_inner();
+        let dataset_binding = args.dataset.get_output(context).get_inner();
+        let disable_lineage_binding = args
+            .disable_lineage
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let mapping_pipeline_job_binding = args
+            .mapping_pipeline_job
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let reconciliation_pipeline_job_binding = args
             .reconciliation_pipeline_job
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:healthcare/pipelineJob:PipelineJob".into(),
@@ -484,7 +498,7 @@ pub mod pipeline_job {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -26,7 +26,6 @@ interface external-world {
 }
 
 interface log {
-
     enum level {
         TRACE,
         DEBUG,
@@ -53,5 +52,5 @@ interface pulumi-settings {
 }
 
 interface pulumi-main {
-    main: func();
+    main: func(in-preview: bool);
 }

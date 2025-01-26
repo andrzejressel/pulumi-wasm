@@ -75,28 +75,28 @@
 /// ```
 ///
 pub mod spring_cloud_app_mysql_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudAppMysqlAssociationArgs {
         /// Specifies the name of the MySQL Database which the Spring Cloud App should be associated with.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the ID of the MySQL Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub mysql_server_id: pulumi_wasm_rust::Output<String>,
+        pub mysql_server_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the password which should be used when connecting to the MySQL Database from the Spring Cloud App.
         #[builder(into)]
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub spring_cloud_app_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_app_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the username which should be used when connecting to the MySQL Database from the Spring Cloud App.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudAppMysqlAssociationResult {
@@ -118,17 +118,24 @@ pub mod spring_cloud_app_mysql_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: SpringCloudAppMysqlAssociationArgs,
     ) -> SpringCloudAppMysqlAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let database_name_binding = args.database_name.get_inner();
-        let mysql_server_id_binding = args.mysql_server_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let password_binding = args.password.get_inner();
-        let spring_cloud_app_id_binding = args.spring_cloud_app_id.get_inner();
-        let username_binding = args.username.get_inner();
+        let database_name_binding = args.database_name.get_output(context).get_inner();
+        let mysql_server_id_binding = args
+            .mysql_server_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let password_binding = args.password.get_output(context).get_inner();
+        let spring_cloud_app_id_binding = args
+            .spring_cloud_app_id
+            .get_output(context)
+            .get_inner();
+        let username_binding = args.username.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appplatform/springCloudAppMysqlAssociation:SpringCloudAppMysqlAssociation"
                 .into(),
@@ -181,7 +188,7 @@ pub mod spring_cloud_app_mysql_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

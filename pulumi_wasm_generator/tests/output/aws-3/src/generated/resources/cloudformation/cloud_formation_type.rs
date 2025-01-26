@@ -10,27 +10,27 @@
 /// $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
 /// ```
 pub mod cloud_formation_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CloudFormationTypeArgs {
         /// Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
         #[builder(into, default)]
-        pub execution_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub execution_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block containing logging configuration.
         #[builder(into, default)]
-        pub logging_config: pulumi_wasm_rust::Output<
+        pub logging_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudformation::CloudFormationTypeLoggingConfig>,
         >,
         /// URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
         #[builder(into)]
-        pub schema_handler_package: pulumi_wasm_rust::Output<String>,
+        pub schema_handler_package: pulumi_wasm_rust::InputOrOutput<String>,
         /// CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
         #[builder(into)]
-        pub type_name: pulumi_wasm_rust::Output<String>,
+        pub type_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CloudFormationTypeResult {
@@ -75,14 +75,24 @@ pub mod cloud_formation_type {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CloudFormationTypeArgs) -> CloudFormationTypeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CloudFormationTypeArgs,
+    ) -> CloudFormationTypeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let execution_role_arn_binding = args.execution_role_arn.get_inner();
-        let logging_config_binding = args.logging_config.get_inner();
-        let schema_handler_package_binding = args.schema_handler_package.get_inner();
-        let type__binding = args.type_.get_inner();
-        let type_name_binding = args.type_name.get_inner();
+        let execution_role_arn_binding = args
+            .execution_role_arn
+            .get_output(context)
+            .get_inner();
+        let logging_config_binding = args.logging_config.get_output(context).get_inner();
+        let schema_handler_package_binding = args
+            .schema_handler_package
+            .get_output(context)
+            .get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let type_name_binding = args.type_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudformation/cloudFormationType:CloudFormationType".into(),
             name: name.to_string(),
@@ -163,7 +173,7 @@ pub mod cloud_formation_type {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

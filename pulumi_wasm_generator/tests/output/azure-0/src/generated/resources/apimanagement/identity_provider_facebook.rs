@@ -46,22 +46,22 @@
 /// ```
 ///
 pub mod identity_provider_facebook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IdentityProviderFacebookArgs {
         /// The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// App ID for Facebook.
         #[builder(into)]
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// App Secret for Facebook.
         #[builder(into)]
-        pub app_secret: pulumi_wasm_rust::Output<String>,
+        pub app_secret: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IdentityProviderFacebookResult {
@@ -79,15 +79,22 @@ pub mod identity_provider_facebook {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IdentityProviderFacebookArgs,
     ) -> IdentityProviderFacebookResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_name_binding = args.api_management_name.get_inner();
-        let app_id_binding = args.app_id.get_inner();
-        let app_secret_binding = args.app_secret.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
+        let api_management_name_binding = args
+            .api_management_name
+            .get_output(context)
+            .get_inner();
+        let app_id_binding = args.app_id.get_output(context).get_inner();
+        let app_secret_binding = args.app_secret.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook"
                 .into(),
@@ -126,7 +133,7 @@ pub mod identity_provider_facebook {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

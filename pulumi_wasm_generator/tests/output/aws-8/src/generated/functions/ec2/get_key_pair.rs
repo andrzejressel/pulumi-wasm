@@ -1,25 +1,25 @@
 pub mod get_key_pair {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetKeyPairArgs {
         /// Custom filter block as described below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetKeyPairFilter>>,
         >,
         /// Whether to include the public key material in the response.
         #[builder(into, default)]
-        pub include_public_key: pulumi_wasm_rust::Output<Option<bool>>,
+        pub include_public_key: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Key Pair name.
         #[builder(into, default)]
-        pub key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key Pair ID.
         #[builder(into, default)]
-        pub key_pair_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_pair_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Any tags assigned to the Key Pair.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -50,14 +50,20 @@ pub mod get_key_pair {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetKeyPairArgs) -> GetKeyPairResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetKeyPairArgs,
+    ) -> GetKeyPairResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let include_public_key_binding = args.include_public_key.get_inner();
-        let key_name_binding = args.key_name.get_inner();
-        let key_pair_id_binding = args.key_pair_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let include_public_key_binding = args
+            .include_public_key
+            .get_output(context)
+            .get_inner();
+        let key_name_binding = args.key_name.get_output(context).get_inner();
+        let key_pair_id_binding = args.key_pair_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getKeyPair:getKeyPair".into(),
             version: super::super::super::get_version(),
@@ -119,7 +125,7 @@ pub mod get_key_pair {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

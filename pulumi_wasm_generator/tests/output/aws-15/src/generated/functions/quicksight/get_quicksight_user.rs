@@ -1,19 +1,19 @@
 pub mod get_quicksight_user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetQuicksightUserArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// QuickSight namespace. Defaults to `default`.
         #[builder(into, default)]
-        pub namespace: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the user that you want to match.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetQuicksightUserResult {
@@ -42,12 +42,15 @@ pub mod get_quicksight_user {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetQuicksightUserArgs) -> GetQuicksightUserResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetQuicksightUserArgs,
+    ) -> GetQuicksightUserResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_inner();
-        let namespace_binding = args.namespace.get_inner();
-        let user_name_binding = args.user_name.get_inner();
+        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
+        let namespace_binding = args.namespace.get_output(context).get_inner();
+        let user_name_binding = args.user_name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:quicksight/getQuicksightUser:getQuicksightUser".into(),
             version: super::super::super::get_version(),
@@ -98,7 +101,7 @@ pub mod get_quicksight_user {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -29,24 +29,24 @@
 /// ```
 ///
 pub mod standards_control_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StandardsControlAssociationArgs {
         /// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
         #[builder(into)]
-        pub association_status: pulumi_wasm_rust::Output<String>,
+        pub association_status: pulumi_wasm_rust::InputOrOutput<String>,
         /// The unique identifier for the security control whose enablement status you want to update.
         #[builder(into)]
-        pub security_control_id: pulumi_wasm_rust::Output<String>,
+        pub security_control_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub standards_arn: pulumi_wasm_rust::Output<String>,
+        pub standards_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The reason for updating the control's enablement status in the standard. Required when `association_status` is `DISABLED`.
         #[builder(into, default)]
-        pub updated_reason: pulumi_wasm_rust::Output<Option<String>>,
+        pub updated_reason: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct StandardsControlAssociationResult {
@@ -66,15 +66,22 @@ pub mod standards_control_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: StandardsControlAssociationArgs,
     ) -> StandardsControlAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let association_status_binding = args.association_status.get_inner();
-        let security_control_id_binding = args.security_control_id.get_inner();
-        let standards_arn_binding = args.standards_arn.get_inner();
-        let updated_reason_binding = args.updated_reason.get_inner();
+        let association_status_binding = args
+            .association_status
+            .get_output(context)
+            .get_inner();
+        let security_control_id_binding = args
+            .security_control_id
+            .get_output(context)
+            .get_inner();
+        let standards_arn_binding = args.standards_arn.get_output(context).get_inner();
+        let updated_reason_binding = args.updated_reason.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/standardsControlAssociation:StandardsControlAssociation"
                 .into(),
@@ -113,7 +120,7 @@ pub mod standards_control_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

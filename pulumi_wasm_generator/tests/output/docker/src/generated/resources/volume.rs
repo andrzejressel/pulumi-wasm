@@ -48,24 +48,26 @@
 /// ```
 ///
 pub mod volume {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VolumeArgs {
         /// Driver type for the volume. Defaults to `local`.
         #[builder(into, default)]
-        pub driver: pulumi_wasm_rust::Output<Option<String>>,
+        pub driver: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Options specific to the driver.
         #[builder(into, default)]
-        pub driver_opts: pulumi_wasm_rust::Output<
+        pub driver_opts: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// User-defined key/value metadata
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<Option<Vec<super::types::VolumeLabel>>>,
+        pub labels: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<super::types::VolumeLabel>>,
+        >,
         /// The name of the Docker volume (will be generated if not provided).
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VolumeResult {
@@ -86,13 +88,17 @@ pub mod volume {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VolumeArgs) -> VolumeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VolumeArgs,
+    ) -> VolumeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let driver_binding = args.driver.get_inner();
-        let driver_opts_binding = args.driver_opts.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
+        let driver_binding = args.driver.get_output(context).get_inner();
+        let driver_opts_binding = args.driver_opts.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "docker:index/volume:Volume".into(),
             name: name.to_string(),
@@ -133,7 +139,7 @@ pub mod volume {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

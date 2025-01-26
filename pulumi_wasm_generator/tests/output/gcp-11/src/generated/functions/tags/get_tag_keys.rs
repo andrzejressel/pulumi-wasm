@@ -1,11 +1,11 @@
 pub mod get_tag_keys {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetTagKeysArgs {
         /// The resource name of the parent organization or project. It can be in format `organizations/{org_id}` or `projects/{project_id_or_number}`.
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetTagKeysResult {
@@ -21,10 +21,13 @@ pub mod get_tag_keys {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetTagKeysArgs) -> GetTagKeysResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetTagKeysArgs,
+    ) -> GetTagKeysResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let parent_binding = args.parent.get_inner();
+        let parent_binding = args.parent.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:tags/getTagKeys:getTagKeys".into(),
             version: super::super::super::get_version(),
@@ -46,7 +49,7 @@ pub mod get_tag_keys {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

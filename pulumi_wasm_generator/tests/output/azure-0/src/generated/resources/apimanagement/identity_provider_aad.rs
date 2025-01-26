@@ -47,31 +47,31 @@
 /// ```
 ///
 pub mod identity_provider_aad {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IdentityProviderAadArgs {
         /// List of allowed AAD Tenants.
         #[builder(into)]
-        pub allowed_tenants: pulumi_wasm_rust::Output<Vec<String>>,
+        pub allowed_tenants: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Client Id of the Application in the AAD Identity Provider.
         #[builder(into)]
-        pub client_id: pulumi_wasm_rust::Output<String>,
+        pub client_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The client library to be used in the AAD Identity Provider.
         #[builder(into, default)]
-        pub client_library: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_library: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Client secret of the Application in the AAD Identity Provider.
         #[builder(into)]
-        pub client_secret: pulumi_wasm_rust::Output<String>,
+        pub client_secret: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The AAD Tenant to use instead of Common when logging into Active Directory.
         #[builder(into, default)]
-        pub signin_tenant: pulumi_wasm_rust::Output<Option<String>>,
+        pub signin_tenant: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct IdentityProviderAadResult {
@@ -95,18 +95,28 @@ pub mod identity_provider_aad {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IdentityProviderAadArgs,
     ) -> IdentityProviderAadResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allowed_tenants_binding = args.allowed_tenants.get_inner();
-        let api_management_name_binding = args.api_management_name.get_inner();
-        let client_id_binding = args.client_id.get_inner();
-        let client_library_binding = args.client_library.get_inner();
-        let client_secret_binding = args.client_secret.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let signin_tenant_binding = args.signin_tenant.get_inner();
+        let allowed_tenants_binding = args
+            .allowed_tenants
+            .get_output(context)
+            .get_inner();
+        let api_management_name_binding = args
+            .api_management_name
+            .get_output(context)
+            .get_inner();
+        let client_id_binding = args.client_id.get_output(context).get_inner();
+        let client_library_binding = args.client_library.get_output(context).get_inner();
+        let client_secret_binding = args.client_secret.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let signin_tenant_binding = args.signin_tenant.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:apimanagement/identityProviderAad:IdentityProviderAad".into(),
             name: name.to_string(),
@@ -165,7 +175,7 @@ pub mod identity_provider_aad {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

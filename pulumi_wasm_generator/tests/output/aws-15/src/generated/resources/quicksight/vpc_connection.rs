@@ -54,42 +54,42 @@
 /// $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
 /// ```
 pub mod vpc_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcConnectionArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A list of IP addresses of DNS resolver endpoints for the VPC connection.
         #[builder(into, default)]
-        pub dns_resolvers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns_resolvers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The display name for the VPC connection.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IAM role to associate with the VPC connection.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of security group IDs for the VPC connection.
         #[builder(into)]
-        pub security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// A list of subnet IDs for the VPC connection.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::quicksight::VpcConnectionTimeouts>,
         >,
         /// The ID of the VPC connection.
         #[builder(into)]
-        pub vpc_connection_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_connection_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcConnectionResult {
@@ -129,18 +129,28 @@ pub mod vpc_connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VpcConnectionArgs) -> VpcConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VpcConnectionArgs,
+    ) -> VpcConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aws_account_id_binding = args.aws_account_id.get_inner();
-        let dns_resolvers_binding = args.dns_resolvers.get_inner();
-        let name_binding = args.name.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let security_group_ids_binding = args.security_group_ids.get_inner();
-        let subnet_ids_binding = args.subnet_ids.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
-        let vpc_connection_id_binding = args.vpc_connection_id.get_inner();
+        let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
+        let dns_resolvers_binding = args.dns_resolvers.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let security_group_ids_binding = args
+            .security_group_ids
+            .get_output(context)
+            .get_inner();
+        let subnet_ids_binding = args.subnet_ids.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let vpc_connection_id_binding = args
+            .vpc_connection_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:quicksight/vpcConnection:VpcConnection".into(),
             name: name.to_string(),
@@ -222,7 +232,7 @@ pub mod vpc_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

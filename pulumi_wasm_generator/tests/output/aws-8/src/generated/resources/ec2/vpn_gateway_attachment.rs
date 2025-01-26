@@ -35,16 +35,16 @@
 /// You cannot import this resource.
 ///
 pub mod vpn_gateway_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpnGatewayAttachmentArgs {
         /// The ID of the VPC.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Virtual Private Gateway.
         #[builder(into)]
-        pub vpn_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub vpn_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpnGatewayAttachmentResult {
@@ -58,13 +58,14 @@ pub mod vpn_gateway_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: VpnGatewayAttachmentArgs,
     ) -> VpnGatewayAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let vpc_id_binding = args.vpc_id.get_inner();
-        let vpn_gateway_id_binding = args.vpn_gateway_id.get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
+        let vpn_gateway_id_binding = args.vpn_gateway_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment".into(),
             name: name.to_string(),
@@ -88,7 +89,7 @@ pub mod vpn_gateway_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

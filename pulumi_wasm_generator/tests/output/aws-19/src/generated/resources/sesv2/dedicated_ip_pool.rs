@@ -41,7 +41,7 @@
 /// $ pulumi import aws:sesv2/dedicatedIpPool:DedicatedIpPool example my-pool
 /// ```
 pub mod dedicated_ip_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DedicatedIpPoolArgs {
@@ -49,13 +49,13 @@ pub mod dedicated_ip_pool {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub pool_name: pulumi_wasm_rust::Output<String>,
+        pub pool_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`. If omitted, the AWS API will default to a standard pool.
         #[builder(into, default)]
-        pub scaling_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub scaling_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -81,12 +81,16 @@ pub mod dedicated_ip_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DedicatedIpPoolArgs) -> DedicatedIpPoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DedicatedIpPoolArgs,
+    ) -> DedicatedIpPoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let pool_name_binding = args.pool_name.get_inner();
-        let scaling_mode_binding = args.scaling_mode.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let pool_name_binding = args.pool_name.get_output(context).get_inner();
+        let scaling_mode_binding = args.scaling_mode.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sesv2/dedicatedIpPool:DedicatedIpPool".into(),
             name: name.to_string(),
@@ -123,7 +127,7 @@ pub mod dedicated_ip_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

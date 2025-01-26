@@ -119,7 +119,7 @@
 /// ```
 ///
 pub mod environment_keyvaluemaps_entries {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentKeyvaluemapsEntriesArgs {
@@ -129,13 +129,13 @@ pub mod environment_keyvaluemaps_entries {
         ///
         /// - - -
         #[builder(into)]
-        pub env_keyvaluemap_id: pulumi_wasm_rust::Output<String>,
+        pub env_keyvaluemap_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Required. Resource URI that can be used to identify the scope of the key value map entries.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. Data or payload that is being retrieved and associated with the unique key.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentKeyvaluemapsEntriesResult {
@@ -155,14 +155,18 @@ pub mod environment_keyvaluemaps_entries {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: EnvironmentKeyvaluemapsEntriesArgs,
     ) -> EnvironmentKeyvaluemapsEntriesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let env_keyvaluemap_id_binding = args.env_keyvaluemap_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let value_binding = args.value.get_inner();
+        let env_keyvaluemap_id_binding = args
+            .env_keyvaluemap_id
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let value_binding = args.value.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apigee/environmentKeyvaluemapsEntries:EnvironmentKeyvaluemapsEntries"
                 .into(),
@@ -194,7 +198,7 @@ pub mod environment_keyvaluemaps_entries {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

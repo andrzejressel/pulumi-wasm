@@ -32,22 +32,22 @@
 /// $ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH
 /// ```
 pub mod ssh_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SshKeyArgs {
         /// Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
         #[builder(into)]
-        pub encoding: pulumi_wasm_rust::Output<String>,
+        pub encoding: pulumi_wasm_rust::InputOrOutput<String>,
         /// The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
         #[builder(into)]
-        pub public_key: pulumi_wasm_rust::Output<String>,
+        pub public_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the IAM user to associate the SSH public key with.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SshKeyResult {
@@ -68,13 +68,17 @@ pub mod ssh_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SshKeyArgs) -> SshKeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SshKeyArgs,
+    ) -> SshKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let encoding_binding = args.encoding.get_inner();
-        let public_key_binding = args.public_key.get_inner();
-        let status_binding = args.status.get_inner();
-        let username_binding = args.username.get_inner();
+        let encoding_binding = args.encoding.get_output(context).get_inner();
+        let public_key_binding = args.public_key.get_output(context).get_inner();
+        let status_binding = args.status.get_output(context).get_inner();
+        let username_binding = args.username.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/sshKey:SshKey".into(),
             name: name.to_string(),
@@ -118,7 +122,7 @@ pub mod ssh_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

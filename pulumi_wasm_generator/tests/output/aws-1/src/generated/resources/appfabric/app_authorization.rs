@@ -36,36 +36,36 @@
 /// }
 /// ```
 pub mod app_authorization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppAuthorizationArgs {
         /// The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
         #[builder(into)]
-        pub app: pulumi_wasm_rust::Output<String>,
+        pub app: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
         #[builder(into)]
-        pub app_bundle_arn: pulumi_wasm_rust::Output<String>,
+        pub app_bundle_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// The authorization type for the app authorization valid values are oauth2 and apiKey.
         #[builder(into)]
-        pub auth_type: pulumi_wasm_rust::Output<String>,
+        pub auth_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
         /// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
         #[builder(into, default)]
-        pub credential: pulumi_wasm_rust::Output<
+        pub credential: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appfabric::AppAuthorizationCredential>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Contains information about an application tenant, such as the application display name and identifier.
         #[builder(into, default)]
-        pub tenants: pulumi_wasm_rust::Output<
+        pub tenants: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::appfabric::AppAuthorizationTenant>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::appfabric::AppAuthorizationTimeouts>,
         >,
     }
@@ -108,16 +108,20 @@ pub mod app_authorization {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AppAuthorizationArgs) -> AppAuthorizationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AppAuthorizationArgs,
+    ) -> AppAuthorizationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_binding = args.app.get_inner();
-        let app_bundle_arn_binding = args.app_bundle_arn.get_inner();
-        let auth_type_binding = args.auth_type.get_inner();
-        let credential_binding = args.credential.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tenants_binding = args.tenants.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let app_binding = args.app.get_output(context).get_inner();
+        let app_bundle_arn_binding = args.app_bundle_arn.get_output(context).get_inner();
+        let auth_type_binding = args.auth_type.get_output(context).get_inner();
+        let credential_binding = args.credential.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tenants_binding = args.tenants.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:appfabric/appAuthorization:AppAuthorization".into(),
             name: name.to_string(),
@@ -194,7 +198,7 @@ pub mod app_authorization {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

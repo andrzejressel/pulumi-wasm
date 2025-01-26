@@ -44,16 +44,16 @@
 /// ```
 ///
 pub mod get_host_pool_registration_info {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct getHostPoolRegistrationInfoArgs {
         /// A valid `RFC3339Time` for the expiration of the token..
         #[builder(into)]
-        pub expiration_date: pulumi_wasm_rust::Output<String>,
+        pub expiration_date: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Virtual Desktop Host Pool to link the Registration Info to. Changing this forces a new Registration Info resource to be created. Only a single virtual_desktop_host_pool_registration_info resource should be associated with a given hostpool. Assigning multiple resources will produce inconsistent results.
         #[builder(into)]
-        pub hostpool_id: pulumi_wasm_rust::Output<String>,
+        pub hostpool_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct getHostPoolRegistrationInfoResult {
@@ -69,13 +69,17 @@ pub mod get_host_pool_registration_info {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: getHostPoolRegistrationInfoArgs,
     ) -> getHostPoolRegistrationInfoResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let expiration_date_binding = args.expiration_date.get_inner();
-        let hostpool_id_binding = args.hostpool_id.get_inner();
+        let expiration_date_binding = args
+            .expiration_date
+            .get_output(context)
+            .get_inner();
+        let hostpool_id_binding = args.hostpool_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo"
                 .into(),
@@ -103,7 +107,7 @@ pub mod get_host_pool_registration_info {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

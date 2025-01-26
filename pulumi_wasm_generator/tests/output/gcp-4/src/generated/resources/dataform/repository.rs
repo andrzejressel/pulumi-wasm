@@ -90,30 +90,30 @@
 /// ```
 ///
 pub mod repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryArgs {
         /// Optional. The repository's user-friendly name.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. If set, configures this repository to be linked to a Git remote.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub git_remote_settings: pulumi_wasm_rust::Output<
+        pub git_remote_settings: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::dataform::RepositoryGitRemoteSettings>,
         >,
         /// Optional. The reference to a KMS encryption key. If provided, it will be used to encrypt user data in the repository and all child resources.
         /// It is not possible to add or update the encryption key after the repository is created. Example projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. Repository user labels.
         /// An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The repository's name.
@@ -121,26 +121,26 @@ pub mod repository {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. The name of the Secret Manager secret version to be used to interpolate variables into the .npmrc file for package installation operations. Must be in the format projects/*/secrets/*/versions/*. The file itself must be in a JSON format.
         #[builder(into, default)]
-        pub npmrc_environment_variables_secret_version: pulumi_wasm_rust::Output<
+        pub npmrc_environment_variables_secret_version: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A reference to the region
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The service account to run workflow invocations under.
         #[builder(into, default)]
-        pub service_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If set, fields of workspaceCompilationOverrides override the default compilation settings that are specified in dataform.json when creating workspace-scoped compilation results.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub workspace_compilation_overrides: pulumi_wasm_rust::Output<
+        pub workspace_compilation_overrides: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::dataform::RepositoryWorkspaceCompilationOverrides,
             >,
@@ -203,22 +203,34 @@ pub mod repository {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RepositoryArgs) -> RepositoryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RepositoryArgs,
+    ) -> RepositoryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_inner();
-        let git_remote_settings_binding = args.git_remote_settings.get_inner();
-        let kms_key_name_binding = args.kms_key_name.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let git_remote_settings_binding = args
+            .git_remote_settings
+            .get_output(context)
+            .get_inner();
+        let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let npmrc_environment_variables_secret_version_binding = args
             .npmrc_environment_variables_secret_version
+            .get_output(context)
             .get_inner();
-        let project_binding = args.project.get_inner();
-        let region_binding = args.region.get_inner();
-        let service_account_binding = args.service_account.get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
+        let service_account_binding = args
+            .service_account
+            .get_output(context)
+            .get_inner();
         let workspace_compilation_overrides_binding = args
             .workspace_compilation_overrides
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:dataform/repository:Repository".into(),
@@ -305,7 +317,7 @@ pub mod repository {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

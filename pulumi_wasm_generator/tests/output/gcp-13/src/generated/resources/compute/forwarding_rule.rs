@@ -901,7 +901,7 @@
 /// ```
 ///
 pub mod forwarding_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ForwardingRuleArgs {
@@ -920,7 +920,7 @@ pub mod forwarding_rule {
         /// forwarding rule. The L3_DEFAULT protocol requires `allPorts` be set to
         /// true.
         #[builder(into, default)]
-        pub all_ports: pulumi_wasm_rust::Output<Option<bool>>,
+        pub all_ports: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// This field is used along with the `backend_service` field for
         /// internal load balancing or with the `target` field for internal
         /// TargetInstance.
@@ -929,19 +929,19 @@ pub mod forwarding_rule {
         /// Otherwise only allows access from clients in the same region as the
         /// internal load balancer.
         #[builder(into, default)]
-        pub allow_global_access: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_global_access: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// This is used in PSC consumer ForwardingRule to control whether the PSC endpoint can be accessed from another region.
         #[builder(into, default)]
-        pub allow_psc_global_access: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_psc_global_access: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Identifies the backend service to which the forwarding rule sends traffic.
         /// Required for Internal TCP/UDP Load Balancing and Network Load Balancing;
         /// must be omitted for all other load balancer types.
         #[builder(into, default)]
-        pub backend_service: pulumi_wasm_rust::Output<Option<String>>,
+        pub backend_service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// IP address for which this forwarding rule accepts traffic. When a client
         /// sends traffic to this IP address, the forwarding rule directs the traffic
         /// to the referenced `target` or `backendService`.
@@ -974,7 +974,7 @@ pub mod forwarding_rule {
         /// When reading an `IPAddress`, the API always returns the IP
         /// address number.
         #[builder(into, default)]
-        pub ip_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IP protocol to which this rule applies.
         /// For protocol forwarding, valid
         /// options are `TCP`, `UDP`, `ESP`,
@@ -988,13 +988,13 @@ pub mod forwarding_rule {
         /// A forwarding rule with "L3_DEFAULT" IPProtocal cannot be attached to a backend service with TCP or UDP.
         /// Possible values are: `TCP`, `UDP`, `ESP`, `AH`, `SCTP`, `ICMP`, `L3_DEFAULT`.
         #[builder(into, default)]
-        pub ip_protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The IP address version that will be used by this forwarding rule.
         /// Valid options are IPV4 and IPV6.
         /// If not set, the IPv4 address will be used by default.
         /// Possible values are: `IPV4`, `IPV6`.
         #[builder(into, default)]
-        pub ip_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Indicates whether or not this load balancer can be used as a collector for
         /// packet mirroring. To prevent mirroring loops, instances behind this
         /// load balancer will not have their traffic mirrored even if a
@@ -1002,13 +1002,13 @@ pub mod forwarding_rule {
         /// This can only be set to true for load balancers that have their
         /// `loadBalancingScheme` set to `INTERNAL`.
         #[builder(into, default)]
-        pub is_mirroring_collector: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_mirroring_collector: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Labels to apply to this forwarding rule.  A list of key->value pairs.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the forwarding rule type.
@@ -1017,7 +1017,7 @@ pub mod forwarding_rule {
         /// Default value is `EXTERNAL`.
         /// Possible values are: `EXTERNAL`, `EXTERNAL_MANAGED`, `INTERNAL`, `INTERNAL_MANAGED`.
         #[builder(into, default)]
-        pub load_balancing_scheme: pulumi_wasm_rust::Output<Option<String>>,
+        pub load_balancing_scheme: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the resource; provided by the client when the resource is created.
         /// The name must be 1-63 characters long, and comply with
         /// [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
@@ -1033,7 +1033,7 @@ pub mod forwarding_rule {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// This field is not used for external load balancing.
         /// For Internal TCP/UDP Load Balancing, this field identifies the network that
         /// the load balanced IP should belong to for this Forwarding Rule.
@@ -1043,7 +1043,7 @@ pub mod forwarding_rule {
         /// For Private Service Connect forwarding rules that forward traffic to Google
         /// APIs, a network must be provided.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::Output<Option<String>>,
+        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// This signifies the networking tier used for configuring
         /// this load balancer and can only take the following values:
         /// `PREMIUM`, `STANDARD`.
@@ -1055,10 +1055,10 @@ pub mod forwarding_rule {
         /// networkTier of the Address.
         /// Possible values are: `PREMIUM`, `STANDARD`.
         #[builder(into, default)]
-        pub network_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// This is used in PSC consumer ForwardingRule to control whether it should try to auto-generate a DNS zone or not. Non-PSC forwarding rules do not use this field.
         #[builder(into, default)]
-        pub no_automate_dns_zone: pulumi_wasm_rust::Output<Option<bool>>,
+        pub no_automate_dns_zone: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The `ports`, `portRange`, and `allPorts` fields are mutually exclusive.
         /// Only packets addressed to ports in the specified range will be forwarded
         /// to the backends configured with this forwarding rule.
@@ -1080,7 +1080,7 @@ pub mod forwarding_rule {
         /// cannot have overlapping `portRange`s.
         /// @pattern: \d+(?:-\d+)?
         #[builder(into, default)]
-        pub port_range: pulumi_wasm_rust::Output<Option<String>>,
+        pub port_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The `ports`, `portRange`, and `allPorts` fields are mutually exclusive.
         /// Only packets addressed to ports in the specified range will be forwarded
         /// to the backends configured with this forwarding rule.
@@ -1100,22 +1100,22 @@ pub mod forwarding_rule {
         /// they share at least one port number.
         /// @pattern: \d+(?:-\d+)?
         #[builder(into, default)]
-        pub ports: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ports: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub recreate_closed_psc: pulumi_wasm_rust::Output<Option<bool>>,
+        pub recreate_closed_psc: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A reference to the region where the regional forwarding rule resides.
         /// This field is not applicable to global forwarding rules.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Service Directory resources to register this forwarding rule with.
         /// Currently, only supports a single Service Directory resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub service_directory_registrations: pulumi_wasm_rust::Output<
+        pub service_directory_registrations: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::compute::ForwardingRuleServiceDirectoryRegistrations,
             >,
@@ -1131,10 +1131,10 @@ pub mod forwarding_rule {
         /// character, which cannot be a dash.
         /// This field is only used for INTERNAL load balancing.
         #[builder(into, default)]
-        pub service_label: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If not empty, this Forwarding Rule will only forward the traffic when the source IP address matches one of the IP addresses or CIDR ranges set here. Note that a Forwarding Rule can only have up to 64 source IP ranges, and this field can only be used with a regional Forwarding Rule whose scheme is EXTERNAL. Each sourceIpRange entry should be either an IP address (for example, 1.2.3.4) or a CIDR range (for example, 1.2.3.0/24).
         #[builder(into, default)]
-        pub source_ip_ranges: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub source_ip_ranges: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// This field identifies the subnetwork that the load balanced IP should
         /// belong to for this Forwarding Rule, used in internal load balancing and
         /// network load balancing with IPv6.
@@ -1142,7 +1142,7 @@ pub mod forwarding_rule {
         /// However, a subnetwork must be specified if the network is in custom subnet
         /// mode or when creating external forwarding rule with IPv6.
         #[builder(into, default)]
-        pub subnetwork: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnetwork: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URL of the target resource to receive the matched traffic.  For
         /// regional forwarding rules, this target must be in the same region as the
         /// forwarding rule. For global forwarding rules, this target must be a global
@@ -1154,7 +1154,7 @@ pub mod forwarding_rule {
         /// *  `all-apis` - [All supported Google APIs](https://cloud.google.com/vpc/docs/private-service-connect#supported-apis).
         /// For Private Service Connect forwarding rules that forward traffic to managed services, the target must be a service attachment.
         #[builder(into, default)]
-        pub target: pulumi_wasm_rust::Output<Option<String>>,
+        pub target: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ForwardingRuleResult {
@@ -1413,36 +1413,65 @@ pub mod forwarding_rule {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ForwardingRuleArgs) -> ForwardingRuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ForwardingRuleArgs,
+    ) -> ForwardingRuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let all_ports_binding = args.all_ports.get_inner();
-        let allow_global_access_binding = args.allow_global_access.get_inner();
-        let allow_psc_global_access_binding = args.allow_psc_global_access.get_inner();
-        let backend_service_binding = args.backend_service.get_inner();
-        let description_binding = args.description.get_inner();
-        let ip_address_binding = args.ip_address.get_inner();
-        let ip_protocol_binding = args.ip_protocol.get_inner();
-        let ip_version_binding = args.ip_version.get_inner();
-        let is_mirroring_collector_binding = args.is_mirroring_collector.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let load_balancing_scheme_binding = args.load_balancing_scheme.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
-        let network_tier_binding = args.network_tier.get_inner();
-        let no_automate_dns_zone_binding = args.no_automate_dns_zone.get_inner();
-        let port_range_binding = args.port_range.get_inner();
-        let ports_binding = args.ports.get_inner();
-        let project_binding = args.project.get_inner();
-        let recreate_closed_psc_binding = args.recreate_closed_psc.get_inner();
-        let region_binding = args.region.get_inner();
+        let all_ports_binding = args.all_ports.get_output(context).get_inner();
+        let allow_global_access_binding = args
+            .allow_global_access
+            .get_output(context)
+            .get_inner();
+        let allow_psc_global_access_binding = args
+            .allow_psc_global_access
+            .get_output(context)
+            .get_inner();
+        let backend_service_binding = args
+            .backend_service
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let ip_address_binding = args.ip_address.get_output(context).get_inner();
+        let ip_protocol_binding = args.ip_protocol.get_output(context).get_inner();
+        let ip_version_binding = args.ip_version.get_output(context).get_inner();
+        let is_mirroring_collector_binding = args
+            .is_mirroring_collector
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let load_balancing_scheme_binding = args
+            .load_balancing_scheme
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
+        let network_tier_binding = args.network_tier.get_output(context).get_inner();
+        let no_automate_dns_zone_binding = args
+            .no_automate_dns_zone
+            .get_output(context)
+            .get_inner();
+        let port_range_binding = args.port_range.get_output(context).get_inner();
+        let ports_binding = args.ports.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let recreate_closed_psc_binding = args
+            .recreate_closed_psc
+            .get_output(context)
+            .get_inner();
+        let region_binding = args.region.get_output(context).get_inner();
         let service_directory_registrations_binding = args
             .service_directory_registrations
+            .get_output(context)
             .get_inner();
-        let service_label_binding = args.service_label.get_inner();
-        let source_ip_ranges_binding = args.source_ip_ranges.get_inner();
-        let subnetwork_binding = args.subnetwork.get_inner();
-        let target_binding = args.target.get_inner();
+        let service_label_binding = args.service_label.get_output(context).get_inner();
+        let source_ip_ranges_binding = args
+            .source_ip_ranges
+            .get_output(context)
+            .get_inner();
+        let subnetwork_binding = args.subnetwork.get_output(context).get_inner();
+        let target_binding = args.target.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/forwardingRule:ForwardingRule".into(),
             name: name.to_string(),
@@ -1657,7 +1686,7 @@ pub mod forwarding_rule {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

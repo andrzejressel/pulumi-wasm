@@ -36,18 +36,18 @@
 /// $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
 /// ```
 pub mod region_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionSettingsArgs {
         /// A map of services along with the management preferences for the Region. For more information, see the [AWS Documentation](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateRegionSettings.html#API_UpdateRegionSettings_RequestSyntax).
         #[builder(into, default)]
-        pub resource_type_management_preference: pulumi_wasm_rust::Output<
+        pub resource_type_management_preference: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, bool>>,
         >,
         /// A map of services along with the opt-in preferences for the Region.
         #[builder(into)]
-        pub resource_type_opt_in_preference: pulumi_wasm_rust::Output<
+        pub resource_type_opt_in_preference: pulumi_wasm_rust::InputOrOutput<
             std::collections::HashMap<String, bool>,
         >,
     }
@@ -66,14 +66,20 @@ pub mod region_settings {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RegionSettingsArgs) -> RegionSettingsResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RegionSettingsArgs,
+    ) -> RegionSettingsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let resource_type_management_preference_binding = args
             .resource_type_management_preference
+            .get_output(context)
             .get_inner();
         let resource_type_opt_in_preference_binding = args
             .resource_type_opt_in_preference
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:backup/regionSettings:RegionSettings".into(),
@@ -98,7 +104,7 @@ pub mod region_settings {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

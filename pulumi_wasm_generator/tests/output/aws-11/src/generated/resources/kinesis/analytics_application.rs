@@ -181,41 +181,41 @@
 /// $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
 /// ```
 pub mod analytics_application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AnalyticsApplicationArgs {
         /// The CloudWatch log stream options to monitor application errors.
         /// See CloudWatch Logging Options below for more details.
         #[builder(into, default)]
-        pub cloudwatch_logging_options: pulumi_wasm_rust::Output<
+        pub cloudwatch_logging_options: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::kinesis::AnalyticsApplicationCloudwatchLoggingOptions,
             >,
         >,
         /// SQL Code to transform input data, and generate output.
         #[builder(into, default)]
-        pub code: pulumi_wasm_rust::Output<Option<String>>,
+        pub code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Description of the application.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Input configuration of the application. See Inputs below for more details.
         #[builder(into, default)]
-        pub inputs: pulumi_wasm_rust::Output<
+        pub inputs: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::kinesis::AnalyticsApplicationInputs>,
         >,
         /// Name of the Kinesis Analytics Application.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Output destination configuration of the application. See Outputs below for more details.
         #[builder(into, default)]
-        pub outputs: pulumi_wasm_rust::Output<
+        pub outputs: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::kinesis::AnalyticsApplicationOutput>>,
         >,
         /// An S3 Reference Data Source for the application.
         /// See Reference Data Sources below for more details.
         #[builder(into, default)]
-        pub reference_data_sources: pulumi_wasm_rust::Output<
+        pub reference_data_sources: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::kinesis::AnalyticsApplicationReferenceDataSources,
             >,
@@ -223,10 +223,10 @@ pub mod analytics_application {
         /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
         /// To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         #[builder(into, default)]
-        pub start_application: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start_application: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -287,6 +287,7 @@ pub mod analytics_application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AnalyticsApplicationArgs,
     ) -> AnalyticsApplicationResult {
@@ -294,15 +295,22 @@ pub mod analytics_application {
         use std::collections::HashMap;
         let cloudwatch_logging_options_binding = args
             .cloudwatch_logging_options
+            .get_output(context)
             .get_inner();
-        let code_binding = args.code.get_inner();
-        let description_binding = args.description.get_inner();
-        let inputs_binding = args.inputs.get_inner();
-        let name_binding = args.name.get_inner();
-        let outputs_binding = args.outputs.get_inner();
-        let reference_data_sources_binding = args.reference_data_sources.get_inner();
-        let start_application_binding = args.start_application.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let code_binding = args.code.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let inputs_binding = args.inputs.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let outputs_binding = args.outputs.get_output(context).get_inner();
+        let reference_data_sources_binding = args
+            .reference_data_sources
+            .get_output(context)
+            .get_inner();
+        let start_application_binding = args
+            .start_application
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:kinesis/analyticsApplication:AnalyticsApplication".into(),
             name: name.to_string(),
@@ -393,7 +401,7 @@ pub mod analytics_application {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

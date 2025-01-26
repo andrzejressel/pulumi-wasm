@@ -37,18 +37,18 @@
 /// This resource does not support import.
 ///
 pub mod default_object_acl {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultObjectACLArgs {
         /// The name of the bucket it applies to.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// List of role/entity pairs in the form `ROLE:entity`.
         /// See [GCS Object ACL documentation](https://cloud.google.com/storage/docs/json_api/v1/objectAccessControls) for more details.
         /// Omitting the field is the same as providing an empty list.
         #[builder(into, default)]
-        pub role_entities: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub role_entities: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct DefaultObjectACLResult {
@@ -63,11 +63,15 @@ pub mod default_object_acl {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DefaultObjectACLArgs) -> DefaultObjectACLResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DefaultObjectACLArgs,
+    ) -> DefaultObjectACLResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let role_entities_binding = args.role_entities.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let role_entities_binding = args.role_entities.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/defaultObjectACL:DefaultObjectACL".into(),
             name: name.to_string(),
@@ -91,7 +95,7 @@ pub mod default_object_acl {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -22,7 +22,7 @@
 ///         bucket: an-example-bucket
 /// ```
 pub mod resource {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceArgs {
@@ -30,20 +30,20 @@ pub mod resource {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Flag to enable AWS LakeFormation hybrid access permission mode.
         ///
         /// > **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         #[builder(into, default)]
-        pub hybrid_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub hybrid_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Role that has read/write access to the resource.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Designates an AWS Identity and Access Management (IAM) service-linked role by registering this role with the Data Catalog.
         #[builder(into, default)]
-        pub use_service_linked_role: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_service_linked_role: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub with_federation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub with_federation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ResourceResult {
@@ -67,14 +67,27 @@ pub mod resource {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ResourceArgs) -> ResourceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ResourceArgs,
+    ) -> ResourceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let arn_binding = args.arn.get_inner();
-        let hybrid_access_enabled_binding = args.hybrid_access_enabled.get_inner();
-        let role_arn_binding = args.role_arn.get_inner();
-        let use_service_linked_role_binding = args.use_service_linked_role.get_inner();
-        let with_federation_binding = args.with_federation.get_inner();
+        let arn_binding = args.arn.get_output(context).get_inner();
+        let hybrid_access_enabled_binding = args
+            .hybrid_access_enabled
+            .get_output(context)
+            .get_inner();
+        let role_arn_binding = args.role_arn.get_output(context).get_inner();
+        let use_service_linked_role_binding = args
+            .use_service_linked_role
+            .get_output(context)
+            .get_inner();
+        let with_federation_binding = args
+            .with_federation
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lakeformation/resource:Resource".into(),
             name: name.to_string(),
@@ -122,7 +135,7 @@ pub mod resource {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

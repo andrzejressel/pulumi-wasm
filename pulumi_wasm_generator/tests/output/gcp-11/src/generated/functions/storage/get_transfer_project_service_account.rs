@@ -1,11 +1,11 @@
 pub mod get_transfer_project_service_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetTransferProjectServiceAccountArgs {
         /// The project ID. If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetTransferProjectServiceAccountResult {
@@ -24,11 +24,12 @@ pub mod get_transfer_project_service_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetTransferProjectServiceAccountArgs,
     ) -> GetTransferProjectServiceAccountResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let project_binding = args.project.get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:storage/getTransferProjectServiceAccount:getTransferProjectServiceAccount"
                 .into(),
@@ -57,7 +58,7 @@ pub mod get_transfer_project_service_account {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

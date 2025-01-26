@@ -68,7 +68,7 @@
 /// ```
 ///
 pub mod trigger {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TriggerArgs {
@@ -76,37 +76,37 @@ pub mod trigger {
         /// `projects/{project}/locations/{location}/channels/{channel}` format. You must provide a channel to receive events from
         /// Eventarc SaaS partners.
         #[builder(into, default)]
-        pub channel: pulumi_wasm_rust::Output<Option<String>>,
+        pub channel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. Destination specifies where the events should be sent to.
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::Output<
+        pub destination: pulumi_wasm_rust::InputOrOutput<
             super::super::types::eventarc::TriggerDestination,
         >,
         /// Optional. EventDataContentType specifies the type of payload in MIME format that is expected from the CloudEvent data
         /// field. This is set to `application/json` if the value is not defined.
         #[builder(into, default)]
-        pub event_data_content_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_data_content_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. User labels attached to the triggers that can be used to group resources. **Note**: This field is
         /// non-authoritative, and will only manage the labels present in your configuration. Please refer to the field
         /// `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Required. null The list of filters that applies to event attributes. Only events that match all the provided filters will be sent to the destination.
         #[builder(into)]
-        pub matching_criterias: pulumi_wasm_rust::Output<
+        pub matching_criterias: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::eventarc::TriggerMatchingCriteria>,
         >,
         /// Required. The resource name of the trigger. Must be unique within the location on the project.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. The IAM service account email associated with the trigger. The service account represents the identity of the
         /// trigger. The principal who calls this API must have `iam.serviceAccounts.actAs` permission in the service account. See
         /// https://cloud.google.com/iam/docs/understanding-service-accounts#sa_common for more information. For Cloud Run
@@ -115,11 +115,11 @@ pub mod trigger {
         /// authenticated Cloud Run services. In order to create Audit Log triggers, the service account should also have
         /// `roles/eventarc.eventReceiver` IAM role.
         #[builder(into, default)]
-        pub service_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Optional. In order to deliver messages, Eventarc may use other GCP products as transport intermediary. This field
         /// contains a reference to that transport intermediary. This information can be used for debugging purposes.
         #[builder(into, default)]
-        pub transport: pulumi_wasm_rust::Output<
+        pub transport: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eventarc::TriggerTransport>,
         >,
     }
@@ -190,19 +190,32 @@ pub mod trigger {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TriggerArgs) -> TriggerResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TriggerArgs,
+    ) -> TriggerResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let channel_binding = args.channel.get_inner();
-        let destination_binding = args.destination.get_inner();
-        let event_data_content_type_binding = args.event_data_content_type.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let matching_criterias_binding = args.matching_criterias.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let service_account_binding = args.service_account.get_inner();
-        let transport_binding = args.transport.get_inner();
+        let channel_binding = args.channel.get_output(context).get_inner();
+        let destination_binding = args.destination.get_output(context).get_inner();
+        let event_data_content_type_binding = args
+            .event_data_content_type
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let matching_criterias_binding = args
+            .matching_criterias
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let service_account_binding = args
+            .service_account
+            .get_output(context)
+            .get_inner();
+        let transport_binding = args.transport.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:eventarc/trigger:Trigger".into(),
             name: name.to_string(),
@@ -303,7 +316,7 @@ pub mod trigger {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

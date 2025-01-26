@@ -29,31 +29,31 @@
 /// $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
 /// ```
 pub mod link_aggregation_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkAggregationGroupArgs {
         /// The ID of an existing dedicated connection to migrate to the LAG.
         #[builder(into, default)]
-        pub connection_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub connection_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
         #[builder(into)]
-        pub connections_bandwidth: pulumi_wasm_rust::Output<String>,
+        pub connections_bandwidth: pulumi_wasm_rust::InputOrOutput<String>,
         /// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the LAG.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the service provider associated with the LAG.
         #[builder(into, default)]
-        pub provider_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub provider_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -93,18 +93,22 @@ pub mod link_aggregation_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LinkAggregationGroupArgs,
     ) -> LinkAggregationGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let connection_id_binding = args.connection_id.get_inner();
-        let connections_bandwidth_binding = args.connections_bandwidth.get_inner();
-        let force_destroy_binding = args.force_destroy.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let provider_name_binding = args.provider_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let connection_id_binding = args.connection_id.get_output(context).get_inner();
+        let connections_bandwidth_binding = args
+            .connections_bandwidth
+            .get_output(context)
+            .get_inner();
+        let force_destroy_binding = args.force_destroy.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let provider_name_binding = args.provider_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/linkAggregationGroup:LinkAggregationGroup".into(),
             name: name.to_string(),
@@ -178,7 +182,7 @@ pub mod link_aggregation_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -49,16 +49,16 @@
 /// $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
 /// ```
 pub mod log_data_protection_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogDataProtectionPolicyArgs {
         /// The name of the log group under which the log stream is to be created.
         #[builder(into)]
-        pub log_group_name: pulumi_wasm_rust::Output<String>,
+        pub log_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
         #[builder(into)]
-        pub policy_document: pulumi_wasm_rust::Output<String>,
+        pub policy_document: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LogDataProtectionPolicyResult {
@@ -72,13 +72,17 @@ pub mod log_data_protection_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LogDataProtectionPolicyArgs,
     ) -> LogDataProtectionPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let log_group_name_binding = args.log_group_name.get_inner();
-        let policy_document_binding = args.policy_document.get_inner();
+        let log_group_name_binding = args.log_group_name.get_output(context).get_inner();
+        let policy_document_binding = args
+            .policy_document
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy"
                 .into(),
@@ -103,7 +107,7 @@ pub mod log_data_protection_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

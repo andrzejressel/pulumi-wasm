@@ -53,28 +53,28 @@
 /// ```
 ///
 pub mod threat_intelligence_indicator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ThreatIntelligenceIndicatorArgs {
         /// Confidence levels of the Threat Intelligence Indicator.
         #[builder(into, default)]
-        pub confidence: pulumi_wasm_rust::Output<Option<i32>>,
+        pub confidence: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The creator of the Threat Intelligence Indicator.
         #[builder(into, default)]
-        pub created_by: pulumi_wasm_rust::Output<Option<String>>,
+        pub created_by: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The description of the Threat Intelligence Indicator.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The display name of the Threat Intelligence Indicator.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The extension config of the Threat Intelligence Indicator in JSON format.
         #[builder(into, default)]
-        pub extension: pulumi_wasm_rust::Output<Option<String>>,
+        pub extension: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `external_reference` blocks as defined below.
         #[builder(into, default)]
-        pub external_references: pulumi_wasm_rust::Output<
+        pub external_references: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::sentinel::ThreatIntelligenceIndicatorExternalReference,
@@ -83,7 +83,7 @@ pub mod threat_intelligence_indicator {
         >,
         /// One or more `granular_marking` blocks as defined below.
         #[builder(into, default)]
-        pub granular_markings: pulumi_wasm_rust::Output<
+        pub granular_markings: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::sentinel::ThreatIntelligenceIndicatorGranularMarking,
@@ -92,7 +92,7 @@ pub mod threat_intelligence_indicator {
         >,
         /// One or more `kill_chain_phase` blocks as defined below.
         #[builder(into, default)]
-        pub kill_chain_phases: pulumi_wasm_rust::Output<
+        pub kill_chain_phases: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::sentinel::ThreatIntelligenceIndicatorKillChainPhase,
@@ -101,40 +101,40 @@ pub mod threat_intelligence_indicator {
         >,
         /// The language of the Threat Intelligence Indicator.
         #[builder(into, default)]
-        pub language: pulumi_wasm_rust::Output<Option<String>>,
+        pub language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of Threat Intelligence marking references.
         #[builder(into, default)]
-        pub object_marking_refs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub object_marking_refs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `<HashName>:<Value>` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
         #[builder(into)]
-        pub pattern: pulumi_wasm_rust::Output<String>,
+        pub pattern: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
         #[builder(into)]
-        pub pattern_type: pulumi_wasm_rust::Output<String>,
+        pub pattern_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The version of a Threat Intelligence entity.
         #[builder(into, default)]
-        pub pattern_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub pattern_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the Threat Intelligence entity revoked.
         #[builder(into, default)]
-        pub revoked: pulumi_wasm_rust::Output<Option<bool>>,
+        pub revoked: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub source: pulumi_wasm_rust::Output<String>,
+        pub source: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies a list of tags of the Threat Intelligence Indicator.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies a list of threat types of this Threat Intelligence Indicator.
         #[builder(into, default)]
-        pub threat_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub threat_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The start of validate date in RFC3339.
         #[builder(into)]
-        pub validate_from_utc: pulumi_wasm_rust::Output<String>,
+        pub validate_from_utc: pulumi_wasm_rust::InputOrOutput<String>,
         /// The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
         #[builder(into, default)]
-        pub validate_until_utc: pulumi_wasm_rust::Output<Option<String>>,
+        pub validate_until_utc: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ThreatIntelligenceIndicatorResult {
@@ -220,31 +220,53 @@ pub mod threat_intelligence_indicator {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ThreatIntelligenceIndicatorArgs,
     ) -> ThreatIntelligenceIndicatorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let confidence_binding = args.confidence.get_inner();
-        let created_by_binding = args.created_by.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let extension_binding = args.extension.get_inner();
-        let external_references_binding = args.external_references.get_inner();
-        let granular_markings_binding = args.granular_markings.get_inner();
-        let kill_chain_phases_binding = args.kill_chain_phases.get_inner();
-        let language_binding = args.language.get_inner();
-        let object_marking_refs_binding = args.object_marking_refs.get_inner();
-        let pattern_binding = args.pattern.get_inner();
-        let pattern_type_binding = args.pattern_type.get_inner();
-        let pattern_version_binding = args.pattern_version.get_inner();
-        let revoked_binding = args.revoked.get_inner();
-        let source_binding = args.source.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let threat_types_binding = args.threat_types.get_inner();
-        let validate_from_utc_binding = args.validate_from_utc.get_inner();
-        let validate_until_utc_binding = args.validate_until_utc.get_inner();
-        let workspace_id_binding = args.workspace_id.get_inner();
+        let confidence_binding = args.confidence.get_output(context).get_inner();
+        let created_by_binding = args.created_by.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let extension_binding = args.extension.get_output(context).get_inner();
+        let external_references_binding = args
+            .external_references
+            .get_output(context)
+            .get_inner();
+        let granular_markings_binding = args
+            .granular_markings
+            .get_output(context)
+            .get_inner();
+        let kill_chain_phases_binding = args
+            .kill_chain_phases
+            .get_output(context)
+            .get_inner();
+        let language_binding = args.language.get_output(context).get_inner();
+        let object_marking_refs_binding = args
+            .object_marking_refs
+            .get_output(context)
+            .get_inner();
+        let pattern_binding = args.pattern.get_output(context).get_inner();
+        let pattern_type_binding = args.pattern_type.get_output(context).get_inner();
+        let pattern_version_binding = args
+            .pattern_version
+            .get_output(context)
+            .get_inner();
+        let revoked_binding = args.revoked.get_output(context).get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let threat_types_binding = args.threat_types.get_output(context).get_inner();
+        let validate_from_utc_binding = args
+            .validate_from_utc
+            .get_output(context)
+            .get_inner();
+        let validate_until_utc_binding = args
+            .validate_until_utc
+            .get_output(context)
+            .get_inner();
+        let workspace_id_binding = args.workspace_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator"
                 .into(),
@@ -419,7 +441,7 @@ pub mod threat_intelligence_indicator {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

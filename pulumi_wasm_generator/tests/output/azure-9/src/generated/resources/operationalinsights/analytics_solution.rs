@@ -46,35 +46,35 @@
 /// ```
 ///
 pub mod analytics_solution {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AnalyticsSolutionArgs {
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `plan` block as documented below.
         #[builder(into)]
-        pub plan: pulumi_wasm_rust::Output<
+        pub plan: pulumi_wasm_rust::InputOrOutput<
             super::super::types::operationalinsights::AnalyticsSolutionPlan,
         >,
         /// The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
         #[builder(into)]
-        pub solution_name: pulumi_wasm_rust::Output<String>,
+        pub solution_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub workspace_name: pulumi_wasm_rust::Output<String>,
+        pub workspace_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub workspace_resource_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AnalyticsSolutionResult {
@@ -101,16 +101,26 @@ pub mod analytics_solution {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AnalyticsSolutionArgs) -> AnalyticsSolutionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AnalyticsSolutionArgs,
+    ) -> AnalyticsSolutionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let location_binding = args.location.get_inner();
-        let plan_binding = args.plan.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let solution_name_binding = args.solution_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let workspace_name_binding = args.workspace_name.get_inner();
-        let workspace_resource_id_binding = args.workspace_resource_id.get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let plan_binding = args.plan.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let solution_name_binding = args.solution_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let workspace_name_binding = args.workspace_name.get_output(context).get_inner();
+        let workspace_resource_id_binding = args
+            .workspace_resource_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:operationalinsights/analyticsSolution:AnalyticsSolution"
                 .into(),
@@ -170,7 +180,7 @@ pub mod analytics_solution {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

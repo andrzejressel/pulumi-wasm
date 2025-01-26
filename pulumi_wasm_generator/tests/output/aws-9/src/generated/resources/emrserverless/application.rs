@@ -79,64 +79,64 @@
 /// $ pulumi import aws:emrserverless/application:Application example id
 /// ```
 pub mod application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationArgs {
         /// The CPU architecture of an application. Valid values are `ARM64` or `X86_64`. Default value is `X86_64`.
         #[builder(into, default)]
-        pub architecture: pulumi_wasm_rust::Output<Option<String>>,
+        pub architecture: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The configuration for an application to automatically start on job submission.
         #[builder(into, default)]
-        pub auto_start_configuration: pulumi_wasm_rust::Output<
+        pub auto_start_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::emrserverless::ApplicationAutoStartConfiguration>,
         >,
         /// The configuration for an application to automatically stop after a certain amount of time being idle.
         #[builder(into, default)]
-        pub auto_stop_configuration: pulumi_wasm_rust::Output<
+        pub auto_stop_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::emrserverless::ApplicationAutoStopConfiguration>,
         >,
         /// The image configuration applied to all worker types.
         #[builder(into, default)]
-        pub image_configuration: pulumi_wasm_rust::Output<
+        pub image_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::emrserverless::ApplicationImageConfiguration>,
         >,
         /// The capacity to initialize when the application is created.
         #[builder(into, default)]
-        pub initial_capacities: pulumi_wasm_rust::Output<
+        pub initial_capacities: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::emrserverless::ApplicationInitialCapacity>>,
         >,
         /// Enables the interactive use cases to use when running an application.
         #[builder(into, default)]
-        pub interactive_configuration: pulumi_wasm_rust::Output<
+        pub interactive_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::emrserverless::ApplicationInteractiveConfiguration,
             >,
         >,
         /// The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.
         #[builder(into, default)]
-        pub maximum_capacity: pulumi_wasm_rust::Output<
+        pub maximum_capacity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::emrserverless::ApplicationMaximumCapacity>,
         >,
         /// The name of the application.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The network configuration for customer VPC connectivity.
         #[builder(into, default)]
-        pub network_configuration: pulumi_wasm_rust::Output<
+        pub network_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::emrserverless::ApplicationNetworkConfiguration>,
         >,
         /// The EMR release version associated with the application.
         #[builder(into)]
-        pub release_label: pulumi_wasm_rust::Output<String>,
+        pub release_label: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of application you want to start, such as `spark` or `hive`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApplicationResult {
@@ -191,23 +191,46 @@ pub mod application {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ApplicationArgs) -> ApplicationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ApplicationArgs,
+    ) -> ApplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let architecture_binding = args.architecture.get_inner();
-        let auto_start_configuration_binding = args.auto_start_configuration.get_inner();
-        let auto_stop_configuration_binding = args.auto_stop_configuration.get_inner();
-        let image_configuration_binding = args.image_configuration.get_inner();
-        let initial_capacities_binding = args.initial_capacities.get_inner();
+        let architecture_binding = args.architecture.get_output(context).get_inner();
+        let auto_start_configuration_binding = args
+            .auto_start_configuration
+            .get_output(context)
+            .get_inner();
+        let auto_stop_configuration_binding = args
+            .auto_stop_configuration
+            .get_output(context)
+            .get_inner();
+        let image_configuration_binding = args
+            .image_configuration
+            .get_output(context)
+            .get_inner();
+        let initial_capacities_binding = args
+            .initial_capacities
+            .get_output(context)
+            .get_inner();
         let interactive_configuration_binding = args
             .interactive_configuration
+            .get_output(context)
             .get_inner();
-        let maximum_capacity_binding = args.maximum_capacity.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_configuration_binding = args.network_configuration.get_inner();
-        let release_label_binding = args.release_label.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let type__binding = args.type_.get_inner();
+        let maximum_capacity_binding = args
+            .maximum_capacity
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_configuration_binding = args
+            .network_configuration
+            .get_output(context)
+            .get_inner();
+        let release_label_binding = args.release_label.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:emrserverless/application:Application".into(),
             name: name.to_string(),
@@ -307,7 +330,7 @@ pub mod application {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

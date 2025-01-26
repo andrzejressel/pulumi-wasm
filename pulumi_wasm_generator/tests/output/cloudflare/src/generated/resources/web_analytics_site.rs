@@ -25,22 +25,22 @@
 /// ```
 ///
 pub mod web_analytics_site {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebAnalyticsSiteArgs {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether Cloudflare will automatically inject the JavaScript snippet for orange-clouded sites. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub auto_install: pulumi_wasm_rust::Output<bool>,
+        pub auto_install: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The hostname to use for gray-clouded sites. Must provide only one of `zone_tag`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub host: pulumi_wasm_rust::Output<Option<String>>,
+        pub host: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The zone identifier for orange-clouded sites. Must provide only one of `host`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub zone_tag: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone_tag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct WebAnalyticsSiteResult {
@@ -65,13 +65,17 @@ pub mod web_analytics_site {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: WebAnalyticsSiteArgs) -> WebAnalyticsSiteResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: WebAnalyticsSiteArgs,
+    ) -> WebAnalyticsSiteResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let auto_install_binding = args.auto_install.get_inner();
-        let host_binding = args.host.get_inner();
-        let zone_tag_binding = args.zone_tag.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let auto_install_binding = args.auto_install.get_output(context).get_inner();
+        let host_binding = args.host.get_output(context).get_inner();
+        let zone_tag_binding = args.zone_tag.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/webAnalyticsSite:WebAnalyticsSite".into(),
             name: name.to_string(),
@@ -121,7 +125,7 @@ pub mod web_analytics_site {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

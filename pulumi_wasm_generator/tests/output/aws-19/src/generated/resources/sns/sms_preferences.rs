@@ -19,30 +19,32 @@
 /// You cannot import the SMS preferences.
 ///
 pub mod sms_preferences {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SmsPreferencesArgs {
         /// A string, such as your business brand, that is displayed as the sender on the receiving device.
         #[builder(into, default)]
-        pub default_sender_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_sender_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
         #[builder(into, default)]
-        pub default_sms_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_sms_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         #[builder(into, default)]
-        pub delivery_status_iam_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub delivery_status_iam_role_arn: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
         #[builder(into, default)]
-        pub delivery_status_success_sampling_rate: pulumi_wasm_rust::Output<
+        pub delivery_status_success_sampling_rate: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The maximum amount in USD that you are willing to spend each month to send SMS messages.
         #[builder(into, default)]
-        pub monthly_spend_limit: pulumi_wasm_rust::Output<Option<i32>>,
+        pub monthly_spend_limit: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         #[builder(into, default)]
-        pub usage_report_s3_bucket: pulumi_wasm_rust::Output<Option<String>>,
+        pub usage_report_s3_bucket: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SmsPreferencesResult {
@@ -65,19 +67,37 @@ pub mod sms_preferences {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SmsPreferencesArgs) -> SmsPreferencesResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SmsPreferencesArgs,
+    ) -> SmsPreferencesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let default_sender_id_binding = args.default_sender_id.get_inner();
-        let default_sms_type_binding = args.default_sms_type.get_inner();
+        let default_sender_id_binding = args
+            .default_sender_id
+            .get_output(context)
+            .get_inner();
+        let default_sms_type_binding = args
+            .default_sms_type
+            .get_output(context)
+            .get_inner();
         let delivery_status_iam_role_arn_binding = args
             .delivery_status_iam_role_arn
+            .get_output(context)
             .get_inner();
         let delivery_status_success_sampling_rate_binding = args
             .delivery_status_success_sampling_rate
+            .get_output(context)
             .get_inner();
-        let monthly_spend_limit_binding = args.monthly_spend_limit.get_inner();
-        let usage_report_s3_bucket_binding = args.usage_report_s3_bucket.get_inner();
+        let monthly_spend_limit_binding = args
+            .monthly_spend_limit
+            .get_output(context)
+            .get_inner();
+        let usage_report_s3_bucket_binding = args
+            .usage_report_s3_bucket
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:sns/smsPreferences:SmsPreferences".into(),
             name: name.to_string(),
@@ -129,7 +149,7 @@ pub mod sms_preferences {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

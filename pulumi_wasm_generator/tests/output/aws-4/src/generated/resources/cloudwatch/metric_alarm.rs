@@ -161,28 +161,28 @@
 /// $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
 /// ```
 pub mod metric_alarm {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MetricAlarmArgs {
         /// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
         #[builder(into, default)]
-        pub actions_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub actions_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         #[builder(into, default)]
-        pub alarm_actions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub alarm_actions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The description for the alarm.
         #[builder(into, default)]
-        pub alarm_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub alarm_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The arithmetic operation to use when comparing the specified Statistic and Threshold. The specified Statistic value is used as the first operand. Either of the following is supported: `GreaterThanOrEqualToThreshold`, `GreaterThanThreshold`, `LessThanThreshold`, `LessThanOrEqualToThreshold`. Additionally, the values  `LessThanLowerOrGreaterThanUpperThreshold`, `LessThanLowerThreshold`, and `GreaterThanUpperThreshold` are used only for alarms based on anomaly detection models.
         #[builder(into)]
-        pub comparison_operator: pulumi_wasm_rust::Output<String>,
+        pub comparison_operator: pulumi_wasm_rust::InputOrOutput<String>,
         /// The number of datapoints that must be breaching to trigger the alarm.
         #[builder(into, default)]
-        pub datapoints_to_alarm: pulumi_wasm_rust::Output<Option<i32>>,
+        pub datapoints_to_alarm: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The dimensions for the alarm's associated metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         #[builder(into, default)]
-        pub dimensions: pulumi_wasm_rust::Output<
+        pub dimensions: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Used only for alarms based on percentiles.
@@ -190,64 +190,66 @@ pub mod metric_alarm {
         /// If you specify `evaluate` or omit this parameter, the alarm will always be evaluated and possibly change state no matter how many data points are available.
         /// The following values are supported: `ignore`, and `evaluate`.
         #[builder(into, default)]
-        pub evaluate_low_sample_count_percentiles: pulumi_wasm_rust::Output<
+        pub evaluate_low_sample_count_percentiles: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The number of periods over which data is compared to the specified threshold.
         #[builder(into)]
-        pub evaluation_periods: pulumi_wasm_rust::Output<i32>,
+        pub evaluation_periods: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
         #[builder(into, default)]
-        pub extended_statistic: pulumi_wasm_rust::Output<Option<String>>,
+        pub extended_statistic: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         #[builder(into, default)]
-        pub insufficient_data_actions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub insufficient_data_actions: pulumi_wasm_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The name for the alarm's associated metric.
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         #[builder(into, default)]
-        pub metric_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub metric_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         #[builder(into, default)]
-        pub metric_queries: pulumi_wasm_rust::Output<
+        pub metric_queries: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::cloudwatch::MetricAlarmMetricQuery>>,
         >,
         /// The descriptive name for the alarm. This name must be unique within the user's AWS account
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
         /// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
         #[builder(into, default)]
-        pub namespace: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         #[builder(into, default)]
-        pub ok_actions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ok_actions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The period in seconds over which the specified `statistic` is applied.
         /// Valid values are `10`, `30`, or any multiple of `60`.
         #[builder(into, default)]
-        pub period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub period: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The statistic to apply to the alarm's associated metric.
         /// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
         #[builder(into, default)]
-        pub statistic: pulumi_wasm_rust::Output<Option<String>>,
+        pub statistic: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         ///
         /// > **NOTE:**  If you specify at least one `metric_query`, you may not specify a `metric_name`, `namespace`, `period` or `statistic`. If you do not specify a `metric_query`, you must specify each of these (although you may use `extended_statistic` instead of `statistic`).
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The value against which the specified statistic is compared. This parameter is required for alarms based on static thresholds, but should not be used for alarms based on anomaly detection models.
         #[builder(into, default)]
-        pub threshold: pulumi_wasm_rust::Output<Option<f64>>,
+        pub threshold: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
         /// If this is an alarm based on an anomaly detection model, make this value match the ID of the ANOMALY_DETECTION_BAND function.
         #[builder(into, default)]
-        pub threshold_metric_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub threshold_metric_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Sets how this alarm is to handle missing data points. The following values are supported: `missing`, `ignore`, `breaching` and `notBreaching`. Defaults to `missing`.
         #[builder(into, default)]
-        pub treat_missing_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub treat_missing_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The unit for the alarm's associated metric.
         #[builder(into, default)]
-        pub unit: pulumi_wasm_rust::Output<Option<String>>,
+        pub unit: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MetricAlarmResult {
@@ -321,35 +323,65 @@ pub mod metric_alarm {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MetricAlarmArgs) -> MetricAlarmResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MetricAlarmArgs,
+    ) -> MetricAlarmResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let actions_enabled_binding = args.actions_enabled.get_inner();
-        let alarm_actions_binding = args.alarm_actions.get_inner();
-        let alarm_description_binding = args.alarm_description.get_inner();
-        let comparison_operator_binding = args.comparison_operator.get_inner();
-        let datapoints_to_alarm_binding = args.datapoints_to_alarm.get_inner();
-        let dimensions_binding = args.dimensions.get_inner();
+        let actions_enabled_binding = args
+            .actions_enabled
+            .get_output(context)
+            .get_inner();
+        let alarm_actions_binding = args.alarm_actions.get_output(context).get_inner();
+        let alarm_description_binding = args
+            .alarm_description
+            .get_output(context)
+            .get_inner();
+        let comparison_operator_binding = args
+            .comparison_operator
+            .get_output(context)
+            .get_inner();
+        let datapoints_to_alarm_binding = args
+            .datapoints_to_alarm
+            .get_output(context)
+            .get_inner();
+        let dimensions_binding = args.dimensions.get_output(context).get_inner();
         let evaluate_low_sample_count_percentiles_binding = args
             .evaluate_low_sample_count_percentiles
+            .get_output(context)
             .get_inner();
-        let evaluation_periods_binding = args.evaluation_periods.get_inner();
-        let extended_statistic_binding = args.extended_statistic.get_inner();
+        let evaluation_periods_binding = args
+            .evaluation_periods
+            .get_output(context)
+            .get_inner();
+        let extended_statistic_binding = args
+            .extended_statistic
+            .get_output(context)
+            .get_inner();
         let insufficient_data_actions_binding = args
             .insufficient_data_actions
+            .get_output(context)
             .get_inner();
-        let metric_name_binding = args.metric_name.get_inner();
-        let metric_queries_binding = args.metric_queries.get_inner();
-        let name_binding = args.name.get_inner();
-        let namespace_binding = args.namespace.get_inner();
-        let ok_actions_binding = args.ok_actions.get_inner();
-        let period_binding = args.period.get_inner();
-        let statistic_binding = args.statistic.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let threshold_binding = args.threshold.get_inner();
-        let threshold_metric_id_binding = args.threshold_metric_id.get_inner();
-        let treat_missing_data_binding = args.treat_missing_data.get_inner();
-        let unit_binding = args.unit.get_inner();
+        let metric_name_binding = args.metric_name.get_output(context).get_inner();
+        let metric_queries_binding = args.metric_queries.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let namespace_binding = args.namespace.get_output(context).get_inner();
+        let ok_actions_binding = args.ok_actions.get_output(context).get_inner();
+        let period_binding = args.period.get_output(context).get_inner();
+        let statistic_binding = args.statistic.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let threshold_binding = args.threshold.get_output(context).get_inner();
+        let threshold_metric_id_binding = args
+            .threshold_metric_id
+            .get_output(context)
+            .get_inner();
+        let treat_missing_data_binding = args
+            .treat_missing_data
+            .get_output(context)
+            .get_inner();
+        let unit_binding = args.unit.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:cloudwatch/metricAlarm:MetricAlarm".into(),
             name: name.to_string(),
@@ -519,7 +551,7 @@ pub mod metric_alarm {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

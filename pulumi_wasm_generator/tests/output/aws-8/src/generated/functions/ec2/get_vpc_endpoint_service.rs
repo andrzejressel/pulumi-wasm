@@ -1,27 +1,27 @@
 pub mod get_vpc_endpoint_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetVpcEndpointServiceArgs {
         /// Configuration block(s) for filtering. Detailed below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetVpcEndpointServiceFilter>>,
         >,
         /// Common name of an AWS service (e.g., `s3`).
         #[builder(into, default)]
-        pub service: pulumi_wasm_rust::Output<Option<String>>,
+        pub service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
         #[builder(into, default)]
-        pub service_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Service type, `Gateway` or `Interface`.
         #[builder(into, default)]
-        pub service_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
         ///
         /// > **NOTE:** Specifying `service` will not work for non-AWS services or AWS services that don't follow the standard `service_name` pattern of `com.amazonaws.<region>.<service>`.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -64,14 +64,17 @@ pub mod get_vpc_endpoint_service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetVpcEndpointServiceArgs) -> GetVpcEndpointServiceResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetVpcEndpointServiceArgs,
+    ) -> GetVpcEndpointServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let filters_binding = args.filters.get_inner();
-        let service_binding = args.service.get_inner();
-        let service_name_binding = args.service_name.get_inner();
-        let service_type_binding = args.service_type.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let service_binding = args.service.get_output(context).get_inner();
+        let service_name_binding = args.service_name.get_output(context).get_inner();
+        let service_type_binding = args.service_type.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getVpcEndpointService:getVpcEndpointService".into(),
             version: super::super::super::get_version(),
@@ -151,7 +154,7 @@ pub mod get_vpc_endpoint_service {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

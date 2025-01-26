@@ -34,40 +34,40 @@
 /// $ pulumi import aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy example arn:aws:resiliencehub:us-east-1:123456789012:resiliency-policy/8c1cfa29-d1dd-4421-aa68-c9f64cced4c2
 /// ```
 pub mod resiliency_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResiliencyPolicyArgs {
         /// Data Location Constraint of the Policy.
         /// Valid values are `AnyLocation`, `SameContinent`, and `SameCountry`.
         #[builder(into, default)]
-        pub data_location_constraint: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_location_constraint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Description of Resiliency Policy.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of Resiliency Policy.
         /// Must be between 2 and 60 characters long.
         /// Must start with an alphanumeric character and contain alphanumeric characters, underscores, or hyphens.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds. See `policy`.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub policy: pulumi_wasm_rust::Output<
+        pub policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::resiliencehub::ResiliencyPolicyPolicy>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resiliency Policy Tier.
         /// Valid values are `MissionCritical`, `Critical`, `Important`, `CoreServices`, `NonCritical`, and `NotApplicable`.
         #[builder(into)]
-        pub tier: pulumi_wasm_rust::Output<String>,
+        pub tier: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::resiliencehub::ResiliencyPolicyTimeouts>,
         >,
     }
@@ -111,16 +111,23 @@ pub mod resiliency_policy {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ResiliencyPolicyArgs) -> ResiliencyPolicyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ResiliencyPolicyArgs,
+    ) -> ResiliencyPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let data_location_constraint_binding = args.data_location_constraint.get_inner();
-        let description_binding = args.description.get_inner();
-        let name_binding = args.name.get_inner();
-        let policy_binding = args.policy.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tier_binding = args.tier.get_inner();
-        let timeouts_binding = args.timeouts.get_inner();
+        let data_location_constraint_binding = args
+            .data_location_constraint
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let policy_binding = args.policy.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tier_binding = args.tier.get_output(context).get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy".into(),
             name: name.to_string(),
@@ -188,7 +195,7 @@ pub mod resiliency_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

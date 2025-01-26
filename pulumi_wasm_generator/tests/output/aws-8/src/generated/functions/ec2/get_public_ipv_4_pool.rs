@@ -1,14 +1,14 @@
 pub mod get_public_ipv_4_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPublicIpv4PoolArgs {
         /// AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
         #[builder(into)]
-        pub pool_id: pulumi_wasm_rust::Output<String>,
+        pub pool_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Any tags for the address pool.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -36,11 +36,14 @@ pub mod get_public_ipv_4_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetPublicIpv4PoolArgs) -> GetPublicIpv4PoolResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetPublicIpv4PoolArgs,
+    ) -> GetPublicIpv4PoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let pool_id_binding = args.pool_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let pool_id_binding = args.pool_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool".into(),
             version: super::super::super::get_version(),
@@ -81,7 +84,7 @@ pub mod get_public_ipv_4_pool {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -43,7 +43,7 @@
 /// ```
 ///
 pub mod managed_disk_sas_token {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedDiskSasTokenArgs {
@@ -52,13 +52,13 @@ pub mod managed_disk_sas_token {
         /// Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access)
         /// for additional details on the fields above.
         #[builder(into)]
-        pub access_level: pulumi_wasm_rust::Output<String>,
+        pub access_level: pulumi_wasm_rust::InputOrOutput<String>,
         /// The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub duration_in_seconds: pulumi_wasm_rust::Output<i32>,
+        pub duration_in_seconds: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub managed_disk_id: pulumi_wasm_rust::Output<String>,
+        pub managed_disk_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ManagedDiskSasTokenResult {
@@ -79,14 +79,21 @@ pub mod managed_disk_sas_token {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ManagedDiskSasTokenArgs,
     ) -> ManagedDiskSasTokenResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let access_level_binding = args.access_level.get_inner();
-        let duration_in_seconds_binding = args.duration_in_seconds.get_inner();
-        let managed_disk_id_binding = args.managed_disk_id.get_inner();
+        let access_level_binding = args.access_level.get_output(context).get_inner();
+        let duration_in_seconds_binding = args
+            .duration_in_seconds
+            .get_output(context)
+            .get_inner();
+        let managed_disk_id_binding = args
+            .managed_disk_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/managedDiskSasToken:ManagedDiskSasToken".into(),
             name: name.to_string(),
@@ -120,7 +127,7 @@ pub mod managed_disk_sas_token {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

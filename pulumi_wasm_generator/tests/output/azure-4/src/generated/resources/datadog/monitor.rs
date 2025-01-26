@@ -64,43 +64,45 @@
 /// ```
 ///
 pub mod monitor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MonitorArgs {
         /// A `datadog_organization` block as defined below.
         #[builder(into)]
-        pub datadog_organization: pulumi_wasm_rust::Output<
+        pub datadog_organization: pulumi_wasm_rust::InputOrOutput<
             super::super::types::datadog::MonitorDatadogOrganization,
         >,
         /// A `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datadog::MonitorIdentity>,
         >,
         /// The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Is monitoring enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub monitoring_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub monitoring_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this sku.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Datadog Monitor.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `user` block as defined below.
         #[builder(into)]
-        pub user: pulumi_wasm_rust::Output<super::super::types::datadog::MonitorUser>,
+        pub user: pulumi_wasm_rust::InputOrOutput<
+            super::super::types::datadog::MonitorUser,
+        >,
     }
     #[allow(dead_code)]
     pub struct MonitorResult {
@@ -135,18 +137,31 @@ pub mod monitor {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: MonitorArgs) -> MonitorResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: MonitorArgs,
+    ) -> MonitorResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let datadog_organization_binding = args.datadog_organization.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let monitoring_enabled_binding = args.monitoring_enabled.get_inner();
-        let name_binding = args.name.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_name_binding = args.sku_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let user_binding = args.user.get_inner();
+        let datadog_organization_binding = args
+            .datadog_organization
+            .get_output(context)
+            .get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let monitoring_enabled_binding = args
+            .monitoring_enabled
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_name_binding = args.sku_name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let user_binding = args.user.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:datadog/monitor:Monitor".into(),
             name: name.to_string(),
@@ -222,7 +237,7 @@ pub mod monitor {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -43,40 +43,40 @@
 /// ```
 ///
 pub mod gallery_application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GalleryApplicationArgs {
         /// A description of the Gallery Application.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The end of life date in RFC3339 format of the Gallery Application.
         #[builder(into, default)]
-        pub end_of_life_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_of_life_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The End User Licence Agreement of the Gallery Application.
         #[builder(into, default)]
-        pub eula: pulumi_wasm_rust::Output<Option<String>>,
+        pub eula: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Shared Image Gallery. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub gallery_id: pulumi_wasm_rust::Output<String>,
+        pub gallery_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Azure Region where the Gallery Application exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Gallery Application. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URI containing the Privacy Statement associated with the Gallery Application.
         #[builder(into, default)]
-        pub privacy_statement_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub privacy_statement_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The URI containing the Release Notes associated with the Gallery Application.
         #[builder(into, default)]
-        pub release_note_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub release_note_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of the Operating System supported for the Gallery Application. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub supported_os_type: pulumi_wasm_rust::Output<String>,
+        pub supported_os_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the Gallery Application.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -109,19 +109,35 @@ pub mod gallery_application {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GalleryApplicationArgs) -> GalleryApplicationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GalleryApplicationArgs,
+    ) -> GalleryApplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let end_of_life_date_binding = args.end_of_life_date.get_inner();
-        let eula_binding = args.eula.get_inner();
-        let gallery_id_binding = args.gallery_id.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let privacy_statement_uri_binding = args.privacy_statement_uri.get_inner();
-        let release_note_uri_binding = args.release_note_uri.get_inner();
-        let supported_os_type_binding = args.supported_os_type.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let end_of_life_date_binding = args
+            .end_of_life_date
+            .get_output(context)
+            .get_inner();
+        let eula_binding = args.eula.get_output(context).get_inner();
+        let gallery_id_binding = args.gallery_id.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let privacy_statement_uri_binding = args
+            .privacy_statement_uri
+            .get_output(context)
+            .get_inner();
+        let release_note_uri_binding = args
+            .release_note_uri
+            .get_output(context)
+            .get_inner();
+        let supported_os_type_binding = args
+            .supported_os_type
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:compute/galleryApplication:GalleryApplication".into(),
             name: name.to_string(),
@@ -201,7 +217,7 @@ pub mod gallery_application {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

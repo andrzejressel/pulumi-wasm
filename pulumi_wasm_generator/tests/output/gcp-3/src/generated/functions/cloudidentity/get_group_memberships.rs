@@ -1,11 +1,11 @@
 pub mod get_group_memberships {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetGroupMembershipsArgs {
         /// The parent Group resource under which to lookup the Membership names. Must be of the form groups/{group_id}.
         #[builder(into)]
-        pub group: pulumi_wasm_rust::Output<String>,
+        pub group: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetGroupMembershipsResult {
@@ -21,10 +21,13 @@ pub mod get_group_memberships {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetGroupMembershipsArgs) -> GetGroupMembershipsResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetGroupMembershipsArgs,
+    ) -> GetGroupMembershipsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let group_binding = args.group.get_inner();
+        let group_binding = args.group.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:cloudidentity/getGroupMemberships:getGroupMemberships".into(),
             version: super::super::super::get_version(),
@@ -46,7 +49,7 @@ pub mod get_group_memberships {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -84,73 +84,73 @@
 /// ```
 ///
 pub mod job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobArgs {
         /// The ID of the Container App Environment in which to create the Container App Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub container_app_environment_id: pulumi_wasm_rust::Output<String>,
+        pub container_app_environment_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `event_trigger_config` block as defined below.
         #[builder(into, default)]
-        pub event_trigger_config: pulumi_wasm_rust::Output<
+        pub event_trigger_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::containerapp::JobEventTriggerConfig>,
         >,
         /// A `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::containerapp::JobIdentity>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `manual_trigger_config` block as defined below.
         #[builder(into, default)]
-        pub manual_trigger_config: pulumi_wasm_rust::Output<
+        pub manual_trigger_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::containerapp::JobManualTriggerConfig>,
         >,
         /// Specifies the name of the Container App Job resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// One or more `registry` blocks as defined below.
         #[builder(into, default)]
-        pub registries: pulumi_wasm_rust::Output<
+        pub registries: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::containerapp::JobRegistry>>,
         >,
         /// The maximum number of times a replica is allowed to retry.
         #[builder(into, default)]
-        pub replica_retry_limit: pulumi_wasm_rust::Output<Option<i32>>,
+        pub replica_retry_limit: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The maximum number of seconds a replica is allowed to run.
         #[builder(into)]
-        pub replica_timeout_in_seconds: pulumi_wasm_rust::Output<i32>,
+        pub replica_timeout_in_seconds: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The name of the resource group in which to create the Container App Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `schedule_trigger_config` block as defined below.
         ///
         /// > ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
         #[builder(into, default)]
-        pub schedule_trigger_config: pulumi_wasm_rust::Output<
+        pub schedule_trigger_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::containerapp::JobScheduleTriggerConfig>,
         >,
         /// One or more `secret` blocks as defined below.
         #[builder(into, default)]
-        pub secrets: pulumi_wasm_rust::Output<
+        pub secrets: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::containerapp::JobSecret>>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `template` block as defined below.
         #[builder(into)]
-        pub template: pulumi_wasm_rust::Output<
+        pub template: pulumi_wasm_rust::InputOrOutput<
             super::super::types::containerapp::JobTemplate,
         >,
         /// The name of the workload profile to use for the Container App Job.
         #[builder(into, default)]
-        pub workload_profile_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub workload_profile_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct JobResult {
@@ -211,28 +211,52 @@ pub mod job {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: JobArgs) -> JobResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: JobArgs,
+    ) -> JobResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let container_app_environment_id_binding = args
             .container_app_environment_id
+            .get_output(context)
             .get_inner();
-        let event_trigger_config_binding = args.event_trigger_config.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let location_binding = args.location.get_inner();
-        let manual_trigger_config_binding = args.manual_trigger_config.get_inner();
-        let name_binding = args.name.get_inner();
-        let registries_binding = args.registries.get_inner();
-        let replica_retry_limit_binding = args.replica_retry_limit.get_inner();
+        let event_trigger_config_binding = args
+            .event_trigger_config
+            .get_output(context)
+            .get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let manual_trigger_config_binding = args
+            .manual_trigger_config
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let registries_binding = args.registries.get_output(context).get_inner();
+        let replica_retry_limit_binding = args
+            .replica_retry_limit
+            .get_output(context)
+            .get_inner();
         let replica_timeout_in_seconds_binding = args
             .replica_timeout_in_seconds
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let schedule_trigger_config_binding = args.schedule_trigger_config.get_inner();
-        let secrets_binding = args.secrets.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let template_binding = args.template.get_inner();
-        let workload_profile_name_binding = args.workload_profile_name.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let schedule_trigger_config_binding = args
+            .schedule_trigger_config
+            .get_output(context)
+            .get_inner();
+        let secrets_binding = args.secrets.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let template_binding = args.template.get_output(context).get_inner();
+        let workload_profile_name_binding = args
+            .workload_profile_name
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:containerapp/job:Job".into(),
             name: name.to_string(),
@@ -353,7 +377,7 @@ pub mod job {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -68,25 +68,25 @@
 ///               - '*'
 /// ```
 pub mod policy_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyAttachmentArgs {
         /// Group(s) the policy should be applied to.
         #[builder(into, default)]
-        pub groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of the attachment. This cannot be an empty string.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
         #[builder(into)]
-        pub policy_arn: pulumi_wasm_rust::Output<String>,
+        pub policy_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Role(s) the policy should be applied to.
         #[builder(into, default)]
-        pub roles: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub roles: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// User(s) the policy should be applied to.
         #[builder(into, default)]
-        pub users: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub users: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct PolicyAttachmentResult {
@@ -105,14 +105,18 @@ pub mod policy_attachment {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PolicyAttachmentArgs) -> PolicyAttachmentResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PolicyAttachmentArgs,
+    ) -> PolicyAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let groups_binding = args.groups.get_inner();
-        let name_binding = args.name.get_inner();
-        let policy_arn_binding = args.policy_arn.get_inner();
-        let roles_binding = args.roles.get_inner();
-        let users_binding = args.users.get_inner();
+        let groups_binding = args.groups.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let policy_arn_binding = args.policy_arn.get_output(context).get_inner();
+        let roles_binding = args.roles.get_output(context).get_inner();
+        let users_binding = args.users.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iam/policyAttachment:PolicyAttachment".into(),
             name: name.to_string(),
@@ -157,7 +161,7 @@ pub mod policy_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

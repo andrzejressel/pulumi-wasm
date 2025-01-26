@@ -62,7 +62,7 @@
 /// ```
 ///
 pub mod backend_address_pool_address {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackendAddressPoolAddressArgs {
@@ -70,21 +70,21 @@ pub mod backend_address_pool_address {
         ///
         /// > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
         #[builder(into, default)]
-        pub backend_address_ip_configuration_id: pulumi_wasm_rust::Output<
+        pub backend_address_ip_configuration_id: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
         #[builder(into)]
-        pub backend_address_pool_id: pulumi_wasm_rust::Output<String>,
+        pub backend_address_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The Static IP Address which should be allocated to this Backend Address Pool.
         #[builder(into, default)]
-        pub ip_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Virtual Network within which the Backend Address Pool should exist.
         #[builder(into, default)]
-        pub virtual_network_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_network_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BackendAddressPoolAddressResult {
@@ -114,6 +114,7 @@ pub mod backend_address_pool_address {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BackendAddressPoolAddressArgs,
     ) -> BackendAddressPoolAddressResult {
@@ -121,11 +122,18 @@ pub mod backend_address_pool_address {
         use std::collections::HashMap;
         let backend_address_ip_configuration_id_binding = args
             .backend_address_ip_configuration_id
+            .get_output(context)
             .get_inner();
-        let backend_address_pool_id_binding = args.backend_address_pool_id.get_inner();
-        let ip_address_binding = args.ip_address.get_inner();
-        let name_binding = args.name.get_inner();
-        let virtual_network_id_binding = args.virtual_network_id.get_inner();
+        let backend_address_pool_id_binding = args
+            .backend_address_pool_id
+            .get_output(context)
+            .get_inner();
+        let ip_address_binding = args.ip_address.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let virtual_network_id_binding = args
+            .virtual_network_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress".into(),
             name: name.to_string(),
@@ -173,7 +181,7 @@ pub mod backend_address_pool_address {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,17 +1,17 @@
 pub mod get_reservation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetReservationArgs {
         /// The name of the Compute Reservation.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Project from which to list the Compute Reservation. Defaults to project declared in the provider.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Zone where the Compute Reservation resides.
         #[builder(into)]
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetReservationResult {
@@ -37,12 +37,15 @@ pub mod get_reservation {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetReservationArgs) -> GetReservationResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetReservationArgs,
+    ) -> GetReservationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:compute/getReservation:getReservation".into(),
             version: super::super::super::get_version(),
@@ -99,7 +102,7 @@ pub mod get_reservation {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

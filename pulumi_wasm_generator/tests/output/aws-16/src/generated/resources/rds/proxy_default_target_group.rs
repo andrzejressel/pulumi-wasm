@@ -49,18 +49,18 @@
 /// $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
 /// ```
 pub mod proxy_default_target_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProxyDefaultTargetGroupArgs {
         /// The settings that determine the size and behavior of the connection pool for the target group.
         #[builder(into, default)]
-        pub connection_pool_config: pulumi_wasm_rust::Output<
+        pub connection_pool_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::rds::ProxyDefaultTargetGroupConnectionPoolConfig>,
         >,
         /// Name of the RDS DB Proxy.
         #[builder(into)]
-        pub db_proxy_name: pulumi_wasm_rust::Output<String>,
+        pub db_proxy_name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ProxyDefaultTargetGroupResult {
@@ -80,13 +80,17 @@ pub mod proxy_default_target_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ProxyDefaultTargetGroupArgs,
     ) -> ProxyDefaultTargetGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let connection_pool_config_binding = args.connection_pool_config.get_inner();
-        let db_proxy_name_binding = args.db_proxy_name.get_inner();
+        let connection_pool_config_binding = args
+            .connection_pool_config
+            .get_output(context)
+            .get_inner();
+        let db_proxy_name_binding = args.db_proxy_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup".into(),
             name: name.to_string(),
@@ -116,7 +120,7 @@ pub mod proxy_default_target_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

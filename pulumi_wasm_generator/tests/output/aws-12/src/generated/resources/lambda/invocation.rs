@@ -96,29 +96,29 @@
 /// }
 /// ```
 pub mod invocation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InvocationArgs {
         /// Name of the lambda function.
         #[builder(into)]
-        pub function_name: pulumi_wasm_rust::Output<String>,
+        pub function_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// JSON payload to the lambda function.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub input: pulumi_wasm_rust::Output<String>,
+        pub input: pulumi_wasm_rust::InputOrOutput<String>,
         /// Lifecycle scope of the resource to manage. Valid values are `CREATE_ONLY` and `CRUD`. Defaults to `CREATE_ONLY`. `CREATE_ONLY` will invoke the function only on creation or replacement. `CRUD` will invoke the function on each lifecycle event, and augment the input JSON payload with additional lifecycle information.
         #[builder(into, default)]
-        pub lifecycle_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub lifecycle_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
         #[builder(into, default)]
-        pub qualifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub qualifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub terraform_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub terraform_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of arbitrary keys and values that, when changed, will trigger a re-invocation.
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -146,15 +146,22 @@ pub mod invocation {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: InvocationArgs) -> InvocationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: InvocationArgs,
+    ) -> InvocationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let function_name_binding = args.function_name.get_inner();
-        let input_binding = args.input.get_inner();
-        let lifecycle_scope_binding = args.lifecycle_scope.get_inner();
-        let qualifier_binding = args.qualifier.get_inner();
-        let terraform_key_binding = args.terraform_key.get_inner();
-        let triggers_binding = args.triggers.get_inner();
+        let function_name_binding = args.function_name.get_output(context).get_inner();
+        let input_binding = args.input.get_output(context).get_inner();
+        let lifecycle_scope_binding = args
+            .lifecycle_scope
+            .get_output(context)
+            .get_inner();
+        let qualifier_binding = args.qualifier.get_output(context).get_inner();
+        let terraform_key_binding = args.terraform_key.get_output(context).get_inner();
+        let triggers_binding = args.triggers.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:lambda/invocation:Invocation".into(),
             name: name.to_string(),
@@ -209,7 +216,7 @@ pub mod invocation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

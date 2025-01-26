@@ -1,17 +1,17 @@
 pub mod get_file_system {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetFileSystemArgs {
         /// Restricts the list to the file system with this creation token.
         #[builder(into, default)]
-        pub creation_token: pulumi_wasm_rust::Output<Option<String>>,
+        pub creation_token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID that identifies the file system (e.g., fs-ccfc0d65).
         #[builder(into, default)]
-        pub file_system_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub file_system_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Restricts the list to the file system with these tags.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -60,12 +60,15 @@ pub mod get_file_system {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetFileSystemArgs) -> GetFileSystemResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetFileSystemArgs,
+    ) -> GetFileSystemResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let creation_token_binding = args.creation_token.get_inner();
-        let file_system_id_binding = args.file_system_id.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let creation_token_binding = args.creation_token.get_output(context).get_inner();
+        let file_system_id_binding = args.file_system_id.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:efs/getFileSystem:getFileSystem".into(),
             version: super::super::super::get_version(),
@@ -140,7 +143,7 @@ pub mod get_file_system {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

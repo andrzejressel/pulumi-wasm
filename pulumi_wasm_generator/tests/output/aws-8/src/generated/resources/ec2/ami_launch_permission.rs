@@ -60,25 +60,25 @@
 /// $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
 /// ```
 pub mod ami_launch_permission {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AmiLaunchPermissionArgs {
         /// AWS account ID for the launch permission.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the group for the launch permission. Valid values: `"all"`.
         #[builder(into, default)]
-        pub group: pulumi_wasm_rust::Output<Option<String>>,
+        pub group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ID of the AMI.
         #[builder(into)]
-        pub image_id: pulumi_wasm_rust::Output<String>,
+        pub image_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN of an organization for the launch permission.
         #[builder(into, default)]
-        pub organization_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub organization_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of an organizational unit for the launch permission.
         #[builder(into, default)]
-        pub organizational_unit_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub organizational_unit_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AmiLaunchPermissionResult {
@@ -98,16 +98,23 @@ pub mod ami_launch_permission {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: AmiLaunchPermissionArgs,
     ) -> AmiLaunchPermissionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let group_binding = args.group.get_inner();
-        let image_id_binding = args.image_id.get_inner();
-        let organization_arn_binding = args.organization_arn.get_inner();
-        let organizational_unit_arn_binding = args.organizational_unit_arn.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let group_binding = args.group.get_output(context).get_inner();
+        let image_id_binding = args.image_id.get_output(context).get_inner();
+        let organization_arn_binding = args
+            .organization_arn
+            .get_output(context)
+            .get_inner();
+        let organizational_unit_arn_binding = args
+            .organizational_unit_arn
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/amiLaunchPermission:AmiLaunchPermission".into(),
             name: name.to_string(),
@@ -152,7 +159,7 @@ pub mod ami_launch_permission {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

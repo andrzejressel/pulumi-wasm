@@ -149,23 +149,23 @@
 /// ```
 ///
 pub mod hosting_release {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostingReleaseArgs {
         /// The ID of the channel to which the release belongs. If not provided, the release will
         /// belong to the default "live" channel
         #[builder(into, default)]
-        pub channel_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub channel_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The deploy description when the release was created. The value can be up to 512 characters.
         #[builder(into, default)]
-        pub message: pulumi_wasm_rust::Output<Option<String>>,
+        pub message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. The ID of the site to which the release belongs.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub site_id: pulumi_wasm_rust::Output<String>,
+        pub site_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of the release; indicates what happened to the content of the site. There is no need to specify
         /// `DEPLOY` or `ROLLBACK` type if a `version_name` is provided.
         /// DEPLOY: A version was uploaded to Firebase Hosting and released. Output only.
@@ -173,13 +173,13 @@ pub mod hosting_release {
         /// SITE_DISABLE: The release prevents the site from serving content. Firebase Hosting acts as if the site never existed
         /// Possible values are: `DEPLOY`, `ROLLBACK`, `SITE_DISABLE`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The unique identifier for a version, in the format: sites/SITE_ID/versions/VERSION_ID.
         /// The content of the version specified will be actively displayed on the appropriate URL.
         /// The Version must belong to the same site as in the `site_id`.
         /// This parameter must be empty if the `type` of the release is `SITE_DISABLE`.
         #[builder(into, default)]
-        pub version_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct HostingReleaseResult {
@@ -216,14 +216,18 @@ pub mod hosting_release {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: HostingReleaseArgs) -> HostingReleaseResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: HostingReleaseArgs,
+    ) -> HostingReleaseResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let channel_id_binding = args.channel_id.get_inner();
-        let message_binding = args.message.get_inner();
-        let site_id_binding = args.site_id.get_inner();
-        let type__binding = args.type_.get_inner();
-        let version_name_binding = args.version_name.get_inner();
+        let channel_id_binding = args.channel_id.get_output(context).get_inner();
+        let message_binding = args.message.get_output(context).get_inner();
+        let site_id_binding = args.site_id.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let version_name_binding = args.version_name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/hostingRelease:HostingRelease".into(),
             name: name.to_string(),
@@ -274,7 +278,7 @@ pub mod hosting_release {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

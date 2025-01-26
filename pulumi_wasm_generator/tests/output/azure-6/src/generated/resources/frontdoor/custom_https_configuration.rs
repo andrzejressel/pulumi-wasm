@@ -87,23 +87,23 @@
 /// ```
 ///
 pub mod custom_https_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomHttpsConfigurationArgs {
         /// A `custom_https_configuration` block as defined above.
         #[builder(into, default)]
-        pub custom_https_configuration: pulumi_wasm_rust::Output<
+        pub custom_https_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::frontdoor::CustomHttpsConfigurationCustomHttpsConfiguration,
             >,
         >,
         /// Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         #[builder(into)]
-        pub custom_https_provisioning_enabled: pulumi_wasm_rust::Output<bool>,
+        pub custom_https_provisioning_enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub frontend_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub frontend_endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CustomHttpsConfigurationResult {
@@ -123,6 +123,7 @@ pub mod custom_https_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: CustomHttpsConfigurationArgs,
     ) -> CustomHttpsConfigurationResult {
@@ -130,11 +131,16 @@ pub mod custom_https_configuration {
         use std::collections::HashMap;
         let custom_https_configuration_binding = args
             .custom_https_configuration
+            .get_output(context)
             .get_inner();
         let custom_https_provisioning_enabled_binding = args
             .custom_https_provisioning_enabled
+            .get_output(context)
             .get_inner();
-        let frontend_endpoint_id_binding = args.frontend_endpoint_id.get_inner();
+        let frontend_endpoint_id_binding = args
+            .frontend_endpoint_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration"
                 .into(),
@@ -166,7 +172,7 @@ pub mod custom_https_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

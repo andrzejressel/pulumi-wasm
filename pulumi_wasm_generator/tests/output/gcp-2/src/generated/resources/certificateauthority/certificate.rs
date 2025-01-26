@@ -479,7 +479,7 @@
 /// ```
 ///
 pub mod certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateArgs {
@@ -488,18 +488,18 @@ pub mod certificate {
         /// argument `pool` should be set to `projects/my-project/locations/us-central1/caPools/my-pool`, argument `certificate_authority`
         /// should be set to `my-ca`.
         #[builder(into, default)]
-        pub certificate_authority: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_authority: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The resource name for a CertificateTemplate used to issue this certificate,
         /// in the format `projects/*/locations/*/certificateTemplates/*`. If this is specified,
         /// the caller must have the necessary permission to use this template. If this is
         /// omitted, no template will be used. This template must be in the same location
         /// as the Certificate.
         #[builder(into, default)]
-        pub certificate_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The config used to create a self-signed X.509 certificate or CSR.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub config: pulumi_wasm_rust::Output<
+        pub config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::certificateauthority::CertificateConfig>,
         >,
         /// Labels with user-defined metadata to apply to this resource.
@@ -507,34 +507,34 @@ pub mod certificate {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The desired lifetime of the CA certificate. Used to create the "notBeforeTime" and
         /// "notAfterTime" fields inside an X.509 certificate. A duration in seconds with up to nine
         /// fractional digits, terminated by 's'. Example: "3.5s".
         #[builder(into, default)]
-        pub lifetime: pulumi_wasm_rust::Output<Option<String>>,
+        pub lifetime: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Location of the Certificate. A full list of valid locations can be found by
         /// running `gcloud privateca locations list`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name for this Certificate.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Immutable. A pem-encoded X.509 certificate signing request (CSR).
         #[builder(into, default)]
-        pub pem_csr: pulumi_wasm_rust::Output<Option<String>>,
+        pub pem_csr: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the CaPool this Certificate belongs to.
         #[builder(into)]
-        pub pool: pulumi_wasm_rust::Output<String>,
+        pub pool: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CertificateResult {
@@ -619,19 +619,29 @@ pub mod certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CertificateArgs) -> CertificateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CertificateArgs,
+    ) -> CertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let certificate_authority_binding = args.certificate_authority.get_inner();
-        let certificate_template_binding = args.certificate_template.get_inner();
-        let config_binding = args.config.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let lifetime_binding = args.lifetime.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let pem_csr_binding = args.pem_csr.get_inner();
-        let pool_binding = args.pool.get_inner();
-        let project_binding = args.project.get_inner();
+        let certificate_authority_binding = args
+            .certificate_authority
+            .get_output(context)
+            .get_inner();
+        let certificate_template_binding = args
+            .certificate_template
+            .get_output(context)
+            .get_inner();
+        let config_binding = args.config.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let lifetime_binding = args.lifetime.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let pem_csr_binding = args.pem_csr.get_output(context).get_inner();
+        let pool_binding = args.pool.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificateauthority/certificate:Certificate".into(),
             name: name.to_string(),
@@ -738,7 +748,7 @@ pub mod certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

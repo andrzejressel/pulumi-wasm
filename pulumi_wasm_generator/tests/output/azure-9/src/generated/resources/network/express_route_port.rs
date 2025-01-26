@@ -37,49 +37,49 @@
 /// ```
 ///
 pub mod express_route_port {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExpressRoutePortArgs {
         /// Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
         #[builder(into)]
-        pub bandwidth_in_gbps: pulumi_wasm_rust::Output<i32>,
+        pub bandwidth_in_gbps: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. Defaults to `MeteredData`.
         #[builder(into, default)]
-        pub billing_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub billing_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`.
         #[builder(into)]
-        pub encapsulation: pulumi_wasm_rust::Output<String>,
+        pub encapsulation: pulumi_wasm_rust::InputOrOutput<String>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::ExpressRoutePortIdentity>,
         >,
         /// A list of `link` blocks as defined below.
         #[builder(into, default)]
-        pub link1: pulumi_wasm_rust::Output<
+        pub link1: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::ExpressRoutePortLink1>,
         >,
         /// A list of `link` blocks as defined below.
         #[builder(into, default)]
-        pub link2: pulumi_wasm_rust::Output<
+        pub link2: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::network::ExpressRoutePortLink2>,
         >,
         /// The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Express Route Port. Changing this forces a new Express Route Port to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created.
         #[builder(into)]
-        pub peering_location: pulumi_wasm_rust::Output<String>,
+        pub peering_location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Express Route Port.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -126,20 +126,33 @@ pub mod express_route_port {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ExpressRoutePortArgs) -> ExpressRoutePortResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ExpressRoutePortArgs,
+    ) -> ExpressRoutePortResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bandwidth_in_gbps_binding = args.bandwidth_in_gbps.get_inner();
-        let billing_type_binding = args.billing_type.get_inner();
-        let encapsulation_binding = args.encapsulation.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let link1_binding = args.link1.get_inner();
-        let link2_binding = args.link2.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let peering_location_binding = args.peering_location.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let bandwidth_in_gbps_binding = args
+            .bandwidth_in_gbps
+            .get_output(context)
+            .get_inner();
+        let billing_type_binding = args.billing_type.get_output(context).get_inner();
+        let encapsulation_binding = args.encapsulation.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let link1_binding = args.link1.get_output(context).get_inner();
+        let link2_binding = args.link2.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let peering_location_binding = args
+            .peering_location
+            .get_output(context)
+            .get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/expressRoutePort:ExpressRoutePort".into(),
             name: name.to_string(),
@@ -235,7 +248,7 @@ pub mod express_route_port {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

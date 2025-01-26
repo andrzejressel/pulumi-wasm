@@ -89,25 +89,25 @@
 /// ```
 ///
 pub mod service_project_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceProjectAttachmentArgs {
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// "Immutable. Service project name in the format: \"projects/abc\"
         /// or \"projects/123\". As input, project name with either project id or number
         /// are accepted. As output, this field will contain project number."
         #[builder(into, default)]
-        pub service_project: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Required. The service project attachment identifier must contain the project_id of the service project specified in the service_project_attachment.service_project field. Hint: "projects/{project_id}"
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub service_project_attachment_id: pulumi_wasm_rust::Output<String>,
+        pub service_project_attachment_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServiceProjectAttachmentResult {
@@ -137,15 +137,20 @@ pub mod service_project_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ServiceProjectAttachmentArgs,
     ) -> ServiceProjectAttachmentResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let project_binding = args.project.get_inner();
-        let service_project_binding = args.service_project.get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let service_project_binding = args
+            .service_project
+            .get_output(context)
+            .get_inner();
         let service_project_attachment_id_binding = args
             .service_project_attachment_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:apphub/serviceProjectAttachment:ServiceProjectAttachment".into(),
@@ -189,7 +194,7 @@ pub mod service_project_attachment {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

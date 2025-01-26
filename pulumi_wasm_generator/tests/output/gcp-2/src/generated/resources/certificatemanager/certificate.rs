@@ -425,29 +425,29 @@
 /// ```
 ///
 pub mod certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateArgs {
         /// A human-readable description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Set of label tags associated with the Certificate resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Certificate Manager location. If not specified, "global" is used.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration and state of a Managed Certificate.
         /// Certificate Manager provisions and renews Managed Certificates
         /// automatically, for as long as it's authorized to do so.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub managed: pulumi_wasm_rust::Output<
+        pub managed: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::certificatemanager::CertificateManaged>,
         >,
         /// A user-defined name of the certificate. Certificate names must be unique
@@ -457,11 +457,11 @@ pub mod certificate {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The scope of the certificate.
         /// DEFAULT: Certificates with default scope are served from core Google data centers.
         /// If unsure, choose this option.
@@ -470,13 +470,13 @@ pub mod certificate {
         /// ALL_REGIONS: Certificates with ALL_REGIONS scope are served from all GCP regions (You can only use ALL_REGIONS with global certs).
         /// See https://cloud.google.com/compute/docs/regions-zones
         #[builder(into, default)]
-        pub scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Certificate data for a SelfManaged Certificate.
         /// SelfManaged Certificates are uploaded by the user. Updating such
         /// certificates before they expire remains the user's responsibility.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub self_managed: pulumi_wasm_rust::Output<
+        pub self_managed: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::certificatemanager::CertificateSelfManaged>,
         >,
     }
@@ -540,17 +540,21 @@ pub mod certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CertificateArgs) -> CertificateResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CertificateArgs,
+    ) -> CertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let managed_binding = args.managed.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let scope_binding = args.scope.get_inner();
-        let self_managed_binding = args.self_managed.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let managed_binding = args.managed.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
+        let self_managed_binding = args.self_managed.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:certificatemanager/certificate:Certificate".into(),
             name: name.to_string(),
@@ -625,7 +629,7 @@ pub mod certificate {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

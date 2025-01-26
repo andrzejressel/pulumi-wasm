@@ -1,17 +1,17 @@
 pub mod get_local_disk {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetLocalDiskArgs {
         /// Device node of the local disk to retrieve. For example, `/dev/sdb`.
         #[builder(into, default)]
-        pub disk_node: pulumi_wasm_rust::Output<Option<String>>,
+        pub disk_node: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
         #[builder(into, default)]
-        pub disk_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub disk_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// ARN of the gateway.
         #[builder(into)]
-        pub gateway_arn: pulumi_wasm_rust::Output<String>,
+        pub gateway_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetLocalDiskResult {
@@ -27,12 +27,15 @@ pub mod get_local_disk {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetLocalDiskArgs) -> GetLocalDiskResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetLocalDiskArgs,
+    ) -> GetLocalDiskResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let disk_node_binding = args.disk_node.get_inner();
-        let disk_path_binding = args.disk_path.get_inner();
-        let gateway_arn_binding = args.gateway_arn.get_inner();
+        let disk_node_binding = args.disk_node.get_output(context).get_inner();
+        let disk_path_binding = args.disk_path.get_output(context).get_inner();
+        let gateway_arn_binding = args.gateway_arn.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:storagegateway/getLocalDisk:getLocalDisk".into(),
             version: super::super::super::get_version(),
@@ -68,7 +71,7 @@ pub mod get_local_disk {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

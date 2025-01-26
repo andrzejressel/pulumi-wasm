@@ -91,31 +91,31 @@
 /// $ pulumi import aws:connect/contactFlowModule:ContactFlowModule example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 /// ```
 pub mod contact_flow_module {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContactFlowModuleArgs {
         /// Specifies the content of the Contact Flow Module, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
         #[builder(into, default)]
-        pub content: pulumi_wasm_rust::Output<Option<String>>,
+        pub content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow Module source specified with `filename`.
         #[builder(into, default)]
-        pub content_hash: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_hash: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the description of the Contact Flow Module.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
         #[builder(into, default)]
-        pub filename: pulumi_wasm_rust::Output<Option<String>>,
+        pub filename: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the name of the Contact Flow Module.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Tags to apply to the Contact Flow Module. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -150,16 +150,20 @@ pub mod contact_flow_module {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ContactFlowModuleArgs) -> ContactFlowModuleResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ContactFlowModuleArgs,
+    ) -> ContactFlowModuleResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let content_binding = args.content.get_inner();
-        let content_hash_binding = args.content_hash.get_inner();
-        let description_binding = args.description.get_inner();
-        let filename_binding = args.filename.get_inner();
-        let instance_id_binding = args.instance_id.get_inner();
-        let name_binding = args.name.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let content_binding = args.content.get_output(context).get_inner();
+        let content_hash_binding = args.content_hash.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let filename_binding = args.filename.get_output(context).get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:connect/contactFlowModule:ContactFlowModule".into(),
             name: name.to_string(),
@@ -227,7 +231,7 @@ pub mod contact_flow_module {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

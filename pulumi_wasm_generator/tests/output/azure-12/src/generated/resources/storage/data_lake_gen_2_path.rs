@@ -47,33 +47,33 @@
 /// ```
 ///
 pub mod data_lake_gen_2_path {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataLakeGen2PathArgs {
         /// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
         #[builder(into, default)]
-        pub aces: pulumi_wasm_rust::Output<
+        pub aces: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::storage::DataLakeGen2PathAce>>,
         >,
         /// The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub filesystem_name: pulumi_wasm_rust::Output<String>,
+        pub filesystem_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`.
         #[builder(into, default)]
-        pub group: pulumi_wasm_rust::Output<Option<String>>,
+        pub group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`.
         #[builder(into, default)]
-        pub owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub path: pulumi_wasm_rust::Output<String>,
+        pub path: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource: pulumi_wasm_rust::Output<String>,
+        pub resource: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DataLakeGen2PathResult {
@@ -98,16 +98,26 @@ pub mod data_lake_gen_2_path {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: DataLakeGen2PathArgs) -> DataLakeGen2PathResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: DataLakeGen2PathArgs,
+    ) -> DataLakeGen2PathResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let aces_binding = args.aces.get_inner();
-        let filesystem_name_binding = args.filesystem_name.get_inner();
-        let group_binding = args.group.get_inner();
-        let owner_binding = args.owner.get_inner();
-        let path_binding = args.path.get_inner();
-        let resource_binding = args.resource.get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
+        let aces_binding = args.aces.get_output(context).get_inner();
+        let filesystem_name_binding = args
+            .filesystem_name
+            .get_output(context)
+            .get_inner();
+        let group_binding = args.group.get_output(context).get_inner();
+        let owner_binding = args.owner.get_output(context).get_inner();
+        let path_binding = args.path.get_output(context).get_inner();
+        let resource_binding = args.resource.get_output(context).get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:storage/dataLakeGen2Path:DataLakeGen2Path".into(),
             name: name.to_string(),
@@ -166,7 +176,7 @@ pub mod data_lake_gen_2_path {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -100,60 +100,60 @@
 /// ```
 ///
 pub mod compute_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ComputeClusterArgs {
         /// The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::machinelearning::ComputeClusterIdentity>,
         >,
         /// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         #[builder(into, default)]
-        pub local_auth_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_auth_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created.
         #[builder(into)]
-        pub machine_learning_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub machine_learning_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
         #[builder(into, default)]
-        pub node_public_ip_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub node_public_ip_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A `scale_settings` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         #[builder(into)]
-        pub scale_settings: pulumi_wasm_rust::Output<
+        pub scale_settings: pulumi_wasm_rust::InputOrOutput<
             super::super::types::machinelearning::ComputeClusterScaleSettings,
         >,
         /// Credentials for an administrator user account that will be created on each compute node. A `ssh` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
         #[builder(into, default)]
-        pub ssh: pulumi_wasm_rust::Output<
+        pub ssh: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::machinelearning::ComputeClusterSsh>,
         >,
         /// A boolean value indicating whether enable the public SSH port. Defaults to `false`. Changing this forces a new Machine Learning Compute Cluster to be created.
         #[builder(into, default)]
-        pub ssh_public_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ssh_public_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created.
         #[builder(into, default)]
-        pub subnet_resource_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnet_resource_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`.
         #[builder(into)]
-        pub vm_priority: pulumi_wasm_rust::Output<String>,
+        pub vm_priority: pulumi_wasm_rust::InputOrOutput<String>,
         /// The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created.
         #[builder(into)]
-        pub vm_size: pulumi_wasm_rust::Output<String>,
+        pub vm_size: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ComputeClusterResult {
@@ -198,27 +198,42 @@ pub mod compute_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ComputeClusterArgs) -> ComputeClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ComputeClusterArgs,
+    ) -> ComputeClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let identity_binding = args.identity.get_inner();
-        let local_auth_enabled_binding = args.local_auth_enabled.get_inner();
-        let location_binding = args.location.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let identity_binding = args.identity.get_output(context).get_inner();
+        let local_auth_enabled_binding = args
+            .local_auth_enabled
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let machine_learning_workspace_id_binding = args
             .machine_learning_workspace_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let node_public_ip_enabled_binding = args.node_public_ip_enabled.get_inner();
-        let scale_settings_binding = args.scale_settings.get_inner();
-        let ssh_binding = args.ssh.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let node_public_ip_enabled_binding = args
+            .node_public_ip_enabled
+            .get_output(context)
+            .get_inner();
+        let scale_settings_binding = args.scale_settings.get_output(context).get_inner();
+        let ssh_binding = args.ssh.get_output(context).get_inner();
         let ssh_public_access_enabled_binding = args
             .ssh_public_access_enabled
+            .get_output(context)
             .get_inner();
-        let subnet_resource_id_binding = args.subnet_resource_id.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vm_priority_binding = args.vm_priority.get_inner();
-        let vm_size_binding = args.vm_size.get_inner();
+        let subnet_resource_id_binding = args
+            .subnet_resource_id
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vm_priority_binding = args.vm_priority.get_output(context).get_inner();
+        let vm_size_binding = args.vm_size.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:machinelearning/computeCluster:ComputeCluster".into(),
             name: name.to_string(),
@@ -326,7 +341,7 @@ pub mod compute_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

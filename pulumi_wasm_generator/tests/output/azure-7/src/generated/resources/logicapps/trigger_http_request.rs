@@ -44,29 +44,29 @@
 /// ```
 ///
 pub mod trigger_http_request {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TriggerHttpRequestArgs {
         /// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub logic_app_id: pulumi_wasm_rust::Output<String>,
+        pub logic_app_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
         #[builder(into, default)]
-        pub method: pulumi_wasm_rust::Output<Option<String>>,
+        pub method: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the Relative Path used for this Request.
         ///
         /// > **NOTE:** When `relative_path` is set a `method` must also be set.
         #[builder(into, default)]
-        pub relative_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub relative_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
         #[builder(into)]
-        pub schema: pulumi_wasm_rust::Output<String>,
+        pub schema: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TriggerHttpRequestResult {
@@ -91,14 +91,18 @@ pub mod trigger_http_request {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TriggerHttpRequestArgs) -> TriggerHttpRequestResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TriggerHttpRequestArgs,
+    ) -> TriggerHttpRequestResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let logic_app_id_binding = args.logic_app_id.get_inner();
-        let method_binding = args.method.get_inner();
-        let name_binding = args.name.get_inner();
-        let relative_path_binding = args.relative_path.get_inner();
-        let schema_binding = args.schema.get_inner();
+        let logic_app_id_binding = args.logic_app_id.get_output(context).get_inner();
+        let method_binding = args.method.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let relative_path_binding = args.relative_path.get_output(context).get_inner();
+        let schema_binding = args.schema.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:logicapps/triggerHttpRequest:TriggerHttpRequest".into(),
             name: name.to_string(),
@@ -146,7 +150,7 @@ pub mod trigger_http_request {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

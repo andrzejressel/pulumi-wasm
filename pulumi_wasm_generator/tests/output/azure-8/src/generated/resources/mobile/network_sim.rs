@@ -95,37 +95,39 @@
 /// ```
 ///
 pub mod network_sim {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkSimArgs {
         /// The Ki value for the SIM.
         #[builder(into)]
-        pub authentication_key: pulumi_wasm_rust::Output<String>,
+        pub authentication_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// An optional free-form text field that can be used to record the device type this SIM is associated with, for example `Video camera`. The Azure portal allows SIMs to be grouped and filtered based on this value.
         #[builder(into, default)]
-        pub device_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub device_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The integrated circuit card ID (ICCID) for the SIM. Changing this forces a new Mobile Network Sim to be created.
         #[builder(into)]
-        pub integrated_circuit_card_identifier: pulumi_wasm_rust::Output<String>,
+        pub integrated_circuit_card_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The international mobile subscriber identity (IMSI) for the SIM. Changing this forces a new Mobile Network Sim to be created.
         #[builder(into)]
-        pub international_mobile_subscriber_identity: pulumi_wasm_rust::Output<String>,
+        pub international_mobile_subscriber_identity: pulumi_wasm_rust::InputOrOutput<
+            String,
+        >,
         /// The ID of the Mobile Network which the Mobile Network Sim belongs to. Changing this forces a new Mobile Network Sim to be created.
         #[builder(into)]
-        pub mobile_network_sim_group_id: pulumi_wasm_rust::Output<String>,
+        pub mobile_network_sim_group_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Mobile Network Sim. Changing this forces a new Mobile Network Sim to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Opc value for the SIM.
         #[builder(into)]
-        pub operator_key_code: pulumi_wasm_rust::Output<String>,
+        pub operator_key_code: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of SIM policy used by this SIM.
         #[builder(into, default)]
-        pub sim_policy_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub sim_policy_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `static_ip_configuration` block as defined below.
         #[builder(into, default)]
-        pub static_ip_configurations: pulumi_wasm_rust::Output<
+        pub static_ip_configurations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::mobile::NetworkSimStaticIpConfiguration>>,
         >,
     }
@@ -162,24 +164,40 @@ pub mod network_sim {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: NetworkSimArgs) -> NetworkSimResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: NetworkSimArgs,
+    ) -> NetworkSimResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let authentication_key_binding = args.authentication_key.get_inner();
-        let device_type_binding = args.device_type.get_inner();
+        let authentication_key_binding = args
+            .authentication_key
+            .get_output(context)
+            .get_inner();
+        let device_type_binding = args.device_type.get_output(context).get_inner();
         let integrated_circuit_card_identifier_binding = args
             .integrated_circuit_card_identifier
+            .get_output(context)
             .get_inner();
         let international_mobile_subscriber_identity_binding = args
             .international_mobile_subscriber_identity
+            .get_output(context)
             .get_inner();
         let mobile_network_sim_group_id_binding = args
             .mobile_network_sim_group_id
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let operator_key_code_binding = args.operator_key_code.get_inner();
-        let sim_policy_id_binding = args.sim_policy_id.get_inner();
-        let static_ip_configurations_binding = args.static_ip_configurations.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let operator_key_code_binding = args
+            .operator_key_code
+            .get_output(context)
+            .get_inner();
+        let sim_policy_id_binding = args.sim_policy_id.get_output(context).get_inner();
+        let static_ip_configurations_binding = args
+            .static_ip_configurations
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:mobile/networkSim:NetworkSim".into(),
             name: name.to_string(),
@@ -261,7 +279,7 @@ pub mod network_sim {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

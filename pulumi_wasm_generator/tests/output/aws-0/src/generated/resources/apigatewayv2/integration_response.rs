@@ -29,30 +29,32 @@
 /// $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
 /// ```
 pub mod integration_response {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationResponseArgs {
         /// API identifier.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
         #[builder(into, default)]
-        pub content_handling_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_handling_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Identifier of the `aws.apigatewayv2.Integration`.
         #[builder(into)]
-        pub integration_id: pulumi_wasm_rust::Output<String>,
+        pub integration_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Integration response key.
         #[builder(into)]
-        pub integration_response_key: pulumi_wasm_rust::Output<String>,
+        pub integration_response_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         #[builder(into, default)]
-        pub response_templates: pulumi_wasm_rust::Output<
+        pub response_templates: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         #[builder(into, default)]
-        pub template_selection_expression: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_selection_expression: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct IntegrationResponseResult {
@@ -76,20 +78,29 @@ pub mod integration_response {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: IntegrationResponseArgs,
     ) -> IntegrationResponseResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_id_binding = args.api_id.get_inner();
+        let api_id_binding = args.api_id.get_output(context).get_inner();
         let content_handling_strategy_binding = args
             .content_handling_strategy
+            .get_output(context)
             .get_inner();
-        let integration_id_binding = args.integration_id.get_inner();
-        let integration_response_key_binding = args.integration_response_key.get_inner();
-        let response_templates_binding = args.response_templates.get_inner();
+        let integration_id_binding = args.integration_id.get_output(context).get_inner();
+        let integration_response_key_binding = args
+            .integration_response_key
+            .get_output(context)
+            .get_inner();
+        let response_templates_binding = args
+            .response_templates
+            .get_output(context)
+            .get_inner();
         let template_selection_expression_binding = args
             .template_selection_expression
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:apigatewayv2/integrationResponse:IntegrationResponse".into(),
@@ -142,7 +153,7 @@ pub mod integration_response {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

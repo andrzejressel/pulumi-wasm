@@ -399,7 +399,7 @@
 /// ```
 ///
 pub mod job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobArgs {
@@ -411,22 +411,22 @@ pub mod job {
         /// annotations present in your configuration. Please refer to the field 'effective_annotations' for all of the annotations
         /// present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Settings for the Binary Authorization feature.
         #[builder(into, default)]
-        pub binary_authorization: pulumi_wasm_rust::Output<
+        pub binary_authorization: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::cloudrunv2::JobBinaryAuthorization>,
         >,
         /// Arbitrary identifier for the API client.
         #[builder(into, default)]
-        pub client: pulumi_wasm_rust::Output<Option<String>>,
+        pub client: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Arbitrary version identifier for the API client.
         #[builder(into, default)]
-        pub client_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with
         /// Google's billing system, so they can be used to filter, or break down billing charges by team, component, environment,
         /// state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or
@@ -436,7 +436,7 @@ pub mod job {
         /// non-authoritative, and will only manage the labels present in your configuration. Please refer to the field
         /// 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The launch stage as defined by [Google Cloud Platform Launch
@@ -446,27 +446,27 @@ pub mod job {
         /// input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values:
         /// ["UNIMPLEMENTED", "PRELAUNCH", "EARLY_ACCESS", "ALPHA", "BETA", "GA", "DEPRECATED"]
         #[builder(into, default)]
-        pub launch_stage: pulumi_wasm_rust::Output<Option<String>>,
+        pub launch_stage: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location of the cloud run job
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the Job.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A unique string used as a suffix creating a new execution upon job create or update. The Job will become ready when the
         /// execution is successfully completed. The sum of job name and token length must be fewer than 63 characters.
         #[builder(into, default)]
-        pub run_execution_token: pulumi_wasm_rust::Output<Option<String>>,
+        pub run_execution_token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A unique string used as a suffix creating a new execution upon job create or update. The Job will become ready when the
         /// execution is successfully started. The sum of job name and token length must be fewer than 63 characters.
         #[builder(into, default)]
-        pub start_execution_token: pulumi_wasm_rust::Output<Option<String>>,
+        pub start_execution_token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The template used to create executions for this Job.
         /// Structure is documented below.
         #[builder(into)]
-        pub template: pulumi_wasm_rust::Output<
+        pub template: pulumi_wasm_rust::InputOrOutput<
             super::super::types::cloudrunv2::JobTemplate,
         >,
     }
@@ -586,22 +586,38 @@ pub mod job {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: JobArgs) -> JobResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: JobArgs,
+    ) -> JobResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let binary_authorization_binding = args.binary_authorization.get_inner();
-        let client_binding = args.client.get_inner();
-        let client_version_binding = args.client_version.get_inner();
-        let deletion_protection_binding = args.deletion_protection.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let launch_stage_binding = args.launch_stage.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_binding = args.project.get_inner();
-        let run_execution_token_binding = args.run_execution_token.get_inner();
-        let start_execution_token_binding = args.start_execution_token.get_inner();
-        let template_binding = args.template.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let binary_authorization_binding = args
+            .binary_authorization
+            .get_output(context)
+            .get_inner();
+        let client_binding = args.client.get_output(context).get_inner();
+        let client_version_binding = args.client_version.get_output(context).get_inner();
+        let deletion_protection_binding = args
+            .deletion_protection
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let launch_stage_binding = args.launch_stage.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let run_execution_token_binding = args
+            .run_execution_token
+            .get_output(context)
+            .get_inner();
+        let start_execution_token_binding = args
+            .start_execution_token
+            .get_output(context)
+            .get_inner();
+        let template_binding = args.template.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:cloudrunv2/job:Job".into(),
             name: name.to_string(),
@@ -756,7 +772,7 @@ pub mod job {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

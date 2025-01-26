@@ -68,31 +68,33 @@
 /// You can use the `triggers` argument to specify when the image should be rebuild. This is for example helpful when you want to rebuild the docker image whenever the source code changes.
 ///
 pub mod remote_image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RemoteImageArgs {
         /// Configuration to build an image. Please see [docker build command reference](https://docs.docker.com/engine/reference/commandline/build/#options) too.
         #[builder(into, default)]
-        pub build: pulumi_wasm_rust::Output<Option<super::types::RemoteImageBuild>>,
+        pub build: pulumi_wasm_rust::InputOrOutput<
+            Option<super::types::RemoteImageBuild>,
+        >,
         /// Always remove intermediate containers
         #[builder(into, default)]
-        pub force_remove: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_remove: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
         #[builder(into, default)]
-        pub keep_locally: pulumi_wasm_rust::Output<Option<bool>>,
+        pub keep_locally: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// type of ulimit, e.g. `nofile`
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Set platform if server is multi-platform capable
         #[builder(into, default)]
-        pub platform: pulumi_wasm_rust::Output<Option<String>>,
+        pub platform: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of values which cause an image pull when changed. This is used to store the image digest from the registry when using the docker*registry*image.
         #[builder(into, default)]
-        pub pull_triggers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub pull_triggers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of arbitrary strings that, when changed, will force the `docker.RemoteImage` resource to be replaced. This can be used to rebuild an image when contents of source code folders change
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -123,16 +125,20 @@ pub mod remote_image {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: RemoteImageArgs) -> RemoteImageResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: RemoteImageArgs,
+    ) -> RemoteImageResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let build_binding = args.build.get_inner();
-        let force_remove_binding = args.force_remove.get_inner();
-        let keep_locally_binding = args.keep_locally.get_inner();
-        let name_binding = args.name.get_inner();
-        let platform_binding = args.platform.get_inner();
-        let pull_triggers_binding = args.pull_triggers.get_inner();
-        let triggers_binding = args.triggers.get_inner();
+        let build_binding = args.build.get_output(context).get_inner();
+        let force_remove_binding = args.force_remove.get_output(context).get_inner();
+        let keep_locally_binding = args.keep_locally.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let platform_binding = args.platform.get_output(context).get_inner();
+        let pull_triggers_binding = args.pull_triggers.get_output(context).get_inner();
+        let triggers_binding = args.triggers.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "docker:index/remoteImage:RemoteImage".into(),
             name: name.to_string(),
@@ -197,7 +203,7 @@ pub mod remote_image {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

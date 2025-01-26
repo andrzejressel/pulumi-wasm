@@ -42,7 +42,7 @@
 /// ```
 ///
 pub mod principal_access_boundary_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrincipalAccessBoundaryPolicyArgs {
@@ -52,31 +52,31 @@ pub mod principal_access_boundary_policy {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Principal access boundary policy details
         /// Structure is documented below.
         #[builder(into, default)]
-        pub details: pulumi_wasm_rust::Output<
+        pub details: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iam::PrincipalAccessBoundaryPolicyDetails>,
         >,
         /// The description of the principal access boundary policy. Must be less than or equal to 63 characters.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location the principal access boundary policy is in.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The parent organization of the principal access boundary policy.
         #[builder(into)]
-        pub organization: pulumi_wasm_rust::Output<String>,
+        pub organization: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID to use to create the principal access boundary policy.
         /// This value must start with a lowercase letter followed by up to 62 lowercase letters, numbers, hyphens, or dots. Pattern, /a-z{2,62}/.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub principal_access_boundary_policy_id: pulumi_wasm_rust::Output<String>,
+        pub principal_access_boundary_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PrincipalAccessBoundaryPolicyResult {
@@ -125,18 +125,20 @@ pub mod principal_access_boundary_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: PrincipalAccessBoundaryPolicyArgs,
     ) -> PrincipalAccessBoundaryPolicyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let details_binding = args.details.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let location_binding = args.location.get_inner();
-        let organization_binding = args.organization.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let details_binding = args.details.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let organization_binding = args.organization.get_output(context).get_inner();
         let principal_access_boundary_policy_id_binding = args
             .principal_access_boundary_policy_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:iam/principalAccessBoundaryPolicy:PrincipalAccessBoundaryPolicy"
@@ -208,7 +210,7 @@ pub mod principal_access_boundary_policy {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

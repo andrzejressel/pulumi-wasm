@@ -73,21 +73,21 @@
 /// ```
 ///
 pub mod crypto_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CryptoKeyArgs {
         /// The resource name of the backend environment associated with all CryptoKeyVersions within this CryptoKey.
         /// The resource name is in the format "projects/*/locations/*/ekmConnections/*" and only applies to "EXTERNAL_VPC" keys.
         #[builder(into, default)]
-        pub crypto_key_backend: pulumi_wasm_rust::Output<Option<String>>,
+        pub crypto_key_backend: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The period of time that versions of this key spend in the DESTROY_SCHEDULED state before transitioning to DESTROYED.
         /// If not specified at creation time, the default duration is 30 days.
         #[builder(into, default)]
-        pub destroy_scheduled_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub destroy_scheduled_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether this key may contain imported versions only.
         #[builder(into, default)]
-        pub import_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub import_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The policy used for Key Access Justifications Policy Enforcement. If this
         /// field is present and this key is enrolled in Key Access Justifications
         /// Policy Enforcement, the policy will be evaluated in encrypt, decrypt, and
@@ -98,7 +98,7 @@ pub mod crypto_key {
         /// This field is currently in beta and is subject to change.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub key_access_justifications_policy: pulumi_wasm_rust::Output<
+        pub key_access_justifications_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::kms::CryptoKeyKeyAccessJustificationsPolicy>,
         >,
         /// The KeyRing that this key belongs to.
@@ -107,39 +107,39 @@ pub mod crypto_key {
         ///
         /// - - -
         #[builder(into)]
-        pub key_ring: pulumi_wasm_rust::Output<String>,
+        pub key_ring: pulumi_wasm_rust::InputOrOutput<String>,
         /// Labels with user-defined metadata to apply to this resource.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The resource name for the CryptoKey.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The immutable purpose of this CryptoKey. See the
         /// [purpose reference](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys#CryptoKeyPurpose)
         /// for possible inputs.
         /// Default value is "ENCRYPT_DECRYPT".
         #[builder(into, default)]
-        pub purpose: pulumi_wasm_rust::Output<Option<String>>,
+        pub purpose: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Every time this period passes, generate a new CryptoKeyVersion and set it as the primary.
         /// The first rotation will take place after the specified period. The rotation period has
         /// the format of a decimal number with up to 9 fractional digits, followed by the
         /// letter `s` (seconds). It must be greater than a day (ie, 86400).
         #[builder(into, default)]
-        pub rotation_period: pulumi_wasm_rust::Output<Option<String>>,
+        pub rotation_period: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// If set to true, the request will create a CryptoKey without any CryptoKeyVersions.
         /// You must use the `gcp.kms.CryptoKeyVersion` resource to create a new CryptoKeyVersion
         /// or `gcp.kms.KeyRingImportJob` resource to import the CryptoKeyVersion.
         #[builder(into, default)]
-        pub skip_initial_version_creation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_initial_version_creation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A template describing settings for new crypto key versions.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub version_template: pulumi_wasm_rust::Output<
+        pub version_template: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::kms::CryptoKeyVersionTemplate>,
         >,
     }
@@ -219,26 +219,42 @@ pub mod crypto_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: CryptoKeyArgs) -> CryptoKeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: CryptoKeyArgs,
+    ) -> CryptoKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let crypto_key_backend_binding = args.crypto_key_backend.get_inner();
+        let crypto_key_backend_binding = args
+            .crypto_key_backend
+            .get_output(context)
+            .get_inner();
         let destroy_scheduled_duration_binding = args
             .destroy_scheduled_duration
+            .get_output(context)
             .get_inner();
-        let import_only_binding = args.import_only.get_inner();
+        let import_only_binding = args.import_only.get_output(context).get_inner();
         let key_access_justifications_policy_binding = args
             .key_access_justifications_policy
+            .get_output(context)
             .get_inner();
-        let key_ring_binding = args.key_ring.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let purpose_binding = args.purpose.get_inner();
-        let rotation_period_binding = args.rotation_period.get_inner();
+        let key_ring_binding = args.key_ring.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let purpose_binding = args.purpose.get_output(context).get_inner();
+        let rotation_period_binding = args
+            .rotation_period
+            .get_output(context)
+            .get_inner();
         let skip_initial_version_creation_binding = args
             .skip_initial_version_creation
+            .get_output(context)
             .get_inner();
-        let version_template_binding = args.version_template.get_inner();
+        let version_template_binding = args
+            .version_template
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:kms/cryptoKey:CryptoKey".into(),
             name: name.to_string(),
@@ -334,7 +350,7 @@ pub mod crypto_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

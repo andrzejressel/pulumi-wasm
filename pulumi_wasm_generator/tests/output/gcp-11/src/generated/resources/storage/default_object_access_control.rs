@@ -57,13 +57,13 @@
 /// ```
 ///
 pub mod default_object_access_control {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultObjectAccessControlArgs {
         /// The name of the bucket.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// The entity holding the permission, in one of the following forms:
         /// * user-{{userId}}
         /// * user-{{email}} (such as "user-liz@example.com")
@@ -74,17 +74,17 @@ pub mod default_object_access_control {
         /// * allUsers
         /// * allAuthenticatedUsers
         #[builder(into)]
-        pub entity: pulumi_wasm_rust::Output<String>,
+        pub entity: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the object, if applied to an object.
         #[builder(into, default)]
-        pub object: pulumi_wasm_rust::Output<Option<String>>,
+        pub object: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The access permission for the entity.
         /// Possible values are: `OWNER`, `READER`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DefaultObjectAccessControlResult {
@@ -127,15 +127,16 @@ pub mod default_object_access_control {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DefaultObjectAccessControlArgs,
     ) -> DefaultObjectAccessControlResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let entity_binding = args.entity.get_inner();
-        let object_binding = args.object.get_inner();
-        let role_binding = args.role.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let entity_binding = args.entity.get_output(context).get_inner();
+        let object_binding = args.object.get_output(context).get_inner();
+        let role_binding = args.role.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:storage/defaultObjectAccessControl:DefaultObjectAccessControl"
                 .into(),
@@ -189,7 +190,7 @@ pub mod default_object_access_control {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

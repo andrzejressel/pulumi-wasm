@@ -1,11 +1,11 @@
 pub mod get_workspaces {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetWorkspacesArgs {
         /// Limits results to workspaces with aliases that begin with this value.
         #[builder(into, default)]
-        pub alias_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub alias_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetWorkspacesResult {
@@ -23,10 +23,13 @@ pub mod get_workspaces {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetWorkspacesArgs) -> GetWorkspacesResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetWorkspacesArgs,
+    ) -> GetWorkspacesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let alias_prefix_binding = args.alias_prefix.get_inner();
+        let alias_prefix_binding = args.alias_prefix.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:amp/getWorkspaces:getWorkspaces".into(),
             version: super::super::super::get_version(),
@@ -54,7 +57,7 @@ pub mod get_workspaces {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

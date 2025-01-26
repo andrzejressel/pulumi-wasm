@@ -96,103 +96,103 @@
 /// ```
 ///
 pub mod spark_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SparkClusterArgs {
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_version: pulumi_wasm_rust::Output<String>,
+        pub cluster_version: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `component_version` block as defined below.
         #[builder(into)]
-        pub component_version: pulumi_wasm_rust::Output<
+        pub component_version: pulumi_wasm_rust::InputOrOutput<
             super::super::types::hdinsight::SparkClusterComponentVersion,
         >,
         /// A `compute_isolation` block as defined below.
         #[builder(into, default)]
-        pub compute_isolation: pulumi_wasm_rust::Output<
+        pub compute_isolation: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterComputeIsolation>,
         >,
         /// One or more `disk_encryption` block as defined below.
         #[builder(into, default)]
-        pub disk_encryptions: pulumi_wasm_rust::Output<
+        pub disk_encryptions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::hdinsight::SparkClusterDiskEncryption>>,
         >,
         /// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub encryption_in_transit_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub encryption_in_transit_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `extension` block as defined below.
         #[builder(into, default)]
-        pub extension: pulumi_wasm_rust::Output<
+        pub extension: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterExtension>,
         >,
         /// A `gateway` block as defined below.
         #[builder(into)]
-        pub gateway: pulumi_wasm_rust::Output<
+        pub gateway: pulumi_wasm_rust::InputOrOutput<
             super::super::types::hdinsight::SparkClusterGateway,
         >,
         /// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `metastores` block as defined below.
         #[builder(into, default)]
-        pub metastores: pulumi_wasm_rust::Output<
+        pub metastores: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterMetastores>,
         >,
         /// A `monitor` block as defined below.
         #[builder(into, default)]
-        pub monitor: pulumi_wasm_rust::Output<
+        pub monitor: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterMonitor>,
         >,
         /// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `network` block as defined below.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::Output<
+        pub network: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterNetwork>,
         >,
         /// A `private_link_configuration` block as defined below.
         #[builder(into, default)]
-        pub private_link_configuration: pulumi_wasm_rust::Output<
+        pub private_link_configuration: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterPrivateLinkConfiguration>,
         >,
         /// Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `roles` block as defined below.
         #[builder(into)]
-        pub roles: pulumi_wasm_rust::Output<
+        pub roles: pulumi_wasm_rust::InputOrOutput<
             super::super::types::hdinsight::SparkClusterRoles,
         >,
         /// A `security_profile` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub security_profile: pulumi_wasm_rust::Output<
+        pub security_profile: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterSecurityProfile>,
         >,
         /// A `storage_account_gen2` block as defined below.
         #[builder(into, default)]
-        pub storage_account_gen2: pulumi_wasm_rust::Output<
+        pub storage_account_gen2: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::hdinsight::SparkClusterStorageAccountGen2>,
         >,
         /// One or more `storage_account` block as defined below.
         #[builder(into, default)]
-        pub storage_accounts: pulumi_wasm_rust::Output<
+        pub storage_accounts: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::hdinsight::SparkClusterStorageAccount>>,
         >,
         /// A map of Tags which should be assigned to this HDInsight Spark Cluster.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub tier: pulumi_wasm_rust::Output<String>,
+        pub tier: pulumi_wasm_rust::InputOrOutput<String>,
         /// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         #[builder(into, default)]
-        pub tls_min_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub tls_min_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SparkClusterResult {
@@ -277,34 +277,67 @@ pub mod spark_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SparkClusterArgs) -> SparkClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SparkClusterArgs,
+    ) -> SparkClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cluster_version_binding = args.cluster_version.get_inner();
-        let component_version_binding = args.component_version.get_inner();
-        let compute_isolation_binding = args.compute_isolation.get_inner();
-        let disk_encryptions_binding = args.disk_encryptions.get_inner();
+        let cluster_version_binding = args
+            .cluster_version
+            .get_output(context)
+            .get_inner();
+        let component_version_binding = args
+            .component_version
+            .get_output(context)
+            .get_inner();
+        let compute_isolation_binding = args
+            .compute_isolation
+            .get_output(context)
+            .get_inner();
+        let disk_encryptions_binding = args
+            .disk_encryptions
+            .get_output(context)
+            .get_inner();
         let encryption_in_transit_enabled_binding = args
             .encryption_in_transit_enabled
+            .get_output(context)
             .get_inner();
-        let extension_binding = args.extension.get_inner();
-        let gateway_binding = args.gateway.get_inner();
-        let location_binding = args.location.get_inner();
-        let metastores_binding = args.metastores.get_inner();
-        let monitor_binding = args.monitor.get_inner();
-        let name_binding = args.name.get_inner();
-        let network_binding = args.network.get_inner();
+        let extension_binding = args.extension.get_output(context).get_inner();
+        let gateway_binding = args.gateway.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let metastores_binding = args.metastores.get_output(context).get_inner();
+        let monitor_binding = args.monitor.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let network_binding = args.network.get_output(context).get_inner();
         let private_link_configuration_binding = args
             .private_link_configuration
+            .get_output(context)
             .get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let roles_binding = args.roles.get_inner();
-        let security_profile_binding = args.security_profile.get_inner();
-        let storage_account_gen2_binding = args.storage_account_gen2.get_inner();
-        let storage_accounts_binding = args.storage_accounts.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let tier_binding = args.tier.get_inner();
-        let tls_min_version_binding = args.tls_min_version.get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let roles_binding = args.roles.get_output(context).get_inner();
+        let security_profile_binding = args
+            .security_profile
+            .get_output(context)
+            .get_inner();
+        let storage_account_gen2_binding = args
+            .storage_account_gen2
+            .get_output(context)
+            .get_inner();
+        let storage_accounts_binding = args
+            .storage_accounts
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let tier_binding = args.tier.get_output(context).get_inner();
+        let tls_min_version_binding = args
+            .tls_min_version
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:hdinsight/sparkCluster:SparkCluster".into(),
             name: name.to_string(),
@@ -467,7 +500,7 @@ pub mod spark_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

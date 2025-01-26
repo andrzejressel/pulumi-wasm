@@ -152,7 +152,7 @@
 /// ```
 ///
 pub mod hosting_custom_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostingCustomDomainArgs {
@@ -161,28 +161,28 @@ pub mod hosting_custom_domain {
         /// `GROUPED` cert type, while Blaze plan can select any option.
         /// Possible values are: `GROUPED`, `PROJECT_GROUPED`, `DEDICATED`.
         #[builder(into, default)]
-        pub cert_preference: pulumi_wasm_rust::Output<Option<String>>,
+        pub cert_preference: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the `CustomDomain`, which is the domain name you'd like to use with Firebase Hosting.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub custom_domain: pulumi_wasm_rust::Output<String>,
+        pub custom_domain: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A domain name that this CustomDomain should direct traffic towards. If
         /// specified, Hosting will respond to requests against this CustomDomain
         /// with an HTTP 301 code, and route traffic to the specified `redirect_target`
         /// instead.
         #[builder(into, default)]
-        pub redirect_target: pulumi_wasm_rust::Output<Option<String>>,
+        pub redirect_target: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the site in which to create this custom domain association.
         #[builder(into)]
-        pub site_id: pulumi_wasm_rust::Output<String>,
+        pub site_id: pulumi_wasm_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub wait_dns_verification: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_dns_verification: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct HostingCustomDomainResult {
@@ -309,17 +309,27 @@ pub mod hosting_custom_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: HostingCustomDomainArgs,
     ) -> HostingCustomDomainResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let cert_preference_binding = args.cert_preference.get_inner();
-        let custom_domain_binding = args.custom_domain.get_inner();
-        let project_binding = args.project.get_inner();
-        let redirect_target_binding = args.redirect_target.get_inner();
-        let site_id_binding = args.site_id.get_inner();
-        let wait_dns_verification_binding = args.wait_dns_verification.get_inner();
+        let cert_preference_binding = args
+            .cert_preference
+            .get_output(context)
+            .get_inner();
+        let custom_domain_binding = args.custom_domain.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let redirect_target_binding = args
+            .redirect_target
+            .get_output(context)
+            .get_inner();
+        let site_id_binding = args.site_id.get_output(context).get_inner();
+        let wait_dns_verification_binding = args
+            .wait_dns_verification
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:firebase/hostingCustomDomain:HostingCustomDomain".into(),
             name: name.to_string(),
@@ -407,7 +417,7 @@ pub mod hosting_custom_domain {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -143,33 +143,33 @@
 /// ```
 ///
 pub mod managed_storage_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedStorageAccountArgs {
         /// The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should Storage Account access key be regenerated periodically?
         ///
         /// > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
         #[builder(into, default)]
-        pub regenerate_key_automatically: pulumi_wasm_rust::Output<Option<bool>>,
+        pub regenerate_key_automatically: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         #[builder(into, default)]
-        pub regeneration_period: pulumi_wasm_rust::Output<Option<String>>,
+        pub regeneration_period: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the Storage Account.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
         #[builder(into)]
-        pub storage_account_key: pulumi_wasm_rust::Output<String>,
+        pub storage_account_key: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -199,20 +199,31 @@ pub mod managed_storage_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ManagedStorageAccountArgs,
     ) -> ManagedStorageAccountResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let key_vault_id_binding = args.key_vault_id.get_inner();
-        let name_binding = args.name.get_inner();
+        let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let regenerate_key_automatically_binding = args
             .regenerate_key_automatically
+            .get_output(context)
             .get_inner();
-        let regeneration_period_binding = args.regeneration_period.get_inner();
-        let storage_account_id_binding = args.storage_account_id.get_inner();
-        let storage_account_key_binding = args.storage_account_key.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let regeneration_period_binding = args
+            .regeneration_period
+            .get_output(context)
+            .get_inner();
+        let storage_account_id_binding = args
+            .storage_account_id
+            .get_output(context)
+            .get_inner();
+        let storage_account_key_binding = args
+            .storage_account_key
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:keyvault/managedStorageAccount:ManagedStorageAccount".into(),
             name: name.to_string(),
@@ -271,7 +282,7 @@ pub mod managed_storage_account {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

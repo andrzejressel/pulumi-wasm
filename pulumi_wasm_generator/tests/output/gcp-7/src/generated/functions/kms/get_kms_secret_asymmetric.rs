@@ -1,19 +1,19 @@
 pub mod get_kms_secret_asymmetric {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetKmsSecretAsymmetricArgs {
         /// The ciphertext to be decrypted, encoded in base64
         #[builder(into)]
-        pub ciphertext: pulumi_wasm_rust::Output<String>,
+        pub ciphertext: pulumi_wasm_rust::InputOrOutput<String>,
         /// The crc32 checksum of the `ciphertext` in hexadecimal notation. If not specified, it will be computed.
         #[builder(into, default)]
-        pub crc32: pulumi_wasm_rust::Output<Option<String>>,
+        pub crc32: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The id of the CryptoKey version that will be used to
         /// decrypt the provided ciphertext. This is represented by the format
         /// `projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}/cryptoKeyVersions/{version}`.
         #[builder(into)]
-        pub crypto_key_version: pulumi_wasm_rust::Output<String>,
+        pub crypto_key_version: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetKmsSecretAsymmetricResult {
@@ -30,12 +30,18 @@ pub mod get_kms_secret_asymmetric {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetKmsSecretAsymmetricArgs) -> GetKmsSecretAsymmetricResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetKmsSecretAsymmetricArgs,
+    ) -> GetKmsSecretAsymmetricResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let ciphertext_binding = args.ciphertext.get_inner();
-        let crc32_binding = args.crc32.get_inner();
-        let crypto_key_version_binding = args.crypto_key_version.get_inner();
+        let ciphertext_binding = args.ciphertext.get_output(context).get_inner();
+        let crc32_binding = args.crc32.get_output(context).get_inner();
+        let crypto_key_version_binding = args
+            .crypto_key_version
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "gcp:kms/getKMSSecretAsymmetric:getKMSSecretAsymmetric".into(),
             version: super::super::super::get_version(),
@@ -71,7 +77,7 @@ pub mod get_kms_secret_asymmetric {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

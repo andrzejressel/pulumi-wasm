@@ -85,29 +85,29 @@
 /// $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
 /// ```
 pub mod bucket_website_configuration_v_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketWebsiteConfigurationV2Args {
         /// Name of the bucket.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
         /// Name of the error document for the website. See below.
         #[builder(into, default)]
-        pub error_document: pulumi_wasm_rust::Output<
+        pub error_document: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3::BucketWebsiteConfigurationV2ErrorDocument>,
         >,
         /// Account ID of the expected bucket owner.
         #[builder(into, default)]
-        pub expected_bucket_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_bucket_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name of the index document for the website. See below.
         #[builder(into, default)]
-        pub index_document: pulumi_wasm_rust::Output<
+        pub index_document: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::s3::BucketWebsiteConfigurationV2IndexDocument>,
         >,
         /// Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `error_document`, `index_document`, and `routing_rule`.
         #[builder(into, default)]
-        pub redirect_all_requests_to: pulumi_wasm_rust::Output<
+        pub redirect_all_requests_to: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::s3::BucketWebsiteConfigurationV2RedirectAllRequestsTo,
             >,
@@ -115,10 +115,10 @@ pub mod bucket_website_configuration_v_2 {
         /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
         /// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
         #[builder(into, default)]
-        pub routing_rule_details: pulumi_wasm_rust::Output<Option<String>>,
+        pub routing_rule_details: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of rules that define when a redirect is applied and the redirect behavior. See below.
         #[builder(into, default)]
-        pub routing_rules: pulumi_wasm_rust::Output<
+        pub routing_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::s3::BucketWebsiteConfigurationV2RoutingRule>>,
         >,
     }
@@ -159,18 +159,28 @@ pub mod bucket_website_configuration_v_2 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BucketWebsiteConfigurationV2Args,
     ) -> BucketWebsiteConfigurationV2Result {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let bucket_binding = args.bucket.get_inner();
-        let error_document_binding = args.error_document.get_inner();
-        let expected_bucket_owner_binding = args.expected_bucket_owner.get_inner();
-        let index_document_binding = args.index_document.get_inner();
-        let redirect_all_requests_to_binding = args.redirect_all_requests_to.get_inner();
-        let routing_rule_details_binding = args.routing_rule_details.get_inner();
-        let routing_rules_binding = args.routing_rules.get_inner();
+        let bucket_binding = args.bucket.get_output(context).get_inner();
+        let error_document_binding = args.error_document.get_output(context).get_inner();
+        let expected_bucket_owner_binding = args
+            .expected_bucket_owner
+            .get_output(context)
+            .get_inner();
+        let index_document_binding = args.index_document.get_output(context).get_inner();
+        let redirect_all_requests_to_binding = args
+            .redirect_all_requests_to
+            .get_output(context)
+            .get_inner();
+        let routing_rule_details_binding = args
+            .routing_rule_details
+            .get_output(context)
+            .get_inner();
+        let routing_rules_binding = args.routing_rules.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2"
                 .into(),
@@ -236,7 +246,7 @@ pub mod bucket_website_configuration_v_2 {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

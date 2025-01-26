@@ -26,42 +26,42 @@
 /// $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
 /// ```
 pub mod trust_provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrustProviderArgs {
         /// A description for the AWS Verified Access trust provider.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A block of options for device identity based trust providers.
         #[builder(into, default)]
-        pub device_options: pulumi_wasm_rust::Output<
+        pub device_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::verifiedaccess::TrustProviderDeviceOptions>,
         >,
         /// The type of device-based trust provider.
         #[builder(into, default)]
-        pub device_trust_provider_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub device_trust_provider_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
         #[builder(into, default)]
-        pub oidc_options: pulumi_wasm_rust::Output<
+        pub oidc_options: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::verifiedaccess::TrustProviderOidcOptions>,
         >,
         /// The identifier to be used when working with policy rules.
         #[builder(into)]
-        pub policy_reference_name: pulumi_wasm_rust::Output<String>,
+        pub policy_reference_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of trust provider can be either user or device-based.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub trust_provider_type: pulumi_wasm_rust::Output<String>,
+        pub trust_provider_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The type of user-based trust provider.
         #[builder(into, default)]
-        pub user_trust_provider_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_trust_provider_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TrustProviderResult {
@@ -97,19 +97,33 @@ pub mod trust_provider {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TrustProviderArgs) -> TrustProviderResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TrustProviderArgs,
+    ) -> TrustProviderResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let device_options_binding = args.device_options.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let device_options_binding = args.device_options.get_output(context).get_inner();
         let device_trust_provider_type_binding = args
             .device_trust_provider_type
+            .get_output(context)
             .get_inner();
-        let oidc_options_binding = args.oidc_options.get_inner();
-        let policy_reference_name_binding = args.policy_reference_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let trust_provider_type_binding = args.trust_provider_type.get_inner();
-        let user_trust_provider_type_binding = args.user_trust_provider_type.get_inner();
+        let oidc_options_binding = args.oidc_options.get_output(context).get_inner();
+        let policy_reference_name_binding = args
+            .policy_reference_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let trust_provider_type_binding = args
+            .trust_provider_type
+            .get_output(context)
+            .get_inner();
+        let user_trust_provider_type_binding = args
+            .user_trust_provider_type
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:verifiedaccess/trustProvider:TrustProvider".into(),
             name: name.to_string(),
@@ -178,7 +192,7 @@ pub mod trust_provider {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

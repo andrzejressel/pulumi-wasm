@@ -42,38 +42,38 @@
 /// ```
 ///
 pub mod spacecraft {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpacecraftArgs {
         /// A `links` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub links: pulumi_wasm_rust::Output<
+        pub links: pulumi_wasm_rust::InputOrOutput<
             Vec<super::super::types::orbital::SpacecraftLink>,
         >,
         /// The location where the Spacecraft exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the Spacecraft. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// NORAD ID of the Spacecraft.
         #[builder(into)]
-        pub norad_id: pulumi_wasm_rust::Output<String>,
+        pub norad_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Title of the two line elements (TLE).
         #[builder(into)]
-        pub title_line: pulumi_wasm_rust::Output<String>,
+        pub title_line: pulumi_wasm_rust::InputOrOutput<String>,
         /// A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub two_line_elements: pulumi_wasm_rust::Output<Vec<String>>,
+        pub two_line_elements: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct SpacecraftResult {
@@ -102,17 +102,27 @@ pub mod spacecraft {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SpacecraftArgs) -> SpacecraftResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SpacecraftArgs,
+    ) -> SpacecraftResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let links_binding = args.links.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let norad_id_binding = args.norad_id.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let title_line_binding = args.title_line.get_inner();
-        let two_line_elements_binding = args.two_line_elements.get_inner();
+        let links_binding = args.links.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let norad_id_binding = args.norad_id.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let title_line_binding = args.title_line.get_output(context).get_inner();
+        let two_line_elements_binding = args
+            .two_line_elements
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:orbital/spacecraft:Spacecraft".into(),
             name: name.to_string(),
@@ -178,7 +188,7 @@ pub mod spacecraft {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

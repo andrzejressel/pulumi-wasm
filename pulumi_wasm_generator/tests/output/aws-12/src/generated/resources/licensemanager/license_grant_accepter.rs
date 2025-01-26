@@ -26,13 +26,13 @@
 /// $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
 /// ```
 pub mod license_grant_accepter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LicenseGrantAccepterArgs {
         /// The ARN of the grant to accept.
         #[builder(into)]
-        pub grant_arn: pulumi_wasm_rust::Output<String>,
+        pub grant_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LicenseGrantAccepterResult {
@@ -60,12 +60,13 @@ pub mod license_grant_accepter {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: LicenseGrantAccepterArgs,
     ) -> LicenseGrantAccepterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let grant_arn_binding = args.grant_arn.get_inner();
+        let grant_arn_binding = args.grant_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter".into(),
             name: name.to_string(),
@@ -106,7 +107,7 @@ pub mod license_grant_accepter {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

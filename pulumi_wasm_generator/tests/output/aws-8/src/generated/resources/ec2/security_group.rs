@@ -227,40 +227,40 @@
 /// $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8
 /// ```
 pub mod security_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecurityGroupArgs {
         /// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         #[builder(into, default)]
-        pub egress: pulumi_wasm_rust::Output<
+        pub egress: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::SecurityGroupEgress>>,
         >,
         /// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
         #[builder(into, default)]
-        pub ingress: pulumi_wasm_rust::Output<
+        pub ingress: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::SecurityGroupIngress>>,
         >,
         /// Name of the security group. If omitted, the provider will assign a random, unique name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Instruct the provider to revoke all of the Security Groups attached ingress and egress rules before deleting the rule itself. This is normally not needed, however certain AWS services such as Elastic Map Reduce may automatically add required rules to security groups used with the service, and those rules may contain a cyclic dependency that prevent the security groups from being destroyed without removing the dependency first. Default `false`.
         #[builder(into, default)]
-        pub revoke_rules_on_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub revoke_rules_on_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// VPC ID. Defaults to the region's default VPC.
         #[builder(into, default)]
-        pub vpc_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SecurityGroupResult {
@@ -299,17 +299,24 @@ pub mod security_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: SecurityGroupArgs) -> SecurityGroupResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: SecurityGroupArgs,
+    ) -> SecurityGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let egress_binding = args.egress.get_inner();
-        let ingress_binding = args.ingress.get_inner();
-        let name_binding = args.name.get_inner();
-        let name_prefix_binding = args.name_prefix.get_inner();
-        let revoke_rules_on_delete_binding = args.revoke_rules_on_delete.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let egress_binding = args.egress.get_output(context).get_inner();
+        let ingress_binding = args.ingress.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let name_prefix_binding = args.name_prefix.get_output(context).get_inner();
+        let revoke_rules_on_delete_binding = args
+            .revoke_rules_on_delete
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/securityGroup:SecurityGroup".into(),
             name: name.to_string(),
@@ -384,7 +391,7 @@ pub mod security_group {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

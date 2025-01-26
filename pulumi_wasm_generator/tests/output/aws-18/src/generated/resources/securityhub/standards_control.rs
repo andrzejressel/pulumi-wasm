@@ -33,19 +33,19 @@
 /// }
 /// ```
 pub mod standards_control {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StandardsControlArgs {
         /// The control status could be `ENABLED` or `DISABLED`. You have to specify `disabled_reason` argument for `DISABLED` control status.
         #[builder(into)]
-        pub control_status: pulumi_wasm_rust::Output<String>,
+        pub control_status: pulumi_wasm_rust::InputOrOutput<String>,
         /// A description of the reason why you are disabling a security standard control. If you specify this attribute, `control_status` will be set to `DISABLED` automatically.
         #[builder(into, default)]
-        pub disabled_reason: pulumi_wasm_rust::Output<Option<String>>,
+        pub disabled_reason: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         #[builder(into)]
-        pub standards_control_arn: pulumi_wasm_rust::Output<String>,
+        pub standards_control_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct StandardsControlResult {
@@ -74,12 +74,22 @@ pub mod standards_control {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: StandardsControlArgs) -> StandardsControlResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: StandardsControlArgs,
+    ) -> StandardsControlResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let control_status_binding = args.control_status.get_inner();
-        let disabled_reason_binding = args.disabled_reason.get_inner();
-        let standards_control_arn_binding = args.standards_control_arn.get_inner();
+        let control_status_binding = args.control_status.get_output(context).get_inner();
+        let disabled_reason_binding = args
+            .disabled_reason
+            .get_output(context)
+            .get_inner();
+        let standards_control_arn_binding = args
+            .standards_control_arn
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:securityhub/standardsControl:StandardsControl".into(),
             name: name.to_string(),
@@ -131,7 +141,7 @@ pub mod standards_control {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

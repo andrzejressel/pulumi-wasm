@@ -1,20 +1,20 @@
 pub mod get_availability_zones {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAvailabilityZonesArgs {
         /// Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
         #[builder(into, default)]
-        pub all_availability_zones: pulumi_wasm_rust::Output<Option<bool>>,
+        pub all_availability_zones: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// List of Availability Zone names to exclude.
         #[builder(into, default)]
-        pub exclude_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub exclude_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of Availability Zone IDs to exclude.
         #[builder(into, default)]
-        pub exclude_zone_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub exclude_zone_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Configuration block(s) for filtering. Detailed below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::GetAvailabilityZonesFilter>>,
         >,
         /// Allows to filter list of Availability Zones based on their
@@ -22,7 +22,7 @@ pub mod get_availability_zones {
         /// `"unavailable"`. By default the list includes a complete set of Availability Zones
         /// to which the underlying AWS account has access, regardless of their state.
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::Output<Option<String>>,
+        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetAvailabilityZonesResult {
@@ -46,14 +46,23 @@ pub mod get_availability_zones {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetAvailabilityZonesArgs) -> GetAvailabilityZonesResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetAvailabilityZonesArgs,
+    ) -> GetAvailabilityZonesResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let all_availability_zones_binding = args.all_availability_zones.get_inner();
-        let exclude_names_binding = args.exclude_names.get_inner();
-        let exclude_zone_ids_binding = args.exclude_zone_ids.get_inner();
-        let filters_binding = args.filters.get_inner();
-        let state_binding = args.state.get_inner();
+        let all_availability_zones_binding = args
+            .all_availability_zones
+            .get_output(context)
+            .get_inner();
+        let exclude_names_binding = args.exclude_names.get_output(context).get_inner();
+        let exclude_zone_ids_binding = args
+            .exclude_zone_ids
+            .get_output(context)
+            .get_inner();
+        let filters_binding = args.filters.get_output(context).get_inner();
+        let state_binding = args.state.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:index/getAvailabilityZones:getAvailabilityZones".into(),
             version: super::super::get_version(),
@@ -109,7 +118,7 @@ pub mod get_availability_zones {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

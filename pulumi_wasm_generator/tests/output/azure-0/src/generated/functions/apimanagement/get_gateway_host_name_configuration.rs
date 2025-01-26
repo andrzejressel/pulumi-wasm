@@ -1,18 +1,18 @@
 pub mod get_gateway_host_name_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetGatewayHostNameConfigurationArgs {
         /// The ID of the API Management Service.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the API Management Gateway.
         /// *
         #[builder(into)]
-        pub gateway_name: pulumi_wasm_rust::Output<String>,
+        pub gateway_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the API Management Gateway Host Name Configuration.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetGatewayHostNameConfigurationResult {
@@ -39,13 +39,17 @@ pub mod get_gateway_host_name_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetGatewayHostNameConfigurationArgs,
     ) -> GetGatewayHostNameConfigurationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let api_management_id_binding = args.api_management_id.get_inner();
-        let gateway_name_binding = args.gateway_name.get_inner();
-        let name_binding = args.name.get_inner();
+        let api_management_id_binding = args
+            .api_management_id
+            .get_output(context)
+            .get_inner();
+        let gateway_name_binding = args.gateway_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration"
                 .into(),
@@ -97,7 +101,7 @@ pub mod get_gateway_host_name_configuration {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -41,30 +41,30 @@
 /// $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
 /// ```
 pub mod table_replica {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableReplicaArgs {
         /// Whether deletion protection is enabled (true) or disabled (false) on the table replica.
         #[builder(into, default)]
-        pub deletion_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// ARN of the _main_ or global table which this resource will replicate.
         ///
         /// Optional arguments:
         #[builder(into)]
-        pub global_table_arn: pulumi_wasm_rust::Output<String>,
+        pub global_table_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         #[builder(into, default)]
-        pub kms_key_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to enable Point In Time Recovery for the table replica. Default is `false`.
         #[builder(into, default)]
-        pub point_in_time_recovery: pulumi_wasm_rust::Output<Option<bool>>,
+        pub point_in_time_recovery: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         #[builder(into, default)]
-        pub table_class_override: pulumi_wasm_rust::Output<Option<String>>,
+        pub table_class_override: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -97,17 +97,31 @@ pub mod table_replica {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: TableReplicaArgs) -> TableReplicaResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: TableReplicaArgs,
+    ) -> TableReplicaResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let deletion_protection_enabled_binding = args
             .deletion_protection_enabled
+            .get_output(context)
             .get_inner();
-        let global_table_arn_binding = args.global_table_arn.get_inner();
-        let kms_key_arn_binding = args.kms_key_arn.get_inner();
-        let point_in_time_recovery_binding = args.point_in_time_recovery.get_inner();
-        let table_class_override_binding = args.table_class_override.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let global_table_arn_binding = args
+            .global_table_arn
+            .get_output(context)
+            .get_inner();
+        let kms_key_arn_binding = args.kms_key_arn.get_output(context).get_inner();
+        let point_in_time_recovery_binding = args
+            .point_in_time_recovery
+            .get_output(context)
+            .get_inner();
+        let table_class_override_binding = args
+            .table_class_override
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:dynamodb/tableReplica:TableReplica".into(),
             name: name.to_string(),
@@ -165,7 +179,7 @@ pub mod table_replica {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

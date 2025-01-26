@@ -1,17 +1,17 @@
 pub mod get_configuration_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetConfigurationKeyArgs {
         /// Specifies the id of the App Configuration.
         #[builder(into)]
-        pub configuration_store_id: pulumi_wasm_rust::Output<String>,
+        pub configuration_store_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the App Configuration Key.
         #[builder(into)]
-        pub key: pulumi_wasm_rust::Output<String>,
+        pub key: pulumi_wasm_rust::InputOrOutput<String>,
         /// The label of the App Configuration Key.
         #[builder(into, default)]
-        pub label: pulumi_wasm_rust::Output<Option<String>>,
+        pub label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetConfigurationKeyResult {
@@ -39,12 +39,18 @@ pub mod get_configuration_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetConfigurationKeyArgs) -> GetConfigurationKeyResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetConfigurationKeyArgs,
+    ) -> GetConfigurationKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let configuration_store_id_binding = args.configuration_store_id.get_inner();
-        let key_binding = args.key.get_inner();
-        let label_binding = args.label.get_inner();
+        let configuration_store_id_binding = args
+            .configuration_store_id
+            .get_output(context)
+            .get_inner();
+        let key_binding = args.key.get_output(context).get_inner();
+        let label_binding = args.label.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:appconfiguration/getConfigurationKey:getConfigurationKey"
                 .into(),
@@ -99,7 +105,7 @@ pub mod get_configuration_key {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

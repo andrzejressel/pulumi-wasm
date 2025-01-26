@@ -83,25 +83,27 @@
 /// ```
 ///
 pub mod bgp_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BgpConnectionArgs {
         /// The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub peer_asn: pulumi_wasm_rust::Output<i32>,
+        pub peer_asn: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub peer_ip: pulumi_wasm_rust::Output<String>,
+        pub peer_ip: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_hub_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_hub_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of virtual network connection.
         #[builder(into, default)]
-        pub virtual_network_connection_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_network_connection_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct BgpConnectionResult {
@@ -120,15 +122,20 @@ pub mod bgp_connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BgpConnectionArgs) -> BgpConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BgpConnectionArgs,
+    ) -> BgpConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let name_binding = args.name.get_inner();
-        let peer_asn_binding = args.peer_asn.get_inner();
-        let peer_ip_binding = args.peer_ip.get_inner();
-        let virtual_hub_id_binding = args.virtual_hub_id.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let peer_asn_binding = args.peer_asn.get_output(context).get_inner();
+        let peer_ip_binding = args.peer_ip.get_output(context).get_inner();
+        let virtual_hub_id_binding = args.virtual_hub_id.get_output(context).get_inner();
         let virtual_network_connection_id_binding = args
             .virtual_network_connection_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:network/bgpConnection:BgpConnection".into(),
@@ -174,7 +181,7 @@ pub mod bgp_connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

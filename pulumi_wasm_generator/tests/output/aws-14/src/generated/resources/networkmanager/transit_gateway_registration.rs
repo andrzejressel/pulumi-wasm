@@ -35,16 +35,16 @@
 /// $ pulumi import aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway/tgw-123abc05e04123abc
 /// ```
 pub mod transit_gateway_registration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TransitGatewayRegistrationArgs {
         /// The ID of the Global Network to register to.
         #[builder(into)]
-        pub global_network_id: pulumi_wasm_rust::Output<String>,
+        pub global_network_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ARN of the Transit Gateway to register.
         #[builder(into)]
-        pub transit_gateway_arn: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_arn: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TransitGatewayRegistrationResult {
@@ -58,13 +58,20 @@ pub mod transit_gateway_registration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: TransitGatewayRegistrationArgs,
     ) -> TransitGatewayRegistrationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let global_network_id_binding = args.global_network_id.get_inner();
-        let transit_gateway_arn_binding = args.transit_gateway_arn.get_inner();
+        let global_network_id_binding = args
+            .global_network_id
+            .get_output(context)
+            .get_inner();
+        let transit_gateway_arn_binding = args
+            .transit_gateway_arn
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:networkmanager/transitGatewayRegistration:TransitGatewayRegistration"
                 .into(),
@@ -89,7 +96,7 @@ pub mod transit_gateway_registration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

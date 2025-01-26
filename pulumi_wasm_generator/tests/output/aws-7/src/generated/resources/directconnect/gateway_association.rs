@@ -99,32 +99,32 @@
 /// $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
 /// ```
 pub mod gateway_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GatewayAssociationArgs {
         /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
         #[builder(into, default)]
-        pub allowed_prefixes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub allowed_prefixes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         /// Used for single account Direct Connect gateway associations.
         #[builder(into, default)]
-        pub associated_gateway_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub associated_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
         /// Used for cross-account Direct Connect gateway associations.
         #[builder(into, default)]
-        pub associated_gateway_owner_account_id: pulumi_wasm_rust::Output<
+        pub associated_gateway_owner_account_id: pulumi_wasm_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the Direct Connect gateway.
         #[builder(into)]
-        pub dx_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub dx_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the Direct Connect gateway association proposal.
         /// Used for cross-account Direct Connect gateway associations.
         #[builder(into, default)]
-        pub proposal_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub proposal_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub vpn_gateway_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpn_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GatewayAssociationResult {
@@ -153,17 +153,28 @@ pub mod gateway_association {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: GatewayAssociationArgs) -> GatewayAssociationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: GatewayAssociationArgs,
+    ) -> GatewayAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let allowed_prefixes_binding = args.allowed_prefixes.get_inner();
-        let associated_gateway_id_binding = args.associated_gateway_id.get_inner();
+        let allowed_prefixes_binding = args
+            .allowed_prefixes
+            .get_output(context)
+            .get_inner();
+        let associated_gateway_id_binding = args
+            .associated_gateway_id
+            .get_output(context)
+            .get_inner();
         let associated_gateway_owner_account_id_binding = args
             .associated_gateway_owner_account_id
+            .get_output(context)
             .get_inner();
-        let dx_gateway_id_binding = args.dx_gateway_id.get_inner();
-        let proposal_id_binding = args.proposal_id.get_inner();
-        let vpn_gateway_id_binding = args.vpn_gateway_id.get_inner();
+        let dx_gateway_id_binding = args.dx_gateway_id.get_output(context).get_inner();
+        let proposal_id_binding = args.proposal_id.get_output(context).get_inner();
+        let vpn_gateway_id_binding = args.vpn_gateway_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:directconnect/gatewayAssociation:GatewayAssociation".into(),
             name: name.to_string(),
@@ -224,7 +235,7 @@ pub mod gateway_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

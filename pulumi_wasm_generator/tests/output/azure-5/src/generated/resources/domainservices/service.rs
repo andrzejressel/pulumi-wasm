@@ -141,54 +141,54 @@
 /// ```
 ///
 pub mod service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceArgs {
         /// The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub domain_configuration_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_configuration_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
         #[builder(into, default)]
-        pub filtered_sync_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub filtered_sync_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
         #[builder(into)]
-        pub initial_replica_set: pulumi_wasm_rust::Output<
+        pub initial_replica_set: pulumi_wasm_rust::InputOrOutput<
             super::super::types::domainservices::ServiceInitialReplicaSet,
         >,
         /// The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `notifications` block as defined below.
         #[builder(into, default)]
-        pub notifications: pulumi_wasm_rust::Output<
+        pub notifications: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::domainservices::ServiceNotifications>,
         >,
         /// The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `secure_ldap` block as defined below.
         #[builder(into, default)]
-        pub secure_ldap: pulumi_wasm_rust::Output<
+        pub secure_ldap: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::domainservices::ServiceSecureLdap>,
         >,
         /// A `security` block as defined below.
         #[builder(into, default)]
-        pub security: pulumi_wasm_rust::Output<
+        pub security: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::domainservices::ServiceSecurity>,
         >,
         /// The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
         /// A mapping of tags assigned to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -240,23 +240,37 @@ pub mod service {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ServiceArgs) -> ServiceResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ServiceArgs,
+    ) -> ServiceResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let domain_configuration_type_binding = args
             .domain_configuration_type
+            .get_output(context)
             .get_inner();
-        let domain_name_binding = args.domain_name.get_inner();
-        let filtered_sync_enabled_binding = args.filtered_sync_enabled.get_inner();
-        let initial_replica_set_binding = args.initial_replica_set.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let notifications_binding = args.notifications.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let secure_ldap_binding = args.secure_ldap.get_inner();
-        let security_binding = args.security.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let domain_name_binding = args.domain_name.get_output(context).get_inner();
+        let filtered_sync_enabled_binding = args
+            .filtered_sync_enabled
+            .get_output(context)
+            .get_inner();
+        let initial_replica_set_binding = args
+            .initial_replica_set
+            .get_output(context)
+            .get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let notifications_binding = args.notifications.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let secure_ldap_binding = args.secure_ldap.get_output(context).get_inner();
+        let security_binding = args.security.get_output(context).get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:domainservices/service:Service".into(),
             name: name.to_string(),
@@ -365,7 +379,7 @@ pub mod service {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

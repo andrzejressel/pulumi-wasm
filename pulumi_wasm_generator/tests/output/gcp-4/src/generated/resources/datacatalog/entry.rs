@@ -107,30 +107,30 @@
 /// ```
 ///
 pub mod entry {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EntryArgs {
         /// Entry description, which can consist of several sentences or paragraphs that describe entry contents.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Display information such as title and description. A short name to identify the entry,
         /// for example, "Analytics Data - Jan 2011".
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the entry group this entry is in.
         #[builder(into)]
-        pub entry_group: pulumi_wasm_rust::Output<String>,
+        pub entry_group: pulumi_wasm_rust::InputOrOutput<String>,
         /// The id of the entry to create.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub entry_id: pulumi_wasm_rust::Output<String>,
+        pub entry_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specification that applies to a Cloud Storage fileset. This is only valid on entries of type FILESET.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub gcs_fileset_spec: pulumi_wasm_rust::Output<
+        pub gcs_fileset_spec: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::datacatalog::EntryGcsFilesetSpec>,
         >,
         /// The resource this metadata entry refers to.
@@ -140,30 +140,30 @@ pub mod entry {
         /// Output only when Entry is of type in the EntryType enum. For entries with userSpecifiedType,
         /// this field is optional and defaults to an empty string.
         #[builder(into, default)]
-        pub linked_resource: pulumi_wasm_rust::Output<Option<String>>,
+        pub linked_resource: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Schema of the entry (e.g. BigQuery, GoogleSQL, Avro schema), as a json string. An entry might not have any schema
         /// attached to it. See
         /// https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries#schema
         /// for what fields this schema can contain.
         #[builder(into, default)]
-        pub schema: pulumi_wasm_rust::Output<Option<String>>,
+        pub schema: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The type of the entry. Only used for Entries with types in the EntryType enum.
         /// Currently, only FILESET enum value is allowed. All other entries created through Data Catalog must use userSpecifiedType.
         /// Possible values are: `FILESET`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// This field indicates the entry's source system that Data Catalog does not integrate with.
         /// userSpecifiedSystem strings must begin with a letter or underscore and can only contain letters, numbers,
         /// and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
         #[builder(into, default)]
-        pub user_specified_system: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_specified_system: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Entry type if it does not fit any of the input-allowed values listed in EntryType enum above.
         /// When creating an entry, users should check the enum values first, if nothing matches the entry
         /// to be created, then provide a custom value, for example "my_special_type".
         /// userSpecifiedType strings must begin with a letter or underscore and can only contain letters,
         /// numbers, and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
         #[builder(into, default)]
-        pub user_specified_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_specified_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EntryResult {
@@ -232,19 +232,35 @@ pub mod entry {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EntryArgs) -> EntryResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EntryArgs,
+    ) -> EntryResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let entry_group_binding = args.entry_group.get_inner();
-        let entry_id_binding = args.entry_id.get_inner();
-        let gcs_fileset_spec_binding = args.gcs_fileset_spec.get_inner();
-        let linked_resource_binding = args.linked_resource.get_inner();
-        let schema_binding = args.schema.get_inner();
-        let type__binding = args.type_.get_inner();
-        let user_specified_system_binding = args.user_specified_system.get_inner();
-        let user_specified_type_binding = args.user_specified_type.get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let entry_group_binding = args.entry_group.get_output(context).get_inner();
+        let entry_id_binding = args.entry_id.get_output(context).get_inner();
+        let gcs_fileset_spec_binding = args
+            .gcs_fileset_spec
+            .get_output(context)
+            .get_inner();
+        let linked_resource_binding = args
+            .linked_resource
+            .get_output(context)
+            .get_inner();
+        let schema_binding = args.schema.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let user_specified_system_binding = args
+            .user_specified_system
+            .get_output(context)
+            .get_inner();
+        let user_specified_type_binding = args
+            .user_specified_type
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:datacatalog/entry:Entry".into(),
             name: name.to_string(),
@@ -336,7 +352,7 @@ pub mod entry {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -34,28 +34,28 @@
 /// ```
 ///
 pub mod zero_trust_dex_test {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustDexTestArgs {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The configuration object which contains the details for the WARP client to conduct the test.
         #[builder(into)]
-        pub data: pulumi_wasm_rust::Output<super::types::ZeroTrustDexTestData>,
+        pub data: pulumi_wasm_rust::InputOrOutput<super::types::ZeroTrustDexTestData>,
         /// Additional details about the test.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_wasm_rust::InputOrOutput<String>,
         /// Determines whether or not the test is active.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
         /// How often the test will run.
         #[builder(into)]
-        pub interval: pulumi_wasm_rust::Output<String>,
+        pub interval: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name of the Device Dex Test. Must be unique.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustDexTestResult {
@@ -80,15 +80,19 @@ pub mod zero_trust_dex_test {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ZeroTrustDexTestArgs) -> ZeroTrustDexTestResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ZeroTrustDexTestArgs,
+    ) -> ZeroTrustDexTestResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let data_binding = args.data.get_inner();
-        let description_binding = args.description.get_inner();
-        let enabled_binding = args.enabled.get_inner();
-        let interval_binding = args.interval.get_inner();
-        let name_binding = args.name.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let data_binding = args.data.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let enabled_binding = args.enabled.get_output(context).get_inner();
+        let interval_binding = args.interval.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustDexTest:ZeroTrustDexTest".into(),
             name: name.to_string(),
@@ -146,7 +150,7 @@ pub mod zero_trust_dex_test {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

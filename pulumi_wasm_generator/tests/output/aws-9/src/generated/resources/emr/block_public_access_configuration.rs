@@ -96,7 +96,7 @@
 /// $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
 /// ```
 pub mod block_public_access_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BlockPublicAccessConfigurationArgs {
@@ -104,10 +104,10 @@ pub mod block_public_access_configuration {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub block_public_security_group_rules: pulumi_wasm_rust::Output<bool>,
+        pub block_public_security_group_rules: pulumi_wasm_rust::InputOrOutput<bool>,
         /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
         #[builder(into, default)]
-        pub permitted_public_security_group_rule_ranges: pulumi_wasm_rust::Output<
+        pub permitted_public_security_group_rule_ranges: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::emr::BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange,
@@ -135,6 +135,7 @@ pub mod block_public_access_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: BlockPublicAccessConfigurationArgs,
     ) -> BlockPublicAccessConfigurationResult {
@@ -142,9 +143,11 @@ pub mod block_public_access_configuration {
         use std::collections::HashMap;
         let block_public_security_group_rules_binding = args
             .block_public_security_group_rules
+            .get_output(context)
             .get_inner();
         let permitted_public_security_group_rule_ranges_binding = args
             .permitted_public_security_group_rule_ranges
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration"
@@ -170,7 +173,7 @@ pub mod block_public_access_configuration {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

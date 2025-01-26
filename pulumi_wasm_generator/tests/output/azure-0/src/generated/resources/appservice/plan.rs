@@ -125,7 +125,7 @@
 /// ```
 ///
 pub mod plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PlanArgs {
@@ -133,46 +133,48 @@ pub mod plan {
         ///
         /// > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
         #[builder(into, default)]
-        pub app_service_environment_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub app_service_environment_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Whether to create a xenon App Service Plan.
         #[builder(into, default)]
-        pub is_xenon: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_xenon: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
         #[builder(into, default)]
-        pub kind: pulumi_wasm_rust::Output<Option<String>>,
+        pub kind: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         #[builder(into, default)]
-        pub maximum_elastic_worker_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_elastic_worker_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         #[builder(into, default)]
-        pub per_site_scaling: pulumi_wasm_rust::Output<Option<bool>>,
+        pub per_site_scaling: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Is this App Service Plan `Reserved`.
         #[builder(into, default)]
-        pub reserved: pulumi_wasm_rust::Output<Option<bool>>,
+        pub reserved: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// A `sku` block as documented below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::Output<super::super::types::appservice::PlanSku>,
+        pub sku: pulumi_wasm_rust::InputOrOutput<
+            super::super::types::appservice::PlanSku,
+        >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
         #[builder(into, default)]
-        pub zone_redundant: pulumi_wasm_rust::Output<Option<bool>>,
+        pub zone_redundant: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct PlanResult {
@@ -215,25 +217,37 @@ pub mod plan {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: PlanArgs) -> PlanResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: PlanArgs,
+    ) -> PlanResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let app_service_environment_id_binding = args
             .app_service_environment_id
+            .get_output(context)
             .get_inner();
-        let is_xenon_binding = args.is_xenon.get_inner();
-        let kind_binding = args.kind.get_inner();
-        let location_binding = args.location.get_inner();
+        let is_xenon_binding = args.is_xenon.get_output(context).get_inner();
+        let kind_binding = args.kind.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
         let maximum_elastic_worker_count_binding = args
             .maximum_elastic_worker_count
+            .get_output(context)
             .get_inner();
-        let name_binding = args.name.get_inner();
-        let per_site_scaling_binding = args.per_site_scaling.get_inner();
-        let reserved_binding = args.reserved.get_inner();
-        let resource_group_name_binding = args.resource_group_name.get_inner();
-        let sku_binding = args.sku.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let zone_redundant_binding = args.zone_redundant.get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let per_site_scaling_binding = args
+            .per_site_scaling
+            .get_output(context)
+            .get_inner();
+        let reserved_binding = args.reserved.get_output(context).get_inner();
+        let resource_group_name_binding = args
+            .resource_group_name
+            .get_output(context)
+            .get_inner();
+        let sku_binding = args.sku.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let zone_redundant_binding = args.zone_redundant.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appservice/plan:Plan".into(),
             name: name.to_string(),
@@ -330,7 +344,7 @@ pub mod plan {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

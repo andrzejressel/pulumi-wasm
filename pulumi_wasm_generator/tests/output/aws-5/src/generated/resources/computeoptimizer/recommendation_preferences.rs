@@ -68,29 +68,31 @@
 /// $ pulumi import aws:computeoptimizer/recommendationPreferences:RecommendationPreferences example Ec2Instance,AccountId,123456789012
 /// ```
 pub mod recommendation_preferences {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RecommendationPreferencesArgs {
         /// The status of the enhanced infrastructure metrics recommendation preference. Valid values: `Active`, `Inactive`.
         #[builder(into, default)]
-        pub enhanced_infrastructure_metrics: pulumi_wasm_rust::Output<Option<String>>,
+        pub enhanced_infrastructure_metrics: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The provider of the external metrics recommendation preference. See External Metrics Preference below.
         #[builder(into, default)]
-        pub external_metrics_preference: pulumi_wasm_rust::Output<
+        pub external_metrics_preference: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::computeoptimizer::RecommendationPreferencesExternalMetricsPreference,
             >,
         >,
         /// The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
         #[builder(into, default)]
-        pub inferred_workload_types: pulumi_wasm_rust::Output<Option<String>>,
+        pub inferred_workload_types: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         #[builder(into, default)]
-        pub look_back_period: pulumi_wasm_rust::Output<Option<String>>,
+        pub look_back_period: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
         #[builder(into, default)]
-        pub preferred_resources: pulumi_wasm_rust::Output<
+        pub preferred_resources: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::computeoptimizer::RecommendationPreferencesPreferredResource,
@@ -99,18 +101,18 @@ pub mod recommendation_preferences {
         >,
         /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
         #[builder(into)]
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_wasm_rust::InputOrOutput<String>,
         /// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         #[builder(into, default)]
-        pub savings_estimation_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub savings_estimation_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The scope of the recommendation preferences. See Scope below.
         #[builder(into, default)]
-        pub scope: pulumi_wasm_rust::Output<
+        pub scope: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::computeoptimizer::RecommendationPreferencesScope>,
         >,
         /// The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
         #[builder(into, default)]
-        pub utilization_preferences: pulumi_wasm_rust::Output<
+        pub utilization_preferences: pulumi_wasm_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::computeoptimizer::RecommendationPreferencesUtilizationPreference,
@@ -162,6 +164,7 @@ pub mod recommendation_preferences {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: RecommendationPreferencesArgs,
     ) -> RecommendationPreferencesResult {
@@ -169,17 +172,34 @@ pub mod recommendation_preferences {
         use std::collections::HashMap;
         let enhanced_infrastructure_metrics_binding = args
             .enhanced_infrastructure_metrics
+            .get_output(context)
             .get_inner();
         let external_metrics_preference_binding = args
             .external_metrics_preference
+            .get_output(context)
             .get_inner();
-        let inferred_workload_types_binding = args.inferred_workload_types.get_inner();
-        let look_back_period_binding = args.look_back_period.get_inner();
-        let preferred_resources_binding = args.preferred_resources.get_inner();
-        let resource_type_binding = args.resource_type.get_inner();
-        let savings_estimation_mode_binding = args.savings_estimation_mode.get_inner();
-        let scope_binding = args.scope.get_inner();
-        let utilization_preferences_binding = args.utilization_preferences.get_inner();
+        let inferred_workload_types_binding = args
+            .inferred_workload_types
+            .get_output(context)
+            .get_inner();
+        let look_back_period_binding = args
+            .look_back_period
+            .get_output(context)
+            .get_inner();
+        let preferred_resources_binding = args
+            .preferred_resources
+            .get_output(context)
+            .get_inner();
+        let resource_type_binding = args.resource_type.get_output(context).get_inner();
+        let savings_estimation_mode_binding = args
+            .savings_estimation_mode
+            .get_output(context)
+            .get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
+        let utilization_preferences_binding = args
+            .utilization_preferences
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:computeoptimizer/recommendationPreferences:RecommendationPreferences"
                 .into(),
@@ -253,7 +273,7 @@ pub mod recommendation_preferences {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

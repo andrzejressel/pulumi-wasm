@@ -176,7 +176,7 @@
 /// ```
 ///
 pub mod bare_metal_node_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BareMetalNodePoolArgs {
@@ -187,29 +187,29 @@ pub mod bare_metal_node_pool {
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// 'effective_annotations' for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The cluster this node pool belongs to.
         #[builder(into)]
-        pub bare_metal_cluster: pulumi_wasm_rust::Output<String>,
+        pub bare_metal_cluster: pulumi_wasm_rust::InputOrOutput<String>,
         /// The display name for the Bare Metal Node Pool.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The bare metal node pool name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Node pool configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub node_pool_config: pulumi_wasm_rust::Output<
+        pub node_pool_config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::gkeonprem::BareMetalNodePoolNodePoolConfig,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BareMetalNodePoolResult {
@@ -268,16 +268,26 @@ pub mod bare_metal_node_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BareMetalNodePoolArgs) -> BareMetalNodePoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BareMetalNodePoolArgs,
+    ) -> BareMetalNodePoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let bare_metal_cluster_binding = args.bare_metal_cluster.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let node_pool_config_binding = args.node_pool_config.get_inner();
-        let project_binding = args.project.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let bare_metal_cluster_binding = args
+            .bare_metal_cluster
+            .get_output(context)
+            .get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let node_pool_config_binding = args
+            .node_pool_config
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkeonprem/bareMetalNodePool:BareMetalNodePool".into(),
             name: name.to_string(),
@@ -363,7 +373,7 @@ pub mod bare_metal_node_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -126,48 +126,48 @@
 /// ```
 ///
 pub mod configuration_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationKeyArgs {
         /// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub configuration_store_id: pulumi_wasm_rust::Output<String>,
+        pub configuration_store_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// The content type of the App Configuration Key. This should only be set when type is set to `kv`.
         #[builder(into, default)]
-        pub content_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// (Optional) The ETag of the key.
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::Output<Option<String>>,
+        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The name of the App Configuration Key to create. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key: pulumi_wasm_rust::Output<String>,
+        pub key: pulumi_wasm_rust::InputOrOutput<String>,
         /// The label of the App Configuration Key. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub label: pulumi_wasm_rust::Output<Option<String>>,
+        pub label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Should this App Configuration Key be Locked to prevent changes?
         #[builder(into, default)]
-        pub locked: pulumi_wasm_rust::Output<Option<bool>>,
+        pub locked: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The value of the App Configuration Key. This should only be set when type is set to `kv`.
         ///
         /// > **NOTE:** `value` and `vault_key_reference` are mutually exclusive.
         #[builder(into, default)]
-        pub value: pulumi_wasm_rust::Output<Option<String>>,
+        pub value: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The ID of the vault secret this App Configuration Key refers to. This should only be set when `type` is set to `vault`.
         ///
         /// > **NOTE:** `vault_key_reference` and `value` are mutually exclusive.
         ///
         /// > **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         #[builder(into, default)]
-        pub vault_key_reference: pulumi_wasm_rust::Output<Option<String>>,
+        pub vault_key_reference: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ConfigurationKeyResult {
@@ -204,19 +204,29 @@ pub mod configuration_key {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConfigurationKeyArgs) -> ConfigurationKeyResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConfigurationKeyArgs,
+    ) -> ConfigurationKeyResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let configuration_store_id_binding = args.configuration_store_id.get_inner();
-        let content_type_binding = args.content_type.get_inner();
-        let etag_binding = args.etag.get_inner();
-        let key_binding = args.key.get_inner();
-        let label_binding = args.label.get_inner();
-        let locked_binding = args.locked.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let type__binding = args.type_.get_inner();
-        let value_binding = args.value.get_inner();
-        let vault_key_reference_binding = args.vault_key_reference.get_inner();
+        let configuration_store_id_binding = args
+            .configuration_store_id
+            .get_output(context)
+            .get_inner();
+        let content_type_binding = args.content_type.get_output(context).get_inner();
+        let etag_binding = args.etag.get_output(context).get_inner();
+        let key_binding = args.key.get_output(context).get_inner();
+        let label_binding = args.label.get_output(context).get_inner();
+        let locked_binding = args.locked.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let type__binding = args.type_.get_output(context).get_inner();
+        let value_binding = args.value.get_output(context).get_inner();
+        let vault_key_reference_binding = args
+            .vault_key_reference
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:appconfiguration/configurationKey:ConfigurationKey".into(),
             name: name.to_string(),
@@ -296,7 +306,7 @@ pub mod configuration_key {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

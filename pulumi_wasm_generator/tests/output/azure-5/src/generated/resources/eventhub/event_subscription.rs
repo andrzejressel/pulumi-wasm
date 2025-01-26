@@ -46,97 +46,105 @@
 /// ```
 ///
 pub mod event_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventSubscriptionArgs {
         /// A `advanced_filter` block as defined below.
         #[builder(into, default)]
-        pub advanced_filter: pulumi_wasm_rust::Output<
+        pub advanced_filter: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eventhub::EventSubscriptionAdvancedFilter>,
         >,
         /// Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`.
         #[builder(into, default)]
-        pub advanced_filtering_on_arrays_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub advanced_filtering_on_arrays_enabled: pulumi_wasm_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// An `azure_function_endpoint` block as defined below.
         #[builder(into, default)]
-        pub azure_function_endpoint: pulumi_wasm_rust::Output<
+        pub azure_function_endpoint: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eventhub::EventSubscriptionAzureFunctionEndpoint>,
         >,
         /// A `dead_letter_identity` block as defined below.
         ///
         /// > **Note:** `storage_blob_dead_letter_destination` must be specified when a `dead_letter_identity` is specified
         #[builder(into, default)]
-        pub dead_letter_identity: pulumi_wasm_rust::Output<
+        pub dead_letter_identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eventhub::EventSubscriptionDeadLetterIdentity>,
         >,
         /// A `delivery_identity` block as defined below.
         #[builder(into, default)]
-        pub delivery_identity: pulumi_wasm_rust::Output<
+        pub delivery_identity: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eventhub::EventSubscriptionDeliveryIdentity>,
         >,
         /// One or more `delivery_property` blocks as defined below.
         #[builder(into, default)]
-        pub delivery_properties: pulumi_wasm_rust::Output<
+        pub delivery_properties: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::eventhub::EventSubscriptionDeliveryProperty>>,
         >,
         /// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub event_delivery_schema: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_delivery_schema: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the id where the Event Hub is located.
         #[builder(into, default)]
-        pub eventhub_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub eventhub_endpoint_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
         #[builder(into, default)]
-        pub expiration_time_utc: pulumi_wasm_rust::Output<Option<String>>,
+        pub expiration_time_utc: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the id where the Hybrid Connection is located.
         #[builder(into, default)]
-        pub hybrid_connection_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub hybrid_connection_endpoint_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A list of applicable event types that need to be part of the event subscription.
         #[builder(into, default)]
-        pub included_event_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub included_event_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A list of labels to assign to the event subscription.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub labels: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A `retry_policy` block as defined below.
         #[builder(into, default)]
-        pub retry_policy: pulumi_wasm_rust::Output<
+        pub retry_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eventhub::EventSubscriptionRetryPolicy>,
         >,
         /// Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
         /// Specifies the id where the Service Bus Queue is located.
         #[builder(into, default)]
-        pub service_bus_queue_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_bus_queue_endpoint_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the id where the Service Bus Topic is located.
         #[builder(into, default)]
-        pub service_bus_topic_endpoint_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_bus_topic_endpoint_id: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A `storage_blob_dead_letter_destination` block as defined below.
         #[builder(into, default)]
-        pub storage_blob_dead_letter_destination: pulumi_wasm_rust::Output<
+        pub storage_blob_dead_letter_destination: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::eventhub::EventSubscriptionStorageBlobDeadLetterDestination,
             >,
         >,
         /// A `storage_queue_endpoint` block as defined below.
         #[builder(into, default)]
-        pub storage_queue_endpoint: pulumi_wasm_rust::Output<
+        pub storage_queue_endpoint: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eventhub::EventSubscriptionStorageQueueEndpoint>,
         >,
         /// A `subject_filter` block as defined below.
         #[builder(into, default)]
-        pub subject_filter: pulumi_wasm_rust::Output<
+        pub subject_filter: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eventhub::EventSubscriptionSubjectFilter>,
         >,
         /// A `webhook_endpoint` block as defined below.
         ///
         /// > **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
         #[builder(into, default)]
-        pub webhook_endpoint: pulumi_wasm_rust::Output<
+        pub webhook_endpoint: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::eventhub::EventSubscriptionWebhookEndpoint>,
         >,
     }
@@ -215,40 +223,82 @@ pub mod event_subscription {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: EventSubscriptionArgs) -> EventSubscriptionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: EventSubscriptionArgs,
+    ) -> EventSubscriptionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let advanced_filter_binding = args.advanced_filter.get_inner();
+        let advanced_filter_binding = args
+            .advanced_filter
+            .get_output(context)
+            .get_inner();
         let advanced_filtering_on_arrays_enabled_binding = args
             .advanced_filtering_on_arrays_enabled
+            .get_output(context)
             .get_inner();
-        let azure_function_endpoint_binding = args.azure_function_endpoint.get_inner();
-        let dead_letter_identity_binding = args.dead_letter_identity.get_inner();
-        let delivery_identity_binding = args.delivery_identity.get_inner();
-        let delivery_properties_binding = args.delivery_properties.get_inner();
-        let event_delivery_schema_binding = args.event_delivery_schema.get_inner();
-        let eventhub_endpoint_id_binding = args.eventhub_endpoint_id.get_inner();
-        let expiration_time_utc_binding = args.expiration_time_utc.get_inner();
+        let azure_function_endpoint_binding = args
+            .azure_function_endpoint
+            .get_output(context)
+            .get_inner();
+        let dead_letter_identity_binding = args
+            .dead_letter_identity
+            .get_output(context)
+            .get_inner();
+        let delivery_identity_binding = args
+            .delivery_identity
+            .get_output(context)
+            .get_inner();
+        let delivery_properties_binding = args
+            .delivery_properties
+            .get_output(context)
+            .get_inner();
+        let event_delivery_schema_binding = args
+            .event_delivery_schema
+            .get_output(context)
+            .get_inner();
+        let eventhub_endpoint_id_binding = args
+            .eventhub_endpoint_id
+            .get_output(context)
+            .get_inner();
+        let expiration_time_utc_binding = args
+            .expiration_time_utc
+            .get_output(context)
+            .get_inner();
         let hybrid_connection_endpoint_id_binding = args
             .hybrid_connection_endpoint_id
+            .get_output(context)
             .get_inner();
-        let included_event_types_binding = args.included_event_types.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let name_binding = args.name.get_inner();
-        let retry_policy_binding = args.retry_policy.get_inner();
-        let scope_binding = args.scope.get_inner();
+        let included_event_types_binding = args
+            .included_event_types
+            .get_output(context)
+            .get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let retry_policy_binding = args.retry_policy.get_output(context).get_inner();
+        let scope_binding = args.scope.get_output(context).get_inner();
         let service_bus_queue_endpoint_id_binding = args
             .service_bus_queue_endpoint_id
+            .get_output(context)
             .get_inner();
         let service_bus_topic_endpoint_id_binding = args
             .service_bus_topic_endpoint_id
+            .get_output(context)
             .get_inner();
         let storage_blob_dead_letter_destination_binding = args
             .storage_blob_dead_letter_destination
+            .get_output(context)
             .get_inner();
-        let storage_queue_endpoint_binding = args.storage_queue_endpoint.get_inner();
-        let subject_filter_binding = args.subject_filter.get_inner();
-        let webhook_endpoint_binding = args.webhook_endpoint.get_inner();
+        let storage_queue_endpoint_binding = args
+            .storage_queue_endpoint
+            .get_output(context)
+            .get_inner();
+        let subject_filter_binding = args.subject_filter.get_output(context).get_inner();
+        let webhook_endpoint_binding = args
+            .webhook_endpoint
+            .get_output(context)
+            .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "azure:eventhub/eventSubscription:EventSubscription".into(),
             name: name.to_string(),
@@ -405,7 +455,7 @@ pub mod event_subscription {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

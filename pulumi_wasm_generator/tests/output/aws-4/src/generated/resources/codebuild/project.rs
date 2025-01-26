@@ -171,103 +171,103 @@
 /// $ pulumi import aws:codebuild/project:Project name project-name
 /// ```
 pub mod project {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectArgs {
         /// Configuration block. Detailed below.
         #[builder(into)]
-        pub artifacts: pulumi_wasm_rust::Output<
+        pub artifacts: pulumi_wasm_rust::InputOrOutput<
             super::super::types::codebuild::ProjectArtifacts,
         >,
         /// Generates a publicly-accessible URL for the projects build badge. Available as `badge_url` attribute when enabled.
         #[builder(into, default)]
-        pub badge_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub badge_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Defines the batch build options for the project.
         #[builder(into, default)]
-        pub build_batch_config: pulumi_wasm_rust::Output<
+        pub build_batch_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codebuild::ProjectBuildBatchConfig>,
         >,
         /// Number of minutes, from 5 to 2160 (36 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes. The `build_timeout` property is not available on the `Lambda` compute type.
         #[builder(into, default)]
-        pub build_timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub build_timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub cache: pulumi_wasm_rust::Output<
+        pub cache: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codebuild::ProjectCache>,
         >,
         /// Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
         #[builder(into, default)]
-        pub concurrent_build_limit: pulumi_wasm_rust::Output<Option<i32>>,
+        pub concurrent_build_limit: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Short description of the project.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
         #[builder(into, default)]
-        pub encryption_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub encryption_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block. Detailed below.
         #[builder(into)]
-        pub environment: pulumi_wasm_rust::Output<
+        pub environment: pulumi_wasm_rust::InputOrOutput<
             super::super::types::codebuild::ProjectEnvironment,
         >,
         /// A set of file system locations to mount inside the build. File system locations are documented below.
         #[builder(into, default)]
-        pub file_system_locations: pulumi_wasm_rust::Output<
+        pub file_system_locations: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::codebuild::ProjectFileSystemLocation>>,
         >,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub logs_config: pulumi_wasm_rust::Output<
+        pub logs_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codebuild::ProjectLogsConfig>,
         >,
         /// Project's name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the visibility of the project's builds. Possible values are: `PUBLIC_READ` and `PRIVATE`. Default value is `PRIVATE`.
         #[builder(into, default)]
-        pub project_visibility: pulumi_wasm_rust::Output<Option<String>>,
+        pub project_visibility: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
         #[builder(into, default)]
-        pub queued_timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub queued_timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if `project_visibility` is `PUBLIC_READ`.
         #[builder(into, default)]
-        pub resource_access_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_access_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub secondary_artifacts: pulumi_wasm_rust::Output<
+        pub secondary_artifacts: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::codebuild::ProjectSecondaryArtifact>>,
         >,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub secondary_source_versions: pulumi_wasm_rust::Output<
+        pub secondary_source_versions: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::codebuild::ProjectSecondarySourceVersion>>,
         >,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub secondary_sources: pulumi_wasm_rust::Output<
+        pub secondary_sources: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::codebuild::ProjectSecondarySource>>,
         >,
         /// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
         #[builder(into)]
-        pub service_role: pulumi_wasm_rust::Output<String>,
+        pub service_role: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration block. Detailed below.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub source: pulumi_wasm_rust::Output<
+        pub source: pulumi_wasm_rust::InputOrOutput<
             super::super::types::codebuild::ProjectSource,
         >,
         /// Version of the build input to be built for this project. If not specified, the latest version is used.
         #[builder(into, default)]
-        pub source_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub vpc_config: pulumi_wasm_rust::Output<
+        pub vpc_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::codebuild::ProjectVpcConfig>,
         >,
     }
@@ -360,34 +360,60 @@ pub mod project {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ProjectArgs) -> ProjectResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ProjectArgs,
+    ) -> ProjectResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let artifacts_binding = args.artifacts.get_inner();
-        let badge_enabled_binding = args.badge_enabled.get_inner();
-        let build_batch_config_binding = args.build_batch_config.get_inner();
-        let build_timeout_binding = args.build_timeout.get_inner();
-        let cache_binding = args.cache.get_inner();
-        let concurrent_build_limit_binding = args.concurrent_build_limit.get_inner();
-        let description_binding = args.description.get_inner();
-        let encryption_key_binding = args.encryption_key.get_inner();
-        let environment_binding = args.environment.get_inner();
-        let file_system_locations_binding = args.file_system_locations.get_inner();
-        let logs_config_binding = args.logs_config.get_inner();
-        let name_binding = args.name.get_inner();
-        let project_visibility_binding = args.project_visibility.get_inner();
-        let queued_timeout_binding = args.queued_timeout.get_inner();
-        let resource_access_role_binding = args.resource_access_role.get_inner();
-        let secondary_artifacts_binding = args.secondary_artifacts.get_inner();
+        let artifacts_binding = args.artifacts.get_output(context).get_inner();
+        let badge_enabled_binding = args.badge_enabled.get_output(context).get_inner();
+        let build_batch_config_binding = args
+            .build_batch_config
+            .get_output(context)
+            .get_inner();
+        let build_timeout_binding = args.build_timeout.get_output(context).get_inner();
+        let cache_binding = args.cache.get_output(context).get_inner();
+        let concurrent_build_limit_binding = args
+            .concurrent_build_limit
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let encryption_key_binding = args.encryption_key.get_output(context).get_inner();
+        let environment_binding = args.environment.get_output(context).get_inner();
+        let file_system_locations_binding = args
+            .file_system_locations
+            .get_output(context)
+            .get_inner();
+        let logs_config_binding = args.logs_config.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let project_visibility_binding = args
+            .project_visibility
+            .get_output(context)
+            .get_inner();
+        let queued_timeout_binding = args.queued_timeout.get_output(context).get_inner();
+        let resource_access_role_binding = args
+            .resource_access_role
+            .get_output(context)
+            .get_inner();
+        let secondary_artifacts_binding = args
+            .secondary_artifacts
+            .get_output(context)
+            .get_inner();
         let secondary_source_versions_binding = args
             .secondary_source_versions
+            .get_output(context)
             .get_inner();
-        let secondary_sources_binding = args.secondary_sources.get_inner();
-        let service_role_binding = args.service_role.get_inner();
-        let source_binding = args.source.get_inner();
-        let source_version_binding = args.source_version.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_config_binding = args.vpc_config.get_inner();
+        let secondary_sources_binding = args
+            .secondary_sources
+            .get_output(context)
+            .get_inner();
+        let service_role_binding = args.service_role.get_output(context).get_inner();
+        let source_binding = args.source.get_output(context).get_inner();
+        let source_version_binding = args.source_version.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_config_binding = args.vpc_config.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:codebuild/project:Project".into(),
             name: name.to_string(),
@@ -570,7 +596,7 @@ pub mod project {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -1,30 +1,30 @@
 pub mod get_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetCertificateArgs {
         /// Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
         #[builder(into, default)]
-        pub domain: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
         #[builder(into, default)]
-        pub key_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub key_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
         #[builder(into, default)]
-        pub most_recent: pulumi_wasm_rust::Output<Option<bool>>,
+        pub most_recent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
         /// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
         /// are returned.
         #[builder(into, default)]
-        pub statuses: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub statuses: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of types on which to filter the returned list. Valid values are `AMAZON_ISSUED`, `PRIVATE`, and `IMPORTED`.
         #[builder(into, default)]
-        pub types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct GetCertificateResult {
@@ -50,15 +50,18 @@ pub mod get_certificate {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetCertificateArgs) -> GetCertificateResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetCertificateArgs,
+    ) -> GetCertificateResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let domain_binding = args.domain.get_inner();
-        let key_types_binding = args.key_types.get_inner();
-        let most_recent_binding = args.most_recent.get_inner();
-        let statuses_binding = args.statuses.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let types_binding = args.types.get_inner();
+        let domain_binding = args.domain.get_output(context).get_inner();
+        let key_types_binding = args.key_types.get_output(context).get_inner();
+        let most_recent_binding = args.most_recent.get_output(context).get_inner();
+        let statuses_binding = args.statuses.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let types_binding = args.types.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:acm/getCertificate:getCertificate".into(),
             version: super::super::super::get_version(),
@@ -124,7 +127,7 @@ pub mod get_certificate {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -16,24 +16,24 @@
 /// ```
 ///
 pub mod zero_trust_access_service_token {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustAccessServiceTokenArgs {
         /// The account identifier to target for the resource. Conflicts with `zone_id`.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Length of time the service token is valid for. Available values: `8760h`, `17520h`, `43800h`, `87600h`, `forever`.
         #[builder(into, default)]
-        pub duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub min_days_for_renewal: pulumi_wasm_rust::Output<Option<i32>>,
+        pub min_days_for_renewal: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
         /// Friendly name of the token's intent.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_wasm_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. Conflicts with `account_id`.
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustAccessServiceTokenResult {
@@ -58,16 +58,20 @@ pub mod zero_trust_access_service_token {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ZeroTrustAccessServiceTokenArgs,
     ) -> ZeroTrustAccessServiceTokenResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let account_id_binding = args.account_id.get_inner();
-        let duration_binding = args.duration.get_inner();
-        let min_days_for_renewal_binding = args.min_days_for_renewal.get_inner();
-        let name_binding = args.name.get_inner();
-        let zone_id_binding = args.zone_id.get_inner();
+        let account_id_binding = args.account_id.get_output(context).get_inner();
+        let duration_binding = args.duration.get_output(context).get_inner();
+        let min_days_for_renewal_binding = args
+            .min_days_for_renewal
+            .get_output(context)
+            .get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let zone_id_binding = args.zone_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "cloudflare:index/zeroTrustAccessServiceToken:ZeroTrustAccessServiceToken"
                 .into(),
@@ -122,7 +126,7 @@ pub mod zero_trust_access_service_token {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

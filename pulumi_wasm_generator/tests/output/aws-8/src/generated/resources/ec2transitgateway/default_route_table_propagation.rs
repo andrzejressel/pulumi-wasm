@@ -21,22 +21,22 @@
 /// }
 /// ```
 pub mod default_route_table_propagation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultRouteTablePropagationArgs {
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_wasm_rust::InputOrOutput<
             Option<
                 super::super::types::ec2transitgateway::DefaultRouteTablePropagationTimeouts,
             >,
         >,
         /// ID of the Transit Gateway to change the default association route table on.
         #[builder(into)]
-        pub transit_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// ID of the Transit Gateway Route Table to be made the default association route table.
         #[builder(into)]
-        pub transit_gateway_route_table_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DefaultRouteTablePropagationResult {
@@ -56,15 +56,20 @@ pub mod default_route_table_propagation {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: DefaultRouteTablePropagationArgs,
     ) -> DefaultRouteTablePropagationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let timeouts_binding = args.timeouts.get_inner();
-        let transit_gateway_id_binding = args.transit_gateway_id.get_inner();
+        let timeouts_binding = args.timeouts.get_output(context).get_inner();
+        let transit_gateway_id_binding = args
+            .transit_gateway_id
+            .get_output(context)
+            .get_inner();
         let transit_gateway_route_table_id_binding = args
             .transit_gateway_route_table_id
+            .get_output(context)
             .get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2transitgateway/defaultRouteTablePropagation:DefaultRouteTablePropagation"
@@ -100,7 +105,7 @@ pub mod default_route_table_propagation {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

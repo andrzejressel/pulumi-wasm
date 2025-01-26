@@ -22,24 +22,24 @@
 /// $ pulumi import aws:iot/thingType:ThingType example example
 /// ```
 pub mod thing_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ThingTypeArgs {
         /// Whether the thing type is deprecated. If true, no new things could be associated with this type.
         #[builder(into, default)]
-        pub deprecated: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deprecated: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// The name of the thing type.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// , Configuration block that can contain the following properties of the thing type:
         #[builder(into, default)]
-        pub properties: pulumi_wasm_rust::Output<
+        pub properties: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::iot::ThingTypeProperties>,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -68,13 +68,17 @@ pub mod thing_type {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ThingTypeArgs) -> ThingTypeResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ThingTypeArgs,
+    ) -> ThingTypeResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let deprecated_binding = args.deprecated.get_inner();
-        let name_binding = args.name.get_inner();
-        let properties_binding = args.properties.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let deprecated_binding = args.deprecated.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let properties_binding = args.properties.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:iot/thingType:ThingType".into(),
             name: name.to_string(),
@@ -118,7 +122,7 @@ pub mod thing_type {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

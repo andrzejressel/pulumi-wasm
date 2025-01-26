@@ -105,7 +105,7 @@
 /// ```
 ///
 pub mod instance_group_named_port {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceGroupNamedPortArgs {
@@ -114,21 +114,21 @@ pub mod instance_group_named_port {
         ///
         /// - - -
         #[builder(into)]
-        pub group: pulumi_wasm_rust::Output<String>,
+        pub group: pulumi_wasm_rust::InputOrOutput<String>,
         /// The name for this named port. The name must be 1-63 characters
         /// long, and comply with RFC1035.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The port number, which can be a value between 1 and 65535.
         #[builder(into)]
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_wasm_rust::InputOrOutput<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The zone of the instance group.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceGroupNamedPortResult {
@@ -153,16 +153,17 @@ pub mod instance_group_named_port {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: InstanceGroupNamedPortArgs,
     ) -> InstanceGroupNamedPortResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let group_binding = args.group.get_inner();
-        let name_binding = args.name.get_inner();
-        let port_binding = args.port.get_inner();
-        let project_binding = args.project.get_inner();
-        let zone_binding = args.zone.get_inner();
+        let group_binding = args.group.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let port_binding = args.port.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let zone_binding = args.zone.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/instanceGroupNamedPort:InstanceGroupNamedPort".into(),
             name: name.to_string(),
@@ -207,7 +208,7 @@ pub mod instance_group_named_port {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

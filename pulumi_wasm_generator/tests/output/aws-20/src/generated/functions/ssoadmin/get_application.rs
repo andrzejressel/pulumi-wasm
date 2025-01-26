@@ -1,14 +1,14 @@
 pub mod get_application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetApplicationArgs {
         /// ARN of the application.
         #[builder(into)]
-        pub application_arn: pulumi_wasm_rust::Output<String>,
+        pub application_arn: pulumi_wasm_rust::InputOrOutput<String>,
         /// Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
         #[builder(into, default)]
-        pub portal_options: pulumi_wasm_rust::Output<
+        pub portal_options: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ssoadmin::GetApplicationPortalOption>>,
         >,
     }
@@ -38,11 +38,17 @@ pub mod get_application {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetApplicationArgs) -> GetApplicationResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetApplicationArgs,
+    ) -> GetApplicationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let application_arn_binding = args.application_arn.get_inner();
-        let portal_options_binding = args.portal_options.get_inner();
+        let application_arn_binding = args
+            .application_arn
+            .get_output(context)
+            .get_inner();
+        let portal_options_binding = args.portal_options.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:ssoadmin/getApplication:getApplication".into(),
             version: super::super::super::get_version(),
@@ -86,7 +92,7 @@ pub mod get_application {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

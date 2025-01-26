@@ -1,5 +1,5 @@
 pub mod get_management_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetManagementGroupArgs {
@@ -7,10 +7,10 @@ pub mod get_management_group {
         ///
         /// > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies the name or UUID of this Management Group.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetManagementGroupResult {
@@ -35,11 +35,14 @@ pub mod get_management_group {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetManagementGroupArgs) -> GetManagementGroupResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetManagementGroupArgs,
+    ) -> GetManagementGroupResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let display_name_binding = args.display_name.get_inner();
-        let name_binding = args.name.get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "azure:managementgroups/getManagementGroup:getManagementGroup".into(),
             version: super::super::super::get_version(),
@@ -83,7 +86,7 @@ pub mod get_management_group {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

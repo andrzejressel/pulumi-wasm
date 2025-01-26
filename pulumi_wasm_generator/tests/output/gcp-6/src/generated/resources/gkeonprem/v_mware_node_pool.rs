@@ -153,7 +153,7 @@
 /// ```
 ///
 pub mod v_mware_node_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VMwareNodePoolArgs {
@@ -164,34 +164,34 @@ pub mod v_mware_node_pool {
         /// only manage the annotations present in your configuration. Please refer to the field 'effective_annotations' for all of
         /// the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The node configuration of the node pool.
         /// Structure is documented below.
         #[builder(into)]
-        pub config: pulumi_wasm_rust::Output<
+        pub config: pulumi_wasm_rust::InputOrOutput<
             super::super::types::gkeonprem::VMwareNodePoolConfig,
         >,
         /// The display name for the node pool.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The vmware node pool name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Node Pool autoscaling config for the node pool.
         #[builder(into, default)]
-        pub node_pool_autoscaling: pulumi_wasm_rust::Output<
+        pub node_pool_autoscaling: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::VMwareNodePoolNodePoolAutoscaling>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The cluster this node pool belongs to.
         #[builder(into)]
-        pub vmware_cluster: pulumi_wasm_rust::Output<String>,
+        pub vmware_cluster: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VMwareNodePoolResult {
@@ -256,17 +256,24 @@ pub mod v_mware_node_pool {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VMwareNodePoolArgs) -> VMwareNodePoolResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VMwareNodePoolArgs,
+    ) -> VMwareNodePoolResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let config_binding = args.config.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let location_binding = args.location.get_inner();
-        let name_binding = args.name.get_inner();
-        let node_pool_autoscaling_binding = args.node_pool_autoscaling.get_inner();
-        let project_binding = args.project.get_inner();
-        let vmware_cluster_binding = args.vmware_cluster.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let config_binding = args.config.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let node_pool_autoscaling_binding = args
+            .node_pool_autoscaling
+            .get_output(context)
+            .get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let vmware_cluster_binding = args.vmware_cluster.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:gkeonprem/vMwareNodePool:VMwareNodePool".into(),
             name: name.to_string(),
@@ -362,7 +369,7 @@ pub mod v_mware_node_pool {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

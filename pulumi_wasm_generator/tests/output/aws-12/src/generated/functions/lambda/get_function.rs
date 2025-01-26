@@ -1,16 +1,16 @@
 pub mod get_function {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetFunctionArgs {
         /// Name of the lambda function.
         #[builder(into)]
-        pub function_name: pulumi_wasm_rust::Output<String>,
+        pub function_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
         #[builder(into, default)]
-        pub qualifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub qualifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -100,12 +100,15 @@ pub mod get_function {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn invoke(args: GetFunctionArgs) -> GetFunctionResult {
+    pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
+        args: GetFunctionArgs,
+    ) -> GetFunctionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let function_name_binding = args.function_name.get_inner();
-        let qualifier_binding = args.qualifier.get_inner();
-        let tags_binding = args.tags.get_inner();
+        let function_name_binding = args.function_name.get_output(context).get_inner();
+        let qualifier_binding = args.qualifier.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:lambda/getFunction:getFunction".into(),
             version: super::super::super::get_version(),
@@ -228,7 +231,7 @@ pub mod get_function {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

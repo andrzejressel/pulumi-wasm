@@ -87,7 +87,7 @@
 /// ```
 ///
 pub mod connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionArgs {
@@ -96,7 +96,7 @@ pub mod connection {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Required. Id of the requesting object. If auto-generating Id server-side,
@@ -105,19 +105,19 @@ pub mod connection {
         ///
         /// - - -
         #[builder(into)]
-        pub connection_id: pulumi_wasm_rust::Output<String>,
+        pub connection_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Optional. If disabled is set to true, functionality is disabled for this connection. Repository based API methods and webhooks processing for repositories in this connection will be disabled.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Optional. This checksum is computed by the server based on the value
         /// of other fields, and may be sent on update and delete requests to ensure the
         /// client has an up-to-date value before proceeding.
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::Output<Option<String>>,
+        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Configuration for connections to github.com.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub github_config: pulumi_wasm_rust::Output<
+        pub github_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::developerconnect::ConnectionGithubConfig>,
         >,
         /// Optional. Labels as key value pairs
@@ -125,18 +125,18 @@ pub mod connection {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. It identifies the resource
         /// within its parent collection as described in https://google.aip.dev/122. See documentation
         /// for resource type `developerconnect.googleapis.com/GitRepositoryLink`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ConnectionResult {
@@ -215,17 +215,21 @@ pub mod connection {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: ConnectionArgs) -> ConnectionResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: ConnectionArgs,
+    ) -> ConnectionResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let connection_id_binding = args.connection_id.get_inner();
-        let disabled_binding = args.disabled.get_inner();
-        let etag_binding = args.etag.get_inner();
-        let github_config_binding = args.github_config.get_inner();
-        let labels_binding = args.labels.get_inner();
-        let location_binding = args.location.get_inner();
-        let project_binding = args.project.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let connection_id_binding = args.connection_id.get_output(context).get_inner();
+        let disabled_binding = args.disabled.get_output(context).get_inner();
+        let etag_binding = args.etag.get_output(context).get_inner();
+        let github_config_binding = args.github_config.get_output(context).get_inner();
+        let labels_binding = args.labels.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:developerconnect/connection:Connection".into(),
             name: name.to_string(),
@@ -321,7 +325,7 @@ pub mod connection {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

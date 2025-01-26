@@ -1,11 +1,11 @@
 pub mod get_delegated_administrators {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDelegatedAdministratorsArgs {
         /// Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don't specify a service principal, the operation lists all delegated administrators for all services in your organization.
         #[builder(into, default)]
-        pub service_principal: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_principal: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetDelegatedAdministratorsResult {
@@ -24,11 +24,15 @@ pub mod get_delegated_administrators {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
+        context: &pulumi_wasm_rust::PulumiContext,
         args: GetDelegatedAdministratorsArgs,
     ) -> GetDelegatedAdministratorsResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let service_principal_binding = args.service_principal.get_inner();
+        let service_principal_binding = args
+            .service_principal
+            .get_output(context)
+            .get_inner();
         let request = register_interface::ResourceInvokeRequest {
             token: "aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators"
                 .into(),
@@ -51,7 +55,7 @@ pub mod get_delegated_administrators {
                 },
             ]),
         };
-        let o = register_interface::invoke(&request);
+        let o = register_interface::invoke(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

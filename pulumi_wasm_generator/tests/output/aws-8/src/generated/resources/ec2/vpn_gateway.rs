@@ -21,24 +21,24 @@
 /// $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
 /// ```
 pub mod vpn_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpnGatewayArgs {
         /// The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
         #[builder(into, default)]
-        pub amazon_side_asn: pulumi_wasm_rust::Output<Option<String>>,
+        pub amazon_side_asn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The Availability Zone for the virtual private gateway.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The VPC ID to create in.
         #[builder(into, default)]
-        pub vpc_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VpnGatewayResult {
@@ -63,13 +63,23 @@ pub mod vpn_gateway {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: VpnGatewayArgs) -> VpnGatewayResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: VpnGatewayArgs,
+    ) -> VpnGatewayResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let amazon_side_asn_binding = args.amazon_side_asn.get_inner();
-        let availability_zone_binding = args.availability_zone.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_id_binding = args.vpc_id.get_inner();
+        let amazon_side_asn_binding = args
+            .amazon_side_asn
+            .get_output(context)
+            .get_inner();
+        let availability_zone_binding = args
+            .availability_zone
+            .get_output(context)
+            .get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:ec2/vpnGateway:VpnGateway".into(),
             name: name.to_string(),
@@ -113,7 +123,7 @@ pub mod vpn_gateway {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

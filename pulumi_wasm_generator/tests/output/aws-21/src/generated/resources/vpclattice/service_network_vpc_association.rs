@@ -28,25 +28,25 @@
 /// $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
 /// ```
 pub mod service_network_vpc_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceNetworkVpcAssociationArgs {
         /// The IDs of the security groups.
         #[builder(into, default)]
-        pub security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
         /// The following arguments are optional:
         #[builder(into)]
-        pub service_network_identifier: pulumi_wasm_rust::Output<String>,
+        pub service_network_identifier: pulumi_wasm_rust::InputOrOutput<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the VPC.
         #[builder(into)]
-        pub vpc_identifier: pulumi_wasm_rust::Output<String>,
+        pub vpc_identifier: pulumi_wasm_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServiceNetworkVpcAssociationResult {
@@ -77,17 +77,22 @@ pub mod service_network_vpc_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
         name: &str,
         args: ServiceNetworkVpcAssociationArgs,
     ) -> ServiceNetworkVpcAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let security_group_ids_binding = args.security_group_ids.get_inner();
+        let security_group_ids_binding = args
+            .security_group_ids
+            .get_output(context)
+            .get_inner();
         let service_network_identifier_binding = args
             .service_network_identifier
+            .get_output(context)
             .get_inner();
-        let tags_binding = args.tags.get_inner();
-        let vpc_identifier_binding = args.vpc_identifier.get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let vpc_identifier_binding = args.vpc_identifier.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation"
                 .into(),
@@ -138,7 +143,7 @@ pub mod service_network_vpc_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

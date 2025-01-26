@@ -82,16 +82,16 @@
 /// $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
 /// ```
 pub mod bot_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BotAssociationArgs {
         /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration information of an Amazon Lex (V1) bot. Detailed below.
         #[builder(into)]
-        pub lex_bot: pulumi_wasm_rust::Output<
+        pub lex_bot: pulumi_wasm_rust::InputOrOutput<
             super::super::types::connect::BotAssociationLexBot,
         >,
     }
@@ -108,11 +108,15 @@ pub mod bot_association {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BotAssociationArgs) -> BotAssociationResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BotAssociationArgs,
+    ) -> BotAssociationResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let instance_id_binding = args.instance_id.get_inner();
-        let lex_bot_binding = args.lex_bot.get_inner();
+        let instance_id_binding = args.instance_id.get_output(context).get_inner();
+        let lex_bot_binding = args.lex_bot.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:connect/botAssociation:BotAssociation".into(),
             name: name.to_string(),
@@ -136,7 +140,7 @@ pub mod bot_association {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

@@ -709,7 +709,7 @@
 /// ```
 ///
 pub mod url_map {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct URLMapArgs {
@@ -723,7 +723,7 @@ pub mod url_map {
         /// defaultCustomErrorResponsePolicy is supported only for global external Application Load Balancers.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub default_custom_error_response_policy: pulumi_wasm_rust::Output<
+        pub default_custom_error_response_policy: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::UrlMapDefaultCustomErrorResponsePolicy>,
         >,
         /// defaultRouteAction takes effect when none of the hostRules match. The load balancer performs advanced routing actions
@@ -733,36 +733,36 @@ pub mod url_map {
         /// Only one of defaultRouteAction or defaultUrlRedirect must be set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub default_route_action: pulumi_wasm_rust::Output<
+        pub default_route_action: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::UrlMapDefaultRouteAction>,
         >,
         /// The backend service or backend bucket to use when none of the given rules match.
         #[builder(into, default)]
-        pub default_service: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// When none of the specified hostRules match, the request is redirected to a URL specified
         /// by defaultUrlRedirect. If defaultUrlRedirect is specified, defaultService or
         /// defaultRouteAction must not be set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub default_url_redirect: pulumi_wasm_rust::Output<
+        pub default_url_redirect: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::UrlMapDefaultUrlRedirect>,
         >,
         /// An optional description of this resource. Provide this property when you create
         /// the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Specifies changes to request and response headers that need to take effect for
         /// the selected backendService. The headerAction specified here take effect after
         /// headerAction specified under pathMatcher.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub header_action: pulumi_wasm_rust::Output<
+        pub header_action: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::compute::UrlMapHeaderAction>,
         >,
         /// The list of HostRules to use against the URL.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub host_rules: pulumi_wasm_rust::Output<
+        pub host_rules: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::UrlMapHostRule>>,
         >,
         /// Name of the resource. Provided by the client when the resource is created. The
@@ -775,23 +775,23 @@ pub mod url_map {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The list of named PathMatchers to use against the URL.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub path_matchers: pulumi_wasm_rust::Output<
+        pub path_matchers: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::UrlMapPathMatcher>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// The list of expected URL mapping tests. Request to update this UrlMap will
         /// succeed only if all of the test cases pass. You can specify a maximum of 100
         /// tests per UrlMap.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub tests: pulumi_wasm_rust::Output<
+        pub tests: pulumi_wasm_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::UrlMapTest>>,
         >,
     }
@@ -881,22 +881,36 @@ pub mod url_map {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: URLMapArgs) -> URLMapResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: URLMapArgs,
+    ) -> URLMapResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
         let default_custom_error_response_policy_binding = args
             .default_custom_error_response_policy
+            .get_output(context)
             .get_inner();
-        let default_route_action_binding = args.default_route_action.get_inner();
-        let default_service_binding = args.default_service.get_inner();
-        let default_url_redirect_binding = args.default_url_redirect.get_inner();
-        let description_binding = args.description.get_inner();
-        let header_action_binding = args.header_action.get_inner();
-        let host_rules_binding = args.host_rules.get_inner();
-        let name_binding = args.name.get_inner();
-        let path_matchers_binding = args.path_matchers.get_inner();
-        let project_binding = args.project.get_inner();
-        let tests_binding = args.tests.get_inner();
+        let default_route_action_binding = args
+            .default_route_action
+            .get_output(context)
+            .get_inner();
+        let default_service_binding = args
+            .default_service
+            .get_output(context)
+            .get_inner();
+        let default_url_redirect_binding = args
+            .default_url_redirect
+            .get_output(context)
+            .get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let header_action_binding = args.header_action.get_output(context).get_inner();
+        let host_rules_binding = args.host_rules.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let path_matchers_binding = args.path_matchers.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
+        let tests_binding = args.tests.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:compute/uRLMap:URLMap".into(),
             name: name.to_string(),
@@ -995,7 +1009,7 @@ pub mod url_map {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

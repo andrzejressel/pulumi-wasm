@@ -138,65 +138,67 @@
 /// $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
 /// ```
 pub mod branch {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BranchArgs {
         /// Unique ID for an Amplify app.
         #[builder(into)]
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_wasm_rust::InputOrOutput<String>,
         /// ARN for a backend environment that is part of an Amplify app.
         #[builder(into, default)]
-        pub backend_environment_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub backend_environment_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Basic authorization credentials for the branch.
         #[builder(into, default)]
-        pub basic_auth_credentials: pulumi_wasm_rust::Output<Option<String>>,
+        pub basic_auth_credentials: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Name for the branch.
         #[builder(into)]
-        pub branch_name: pulumi_wasm_rust::Output<String>,
+        pub branch_name: pulumi_wasm_rust::InputOrOutput<String>,
         /// Description for the branch.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Display name for a branch. This is used as the default domain prefix.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Enables auto building for the branch.
         #[builder(into, default)]
-        pub enable_auto_build: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_auto_build: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Enables basic authorization for the branch.
         #[builder(into, default)]
-        pub enable_basic_auth: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_basic_auth: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Enables notifications for the branch.
         #[builder(into, default)]
-        pub enable_notification: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_notification: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Enables performance mode for the branch.
         #[builder(into, default)]
-        pub enable_performance_mode: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_performance_mode: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Enables pull request previews for this branch.
         #[builder(into, default)]
-        pub enable_pull_request_preview: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_pull_request_preview: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
         /// Environment variables for the branch.
         #[builder(into, default)]
-        pub environment_variables: pulumi_wasm_rust::Output<
+        pub environment_variables: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Framework for the branch.
         #[builder(into, default)]
-        pub framework: pulumi_wasm_rust::Output<Option<String>>,
+        pub framework: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Amplify environment name for the pull request.
         #[builder(into, default)]
-        pub pull_request_environment_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub pull_request_environment_name: pulumi_wasm_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         #[builder(into, default)]
-        pub stage: pulumi_wasm_rust::Output<Option<String>>,
+        pub stage: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Content Time To Live (TTL) for the website in seconds.
         #[builder(into, default)]
-        pub ttl: pulumi_wasm_rust::Output<Option<String>>,
+        pub ttl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BranchResult {
@@ -257,30 +259,57 @@ pub mod branch {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: BranchArgs) -> BranchResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: BranchArgs,
+    ) -> BranchResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let app_id_binding = args.app_id.get_inner();
-        let backend_environment_arn_binding = args.backend_environment_arn.get_inner();
-        let basic_auth_credentials_binding = args.basic_auth_credentials.get_inner();
-        let branch_name_binding = args.branch_name.get_inner();
-        let description_binding = args.description.get_inner();
-        let display_name_binding = args.display_name.get_inner();
-        let enable_auto_build_binding = args.enable_auto_build.get_inner();
-        let enable_basic_auth_binding = args.enable_basic_auth.get_inner();
-        let enable_notification_binding = args.enable_notification.get_inner();
-        let enable_performance_mode_binding = args.enable_performance_mode.get_inner();
+        let app_id_binding = args.app_id.get_output(context).get_inner();
+        let backend_environment_arn_binding = args
+            .backend_environment_arn
+            .get_output(context)
+            .get_inner();
+        let basic_auth_credentials_binding = args
+            .basic_auth_credentials
+            .get_output(context)
+            .get_inner();
+        let branch_name_binding = args.branch_name.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let display_name_binding = args.display_name.get_output(context).get_inner();
+        let enable_auto_build_binding = args
+            .enable_auto_build
+            .get_output(context)
+            .get_inner();
+        let enable_basic_auth_binding = args
+            .enable_basic_auth
+            .get_output(context)
+            .get_inner();
+        let enable_notification_binding = args
+            .enable_notification
+            .get_output(context)
+            .get_inner();
+        let enable_performance_mode_binding = args
+            .enable_performance_mode
+            .get_output(context)
+            .get_inner();
         let enable_pull_request_preview_binding = args
             .enable_pull_request_preview
+            .get_output(context)
             .get_inner();
-        let environment_variables_binding = args.environment_variables.get_inner();
-        let framework_binding = args.framework.get_inner();
+        let environment_variables_binding = args
+            .environment_variables
+            .get_output(context)
+            .get_inner();
+        let framework_binding = args.framework.get_output(context).get_inner();
         let pull_request_environment_name_binding = args
             .pull_request_environment_name
+            .get_output(context)
             .get_inner();
-        let stage_binding = args.stage.get_inner();
-        let tags_binding = args.tags.get_inner();
-        let ttl_binding = args.ttl.get_inner();
+        let stage_binding = args.stage.get_output(context).get_inner();
+        let tags_binding = args.tags.get_output(context).get_inner();
+        let ttl_binding = args.ttl.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "aws:amplify/branch:Branch".into(),
             name: name.to_string(),
@@ -427,7 +456,7 @@ pub mod branch {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()

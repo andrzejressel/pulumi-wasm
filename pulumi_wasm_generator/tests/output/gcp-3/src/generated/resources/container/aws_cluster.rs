@@ -234,7 +234,7 @@
 /// ```
 ///
 pub mod aws_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder, Clone)]
+    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AwsClusterArgs {
@@ -245,54 +245,54 @@ pub mod aws_cluster {
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_wasm_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration related to the cluster RBAC settings.
         #[builder(into)]
-        pub authorization: pulumi_wasm_rust::Output<
+        pub authorization: pulumi_wasm_rust::InputOrOutput<
             super::super::types::container::AwsClusterAuthorization,
         >,
         /// The AWS region where the cluster runs. Each Google Cloud region supports a subset of nearby AWS regions. You can call to list all supported AWS regions within a given Google Cloud region.
         #[builder(into)]
-        pub aws_region: pulumi_wasm_rust::Output<String>,
+        pub aws_region: pulumi_wasm_rust::InputOrOutput<String>,
         /// Configuration options for the Binary Authorization feature.
         #[builder(into, default)]
-        pub binary_authorization: pulumi_wasm_rust::Output<
+        pub binary_authorization: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::AwsClusterBinaryAuthorization>,
         >,
         /// Configuration related to the cluster control plane.
         #[builder(into)]
-        pub control_plane: pulumi_wasm_rust::Output<
+        pub control_plane: pulumi_wasm_rust::InputOrOutput<
             super::super::types::container::AwsClusterControlPlane,
         >,
         /// Optional. A human readable description of this cluster. Cannot be longer than 255 UTF-8 encoded bytes.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Fleet configuration.
         #[builder(into)]
-        pub fleet: pulumi_wasm_rust::Output<
+        pub fleet: pulumi_wasm_rust::InputOrOutput<
             super::super::types::container::AwsClusterFleet,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_wasm_rust::InputOrOutput<String>,
         /// Logging configuration.
         #[builder(into, default)]
-        pub logging_config: pulumi_wasm_rust::Output<
+        pub logging_config: pulumi_wasm_rust::InputOrOutput<
             Option<super::super::types::container::AwsClusterLoggingConfig>,
         >,
         /// The name of this resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
         /// Cluster-wide networking configuration.
         #[builder(into)]
-        pub networking: pulumi_wasm_rust::Output<
+        pub networking: pulumi_wasm_rust::InputOrOutput<
             super::super::types::container::AwsClusterNetworking,
         >,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AwsClusterResult {
@@ -365,21 +365,28 @@ pub mod aws_cluster {
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
-    pub fn create(name: &str, args: AwsClusterArgs) -> AwsClusterResult {
+    pub fn create(
+        context: &pulumi_wasm_rust::PulumiContext,
+        name: &str,
+        args: AwsClusterArgs,
+    ) -> AwsClusterResult {
         use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
         use std::collections::HashMap;
-        let annotations_binding = args.annotations.get_inner();
-        let authorization_binding = args.authorization.get_inner();
-        let aws_region_binding = args.aws_region.get_inner();
-        let binary_authorization_binding = args.binary_authorization.get_inner();
-        let control_plane_binding = args.control_plane.get_inner();
-        let description_binding = args.description.get_inner();
-        let fleet_binding = args.fleet.get_inner();
-        let location_binding = args.location.get_inner();
-        let logging_config_binding = args.logging_config.get_inner();
-        let name_binding = args.name.get_inner();
-        let networking_binding = args.networking.get_inner();
-        let project_binding = args.project.get_inner();
+        let annotations_binding = args.annotations.get_output(context).get_inner();
+        let authorization_binding = args.authorization.get_output(context).get_inner();
+        let aws_region_binding = args.aws_region.get_output(context).get_inner();
+        let binary_authorization_binding = args
+            .binary_authorization
+            .get_output(context)
+            .get_inner();
+        let control_plane_binding = args.control_plane.get_output(context).get_inner();
+        let description_binding = args.description.get_output(context).get_inner();
+        let fleet_binding = args.fleet.get_output(context).get_inner();
+        let location_binding = args.location.get_output(context).get_inner();
+        let logging_config_binding = args.logging_config.get_output(context).get_inner();
+        let name_binding = args.name.get_output(context).get_inner();
+        let networking_binding = args.networking.get_output(context).get_inner();
+        let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
             type_: "gcp:container/awsCluster:AwsCluster".into(),
             name: name.to_string(),
@@ -500,7 +507,7 @@ pub mod aws_cluster {
                 },
             ]),
         };
-        let o = register_interface::register(&request);
+        let o = register_interface::register(context.get_inner(), &request);
         let mut hashmap: HashMap<String, _> = o
             .fields
             .into_iter()
