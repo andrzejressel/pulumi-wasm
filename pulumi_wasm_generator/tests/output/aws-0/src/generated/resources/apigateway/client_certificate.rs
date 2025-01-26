@@ -85,57 +85,25 @@ pub mod client_certificate {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "pemEncodedCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClientCertificateResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             expiration_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationDate").unwrap(),
+                o.extract_field("expirationDate"),
             ),
             pem_encoded_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pemEncodedCertificate").unwrap(),
+                o.extract_field("pemEncodedCertificate"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -131,63 +131,30 @@ pub mod provisioned_model_throughput {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "commitmentDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "modelArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "modelUnits".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisionedModelArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisionedModelName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProvisionedModelThroughputResult {
             commitment_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("commitmentDuration").unwrap(),
+                o.extract_field("commitmentDuration"),
             ),
             model_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modelArn").unwrap(),
+                o.extract_field("modelArn"),
             ),
             model_units: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modelUnits").unwrap(),
+                o.extract_field("modelUnits"),
             ),
             provisioned_model_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisionedModelArn").unwrap(),
+                o.extract_field("provisionedModelArn"),
             ),
             provisioned_model_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisionedModelName").unwrap(),
+                o.extract_field("provisionedModelName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

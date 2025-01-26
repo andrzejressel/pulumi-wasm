@@ -1170,111 +1170,50 @@ pub mod stream {
                     value: &stream_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backfillAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "backfillNone".into(),
-                },
-                register_interface::ResultField {
-                    name: "createWithoutValidation".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedEncryptionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "desiredState".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StreamResult {
             backfill_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backfillAll").unwrap(),
+                o.extract_field("backfillAll"),
             ),
             backfill_none: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backfillNone").unwrap(),
+                o.extract_field("backfillNone"),
             ),
             create_without_validation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createWithoutValidation").unwrap(),
+                o.extract_field("createWithoutValidation"),
             ),
             customer_managed_encryption_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedEncryptionKey").unwrap(),
+                o.extract_field("customerManagedEncryptionKey"),
             ),
             desired_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredState").unwrap(),
+                o.extract_field("desiredState"),
             ),
             destination_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationConfig").unwrap(),
+                o.extract_field("destinationConfig"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             source_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceConfig").unwrap(),
+                o.extract_field("sourceConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             stream_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamId").unwrap(),
+                o.extract_field("streamId"),
             ),
         }
     }

@@ -84,34 +84,14 @@ pub mod account {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "enforceTwofactor".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountResult {
             enforce_twofactor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enforceTwofactor").unwrap(),
+                o.extract_field("enforceTwofactor"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

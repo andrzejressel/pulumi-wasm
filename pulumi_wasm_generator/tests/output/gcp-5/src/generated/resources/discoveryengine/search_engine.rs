@@ -212,87 +212,42 @@ pub mod search_engine {
                     value: &search_engine_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "collectionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "commonConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataStoreIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineId".into(),
-                },
-                register_interface::ResultField {
-                    name: "industryVertical".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "searchEngineConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SearchEngineResult {
             collection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("collectionId").unwrap(),
+                o.extract_field("collectionId"),
             ),
             common_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("commonConfig").unwrap(),
+                o.extract_field("commonConfig"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             data_store_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataStoreIds").unwrap(),
+                o.extract_field("dataStoreIds"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             engine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineId").unwrap(),
+                o.extract_field("engineId"),
             ),
             industry_vertical: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("industryVertical").unwrap(),
+                o.extract_field("industryVertical"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             search_engine_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("searchEngineConfig").unwrap(),
+                o.extract_field("searchEngineConfig"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

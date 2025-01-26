@@ -105,45 +105,23 @@ pub mod studio_session_mapping {
                     value: &studio_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "identityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityName".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityType".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionPolicyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "studioId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StudioSessionMappingResult {
             identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityId").unwrap(),
+                o.extract_field("identityId"),
             ),
             identity_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityName").unwrap(),
+                o.extract_field("identityName"),
             ),
             identity_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityType").unwrap(),
+                o.extract_field("identityType"),
             ),
             session_policy_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionPolicyArn").unwrap(),
+                o.extract_field("sessionPolicyArn"),
             ),
             studio_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("studioId").unwrap(),
+                o.extract_field("studioId"),
             ),
         }
     }

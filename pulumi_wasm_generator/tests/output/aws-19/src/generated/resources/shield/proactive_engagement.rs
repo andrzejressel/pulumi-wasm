@@ -115,28 +115,13 @@ pub mod proactive_engagement {
                     value: &enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "emergencyContacts".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProactiveEngagementResult {
             emergency_contacts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emergencyContacts").unwrap(),
+                o.extract_field("emergencyContacts"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
-            ),
+            enabled: pulumi_wasm_rust::__private::into_domain(o.extract_field("enabled")),
         }
     }
 }

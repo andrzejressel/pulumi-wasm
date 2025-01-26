@@ -166,52 +166,23 @@ pub mod iot_hub_device_update_instance {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "deviceUpdateAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "diagnosticEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "diagnosticStorageAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "iothubId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IotHubDeviceUpdateInstanceResult {
             device_update_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceUpdateAccountId").unwrap(),
+                o.extract_field("deviceUpdateAccountId"),
             ),
             diagnostic_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diagnosticEnabled").unwrap(),
+                o.extract_field("diagnosticEnabled"),
             ),
             diagnostic_storage_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diagnosticStorageAccount").unwrap(),
+                o.extract_field("diagnosticStorageAccount"),
             ),
             iothub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iothubId").unwrap(),
+                o.extract_field("iothubId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

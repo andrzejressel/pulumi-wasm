@@ -146,69 +146,31 @@ pub mod hsm_configuration {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "hsmConfigurationIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "hsmIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "hsmPartitionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "hsmPartitionPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "hsmServerPublicCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HsmConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             hsm_configuration_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hsmConfigurationIdentifier").unwrap(),
+                o.extract_field("hsmConfigurationIdentifier"),
             ),
             hsm_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hsmIpAddress").unwrap(),
+                o.extract_field("hsmIpAddress"),
             ),
             hsm_partition_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hsmPartitionName").unwrap(),
+                o.extract_field("hsmPartitionName"),
             ),
             hsm_partition_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hsmPartitionPassword").unwrap(),
+                o.extract_field("hsmPartitionPassword"),
             ),
             hsm_server_public_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hsmServerPublicCertificate").unwrap(),
+                o.extract_field("hsmServerPublicCertificate"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

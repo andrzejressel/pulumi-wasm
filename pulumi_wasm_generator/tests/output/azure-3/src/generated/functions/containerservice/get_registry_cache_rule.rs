@@ -52,49 +52,22 @@ pub mod get_registry_cache_rule {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "containerRegistryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "credentialSetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceRepo".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetRepo".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRegistryCacheRuleResult {
             container_registry_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerRegistryId").unwrap(),
+                o.extract_field("containerRegistryId"),
             ),
             credential_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("credentialSetId").unwrap(),
+                o.extract_field("credentialSetId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             source_repo: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceRepo").unwrap(),
+                o.extract_field("sourceRepo"),
             ),
             target_repo: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetRepo").unwrap(),
+                o.extract_field("targetRepo"),
             ),
         }
     }

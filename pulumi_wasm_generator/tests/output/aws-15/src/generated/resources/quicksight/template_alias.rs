@@ -96,45 +96,21 @@ pub mod template_alias {
                     value: &template_version_number_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aliasName".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateVersionNumber".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TemplateAliasResult {
             alias_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aliasName").unwrap(),
+                o.extract_field("aliasName"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             aws_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountId").unwrap(),
+                o.extract_field("awsAccountId"),
             ),
             template_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateId").unwrap(),
+                o.extract_field("templateId"),
             ),
             template_version_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateVersionNumber").unwrap(),
+                o.extract_field("templateVersionNumber"),
             ),
         }
     }

@@ -87,39 +87,18 @@ pub mod account {
                     value: &enable_default_standards_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoEnableControls".into(),
-                },
-                register_interface::ResultField {
-                    name: "controlFindingGenerator".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableDefaultStandards".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_enable_controls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoEnableControls").unwrap(),
+                o.extract_field("autoEnableControls"),
             ),
             control_finding_generator: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlFindingGenerator").unwrap(),
+                o.extract_field("controlFindingGenerator"),
             ),
             enable_default_standards: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableDefaultStandards").unwrap(),
+                o.extract_field("enableDefaultStandards"),
             ),
         }
     }

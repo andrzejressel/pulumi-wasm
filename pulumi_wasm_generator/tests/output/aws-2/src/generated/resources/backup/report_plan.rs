@@ -128,69 +128,29 @@ pub mod report_plan {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "reportDeliveryChannel".into(),
-                },
-                register_interface::ResultField {
-                    name: "reportSetting".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReportPlanResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             deployment_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentStatus").unwrap(),
+                o.extract_field("deploymentStatus"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             report_delivery_channel: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reportDeliveryChannel").unwrap(),
+                o.extract_field("reportDeliveryChannel"),
             ),
             report_setting: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reportSetting").unwrap(),
+                o.extract_field("reportSetting"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

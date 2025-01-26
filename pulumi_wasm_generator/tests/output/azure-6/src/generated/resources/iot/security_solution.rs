@@ -254,106 +254,50 @@ pub mod security_solution {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalWorkspaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabledDataSources".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventsToExports".into(),
-                },
-                register_interface::ResultField {
-                    name: "iothubIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "logUnmaskedIpsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryForResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "querySubscriptionIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "recommendationsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SecuritySolutionResult {
             additional_workspaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalWorkspaces").unwrap(),
+                o.extract_field("additionalWorkspaces"),
             ),
             disabled_data_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabledDataSources").unwrap(),
+                o.extract_field("disabledDataSources"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             events_to_exports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventsToExports").unwrap(),
+                o.extract_field("eventsToExports"),
             ),
             iothub_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iothubIds").unwrap(),
+                o.extract_field("iothubIds"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsWorkspaceId").unwrap(),
+                o.extract_field("logAnalyticsWorkspaceId"),
             ),
             log_unmasked_ips_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logUnmaskedIpsEnabled").unwrap(),
+                o.extract_field("logUnmaskedIpsEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             query_for_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryForResources").unwrap(),
+                o.extract_field("queryForResources"),
             ),
             query_subscription_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("querySubscriptionIds").unwrap(),
+                o.extract_field("querySubscriptionIds"),
             ),
             recommendations_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recommendationsEnabled").unwrap(),
+                o.extract_field("recommendationsEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

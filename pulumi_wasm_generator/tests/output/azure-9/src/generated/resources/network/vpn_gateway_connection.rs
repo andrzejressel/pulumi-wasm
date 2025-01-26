@@ -209,57 +209,27 @@ pub mod vpn_gateway_connection {
                     value: &vpn_links_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "internetSecurityEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteVpnSiteId".into(),
-                },
-                register_interface::ResultField {
-                    name: "routing".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficSelectorPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnLinks".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpnGatewayConnectionResult {
             internet_security_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internetSecurityEnabled").unwrap(),
+                o.extract_field("internetSecurityEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             remote_vpn_site_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteVpnSiteId").unwrap(),
+                o.extract_field("remoteVpnSiteId"),
             ),
             routing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routing").unwrap(),
+                o.extract_field("routing"),
             ),
             traffic_selector_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficSelectorPolicies").unwrap(),
+                o.extract_field("trafficSelectorPolicies"),
             ),
             vpn_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnGatewayId").unwrap(),
+                o.extract_field("vpnGatewayId"),
             ),
             vpn_links: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnLinks").unwrap(),
+                o.extract_field("vpnLinks"),
             ),
         }
     }

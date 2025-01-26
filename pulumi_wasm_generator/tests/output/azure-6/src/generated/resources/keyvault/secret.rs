@@ -171,81 +171,35 @@ pub mod secret {
                     value: &value_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "contentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notBeforeDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceVersionlessId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "value".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionlessId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SecretResult {
             content_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentType").unwrap(),
+                o.extract_field("contentType"),
             ),
             expiration_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationDate").unwrap(),
+                o.extract_field("expirationDate"),
             ),
             key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultId").unwrap(),
+                o.extract_field("keyVaultId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             not_before_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notBeforeDate").unwrap(),
+                o.extract_field("notBeforeDate"),
             ),
             resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceId").unwrap(),
+                o.extract_field("resourceId"),
             ),
             resource_versionless_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceVersionlessId").unwrap(),
+                o.extract_field("resourceVersionlessId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("value").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             versionless_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionlessId").unwrap(),
+                o.extract_field("versionlessId"),
             ),
         }
     }

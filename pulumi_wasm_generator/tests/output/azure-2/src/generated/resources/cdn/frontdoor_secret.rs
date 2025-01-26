@@ -620,40 +620,17 @@ pub mod frontdoor_secret {
                     value: &secret_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cdnFrontdoorProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdnFrontdoorProfileName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "secret".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FrontdoorSecretResult {
             cdn_frontdoor_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorProfileId").unwrap(),
+                o.extract_field("cdnFrontdoorProfileId"),
             ),
             cdn_frontdoor_profile_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorProfileName").unwrap(),
+                o.extract_field("cdnFrontdoorProfileName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secret").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            secret: pulumi_wasm_rust::__private::into_domain(o.extract_field("secret")),
         }
     }
 }

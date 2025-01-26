@@ -106,57 +106,27 @@ pub mod instance {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "fipsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "verifiedAccessTrustProviders".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceResult {
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             fips_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fipsEnabled").unwrap(),
+                o.extract_field("fipsEnabled"),
             ),
             last_updated_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedTime").unwrap(),
+                o.extract_field("lastUpdatedTime"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             verified_access_trust_providers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verifiedAccessTrustProviders").unwrap(),
+                o.extract_field("verifiedAccessTrustProviders"),
             ),
         }
     }

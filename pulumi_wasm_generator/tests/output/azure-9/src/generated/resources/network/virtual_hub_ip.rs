@@ -172,51 +172,24 @@ pub mod virtual_hub_ip {
                     value: &virtual_hub_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpAllocationMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIpAddressId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualHubId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VirtualHubIpResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpAddress").unwrap(),
+                o.extract_field("privateIpAddress"),
             ),
             private_ip_allocation_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpAllocationMethod").unwrap(),
+                o.extract_field("privateIpAllocationMethod"),
             ),
             public_ip_address_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIpAddressId").unwrap(),
+                o.extract_field("publicIpAddressId"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
             virtual_hub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualHubId").unwrap(),
+                o.extract_field("virtualHubId"),
             ),
         }
     }

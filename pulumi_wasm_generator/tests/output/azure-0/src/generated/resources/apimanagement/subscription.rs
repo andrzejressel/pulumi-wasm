@@ -197,82 +197,36 @@ pub mod subscription {
                     value: &user_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowTracing".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiManagementName".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "productId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "userId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SubscriptionResult {
             allow_tracing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowTracing").unwrap(),
+                o.extract_field("allowTracing"),
             ),
-            api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiId").unwrap(),
-            ),
+            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
             api_management_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementName").unwrap(),
+                o.extract_field("apiManagementName"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             primary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryKey").unwrap(),
+                o.extract_field("primaryKey"),
             ),
             product_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productId").unwrap(),
+                o.extract_field("productId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryKey").unwrap(),
+                o.extract_field("secondaryKey"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             subscription_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionId").unwrap(),
+                o.extract_field("subscriptionId"),
             ),
-            user_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userId").unwrap(),
-            ),
+            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
         }
     }
 }

@@ -105,40 +105,17 @@ pub mod trigger_custom {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "body".into(),
-                },
-                register_interface::ResultField {
-                    name: "callbackUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "logicAppId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TriggerCustomResult {
-            body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("body").unwrap(),
-            ),
+            body: pulumi_wasm_rust::__private::into_domain(o.extract_field("body")),
             callback_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("callbackUrl").unwrap(),
+                o.extract_field("callbackUrl"),
             ),
             logic_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logicAppId").unwrap(),
+                o.extract_field("logicAppId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

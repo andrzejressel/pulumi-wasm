@@ -146,51 +146,26 @@ pub mod flexible_server_active_directory_administrator {
                     value: &tenant_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "objectId".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalName".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FlexibleServerActiveDirectoryAdministratorResult {
             object_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectId").unwrap(),
+                o.extract_field("objectId"),
             ),
             principal_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalName").unwrap(),
+                o.extract_field("principalName"),
             ),
             principal_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalType").unwrap(),
+                o.extract_field("principalType"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             server_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverName").unwrap(),
+                o.extract_field("serverName"),
             ),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
         }
     }

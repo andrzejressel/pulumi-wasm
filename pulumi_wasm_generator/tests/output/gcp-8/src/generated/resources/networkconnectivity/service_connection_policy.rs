@@ -227,105 +227,47 @@ pub mod service_connection_policy {
                     value: &service_class_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "infrastructure".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pscConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "pscConnections".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceConnectionPolicyResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             infrastructure: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("infrastructure").unwrap(),
+                o.extract_field("infrastructure"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             psc_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pscConfig").unwrap(),
+                o.extract_field("pscConfig"),
             ),
             psc_connections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pscConnections").unwrap(),
+                o.extract_field("pscConnections"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             service_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceClass").unwrap(),
+                o.extract_field("serviceClass"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

@@ -416,183 +416,88 @@ pub mod cluster {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokers".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersPublicSaslIam".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersPublicSaslScram".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersPublicTls".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersSaslIam".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersSaslScram".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersTls".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersVpcConnectivitySaslIam".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersVpcConnectivitySaslScram".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootstrapBrokersVpcConnectivityTls".into(),
-                },
-                register_interface::ResultField {
-                    name: "brokerNodeGroupInfo".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientAuthentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterUuid".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationInfo".into(),
-                },
-                register_interface::ResultField {
-                    name: "currentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionInfo".into(),
-                },
-                register_interface::ResultField {
-                    name: "enhancedMonitoring".into(),
-                },
-                register_interface::ResultField {
-                    name: "kafkaVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingInfo".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberOfBrokerNodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "openMonitoring".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "zookeeperConnectString".into(),
-                },
-                register_interface::ResultField {
-                    name: "zookeeperConnectStringTls".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             bootstrap_brokers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokers").unwrap(),
+                o.extract_field("bootstrapBrokers"),
             ),
             bootstrap_brokers_public_sasl_iam: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersPublicSaslIam").unwrap(),
+                o.extract_field("bootstrapBrokersPublicSaslIam"),
             ),
             bootstrap_brokers_public_sasl_scram: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersPublicSaslScram").unwrap(),
+                o.extract_field("bootstrapBrokersPublicSaslScram"),
             ),
             bootstrap_brokers_public_tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersPublicTls").unwrap(),
+                o.extract_field("bootstrapBrokersPublicTls"),
             ),
             bootstrap_brokers_sasl_iam: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersSaslIam").unwrap(),
+                o.extract_field("bootstrapBrokersSaslIam"),
             ),
             bootstrap_brokers_sasl_scram: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersSaslScram").unwrap(),
+                o.extract_field("bootstrapBrokersSaslScram"),
             ),
             bootstrap_brokers_tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersTls").unwrap(),
+                o.extract_field("bootstrapBrokersTls"),
             ),
             bootstrap_brokers_vpc_connectivity_sasl_iam: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersVpcConnectivitySaslIam").unwrap(),
+                o.extract_field("bootstrapBrokersVpcConnectivitySaslIam"),
             ),
             bootstrap_brokers_vpc_connectivity_sasl_scram: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersVpcConnectivitySaslScram").unwrap(),
+                o.extract_field("bootstrapBrokersVpcConnectivitySaslScram"),
             ),
             bootstrap_brokers_vpc_connectivity_tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootstrapBrokersVpcConnectivityTls").unwrap(),
+                o.extract_field("bootstrapBrokersVpcConnectivityTls"),
             ),
             broker_node_group_info: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("brokerNodeGroupInfo").unwrap(),
+                o.extract_field("brokerNodeGroupInfo"),
             ),
             client_authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientAuthentication").unwrap(),
+                o.extract_field("clientAuthentication"),
             ),
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
             cluster_uuid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterUuid").unwrap(),
+                o.extract_field("clusterUuid"),
             ),
             configuration_info: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationInfo").unwrap(),
+                o.extract_field("configurationInfo"),
             ),
             current_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("currentVersion").unwrap(),
+                o.extract_field("currentVersion"),
             ),
             encryption_info: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionInfo").unwrap(),
+                o.extract_field("encryptionInfo"),
             ),
             enhanced_monitoring: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enhancedMonitoring").unwrap(),
+                o.extract_field("enhancedMonitoring"),
             ),
             kafka_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kafkaVersion").unwrap(),
+                o.extract_field("kafkaVersion"),
             ),
             logging_info: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingInfo").unwrap(),
+                o.extract_field("loggingInfo"),
             ),
             number_of_broker_nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberOfBrokerNodes").unwrap(),
+                o.extract_field("numberOfBrokerNodes"),
             ),
             open_monitoring: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("openMonitoring").unwrap(),
+                o.extract_field("openMonitoring"),
             ),
             storage_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageMode").unwrap(),
+                o.extract_field("storageMode"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             zookeeper_connect_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zookeeperConnectString").unwrap(),
+                o.extract_field("zookeeperConnectString"),
             ),
             zookeeper_connect_string_tls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zookeeperConnectStringTls").unwrap(),
+                o.extract_field("zookeeperConnectStringTls"),
             ),
         }
     }

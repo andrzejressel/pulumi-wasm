@@ -214,100 +214,47 @@ pub mod event_grid_topic {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "inboundIpRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputMappingDefaultValues".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputMappingFields".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputSchema".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAuthEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventGridTopicResult {
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             inbound_ip_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inboundIpRules").unwrap(),
+                o.extract_field("inboundIpRules"),
             ),
             input_mapping_default_values: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputMappingDefaultValues").unwrap(),
+                o.extract_field("inputMappingDefaultValues"),
             ),
             input_mapping_fields: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputMappingFields").unwrap(),
+                o.extract_field("inputMappingFields"),
             ),
             input_schema: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputSchema").unwrap(),
+                o.extract_field("inputSchema"),
             ),
             local_auth_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAuthEnabled").unwrap(),
+                o.extract_field("localAuthEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             primary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryAccessKey").unwrap(),
+                o.extract_field("primaryAccessKey"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAccessKey").unwrap(),
+                o.extract_field("secondaryAccessKey"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

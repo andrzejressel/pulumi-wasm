@@ -222,81 +222,31 @@ pub mod preset {
                     value: &video_watermarks_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "audio".into(),
-                },
-                register_interface::ResultField {
-                    name: "audioCodecOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "container".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbnails".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "video".into(),
-                },
-                register_interface::ResultField {
-                    name: "videoCodecOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "videoWatermarks".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PresetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            audio: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("audio").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            audio: pulumi_wasm_rust::__private::into_domain(o.extract_field("audio")),
             audio_codec_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("audioCodecOptions").unwrap(),
+                o.extract_field("audioCodecOptions"),
             ),
             container: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("container").unwrap(),
+                o.extract_field("container"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             thumbnails: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbnails").unwrap(),
+                o.extract_field("thumbnails"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            video: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("video").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            video: pulumi_wasm_rust::__private::into_domain(o.extract_field("video")),
             video_codec_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("videoCodecOptions").unwrap(),
+                o.extract_field("videoCodecOptions"),
             ),
             video_watermarks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("videoWatermarks").unwrap(),
+                o.extract_field("videoWatermarks"),
             ),
         }
     }

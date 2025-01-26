@@ -137,33 +137,15 @@ pub mod mail_from {
                     value: &mail_from_domain_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "behaviorOnMxFailure".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "mailFromDomain".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MailFromResult {
             behavior_on_mx_failure: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("behaviorOnMxFailure").unwrap(),
+                o.extract_field("behaviorOnMxFailure"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             mail_from_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mailFromDomain").unwrap(),
+                o.extract_field("mailFromDomain"),
             ),
         }
     }

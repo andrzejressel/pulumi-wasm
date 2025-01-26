@@ -249,51 +249,22 @@ pub mod user {
                     value: &user_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cluster".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseRoles".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "userId".into(),
-                },
-                register_interface::ResultField {
-                    name: "userType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UserResult {
             cluster: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cluster").unwrap(),
+                o.extract_field("cluster"),
             ),
             database_roles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseRoles").unwrap(),
+                o.extract_field("databaseRoles"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
-            user_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userId").unwrap(),
-            ),
+            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
             user_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userType").unwrap(),
+                o.extract_field("userType"),
             ),
         }
     }

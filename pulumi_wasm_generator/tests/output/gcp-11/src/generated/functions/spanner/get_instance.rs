@@ -77,104 +77,44 @@ pub mod get_instance {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoscalingConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "config".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultBackupScheduleType".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "edition".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "numNodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "processingUnits".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetInstanceResult {
             autoscaling_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscalingConfigs").unwrap(),
+                o.extract_field("autoscalingConfigs"),
             ),
-            config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("config").unwrap(),
-            ),
+            config: pulumi_wasm_rust::__private::into_domain(o.extract_field("config")),
             default_backup_schedule_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultBackupScheduleType").unwrap(),
+                o.extract_field("defaultBackupScheduleType"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             edition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edition").unwrap(),
+                o.extract_field("edition"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             force_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDestroy").unwrap(),
+                o.extract_field("forceDestroy"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             num_nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numNodes").unwrap(),
+                o.extract_field("numNodes"),
             ),
             processing_units: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("processingUnits").unwrap(),
+                o.extract_field("processingUnits"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

@@ -91,73 +91,30 @@ pub mod get_service {
                     value: &tags_all_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckCustomConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetServiceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dns_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsConfigs").unwrap(),
+                o.extract_field("dnsConfigs"),
             ),
             health_check_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckConfigs").unwrap(),
+                o.extract_field("healthCheckConfigs"),
             ),
             health_check_custom_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckCustomConfigs").unwrap(),
+                o.extract_field("healthCheckCustomConfigs"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceId").unwrap(),
+                o.extract_field("namespaceId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

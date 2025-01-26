@@ -166,57 +166,23 @@ pub mod endpoint_attachment {
                     value: &service_attachment_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "connectionState".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointAttachmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "host".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "orgId".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAttachment".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointAttachmentResult {
             connection_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionState").unwrap(),
+                o.extract_field("connectionState"),
             ),
             endpoint_attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointAttachmentId").unwrap(),
+                o.extract_field("endpointAttachmentId"),
             ),
-            host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("host").unwrap(),
-            ),
+            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            org_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orgId").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
             service_attachment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAttachment").unwrap(),
+                o.extract_field("serviceAttachment"),
             ),
         }
     }

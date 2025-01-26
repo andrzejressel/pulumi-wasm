@@ -79,27 +79,14 @@ pub mod approval_rule_template_association {
                     value: &repository_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "approvalRuleTemplateName".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositoryName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApprovalRuleTemplateAssociationResult {
             approval_rule_template_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvalRuleTemplateName").unwrap(),
+                o.extract_field("approvalRuleTemplateName"),
             ),
             repository_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositoryName").unwrap(),
+                o.extract_field("repositoryName"),
             ),
         }
     }

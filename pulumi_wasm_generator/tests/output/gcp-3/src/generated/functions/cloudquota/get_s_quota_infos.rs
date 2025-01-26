@@ -46,38 +46,15 @@ pub mod get_s_quota_infos {
                     value: &service_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "quotaInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "service".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSQuotaInfosResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             quota_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quotaInfos").unwrap(),
+                o.extract_field("quotaInfos"),
             ),
-            service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("service").unwrap(),
-            ),
+            service: pulumi_wasm_rust::__private::into_domain(o.extract_field("service")),
         }
     }
 }

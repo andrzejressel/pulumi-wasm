@@ -55,21 +55,11 @@ pub mod security_token_service_preferences {
                     value: &global_endpoint_token_version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "globalEndpointTokenVersion".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SecurityTokenServicePreferencesResult {
             global_endpoint_token_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalEndpointTokenVersion").unwrap(),
+                o.extract_field("globalEndpointTokenVersion"),
             ),
         }
     }

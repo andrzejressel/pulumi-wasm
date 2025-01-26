@@ -166,70 +166,26 @@ pub mod notification_rule {
                     value: &targets_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "detailType".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventTypeIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resource".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targets".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NotificationRuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             detail_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("detailType").unwrap(),
+                o.extract_field("detailType"),
             ),
             event_type_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventTypeIds").unwrap(),
+                o.extract_field("eventTypeIds"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resource").unwrap(),
+                o.extract_field("resource"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targets").unwrap(),
-            ),
+            targets: pulumi_wasm_rust::__private::into_domain(o.extract_field("targets")),
         }
     }
 }

@@ -121,87 +121,38 @@ pub mod lb {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "instancePort".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddressType".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicPorts".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LbResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             health_check_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckPath").unwrap(),
+                o.extract_field("healthCheckPath"),
             ),
             instance_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instancePort").unwrap(),
+                o.extract_field("instancePort"),
             ),
             ip_address_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddressType").unwrap(),
+                o.extract_field("ipAddressType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             public_ports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicPorts").unwrap(),
+                o.extract_field("publicPorts"),
             ),
             support_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportCode").unwrap(),
+                o.extract_field("supportCode"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -112,40 +112,19 @@ pub mod managed_disk_sas_token {
                     value: &managed_disk_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "durationInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedDiskId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sasUrl".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedDiskSasTokenResult {
             access_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessLevel").unwrap(),
+                o.extract_field("accessLevel"),
             ),
             duration_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("durationInSeconds").unwrap(),
+                o.extract_field("durationInSeconds"),
             ),
             managed_disk_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedDiskId").unwrap(),
+                o.extract_field("managedDiskId"),
             ),
-            sas_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sasUrl").unwrap(),
-            ),
+            sas_url: pulumi_wasm_rust::__private::into_domain(o.extract_field("sasUrl")),
         }
     }
 }

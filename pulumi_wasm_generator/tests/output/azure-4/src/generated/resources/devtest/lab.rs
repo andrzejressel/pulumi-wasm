@@ -113,75 +113,34 @@ pub mod lab {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "artifactsStorageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultPremiumStorageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultStorageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "premiumDataDiskStorageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "uniqueIdentifier".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LabResult {
             artifacts_storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("artifactsStorageAccountId").unwrap(),
+                o.extract_field("artifactsStorageAccountId"),
             ),
             default_premium_storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultPremiumStorageAccountId").unwrap(),
+                o.extract_field("defaultPremiumStorageAccountId"),
             ),
             default_storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultStorageAccountId").unwrap(),
+                o.extract_field("defaultStorageAccountId"),
             ),
             key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultId").unwrap(),
+                o.extract_field("keyVaultId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             premium_data_disk_storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("premiumDataDiskStorageAccountId").unwrap(),
+                o.extract_field("premiumDataDiskStorageAccountId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             unique_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uniqueIdentifier").unwrap(),
+                o.extract_field("uniqueIdentifier"),
             ),
         }
     }

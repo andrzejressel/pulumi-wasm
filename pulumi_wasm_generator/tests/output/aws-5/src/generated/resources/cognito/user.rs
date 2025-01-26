@@ -244,117 +244,55 @@ pub mod user {
                     value: &validation_data_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientMetadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "desiredDeliveryMediums".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceAliasCreation".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "messageAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "mfaSettingLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredMfaSetting".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "sub".into(),
-                },
-                register_interface::ResultField {
-                    name: "temporaryPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "username".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationData".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UserResult {
             attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attributes").unwrap(),
+                o.extract_field("attributes"),
             ),
             client_metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientMetadata").unwrap(),
+                o.extract_field("clientMetadata"),
             ),
             creation_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationDate").unwrap(),
+                o.extract_field("creationDate"),
             ),
             desired_delivery_mediums: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredDeliveryMediums").unwrap(),
+                o.extract_field("desiredDeliveryMediums"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             force_alias_creation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceAliasCreation").unwrap(),
+                o.extract_field("forceAliasCreation"),
             ),
             last_modified_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedDate").unwrap(),
+                o.extract_field("lastModifiedDate"),
             ),
             message_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("messageAction").unwrap(),
+                o.extract_field("messageAction"),
             ),
             mfa_setting_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mfaSettingLists").unwrap(),
+                o.extract_field("mfaSettingLists"),
             ),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             preferred_mfa_setting: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredMfaSetting").unwrap(),
+                o.extract_field("preferredMfaSetting"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            sub: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sub").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            sub: pulumi_wasm_rust::__private::into_domain(o.extract_field("sub")),
             temporary_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("temporaryPassword").unwrap(),
+                o.extract_field("temporaryPassword"),
             ),
             user_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPoolId").unwrap(),
+                o.extract_field("userPoolId"),
             ),
             username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("username").unwrap(),
+                o.extract_field("username"),
             ),
             validation_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationData").unwrap(),
+                o.extract_field("validationData"),
             ),
         }
     }

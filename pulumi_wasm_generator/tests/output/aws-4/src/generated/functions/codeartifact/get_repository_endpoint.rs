@@ -62,49 +62,20 @@ pub mod get_repository_endpoint {
                     value: &repository_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "format".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "repository".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositoryEndpoint".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRepositoryEndpointResult {
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             domain_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainOwner").unwrap(),
+                o.extract_field("domainOwner"),
             ),
-            format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("format").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            format: pulumi_wasm_rust::__private::into_domain(o.extract_field("format")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             repository: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repository").unwrap(),
+                o.extract_field("repository"),
             ),
             repository_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositoryEndpoint").unwrap(),
+                o.extract_field("repositoryEndpoint"),
             ),
         }
     }

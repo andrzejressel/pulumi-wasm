@@ -50,27 +50,14 @@ pub mod access_keys_configuration {
                     value: &key_rotation_interval_days_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyRotationIntervalDays".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccessKeysConfigurationResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             key_rotation_interval_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyRotationIntervalDays").unwrap(),
+                o.extract_field("keyRotationIntervalDays"),
             ),
         }
     }

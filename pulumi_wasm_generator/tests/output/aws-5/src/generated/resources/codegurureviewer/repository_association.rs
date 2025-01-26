@@ -136,93 +136,37 @@ pub mod repository_association {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "associationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "providerType".into(),
-                },
-                register_interface::ResultField {
-                    name: "repository".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3RepositoryDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RepositoryAssociationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             association_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associationId").unwrap(),
+                o.extract_field("associationId"),
             ),
             connection_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionArn").unwrap(),
+                o.extract_field("connectionArn"),
             ),
             kms_key_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyDetails").unwrap(),
+                o.extract_field("kmsKeyDetails"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
             provider_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providerType").unwrap(),
+                o.extract_field("providerType"),
             ),
             repository: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repository").unwrap(),
+                o.extract_field("repository"),
             ),
             s3_repository_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3RepositoryDetails").unwrap(),
+                o.extract_field("s3RepositoryDetails"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateReason").unwrap(),
+                o.extract_field("stateReason"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

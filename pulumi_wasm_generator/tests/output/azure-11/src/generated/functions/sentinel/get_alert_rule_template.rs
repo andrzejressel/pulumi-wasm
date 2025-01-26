@@ -72,55 +72,25 @@ pub mod get_alert_rule_template {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nrtTemplates".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduledTemplates".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityIncidentTemplates".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAlertRuleTemplateResult {
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsWorkspaceId").unwrap(),
+                o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             nrt_templates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nrtTemplates").unwrap(),
+                o.extract_field("nrtTemplates"),
             ),
             scheduled_templates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduledTemplates").unwrap(),
+                o.extract_field("scheduledTemplates"),
             ),
             security_incident_templates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityIncidentTemplates").unwrap(),
+                o.extract_field("securityIncidentTemplates"),
             ),
         }
     }

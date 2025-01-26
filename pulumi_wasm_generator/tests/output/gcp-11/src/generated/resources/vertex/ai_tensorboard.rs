@@ -219,93 +219,41 @@ pub mod ai_tensorboard {
                     value: &region_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blobStoragePathPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionSpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "runCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AiTensorboardResult {
             blob_storage_path_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blobStoragePathPrefix").unwrap(),
+                o.extract_field("blobStoragePathPrefix"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             encryption_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionSpec").unwrap(),
+                o.extract_field("encryptionSpec"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             run_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runCount").unwrap(),
+                o.extract_field("runCount"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

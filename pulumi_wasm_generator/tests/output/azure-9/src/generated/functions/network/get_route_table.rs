@@ -58,62 +58,25 @@ pub mod get_route_table {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bgpRoutePropagationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "routes".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnets".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRouteTableResult {
             bgp_route_propagation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpRoutePropagationEnabled").unwrap(),
+                o.extract_field("bgpRoutePropagationEnabled"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routes").unwrap(),
-            ),
+            routes: pulumi_wasm_rust::__private::into_domain(o.extract_field("routes")),
             subnets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnets").unwrap(),
+                o.extract_field("subnets"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -45,61 +45,22 @@ pub mod get_instance_profile {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetInstanceProfileResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             create_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createDate").unwrap(),
+                o.extract_field("createDate"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            role_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleId").unwrap(),
-            ),
+            role_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("roleId")),
             role_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleName").unwrap(),
+                o.extract_field("roleName"),
             ),
         }
     }

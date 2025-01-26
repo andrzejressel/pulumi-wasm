@@ -205,81 +205,39 @@ pub mod virtual_network_peering {
                     value: &workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressSpacePrefixes".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowForwardedTraffic".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowGatewayTransit".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowVirtualNetworkAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteAddressSpacePrefixes".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteVirtualNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "useRemoteGateways".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VirtualNetworkPeeringResult {
             address_space_prefixes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressSpacePrefixes").unwrap(),
+                o.extract_field("addressSpacePrefixes"),
             ),
             allow_forwarded_traffic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowForwardedTraffic").unwrap(),
+                o.extract_field("allowForwardedTraffic"),
             ),
             allow_gateway_transit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowGatewayTransit").unwrap(),
+                o.extract_field("allowGatewayTransit"),
             ),
             allow_virtual_network_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowVirtualNetworkAccess").unwrap(),
+                o.extract_field("allowVirtualNetworkAccess"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             remote_address_space_prefixes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteAddressSpacePrefixes").unwrap(),
+                o.extract_field("remoteAddressSpacePrefixes"),
             ),
             remote_virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteVirtualNetworkId").unwrap(),
+                o.extract_field("remoteVirtualNetworkId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             use_remote_gateways: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useRemoteGateways").unwrap(),
+                o.extract_field("useRemoteGateways"),
             ),
             virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkId").unwrap(),
+                o.extract_field("virtualNetworkId"),
             ),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

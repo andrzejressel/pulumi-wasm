@@ -103,39 +103,20 @@ pub mod group_membership {
                     value: &member_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "groupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityStoreId".into(),
-                },
-                register_interface::ResultField {
-                    name: "memberId".into(),
-                },
-                register_interface::ResultField {
-                    name: "membershipId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GroupMembershipResult {
             group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupId").unwrap(),
+                o.extract_field("groupId"),
             ),
             identity_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityStoreId").unwrap(),
+                o.extract_field("identityStoreId"),
             ),
             member_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memberId").unwrap(),
+                o.extract_field("memberId"),
             ),
             membership_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("membershipId").unwrap(),
+                o.extract_field("membershipId"),
             ),
         }
     }

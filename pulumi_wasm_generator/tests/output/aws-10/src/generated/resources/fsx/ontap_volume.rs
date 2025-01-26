@@ -345,159 +345,72 @@ pub mod ontap_volume {
                     value: &volume_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aggregateConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bypassSnaplockEnterpriseRetention".into(),
-                },
-                register_interface::ResultField {
-                    name: "copyTagsToBackups".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemId".into(),
-                },
-                register_interface::ResultField {
-                    name: "finalBackupTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "flexcacheEndpointType".into(),
-                },
-                register_interface::ResultField {
-                    name: "junctionPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ontapVolumeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityStyle".into(),
-                },
-                register_interface::ResultField {
-                    name: "sizeInBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "sizeInMegabytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipFinalBackup".into(),
-                },
-                register_interface::ResultField {
-                    name: "snaplockConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageEfficiencyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageVirtualMachineId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tieringPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "uuid".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeStyle".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OntapVolumeResult {
             aggregate_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aggregateConfiguration").unwrap(),
+                o.extract_field("aggregateConfiguration"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             bypass_snaplock_enterprise_retention: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bypassSnaplockEnterpriseRetention").unwrap(),
+                o.extract_field("bypassSnaplockEnterpriseRetention"),
             ),
             copy_tags_to_backups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("copyTagsToBackups").unwrap(),
+                o.extract_field("copyTagsToBackups"),
             ),
             file_system_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemId").unwrap(),
+                o.extract_field("fileSystemId"),
             ),
             final_backup_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("finalBackupTags").unwrap(),
+                o.extract_field("finalBackupTags"),
             ),
             flexcache_endpoint_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("flexcacheEndpointType").unwrap(),
+                o.extract_field("flexcacheEndpointType"),
             ),
             junction_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("junctionPath").unwrap(),
+                o.extract_field("junctionPath"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             ontap_volume_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ontapVolumeType").unwrap(),
+                o.extract_field("ontapVolumeType"),
             ),
             security_style: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityStyle").unwrap(),
+                o.extract_field("securityStyle"),
             ),
             size_in_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sizeInBytes").unwrap(),
+                o.extract_field("sizeInBytes"),
             ),
             size_in_megabytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sizeInMegabytes").unwrap(),
+                o.extract_field("sizeInMegabytes"),
             ),
             skip_final_backup: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipFinalBackup").unwrap(),
+                o.extract_field("skipFinalBackup"),
             ),
             snaplock_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snaplockConfiguration").unwrap(),
+                o.extract_field("snaplockConfiguration"),
             ),
             snapshot_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotPolicy").unwrap(),
+                o.extract_field("snapshotPolicy"),
             ),
             storage_efficiency_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageEfficiencyEnabled").unwrap(),
+                o.extract_field("storageEfficiencyEnabled"),
             ),
             storage_virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageVirtualMachineId").unwrap(),
+                o.extract_field("storageVirtualMachineId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             tiering_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tieringPolicy").unwrap(),
+                o.extract_field("tieringPolicy"),
             ),
-            uuid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uuid").unwrap(),
-            ),
+            uuid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uuid")),
             volume_style: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeStyle").unwrap(),
+                o.extract_field("volumeStyle"),
             ),
             volume_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeType").unwrap(),
+                o.extract_field("volumeType"),
             ),
         }
     }

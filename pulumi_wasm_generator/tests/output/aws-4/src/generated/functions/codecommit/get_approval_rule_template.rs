@@ -48,67 +48,31 @@ pub mod get_approval_rule_template {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "approvalRuleTemplateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "content".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedUser".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleContentSha256".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetApprovalRuleTemplateResult {
             approval_rule_template_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvalRuleTemplateId").unwrap(),
+                o.extract_field("approvalRuleTemplateId"),
             ),
             content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("content").unwrap(),
+                o.extract_field("content"),
             ),
             creation_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationDate").unwrap(),
+                o.extract_field("creationDate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             last_modified_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedDate").unwrap(),
+                o.extract_field("lastModifiedDate"),
             ),
             last_modified_user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedUser").unwrap(),
+                o.extract_field("lastModifiedUser"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             rule_content_sha256: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleContentSha256").unwrap(),
+                o.extract_field("ruleContentSha256"),
             ),
         }
     }

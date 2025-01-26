@@ -94,34 +94,16 @@ pub mod server_dns_alias {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dnsRecord".into(),
-                },
-                register_interface::ResultField {
-                    name: "mssqlServerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServerDnsAliasResult {
             dns_record: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsRecord").unwrap(),
+                o.extract_field("dnsRecord"),
             ),
             mssql_server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mssqlServerId").unwrap(),
+                o.extract_field("mssqlServerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

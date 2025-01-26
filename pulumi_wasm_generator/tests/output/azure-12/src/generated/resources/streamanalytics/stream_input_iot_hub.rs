@@ -190,69 +190,33 @@ pub mod stream_input_iot_hub {
                     value: &stream_analytics_job_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubConsumerGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "iothubNamespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serialization".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedAccessPolicyKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedAccessPolicyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamAnalyticsJobName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StreamInputIotHubResult {
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             eventhub_consumer_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubConsumerGroupName").unwrap(),
+                o.extract_field("eventhubConsumerGroupName"),
             ),
             iothub_namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iothubNamespace").unwrap(),
+                o.extract_field("iothubNamespace"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             serialization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serialization").unwrap(),
+                o.extract_field("serialization"),
             ),
             shared_access_policy_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedAccessPolicyKey").unwrap(),
+                o.extract_field("sharedAccessPolicyKey"),
             ),
             shared_access_policy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedAccessPolicyName").unwrap(),
+                o.extract_field("sharedAccessPolicyName"),
             ),
             stream_analytics_job_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamAnalyticsJobName").unwrap(),
+                o.extract_field("streamAnalyticsJobName"),
             ),
         }
     }

@@ -101,33 +101,15 @@ pub mod postgresql_role {
                     value: &password_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PostgresqlRoleResult {
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
         }
     }

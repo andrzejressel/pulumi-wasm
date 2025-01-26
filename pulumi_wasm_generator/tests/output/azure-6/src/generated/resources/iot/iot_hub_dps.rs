@@ -189,94 +189,42 @@ pub mod iot_hub_dps {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allocationPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataResidencyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceProvisioningHostName".into(),
-                },
-                register_interface::ResultField {
-                    name: "idScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipFilterRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkedHubs".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceOperationsHostName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IotHubDpsResult {
             allocation_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocationPolicy").unwrap(),
+                o.extract_field("allocationPolicy"),
             ),
             data_residency_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataResidencyEnabled").unwrap(),
+                o.extract_field("dataResidencyEnabled"),
             ),
             device_provisioning_host_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceProvisioningHostName").unwrap(),
+                o.extract_field("deviceProvisioningHostName"),
             ),
             id_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idScope").unwrap(),
+                o.extract_field("idScope"),
             ),
             ip_filter_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipFilterRules").unwrap(),
+                o.extract_field("ipFilterRules"),
             ),
             linked_hubs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedHubs").unwrap(),
+                o.extract_field("linkedHubs"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             service_operations_host_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceOperationsHostName").unwrap(),
+                o.extract_field("serviceOperationsHostName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

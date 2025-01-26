@@ -279,129 +279,61 @@ pub mod device_settings_policy {
                     value: &tunnel_protocol_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowModeSwitch".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowUpdates".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowedToLeave".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoConnect".into(),
-                },
-                register_interface::ResultField {
-                    name: "captivePortal".into(),
-                },
-                register_interface::ResultField {
-                    name: "default".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableAutoFallback".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludeOfficeIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "match".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "precedence".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceModeV2Mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceModeV2Port".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "switchLocked".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnelProtocol".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DeviceSettingsPolicyResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             allow_mode_switch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowModeSwitch").unwrap(),
+                o.extract_field("allowModeSwitch"),
             ),
             allow_updates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowUpdates").unwrap(),
+                o.extract_field("allowUpdates"),
             ),
             allowed_to_leave: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedToLeave").unwrap(),
+                o.extract_field("allowedToLeave"),
             ),
             auto_connect: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoConnect").unwrap(),
+                o.extract_field("autoConnect"),
             ),
             captive_portal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("captivePortal").unwrap(),
+                o.extract_field("captivePortal"),
             ),
             default: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("default").unwrap(),
+                o.extract_field("default"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disable_auto_fallback: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableAutoFallback").unwrap(),
+                o.extract_field("disableAutoFallback"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             exclude_office_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludeOfficeIps").unwrap(),
+                o.extract_field("excludeOfficeIps"),
             ),
-            match_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("match").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            match_: pulumi_wasm_rust::__private::into_domain(o.extract_field("match")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             precedence: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("precedence").unwrap(),
+                o.extract_field("precedence"),
             ),
             service_mode_v2_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceModeV2Mode").unwrap(),
+                o.extract_field("serviceModeV2Mode"),
             ),
             service_mode_v2_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceModeV2Port").unwrap(),
+                o.extract_field("serviceModeV2Port"),
             ),
             support_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportUrl").unwrap(),
+                o.extract_field("supportUrl"),
             ),
             switch_locked: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("switchLocked").unwrap(),
+                o.extract_field("switchLocked"),
             ),
             tunnel_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnelProtocol").unwrap(),
+                o.extract_field("tunnelProtocol"),
             ),
         }
     }

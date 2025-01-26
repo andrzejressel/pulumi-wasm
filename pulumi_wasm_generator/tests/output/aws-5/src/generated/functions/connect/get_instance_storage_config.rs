@@ -58,43 +58,21 @@ pub mod get_instance_storage_config {
                     value: &resource_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "associationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageConfigs".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetInstanceStorageConfigResult {
             association_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associationId").unwrap(),
+                o.extract_field("associationId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
             resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceType").unwrap(),
+                o.extract_field("resourceType"),
             ),
             storage_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageConfigs").unwrap(),
+                o.extract_field("storageConfigs"),
             ),
         }
     }

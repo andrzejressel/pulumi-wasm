@@ -69,50 +69,21 @@ pub mod get_rulesets {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "rulesets".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRulesetsResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             include_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeRules").unwrap(),
+                o.extract_field("includeRules"),
             ),
             rulesets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rulesets").unwrap(),
+                o.extract_field("rulesets"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

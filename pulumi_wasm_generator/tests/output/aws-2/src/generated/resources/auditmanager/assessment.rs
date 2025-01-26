@@ -188,81 +188,29 @@ pub mod assessment {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "assessmentReportsDestination".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "frameworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "roles".into(),
-                },
-                register_interface::ResultField {
-                    name: "rolesAlls".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AssessmentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             assessment_reports_destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assessmentReportsDestination").unwrap(),
+                o.extract_field("assessmentReportsDestination"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             framework_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frameworkId").unwrap(),
+                o.extract_field("frameworkId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            roles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roles").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            roles: pulumi_wasm_rust::__private::into_domain(o.extract_field("roles")),
             roles_alls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rolesAlls").unwrap(),
+                o.extract_field("rolesAlls"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

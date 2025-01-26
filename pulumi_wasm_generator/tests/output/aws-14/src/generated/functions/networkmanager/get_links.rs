@@ -78,56 +78,20 @@ pub mod get_links {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "globalNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ids".into(),
-                },
-                register_interface::ResultField {
-                    name: "providerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetLinksResult {
             global_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalNetworkId").unwrap(),
+                o.extract_field("globalNetworkId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ids").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            ids: pulumi_wasm_rust::__private::into_domain(o.extract_field("ids")),
             provider_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providerName").unwrap(),
+                o.extract_field("providerName"),
             ),
-            site_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteId").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            site_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("siteId")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

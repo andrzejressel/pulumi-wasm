@@ -209,94 +209,38 @@ pub mod network {
                     value: &options_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attachable".into(),
-                },
-                register_interface::ResultField {
-                    name: "checkDuplicate".into(),
-                },
-                register_interface::ResultField {
-                    name: "driver".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingress".into(),
-                },
-                register_interface::ResultField {
-                    name: "internal".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamDriver".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "options".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkResult {
             attachable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachable").unwrap(),
+                o.extract_field("attachable"),
             ),
             check_duplicate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("checkDuplicate").unwrap(),
+                o.extract_field("checkDuplicate"),
             ),
-            driver: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("driver").unwrap(),
-            ),
+            driver: pulumi_wasm_rust::__private::into_domain(o.extract_field("driver")),
             ingress: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingress").unwrap(),
+                o.extract_field("ingress"),
             ),
             internal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internal").unwrap(),
+                o.extract_field("internal"),
             ),
             ipam_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamConfigs").unwrap(),
+                o.extract_field("ipamConfigs"),
             ),
             ipam_driver: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamDriver").unwrap(),
+                o.extract_field("ipamDriver"),
             ),
             ipam_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamOptions").unwrap(),
+                o.extract_field("ipamOptions"),
             ),
-            ipv6: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6").unwrap(),
-            ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            ipv6: pulumi_wasm_rust::__private::into_domain(o.extract_field("ipv6")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("options").unwrap(),
+                o.extract_field("options"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
         }
     }
 }

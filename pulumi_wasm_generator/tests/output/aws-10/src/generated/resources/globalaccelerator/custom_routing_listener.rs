@@ -98,27 +98,14 @@ pub mod custom_routing_listener {
                     value: &port_ranges_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceleratorArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "portRanges".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomRoutingListenerResult {
             accelerator_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceleratorArn").unwrap(),
+                o.extract_field("acceleratorArn"),
             ),
             port_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("portRanges").unwrap(),
+                o.extract_field("portRanges"),
             ),
         }
     }

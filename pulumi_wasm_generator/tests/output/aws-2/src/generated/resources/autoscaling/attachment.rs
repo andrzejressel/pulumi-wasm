@@ -95,33 +95,15 @@ pub mod attachment {
                     value: &lb_target_group_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoscalingGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "elb".into(),
-                },
-                register_interface::ResultField {
-                    name: "lbTargetGroupArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AttachmentResult {
             autoscaling_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscalingGroupName").unwrap(),
+                o.extract_field("autoscalingGroupName"),
             ),
-            elb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elb").unwrap(),
-            ),
+            elb: pulumi_wasm_rust::__private::into_domain(o.extract_field("elb")),
             lb_target_group_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lbTargetGroupArn").unwrap(),
+                o.extract_field("lbTargetGroupArn"),
             ),
         }
     }

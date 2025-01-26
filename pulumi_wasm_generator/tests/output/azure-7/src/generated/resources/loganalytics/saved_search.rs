@@ -161,64 +161,27 @@ pub mod saved_search {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "category".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "query".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SavedSearchResult {
             category: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("category").unwrap(),
+                o.extract_field("category"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             function_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionAlias").unwrap(),
+                o.extract_field("functionAlias"),
             ),
             function_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionParameters").unwrap(),
+                o.extract_field("functionParameters"),
             ),
             log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsWorkspaceId").unwrap(),
+                o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            query: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("query").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            query: pulumi_wasm_rust::__private::into_domain(o.extract_field("query")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

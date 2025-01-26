@@ -158,45 +158,21 @@ pub mod continuous_deployment_policy {
                     value: &traffic_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "stagingDistributionDnsNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ContinuousDeploymentPolicyResult {
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             last_modified_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedTime").unwrap(),
+                o.extract_field("lastModifiedTime"),
             ),
             staging_distribution_dns_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stagingDistributionDnsNames").unwrap(),
+                o.extract_field("stagingDistributionDnsNames"),
             ),
             traffic_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficConfig").unwrap(),
+                o.extract_field("trafficConfig"),
             ),
         }
     }

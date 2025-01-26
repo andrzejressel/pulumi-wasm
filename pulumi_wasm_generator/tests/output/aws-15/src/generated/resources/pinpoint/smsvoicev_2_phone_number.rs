@@ -210,111 +210,52 @@ pub mod smsvoicev_2_phone_number {
                     value: &two_way_channel_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtectionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "isoCountryCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "messageType".into(),
-                },
-                register_interface::ResultField {
-                    name: "monthlyLeasingPrice".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberCapabilities".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberType".into(),
-                },
-                register_interface::ResultField {
-                    name: "optOutListName".into(),
-                },
-                register_interface::ResultField {
-                    name: "phoneNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "registrationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfManagedOptOutsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "twoWayChannelArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "twoWayChannelEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         Smsvoicev2PhoneNumberResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             deletion_protection_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtectionEnabled").unwrap(),
+                o.extract_field("deletionProtectionEnabled"),
             ),
             iso_country_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isoCountryCode").unwrap(),
+                o.extract_field("isoCountryCode"),
             ),
             message_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("messageType").unwrap(),
+                o.extract_field("messageType"),
             ),
             monthly_leasing_price: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monthlyLeasingPrice").unwrap(),
+                o.extract_field("monthlyLeasingPrice"),
             ),
             number_capabilities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberCapabilities").unwrap(),
+                o.extract_field("numberCapabilities"),
             ),
             number_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberType").unwrap(),
+                o.extract_field("numberType"),
             ),
             opt_out_list_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("optOutListName").unwrap(),
+                o.extract_field("optOutListName"),
             ),
             phone_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("phoneNumber").unwrap(),
+                o.extract_field("phoneNumber"),
             ),
             registration_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registrationId").unwrap(),
+                o.extract_field("registrationId"),
             ),
             self_managed_opt_outs_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfManagedOptOutsEnabled").unwrap(),
+                o.extract_field("selfManagedOptOutsEnabled"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             two_way_channel_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("twoWayChannelArn").unwrap(),
+                o.extract_field("twoWayChannelArn"),
             ),
             two_way_channel_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("twoWayChannelEnabled").unwrap(),
+                o.extract_field("twoWayChannelEnabled"),
             ),
         }
     }

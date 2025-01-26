@@ -38,31 +38,15 @@ pub mod get_controls {
                     value: &target_identifier_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "enabledControls".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetIdentifier".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetControlsResult {
             enabled_controls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabledControls").unwrap(),
+                o.extract_field("enabledControls"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             target_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetIdentifier").unwrap(),
+                o.extract_field("targetIdentifier"),
             ),
         }
     }

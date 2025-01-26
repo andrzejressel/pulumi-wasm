@@ -100,33 +100,17 @@ pub mod permission_set_inline_policy {
                     value: &permission_set_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "inlinePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissionSetArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PermissionSetInlinePolicyResult {
             inline_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inlinePolicy").unwrap(),
+                o.extract_field("inlinePolicy"),
             ),
             instance_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceArn").unwrap(),
+                o.extract_field("instanceArn"),
             ),
             permission_set_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissionSetArn").unwrap(),
+                o.extract_field("permissionSetArn"),
             ),
         }
     }

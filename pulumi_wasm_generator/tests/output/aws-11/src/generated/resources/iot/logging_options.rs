@@ -78,33 +78,17 @@ pub mod logging_options {
                     value: &role_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "defaultLogLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableAllLogs".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LoggingOptionsResult {
             default_log_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultLogLevel").unwrap(),
+                o.extract_field("defaultLogLevel"),
             ),
             disable_all_logs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableAllLogs").unwrap(),
+                o.extract_field("disableAllLogs"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
         }
     }

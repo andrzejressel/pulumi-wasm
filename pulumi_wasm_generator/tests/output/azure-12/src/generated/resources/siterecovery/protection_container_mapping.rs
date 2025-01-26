@@ -149,63 +149,30 @@ pub mod protection_container_mapping {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automaticUpdate".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryFabricName".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryReplicationPolicyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoverySourceProtectionContainerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryTargetProtectionContainerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryVaultName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProtectionContainerMappingResult {
             automatic_update: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticUpdate").unwrap(),
+                o.extract_field("automaticUpdate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             recovery_fabric_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryFabricName").unwrap(),
+                o.extract_field("recoveryFabricName"),
             ),
             recovery_replication_policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryReplicationPolicyId").unwrap(),
+                o.extract_field("recoveryReplicationPolicyId"),
             ),
             recovery_source_protection_container_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoverySourceProtectionContainerName").unwrap(),
+                o.extract_field("recoverySourceProtectionContainerName"),
             ),
             recovery_target_protection_container_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryTargetProtectionContainerId").unwrap(),
+                o.extract_field("recoveryTargetProtectionContainerId"),
             ),
             recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryVaultName").unwrap(),
+                o.extract_field("recoveryVaultName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

@@ -91,33 +91,15 @@ pub mod application_layer_automatic_response {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApplicationLayerAutomaticResponseResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             resource_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceArn").unwrap(),
+                o.extract_field("resourceArn"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

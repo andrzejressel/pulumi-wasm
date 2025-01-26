@@ -37,32 +37,12 @@ pub mod get_tag_keys {
                     value: &parent_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keys".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTagKeysResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keys").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            keys: pulumi_wasm_rust::__private::into_domain(o.extract_field("keys")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
         }
     }
 }

@@ -360,135 +360,58 @@ pub mod distribution {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alternativeDomainNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bundleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheBehaviorSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheBehaviors".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateName".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultCacheBehavior".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddressType".into(),
-                },
-                register_interface::ResultField {
-                    name: "isEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "locations".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "origin".into(),
-                },
-                register_interface::ResultField {
-                    name: "originPublicDns".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DistributionResult {
             alternative_domain_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alternativeDomainNames").unwrap(),
+                o.extract_field("alternativeDomainNames"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             bundle_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bundleId").unwrap(),
+                o.extract_field("bundleId"),
             ),
             cache_behavior_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheBehaviorSettings").unwrap(),
+                o.extract_field("cacheBehaviorSettings"),
             ),
             cache_behaviors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheBehaviors").unwrap(),
+                o.extract_field("cacheBehaviors"),
             ),
             certificate_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateName").unwrap(),
+                o.extract_field("certificateName"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             default_cache_behavior: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultCacheBehavior").unwrap(),
+                o.extract_field("defaultCacheBehavior"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             ip_address_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddressType").unwrap(),
+                o.extract_field("ipAddressType"),
             ),
             is_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isEnabled").unwrap(),
+                o.extract_field("isEnabled"),
             ),
             locations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locations").unwrap(),
+                o.extract_field("locations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            origin: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("origin").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            origin: pulumi_wasm_rust::__private::into_domain(o.extract_field("origin")),
             origin_public_dns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originPublicDns").unwrap(),
+                o.extract_field("originPublicDns"),
             ),
             resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceType").unwrap(),
+                o.extract_field("resourceType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             support_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportCode").unwrap(),
+                o.extract_field("supportCode"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

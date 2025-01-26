@@ -306,136 +306,61 @@ pub mod domain {
                     value: &vpc_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appNetworkAccessType".into(),
-                },
-                register_interface::ResultField {
-                    name: "appSecurityGroupManagement".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSpaceSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultUserSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "homeEfsFileSystemId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIdForDomainBoundary".into(),
-                },
-                register_interface::ResultField {
-                    name: "singleSignOnApplicationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "singleSignOnManagedApplicationInstanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagPropagation".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainResult {
             app_network_access_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appNetworkAccessType").unwrap(),
+                o.extract_field("appNetworkAccessType"),
             ),
             app_security_group_management: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appSecurityGroupManagement").unwrap(),
+                o.extract_field("appSecurityGroupManagement"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auth_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authMode").unwrap(),
+                o.extract_field("authMode"),
             ),
             default_space_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSpaceSettings").unwrap(),
+                o.extract_field("defaultSpaceSettings"),
             ),
             default_user_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultUserSettings").unwrap(),
+                o.extract_field("defaultUserSettings"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             domain_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainSettings").unwrap(),
+                o.extract_field("domainSettings"),
             ),
             home_efs_file_system_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("homeEfsFileSystemId").unwrap(),
+                o.extract_field("homeEfsFileSystemId"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             retention_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionPolicy").unwrap(),
+                o.extract_field("retentionPolicy"),
             ),
             security_group_id_for_domain_boundary: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIdForDomainBoundary").unwrap(),
+                o.extract_field("securityGroupIdForDomainBoundary"),
             ),
             single_sign_on_application_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("singleSignOnApplicationArn").unwrap(),
+                o.extract_field("singleSignOnApplicationArn"),
             ),
             single_sign_on_managed_application_instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("singleSignOnManagedApplicationInstanceId").unwrap(),
+                o.extract_field("singleSignOnManagedApplicationInstanceId"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
             tag_propagation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagPropagation").unwrap(),
+                o.extract_field("tagPropagation"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("url").unwrap(),
-            ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

@@ -105,140 +105,66 @@ pub mod get_volume {
                     value: &security_style_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataProtectionBackupPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataProtectionReplications".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionKeySource".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultPrivateEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mountIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkFeatures".into(),
-                },
-                register_interface::ResultField {
-                    name: "poolName".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocols".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityStyle".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "smbAccessBasedEnumerationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "smbNonBrowsableEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageQuotaInGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumePath".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVolumeResult {
             account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountName").unwrap(),
+                o.extract_field("accountName"),
             ),
             data_protection_backup_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataProtectionBackupPolicies").unwrap(),
+                o.extract_field("dataProtectionBackupPolicies"),
             ),
             data_protection_replications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataProtectionReplications").unwrap(),
+                o.extract_field("dataProtectionReplications"),
             ),
             encryption_key_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionKeySource").unwrap(),
+                o.extract_field("encryptionKeySource"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             key_vault_private_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultPrivateEndpointId").unwrap(),
+                o.extract_field("keyVaultPrivateEndpointId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             mount_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mountIpAddresses").unwrap(),
+                o.extract_field("mountIpAddresses"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_features: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkFeatures").unwrap(),
+                o.extract_field("networkFeatures"),
             ),
             pool_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("poolName").unwrap(),
+                o.extract_field("poolName"),
             ),
             protocols: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocols").unwrap(),
+                o.extract_field("protocols"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             security_style: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityStyle").unwrap(),
+                o.extract_field("securityStyle"),
             ),
             service_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceLevel").unwrap(),
+                o.extract_field("serviceLevel"),
             ),
             smb_access_based_enumeration_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smbAccessBasedEnumerationEnabled").unwrap(),
+                o.extract_field("smbAccessBasedEnumerationEnabled"),
             ),
             smb_non_browsable_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smbNonBrowsableEnabled").unwrap(),
+                o.extract_field("smbNonBrowsableEnabled"),
             ),
             storage_quota_in_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageQuotaInGb").unwrap(),
+                o.extract_field("storageQuotaInGb"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
             volume_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumePath").unwrap(),
+                o.extract_field("volumePath"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

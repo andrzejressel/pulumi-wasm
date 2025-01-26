@@ -54,61 +54,26 @@ pub mod get_workload_identity_pool {
                     value: &workload_identity_pool_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "workloadIdentityPoolId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetWorkloadIdentityPoolResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             workload_identity_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workloadIdentityPoolId").unwrap(),
+                o.extract_field("workloadIdentityPoolId"),
             ),
         }
     }

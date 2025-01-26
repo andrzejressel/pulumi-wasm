@@ -117,51 +117,26 @@ pub mod gateway_association_proposal {
                     value: &dx_gateway_owner_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowedPrefixes".into(),
-                },
-                register_interface::ResultField {
-                    name: "associatedGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "associatedGatewayOwnerAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "associatedGatewayType".into(),
-                },
-                register_interface::ResultField {
-                    name: "dxGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dxGatewayOwnerAccountId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GatewayAssociationProposalResult {
             allowed_prefixes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedPrefixes").unwrap(),
+                o.extract_field("allowedPrefixes"),
             ),
             associated_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associatedGatewayId").unwrap(),
+                o.extract_field("associatedGatewayId"),
             ),
             associated_gateway_owner_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associatedGatewayOwnerAccountId").unwrap(),
+                o.extract_field("associatedGatewayOwnerAccountId"),
             ),
             associated_gateway_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associatedGatewayType").unwrap(),
+                o.extract_field("associatedGatewayType"),
             ),
             dx_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dxGatewayId").unwrap(),
+                o.extract_field("dxGatewayId"),
             ),
             dx_gateway_owner_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dxGatewayOwnerAccountId").unwrap(),
+                o.extract_field("dxGatewayOwnerAccountId"),
             ),
         }
     }

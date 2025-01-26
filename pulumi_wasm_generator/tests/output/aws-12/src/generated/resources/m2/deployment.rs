@@ -118,57 +118,27 @@ pub mod deployment {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceStop".into(),
-                },
-                register_interface::ResultField {
-                    name: "start".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DeploymentResult {
             application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationId").unwrap(),
+                o.extract_field("applicationId"),
             ),
             application_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationVersion").unwrap(),
+                o.extract_field("applicationVersion"),
             ),
             deployment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentId").unwrap(),
+                o.extract_field("deploymentId"),
             ),
             environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentId").unwrap(),
+                o.extract_field("environmentId"),
             ),
             force_stop: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceStop").unwrap(),
+                o.extract_field("forceStop"),
             ),
-            start: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("start").unwrap(),
-            ),
+            start: pulumi_wasm_rust::__private::into_domain(o.extract_field("start")),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

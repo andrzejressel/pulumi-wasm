@@ -136,40 +136,17 @@ pub mod client {
                     value: &display_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "brand".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secret".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClientResult {
-            brand: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("brand").unwrap(),
-            ),
+            brand: pulumi_wasm_rust::__private::into_domain(o.extract_field("brand")),
             client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientId").unwrap(),
+                o.extract_field("clientId"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secret").unwrap(),
-            ),
+            secret: pulumi_wasm_rust::__private::into_domain(o.extract_field("secret")),
         }
     }
 }

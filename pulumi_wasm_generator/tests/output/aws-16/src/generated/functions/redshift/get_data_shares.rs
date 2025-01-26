@@ -38,26 +38,13 @@ pub mod get_data_shares {
                     value: &data_shares_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dataShares".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDataSharesResult {
             data_shares: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataShares").unwrap(),
+                o.extract_field("dataShares"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

@@ -101,34 +101,16 @@ pub mod vault_policy {
                     value: &policy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupVaultArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupVaultName".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VaultPolicyResult {
             backup_vault_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupVaultArn").unwrap(),
+                o.extract_field("backupVaultArn"),
             ),
             backup_vault_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupVaultName").unwrap(),
+                o.extract_field("backupVaultName"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
         }
     }
 }

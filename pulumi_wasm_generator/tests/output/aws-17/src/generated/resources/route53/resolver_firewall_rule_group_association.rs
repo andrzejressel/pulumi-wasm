@@ -133,64 +133,25 @@ pub mod resolver_firewall_rule_group_association {
                     value: &vpc_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallRuleGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "mutationProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResolverFirewallRuleGroupAssociationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             firewall_rule_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallRuleGroupId").unwrap(),
+                o.extract_field("firewallRuleGroupId"),
             ),
             mutation_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mutationProtection").unwrap(),
+                o.extract_field("mutationProtection"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

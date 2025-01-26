@@ -172,57 +172,27 @@ pub mod integration_runtime_azure {
                     value: &time_to_live_min_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "computeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "coreCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "synapseWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeToLiveMin".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IntegrationRuntimeAzureResult {
             compute_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeType").unwrap(),
+                o.extract_field("computeType"),
             ),
             core_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreCount").unwrap(),
+                o.extract_field("coreCount"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             synapse_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("synapseWorkspaceId").unwrap(),
+                o.extract_field("synapseWorkspaceId"),
             ),
             time_to_live_min: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeToLiveMin").unwrap(),
+                o.extract_field("timeToLiveMin"),
             ),
         }
     }

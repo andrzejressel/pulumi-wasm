@@ -58,80 +58,28 @@ pub mod get_function {
                     value: &stage_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "code".into(),
-                },
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyValueStoreAssociations".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtime".into(),
-                },
-                register_interface::ResultField {
-                    name: "stage".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetFunctionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("code").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            code: pulumi_wasm_rust::__private::into_domain(o.extract_field("code")),
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             key_value_store_associations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyValueStoreAssociations").unwrap(),
+                o.extract_field("keyValueStoreAssociations"),
             ),
             last_modified_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedTime").unwrap(),
+                o.extract_field("lastModifiedTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             runtime: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtime").unwrap(),
+                o.extract_field("runtime"),
             ),
-            stage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stage").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            stage: pulumi_wasm_rust::__private::into_domain(o.extract_field("stage")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

@@ -98,128 +98,58 @@ pub mod get_function_app {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appServicePlanId".into(),
-                },
-                register_interface::ResultField {
-                    name: "appSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientCertMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionStrings".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDomainVerificationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultHostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "osType".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "possibleOutboundIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteCredentials".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceControls".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetFunctionAppResult {
             app_service_plan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServicePlanId").unwrap(),
+                o.extract_field("appServicePlanId"),
             ),
             app_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appSettings").unwrap(),
+                o.extract_field("appSettings"),
             ),
             client_cert_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientCertMode").unwrap(),
+                o.extract_field("clientCertMode"),
             ),
             connection_strings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionStrings").unwrap(),
+                o.extract_field("connectionStrings"),
             ),
             custom_domain_verification_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomainVerificationId").unwrap(),
+                o.extract_field("customDomainVerificationId"),
             ),
             default_hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultHostname").unwrap(),
+                o.extract_field("defaultHostname"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            os_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osType").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
             outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundIpAddresses").unwrap(),
+                o.extract_field("outboundIpAddresses"),
             ),
             possible_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("possibleOutboundIpAddresses").unwrap(),
+                o.extract_field("possibleOutboundIpAddresses"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             site_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteConfigs").unwrap(),
+                o.extract_field("siteConfigs"),
             ),
             site_credentials: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteCredentials").unwrap(),
+                o.extract_field("siteCredentials"),
             ),
             source_controls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceControls").unwrap(),
+                o.extract_field("sourceControls"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

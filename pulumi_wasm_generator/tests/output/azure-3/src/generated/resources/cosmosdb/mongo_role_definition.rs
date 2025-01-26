@@ -148,39 +148,20 @@ pub mod mongo_role_definition {
                     value: &role_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cosmosMongoDatabaseId".into(),
-                },
-                register_interface::ResultField {
-                    name: "inheritedRoleNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "privileges".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MongoRoleDefinitionResult {
             cosmos_mongo_database_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosMongoDatabaseId").unwrap(),
+                o.extract_field("cosmosMongoDatabaseId"),
             ),
             inherited_role_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inheritedRoleNames").unwrap(),
+                o.extract_field("inheritedRoleNames"),
             ),
             privileges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privileges").unwrap(),
+                o.extract_field("privileges"),
             ),
             role_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleName").unwrap(),
+                o.extract_field("roleName"),
             ),
         }
     }

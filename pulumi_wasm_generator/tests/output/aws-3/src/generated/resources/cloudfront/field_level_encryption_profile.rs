@@ -104,46 +104,20 @@ pub mod field_level_encryption_profile {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "callerReference".into(),
-                },
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionEntities".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FieldLevelEncryptionProfileResult {
             caller_reference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("callerReference").unwrap(),
+                o.extract_field("callerReference"),
             ),
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
             encryption_entities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionEntities").unwrap(),
+                o.extract_field("encryptionEntities"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

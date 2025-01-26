@@ -189,39 +189,18 @@ pub mod recorder {
                     value: &role_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "recordingGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "recordingMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RecorderResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             recording_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recordingGroup").unwrap(),
+                o.extract_field("recordingGroup"),
             ),
             recording_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recordingMode").unwrap(),
+                o.extract_field("recordingMode"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
         }
     }

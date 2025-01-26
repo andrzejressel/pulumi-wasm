@@ -105,40 +105,17 @@ pub mod proxy_default_target_group {
                     value: &db_proxy_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionPoolConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbProxyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProxyDefaultTargetGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             connection_pool_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionPoolConfig").unwrap(),
+                o.extract_field("connectionPoolConfig"),
             ),
             db_proxy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbProxyName").unwrap(),
+                o.extract_field("dbProxyName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

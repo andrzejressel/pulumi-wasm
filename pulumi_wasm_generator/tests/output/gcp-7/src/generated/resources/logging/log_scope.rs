@@ -134,57 +134,25 @@ pub mod log_scope {
                     value: &resource_names_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LogScopeResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             resource_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceNames").unwrap(),
+                o.extract_field("resourceNames"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

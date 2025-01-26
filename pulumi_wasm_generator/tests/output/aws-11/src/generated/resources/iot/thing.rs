@@ -88,52 +88,21 @@ pub mod thing {
                     value: &thing_type_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "attributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultClientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "thingTypeName".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ThingResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attributes").unwrap(),
+                o.extract_field("attributes"),
             ),
             default_client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultClientId").unwrap(),
+                o.extract_field("defaultClientId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             thing_type_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thingTypeName").unwrap(),
+                o.extract_field("thingTypeName"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

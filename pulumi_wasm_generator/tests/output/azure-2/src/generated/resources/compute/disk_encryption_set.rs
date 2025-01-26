@@ -364,82 +364,38 @@ pub mod disk_encryption_set {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoKeyRotationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "federatedClientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultKeyUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedHsmKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DiskEncryptionSetResult {
             auto_key_rotation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoKeyRotationEnabled").unwrap(),
+                o.extract_field("autoKeyRotationEnabled"),
             ),
             encryption_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionType").unwrap(),
+                o.extract_field("encryptionType"),
             ),
             federated_client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("federatedClientId").unwrap(),
+                o.extract_field("federatedClientId"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultKeyId").unwrap(),
+                o.extract_field("keyVaultKeyId"),
             ),
             key_vault_key_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultKeyUrl").unwrap(),
+                o.extract_field("keyVaultKeyUrl"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_hsm_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedHsmKeyId").unwrap(),
+                o.extract_field("managedHsmKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

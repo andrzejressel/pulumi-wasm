@@ -80,52 +80,21 @@ pub mod control_panel {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultControlPanel".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingControlCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ControlPanelResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cluster_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterArn").unwrap(),
+                o.extract_field("clusterArn"),
             ),
             default_control_panel: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultControlPanel").unwrap(),
+                o.extract_field("defaultControlPanel"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             routing_control_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingControlCount").unwrap(),
+                o.extract_field("routingControlCount"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

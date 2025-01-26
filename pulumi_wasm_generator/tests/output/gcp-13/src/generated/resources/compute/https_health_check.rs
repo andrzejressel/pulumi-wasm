@@ -239,87 +239,38 @@ pub mod https_health_check {
                     value: &unhealthy_threshold_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "checkIntervalSec".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthyThreshold".into(),
-                },
-                register_interface::ResultField {
-                    name: "host".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeoutSec".into(),
-                },
-                register_interface::ResultField {
-                    name: "unhealthyThreshold".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HttpsHealthCheckResult {
             check_interval_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("checkIntervalSec").unwrap(),
+                o.extract_field("checkIntervalSec"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             healthy_threshold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthyThreshold").unwrap(),
+                o.extract_field("healthyThreshold"),
             ),
-            host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("host").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             request_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestPath").unwrap(),
+                o.extract_field("requestPath"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             timeout_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeoutSec").unwrap(),
+                o.extract_field("timeoutSec"),
             ),
             unhealthy_threshold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("unhealthyThreshold").unwrap(),
+                o.extract_field("unhealthyThreshold"),
             ),
         }
     }

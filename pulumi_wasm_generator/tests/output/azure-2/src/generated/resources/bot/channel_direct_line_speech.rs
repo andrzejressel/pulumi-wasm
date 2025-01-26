@@ -175,63 +175,32 @@ pub mod channel_direct_line_speech {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "botName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cognitiveAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cognitiveServiceAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "cognitiveServiceLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "customSpeechModelId".into(),
-                },
-                register_interface::ResultField {
-                    name: "customVoiceDeploymentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ChannelDirectLineSpeechResult {
             bot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botName").unwrap(),
+                o.extract_field("botName"),
             ),
             cognitive_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cognitiveAccountId").unwrap(),
+                o.extract_field("cognitiveAccountId"),
             ),
             cognitive_service_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cognitiveServiceAccessKey").unwrap(),
+                o.extract_field("cognitiveServiceAccessKey"),
             ),
             cognitive_service_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cognitiveServiceLocation").unwrap(),
+                o.extract_field("cognitiveServiceLocation"),
             ),
             custom_speech_model_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customSpeechModelId").unwrap(),
+                o.extract_field("customSpeechModelId"),
             ),
             custom_voice_deployment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customVoiceDeploymentId").unwrap(),
+                o.extract_field("customVoiceDeploymentId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

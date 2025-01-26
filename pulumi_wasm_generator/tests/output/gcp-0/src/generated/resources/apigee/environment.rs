@@ -240,70 +240,30 @@ pub mod environment {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiProxyType".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "forwardProxyUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "orgId".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnvironmentResult {
             api_proxy_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiProxyType").unwrap(),
+                o.extract_field("apiProxyType"),
             ),
             deployment_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentType").unwrap(),
+                o.extract_field("deploymentType"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             forward_proxy_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forwardProxyUri").unwrap(),
+                o.extract_field("forwardProxyUri"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeConfig").unwrap(),
+                o.extract_field("nodeConfig"),
             ),
-            org_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orgId").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

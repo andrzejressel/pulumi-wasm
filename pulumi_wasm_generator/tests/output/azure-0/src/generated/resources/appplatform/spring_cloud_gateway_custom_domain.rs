@@ -110,33 +110,15 @@ pub mod spring_cloud_gateway_custom_domain {
                     value: &thumbprint_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbprint".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudGatewayCustomDomainResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             spring_cloud_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudGatewayId").unwrap(),
+                o.extract_field("springCloudGatewayId"),
             ),
             thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbprint").unwrap(),
+                o.extract_field("thumbprint"),
             ),
         }
     }

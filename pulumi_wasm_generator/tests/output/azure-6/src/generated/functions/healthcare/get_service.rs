@@ -74,80 +74,34 @@ pub mod get_service {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPolicyObjectIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "corsConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "cosmosdbKeyVaultKeyVersionlessId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cosmosdbThroughput".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetServiceResult {
             access_policy_object_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPolicyObjectIds").unwrap(),
+                o.extract_field("accessPolicyObjectIds"),
             ),
             authentication_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationConfigurations").unwrap(),
+                o.extract_field("authenticationConfigurations"),
             ),
             cors_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("corsConfigurations").unwrap(),
+                o.extract_field("corsConfigurations"),
             ),
             cosmosdb_key_vault_key_versionless_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbKeyVaultKeyVersionlessId").unwrap(),
+                o.extract_field("cosmosdbKeyVaultKeyVersionlessId"),
             ),
             cosmosdb_throughput: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbThroughput").unwrap(),
+                o.extract_field("cosmosdbThroughput"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -74,85 +74,40 @@ pub mod get_subnet {
                     value: &virtual_network_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "addressPrefixes".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultOutboundAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkSecurityGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateEndpointNetworkPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateLinkServiceNetworkPoliciesEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeTableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSubnetResult {
             address_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressPrefix").unwrap(),
+                o.extract_field("addressPrefix"),
             ),
             address_prefixes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressPrefixes").unwrap(),
+                o.extract_field("addressPrefixes"),
             ),
             default_outbound_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultOutboundAccessEnabled").unwrap(),
+                o.extract_field("defaultOutboundAccessEnabled"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_security_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkSecurityGroupId").unwrap(),
+                o.extract_field("networkSecurityGroupId"),
             ),
             private_endpoint_network_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateEndpointNetworkPolicies").unwrap(),
+                o.extract_field("privateEndpointNetworkPolicies"),
             ),
             private_link_service_network_policies_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateLinkServiceNetworkPoliciesEnabled").unwrap(),
+                o.extract_field("privateLinkServiceNetworkPoliciesEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeTableId").unwrap(),
+                o.extract_field("routeTableId"),
             ),
             service_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceEndpoints").unwrap(),
+                o.extract_field("serviceEndpoints"),
             ),
             virtual_network_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkName").unwrap(),
+                o.extract_field("virtualNetworkName"),
             ),
         }
     }

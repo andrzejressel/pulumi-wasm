@@ -174,63 +174,26 @@ pub mod table {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "magneticStoreWriteProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "schema".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TableResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseName").unwrap(),
+                o.extract_field("databaseName"),
             ),
             magnetic_store_write_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("magneticStoreWriteProperties").unwrap(),
+                o.extract_field("magneticStoreWriteProperties"),
             ),
             retention_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionProperties").unwrap(),
+                o.extract_field("retentionProperties"),
             ),
-            schema: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schema").unwrap(),
-            ),
+            schema: pulumi_wasm_rust::__private::into_domain(o.extract_field("schema")),
             table_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableName").unwrap(),
+                o.extract_field("tableName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

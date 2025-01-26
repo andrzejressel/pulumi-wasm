@@ -234,106 +234,50 @@ pub mod load_balancer_pool {
                     value: &origins_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "checkRegions".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "latitude".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadSheddings".into(),
-                },
-                register_interface::ResultField {
-                    name: "longitude".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumOrigins".into(),
-                },
-                register_interface::ResultField {
-                    name: "modifiedOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitor".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "originSteerings".into(),
-                },
-                register_interface::ResultField {
-                    name: "origins".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LoadBalancerPoolResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             check_regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("checkRegions").unwrap(),
+                o.extract_field("checkRegions"),
             ),
             created_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdOn").unwrap(),
+                o.extract_field("createdOn"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             latitude: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latitude").unwrap(),
+                o.extract_field("latitude"),
             ),
             load_sheddings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadSheddings").unwrap(),
+                o.extract_field("loadSheddings"),
             ),
             longitude: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("longitude").unwrap(),
+                o.extract_field("longitude"),
             ),
             minimum_origins: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumOrigins").unwrap(),
+                o.extract_field("minimumOrigins"),
             ),
             modified_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modifiedOn").unwrap(),
+                o.extract_field("modifiedOn"),
             ),
             monitor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitor").unwrap(),
+                o.extract_field("monitor"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationEmail").unwrap(),
+                o.extract_field("notificationEmail"),
             ),
             origin_steerings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("originSteerings").unwrap(),
+                o.extract_field("originSteerings"),
             ),
-            origins: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("origins").unwrap(),
-            ),
+            origins: pulumi_wasm_rust::__private::into_domain(o.extract_field("origins")),
         }
     }
 }

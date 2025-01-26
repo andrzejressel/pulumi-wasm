@@ -83,133 +83,58 @@ pub mod get_certificate_order {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appServiceCertificateNotRenewableReasons".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoRenew".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "csr".into(),
-                },
-                register_interface::ResultField {
-                    name: "distinguishedName".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainVerificationToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "intermediateThumbprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "isPrivateKeyExternal".into(),
-                },
-                register_interface::ResultField {
-                    name: "keySize".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "productType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootThumbprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "signedCertificateThumbprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "validityInYears".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCertificateOrderResult {
             app_service_certificate_not_renewable_reasons: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServiceCertificateNotRenewableReasons").unwrap(),
+                o.extract_field("appServiceCertificateNotRenewableReasons"),
             ),
             auto_renew: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoRenew").unwrap(),
+                o.extract_field("autoRenew"),
             ),
             certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificates").unwrap(),
+                o.extract_field("certificates"),
             ),
-            csr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("csr").unwrap(),
-            ),
+            csr: pulumi_wasm_rust::__private::into_domain(o.extract_field("csr")),
             distinguished_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("distinguishedName").unwrap(),
+                o.extract_field("distinguishedName"),
             ),
             domain_verification_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainVerificationToken").unwrap(),
+                o.extract_field("domainVerificationToken"),
             ),
             expiration_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationTime").unwrap(),
+                o.extract_field("expirationTime"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             intermediate_thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("intermediateThumbprint").unwrap(),
+                o.extract_field("intermediateThumbprint"),
             ),
             is_private_key_external: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isPrivateKeyExternal").unwrap(),
+                o.extract_field("isPrivateKeyExternal"),
             ),
             key_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keySize").unwrap(),
+                o.extract_field("keySize"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             product_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productType").unwrap(),
+                o.extract_field("productType"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             root_thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootThumbprint").unwrap(),
+                o.extract_field("rootThumbprint"),
             ),
             signed_certificate_thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signedCertificateThumbprint").unwrap(),
+                o.extract_field("signedCertificateThumbprint"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             validity_in_years: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validityInYears").unwrap(),
+                o.extract_field("validityInYears"),
             ),
         }
     }

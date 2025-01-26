@@ -140,45 +140,15 @@ pub mod bucket_intelligent_tiering_configuration {
                     value: &tierings_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tierings".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketIntelligentTieringConfigurationResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             tierings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tierings").unwrap(),
+                o.extract_field("tierings"),
             ),
         }
     }

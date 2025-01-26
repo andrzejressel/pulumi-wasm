@@ -95,40 +95,17 @@ pub mod keyvaluestore_key {
                     value: &value_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "key".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyValueStoreArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalSizeInBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "value".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KeyvaluestoreKeyResult {
-            key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("key").unwrap(),
-            ),
+            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
             key_value_store_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyValueStoreArn").unwrap(),
+                o.extract_field("keyValueStoreArn"),
             ),
             total_size_in_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalSizeInBytes").unwrap(),
+                o.extract_field("totalSizeInBytes"),
             ),
-            value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("value").unwrap(),
-            ),
+            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

@@ -83,163 +83,77 @@ pub mod get_dataset {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accesses".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "datasetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultCollation".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultEncryptionConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultPartitionExpirationMs".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultTableExpirationMs".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteContentsOnDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalCatalogDatasetOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalDatasetReferences".into(),
-                },
-                register_interface::ResultField {
-                    name: "friendlyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "isCaseInsensitive".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxTimeTravelHours".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageBillingModel".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDatasetResult {
             accesses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accesses").unwrap(),
+                o.extract_field("accesses"),
             ),
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             dataset_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datasetId").unwrap(),
+                o.extract_field("datasetId"),
             ),
             default_collation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultCollation").unwrap(),
+                o.extract_field("defaultCollation"),
             ),
             default_encryption_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultEncryptionConfigurations").unwrap(),
+                o.extract_field("defaultEncryptionConfigurations"),
             ),
             default_partition_expiration_ms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultPartitionExpirationMs").unwrap(),
+                o.extract_field("defaultPartitionExpirationMs"),
             ),
             default_table_expiration_ms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultTableExpirationMs").unwrap(),
+                o.extract_field("defaultTableExpirationMs"),
             ),
             delete_contents_on_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteContentsOnDestroy").unwrap(),
+                o.extract_field("deleteContentsOnDestroy"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             external_catalog_dataset_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalCatalogDatasetOptions").unwrap(),
+                o.extract_field("externalCatalogDatasetOptions"),
             ),
             external_dataset_references: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalDatasetReferences").unwrap(),
+                o.extract_field("externalDatasetReferences"),
             ),
             friendly_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("friendlyName").unwrap(),
+                o.extract_field("friendlyName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             is_case_insensitive: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isCaseInsensitive").unwrap(),
+                o.extract_field("isCaseInsensitive"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             last_modified_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedTime").unwrap(),
+                o.extract_field("lastModifiedTime"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             max_time_travel_hours: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxTimeTravelHours").unwrap(),
+                o.extract_field("maxTimeTravelHours"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             resource_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTags").unwrap(),
+                o.extract_field("resourceTags"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             storage_billing_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageBillingModel").unwrap(),
+                o.extract_field("storageBillingModel"),
             ),
         }
     }

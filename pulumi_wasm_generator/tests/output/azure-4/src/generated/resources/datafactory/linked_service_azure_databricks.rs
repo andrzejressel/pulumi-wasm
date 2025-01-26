@@ -331,99 +331,48 @@ pub mod linked_service_azure_databricks {
                     value: &parameters_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "adbDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "additionalProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFactoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "existingClusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "instancePool".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationRuntimeName".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "msiWorkSpaceResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "newClusterConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LinkedServiceAzureDatabricksResult {
             access_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessToken").unwrap(),
+                o.extract_field("accessToken"),
             ),
             adb_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adbDomain").unwrap(),
+                o.extract_field("adbDomain"),
             ),
             additional_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalProperties").unwrap(),
+                o.extract_field("additionalProperties"),
             ),
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             data_factory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFactoryId").unwrap(),
+                o.extract_field("dataFactoryId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             existing_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("existingClusterId").unwrap(),
+                o.extract_field("existingClusterId"),
             ),
             instance_pool: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instancePool").unwrap(),
+                o.extract_field("instancePool"),
             ),
             integration_runtime_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationRuntimeName").unwrap(),
+                o.extract_field("integrationRuntimeName"),
             ),
             key_vault_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultPassword").unwrap(),
+                o.extract_field("keyVaultPassword"),
             ),
             msi_work_space_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("msiWorkSpaceResourceId").unwrap(),
+                o.extract_field("msiWorkSpaceResourceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             new_cluster_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("newClusterConfig").unwrap(),
+                o.extract_field("newClusterConfig"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
         }
     }

@@ -51,55 +51,23 @@ pub mod get_origin_access_identity {
                     value: &id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "callerReference".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudfrontAccessIdentityPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3CanonicalUserId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetOriginAccessIdentityResult {
             caller_reference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("callerReference").unwrap(),
+                o.extract_field("callerReference"),
             ),
             cloudfront_access_identity_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudfrontAccessIdentityPath").unwrap(),
+                o.extract_field("cloudfrontAccessIdentityPath"),
             ),
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            iam_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamArn").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            iam_arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("iamArn")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             s3_canonical_user_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3CanonicalUserId").unwrap(),
+                o.extract_field("s3CanonicalUserId"),
             ),
         }
     }

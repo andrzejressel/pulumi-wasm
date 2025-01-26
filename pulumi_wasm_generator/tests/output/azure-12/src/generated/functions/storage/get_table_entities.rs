@@ -58,43 +58,17 @@ pub mod get_table_entities {
                     value: &storage_table_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "items".into(),
-                },
-                register_interface::ResultField {
-                    name: "selects".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageTableId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTableEntitiesResult {
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            items: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("items").unwrap(),
-            ),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            items: pulumi_wasm_rust::__private::into_domain(o.extract_field("items")),
             selects: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selects").unwrap(),
+                o.extract_field("selects"),
             ),
             storage_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageTableId").unwrap(),
+                o.extract_field("storageTableId"),
             ),
         }
     }

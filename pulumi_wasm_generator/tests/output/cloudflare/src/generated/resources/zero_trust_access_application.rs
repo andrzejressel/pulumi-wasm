@@ -466,226 +466,102 @@ pub mod zero_trust_access_application {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowAuthenticateViaWarp".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowedIdps".into(),
-                },
-                register_interface::ResultField {
-                    name: "appLauncherLogoUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "appLauncherVisible".into(),
-                },
-                register_interface::ResultField {
-                    name: "aud".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoRedirectToIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgColor".into(),
-                },
-                register_interface::ResultField {
-                    name: "corsHeaders".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDenyMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDenyUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "customNonIdentityDenyUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "customPages".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableBindingCookie".into(),
-                },
-                register_interface::ResultField {
-                    name: "footerLinks".into(),
-                },
-                register_interface::ResultField {
-                    name: "headerBgColor".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpOnlyCookieAttribute".into(),
-                },
-                register_interface::ResultField {
-                    name: "landingPageDesign".into(),
-                },
-                register_interface::ResultField {
-                    name: "logoUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "optionsPreflightBypass".into(),
-                },
-                register_interface::ResultField {
-                    name: "policies".into(),
-                },
-                register_interface::ResultField {
-                    name: "saasApp".into(),
-                },
-                register_interface::ResultField {
-                    name: "sameSiteCookieAttribute".into(),
-                },
-                register_interface::ResultField {
-                    name: "scimConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfHostedDomains".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAuth401Redirect".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipAppLauncherLoginPage".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipInterstitial".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetCriterias".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZeroTrustAccessApplicationResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             allow_authenticate_via_warp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowAuthenticateViaWarp").unwrap(),
+                o.extract_field("allowAuthenticateViaWarp"),
             ),
             allowed_idps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedIdps").unwrap(),
+                o.extract_field("allowedIdps"),
             ),
             app_launcher_logo_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appLauncherLogoUrl").unwrap(),
+                o.extract_field("appLauncherLogoUrl"),
             ),
             app_launcher_visible: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appLauncherVisible").unwrap(),
+                o.extract_field("appLauncherVisible"),
             ),
-            aud: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aud").unwrap(),
-            ),
+            aud: pulumi_wasm_rust::__private::into_domain(o.extract_field("aud")),
             auto_redirect_to_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoRedirectToIdentity").unwrap(),
+                o.extract_field("autoRedirectToIdentity"),
             ),
             bg_color: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgColor").unwrap(),
+                o.extract_field("bgColor"),
             ),
             cors_headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("corsHeaders").unwrap(),
+                o.extract_field("corsHeaders"),
             ),
             custom_deny_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDenyMessage").unwrap(),
+                o.extract_field("customDenyMessage"),
             ),
             custom_deny_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDenyUrl").unwrap(),
+                o.extract_field("customDenyUrl"),
             ),
             custom_non_identity_deny_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customNonIdentityDenyUrl").unwrap(),
+                o.extract_field("customNonIdentityDenyUrl"),
             ),
             custom_pages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customPages").unwrap(),
+                o.extract_field("customPages"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             enable_binding_cookie: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableBindingCookie").unwrap(),
+                o.extract_field("enableBindingCookie"),
             ),
             footer_links: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("footerLinks").unwrap(),
+                o.extract_field("footerLinks"),
             ),
             header_bg_color: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("headerBgColor").unwrap(),
+                o.extract_field("headerBgColor"),
             ),
             http_only_cookie_attribute: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpOnlyCookieAttribute").unwrap(),
+                o.extract_field("httpOnlyCookieAttribute"),
             ),
             landing_page_design: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("landingPageDesign").unwrap(),
+                o.extract_field("landingPageDesign"),
             ),
             logo_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logoUrl").unwrap(),
+                o.extract_field("logoUrl"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             options_preflight_bypass: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("optionsPreflightBypass").unwrap(),
+                o.extract_field("optionsPreflightBypass"),
             ),
             policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policies").unwrap(),
+                o.extract_field("policies"),
             ),
             saas_app: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("saasApp").unwrap(),
+                o.extract_field("saasApp"),
             ),
             same_site_cookie_attribute: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sameSiteCookieAttribute").unwrap(),
+                o.extract_field("sameSiteCookieAttribute"),
             ),
             scim_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scimConfig").unwrap(),
+                o.extract_field("scimConfig"),
             ),
             self_hosted_domains: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfHostedDomains").unwrap(),
+                o.extract_field("selfHostedDomains"),
             ),
             service_auth401_redirect: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAuth401Redirect").unwrap(),
+                o.extract_field("serviceAuth401Redirect"),
             ),
             session_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionDuration").unwrap(),
+                o.extract_field("sessionDuration"),
             ),
             skip_app_launcher_login_page: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipAppLauncherLoginPage").unwrap(),
+                o.extract_field("skipAppLauncherLoginPage"),
             ),
             skip_interstitial: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipInterstitial").unwrap(),
+                o.extract_field("skipInterstitial"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             target_criterias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetCriterias").unwrap(),
+                o.extract_field("targetCriterias"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

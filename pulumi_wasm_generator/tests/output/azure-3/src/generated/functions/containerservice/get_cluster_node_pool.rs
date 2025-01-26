@@ -109,176 +109,76 @@ pub mod get_cluster_node_pool {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoScalingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "evictionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kubernetesClusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxPods".into(),
-                },
-                register_interface::ResultField {
-                    name: "minCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodePublicIpEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodePublicIpPrefixId".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeTaints".into(),
-                },
-                register_interface::ResultField {
-                    name: "orchestratorVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "osDiskSizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "osDiskType".into(),
-                },
-                register_interface::ResultField {
-                    name: "osType".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "proximityPlacementGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "spotMaxPrice".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "upgradeSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "vnetSubnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetClusterNodePoolResult {
             auto_scaling_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScalingEnabled").unwrap(),
+                o.extract_field("autoScalingEnabled"),
             ),
             eviction_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("evictionPolicy").unwrap(),
+                o.extract_field("evictionPolicy"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kubernetes_cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kubernetesClusterName").unwrap(),
+                o.extract_field("kubernetesClusterName"),
             ),
             max_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxCount").unwrap(),
+                o.extract_field("maxCount"),
             ),
             max_pods: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxPods").unwrap(),
+                o.extract_field("maxPods"),
             ),
             min_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minCount").unwrap(),
+                o.extract_field("minCount"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mode").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeCount").unwrap(),
+                o.extract_field("nodeCount"),
             ),
             node_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeLabels").unwrap(),
+                o.extract_field("nodeLabels"),
             ),
             node_public_ip_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodePublicIpEnabled").unwrap(),
+                o.extract_field("nodePublicIpEnabled"),
             ),
             node_public_ip_prefix_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodePublicIpPrefixId").unwrap(),
+                o.extract_field("nodePublicIpPrefixId"),
             ),
             node_taints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeTaints").unwrap(),
+                o.extract_field("nodeTaints"),
             ),
             orchestrator_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orchestratorVersion").unwrap(),
+                o.extract_field("orchestratorVersion"),
             ),
             os_disk_size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osDiskSizeGb").unwrap(),
+                o.extract_field("osDiskSizeGb"),
             ),
             os_disk_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osDiskType").unwrap(),
+                o.extract_field("osDiskType"),
             ),
-            os_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osType").unwrap(),
-            ),
+            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             proximity_placement_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proximityPlacementGroupId").unwrap(),
+                o.extract_field("proximityPlacementGroupId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             spot_max_price: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spotMaxPrice").unwrap(),
+                o.extract_field("spotMaxPrice"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             upgrade_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("upgradeSettings").unwrap(),
+                o.extract_field("upgradeSettings"),
             ),
-            vm_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmSize").unwrap(),
-            ),
+            vm_size: pulumi_wasm_rust::__private::into_domain(o.extract_field("vmSize")),
             vnet_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vnetSubnetId").unwrap(),
+                o.extract_field("vnetSubnetId"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

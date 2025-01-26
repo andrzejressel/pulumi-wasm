@@ -168,39 +168,18 @@ pub mod custom_domain {
                     value: &web_pubsub_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "webPubsubCustomCertificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "webPubsubId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomDomainResult {
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             web_pubsub_custom_certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webPubsubCustomCertificateId").unwrap(),
+                o.extract_field("webPubsubCustomCertificateId"),
             ),
             web_pubsub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webPubsubId").unwrap(),
+                o.extract_field("webPubsubId"),
             ),
         }
     }

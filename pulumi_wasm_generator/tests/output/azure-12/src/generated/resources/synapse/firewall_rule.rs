@@ -136,39 +136,18 @@ pub mod firewall_rule {
                     value: &synapse_workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "endIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "startIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "synapseWorkspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FirewallRuleResult {
             end_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endIpAddress").unwrap(),
+                o.extract_field("endIpAddress"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             start_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startIpAddress").unwrap(),
+                o.extract_field("startIpAddress"),
             ),
             synapse_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("synapseWorkspaceId").unwrap(),
+                o.extract_field("synapseWorkspaceId"),
             ),
         }
     }

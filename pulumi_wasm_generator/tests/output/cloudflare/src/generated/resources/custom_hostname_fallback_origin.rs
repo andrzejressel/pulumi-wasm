@@ -72,34 +72,12 @@ pub mod custom_hostname_fallback_origin {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "origin".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomHostnameFallbackOriginResult {
-            origin: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("origin").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            origin: pulumi_wasm_rust::__private::into_domain(o.extract_field("origin")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

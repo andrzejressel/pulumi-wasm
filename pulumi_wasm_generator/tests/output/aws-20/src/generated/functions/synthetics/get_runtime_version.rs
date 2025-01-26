@@ -61,61 +61,26 @@ pub mod get_runtime_version {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "deprecationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "latest".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRuntimeVersionResult {
             deprecation_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deprecationDate").unwrap(),
+                o.extract_field("deprecationDate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            latest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latest").unwrap(),
-            ),
-            prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefix").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            latest: pulumi_wasm_rust::__private::into_domain(o.extract_field("latest")),
+            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
             release_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseDate").unwrap(),
+                o.extract_field("releaseDate"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             version_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionName").unwrap(),
+                o.extract_field("versionName"),
             ),
         }
     }

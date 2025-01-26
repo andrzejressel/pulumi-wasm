@@ -296,123 +296,60 @@ pub mod agent_agent {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "agentArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentCollaboration".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentName".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentResourceRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerEncryptionKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "foundationModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "guardrailConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "idleSessionTtlInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "instruction".into(),
-                },
-                register_interface::ResultField {
-                    name: "prepareAgent".into(),
-                },
-                register_interface::ResultField {
-                    name: "promptOverrideConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipResourceInUseCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AgentAgentResult {
             agent_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentArn").unwrap(),
+                o.extract_field("agentArn"),
             ),
             agent_collaboration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentCollaboration").unwrap(),
+                o.extract_field("agentCollaboration"),
             ),
             agent_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentId").unwrap(),
+                o.extract_field("agentId"),
             ),
             agent_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentName").unwrap(),
+                o.extract_field("agentName"),
             ),
             agent_resource_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentResourceRoleArn").unwrap(),
+                o.extract_field("agentResourceRoleArn"),
             ),
             agent_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentVersion").unwrap(),
+                o.extract_field("agentVersion"),
             ),
             customer_encryption_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerEncryptionKeyArn").unwrap(),
+                o.extract_field("customerEncryptionKeyArn"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             foundation_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("foundationModel").unwrap(),
+                o.extract_field("foundationModel"),
             ),
             guardrail_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guardrailConfigurations").unwrap(),
+                o.extract_field("guardrailConfigurations"),
             ),
             idle_session_ttl_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idleSessionTtlInSeconds").unwrap(),
+                o.extract_field("idleSessionTtlInSeconds"),
             ),
             instruction: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instruction").unwrap(),
+                o.extract_field("instruction"),
             ),
             prepare_agent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prepareAgent").unwrap(),
+                o.extract_field("prepareAgent"),
             ),
             prompt_override_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("promptOverrideConfigurations").unwrap(),
+                o.extract_field("promptOverrideConfigurations"),
             ),
             skip_resource_in_use_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipResourceInUseCheck").unwrap(),
+                o.extract_field("skipResourceInUseCheck"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

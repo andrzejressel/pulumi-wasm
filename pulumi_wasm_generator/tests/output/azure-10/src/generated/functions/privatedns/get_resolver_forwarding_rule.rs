@@ -60,55 +60,25 @@ pub mod get_resolver_forwarding_rule {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dnsForwardingRulesetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetDnsServers".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetResolverForwardingRuleResult {
             dns_forwarding_ruleset_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsForwardingRulesetId").unwrap(),
+                o.extract_field("dnsForwardingRulesetId"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             target_dns_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetDnsServers").unwrap(),
+                o.extract_field("targetDnsServers"),
             ),
         }
     }

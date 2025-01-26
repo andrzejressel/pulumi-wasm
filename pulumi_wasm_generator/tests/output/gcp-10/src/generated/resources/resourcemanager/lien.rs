@@ -140,51 +140,18 @@ pub mod lien {
                     value: &restrictions_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "origin".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "reason".into(),
-                },
-                register_interface::ResultField {
-                    name: "restrictions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LienResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            origin: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("origin").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
-            reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reason").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            origin: pulumi_wasm_rust::__private::into_domain(o.extract_field("origin")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
+            reason: pulumi_wasm_rust::__private::into_domain(o.extract_field("reason")),
             restrictions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restrictions").unwrap(),
+                o.extract_field("restrictions"),
             ),
         }
     }

@@ -149,76 +149,31 @@ pub mod application {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationDefinitionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedResourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputs".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameterValues".into(),
-                },
-                register_interface::ResultField {
-                    name: "plan".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApplicationResult {
             application_definition_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationDefinitionId").unwrap(),
+                o.extract_field("applicationDefinitionId"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedResourceGroupName").unwrap(),
+                o.extract_field("managedResourceGroupName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             outputs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputs").unwrap(),
+                o.extract_field("outputs"),
             ),
             parameter_values: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameterValues").unwrap(),
+                o.extract_field("parameterValues"),
             ),
-            plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plan").unwrap(),
-            ),
+            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

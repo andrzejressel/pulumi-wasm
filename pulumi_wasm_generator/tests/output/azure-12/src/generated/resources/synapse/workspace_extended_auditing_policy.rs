@@ -174,51 +174,26 @@ pub mod workspace_extended_auditing_policy {
                     value: &synapse_workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "logMonitoringEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountAccessKeyIsSecondary".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "synapseWorkspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkspaceExtendedAuditingPolicyResult {
             log_monitoring_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logMonitoringEnabled").unwrap(),
+                o.extract_field("logMonitoringEnabled"),
             ),
             retention_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionInDays").unwrap(),
+                o.extract_field("retentionInDays"),
             ),
             storage_account_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountAccessKey").unwrap(),
+                o.extract_field("storageAccountAccessKey"),
             ),
             storage_account_access_key_is_secondary: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountAccessKeyIsSecondary").unwrap(),
+                o.extract_field("storageAccountAccessKeyIsSecondary"),
             ),
             storage_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageEndpoint").unwrap(),
+                o.extract_field("storageEndpoint"),
             ),
             synapse_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("synapseWorkspaceId").unwrap(),
+                o.extract_field("synapseWorkspaceId"),
             ),
         }
     }

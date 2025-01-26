@@ -157,63 +157,28 @@ pub mod database {
                     value: &properties_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aclConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "expectedBucketOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "properties".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DatabaseResult {
             acl_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aclConfiguration").unwrap(),
+                o.extract_field("aclConfiguration"),
             ),
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
             encryption_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionConfiguration").unwrap(),
+                o.extract_field("encryptionConfiguration"),
             ),
             expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expectedBucketOwner").unwrap(),
+                o.extract_field("expectedBucketOwner"),
             ),
             force_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDestroy").unwrap(),
+                o.extract_field("forceDestroy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("properties").unwrap(),
+                o.extract_field("properties"),
             ),
         }
     }

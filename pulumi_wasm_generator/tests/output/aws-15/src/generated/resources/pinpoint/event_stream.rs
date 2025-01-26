@@ -122,33 +122,17 @@ pub mod event_stream {
                     value: &role_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationStreamArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventStreamResult {
             application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationId").unwrap(),
+                o.extract_field("applicationId"),
             ),
             destination_stream_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationStreamArn").unwrap(),
+                o.extract_field("destinationStreamArn"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
         }
     }

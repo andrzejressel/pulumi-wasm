@@ -576,183 +576,90 @@ pub mod spot_fleet_request {
                     value: &wait_for_fulfillment_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allocationStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "context".into(),
-                },
-                register_interface::ResultField {
-                    name: "excessCapacityTerminationPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "fleetType".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamFleetRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceInterruptionBehaviour".into(),
-                },
-                register_interface::ResultField {
-                    name: "instancePoolsToUseCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchSpecifications".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchTemplateConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancers".into(),
-                },
-                register_interface::ResultField {
-                    name: "onDemandAllocationStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "onDemandMaxTotalPrice".into(),
-                },
-                register_interface::ResultField {
-                    name: "onDemandTargetCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "replaceUnhealthyInstances".into(),
-                },
-                register_interface::ResultField {
-                    name: "spotMaintenanceStrategies".into(),
-                },
-                register_interface::ResultField {
-                    name: "spotPrice".into(),
-                },
-                register_interface::ResultField {
-                    name: "spotRequestState".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetCapacityUnitType".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetGroupArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "terminateInstancesOnDelete".into(),
-                },
-                register_interface::ResultField {
-                    name: "terminateInstancesWithExpiration".into(),
-                },
-                register_interface::ResultField {
-                    name: "validFrom".into(),
-                },
-                register_interface::ResultField {
-                    name: "validUntil".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForFulfillment".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpotFleetRequestResult {
             allocation_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocationStrategy").unwrap(),
+                o.extract_field("allocationStrategy"),
             ),
             client_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientToken").unwrap(),
+                o.extract_field("clientToken"),
             ),
             context: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("context").unwrap(),
+                o.extract_field("context"),
             ),
             excess_capacity_termination_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excessCapacityTerminationPolicy").unwrap(),
+                o.extract_field("excessCapacityTerminationPolicy"),
             ),
             fleet_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fleetType").unwrap(),
+                o.extract_field("fleetType"),
             ),
             iam_fleet_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamFleetRole").unwrap(),
+                o.extract_field("iamFleetRole"),
             ),
             instance_interruption_behaviour: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceInterruptionBehaviour").unwrap(),
+                o.extract_field("instanceInterruptionBehaviour"),
             ),
             instance_pools_to_use_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instancePoolsToUseCount").unwrap(),
+                o.extract_field("instancePoolsToUseCount"),
             ),
             launch_specifications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchSpecifications").unwrap(),
+                o.extract_field("launchSpecifications"),
             ),
             launch_template_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchTemplateConfigs").unwrap(),
+                o.extract_field("launchTemplateConfigs"),
             ),
             load_balancers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancers").unwrap(),
+                o.extract_field("loadBalancers"),
             ),
             on_demand_allocation_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onDemandAllocationStrategy").unwrap(),
+                o.extract_field("onDemandAllocationStrategy"),
             ),
             on_demand_max_total_price: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onDemandMaxTotalPrice").unwrap(),
+                o.extract_field("onDemandMaxTotalPrice"),
             ),
             on_demand_target_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onDemandTargetCapacity").unwrap(),
+                o.extract_field("onDemandTargetCapacity"),
             ),
             replace_unhealthy_instances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replaceUnhealthyInstances").unwrap(),
+                o.extract_field("replaceUnhealthyInstances"),
             ),
             spot_maintenance_strategies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spotMaintenanceStrategies").unwrap(),
+                o.extract_field("spotMaintenanceStrategies"),
             ),
             spot_price: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spotPrice").unwrap(),
+                o.extract_field("spotPrice"),
             ),
             spot_request_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spotRequestState").unwrap(),
+                o.extract_field("spotRequestState"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             target_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetCapacity").unwrap(),
+                o.extract_field("targetCapacity"),
             ),
             target_capacity_unit_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetCapacityUnitType").unwrap(),
+                o.extract_field("targetCapacityUnitType"),
             ),
             target_group_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetGroupArns").unwrap(),
+                o.extract_field("targetGroupArns"),
             ),
             terminate_instances_on_delete: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("terminateInstancesOnDelete").unwrap(),
+                o.extract_field("terminateInstancesOnDelete"),
             ),
             terminate_instances_with_expiration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("terminateInstancesWithExpiration").unwrap(),
+                o.extract_field("terminateInstancesWithExpiration"),
             ),
             valid_from: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validFrom").unwrap(),
+                o.extract_field("validFrom"),
             ),
             valid_until: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validUntil").unwrap(),
+                o.extract_field("validUntil"),
             ),
             wait_for_fulfillment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForFulfillment").unwrap(),
+                o.extract_field("waitForFulfillment"),
             ),
         }
     }

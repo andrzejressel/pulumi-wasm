@@ -244,111 +244,44 @@ pub mod folders_policy_binding {
                     value: &target_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "condition".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveAnnotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "folder".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyBindingId".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyKind".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyUid".into(),
-                },
-                register_interface::ResultField {
-                    name: "target".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FoldersPolicyBindingResult {
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             condition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("condition").unwrap(),
+                o.extract_field("condition"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveAnnotations").unwrap(),
+                o.extract_field("effectiveAnnotations"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            folder: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folder").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             policy_binding_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyBindingId").unwrap(),
+                o.extract_field("policyBindingId"),
             ),
             policy_kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyKind").unwrap(),
+                o.extract_field("policyKind"),
             ),
             policy_uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyUid").unwrap(),
+                o.extract_field("policyUid"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("target").unwrap(),
-            ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

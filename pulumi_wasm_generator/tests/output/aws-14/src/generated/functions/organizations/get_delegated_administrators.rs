@@ -43,31 +43,15 @@ pub mod get_delegated_administrators {
                     value: &service_principal_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "delegatedAdministrators".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicePrincipal".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDelegatedAdministratorsResult {
             delegated_administrators: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegatedAdministrators").unwrap(),
+                o.extract_field("delegatedAdministrators"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             service_principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicePrincipal").unwrap(),
+                o.extract_field("servicePrincipal"),
             ),
         }
     }

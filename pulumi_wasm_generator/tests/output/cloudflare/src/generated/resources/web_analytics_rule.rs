@@ -121,51 +121,22 @@ pub mod web_analytics_rule {
                     value: &ruleset_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "host".into(),
-                },
-                register_interface::ResultField {
-                    name: "inclusive".into(),
-                },
-                register_interface::ResultField {
-                    name: "isPaused".into(),
-                },
-                register_interface::ResultField {
-                    name: "paths".into(),
-                },
-                register_interface::ResultField {
-                    name: "rulesetId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WebAnalyticsRuleResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
-            host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("host").unwrap(),
-            ),
+            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
             inclusive: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inclusive").unwrap(),
+                o.extract_field("inclusive"),
             ),
             is_paused: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isPaused").unwrap(),
+                o.extract_field("isPaused"),
             ),
-            paths: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("paths").unwrap(),
-            ),
+            paths: pulumi_wasm_rust::__private::into_domain(o.extract_field("paths")),
             ruleset_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rulesetId").unwrap(),
+                o.extract_field("rulesetId"),
             ),
         }
     }

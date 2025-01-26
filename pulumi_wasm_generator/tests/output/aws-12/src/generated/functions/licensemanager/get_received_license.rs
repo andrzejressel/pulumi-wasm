@@ -82,110 +82,51 @@ pub mod get_received_license {
                     value: &license_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "beneficiary".into(),
-                },
-                register_interface::ResultField {
-                    name: "consumptionConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "entitlements".into(),
-                },
-                register_interface::ResultField {
-                    name: "homeRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "issuers".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseMetadatas".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "productName".into(),
-                },
-                register_interface::ResultField {
-                    name: "productSku".into(),
-                },
-                register_interface::ResultField {
-                    name: "receivedMetadatas".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "validities".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetReceivedLicenseResult {
             beneficiary: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("beneficiary").unwrap(),
+                o.extract_field("beneficiary"),
             ),
             consumption_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consumptionConfigurations").unwrap(),
+                o.extract_field("consumptionConfigurations"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             entitlements: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entitlements").unwrap(),
+                o.extract_field("entitlements"),
             ),
             home_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("homeRegion").unwrap(),
+                o.extract_field("homeRegion"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             issuers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issuers").unwrap(),
+                o.extract_field("issuers"),
             ),
             license_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseArn").unwrap(),
+                o.extract_field("licenseArn"),
             ),
             license_metadatas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseMetadatas").unwrap(),
+                o.extract_field("licenseMetadatas"),
             ),
             license_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseName").unwrap(),
+                o.extract_field("licenseName"),
             ),
             product_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productName").unwrap(),
+                o.extract_field("productName"),
             ),
             product_sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productSku").unwrap(),
+                o.extract_field("productSku"),
             ),
             received_metadatas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("receivedMetadatas").unwrap(),
+                o.extract_field("receivedMetadatas"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             validities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validities").unwrap(),
+                o.extract_field("validities"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

@@ -50,56 +50,22 @@ pub mod get_ip_set {
                     value: &scope_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddressVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetIpSetResult {
             addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addresses").unwrap(),
+                o.extract_field("addresses"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ip_address_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddressVersion").unwrap(),
+                o.extract_field("ipAddressVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
         }
     }
 }

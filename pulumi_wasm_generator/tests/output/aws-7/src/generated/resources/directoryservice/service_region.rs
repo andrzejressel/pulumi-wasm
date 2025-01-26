@@ -104,51 +104,24 @@ pub mod service_region {
                     value: &vpc_settings_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "desiredNumberOfDomainControllers".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "regionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSettings".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceRegionResult {
             desired_number_of_domain_controllers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredNumberOfDomainControllers").unwrap(),
+                o.extract_field("desiredNumberOfDomainControllers"),
             ),
             directory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryId").unwrap(),
+                o.extract_field("directoryId"),
             ),
             region_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regionName").unwrap(),
+                o.extract_field("regionName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vpc_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSettings").unwrap(),
+                o.extract_field("vpcSettings"),
             ),
         }
     }

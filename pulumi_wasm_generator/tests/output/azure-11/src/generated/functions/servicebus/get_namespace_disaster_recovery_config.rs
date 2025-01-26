@@ -76,79 +76,37 @@ pub mod get_namespace_disaster_recovery_config {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aliasAuthorizationRuleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultPrimaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSecondaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerNamespaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryConnectionStringAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryConnectionStringAlias".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNamespaceDisasterRecoveryConfigResult {
             alias_authorization_rule_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aliasAuthorizationRuleId").unwrap(),
+                o.extract_field("aliasAuthorizationRuleId"),
             ),
             default_primary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultPrimaryKey").unwrap(),
+                o.extract_field("defaultPrimaryKey"),
             ),
             default_secondary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSecondaryKey").unwrap(),
+                o.extract_field("defaultSecondaryKey"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceId").unwrap(),
+                o.extract_field("namespaceId"),
             ),
             namespace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceName").unwrap(),
+                o.extract_field("namespaceName"),
             ),
             partner_namespace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerNamespaceId").unwrap(),
+                o.extract_field("partnerNamespaceId"),
             ),
             primary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryConnectionStringAlias").unwrap(),
+                o.extract_field("primaryConnectionStringAlias"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryConnectionStringAlias").unwrap(),
+                o.extract_field("secondaryConnectionStringAlias"),
             ),
         }
     }

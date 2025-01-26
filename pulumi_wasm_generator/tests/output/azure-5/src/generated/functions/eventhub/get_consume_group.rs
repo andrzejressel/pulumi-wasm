@@ -65,49 +65,22 @@ pub mod get_consume_group {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "eventhubName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "userMetadata".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetConsumeGroupResult {
             eventhub_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubName").unwrap(),
+                o.extract_field("eventhubName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespaceName").unwrap(),
+                o.extract_field("namespaceName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             user_metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userMetadata").unwrap(),
+                o.extract_field("userMetadata"),
             ),
         }
     }

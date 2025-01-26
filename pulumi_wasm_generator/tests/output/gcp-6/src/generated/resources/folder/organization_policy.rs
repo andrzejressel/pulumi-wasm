@@ -241,64 +241,27 @@ pub mod organization_policy {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "booleanPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "constraint".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "folder".into(),
-                },
-                register_interface::ResultField {
-                    name: "listPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "restorePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OrganizationPolicyResult {
             boolean_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("booleanPolicy").unwrap(),
+                o.extract_field("booleanPolicy"),
             ),
             constraint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("constraint").unwrap(),
+                o.extract_field("constraint"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            folder: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folder").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
             list_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listPolicy").unwrap(),
+                o.extract_field("listPolicy"),
             ),
             restore_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restorePolicy").unwrap(),
+                o.extract_field("restorePolicy"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

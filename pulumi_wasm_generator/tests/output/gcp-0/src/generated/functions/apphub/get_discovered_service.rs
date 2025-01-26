@@ -62,55 +62,25 @@ pub mod get_discovered_service {
                     value: &service_uri_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceReferences".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceUri".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDiscoveredServiceResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             service_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceProperties").unwrap(),
+                o.extract_field("serviceProperties"),
             ),
             service_references: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceReferences").unwrap(),
+                o.extract_field("serviceReferences"),
             ),
             service_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceUri").unwrap(),
+                o.extract_field("serviceUri"),
             ),
         }
     }

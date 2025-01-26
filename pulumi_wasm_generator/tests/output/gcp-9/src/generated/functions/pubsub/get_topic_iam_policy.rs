@@ -48,44 +48,18 @@ pub mod get_topic_iam_policy {
                     value: &topic_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyData".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "topic".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTopicIamPolicyResult {
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             policy_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyData").unwrap(),
+                o.extract_field("policyData"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            topic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topic").unwrap(),
-            ),
+            topic: pulumi_wasm_rust::__private::into_domain(o.extract_field("topic")),
         }
     }
 }

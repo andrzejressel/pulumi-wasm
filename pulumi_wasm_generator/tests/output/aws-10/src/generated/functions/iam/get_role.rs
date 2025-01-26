@@ -65,85 +65,34 @@ pub mod get_role {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "assumeRolePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "createDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxSessionDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissionsBoundary".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleLastUseds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "uniqueId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRoleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             assume_role_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assumeRolePolicy").unwrap(),
+                o.extract_field("assumeRolePolicy"),
             ),
             create_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createDate").unwrap(),
+                o.extract_field("createDate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             max_session_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxSessionDuration").unwrap(),
+                o.extract_field("maxSessionDuration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
             permissions_boundary: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissionsBoundary").unwrap(),
+                o.extract_field("permissionsBoundary"),
             ),
             role_last_useds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleLastUseds").unwrap(),
+                o.extract_field("roleLastUseds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             unique_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uniqueId").unwrap(),
+                o.extract_field("uniqueId"),
             ),
         }
     }

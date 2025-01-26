@@ -297,129 +297,59 @@ pub mod fleet {
                     value: &valid_until_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "context".into(),
-                },
-                register_interface::ResultField {
-                    name: "excessCapacityTerminationPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "fleetInstanceSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "fleetState".into(),
-                },
-                register_interface::ResultField {
-                    name: "fulfilledCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "fulfilledOnDemandCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchTemplateConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "onDemandOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "replaceUnhealthyInstances".into(),
-                },
-                register_interface::ResultField {
-                    name: "spotOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetCapacitySpecification".into(),
-                },
-                register_interface::ResultField {
-                    name: "terminateInstances".into(),
-                },
-                register_interface::ResultField {
-                    name: "terminateInstancesWithExpiration".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "validFrom".into(),
-                },
-                register_interface::ResultField {
-                    name: "validUntil".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FleetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             context: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("context").unwrap(),
+                o.extract_field("context"),
             ),
             excess_capacity_termination_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excessCapacityTerminationPolicy").unwrap(),
+                o.extract_field("excessCapacityTerminationPolicy"),
             ),
             fleet_instance_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fleetInstanceSets").unwrap(),
+                o.extract_field("fleetInstanceSets"),
             ),
             fleet_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fleetState").unwrap(),
+                o.extract_field("fleetState"),
             ),
             fulfilled_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fulfilledCapacity").unwrap(),
+                o.extract_field("fulfilledCapacity"),
             ),
             fulfilled_on_demand_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fulfilledOnDemandCapacity").unwrap(),
+                o.extract_field("fulfilledOnDemandCapacity"),
             ),
             launch_template_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchTemplateConfigs").unwrap(),
+                o.extract_field("launchTemplateConfigs"),
             ),
             on_demand_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onDemandOptions").unwrap(),
+                o.extract_field("onDemandOptions"),
             ),
             replace_unhealthy_instances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replaceUnhealthyInstances").unwrap(),
+                o.extract_field("replaceUnhealthyInstances"),
             ),
             spot_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spotOptions").unwrap(),
+                o.extract_field("spotOptions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             target_capacity_specification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetCapacitySpecification").unwrap(),
+                o.extract_field("targetCapacitySpecification"),
             ),
             terminate_instances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("terminateInstances").unwrap(),
+                o.extract_field("terminateInstances"),
             ),
             terminate_instances_with_expiration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("terminateInstancesWithExpiration").unwrap(),
+                o.extract_field("terminateInstancesWithExpiration"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             valid_from: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validFrom").unwrap(),
+                o.extract_field("validFrom"),
             ),
             valid_until: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validUntil").unwrap(),
+                o.extract_field("validUntil"),
             ),
         }
     }

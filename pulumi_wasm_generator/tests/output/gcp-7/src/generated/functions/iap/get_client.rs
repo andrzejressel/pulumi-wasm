@@ -44,44 +44,18 @@ pub mod get_client {
                     value: &client_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "brand".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "secret".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetClientResult {
-            brand: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("brand").unwrap(),
-            ),
+            brand: pulumi_wasm_rust::__private::into_domain(o.extract_field("brand")),
             client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientId").unwrap(),
+                o.extract_field("clientId"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secret").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            secret: pulumi_wasm_rust::__private::into_domain(o.extract_field("secret")),
         }
     }
 }

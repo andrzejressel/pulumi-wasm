@@ -249,99 +249,48 @@ pub mod rule {
                     value: &protocol_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backendAddressPoolIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableOutboundSnat".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableFloatingIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableTcpReset".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendIpConfigurationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendIpConfigurationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "idleTimeoutInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadDistribution".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadbalancerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "probeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RuleResult {
             backend_address_pool_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendAddressPoolIds").unwrap(),
+                o.extract_field("backendAddressPoolIds"),
             ),
             backend_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendPort").unwrap(),
+                o.extract_field("backendPort"),
             ),
             disable_outbound_snat: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableOutboundSnat").unwrap(),
+                o.extract_field("disableOutboundSnat"),
             ),
             enable_floating_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableFloatingIp").unwrap(),
+                o.extract_field("enableFloatingIp"),
             ),
             enable_tcp_reset: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableTcpReset").unwrap(),
+                o.extract_field("enableTcpReset"),
             ),
             frontend_ip_configuration_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendIpConfigurationId").unwrap(),
+                o.extract_field("frontendIpConfigurationId"),
             ),
             frontend_ip_configuration_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendIpConfigurationName").unwrap(),
+                o.extract_field("frontendIpConfigurationName"),
             ),
             frontend_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendPort").unwrap(),
+                o.extract_field("frontendPort"),
             ),
             idle_timeout_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idleTimeoutInMinutes").unwrap(),
+                o.extract_field("idleTimeoutInMinutes"),
             ),
             load_distribution: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadDistribution").unwrap(),
+                o.extract_field("loadDistribution"),
             ),
             loadbalancer_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadbalancerId").unwrap(),
+                o.extract_field("loadbalancerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             probe_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("probeId").unwrap(),
+                o.extract_field("probeId"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
         }
     }

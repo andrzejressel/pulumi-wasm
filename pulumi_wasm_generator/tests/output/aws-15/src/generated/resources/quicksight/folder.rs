@@ -196,87 +196,38 @@ pub mod folder {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "folderId".into(),
-                },
-                register_interface::ResultField {
-                    name: "folderPaths".into(),
-                },
-                register_interface::ResultField {
-                    name: "folderType".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentFolderArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FolderResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             aws_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountId").unwrap(),
+                o.extract_field("awsAccountId"),
             ),
             created_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTime").unwrap(),
+                o.extract_field("createdTime"),
             ),
             folder_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folderId").unwrap(),
+                o.extract_field("folderId"),
             ),
             folder_paths: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folderPaths").unwrap(),
+                o.extract_field("folderPaths"),
             ),
             folder_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folderType").unwrap(),
+                o.extract_field("folderType"),
             ),
             last_updated_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedTime").unwrap(),
+                o.extract_field("lastUpdatedTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parent_folder_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentFolderArn").unwrap(),
+                o.extract_field("parentFolderArn"),
             ),
             permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissions").unwrap(),
+                o.extract_field("permissions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

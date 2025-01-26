@@ -445,147 +445,72 @@ pub mod standard_app_version {
                     value: &vpc_access_connector_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appEngineApis".into(),
-                },
-                register_interface::ResultField {
-                    name: "automaticScaling".into(),
-                },
-                register_interface::ResultField {
-                    name: "basicScaling".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteServiceOnDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "deployment".into(),
-                },
-                register_interface::ResultField {
-                    name: "entrypoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "envVariables".into(),
-                },
-                register_interface::ResultField {
-                    name: "handlers".into(),
-                },
-                register_interface::ResultField {
-                    name: "inboundServices".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "libraries".into(),
-                },
-                register_interface::ResultField {
-                    name: "manualScaling".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "noopOnDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtime".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimeApiVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "service".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "threadsafe".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcAccessConnector".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StandardAppVersionResult {
             app_engine_apis: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appEngineApis").unwrap(),
+                o.extract_field("appEngineApis"),
             ),
             automatic_scaling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticScaling").unwrap(),
+                o.extract_field("automaticScaling"),
             ),
             basic_scaling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("basicScaling").unwrap(),
+                o.extract_field("basicScaling"),
             ),
             delete_service_on_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteServiceOnDestroy").unwrap(),
+                o.extract_field("deleteServiceOnDestroy"),
             ),
             deployment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deployment").unwrap(),
+                o.extract_field("deployment"),
             ),
             entrypoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entrypoint").unwrap(),
+                o.extract_field("entrypoint"),
             ),
             env_variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("envVariables").unwrap(),
+                o.extract_field("envVariables"),
             ),
             handlers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("handlers").unwrap(),
+                o.extract_field("handlers"),
             ),
             inbound_services: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inboundServices").unwrap(),
+                o.extract_field("inboundServices"),
             ),
             instance_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceClass").unwrap(),
+                o.extract_field("instanceClass"),
             ),
             libraries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("libraries").unwrap(),
+                o.extract_field("libraries"),
             ),
             manual_scaling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manualScaling").unwrap(),
+                o.extract_field("manualScaling"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             noop_on_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("noopOnDestroy").unwrap(),
+                o.extract_field("noopOnDestroy"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             runtime: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtime").unwrap(),
+                o.extract_field("runtime"),
             ),
             runtime_api_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimeApiVersion").unwrap(),
+                o.extract_field("runtimeApiVersion"),
             ),
             service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("service").unwrap(),
+                o.extract_field("service"),
             ),
             service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccount").unwrap(),
+                o.extract_field("serviceAccount"),
             ),
             threadsafe: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("threadsafe").unwrap(),
+                o.extract_field("threadsafe"),
             ),
             version_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionId").unwrap(),
+                o.extract_field("versionId"),
             ),
             vpc_access_connector: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcAccessConnector").unwrap(),
+                o.extract_field("vpcAccessConnector"),
             ),
         }
     }

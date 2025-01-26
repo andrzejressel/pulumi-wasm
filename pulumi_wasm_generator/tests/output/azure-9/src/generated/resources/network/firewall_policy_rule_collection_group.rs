@@ -216,51 +216,24 @@ pub mod firewall_policy_rule_collection_group {
                     value: &priority_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationRuleCollections".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallPolicyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "natRuleCollections".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkRuleCollections".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FirewallPolicyRuleCollectionGroupResult {
             application_rule_collections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationRuleCollections").unwrap(),
+                o.extract_field("applicationRuleCollections"),
             ),
             firewall_policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallPolicyId").unwrap(),
+                o.extract_field("firewallPolicyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             nat_rule_collections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("natRuleCollections").unwrap(),
+                o.extract_field("natRuleCollections"),
             ),
             network_rule_collections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkRuleCollections").unwrap(),
+                o.extract_field("networkRuleCollections"),
             ),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
         }
     }

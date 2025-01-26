@@ -89,80 +89,36 @@ pub mod get_key_pair {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "fingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "includePublicKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyPairId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyType".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetKeyPairResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
             fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fingerprint").unwrap(),
+                o.extract_field("fingerprint"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             include_public_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includePublicKey").unwrap(),
+                o.extract_field("includePublicKey"),
             ),
             key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyName").unwrap(),
+                o.extract_field("keyName"),
             ),
             key_pair_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyPairId").unwrap(),
+                o.extract_field("keyPairId"),
             ),
             key_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyType").unwrap(),
+                o.extract_field("keyType"),
             ),
             public_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKey").unwrap(),
+                o.extract_field("publicKey"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

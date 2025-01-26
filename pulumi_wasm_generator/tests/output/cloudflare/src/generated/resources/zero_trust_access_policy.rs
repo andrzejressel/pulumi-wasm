@@ -243,112 +243,53 @@ pub mod zero_trust_access_policy {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "approvalGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "approvalRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "decision".into(),
-                },
-                register_interface::ResultField {
-                    name: "excludes".into(),
-                },
-                register_interface::ResultField {
-                    name: "includes".into(),
-                },
-                register_interface::ResultField {
-                    name: "isolationRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "precedence".into(),
-                },
-                register_interface::ResultField {
-                    name: "purposeJustificationPrompt".into(),
-                },
-                register_interface::ResultField {
-                    name: "purposeJustificationRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "requires".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZeroTrustAccessPolicyResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationId").unwrap(),
+                o.extract_field("applicationId"),
             ),
             approval_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvalGroups").unwrap(),
+                o.extract_field("approvalGroups"),
             ),
             approval_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvalRequired").unwrap(),
+                o.extract_field("approvalRequired"),
             ),
             connection_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionRules").unwrap(),
+                o.extract_field("connectionRules"),
             ),
             decision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("decision").unwrap(),
+                o.extract_field("decision"),
             ),
             excludes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("excludes").unwrap(),
+                o.extract_field("excludes"),
             ),
             includes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includes").unwrap(),
+                o.extract_field("includes"),
             ),
             isolation_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isolationRequired").unwrap(),
+                o.extract_field("isolationRequired"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             precedence: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("precedence").unwrap(),
+                o.extract_field("precedence"),
             ),
             purpose_justification_prompt: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("purposeJustificationPrompt").unwrap(),
+                o.extract_field("purposeJustificationPrompt"),
             ),
             purpose_justification_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("purposeJustificationRequired").unwrap(),
+                o.extract_field("purposeJustificationRequired"),
             ),
             requires: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requires").unwrap(),
+                o.extract_field("requires"),
             ),
             session_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionDuration").unwrap(),
+                o.extract_field("sessionDuration"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

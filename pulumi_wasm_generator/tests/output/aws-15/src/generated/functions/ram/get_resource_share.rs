@@ -87,74 +87,29 @@ pub mod get_resource_share {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "owningAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceShareStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetResourceShareResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             owning_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owningAccountId").unwrap(),
+                o.extract_field("owningAccountId"),
             ),
             resource_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceArns").unwrap(),
+                o.extract_field("resourceArns"),
             ),
             resource_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceOwner").unwrap(),
+                o.extract_field("resourceOwner"),
             ),
             resource_share_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceShareStatus").unwrap(),
+                o.extract_field("resourceShareStatus"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

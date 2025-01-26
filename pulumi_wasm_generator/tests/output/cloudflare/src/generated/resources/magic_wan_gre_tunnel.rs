@@ -186,80 +186,36 @@ pub mod magic_wan_gre_tunnel {
                     value: &ttl_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudflareGreEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerGreEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckType".into(),
-                },
-                register_interface::ResultField {
-                    name: "interfaceAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "mtu".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ttl".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MagicWanGreTunnelResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             cloudflare_gre_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudflareGreEndpoint").unwrap(),
+                o.extract_field("cloudflareGreEndpoint"),
             ),
             customer_gre_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerGreEndpoint").unwrap(),
+                o.extract_field("customerGreEndpoint"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             health_check_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckEnabled").unwrap(),
+                o.extract_field("healthCheckEnabled"),
             ),
             health_check_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckTarget").unwrap(),
+                o.extract_field("healthCheckTarget"),
             ),
             health_check_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckType").unwrap(),
+                o.extract_field("healthCheckType"),
             ),
             interface_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interfaceAddress").unwrap(),
+                o.extract_field("interfaceAddress"),
             ),
-            mtu: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mtu").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            ttl: pulumi_wasm_rust::__private::into_domain(hashmap.remove("ttl").unwrap()),
+            mtu: pulumi_wasm_rust::__private::into_domain(o.extract_field("mtu")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
         }
     }
 }

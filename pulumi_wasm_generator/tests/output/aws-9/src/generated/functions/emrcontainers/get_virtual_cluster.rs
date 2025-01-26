@@ -62,61 +62,22 @@ pub mod get_virtual_cluster {
                     value: &virtual_cluster_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerProviders".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualClusterId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVirtualClusterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             container_providers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerProviders").unwrap(),
+                o.extract_field("containerProviders"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualClusterId").unwrap(),
+                o.extract_field("virtualClusterId"),
             ),
         }
     }

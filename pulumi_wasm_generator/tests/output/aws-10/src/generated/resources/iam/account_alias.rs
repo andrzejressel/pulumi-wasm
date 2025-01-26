@@ -59,21 +59,11 @@ pub mod account_alias {
                     value: &account_alias_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountAlias".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountAliasResult {
             account_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountAlias").unwrap(),
+                o.extract_field("accountAlias"),
             ),
         }
     }

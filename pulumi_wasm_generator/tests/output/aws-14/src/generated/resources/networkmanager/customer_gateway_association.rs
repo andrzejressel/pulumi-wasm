@@ -139,40 +139,19 @@ pub mod customer_gateway_association {
                     value: &link_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customerGatewayArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomerGatewayAssociationResult {
             customer_gateway_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerGatewayArn").unwrap(),
+                o.extract_field("customerGatewayArn"),
             ),
             device_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceId").unwrap(),
+                o.extract_field("deviceId"),
             ),
             global_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalNetworkId").unwrap(),
+                o.extract_field("globalNetworkId"),
             ),
-            link_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkId").unwrap(),
-            ),
+            link_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("linkId")),
         }
     }
 }

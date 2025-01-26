@@ -616,207 +616,98 @@ pub mod region_instance_group_manager {
                     value: &wait_for_instances_status_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allInstancesConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoHealingPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "baseInstanceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "distributionPolicyTargetShape".into(),
-                },
-                register_interface::ResultField {
-                    name: "distributionPolicyZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "fingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceFlexibilityPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceGroupManagerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceLifecyclePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "listManagedInstancesResults".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namedPorts".into(),
-                },
-                register_interface::ResultField {
-                    name: "params".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "standbyPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "statefulDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "statefulExternalIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "statefulInternalIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "statuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetPools".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetStoppedSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetSuspendedSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "versions".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForInstances".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForInstancesStatus".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegionInstanceGroupManagerResult {
             all_instances_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allInstancesConfig").unwrap(),
+                o.extract_field("allInstancesConfig"),
             ),
             auto_healing_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoHealingPolicies").unwrap(),
+                o.extract_field("autoHealingPolicies"),
             ),
             base_instance_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baseInstanceName").unwrap(),
+                o.extract_field("baseInstanceName"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             distribution_policy_target_shape: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("distributionPolicyTargetShape").unwrap(),
+                o.extract_field("distributionPolicyTargetShape"),
             ),
             distribution_policy_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("distributionPolicyZones").unwrap(),
+                o.extract_field("distributionPolicyZones"),
             ),
             fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fingerprint").unwrap(),
+                o.extract_field("fingerprint"),
             ),
             instance_flexibility_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceFlexibilityPolicy").unwrap(),
+                o.extract_field("instanceFlexibilityPolicy"),
             ),
             instance_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceGroup").unwrap(),
+                o.extract_field("instanceGroup"),
             ),
             instance_group_manager_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceGroupManagerId").unwrap(),
+                o.extract_field("instanceGroupManagerId"),
             ),
             instance_lifecycle_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceLifecyclePolicy").unwrap(),
+                o.extract_field("instanceLifecyclePolicy"),
             ),
             list_managed_instances_results: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listManagedInstancesResults").unwrap(),
+                o.extract_field("listManagedInstancesResults"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             named_ports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namedPorts").unwrap(),
+                o.extract_field("namedPorts"),
             ),
-            params: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("params").unwrap(),
-            ),
+            params: pulumi_wasm_rust::__private::into_domain(o.extract_field("params")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             standby_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("standbyPolicy").unwrap(),
+                o.extract_field("standbyPolicy"),
             ),
             stateful_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statefulDisks").unwrap(),
+                o.extract_field("statefulDisks"),
             ),
             stateful_external_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statefulExternalIps").unwrap(),
+                o.extract_field("statefulExternalIps"),
             ),
             stateful_internal_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statefulInternalIps").unwrap(),
+                o.extract_field("statefulInternalIps"),
             ),
             statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statuses").unwrap(),
+                o.extract_field("statuses"),
             ),
             target_pools: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetPools").unwrap(),
+                o.extract_field("targetPools"),
             ),
             target_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetSize").unwrap(),
+                o.extract_field("targetSize"),
             ),
             target_stopped_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetStoppedSize").unwrap(),
+                o.extract_field("targetStoppedSize"),
             ),
             target_suspended_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetSuspendedSize").unwrap(),
+                o.extract_field("targetSuspendedSize"),
             ),
             update_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatePolicy").unwrap(),
+                o.extract_field("updatePolicy"),
             ),
             versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versions").unwrap(),
+                o.extract_field("versions"),
             ),
             wait_for_instances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForInstances").unwrap(),
+                o.extract_field("waitForInstances"),
             ),
             wait_for_instances_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForInstancesStatus").unwrap(),
+                o.extract_field("waitForInstancesStatus"),
             ),
         }
     }

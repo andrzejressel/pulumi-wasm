@@ -450,159 +450,74 @@ pub mod app {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoBranchCreationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoBranchCreationPatterns".into(),
-                },
-                register_interface::ResultField {
-                    name: "basicAuthCredentials".into(),
-                },
-                register_interface::ResultField {
-                    name: "buildSpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "customHeaders".into(),
-                },
-                register_interface::ResultField {
-                    name: "customRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableAutoBranchCreation".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableBasicAuth".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableBranchAutoBuild".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableBranchAutoDeletion".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentVariables".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamServiceRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "oauthToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "platform".into(),
-                },
-                register_interface::ResultField {
-                    name: "productionBranches".into(),
-                },
-                register_interface::ResultField {
-                    name: "repository".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AppResult {
             access_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessToken").unwrap(),
+                o.extract_field("accessToken"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_branch_creation_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoBranchCreationConfig").unwrap(),
+                o.extract_field("autoBranchCreationConfig"),
             ),
             auto_branch_creation_patterns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoBranchCreationPatterns").unwrap(),
+                o.extract_field("autoBranchCreationPatterns"),
             ),
             basic_auth_credentials: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("basicAuthCredentials").unwrap(),
+                o.extract_field("basicAuthCredentials"),
             ),
             build_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("buildSpec").unwrap(),
+                o.extract_field("buildSpec"),
             ),
             cache_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheConfig").unwrap(),
+                o.extract_field("cacheConfig"),
             ),
             custom_headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customHeaders").unwrap(),
+                o.extract_field("customHeaders"),
             ),
             custom_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customRules").unwrap(),
+                o.extract_field("customRules"),
             ),
             default_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultDomain").unwrap(),
+                o.extract_field("defaultDomain"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enable_auto_branch_creation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableAutoBranchCreation").unwrap(),
+                o.extract_field("enableAutoBranchCreation"),
             ),
             enable_basic_auth: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableBasicAuth").unwrap(),
+                o.extract_field("enableBasicAuth"),
             ),
             enable_branch_auto_build: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableBranchAutoBuild").unwrap(),
+                o.extract_field("enableBranchAutoBuild"),
             ),
             enable_branch_auto_deletion: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableBranchAutoDeletion").unwrap(),
+                o.extract_field("enableBranchAutoDeletion"),
             ),
             environment_variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentVariables").unwrap(),
+                o.extract_field("environmentVariables"),
             ),
             iam_service_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamServiceRoleArn").unwrap(),
+                o.extract_field("iamServiceRoleArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             oauth_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("oauthToken").unwrap(),
+                o.extract_field("oauthToken"),
             ),
             platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platform").unwrap(),
+                o.extract_field("platform"),
             ),
             production_branches: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productionBranches").unwrap(),
+                o.extract_field("productionBranches"),
             ),
             repository: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repository").unwrap(),
+                o.extract_field("repository"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

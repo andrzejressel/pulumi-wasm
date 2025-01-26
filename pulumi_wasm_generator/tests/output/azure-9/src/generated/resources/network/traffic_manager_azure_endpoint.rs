@@ -205,76 +205,35 @@ pub mod traffic_manager_azure_endpoint {
                     value: &weight_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alwaysServeEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "customHeaders".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "geoMappings".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnets".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "weight".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TrafficManagerAzureEndpointResult {
             always_serve_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alwaysServeEnabled").unwrap(),
+                o.extract_field("alwaysServeEnabled"),
             ),
             custom_headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customHeaders").unwrap(),
+                o.extract_field("customHeaders"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             geo_mappings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("geoMappings").unwrap(),
+                o.extract_field("geoMappings"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileId").unwrap(),
+                o.extract_field("profileId"),
             ),
             subnets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnets").unwrap(),
+                o.extract_field("subnets"),
             ),
             target_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResourceId").unwrap(),
+                o.extract_field("targetResourceId"),
             ),
-            weight: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("weight").unwrap(),
-            ),
+            weight: pulumi_wasm_rust::__private::into_domain(o.extract_field("weight")),
         }
     }
 }

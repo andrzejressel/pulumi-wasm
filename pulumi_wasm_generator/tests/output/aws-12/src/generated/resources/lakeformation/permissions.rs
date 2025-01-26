@@ -398,87 +398,40 @@ pub mod permissions {
                     value: &table_with_columns_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "catalogId".into(),
-                },
-                register_interface::ResultField {
-                    name: "catalogResource".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataCellsFilter".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "database".into(),
-                },
-                register_interface::ResultField {
-                    name: "lfTag".into(),
-                },
-                register_interface::ResultField {
-                    name: "lfTagPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissionsWithGrantOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "principal".into(),
-                },
-                register_interface::ResultField {
-                    name: "table".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableWithColumns".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PermissionsResult {
             catalog_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("catalogId").unwrap(),
+                o.extract_field("catalogId"),
             ),
             catalog_resource: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("catalogResource").unwrap(),
+                o.extract_field("catalogResource"),
             ),
             data_cells_filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataCellsFilter").unwrap(),
+                o.extract_field("dataCellsFilter"),
             ),
             data_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataLocation").unwrap(),
+                o.extract_field("dataLocation"),
             ),
             database: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("database").unwrap(),
+                o.extract_field("database"),
             ),
-            lf_tag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lfTag").unwrap(),
-            ),
+            lf_tag: pulumi_wasm_rust::__private::into_domain(o.extract_field("lfTag")),
             lf_tag_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lfTagPolicy").unwrap(),
+                o.extract_field("lfTagPolicy"),
             ),
             permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissions").unwrap(),
+                o.extract_field("permissions"),
             ),
             permissions_with_grant_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissionsWithGrantOptions").unwrap(),
+                o.extract_field("permissionsWithGrantOptions"),
             ),
             principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principal").unwrap(),
+                o.extract_field("principal"),
             ),
-            table: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("table").unwrap(),
-            ),
+            table: pulumi_wasm_rust::__private::into_domain(o.extract_field("table")),
             table_with_columns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableWithColumns").unwrap(),
+                o.extract_field("tableWithColumns"),
             ),
         }
     }

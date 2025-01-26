@@ -140,69 +140,29 @@ pub mod hours_of_operation {
                     value: &time_zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "configs".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "hoursOfOperationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeZone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HoursOfOperationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configs").unwrap(),
+                o.extract_field("configs"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             hours_of_operation_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hoursOfOperationId").unwrap(),
+                o.extract_field("hoursOfOperationId"),
             ),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             time_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeZone").unwrap(),
+                o.extract_field("timeZone"),
             ),
         }
     }

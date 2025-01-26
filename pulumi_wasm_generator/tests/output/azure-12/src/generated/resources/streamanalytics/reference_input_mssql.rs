@@ -222,87 +222,38 @@ pub mod reference_input_mssql {
                     value: &username_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "database".into(),
-                },
-                register_interface::ResultField {
-                    name: "deltaSnapshotQuery".into(),
-                },
-                register_interface::ResultField {
-                    name: "fullSnapshotQuery".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "refreshIntervalDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "refreshType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "server".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamAnalyticsJobName".into(),
-                },
-                register_interface::ResultField {
-                    name: "table".into(),
-                },
-                register_interface::ResultField {
-                    name: "username".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReferenceInputMssqlResult {
             database: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("database").unwrap(),
+                o.extract_field("database"),
             ),
             delta_snapshot_query: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deltaSnapshotQuery").unwrap(),
+                o.extract_field("deltaSnapshotQuery"),
             ),
             full_snapshot_query: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fullSnapshotQuery").unwrap(),
+                o.extract_field("fullSnapshotQuery"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             refresh_interval_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("refreshIntervalDuration").unwrap(),
+                o.extract_field("refreshIntervalDuration"),
             ),
             refresh_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("refreshType").unwrap(),
+                o.extract_field("refreshType"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            server: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("server").unwrap(),
-            ),
+            server: pulumi_wasm_rust::__private::into_domain(o.extract_field("server")),
             stream_analytics_job_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamAnalyticsJobName").unwrap(),
+                o.extract_field("streamAnalyticsJobName"),
             ),
-            table: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("table").unwrap(),
-            ),
+            table: pulumi_wasm_rust::__private::into_domain(o.extract_field("table")),
             username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("username").unwrap(),
+                o.extract_field("username"),
             ),
         }
     }

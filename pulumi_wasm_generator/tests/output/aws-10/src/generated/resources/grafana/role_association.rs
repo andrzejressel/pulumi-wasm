@@ -107,39 +107,18 @@ pub mod role_association {
                     value: &workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "groupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-                register_interface::ResultField {
-                    name: "userIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RoleAssociationResult {
             group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupIds").unwrap(),
+                o.extract_field("groupIds"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
             user_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userIds").unwrap(),
+                o.extract_field("userIds"),
             ),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

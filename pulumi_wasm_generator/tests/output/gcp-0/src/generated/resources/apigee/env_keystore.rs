@@ -81,34 +81,14 @@ pub mod env_keystore {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aliases".into(),
-                },
-                register_interface::ResultField {
-                    name: "envId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnvKeystoreResult {
             aliases: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aliases").unwrap(),
+                o.extract_field("aliases"),
             ),
-            env_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("envId").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            env_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("envId")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

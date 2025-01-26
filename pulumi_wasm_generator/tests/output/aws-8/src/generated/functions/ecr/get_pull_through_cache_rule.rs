@@ -42,43 +42,21 @@ pub mod get_pull_through_cache_rule {
                     value: &ecr_repository_prefix_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "credentialArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ecrRepositoryPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "registryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "upstreamRegistryUrl".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPullThroughCacheRuleResult {
             credential_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("credentialArn").unwrap(),
+                o.extract_field("credentialArn"),
             ),
             ecr_repository_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ecrRepositoryPrefix").unwrap(),
+                o.extract_field("ecrRepositoryPrefix"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             registry_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryId").unwrap(),
+                o.extract_field("registryId"),
             ),
             upstream_registry_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("upstreamRegistryUrl").unwrap(),
+                o.extract_field("upstreamRegistryUrl"),
             ),
         }
     }

@@ -198,69 +198,31 @@ pub mod vpn_gateway {
                     value: &virtual_hub_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bgpRouteTranslationForNatEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingPreference".into(),
-                },
-                register_interface::ResultField {
-                    name: "scaleUnit".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualHubId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpnGatewayResult {
             bgp_route_translation_for_nat_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpRouteTranslationForNatEnabled").unwrap(),
+                o.extract_field("bgpRouteTranslationForNatEnabled"),
             ),
             bgp_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpSettings").unwrap(),
+                o.extract_field("bgpSettings"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             routing_preference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingPreference").unwrap(),
+                o.extract_field("routingPreference"),
             ),
             scale_unit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scaleUnit").unwrap(),
+                o.extract_field("scaleUnit"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_hub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualHubId").unwrap(),
+                o.extract_field("virtualHubId"),
             ),
         }
     }

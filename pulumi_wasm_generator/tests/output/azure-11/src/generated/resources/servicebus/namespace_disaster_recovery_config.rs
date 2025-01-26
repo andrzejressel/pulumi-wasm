@@ -138,63 +138,30 @@ pub mod namespace_disaster_recovery_config {
                     value: &primary_namespace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aliasAuthorizationRuleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultPrimaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSecondaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerNamespaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryConnectionStringAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryNamespaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryConnectionStringAlias".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NamespaceDisasterRecoveryConfigResult {
             alias_authorization_rule_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aliasAuthorizationRuleId").unwrap(),
+                o.extract_field("aliasAuthorizationRuleId"),
             ),
             default_primary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultPrimaryKey").unwrap(),
+                o.extract_field("defaultPrimaryKey"),
             ),
             default_secondary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSecondaryKey").unwrap(),
+                o.extract_field("defaultSecondaryKey"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             partner_namespace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerNamespaceId").unwrap(),
+                o.extract_field("partnerNamespaceId"),
             ),
             primary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryConnectionStringAlias").unwrap(),
+                o.extract_field("primaryConnectionStringAlias"),
             ),
             primary_namespace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryNamespaceId").unwrap(),
+                o.extract_field("primaryNamespaceId"),
             ),
             secondary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryConnectionStringAlias").unwrap(),
+                o.extract_field("secondaryConnectionStringAlias"),
             ),
         }
     }

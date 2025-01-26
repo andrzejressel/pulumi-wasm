@@ -65,49 +65,22 @@ pub mod get_account_jwt {
                     value: &target_service_account_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "delegates".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiresIn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "jwt".into(),
-                },
-                register_interface::ResultField {
-                    name: "payload".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetServiceAccount".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAccountJwtResult {
             delegates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegates").unwrap(),
+                o.extract_field("delegates"),
             ),
             expires_in: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiresIn").unwrap(),
+                o.extract_field("expiresIn"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            jwt: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jwt").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            jwt: pulumi_wasm_rust::__private::into_domain(o.extract_field("jwt")),
             payload: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("payload").unwrap(),
+                o.extract_field("payload"),
             ),
             target_service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetServiceAccount").unwrap(),
+                o.extract_field("targetServiceAccount"),
             ),
         }
     }

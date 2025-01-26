@@ -100,205 +100,92 @@ pub mod get_job {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "binaryAuthorizations".into(),
-                },
-                register_interface::ResultField {
-                    name: "client".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "conditions".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "creator".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveAnnotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "expireTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "generation".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestCreatedExecutions".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchStage".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "observedGeneration".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "reconciling".into(),
-                },
-                register_interface::ResultField {
-                    name: "runExecutionToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "startExecutionToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "templates".into(),
-                },
-                register_interface::ResultField {
-                    name: "terminalConditions".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetJobResult {
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             binary_authorizations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("binaryAuthorizations").unwrap(),
+                o.extract_field("binaryAuthorizations"),
             ),
-            client: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("client").unwrap(),
-            ),
+            client: pulumi_wasm_rust::__private::into_domain(o.extract_field("client")),
             client_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientVersion").unwrap(),
+                o.extract_field("clientVersion"),
             ),
             conditions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("conditions").unwrap(),
+                o.extract_field("conditions"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             creator: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creator").unwrap(),
+                o.extract_field("creator"),
             ),
             delete_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteTime").unwrap(),
+                o.extract_field("deleteTime"),
             ),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
             effective_annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveAnnotations").unwrap(),
+                o.extract_field("effectiveAnnotations"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             execution_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionCount").unwrap(),
+                o.extract_field("executionCount"),
             ),
             expire_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expireTime").unwrap(),
+                o.extract_field("expireTime"),
             ),
             generation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("generation").unwrap(),
+                o.extract_field("generation"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             last_modifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifier").unwrap(),
+                o.extract_field("lastModifier"),
             ),
             latest_created_executions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestCreatedExecutions").unwrap(),
+                o.extract_field("latestCreatedExecutions"),
             ),
             launch_stage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchStage").unwrap(),
+                o.extract_field("launchStage"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             observed_generation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("observedGeneration").unwrap(),
+                o.extract_field("observedGeneration"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             reconciling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reconciling").unwrap(),
+                o.extract_field("reconciling"),
             ),
             run_execution_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runExecutionToken").unwrap(),
+                o.extract_field("runExecutionToken"),
             ),
             start_execution_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startExecutionToken").unwrap(),
+                o.extract_field("startExecutionToken"),
             ),
             templates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templates").unwrap(),
+                o.extract_field("templates"),
             ),
             terminal_conditions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("terminalConditions").unwrap(),
+                o.extract_field("terminalConditions"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

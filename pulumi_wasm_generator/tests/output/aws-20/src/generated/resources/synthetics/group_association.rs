@@ -75,39 +75,20 @@ pub mod group_association {
                     value: &group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "canaryArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GroupAssociationResult {
             canary_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("canaryArn").unwrap(),
+                o.extract_field("canaryArn"),
             ),
             group_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupArn").unwrap(),
+                o.extract_field("groupArn"),
             ),
             group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupId").unwrap(),
+                o.extract_field("groupId"),
             ),
             group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupName").unwrap(),
+                o.extract_field("groupName"),
             ),
         }
     }

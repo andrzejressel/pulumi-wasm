@@ -263,112 +263,51 @@ pub mod channels_registration {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cmkKeyVaultUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "developerAppInsightsApiKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "developerAppInsightsApplicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "developerAppInsightsKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "iconUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "microsoftAppId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamingEndpointEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ChannelsRegistrationResult {
             cmk_key_vault_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cmkKeyVaultUrl").unwrap(),
+                o.extract_field("cmkKeyVaultUrl"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             developer_app_insights_api_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("developerAppInsightsApiKey").unwrap(),
+                o.extract_field("developerAppInsightsApiKey"),
             ),
             developer_app_insights_application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("developerAppInsightsApplicationId").unwrap(),
+                o.extract_field("developerAppInsightsApplicationId"),
             ),
             developer_app_insights_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("developerAppInsightsKey").unwrap(),
+                o.extract_field("developerAppInsightsKey"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             icon_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iconUrl").unwrap(),
+                o.extract_field("iconUrl"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             microsoft_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("microsoftAppId").unwrap(),
+                o.extract_field("microsoftAppId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
             streaming_endpoint_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamingEndpointEnabled").unwrap(),
+                o.extract_field("streamingEndpointEnabled"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

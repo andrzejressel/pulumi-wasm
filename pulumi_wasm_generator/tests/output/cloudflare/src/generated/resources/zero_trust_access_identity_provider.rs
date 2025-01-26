@@ -175,52 +175,21 @@ pub mod zero_trust_access_identity_provider {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "configs".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "scimConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZeroTrustAccessIdentityProviderResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configs").unwrap(),
+                o.extract_field("configs"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             scim_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scimConfigs").unwrap(),
+                o.extract_field("scimConfigs"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

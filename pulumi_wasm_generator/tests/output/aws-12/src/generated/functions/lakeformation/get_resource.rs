@@ -37,37 +37,16 @@ pub mod get_resource {
                     value: &arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModified".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetResourceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             last_modified: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModified").unwrap(),
+                o.extract_field("lastModified"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
         }
     }

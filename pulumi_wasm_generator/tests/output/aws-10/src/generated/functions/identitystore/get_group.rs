@@ -90,61 +90,28 @@ pub mod get_group {
                     value: &identity_store_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alternateIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityStoreId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetGroupResult {
             alternate_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alternateIdentifier").unwrap(),
+                o.extract_field("alternateIdentifier"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             external_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalIds").unwrap(),
+                o.extract_field("externalIds"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
             group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupId").unwrap(),
+                o.extract_field("groupId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identity_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityStoreId").unwrap(),
+                o.extract_field("identityStoreId"),
             ),
         }
     }

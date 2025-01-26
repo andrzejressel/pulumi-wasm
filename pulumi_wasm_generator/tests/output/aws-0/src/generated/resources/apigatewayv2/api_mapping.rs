@@ -97,40 +97,17 @@ pub mod api_mapping {
                     value: &stage_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiMappingKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "stage".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiMappingResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiId").unwrap(),
-            ),
+            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
             api_mapping_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiMappingKey").unwrap(),
+                o.extract_field("apiMappingKey"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
-            stage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stage").unwrap(),
-            ),
+            stage: pulumi_wasm_rust::__private::into_domain(o.extract_field("stage")),
         }
     }
 }

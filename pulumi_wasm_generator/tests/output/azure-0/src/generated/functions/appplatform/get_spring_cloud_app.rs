@@ -72,78 +72,34 @@ pub mod get_spring_cloud_app {
                     value: &service_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "isPublic".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "persistentDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSpringCloudAppResult {
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
             https_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsOnly").unwrap(),
+                o.extract_field("httpsOnly"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             is_public: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isPublic").unwrap(),
+                o.extract_field("isPublic"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             persistent_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("persistentDisks").unwrap(),
+                o.extract_field("persistentDisks"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceName").unwrap(),
+                o.extract_field("serviceName"),
             ),
             tls_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsEnabled").unwrap(),
+                o.extract_field("tlsEnabled"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(hashmap.remove("url").unwrap()),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

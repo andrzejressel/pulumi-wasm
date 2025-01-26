@@ -120,230 +120,103 @@ pub mod get_exadata_infrastructure {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activatedStorageCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "additionalStorageCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "availableStorageSizeInGbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpuCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerContacts".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataStorageSizeInTbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbNodeStorageSizeInGbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbServerVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "estimatedPatchingTimes".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastMaintenanceRunId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecycleDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecycleState".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceWindows".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxCpuCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxDataStorageInTbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxDbNodeStorageSizeInGbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxMemoryInGbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "memorySizeInGbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "monthlyDbServerVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "monthlyStorageServerVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextMaintenanceRunId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ociUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "ocid".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "shape".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageServerVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeCreated".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalStorageSizeInGbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetExadataInfrastructureResult {
             activated_storage_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activatedStorageCount").unwrap(),
+                o.extract_field("activatedStorageCount"),
             ),
             additional_storage_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalStorageCount").unwrap(),
+                o.extract_field("additionalStorageCount"),
             ),
             available_storage_size_in_gbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availableStorageSizeInGbs").unwrap(),
+                o.extract_field("availableStorageSizeInGbs"),
             ),
             compute_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeCount").unwrap(),
+                o.extract_field("computeCount"),
             ),
             cpu_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpuCount").unwrap(),
+                o.extract_field("cpuCount"),
             ),
             customer_contacts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerContacts").unwrap(),
+                o.extract_field("customerContacts"),
             ),
             data_storage_size_in_tbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataStorageSizeInTbs").unwrap(),
+                o.extract_field("dataStorageSizeInTbs"),
             ),
             db_node_storage_size_in_gbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbNodeStorageSizeInGbs").unwrap(),
+                o.extract_field("dbNodeStorageSizeInGbs"),
             ),
             db_server_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbServerVersion").unwrap(),
+                o.extract_field("dbServerVersion"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             estimated_patching_times: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("estimatedPatchingTimes").unwrap(),
+                o.extract_field("estimatedPatchingTimes"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             last_maintenance_run_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastMaintenanceRunId").unwrap(),
+                o.extract_field("lastMaintenanceRunId"),
             ),
             lifecycle_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecycleDetails").unwrap(),
+                o.extract_field("lifecycleDetails"),
             ),
             lifecycle_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecycleState").unwrap(),
+                o.extract_field("lifecycleState"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maintenance_windows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceWindows").unwrap(),
+                o.extract_field("maintenanceWindows"),
             ),
             max_cpu_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxCpuCount").unwrap(),
+                o.extract_field("maxCpuCount"),
             ),
             max_data_storage_in_tbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxDataStorageInTbs").unwrap(),
+                o.extract_field("maxDataStorageInTbs"),
             ),
             max_db_node_storage_size_in_gbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxDbNodeStorageSizeInGbs").unwrap(),
+                o.extract_field("maxDbNodeStorageSizeInGbs"),
             ),
             max_memory_in_gbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxMemoryInGbs").unwrap(),
+                o.extract_field("maxMemoryInGbs"),
             ),
             memory_size_in_gbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memorySizeInGbs").unwrap(),
+                o.extract_field("memorySizeInGbs"),
             ),
             monthly_db_server_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monthlyDbServerVersion").unwrap(),
+                o.extract_field("monthlyDbServerVersion"),
             ),
             monthly_storage_server_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monthlyStorageServerVersion").unwrap(),
+                o.extract_field("monthlyStorageServerVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             next_maintenance_run_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextMaintenanceRunId").unwrap(),
+                o.extract_field("nextMaintenanceRunId"),
             ),
-            oci_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ociUrl").unwrap(),
-            ),
-            ocid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ocid").unwrap(),
-            ),
+            oci_url: pulumi_wasm_rust::__private::into_domain(o.extract_field("ociUrl")),
+            ocid: pulumi_wasm_rust::__private::into_domain(o.extract_field("ocid")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            shape: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shape").unwrap(),
-            ),
+            shape: pulumi_wasm_rust::__private::into_domain(o.extract_field("shape")),
             storage_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageCount").unwrap(),
+                o.extract_field("storageCount"),
             ),
             storage_server_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageServerVersion").unwrap(),
+                o.extract_field("storageServerVersion"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             time_created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeCreated").unwrap(),
+                o.extract_field("timeCreated"),
             ),
             total_storage_size_in_gbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalStorageSizeInGbs").unwrap(),
+                o.extract_field("totalStorageSizeInGbs"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

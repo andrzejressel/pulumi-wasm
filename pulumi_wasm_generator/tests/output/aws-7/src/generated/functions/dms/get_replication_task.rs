@@ -73,97 +73,44 @@ pub mod get_replication_task {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cdcStartPosition".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdcStartTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "migrationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationInstanceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationTaskArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationTaskId".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationTaskSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceEndpointArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "startReplicationTask".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableMappings".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetEndpointArn".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetReplicationTaskResult {
             cdc_start_position: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdcStartPosition").unwrap(),
+                o.extract_field("cdcStartPosition"),
             ),
             cdc_start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdcStartTime").unwrap(),
+                o.extract_field("cdcStartTime"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             migration_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("migrationType").unwrap(),
+                o.extract_field("migrationType"),
             ),
             replication_instance_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationInstanceArn").unwrap(),
+                o.extract_field("replicationInstanceArn"),
             ),
             replication_task_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationTaskArn").unwrap(),
+                o.extract_field("replicationTaskArn"),
             ),
             replication_task_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationTaskId").unwrap(),
+                o.extract_field("replicationTaskId"),
             ),
             replication_task_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationTaskSettings").unwrap(),
+                o.extract_field("replicationTaskSettings"),
             ),
             source_endpoint_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceEndpointArn").unwrap(),
+                o.extract_field("sourceEndpointArn"),
             ),
             start_replication_task: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startReplicationTask").unwrap(),
+                o.extract_field("startReplicationTask"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             table_mappings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableMappings").unwrap(),
+                o.extract_field("tableMappings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             target_endpoint_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetEndpointArn").unwrap(),
+                o.extract_field("targetEndpointArn"),
             ),
         }
     }

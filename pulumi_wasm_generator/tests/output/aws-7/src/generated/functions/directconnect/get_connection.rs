@@ -61,80 +61,32 @@ pub mod get_connection {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsDevice".into(),
-                },
-                register_interface::ResultField {
-                    name: "bandwidth".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "providerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vlanId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetConnectionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             aws_device: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsDevice").unwrap(),
+                o.extract_field("awsDevice"),
             ),
             bandwidth: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bandwidth").unwrap(),
+                o.extract_field("bandwidth"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             owner_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerAccountId").unwrap(),
+                o.extract_field("ownerAccountId"),
             ),
             partner_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerName").unwrap(),
+                o.extract_field("partnerName"),
             ),
             provider_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providerName").unwrap(),
+                o.extract_field("providerName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            vlan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vlanId").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            vlan_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vlanId")),
         }
     }
 }

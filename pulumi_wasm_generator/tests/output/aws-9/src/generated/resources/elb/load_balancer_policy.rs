@@ -155,39 +155,20 @@ pub mod load_balancer_policy {
                     value: &policy_type_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "loadBalancerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyTypeName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LoadBalancerPolicyResult {
             load_balancer_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerName").unwrap(),
+                o.extract_field("loadBalancerName"),
             ),
             policy_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyAttributes").unwrap(),
+                o.extract_field("policyAttributes"),
             ),
             policy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyName").unwrap(),
+                o.extract_field("policyName"),
             ),
             policy_type_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyTypeName").unwrap(),
+                o.extract_field("policyTypeName"),
             ),
         }
     }

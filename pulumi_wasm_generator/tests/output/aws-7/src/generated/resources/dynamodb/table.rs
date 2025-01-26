@@ -505,183 +505,84 @@ pub mod table {
                     value: &write_capacity_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "attributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "billingMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtectionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalSecondaryIndexes".into(),
-                },
-                register_interface::ResultField {
-                    name: "hashKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "importTable".into(),
-                },
-                register_interface::ResultField {
-                    name: "localSecondaryIndexes".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "onDemandThroughput".into(),
-                },
-                register_interface::ResultField {
-                    name: "pointInTimeRecovery".into(),
-                },
-                register_interface::ResultField {
-                    name: "rangeKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "readCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicas".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreDateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreSourceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreSourceTableArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreToLatestTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverSideEncryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamLabel".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamViewType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "ttl".into(),
-                },
-                register_interface::ResultField {
-                    name: "writeCapacity".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TableResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attributes").unwrap(),
+                o.extract_field("attributes"),
             ),
             billing_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingMode").unwrap(),
+                o.extract_field("billingMode"),
             ),
             deletion_protection_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtectionEnabled").unwrap(),
+                o.extract_field("deletionProtectionEnabled"),
             ),
             global_secondary_indexes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalSecondaryIndexes").unwrap(),
+                o.extract_field("globalSecondaryIndexes"),
             ),
             hash_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hashKey").unwrap(),
+                o.extract_field("hashKey"),
             ),
             import_table: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importTable").unwrap(),
+                o.extract_field("importTable"),
             ),
             local_secondary_indexes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localSecondaryIndexes").unwrap(),
+                o.extract_field("localSecondaryIndexes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             on_demand_throughput: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onDemandThroughput").unwrap(),
+                o.extract_field("onDemandThroughput"),
             ),
             point_in_time_recovery: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pointInTimeRecovery").unwrap(),
+                o.extract_field("pointInTimeRecovery"),
             ),
             range_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rangeKey").unwrap(),
+                o.extract_field("rangeKey"),
             ),
             read_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readCapacity").unwrap(),
+                o.extract_field("readCapacity"),
             ),
             replicas: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicas").unwrap(),
+                o.extract_field("replicas"),
             ),
             restore_date_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restoreDateTime").unwrap(),
+                o.extract_field("restoreDateTime"),
             ),
             restore_source_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restoreSourceName").unwrap(),
+                o.extract_field("restoreSourceName"),
             ),
             restore_source_table_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restoreSourceTableArn").unwrap(),
+                o.extract_field("restoreSourceTableArn"),
             ),
             restore_to_latest_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restoreToLatestTime").unwrap(),
+                o.extract_field("restoreToLatestTime"),
             ),
             server_side_encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverSideEncryption").unwrap(),
+                o.extract_field("serverSideEncryption"),
             ),
             stream_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamArn").unwrap(),
+                o.extract_field("streamArn"),
             ),
             stream_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamEnabled").unwrap(),
+                o.extract_field("streamEnabled"),
             ),
             stream_label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamLabel").unwrap(),
+                o.extract_field("streamLabel"),
             ),
             stream_view_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamViewType").unwrap(),
+                o.extract_field("streamViewType"),
             ),
             table_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableClass").unwrap(),
+                o.extract_field("tableClass"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ttl").unwrap(),
-            ),
+            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
             write_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("writeCapacity").unwrap(),
+                o.extract_field("writeCapacity"),
             ),
         }
     }

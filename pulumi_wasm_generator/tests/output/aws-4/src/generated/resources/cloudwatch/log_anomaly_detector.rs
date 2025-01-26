@@ -154,75 +154,34 @@ pub mod log_anomaly_detector {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "anomalyVisibilityTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "detectorName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "evaluationFrequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "filterPattern".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "logGroupArnLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LogAnomalyDetectorResult {
             anomaly_visibility_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("anomalyVisibilityTime").unwrap(),
+                o.extract_field("anomalyVisibilityTime"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             detector_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("detectorName").unwrap(),
+                o.extract_field("detectorName"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             evaluation_frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("evaluationFrequency").unwrap(),
+                o.extract_field("evaluationFrequency"),
             ),
             filter_pattern: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filterPattern").unwrap(),
+                o.extract_field("filterPattern"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             log_group_arn_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logGroupArnLists").unwrap(),
+                o.extract_field("logGroupArnLists"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

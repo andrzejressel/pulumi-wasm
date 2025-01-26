@@ -294,129 +294,59 @@ pub mod analytics_workspace {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowResourceOnlyPermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "cmkForQueryForced".into(),
-                },
-                register_interface::ResultField {
-                    name: "dailyQuotaGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataCollectionRuleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "immediateDataPurgeOn30DaysEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "internetIngestionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "internetQueryEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAuthenticationDisabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "primarySharedKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservationCapacityInGbPerDay".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondarySharedKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AnalyticsWorkspaceResult {
             allow_resource_only_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowResourceOnlyPermissions").unwrap(),
+                o.extract_field("allowResourceOnlyPermissions"),
             ),
             cmk_for_query_forced: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cmkForQueryForced").unwrap(),
+                o.extract_field("cmkForQueryForced"),
             ),
             daily_quota_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dailyQuotaGb").unwrap(),
+                o.extract_field("dailyQuotaGb"),
             ),
             data_collection_rule_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataCollectionRuleId").unwrap(),
+                o.extract_field("dataCollectionRuleId"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             immediate_data_purge_on30_days_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("immediateDataPurgeOn30DaysEnabled").unwrap(),
+                o.extract_field("immediateDataPurgeOn30DaysEnabled"),
             ),
             internet_ingestion_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internetIngestionEnabled").unwrap(),
+                o.extract_field("internetIngestionEnabled"),
             ),
             internet_query_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internetQueryEnabled").unwrap(),
+                o.extract_field("internetQueryEnabled"),
             ),
             local_authentication_disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAuthenticationDisabled").unwrap(),
+                o.extract_field("localAuthenticationDisabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             primary_shared_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primarySharedKey").unwrap(),
+                o.extract_field("primarySharedKey"),
             ),
             reservation_capacity_in_gb_per_day: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservationCapacityInGbPerDay").unwrap(),
+                o.extract_field("reservationCapacityInGbPerDay"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             retention_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionInDays").unwrap(),
+                o.extract_field("retentionInDays"),
             ),
             secondary_shared_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondarySharedKey").unwrap(),
+                o.extract_field("secondarySharedKey"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

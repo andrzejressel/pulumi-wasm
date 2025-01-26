@@ -48,49 +48,20 @@ pub mod get_selection {
                     value: &selection_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "iamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "planId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resources".into(),
-                },
-                register_interface::ResultField {
-                    name: "selectionId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSelectionResult {
             iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoleArn").unwrap(),
+                o.extract_field("iamRoleArn"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            plan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("planId").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            plan_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("planId")),
             resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resources").unwrap(),
+                o.extract_field("resources"),
             ),
             selection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selectionId").unwrap(),
+                o.extract_field("selectionId"),
             ),
         }
     }

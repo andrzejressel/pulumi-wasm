@@ -76,27 +76,14 @@ pub mod resolver_query_log_config_association {
                     value: &resource_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "resolverQueryLogConfigId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResolverQueryLogConfigAssociationResult {
             resolver_query_log_config_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resolverQueryLogConfigId").unwrap(),
+                o.extract_field("resolverQueryLogConfigId"),
             ),
             resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceId").unwrap(),
+                o.extract_field("resourceId"),
             ),
         }
     }

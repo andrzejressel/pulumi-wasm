@@ -65,61 +65,26 @@ pub mod get_budget_subscription {
                     value: &subscription_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "amount".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notifications".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeGrain".into(),
-                },
-                register_interface::ResultField {
-                    name: "timePeriods".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBudgetSubscriptionResult {
-            amount: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("amount").unwrap(),
-            ),
+            amount: pulumi_wasm_rust::__private::into_domain(o.extract_field("amount")),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notifications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notifications").unwrap(),
+                o.extract_field("notifications"),
             ),
             subscription_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionId").unwrap(),
+                o.extract_field("subscriptionId"),
             ),
             time_grain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeGrain").unwrap(),
+                o.extract_field("timeGrain"),
             ),
             time_periods: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timePeriods").unwrap(),
+                o.extract_field("timePeriods"),
             ),
         }
     }

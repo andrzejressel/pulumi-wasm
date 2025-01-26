@@ -166,45 +166,23 @@ pub mod managed_instance_active_directory_administrator {
                     value: &tenant_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "azureadAuthenticationOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "loginUsername".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedInstanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedInstanceActiveDirectoryAdministratorResult {
             azuread_authentication_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureadAuthenticationOnly").unwrap(),
+                o.extract_field("azureadAuthenticationOnly"),
             ),
             login_username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loginUsername").unwrap(),
+                o.extract_field("loginUsername"),
             ),
             managed_instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedInstanceId").unwrap(),
+                o.extract_field("managedInstanceId"),
             ),
             object_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectId").unwrap(),
+                o.extract_field("objectId"),
             ),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
         }
     }

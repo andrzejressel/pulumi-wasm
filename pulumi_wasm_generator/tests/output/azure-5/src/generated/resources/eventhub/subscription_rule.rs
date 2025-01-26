@@ -198,57 +198,25 @@ pub mod subscription_rule {
                     value: &subscription_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "correlationFilter".into(),
-                },
-                register_interface::ResultField {
-                    name: "filterType".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlFilter".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlFilterCompatibilityLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SubscriptionRuleResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             correlation_filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("correlationFilter").unwrap(),
+                o.extract_field("correlationFilter"),
             ),
             filter_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filterType").unwrap(),
+                o.extract_field("filterType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             sql_filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlFilter").unwrap(),
+                o.extract_field("sqlFilter"),
             ),
             sql_filter_compatibility_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlFilterCompatibilityLevel").unwrap(),
+                o.extract_field("sqlFilterCompatibilityLevel"),
             ),
             subscription_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionId").unwrap(),
+                o.extract_field("subscriptionId"),
             ),
         }
     }

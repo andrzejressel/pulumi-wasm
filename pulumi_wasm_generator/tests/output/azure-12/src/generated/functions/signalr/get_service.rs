@@ -74,121 +74,56 @@ pub mod get_service {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aadAuthEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAuthEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverlessConnectionTimeoutInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsClientCertEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetServiceResult {
             aad_auth_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aadAuthEnabled").unwrap(),
+                o.extract_field("aadAuthEnabled"),
             ),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
             local_auth_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAuthEnabled").unwrap(),
+                o.extract_field("localAuthEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             primary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryAccessKey").unwrap(),
+                o.extract_field("primaryAccessKey"),
             ),
             primary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryConnectionString").unwrap(),
+                o.extract_field("primaryConnectionString"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             public_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicPort").unwrap(),
+                o.extract_field("publicPort"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAccessKey").unwrap(),
+                o.extract_field("secondaryAccessKey"),
             ),
             secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryConnectionString").unwrap(),
+                o.extract_field("secondaryConnectionString"),
             ),
             server_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverPort").unwrap(),
+                o.extract_field("serverPort"),
             ),
             serverless_connection_timeout_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverlessConnectionTimeoutInSeconds").unwrap(),
+                o.extract_field("serverlessConnectionTimeoutInSeconds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tls_client_cert_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsClientCertEnabled").unwrap(),
+                o.extract_field("tlsClientCertEnabled"),
             ),
         }
     }

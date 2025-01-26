@@ -78,40 +78,19 @@ pub mod network_association {
                     value: &subnet_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "associationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientVpnEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkAssociationResult {
             association_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associationId").unwrap(),
+                o.extract_field("associationId"),
             ),
             client_vpn_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientVpnEndpointId").unwrap(),
+                o.extract_field("clientVpnEndpointId"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

@@ -102,57 +102,27 @@ pub mod hsm {
                     value: &subnet_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "hsmEniId".into(),
-                },
-                register_interface::ResultField {
-                    name: "hsmId".into(),
-                },
-                register_interface::ResultField {
-                    name: "hsmState".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HsmResult {
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
             hsm_eni_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hsmEniId").unwrap(),
+                o.extract_field("hsmEniId"),
             ),
-            hsm_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hsmId").unwrap(),
-            ),
+            hsm_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("hsmId")),
             hsm_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hsmState").unwrap(),
+                o.extract_field("hsmState"),
             ),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
         }
     }

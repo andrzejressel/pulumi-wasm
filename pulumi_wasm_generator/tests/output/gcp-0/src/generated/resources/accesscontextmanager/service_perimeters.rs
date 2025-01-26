@@ -144,27 +144,12 @@ pub mod service_perimeters {
                     value: &service_perimeters_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicePerimeters".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServicePerimetersResult {
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             service_perimeters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicePerimeters").unwrap(),
+                o.extract_field("servicePerimeters"),
             ),
         }
     }

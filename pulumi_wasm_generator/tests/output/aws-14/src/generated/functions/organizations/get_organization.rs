@@ -45,86 +45,39 @@ pub mod get_organization {
             token: "aws:organizations/getOrganization:getOrganization".into(),
             version: super::super::super::get_version(),
             object: Vec::from([]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsServiceAccessPrincipals".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabledPolicyTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "featureSet".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterAccountArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterAccountEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "nonMasterAccounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "roots".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetOrganizationResult {
             accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accounts").unwrap(),
+                o.extract_field("accounts"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             aws_service_access_principals: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsServiceAccessPrincipals").unwrap(),
+                o.extract_field("awsServiceAccessPrincipals"),
             ),
             enabled_policy_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabledPolicyTypes").unwrap(),
+                o.extract_field("enabledPolicyTypes"),
             ),
             feature_set: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("featureSet").unwrap(),
+                o.extract_field("featureSet"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             master_account_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterAccountArn").unwrap(),
+                o.extract_field("masterAccountArn"),
             ),
             master_account_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterAccountEmail").unwrap(),
+                o.extract_field("masterAccountEmail"),
             ),
             master_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterAccountId").unwrap(),
+                o.extract_field("masterAccountId"),
             ),
             master_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterAccountName").unwrap(),
+                o.extract_field("masterAccountName"),
             ),
             non_master_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nonMasterAccounts").unwrap(),
+                o.extract_field("nonMasterAccounts"),
             ),
-            roots: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roots").unwrap(),
-            ),
+            roots: pulumi_wasm_rust::__private::into_domain(o.extract_field("roots")),
         }
     }
 }

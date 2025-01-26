@@ -77,97 +77,48 @@ pub mod get_mount_target {
                     value: &mount_target_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZoneName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "mountTargetDnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "mountTargetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetMountTargetResult {
             access_point_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPointId").unwrap(),
+                o.extract_field("accessPointId"),
             ),
             availability_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZoneId").unwrap(),
+                o.extract_field("availabilityZoneId"),
             ),
             availability_zone_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZoneName").unwrap(),
+                o.extract_field("availabilityZoneName"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             file_system_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemArn").unwrap(),
+                o.extract_field("fileSystemArn"),
             ),
             file_system_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemId").unwrap(),
+                o.extract_field("fileSystemId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
             mount_target_dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mountTargetDnsName").unwrap(),
+                o.extract_field("mountTargetDnsName"),
             ),
             mount_target_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mountTargetId").unwrap(),
+                o.extract_field("mountTargetId"),
             ),
             network_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceId").unwrap(),
+                o.extract_field("networkInterfaceId"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             security_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroups").unwrap(),
+                o.extract_field("securityGroups"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
         }
     }

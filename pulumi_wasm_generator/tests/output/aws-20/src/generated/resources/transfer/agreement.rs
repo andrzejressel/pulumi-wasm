@@ -144,81 +144,35 @@ pub mod agreement {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "agreementId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "baseDirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "localProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverId".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AgreementResult {
             access_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessRole").unwrap(),
+                o.extract_field("accessRole"),
             ),
             agreement_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agreementId").unwrap(),
+                o.extract_field("agreementId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             base_directory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baseDirectory").unwrap(),
+                o.extract_field("baseDirectory"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             local_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localProfileId").unwrap(),
+                o.extract_field("localProfileId"),
             ),
             partner_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerProfileId").unwrap(),
+                o.extract_field("partnerProfileId"),
             ),
             server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverId").unwrap(),
+                o.extract_field("serverId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

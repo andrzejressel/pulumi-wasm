@@ -142,63 +142,26 @@ pub mod mute_config {
                     value: &parent_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "mostRecentEditor".into(),
-                },
-                register_interface::ResultField {
-                    name: "muteConfigId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MuteConfigResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
             most_recent_editor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mostRecentEditor").unwrap(),
+                o.extract_field("mostRecentEditor"),
             ),
             mute_config_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("muteConfigId").unwrap(),
+                o.extract_field("muteConfigId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

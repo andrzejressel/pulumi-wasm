@@ -137,51 +137,24 @@ pub mod configuration_template {
                     value: &solution_stack_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "application".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "settings".into(),
-                },
-                register_interface::ResultField {
-                    name: "solutionStackName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConfigurationTemplateResult {
             application: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("application").unwrap(),
+                o.extract_field("application"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentId").unwrap(),
+                o.extract_field("environmentId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("settings").unwrap(),
+                o.extract_field("settings"),
             ),
             solution_stack_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("solutionStackName").unwrap(),
+                o.extract_field("solutionStackName"),
             ),
         }
     }

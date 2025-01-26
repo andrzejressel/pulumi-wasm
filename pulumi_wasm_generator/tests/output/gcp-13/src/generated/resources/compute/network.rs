@@ -430,117 +430,55 @@ pub mod network {
                     value: &routing_mode_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoCreateSubnetworks".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpAlwaysCompareMed".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpBestPathSelectionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpInterRegionCost".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteDefaultRoutesOnCreate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableUlaInternalIpv6".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayIpv4".into(),
-                },
-                register_interface::ResultField {
-                    name: "internalIpv6Range".into(),
-                },
-                register_interface::ResultField {
-                    name: "mtu".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkFirewallPolicyEnforcementOrder".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "numericId".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkResult {
             auto_create_subnetworks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoCreateSubnetworks").unwrap(),
+                o.extract_field("autoCreateSubnetworks"),
             ),
             bgp_always_compare_med: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpAlwaysCompareMed").unwrap(),
+                o.extract_field("bgpAlwaysCompareMed"),
             ),
             bgp_best_path_selection_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpBestPathSelectionMode").unwrap(),
+                o.extract_field("bgpBestPathSelectionMode"),
             ),
             bgp_inter_region_cost: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpInterRegionCost").unwrap(),
+                o.extract_field("bgpInterRegionCost"),
             ),
             delete_default_routes_on_create: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteDefaultRoutesOnCreate").unwrap(),
+                o.extract_field("deleteDefaultRoutesOnCreate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enable_ula_internal_ipv6: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableUlaInternalIpv6").unwrap(),
+                o.extract_field("enableUlaInternalIpv6"),
             ),
             gateway_ipv4: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayIpv4").unwrap(),
+                o.extract_field("gatewayIpv4"),
             ),
             internal_ipv6_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internalIpv6Range").unwrap(),
+                o.extract_field("internalIpv6Range"),
             ),
-            mtu: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mtu").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            mtu: pulumi_wasm_rust::__private::into_domain(o.extract_field("mtu")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_firewall_policy_enforcement_order: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkFirewallPolicyEnforcementOrder").unwrap(),
+                o.extract_field("networkFirewallPolicyEnforcementOrder"),
             ),
             network_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkProfile").unwrap(),
+                o.extract_field("networkProfile"),
             ),
             numeric_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numericId").unwrap(),
+                o.extract_field("numericId"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             routing_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingMode").unwrap(),
+                o.extract_field("routingMode"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
         }
     }

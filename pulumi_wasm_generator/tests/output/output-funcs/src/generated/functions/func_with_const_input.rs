@@ -28,7 +28,6 @@ pub mod func_with_const_input {
                     value: &plain_input_binding,
                 },
             ]),
-            results: Vec::from([]),
         };
         register_interface::invoke(context.get_inner(), &request);
     }

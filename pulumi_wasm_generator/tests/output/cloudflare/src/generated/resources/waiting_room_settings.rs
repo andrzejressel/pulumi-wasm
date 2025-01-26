@@ -72,28 +72,13 @@ pub mod waiting_room_settings {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "searchEngineCrawlerBypass".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WaitingRoomSettingsResult {
             search_engine_crawler_bypass: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("searchEngineCrawlerBypass").unwrap(),
+                o.extract_field("searchEngineCrawlerBypass"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

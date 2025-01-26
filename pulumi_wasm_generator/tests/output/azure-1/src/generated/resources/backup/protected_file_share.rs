@@ -164,45 +164,23 @@ pub mod protected_file_share {
                     value: &source_storage_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupPolicyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryVaultName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceFileShareName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceStorageAccountId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProtectedFileShareResult {
             backup_policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupPolicyId").unwrap(),
+                o.extract_field("backupPolicyId"),
             ),
             recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryVaultName").unwrap(),
+                o.extract_field("recoveryVaultName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             source_file_share_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceFileShareName").unwrap(),
+                o.extract_field("sourceFileShareName"),
             ),
             source_storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceStorageAccountId").unwrap(),
+                o.extract_field("sourceStorageAccountId"),
             ),
         }
     }

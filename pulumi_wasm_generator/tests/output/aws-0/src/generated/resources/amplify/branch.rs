@@ -384,152 +384,68 @@ pub mod branch {
                     value: &ttl_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "associatedResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendEnvironmentArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "basicAuthCredentials".into(),
-                },
-                register_interface::ResultField {
-                    name: "branchName".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDomains".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationBranch".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableAutoBuild".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableBasicAuth".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableNotification".into(),
-                },
-                register_interface::ResultField {
-                    name: "enablePerformanceMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "enablePullRequestPreview".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentVariables".into(),
-                },
-                register_interface::ResultField {
-                    name: "framework".into(),
-                },
-                register_interface::ResultField {
-                    name: "pullRequestEnvironmentName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceBranch".into(),
-                },
-                register_interface::ResultField {
-                    name: "stage".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "ttl".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BranchResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appId").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             associated_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associatedResources").unwrap(),
+                o.extract_field("associatedResources"),
             ),
             backend_environment_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendEnvironmentArn").unwrap(),
+                o.extract_field("backendEnvironmentArn"),
             ),
             basic_auth_credentials: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("basicAuthCredentials").unwrap(),
+                o.extract_field("basicAuthCredentials"),
             ),
             branch_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("branchName").unwrap(),
+                o.extract_field("branchName"),
             ),
             custom_domains: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomains").unwrap(),
+                o.extract_field("customDomains"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             destination_branch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationBranch").unwrap(),
+                o.extract_field("destinationBranch"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enable_auto_build: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableAutoBuild").unwrap(),
+                o.extract_field("enableAutoBuild"),
             ),
             enable_basic_auth: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableBasicAuth").unwrap(),
+                o.extract_field("enableBasicAuth"),
             ),
             enable_notification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableNotification").unwrap(),
+                o.extract_field("enableNotification"),
             ),
             enable_performance_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enablePerformanceMode").unwrap(),
+                o.extract_field("enablePerformanceMode"),
             ),
             enable_pull_request_preview: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enablePullRequestPreview").unwrap(),
+                o.extract_field("enablePullRequestPreview"),
             ),
             environment_variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentVariables").unwrap(),
+                o.extract_field("environmentVariables"),
             ),
             framework: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("framework").unwrap(),
+                o.extract_field("framework"),
             ),
             pull_request_environment_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pullRequestEnvironmentName").unwrap(),
+                o.extract_field("pullRequestEnvironmentName"),
             ),
             source_branch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceBranch").unwrap(),
+                o.extract_field("sourceBranch"),
             ),
-            stage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stage").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            stage: pulumi_wasm_rust::__private::into_domain(o.extract_field("stage")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            ttl: pulumi_wasm_rust::__private::into_domain(hashmap.remove("ttl").unwrap()),
+            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
         }
     }
 }

@@ -87,45 +87,23 @@ pub mod zero_trust_tunnel_route {
                     value: &virtual_network_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnelId".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZeroTrustTunnelRouteResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             tunnel_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnelId").unwrap(),
+                o.extract_field("tunnelId"),
             ),
             virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkId").unwrap(),
+                o.extract_field("virtualNetworkId"),
             ),
         }
     }

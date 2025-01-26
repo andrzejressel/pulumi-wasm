@@ -143,70 +143,28 @@ pub mod analytics_item {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationInsightsId".into(),
-                },
-                register_interface::ResultField {
-                    name: "content".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeCreated".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeModified".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AnalyticsItemResult {
             application_insights_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationInsightsId").unwrap(),
+                o.extract_field("applicationInsightsId"),
             ),
             content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("content").unwrap(),
+                o.extract_field("content"),
             ),
             function_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionAlias").unwrap(),
+                o.extract_field("functionAlias"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
             time_created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeCreated").unwrap(),
+                o.extract_field("timeCreated"),
             ),
             time_modified: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeModified").unwrap(),
+                o.extract_field("timeModified"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

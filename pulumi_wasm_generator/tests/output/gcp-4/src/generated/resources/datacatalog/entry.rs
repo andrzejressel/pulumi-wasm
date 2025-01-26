@@ -307,99 +307,44 @@ pub mod entry {
                     value: &user_specified_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bigqueryDateShardedSpecs".into(),
-                },
-                register_interface::ResultField {
-                    name: "bigqueryTableSpecs".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "entryGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "entryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "gcsFilesetSpec".into(),
-                },
-                register_interface::ResultField {
-                    name: "integratedSystem".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkedResource".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "schema".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "userSpecifiedSystem".into(),
-                },
-                register_interface::ResultField {
-                    name: "userSpecifiedType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EntryResult {
             bigquery_date_sharded_specs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bigqueryDateShardedSpecs").unwrap(),
+                o.extract_field("bigqueryDateShardedSpecs"),
             ),
             bigquery_table_specs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bigqueryTableSpecs").unwrap(),
+                o.extract_field("bigqueryTableSpecs"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             entry_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entryGroup").unwrap(),
+                o.extract_field("entryGroup"),
             ),
             entry_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entryId").unwrap(),
+                o.extract_field("entryId"),
             ),
             gcs_fileset_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gcsFilesetSpec").unwrap(),
+                o.extract_field("gcsFilesetSpec"),
             ),
             integrated_system: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integratedSystem").unwrap(),
+                o.extract_field("integratedSystem"),
             ),
             linked_resource: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedResource").unwrap(),
+                o.extract_field("linkedResource"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            schema: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schema").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            schema: pulumi_wasm_rust::__private::into_domain(o.extract_field("schema")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             user_specified_system: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userSpecifiedSystem").unwrap(),
+                o.extract_field("userSpecifiedSystem"),
             ),
             user_specified_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userSpecifiedType").unwrap(),
+                o.extract_field("userSpecifiedType"),
             ),
         }
     }

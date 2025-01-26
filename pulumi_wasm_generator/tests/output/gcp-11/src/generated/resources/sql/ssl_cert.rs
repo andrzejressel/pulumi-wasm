@@ -110,75 +110,36 @@ pub mod ssl_cert {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cert".into(),
-                },
-                register_interface::ResultField {
-                    name: "certSerialNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "commonName".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "instance".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverCaCert".into(),
-                },
-                register_interface::ResultField {
-                    name: "sha1Fingerprint".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SslCertResult {
-            cert: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cert").unwrap(),
-            ),
+            cert: pulumi_wasm_rust::__private::into_domain(o.extract_field("cert")),
             cert_serial_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certSerialNumber").unwrap(),
+                o.extract_field("certSerialNumber"),
             ),
             common_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("commonName").unwrap(),
+                o.extract_field("commonName"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             expiration_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationTime").unwrap(),
+                o.extract_field("expirationTime"),
             ),
             instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instance").unwrap(),
+                o.extract_field("instance"),
             ),
             private_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateKey").unwrap(),
+                o.extract_field("privateKey"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             server_ca_cert: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverCaCert").unwrap(),
+                o.extract_field("serverCaCert"),
             ),
             sha1_fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sha1Fingerprint").unwrap(),
+                o.extract_field("sha1Fingerprint"),
             ),
         }
     }

@@ -212,82 +212,38 @@ pub mod sql_pool {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "collation".into(),
-                },
-                register_interface::ResultField {
-                    name: "createMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataEncrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "geoBackupPolicyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryDatabaseId".into(),
-                },
-                register_interface::ResultField {
-                    name: "restore".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountType".into(),
-                },
-                register_interface::ResultField {
-                    name: "synapseWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SqlPoolResult {
             collation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("collation").unwrap(),
+                o.extract_field("collation"),
             ),
             create_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createMode").unwrap(),
+                o.extract_field("createMode"),
             ),
             data_encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataEncrypted").unwrap(),
+                o.extract_field("dataEncrypted"),
             ),
             geo_backup_policy_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("geoBackupPolicyEnabled").unwrap(),
+                o.extract_field("geoBackupPolicyEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             recovery_database_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryDatabaseId").unwrap(),
+                o.extract_field("recoveryDatabaseId"),
             ),
             restore: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restore").unwrap(),
+                o.extract_field("restore"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             storage_account_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountType").unwrap(),
+                o.extract_field("storageAccountType"),
             ),
             synapse_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("synapseWorkspaceId").unwrap(),
+                o.extract_field("synapseWorkspaceId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

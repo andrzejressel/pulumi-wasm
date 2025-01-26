@@ -297,130 +297,60 @@ pub mod frontdoor {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backendPoolHealthProbes".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendPoolHealthProbesMap".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendPoolLoadBalancingSettingsMap".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendPoolLoadBalancings".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendPoolSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendPools".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendPoolsMap".into(),
-                },
-                register_interface::ResultField {
-                    name: "cname".into(),
-                },
-                register_interface::ResultField {
-                    name: "explicitResourceOrders".into(),
-                },
-                register_interface::ResultField {
-                    name: "friendlyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendEndpointsMap".into(),
-                },
-                register_interface::ResultField {
-                    name: "headerFrontdoorId".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancerEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingRulesMap".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FrontdoorResult {
             backend_pool_health_probes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendPoolHealthProbes").unwrap(),
+                o.extract_field("backendPoolHealthProbes"),
             ),
             backend_pool_health_probes_map: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendPoolHealthProbesMap").unwrap(),
+                o.extract_field("backendPoolHealthProbesMap"),
             ),
             backend_pool_load_balancing_settings_map: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendPoolLoadBalancingSettingsMap").unwrap(),
+                o.extract_field("backendPoolLoadBalancingSettingsMap"),
             ),
             backend_pool_load_balancings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendPoolLoadBalancings").unwrap(),
+                o.extract_field("backendPoolLoadBalancings"),
             ),
             backend_pool_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendPoolSettings").unwrap(),
+                o.extract_field("backendPoolSettings"),
             ),
             backend_pools: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendPools").unwrap(),
+                o.extract_field("backendPools"),
             ),
             backend_pools_map: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendPoolsMap").unwrap(),
+                o.extract_field("backendPoolsMap"),
             ),
-            cname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cname").unwrap(),
-            ),
+            cname: pulumi_wasm_rust::__private::into_domain(o.extract_field("cname")),
             explicit_resource_orders: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("explicitResourceOrders").unwrap(),
+                o.extract_field("explicitResourceOrders"),
             ),
             friendly_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("friendlyName").unwrap(),
+                o.extract_field("friendlyName"),
             ),
             frontend_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendEndpoints").unwrap(),
+                o.extract_field("frontendEndpoints"),
             ),
             frontend_endpoints_map: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendEndpointsMap").unwrap(),
+                o.extract_field("frontendEndpointsMap"),
             ),
             header_frontdoor_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("headerFrontdoorId").unwrap(),
+                o.extract_field("headerFrontdoorId"),
             ),
             load_balancer_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerEnabled").unwrap(),
+                o.extract_field("loadBalancerEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             routing_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingRules").unwrap(),
+                o.extract_field("routingRules"),
             ),
             routing_rules_map: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingRulesMap").unwrap(),
+                o.extract_field("routingRulesMap"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

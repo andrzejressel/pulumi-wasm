@@ -179,105 +179,47 @@ pub mod subscriber {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessType".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceShareArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceShareName".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3BucketArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriberDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriberEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriberIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriberName".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriberStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SubscriberResult {
             access_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessType").unwrap(),
+                o.extract_field("accessType"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             resource_share_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceShareArn").unwrap(),
+                o.extract_field("resourceShareArn"),
             ),
             resource_share_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceShareName").unwrap(),
+                o.extract_field("resourceShareName"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             s3_bucket_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3BucketArn").unwrap(),
+                o.extract_field("s3BucketArn"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
             subscriber_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriberDescription").unwrap(),
+                o.extract_field("subscriberDescription"),
             ),
             subscriber_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriberEndpoint").unwrap(),
+                o.extract_field("subscriberEndpoint"),
             ),
             subscriber_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriberIdentity").unwrap(),
+                o.extract_field("subscriberIdentity"),
             ),
             subscriber_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriberName").unwrap(),
+                o.extract_field("subscriberName"),
             ),
             subscriber_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriberStatus").unwrap(),
+                o.extract_field("subscriberStatus"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

@@ -178,63 +178,28 @@ pub mod email_identity {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationSetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dkimSigningAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "verifiedForSendingStatus".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EmailIdentityResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             configuration_set_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationSetName").unwrap(),
+                o.extract_field("configurationSetName"),
             ),
             dkim_signing_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dkimSigningAttributes").unwrap(),
+                o.extract_field("dkimSigningAttributes"),
             ),
             email_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailIdentity").unwrap(),
+                o.extract_field("emailIdentity"),
             ),
             identity_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityType").unwrap(),
+                o.extract_field("identityType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             verified_for_sending_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verifiedForSendingStatus").unwrap(),
+                o.extract_field("verifiedForSendingStatus"),
             ),
         }
     }

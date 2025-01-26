@@ -156,57 +156,21 @@ pub mod cache_policy {
                     value: &parameters_in_cache_key_and_forwarded_to_origin_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultTtl".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxTtl".into(),
-                },
-                register_interface::ResultField {
-                    name: "minTtl".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parametersInCacheKeyAndForwardedToOrigin".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CachePolicyResult {
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
             default_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultTtl").unwrap(),
+                o.extract_field("defaultTtl"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            max_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxTtl").unwrap(),
-            ),
-            min_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minTtl").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            max_ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("maxTtl")),
+            min_ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("minTtl")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parameters_in_cache_key_and_forwarded_to_origin: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parametersInCacheKeyAndForwardedToOrigin").unwrap(),
+                o.extract_field("parametersInCacheKeyAndForwardedToOrigin"),
             ),
         }
     }

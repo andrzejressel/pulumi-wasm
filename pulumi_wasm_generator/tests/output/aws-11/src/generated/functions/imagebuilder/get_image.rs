@@ -83,116 +83,50 @@ pub mod get_image {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "buildVersionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerRecipeArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "dateCreated".into(),
-                },
-                register_interface::ResultField {
-                    name: "distributionConfigurationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "enhancedImageMetadataEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageRecipeArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageScanningConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageTestsConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "infrastructureConfigurationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "osVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "platform".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetImageResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             build_version_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("buildVersionArn").unwrap(),
+                o.extract_field("buildVersionArn"),
             ),
             container_recipe_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerRecipeArn").unwrap(),
+                o.extract_field("containerRecipeArn"),
             ),
             date_created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dateCreated").unwrap(),
+                o.extract_field("dateCreated"),
             ),
             distribution_configuration_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("distributionConfigurationArn").unwrap(),
+                o.extract_field("distributionConfigurationArn"),
             ),
             enhanced_image_metadata_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enhancedImageMetadataEnabled").unwrap(),
+                o.extract_field("enhancedImageMetadataEnabled"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             image_recipe_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageRecipeArn").unwrap(),
+                o.extract_field("imageRecipeArn"),
             ),
             image_scanning_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageScanningConfigurations").unwrap(),
+                o.extract_field("imageScanningConfigurations"),
             ),
             image_tests_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageTestsConfigurations").unwrap(),
+                o.extract_field("imageTestsConfigurations"),
             ),
             infrastructure_configuration_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("infrastructureConfigurationArn").unwrap(),
+                o.extract_field("infrastructureConfigurationArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             os_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osVersion").unwrap(),
+                o.extract_field("osVersion"),
             ),
             output_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputResources").unwrap(),
+                o.extract_field("outputResources"),
             ),
             platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platform").unwrap(),
+                o.extract_field("platform"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

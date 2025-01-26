@@ -212,111 +212,46 @@ pub mod kx_dataview {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoUpdate".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "azMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "changesetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "readWrite".into(),
-                },
-                register_interface::ResultField {
-                    name: "segmentConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KxDataviewResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_update: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoUpdate").unwrap(),
+                o.extract_field("autoUpdate"),
             ),
             availability_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZoneId").unwrap(),
+                o.extract_field("availabilityZoneId"),
             ),
-            az_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azMode").unwrap(),
-            ),
+            az_mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("azMode")),
             changeset_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("changesetId").unwrap(),
+                o.extract_field("changesetId"),
             ),
             created_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTimestamp").unwrap(),
+                o.extract_field("createdTimestamp"),
             ),
             database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseName").unwrap(),
+                o.extract_field("databaseName"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentId").unwrap(),
+                o.extract_field("environmentId"),
             ),
             last_modified_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedTimestamp").unwrap(),
+                o.extract_field("lastModifiedTimestamp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             read_write: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readWrite").unwrap(),
+                o.extract_field("readWrite"),
             ),
             segment_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("segmentConfigurations").unwrap(),
+                o.extract_field("segmentConfigurations"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

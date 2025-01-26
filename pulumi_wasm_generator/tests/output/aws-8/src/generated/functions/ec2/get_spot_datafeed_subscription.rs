@@ -22,32 +22,12 @@ pub mod get_spot_datafeed_subscription {
                 .into(),
             version: super::super::super::get_version(),
             object: Vec::from([]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefix".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSpotDatafeedSubscriptionResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefix").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
         }
     }
 }

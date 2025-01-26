@@ -135,69 +135,27 @@ pub mod usage_limit {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "amount".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "breachAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "featureType".into(),
-                },
-                register_interface::ResultField {
-                    name: "limitType".into(),
-                },
-                register_interface::ResultField {
-                    name: "period".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UsageLimitResult {
-            amount: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("amount").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            amount: pulumi_wasm_rust::__private::into_domain(o.extract_field("amount")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             breach_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("breachAction").unwrap(),
+                o.extract_field("breachAction"),
             ),
             cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterIdentifier").unwrap(),
+                o.extract_field("clusterIdentifier"),
             ),
             feature_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("featureType").unwrap(),
+                o.extract_field("featureType"),
             ),
             limit_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("limitType").unwrap(),
+                o.extract_field("limitType"),
             ),
-            period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("period").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            period: pulumi_wasm_rust::__private::into_domain(o.extract_field("period")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

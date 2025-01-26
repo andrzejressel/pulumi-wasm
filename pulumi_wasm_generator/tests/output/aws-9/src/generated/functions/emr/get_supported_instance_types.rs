@@ -57,31 +57,15 @@ pub mod get_supported_instance_types {
                     value: &supported_instance_types_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseLabel".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedInstanceTypes".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSupportedInstanceTypesResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             release_label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseLabel").unwrap(),
+                o.extract_field("releaseLabel"),
             ),
             supported_instance_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedInstanceTypes").unwrap(),
+                o.extract_field("supportedInstanceTypes"),
             ),
         }
     }

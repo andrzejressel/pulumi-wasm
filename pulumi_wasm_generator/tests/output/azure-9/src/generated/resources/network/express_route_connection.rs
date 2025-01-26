@@ -245,69 +245,33 @@ pub mod express_route_connection {
                     value: &routing_weight_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authorizationKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableInternetSecurity".into(),
-                },
-                register_interface::ResultField {
-                    name: "expressRouteCircuitPeeringId".into(),
-                },
-                register_interface::ResultField {
-                    name: "expressRouteGatewayBypassEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "expressRouteGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateLinkFastPathEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "routing".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingWeight".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ExpressRouteConnectionResult {
             authorization_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationKey").unwrap(),
+                o.extract_field("authorizationKey"),
             ),
             enable_internet_security: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableInternetSecurity").unwrap(),
+                o.extract_field("enableInternetSecurity"),
             ),
             express_route_circuit_peering_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expressRouteCircuitPeeringId").unwrap(),
+                o.extract_field("expressRouteCircuitPeeringId"),
             ),
             express_route_gateway_bypass_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expressRouteGatewayBypassEnabled").unwrap(),
+                o.extract_field("expressRouteGatewayBypassEnabled"),
             ),
             express_route_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expressRouteGatewayId").unwrap(),
+                o.extract_field("expressRouteGatewayId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_link_fast_path_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateLinkFastPathEnabled").unwrap(),
+                o.extract_field("privateLinkFastPathEnabled"),
             ),
             routing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routing").unwrap(),
+                o.extract_field("routing"),
             ),
             routing_weight: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingWeight").unwrap(),
+                o.extract_field("routingWeight"),
             ),
         }
     }

@@ -118,45 +118,21 @@ pub mod domain_permissions {
                     value: &policy_revision_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyDocument".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyRevision".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainPermissionsResult {
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             domain_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainOwner").unwrap(),
+                o.extract_field("domainOwner"),
             ),
             policy_document: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDocument").unwrap(),
+                o.extract_field("policyDocument"),
             ),
             policy_revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyRevision").unwrap(),
+                o.extract_field("policyRevision"),
             ),
             resource_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceArn").unwrap(),
+                o.extract_field("resourceArn"),
             ),
         }
     }

@@ -61,85 +61,36 @@ pub mod get_firewall_policy {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "basePolicyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "childPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "dns".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewalls".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleCollectionGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "threatIntelligenceAllowlists".into(),
-                },
-                register_interface::ResultField {
-                    name: "threatIntelligenceMode".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetFirewallPolicyResult {
             base_policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("basePolicyId").unwrap(),
+                o.extract_field("basePolicyId"),
             ),
             child_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("childPolicies").unwrap(),
+                o.extract_field("childPolicies"),
             ),
-            dns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dns").unwrap(),
-            ),
+            dns: pulumi_wasm_rust::__private::into_domain(o.extract_field("dns")),
             firewalls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewalls").unwrap(),
+                o.extract_field("firewalls"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             rule_collection_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleCollectionGroups").unwrap(),
+                o.extract_field("ruleCollectionGroups"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             threat_intelligence_allowlists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("threatIntelligenceAllowlists").unwrap(),
+                o.extract_field("threatIntelligenceAllowlists"),
             ),
             threat_intelligence_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("threatIntelligenceMode").unwrap(),
+                o.extract_field("threatIntelligenceMode"),
             ),
         }
     }

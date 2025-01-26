@@ -19,31 +19,15 @@ pub mod get_lbip_ranges {
             token: "gcp:compute/getLBIPRanges:getLBIPRanges".into(),
             version: super::super::super::get_version(),
             object: Vec::from([]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "httpSslTcpInternals".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "networks".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetLbipRangesResult {
             http_ssl_tcp_internals: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpSslTcpInternals").unwrap(),
+                o.extract_field("httpSslTcpInternals"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             networks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networks").unwrap(),
+                o.extract_field("networks"),
             ),
         }
     }

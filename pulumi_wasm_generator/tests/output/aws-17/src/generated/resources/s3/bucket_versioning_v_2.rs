@@ -191,39 +191,16 @@ pub mod bucket_versioning_v_2 {
                     value: &versioning_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "expectedBucketOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "mfa".into(),
-                },
-                register_interface::ResultField {
-                    name: "versioningConfiguration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketVersioningV2Result {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expectedBucketOwner").unwrap(),
+                o.extract_field("expectedBucketOwner"),
             ),
-            mfa: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mfa").unwrap(),
-            ),
+            mfa: pulumi_wasm_rust::__private::into_domain(o.extract_field("mfa")),
             versioning_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versioningConfiguration").unwrap(),
+                o.extract_field("versioningConfiguration"),
             ),
         }
     }

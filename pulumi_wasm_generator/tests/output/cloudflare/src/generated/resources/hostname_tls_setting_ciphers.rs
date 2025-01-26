@@ -93,52 +93,21 @@ pub mod hostname_tls_setting_ciphers {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "ports".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "values".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HostnameTlsSettingCiphersResult {
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
-            ports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ports").unwrap(),
-            ),
+            ports: pulumi_wasm_rust::__private::into_domain(o.extract_field("ports")),
             updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatedAt").unwrap(),
+                o.extract_field("updatedAt"),
             ),
-            values: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("values").unwrap(),
-            ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            values: pulumi_wasm_rust::__private::into_domain(o.extract_field("values")),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

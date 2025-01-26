@@ -63,56 +63,24 @@ pub mod get_document {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "content".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDocumentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("content").unwrap(),
+                o.extract_field("content"),
             ),
             document_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentFormat").unwrap(),
+                o.extract_field("documentFormat"),
             ),
             document_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentType").unwrap(),
+                o.extract_field("documentType"),
             ),
             document_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentVersion").unwrap(),
+                o.extract_field("documentVersion"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

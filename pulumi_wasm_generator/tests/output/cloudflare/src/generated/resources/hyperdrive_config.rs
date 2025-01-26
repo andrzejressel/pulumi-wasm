@@ -113,45 +113,19 @@ pub mod hyperdrive_config {
                     value: &resource_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "caching".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "origin".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HyperdriveConfigResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             caching: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("caching").unwrap(),
+                o.extract_field("caching"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            origin: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("origin").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            origin: pulumi_wasm_rust::__private::into_domain(o.extract_field("origin")),
             resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceId").unwrap(),
+                o.extract_field("resourceId"),
             ),
         }
     }

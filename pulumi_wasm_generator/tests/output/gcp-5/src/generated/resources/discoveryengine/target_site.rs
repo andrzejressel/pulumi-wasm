@@ -237,99 +237,46 @@ pub mod target_site {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dataStoreId".into(),
-                },
-                register_interface::ResultField {
-                    name: "exactMatch".into(),
-                },
-                register_interface::ResultField {
-                    name: "failureReasons".into(),
-                },
-                register_interface::ResultField {
-                    name: "generatedUriPattern".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexingStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "providedUriPattern".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootDomainUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteVerificationInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetSiteId".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TargetSiteResult {
             data_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataStoreId").unwrap(),
+                o.extract_field("dataStoreId"),
             ),
             exact_match: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exactMatch").unwrap(),
+                o.extract_field("exactMatch"),
             ),
             failure_reasons: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failureReasons").unwrap(),
+                o.extract_field("failureReasons"),
             ),
             generated_uri_pattern: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("generatedUriPattern").unwrap(),
+                o.extract_field("generatedUriPattern"),
             ),
             indexing_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexingStatus").unwrap(),
+                o.extract_field("indexingStatus"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             provided_uri_pattern: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providedUriPattern").unwrap(),
+                o.extract_field("providedUriPattern"),
             ),
             root_domain_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootDomainUri").unwrap(),
+                o.extract_field("rootDomainUri"),
             ),
             site_verification_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteVerificationInfos").unwrap(),
+                o.extract_field("siteVerificationInfos"),
             ),
             target_site_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetSiteId").unwrap(),
+                o.extract_field("targetSiteId"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

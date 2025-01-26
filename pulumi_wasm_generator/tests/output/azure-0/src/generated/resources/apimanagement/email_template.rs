@@ -140,58 +140,26 @@ pub mod email_template {
                     value: &template_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementName".into(),
-                },
-                register_interface::ResultField {
-                    name: "body".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "subject".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateName".into(),
-                },
-                register_interface::ResultField {
-                    name: "title".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EmailTemplateResult {
             api_management_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementName").unwrap(),
+                o.extract_field("apiManagementName"),
             ),
-            body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("body").unwrap(),
-            ),
+            body: pulumi_wasm_rust::__private::into_domain(o.extract_field("body")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             subject: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subject").unwrap(),
+                o.extract_field("subject"),
             ),
             template_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateName").unwrap(),
+                o.extract_field("templateName"),
             ),
-            title: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("title").unwrap(),
-            ),
+            title: pulumi_wasm_rust::__private::into_domain(o.extract_field("title")),
         }
     }
 }

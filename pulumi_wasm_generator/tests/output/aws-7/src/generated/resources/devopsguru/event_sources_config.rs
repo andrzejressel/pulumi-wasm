@@ -69,21 +69,11 @@ pub mod event_sources_config {
                     value: &event_sources_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "eventSources".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventSourcesConfigResult {
             event_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventSources").unwrap(),
+                o.extract_field("eventSources"),
             ),
         }
     }

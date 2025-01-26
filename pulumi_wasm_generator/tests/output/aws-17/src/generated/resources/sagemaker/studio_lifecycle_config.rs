@@ -111,51 +111,22 @@ pub mod studio_lifecycle_config {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "studioLifecycleConfigAppType".into(),
-                },
-                register_interface::ResultField {
-                    name: "studioLifecycleConfigContent".into(),
-                },
-                register_interface::ResultField {
-                    name: "studioLifecycleConfigName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StudioLifecycleConfigResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             studio_lifecycle_config_app_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("studioLifecycleConfigAppType").unwrap(),
+                o.extract_field("studioLifecycleConfigAppType"),
             ),
             studio_lifecycle_config_content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("studioLifecycleConfigContent").unwrap(),
+                o.extract_field("studioLifecycleConfigContent"),
             ),
             studio_lifecycle_config_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("studioLifecycleConfigName").unwrap(),
+                o.extract_field("studioLifecycleConfigName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

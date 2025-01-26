@@ -205,33 +205,15 @@ pub mod account_iam_policy {
                     value: &policy_data_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "billingAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyData".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountIamPolicyResult {
             billing_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingAccountId").unwrap(),
+                o.extract_field("billingAccountId"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             policy_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyData").unwrap(),
+                o.extract_field("policyData"),
             ),
         }
     }

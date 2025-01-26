@@ -54,27 +54,14 @@ pub mod group_policy_attachments_exclusive {
                     value: &policy_arns_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "groupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyArns".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GroupPolicyAttachmentsExclusiveResult {
             group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupName").unwrap(),
+                o.extract_field("groupName"),
             ),
             policy_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyArns").unwrap(),
+                o.extract_field("policyArns"),
             ),
         }
     }

@@ -121,45 +121,21 @@ pub mod sdkvoice_sip_rule {
                     value: &trigger_value_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "disabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetApplications".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggerType".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggerValue".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SdkvoiceSipRuleResult {
             disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabled").unwrap(),
+                o.extract_field("disabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             target_applications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetApplications").unwrap(),
+                o.extract_field("targetApplications"),
             ),
             trigger_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggerType").unwrap(),
+                o.extract_field("triggerType"),
             ),
             trigger_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggerValue").unwrap(),
+                o.extract_field("triggerValue"),
             ),
         }
     }

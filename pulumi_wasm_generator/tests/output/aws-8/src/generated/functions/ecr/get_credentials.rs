@@ -35,43 +35,21 @@ pub mod get_credentials {
                     value: &registry_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authorizationToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiresAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "proxyEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "registryId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCredentialsResult {
             authorization_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationToken").unwrap(),
+                o.extract_field("authorizationToken"),
             ),
             expires_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiresAt").unwrap(),
+                o.extract_field("expiresAt"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             proxy_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proxyEndpoint").unwrap(),
+                o.extract_field("proxyEndpoint"),
             ),
             registry_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryId").unwrap(),
+                o.extract_field("registryId"),
             ),
         }
     }

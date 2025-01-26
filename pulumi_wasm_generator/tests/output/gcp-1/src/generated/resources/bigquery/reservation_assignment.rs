@@ -151,58 +151,26 @@ pub mod reservation_assignment {
                     value: &reservation_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "assignee".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobType".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservation".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReservationAssignmentResult {
             assignee: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assignee").unwrap(),
+                o.extract_field("assignee"),
             ),
             job_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobType").unwrap(),
+                o.extract_field("jobType"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             reservation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservation").unwrap(),
+                o.extract_field("reservation"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

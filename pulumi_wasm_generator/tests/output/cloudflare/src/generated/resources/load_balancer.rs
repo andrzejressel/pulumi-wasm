@@ -350,142 +350,64 @@ pub mod load_balancer {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adaptiveRoutings".into(),
-                },
-                register_interface::ResultField {
-                    name: "countryPools".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultPoolIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "fallbackPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationStrategies".into(),
-                },
-                register_interface::ResultField {
-                    name: "modifiedOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "popPools".into(),
-                },
-                register_interface::ResultField {
-                    name: "proxied".into(),
-                },
-                register_interface::ResultField {
-                    name: "randomSteerings".into(),
-                },
-                register_interface::ResultField {
-                    name: "regionPools".into(),
-                },
-                register_interface::ResultField {
-                    name: "rules".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionAffinity".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionAffinityAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionAffinityTtl".into(),
-                },
-                register_interface::ResultField {
-                    name: "steeringPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "ttl".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LoadBalancerResult {
             adaptive_routings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adaptiveRoutings").unwrap(),
+                o.extract_field("adaptiveRoutings"),
             ),
             country_pools: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("countryPools").unwrap(),
+                o.extract_field("countryPools"),
             ),
             created_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdOn").unwrap(),
+                o.extract_field("createdOn"),
             ),
             default_pool_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultPoolIds").unwrap(),
+                o.extract_field("defaultPoolIds"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             fallback_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fallbackPoolId").unwrap(),
+                o.extract_field("fallbackPoolId"),
             ),
             location_strategies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationStrategies").unwrap(),
+                o.extract_field("locationStrategies"),
             ),
             modified_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modifiedOn").unwrap(),
+                o.extract_field("modifiedOn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pop_pools: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("popPools").unwrap(),
+                o.extract_field("popPools"),
             ),
             proxied: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proxied").unwrap(),
+                o.extract_field("proxied"),
             ),
             random_steerings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("randomSteerings").unwrap(),
+                o.extract_field("randomSteerings"),
             ),
             region_pools: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regionPools").unwrap(),
+                o.extract_field("regionPools"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rules").unwrap(),
-            ),
+            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
             session_affinity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionAffinity").unwrap(),
+                o.extract_field("sessionAffinity"),
             ),
             session_affinity_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionAffinityAttributes").unwrap(),
+                o.extract_field("sessionAffinityAttributes"),
             ),
             session_affinity_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionAffinityTtl").unwrap(),
+                o.extract_field("sessionAffinityTtl"),
             ),
             steering_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("steeringPolicy").unwrap(),
+                o.extract_field("steeringPolicy"),
             ),
-            ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ttl").unwrap(),
-            ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

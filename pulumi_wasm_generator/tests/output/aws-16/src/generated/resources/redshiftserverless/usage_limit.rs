@@ -110,51 +110,20 @@ pub mod usage_limit {
                     value: &usage_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "amount".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "breachAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "period".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "usageType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UsageLimitResult {
-            amount: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("amount").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            amount: pulumi_wasm_rust::__private::into_domain(o.extract_field("amount")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             breach_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("breachAction").unwrap(),
+                o.extract_field("breachAction"),
             ),
-            period: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("period").unwrap(),
-            ),
+            period: pulumi_wasm_rust::__private::into_domain(o.extract_field("period")),
             resource_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceArn").unwrap(),
+                o.extract_field("resourceArn"),
             ),
             usage_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usageType").unwrap(),
+                o.extract_field("usageType"),
             ),
         }
     }

@@ -54,84 +54,31 @@ pub mod get_zone_dnssec {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "algorithm".into(),
-                },
-                register_interface::ResultField {
-                    name: "digest".into(),
-                },
-                register_interface::ResultField {
-                    name: "digestAlgorithm".into(),
-                },
-                register_interface::ResultField {
-                    name: "digestType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ds".into(),
-                },
-                register_interface::ResultField {
-                    name: "flags".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyTag".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyType".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetZoneDnssecResult {
             algorithm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("algorithm").unwrap(),
+                o.extract_field("algorithm"),
             ),
-            digest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("digest").unwrap(),
-            ),
+            digest: pulumi_wasm_rust::__private::into_domain(o.extract_field("digest")),
             digest_algorithm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("digestAlgorithm").unwrap(),
+                o.extract_field("digestAlgorithm"),
             ),
             digest_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("digestType").unwrap(),
+                o.extract_field("digestType"),
             ),
-            ds: pulumi_wasm_rust::__private::into_domain(hashmap.remove("ds").unwrap()),
-            flags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("flags").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            key_tag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyTag").unwrap(),
-            ),
+            ds: pulumi_wasm_rust::__private::into_domain(o.extract_field("ds")),
+            flags: pulumi_wasm_rust::__private::into_domain(o.extract_field("flags")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            key_tag: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyTag")),
             key_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyType").unwrap(),
+                o.extract_field("keyType"),
             ),
             public_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKey").unwrap(),
+                o.extract_field("publicKey"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

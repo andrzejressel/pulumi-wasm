@@ -128,39 +128,20 @@ pub mod route {
                     value: &transit_gateway_route_table_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blackhole".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationCidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayAttachmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayRouteTableId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RouteResult {
             blackhole: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blackhole").unwrap(),
+                o.extract_field("blackhole"),
             ),
             destination_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationCidrBlock").unwrap(),
+                o.extract_field("destinationCidrBlock"),
             ),
             transit_gateway_attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayAttachmentId").unwrap(),
+                o.extract_field("transitGatewayAttachmentId"),
             ),
             transit_gateway_route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayRouteTableId").unwrap(),
+                o.extract_field("transitGatewayRouteTableId"),
             ),
         }
     }

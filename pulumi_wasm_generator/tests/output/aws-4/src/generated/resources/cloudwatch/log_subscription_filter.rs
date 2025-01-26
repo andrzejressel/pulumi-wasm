@@ -117,51 +117,24 @@ pub mod log_subscription_filter {
                     value: &role_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "destinationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "distribution".into(),
-                },
-                register_interface::ResultField {
-                    name: "filterPattern".into(),
-                },
-                register_interface::ResultField {
-                    name: "logGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LogSubscriptionFilterResult {
             destination_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationArn").unwrap(),
+                o.extract_field("destinationArn"),
             ),
             distribution: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("distribution").unwrap(),
+                o.extract_field("distribution"),
             ),
             filter_pattern: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filterPattern").unwrap(),
+                o.extract_field("filterPattern"),
             ),
             log_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logGroup").unwrap(),
+                o.extract_field("logGroup"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
         }
     }

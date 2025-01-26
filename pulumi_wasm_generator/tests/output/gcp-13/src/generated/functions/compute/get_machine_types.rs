@@ -55,44 +55,18 @@ pub mod get_machine_types {
                     value: &zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "machineTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetMachineTypesResult {
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             machine_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("machineTypes").unwrap(),
+                o.extract_field("machineTypes"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

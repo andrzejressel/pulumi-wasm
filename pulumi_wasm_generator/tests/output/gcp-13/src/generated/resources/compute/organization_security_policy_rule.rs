@@ -218,75 +218,34 @@ pub mod organization_security_policy_rule {
                     value: &target_service_accounts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "direction".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableLogging".into(),
-                },
-                register_interface::ResultField {
-                    name: "match".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "preview".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetServiceAccounts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OrganizationSecurityPolicyRuleResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             direction: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("direction").unwrap(),
+                o.extract_field("direction"),
             ),
             enable_logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableLogging").unwrap(),
+                o.extract_field("enableLogging"),
             ),
-            match_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("match").unwrap(),
-            ),
+            match_: pulumi_wasm_rust::__private::into_domain(o.extract_field("match")),
             policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyId").unwrap(),
+                o.extract_field("policyId"),
             ),
             preview: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preview").unwrap(),
+                o.extract_field("preview"),
             ),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             target_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResources").unwrap(),
+                o.extract_field("targetResources"),
             ),
             target_service_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetServiceAccounts").unwrap(),
+                o.extract_field("targetServiceAccounts"),
             ),
         }
     }

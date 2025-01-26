@@ -40,31 +40,15 @@ pub mod get_private_link_resource {
                     value: &web_pubsub_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedPrivateLinkResourceTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "webPubsubId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPrivateLinkResourceResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             shared_private_link_resource_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedPrivateLinkResourceTypes").unwrap(),
+                o.extract_field("sharedPrivateLinkResourceTypes"),
             ),
             web_pubsub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webPubsubId").unwrap(),
+                o.extract_field("webPubsubId"),
             ),
         }
     }

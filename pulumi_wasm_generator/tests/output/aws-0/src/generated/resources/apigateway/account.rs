@@ -125,45 +125,23 @@ pub mod account {
                     value: &reset_on_delete_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiKeyVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudwatchRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "features".into(),
-                },
-                register_interface::ResultField {
-                    name: "resetOnDelete".into(),
-                },
-                register_interface::ResultField {
-                    name: "throttleSettings".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountResult {
             api_key_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiKeyVersion").unwrap(),
+                o.extract_field("apiKeyVersion"),
             ),
             cloudwatch_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudwatchRoleArn").unwrap(),
+                o.extract_field("cloudwatchRoleArn"),
             ),
             features: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("features").unwrap(),
+                o.extract_field("features"),
             ),
             reset_on_delete: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resetOnDelete").unwrap(),
+                o.extract_field("resetOnDelete"),
             ),
             throttle_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("throttleSettings").unwrap(),
+                o.extract_field("throttleSettings"),
             ),
         }
     }

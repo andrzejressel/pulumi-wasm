@@ -134,70 +134,32 @@ pub mod user_pool_domain {
                     value: &user_pool_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "awsAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudfrontDistribution".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudfrontDistributionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudfrontDistributionZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UserPoolDomainResult {
             aws_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountId").unwrap(),
+                o.extract_field("awsAccountId"),
             ),
             certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateArn").unwrap(),
+                o.extract_field("certificateArn"),
             ),
             cloudfront_distribution: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudfrontDistribution").unwrap(),
+                o.extract_field("cloudfrontDistribution"),
             ),
             cloudfront_distribution_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudfrontDistributionArn").unwrap(),
+                o.extract_field("cloudfrontDistributionArn"),
             ),
             cloudfront_distribution_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudfrontDistributionZoneId").unwrap(),
+                o.extract_field("cloudfrontDistributionZoneId"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             s3_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Bucket").unwrap(),
+                o.extract_field("s3Bucket"),
             ),
             user_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPoolId").unwrap(),
+                o.extract_field("userPoolId"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

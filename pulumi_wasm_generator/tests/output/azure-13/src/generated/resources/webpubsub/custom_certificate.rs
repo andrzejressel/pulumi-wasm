@@ -156,39 +156,18 @@ pub mod custom_certificate {
                     value: &web_pubsub_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "customCertificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "webPubsubId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomCertificateResult {
             certificate_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateVersion").unwrap(),
+                o.extract_field("certificateVersion"),
             ),
             custom_certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customCertificateId").unwrap(),
+                o.extract_field("customCertificateId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             web_pubsub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webPubsubId").unwrap(),
+                o.extract_field("webPubsubId"),
             ),
         }
     }

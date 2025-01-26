@@ -153,58 +153,26 @@ pub mod replication_subnet_group {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "replicationSubnetGroupArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationSubnetGroupDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationSubnetGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReplicationSubnetGroupResult {
             replication_subnet_group_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationSubnetGroupArn").unwrap(),
+                o.extract_field("replicationSubnetGroupArn"),
             ),
             replication_subnet_group_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationSubnetGroupDescription").unwrap(),
+                o.extract_field("replicationSubnetGroupDescription"),
             ),
             replication_subnet_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationSubnetGroupId").unwrap(),
+                o.extract_field("replicationSubnetGroupId"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

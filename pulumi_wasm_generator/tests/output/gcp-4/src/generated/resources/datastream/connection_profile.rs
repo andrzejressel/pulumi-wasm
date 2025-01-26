@@ -535,117 +535,55 @@ pub mod connection_profile {
                     value: &sql_server_profile_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bigqueryProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "createWithoutValidation".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "forwardSshConnectivity".into(),
-                },
-                register_interface::ResultField {
-                    name: "gcsProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mysqlProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "oracleProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "postgresqlProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateConnectivity".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlServerProfile".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConnectionProfileResult {
             bigquery_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bigqueryProfile").unwrap(),
+                o.extract_field("bigqueryProfile"),
             ),
             connection_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionProfileId").unwrap(),
+                o.extract_field("connectionProfileId"),
             ),
             create_without_validation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createWithoutValidation").unwrap(),
+                o.extract_field("createWithoutValidation"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             forward_ssh_connectivity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forwardSshConnectivity").unwrap(),
+                o.extract_field("forwardSshConnectivity"),
             ),
             gcs_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gcsProfile").unwrap(),
+                o.extract_field("gcsProfile"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             mysql_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mysqlProfile").unwrap(),
+                o.extract_field("mysqlProfile"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             oracle_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("oracleProfile").unwrap(),
+                o.extract_field("oracleProfile"),
             ),
             postgresql_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("postgresqlProfile").unwrap(),
+                o.extract_field("postgresqlProfile"),
             ),
             private_connectivity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateConnectivity").unwrap(),
+                o.extract_field("privateConnectivity"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             sql_server_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlServerProfile").unwrap(),
+                o.extract_field("sqlServerProfile"),
             ),
         }
     }

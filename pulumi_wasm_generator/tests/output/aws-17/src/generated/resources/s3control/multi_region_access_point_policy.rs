@@ -64,39 +64,20 @@ pub mod multi_region_access_point_policy {
                     value: &details_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "details".into(),
-                },
-                register_interface::ResultField {
-                    name: "established".into(),
-                },
-                register_interface::ResultField {
-                    name: "proposed".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MultiRegionAccessPointPolicyResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("details").unwrap(),
+                o.extract_field("details"),
             ),
             established: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("established").unwrap(),
+                o.extract_field("established"),
             ),
             proposed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proposed").unwrap(),
+                o.extract_field("proposed"),
             ),
         }
     }

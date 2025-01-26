@@ -74,109 +74,50 @@ pub mod get_network_interface {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceleratedNetworkingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "appliedDnsServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "internalDnsNameLabel".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipForwardingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "macAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkSecurityGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNetworkInterfaceResult {
             accelerated_networking_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceleratedNetworkingEnabled").unwrap(),
+                o.extract_field("acceleratedNetworkingEnabled"),
             ),
             applied_dns_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appliedDnsServers").unwrap(),
+                o.extract_field("appliedDnsServers"),
             ),
             dns_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsServers").unwrap(),
+                o.extract_field("dnsServers"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             internal_dns_name_label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internalDnsNameLabel").unwrap(),
+                o.extract_field("internalDnsNameLabel"),
             ),
             ip_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipConfigurations").unwrap(),
+                o.extract_field("ipConfigurations"),
             ),
             ip_forwarding_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipForwardingEnabled").unwrap(),
+                o.extract_field("ipForwardingEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             mac_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("macAddress").unwrap(),
+                o.extract_field("macAddress"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_security_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkSecurityGroupId").unwrap(),
+                o.extract_field("networkSecurityGroupId"),
             ),
             private_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpAddress").unwrap(),
+                o.extract_field("privateIpAddress"),
             ),
             private_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpAddresses").unwrap(),
+                o.extract_field("privateIpAddresses"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineId").unwrap(),
+                o.extract_field("virtualMachineId"),
             ),
         }
     }

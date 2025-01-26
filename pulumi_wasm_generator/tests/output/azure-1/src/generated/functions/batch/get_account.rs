@@ -68,86 +68,39 @@ pub mod get_account {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultReferences".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "poolAllocationMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAccountResult {
             account_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountEndpoint").unwrap(),
+                o.extract_field("accountEndpoint"),
             ),
             encryptions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptions").unwrap(),
+                o.extract_field("encryptions"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             key_vault_references: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultReferences").unwrap(),
+                o.extract_field("keyVaultReferences"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pool_allocation_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("poolAllocationMode").unwrap(),
+                o.extract_field("poolAllocationMode"),
             ),
             primary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryAccessKey").unwrap(),
+                o.extract_field("primaryAccessKey"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAccessKey").unwrap(),
+                o.extract_field("secondaryAccessKey"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

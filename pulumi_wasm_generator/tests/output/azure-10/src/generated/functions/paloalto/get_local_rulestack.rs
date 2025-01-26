@@ -53,91 +53,43 @@ pub mod get_local_rulestack {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "antiSpywareProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "antiVirusProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsSubscription".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileBlockingProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundTrustCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundUntrustCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "urlFilteringProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "vulnerabilityProfile".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetLocalRulestackResult {
             anti_spyware_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("antiSpywareProfile").unwrap(),
+                o.extract_field("antiSpywareProfile"),
             ),
             anti_virus_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("antiVirusProfile").unwrap(),
+                o.extract_field("antiVirusProfile"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dns_subscription: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsSubscription").unwrap(),
+                o.extract_field("dnsSubscription"),
             ),
             file_blocking_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileBlockingProfile").unwrap(),
+                o.extract_field("fileBlockingProfile"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             outbound_trust_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundTrustCertificate").unwrap(),
+                o.extract_field("outboundTrustCertificate"),
             ),
             outbound_untrust_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundUntrustCertificate").unwrap(),
+                o.extract_field("outboundUntrustCertificate"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             url_filtering_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("urlFilteringProfile").unwrap(),
+                o.extract_field("urlFilteringProfile"),
             ),
             vulnerability_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vulnerabilityProfile").unwrap(),
+                o.extract_field("vulnerabilityProfile"),
             ),
         }
     }

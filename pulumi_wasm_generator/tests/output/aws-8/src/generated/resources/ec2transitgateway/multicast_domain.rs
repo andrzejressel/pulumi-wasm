@@ -238,63 +238,28 @@ pub mod multicast_domain {
                     value: &transit_gateway_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoAcceptSharedAssociations".into(),
-                },
-                register_interface::ResultField {
-                    name: "igmpv2Support".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "staticSourcesSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MulticastDomainResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_accept_shared_associations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoAcceptSharedAssociations").unwrap(),
+                o.extract_field("autoAcceptSharedAssociations"),
             ),
             igmpv2_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("igmpv2Support").unwrap(),
+                o.extract_field("igmpv2Support"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             static_sources_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("staticSourcesSupport").unwrap(),
+                o.extract_field("staticSourcesSupport"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayId").unwrap(),
+                o.extract_field("transitGatewayId"),
             ),
         }
     }

@@ -381,69 +381,31 @@ pub mod policy {
                     value: &target_tracking_scaling_policy_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alarmArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "scalableDimension".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceNamespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "stepScalingPolicyConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetTrackingScalingPolicyConfiguration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PolicyResult {
             alarm_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alarmArns").unwrap(),
+                o.extract_field("alarmArns"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             policy_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyType").unwrap(),
+                o.extract_field("policyType"),
             ),
             resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceId").unwrap(),
+                o.extract_field("resourceId"),
             ),
             scalable_dimension: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scalableDimension").unwrap(),
+                o.extract_field("scalableDimension"),
             ),
             service_namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceNamespace").unwrap(),
+                o.extract_field("serviceNamespace"),
             ),
             step_scaling_policy_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stepScalingPolicyConfiguration").unwrap(),
+                o.extract_field("stepScalingPolicyConfiguration"),
             ),
             target_tracking_scaling_policy_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetTrackingScalingPolicyConfiguration").unwrap(),
+                o.extract_field("targetTrackingScalingPolicyConfiguration"),
             ),
         }
     }

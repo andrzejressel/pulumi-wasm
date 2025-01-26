@@ -80,33 +80,17 @@ pub mod static_ip_attachment {
                     value: &static_ip_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "instanceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "staticIpName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StaticIpAttachmentResult {
             instance_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceName").unwrap(),
+                o.extract_field("instanceName"),
             ),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
             static_ip_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("staticIpName").unwrap(),
+                o.extract_field("staticIpName"),
             ),
         }
     }

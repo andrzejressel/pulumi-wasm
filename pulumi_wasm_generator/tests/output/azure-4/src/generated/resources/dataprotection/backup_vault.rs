@@ -194,76 +194,35 @@ pub mod backup_vault {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "crossRegionRestoreEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "datastoreType".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "redundancy".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionDurationInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "softDelete".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BackupVaultResult {
             cross_region_restore_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("crossRegionRestoreEnabled").unwrap(),
+                o.extract_field("crossRegionRestoreEnabled"),
             ),
             datastore_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datastoreType").unwrap(),
+                o.extract_field("datastoreType"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             redundancy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redundancy").unwrap(),
+                o.extract_field("redundancy"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             retention_duration_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionDurationInDays").unwrap(),
+                o.extract_field("retentionDurationInDays"),
             ),
             soft_delete: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("softDelete").unwrap(),
+                o.extract_field("softDelete"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

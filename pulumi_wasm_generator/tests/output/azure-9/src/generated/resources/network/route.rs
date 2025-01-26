@@ -142,51 +142,24 @@ pub mod route {
                     value: &route_table_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextHopInIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextHopType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeTableName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RouteResult {
             address_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressPrefix").unwrap(),
+                o.extract_field("addressPrefix"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             next_hop_in_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextHopInIpAddress").unwrap(),
+                o.extract_field("nextHopInIpAddress"),
             ),
             next_hop_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextHopType").unwrap(),
+                o.extract_field("nextHopType"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             route_table_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeTableName").unwrap(),
+                o.extract_field("routeTableName"),
             ),
         }
     }

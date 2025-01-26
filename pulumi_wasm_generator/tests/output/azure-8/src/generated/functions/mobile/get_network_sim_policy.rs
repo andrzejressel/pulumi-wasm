@@ -65,73 +65,30 @@ pub mod get_network_sim_policy {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "defaultSliceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mobileNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ratFrequencySelectionPriorityIndex".into(),
-                },
-                register_interface::ResultField {
-                    name: "registrationTimerInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "slices".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "userEquipmentAggregateMaximumBitRates".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNetworkSimPolicyResult {
             default_slice_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSliceId").unwrap(),
+                o.extract_field("defaultSliceId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             mobile_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mobileNetworkId").unwrap(),
+                o.extract_field("mobileNetworkId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             rat_frequency_selection_priority_index: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ratFrequencySelectionPriorityIndex").unwrap(),
+                o.extract_field("ratFrequencySelectionPriorityIndex"),
             ),
             registration_timer_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registrationTimerInSeconds").unwrap(),
+                o.extract_field("registrationTimerInSeconds"),
             ),
-            slices: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("slices").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            slices: pulumi_wasm_rust::__private::into_domain(o.extract_field("slices")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             user_equipment_aggregate_maximum_bit_rates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userEquipmentAggregateMaximumBitRates").unwrap(),
+                o.extract_field("userEquipmentAggregateMaximumBitRates"),
             ),
         }
     }

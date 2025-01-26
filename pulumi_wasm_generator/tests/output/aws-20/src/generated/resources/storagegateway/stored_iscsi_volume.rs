@@ -202,135 +202,60 @@ pub mod stored_iscsi_volume {
                     value: &target_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "chapEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskId".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsEncrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "lunNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfacePort".into(),
-                },
-                register_interface::ResultField {
-                    name: "preserveExistingData".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeAttachmentStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeSizeInBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StoredIscsiVolumeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             chap_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("chapEnabled").unwrap(),
+                o.extract_field("chapEnabled"),
             ),
-            disk_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskId").unwrap(),
-            ),
+            disk_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("diskId")),
             gateway_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayArn").unwrap(),
+                o.extract_field("gatewayArn"),
             ),
             kms_encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsEncrypted").unwrap(),
+                o.extract_field("kmsEncrypted"),
             ),
-            kms_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKey").unwrap(),
-            ),
+            kms_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsKey")),
             lun_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lunNumber").unwrap(),
+                o.extract_field("lunNumber"),
             ),
             network_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceId").unwrap(),
+                o.extract_field("networkInterfaceId"),
             ),
             network_interface_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfacePort").unwrap(),
+                o.extract_field("networkInterfacePort"),
             ),
             preserve_existing_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preserveExistingData").unwrap(),
+                o.extract_field("preserveExistingData"),
             ),
             snapshot_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotId").unwrap(),
+                o.extract_field("snapshotId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             target_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetArn").unwrap(),
+                o.extract_field("targetArn"),
             ),
             target_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetName").unwrap(),
+                o.extract_field("targetName"),
             ),
             volume_attachment_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeAttachmentStatus").unwrap(),
+                o.extract_field("volumeAttachmentStatus"),
             ),
             volume_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeId").unwrap(),
+                o.extract_field("volumeId"),
             ),
             volume_size_in_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeSizeInBytes").unwrap(),
+                o.extract_field("volumeSizeInBytes"),
             ),
             volume_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeStatus").unwrap(),
+                o.extract_field("volumeStatus"),
             ),
             volume_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeType").unwrap(),
+                o.extract_field("volumeType"),
             ),
         }
     }

@@ -61,79 +61,33 @@ pub mod get_virtual_wan {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowBranchToBranchTraffic".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableVpnEncryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "office365LocalBreakoutCategory".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualHubIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnSiteIds".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVirtualWanResult {
             allow_branch_to_branch_traffic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowBranchToBranchTraffic").unwrap(),
+                o.extract_field("allowBranchToBranchTraffic"),
             ),
             disable_vpn_encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableVpnEncryption").unwrap(),
+                o.extract_field("disableVpnEncryption"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             office365_local_breakout_category: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("office365LocalBreakoutCategory").unwrap(),
+                o.extract_field("office365LocalBreakoutCategory"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_hub_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualHubIds").unwrap(),
+                o.extract_field("virtualHubIds"),
             ),
             vpn_site_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnSiteIds").unwrap(),
+                o.extract_field("vpnSiteIds"),
             ),
         }
     }

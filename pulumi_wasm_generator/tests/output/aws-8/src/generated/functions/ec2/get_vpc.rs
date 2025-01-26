@@ -124,116 +124,52 @@ pub mod get_vpc {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrBlockAssociations".into(),
-                },
-                register_interface::ResultField {
-                    name: "default".into(),
-                },
-                register_interface::ResultField {
-                    name: "dhcpOptionsId".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableDnsHostnames".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableDnsSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableNetworkAddressUsageMetrics".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceTenancy".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6AssociationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6CidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "mainRouteTableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVpcResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlock").unwrap(),
+                o.extract_field("cidrBlock"),
             ),
             cidr_block_associations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlockAssociations").unwrap(),
+                o.extract_field("cidrBlockAssociations"),
             ),
             default: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("default").unwrap(),
+                o.extract_field("default"),
             ),
             dhcp_options_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dhcpOptionsId").unwrap(),
+                o.extract_field("dhcpOptionsId"),
             ),
             enable_dns_hostnames: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableDnsHostnames").unwrap(),
+                o.extract_field("enableDnsHostnames"),
             ),
             enable_dns_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableDnsSupport").unwrap(),
+                o.extract_field("enableDnsSupport"),
             ),
             enable_network_address_usage_metrics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableNetworkAddressUsageMetrics").unwrap(),
+                o.extract_field("enableNetworkAddressUsageMetrics"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance_tenancy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceTenancy").unwrap(),
+                o.extract_field("instanceTenancy"),
             ),
             ipv6_association_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6AssociationId").unwrap(),
+                o.extract_field("ipv6AssociationId"),
             ),
             ipv6_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6CidrBlock").unwrap(),
+                o.extract_field("ipv6CidrBlock"),
             ),
             main_route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mainRouteTableId").unwrap(),
+                o.extract_field("mainRouteTableId"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -267,45 +267,23 @@ pub mod network_manager_deployment {
                     value: &triggers_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "configurationIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkManagerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "scopeAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggers".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkManagerDeploymentResult {
             configuration_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationIds").unwrap(),
+                o.extract_field("configurationIds"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             network_manager_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkManagerId").unwrap(),
+                o.extract_field("networkManagerId"),
             ),
             scope_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scopeAccess").unwrap(),
+                o.extract_field("scopeAccess"),
             ),
             triggers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggers").unwrap(),
+                o.extract_field("triggers"),
             ),
         }
     }

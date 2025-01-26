@@ -138,69 +138,31 @@ pub mod device_fleet {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceFleetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableIotRoleAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "iotRoleAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DeviceFleetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             device_fleet_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceFleetName").unwrap(),
+                o.extract_field("deviceFleetName"),
             ),
             enable_iot_role_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableIotRoleAlias").unwrap(),
+                o.extract_field("enableIotRoleAlias"),
             ),
             iot_role_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iotRoleAlias").unwrap(),
+                o.extract_field("iotRoleAlias"),
             ),
             output_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputConfig").unwrap(),
+                o.extract_field("outputConfig"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

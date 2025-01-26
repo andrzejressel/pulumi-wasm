@@ -302,124 +302,57 @@ pub mod resource_deployment_script_azure_cli {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cleanupPreference".into(),
-                },
-                register_interface::ResultField {
-                    name: "commandLine".into(),
-                },
-                register_interface::ResultField {
-                    name: "container".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentVariables".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceUpdateTag".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputs".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryScriptUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionInterval".into(),
-                },
-                register_interface::ResultField {
-                    name: "scriptContent".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportingScriptUris".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResourceDeploymentScriptAzureCliResult {
             cleanup_preference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cleanupPreference").unwrap(),
+                o.extract_field("cleanupPreference"),
             ),
             command_line: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("commandLine").unwrap(),
+                o.extract_field("commandLine"),
             ),
             container: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("container").unwrap(),
+                o.extract_field("container"),
             ),
             environment_variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentVariables").unwrap(),
+                o.extract_field("environmentVariables"),
             ),
             force_update_tag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceUpdateTag").unwrap(),
+                o.extract_field("forceUpdateTag"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             outputs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputs").unwrap(),
+                o.extract_field("outputs"),
             ),
             primary_script_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryScriptUri").unwrap(),
+                o.extract_field("primaryScriptUri"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             retention_interval: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionInterval").unwrap(),
+                o.extract_field("retentionInterval"),
             ),
             script_content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scriptContent").unwrap(),
+                o.extract_field("scriptContent"),
             ),
             storage_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccount").unwrap(),
+                o.extract_field("storageAccount"),
             ),
             supporting_script_uris: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportingScriptUris").unwrap(),
+                o.extract_field("supportingScriptUris"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeout").unwrap(),
+                o.extract_field("timeout"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

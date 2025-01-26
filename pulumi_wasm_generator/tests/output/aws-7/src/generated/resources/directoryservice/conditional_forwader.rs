@@ -84,33 +84,15 @@ pub mod conditional_forwader {
                     value: &remote_domain_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "directoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteDomainName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConditionalForwaderResult {
             directory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryId").unwrap(),
+                o.extract_field("directoryId"),
             ),
-            dns_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsIps").unwrap(),
-            ),
+            dns_ips: pulumi_wasm_rust::__private::into_domain(o.extract_field("dnsIps")),
             remote_domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteDomainName").unwrap(),
+                o.extract_field("remoteDomainName"),
             ),
         }
     }

@@ -102,82 +102,40 @@ pub mod attachment_accepter {
                     value: &attachment_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attachmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "attachmentPolicyRuleNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "attachmentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "coreNetworkArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "coreNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeLocations".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "segmentName".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AttachmentAccepterResult {
             attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachmentId").unwrap(),
+                o.extract_field("attachmentId"),
             ),
             attachment_policy_rule_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachmentPolicyRuleNumber").unwrap(),
+                o.extract_field("attachmentPolicyRuleNumber"),
             ),
             attachment_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachmentType").unwrap(),
+                o.extract_field("attachmentType"),
             ),
             core_network_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreNetworkArn").unwrap(),
+                o.extract_field("coreNetworkArn"),
             ),
             core_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreNetworkId").unwrap(),
+                o.extract_field("coreNetworkId"),
             ),
             edge_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeLocation").unwrap(),
+                o.extract_field("edgeLocation"),
             ),
             edge_locations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeLocations").unwrap(),
+                o.extract_field("edgeLocations"),
             ),
             owner_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerAccountId").unwrap(),
+                o.extract_field("ownerAccountId"),
             ),
             resource_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceArn").unwrap(),
+                o.extract_field("resourceArn"),
             ),
             segment_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("segmentName").unwrap(),
+                o.extract_field("segmentName"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

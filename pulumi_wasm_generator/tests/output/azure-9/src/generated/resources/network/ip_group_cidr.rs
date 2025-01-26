@@ -92,27 +92,12 @@ pub mod ip_group_cidr {
                     value: &ip_group_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipGroupId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IPGroupCIDRResult {
-            cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidr").unwrap(),
-            ),
+            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
             ip_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipGroupId").unwrap(),
+                o.extract_field("ipGroupId"),
             ),
         }
     }

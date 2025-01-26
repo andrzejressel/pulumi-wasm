@@ -154,87 +154,40 @@ pub mod key {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionWindowInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportable".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyCheckValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyCheckValueAlgorithm".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyOrigin".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyState".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KeyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             deletion_window_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionWindowInDays").unwrap(),
+                o.extract_field("deletionWindowInDays"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             exportable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportable").unwrap(),
+                o.extract_field("exportable"),
             ),
             key_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyAttributes").unwrap(),
+                o.extract_field("keyAttributes"),
             ),
             key_check_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyCheckValue").unwrap(),
+                o.extract_field("keyCheckValue"),
             ),
             key_check_value_algorithm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyCheckValueAlgorithm").unwrap(),
+                o.extract_field("keyCheckValueAlgorithm"),
             ),
             key_origin: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyOrigin").unwrap(),
+                o.extract_field("keyOrigin"),
             ),
             key_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyState").unwrap(),
+                o.extract_field("keyState"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

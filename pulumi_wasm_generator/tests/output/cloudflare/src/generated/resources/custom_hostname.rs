@@ -148,76 +148,33 @@ pub mod custom_hostname {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customMetadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "customOriginServer".into(),
-                },
-                register_interface::ResultField {
-                    name: "customOriginSni".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownershipVerification".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownershipVerificationHttp".into(),
-                },
-                register_interface::ResultField {
-                    name: "ssls".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForSslPendingValidation".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomHostnameResult {
             custom_metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customMetadata").unwrap(),
+                o.extract_field("customMetadata"),
             ),
             custom_origin_server: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customOriginServer").unwrap(),
+                o.extract_field("customOriginServer"),
             ),
             custom_origin_sni: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customOriginSni").unwrap(),
+                o.extract_field("customOriginSni"),
             ),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
             ownership_verification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownershipVerification").unwrap(),
+                o.extract_field("ownershipVerification"),
             ),
             ownership_verification_http: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownershipVerificationHttp").unwrap(),
+                o.extract_field("ownershipVerificationHttp"),
             ),
-            ssls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ssls").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            ssls: pulumi_wasm_rust::__private::into_domain(o.extract_field("ssls")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             wait_for_ssl_pending_validation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForSslPendingValidation").unwrap(),
+                o.extract_field("waitForSslPendingValidation"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

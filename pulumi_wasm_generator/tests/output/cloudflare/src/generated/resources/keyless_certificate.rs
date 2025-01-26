@@ -126,64 +126,23 @@ pub mod keyless_certificate {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bundleMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "host".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KeylessCertificateResult {
             bundle_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bundleMethod").unwrap(),
+                o.extract_field("bundleMethod"),
             ),
             certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificate").unwrap(),
+                o.extract_field("certificate"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("host").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

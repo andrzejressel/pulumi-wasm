@@ -177,76 +177,33 @@ pub mod query_pack_query {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalSettingsJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "body".into(),
-                },
-                register_interface::ResultField {
-                    name: "categories".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryPackId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "solutions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         QueryPackQueryResult {
             additional_settings_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalSettingsJson").unwrap(),
+                o.extract_field("additionalSettingsJson"),
             ),
-            body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("body").unwrap(),
-            ),
+            body: pulumi_wasm_rust::__private::into_domain(o.extract_field("body")),
             categories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("categories").unwrap(),
+                o.extract_field("categories"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             query_pack_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryPackId").unwrap(),
+                o.extract_field("queryPackId"),
             ),
             resource_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTypes").unwrap(),
+                o.extract_field("resourceTypes"),
             ),
             solutions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("solutions").unwrap(),
+                o.extract_field("solutions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -129,75 +129,28 @@ pub mod policy {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "attachmentCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PolicyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             attachment_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachmentCount").unwrap(),
+                o.extract_field("attachmentCount"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyId").unwrap(),
+                o.extract_field("policyId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -134,45 +134,21 @@ pub mod data_connector_aws_s_3 {
                     value: &sqs_urls_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "awsRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationTable".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqsUrls".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataConnectorAwsS3Result {
             aws_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsRoleArn").unwrap(),
+                o.extract_field("awsRoleArn"),
             ),
             destination_table: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationTable").unwrap(),
+                o.extract_field("destinationTable"),
             ),
             log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsWorkspaceId").unwrap(),
+                o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             sqs_urls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqsUrls").unwrap(),
+                o.extract_field("sqsUrls"),
             ),
         }
     }

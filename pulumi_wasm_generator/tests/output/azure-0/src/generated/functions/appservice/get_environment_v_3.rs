@@ -84,133 +84,62 @@ pub mod get_environment_v_3 {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowNewPrivateEndpointConnections".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "dedicatedHostCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsSuffix".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalInboundIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "inboundNetworkDependencies".into(),
-                },
-                register_interface::ResultField {
-                    name: "internalInboundIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "internalLoadBalancingMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipSslAddressCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "linuxOutboundIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pricingTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteDebuggingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "windowsOutboundIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneRedundant".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetEnvironmentV3Result {
             allow_new_private_endpoint_connections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowNewPrivateEndpointConnections").unwrap(),
+                o.extract_field("allowNewPrivateEndpointConnections"),
             ),
             cluster_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterSettings").unwrap(),
+                o.extract_field("clusterSettings"),
             ),
             dedicated_host_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dedicatedHostCount").unwrap(),
+                o.extract_field("dedicatedHostCount"),
             ),
             dns_suffix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsSuffix").unwrap(),
+                o.extract_field("dnsSuffix"),
             ),
             external_inbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalInboundIpAddresses").unwrap(),
+                o.extract_field("externalInboundIpAddresses"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             inbound_network_dependencies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inboundNetworkDependencies").unwrap(),
+                o.extract_field("inboundNetworkDependencies"),
             ),
             internal_inbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internalInboundIpAddresses").unwrap(),
+                o.extract_field("internalInboundIpAddresses"),
             ),
             internal_load_balancing_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internalLoadBalancingMode").unwrap(),
+                o.extract_field("internalLoadBalancingMode"),
             ),
             ip_ssl_address_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipSslAddressCount").unwrap(),
+                o.extract_field("ipSslAddressCount"),
             ),
             linux_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linuxOutboundIpAddresses").unwrap(),
+                o.extract_field("linuxOutboundIpAddresses"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pricing_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pricingTier").unwrap(),
+                o.extract_field("pricingTier"),
             ),
             remote_debugging_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteDebuggingEnabled").unwrap(),
+                o.extract_field("remoteDebuggingEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             windows_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("windowsOutboundIpAddresses").unwrap(),
+                o.extract_field("windowsOutboundIpAddresses"),
             ),
             zone_redundant: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneRedundant").unwrap(),
+                o.extract_field("zoneRedundant"),
             ),
         }
     }

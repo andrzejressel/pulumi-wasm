@@ -67,21 +67,11 @@ pub mod invitation_accepter {
                     value: &graph_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "graphArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InvitationAccepterResult {
             graph_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("graphArn").unwrap(),
+                o.extract_field("graphArn"),
             ),
         }
     }

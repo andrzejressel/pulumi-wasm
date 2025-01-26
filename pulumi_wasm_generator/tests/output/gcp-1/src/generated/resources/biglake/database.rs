@@ -149,63 +149,28 @@ pub mod database {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "catalog".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "expireTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "hiveOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DatabaseResult {
             catalog: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("catalog").unwrap(),
+                o.extract_field("catalog"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             delete_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteTime").unwrap(),
+                o.extract_field("deleteTime"),
             ),
             expire_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expireTime").unwrap(),
+                o.extract_field("expireTime"),
             ),
             hive_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hiveOptions").unwrap(),
+                o.extract_field("hiveOptions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

@@ -270,99 +270,38 @@ pub mod private_cloud {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "deletionDelayHours".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "hcxes".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managementCluster".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "nsxes".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "sendDeletionDelayHoursIfZero".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "vcenters".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PrivateCloudResult {
             deletion_delay_hours: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionDelayHours").unwrap(),
+                o.extract_field("deletionDelayHours"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            hcxes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hcxes").unwrap(),
-            ),
+            hcxes: pulumi_wasm_rust::__private::into_domain(o.extract_field("hcxes")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             management_cluster: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managementCluster").unwrap(),
+                o.extract_field("managementCluster"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfig").unwrap(),
+                o.extract_field("networkConfig"),
             ),
-            nsxes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nsxes").unwrap(),
-            ),
+            nsxes: pulumi_wasm_rust::__private::into_domain(o.extract_field("nsxes")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             send_deletion_delay_hours_if_zero: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sendDeletionDelayHoursIfZero").unwrap(),
+                o.extract_field("sendDeletionDelayHoursIfZero"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             vcenters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vcenters").unwrap(),
+                o.extract_field("vcenters"),
             ),
         }
     }

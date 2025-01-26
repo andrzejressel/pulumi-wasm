@@ -603,117 +603,49 @@ pub mod data_source {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "configuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDocumentEnrichmentConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "errorMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexId".into(),
-                },
-                register_interface::ResultField {
-                    name: "languageCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatedAt".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataSourceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configuration").unwrap(),
+                o.extract_field("configuration"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             custom_document_enrichment_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDocumentEnrichmentConfiguration").unwrap(),
+                o.extract_field("customDocumentEnrichmentConfiguration"),
             ),
             data_source_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSourceId").unwrap(),
+                o.extract_field("dataSourceId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             error_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errorMessage").unwrap(),
+                o.extract_field("errorMessage"),
             ),
             index_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexId").unwrap(),
+                o.extract_field("indexId"),
             ),
             language_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("languageCode").unwrap(),
+                o.extract_field("languageCode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedule").unwrap(),
+                o.extract_field("schedule"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatedAt").unwrap(),
+                o.extract_field("updatedAt"),
             ),
         }
     }

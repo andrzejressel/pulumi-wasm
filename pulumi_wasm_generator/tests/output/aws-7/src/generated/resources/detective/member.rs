@@ -118,81 +118,39 @@ pub mod member {
                     value: &message_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "administratorId".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableEmailNotification".into(),
-                },
-                register_interface::ResultField {
-                    name: "disabledReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "graphArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "invitedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "message".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeUsageInBytes".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MemberResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             administrator_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorId").unwrap(),
+                o.extract_field("administratorId"),
             ),
             disable_email_notification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableEmailNotification").unwrap(),
+                o.extract_field("disableEmailNotification"),
             ),
             disabled_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disabledReason").unwrap(),
+                o.extract_field("disabledReason"),
             ),
             email_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailAddress").unwrap(),
+                o.extract_field("emailAddress"),
             ),
             graph_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("graphArn").unwrap(),
+                o.extract_field("graphArn"),
             ),
             invited_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invitedTime").unwrap(),
+                o.extract_field("invitedTime"),
             ),
             message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("message").unwrap(),
+                o.extract_field("message"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             updated_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatedTime").unwrap(),
+                o.extract_field("updatedTime"),
             ),
             volume_usage_in_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeUsageInBytes").unwrap(),
+                o.extract_field("volumeUsageInBytes"),
             ),
         }
     }

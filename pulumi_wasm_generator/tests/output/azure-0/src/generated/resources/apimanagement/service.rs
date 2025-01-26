@@ -448,220 +448,99 @@ pub mod service {
                     value: &zones_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalLocations".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientCertificateEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "delegation".into(),
-                },
-                register_interface::ResultField {
-                    name: "developerPortalUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayDisabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayRegionalUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostnameConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managementApiUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "minApiVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationSenderEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "portalUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocols".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIpAddressId".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "publisherEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "publisherName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scmUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "security".into(),
-                },
-                register_interface::ResultField {
-                    name: "signIn".into(),
-                },
-                register_interface::ResultField {
-                    name: "signUp".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkType".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceResult {
             additional_locations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalLocations").unwrap(),
+                o.extract_field("additionalLocations"),
             ),
             certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificates").unwrap(),
+                o.extract_field("certificates"),
             ),
             client_certificate_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientCertificateEnabled").unwrap(),
+                o.extract_field("clientCertificateEnabled"),
             ),
             delegation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegation").unwrap(),
+                o.extract_field("delegation"),
             ),
             developer_portal_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("developerPortalUrl").unwrap(),
+                o.extract_field("developerPortalUrl"),
             ),
             gateway_disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayDisabled").unwrap(),
+                o.extract_field("gatewayDisabled"),
             ),
             gateway_regional_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayRegionalUrl").unwrap(),
+                o.extract_field("gatewayRegionalUrl"),
             ),
             gateway_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayUrl").unwrap(),
+                o.extract_field("gatewayUrl"),
             ),
             hostname_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostnameConfiguration").unwrap(),
+                o.extract_field("hostnameConfiguration"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             management_api_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managementApiUrl").unwrap(),
+                o.extract_field("managementApiUrl"),
             ),
             min_api_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minApiVersion").unwrap(),
+                o.extract_field("minApiVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_sender_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationSenderEmail").unwrap(),
+                o.extract_field("notificationSenderEmail"),
             ),
             portal_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("portalUrl").unwrap(),
+                o.extract_field("portalUrl"),
             ),
             private_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpAddresses").unwrap(),
+                o.extract_field("privateIpAddresses"),
             ),
             protocols: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocols").unwrap(),
+                o.extract_field("protocols"),
             ),
             public_ip_address_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIpAddressId").unwrap(),
+                o.extract_field("publicIpAddressId"),
             ),
             public_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIpAddresses").unwrap(),
+                o.extract_field("publicIpAddresses"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             publisher_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publisherEmail").unwrap(),
+                o.extract_field("publisherEmail"),
             ),
             publisher_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publisherName").unwrap(),
+                o.extract_field("publisherName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            scm_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scmUrl").unwrap(),
-            ),
+            scm_url: pulumi_wasm_rust::__private::into_domain(o.extract_field("scmUrl")),
             security: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("security").unwrap(),
+                o.extract_field("security"),
             ),
-            sign_in: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signIn").unwrap(),
-            ),
-            sign_up: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signUp").unwrap(),
-            ),
+            sign_in: pulumi_wasm_rust::__private::into_domain(o.extract_field("signIn")),
+            sign_up: pulumi_wasm_rust::__private::into_domain(o.extract_field("signUp")),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tenant_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantAccess").unwrap(),
+                o.extract_field("tenantAccess"),
             ),
             virtual_network_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkConfiguration").unwrap(),
+                o.extract_field("virtualNetworkConfiguration"),
             ),
             virtual_network_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkType").unwrap(),
+                o.extract_field("virtualNetworkType"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

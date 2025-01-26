@@ -162,62 +162,29 @@ pub mod webhook {
                     value: &scope_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "branchFilter".into(),
-                },
-                register_interface::ResultField {
-                    name: "buildType".into(),
-                },
-                register_interface::ResultField {
-                    name: "filterGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "payloadUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scopeConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "secret".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WebhookResult {
             branch_filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("branchFilter").unwrap(),
+                o.extract_field("branchFilter"),
             ),
             build_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("buildType").unwrap(),
+                o.extract_field("buildType"),
             ),
             filter_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filterGroups").unwrap(),
+                o.extract_field("filterGroups"),
             ),
             payload_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("payloadUrl").unwrap(),
+                o.extract_field("payloadUrl"),
             ),
             project_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectName").unwrap(),
+                o.extract_field("projectName"),
             ),
             scope_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scopeConfiguration").unwrap(),
+                o.extract_field("scopeConfiguration"),
             ),
-            secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secret").unwrap(),
-            ),
-            url: pulumi_wasm_rust::__private::into_domain(hashmap.remove("url").unwrap()),
+            secret: pulumi_wasm_rust::__private::into_domain(o.extract_field("secret")),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

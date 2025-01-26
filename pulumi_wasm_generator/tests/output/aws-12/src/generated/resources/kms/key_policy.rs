@@ -102,34 +102,14 @@ pub mod key_policy {
                     value: &policy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bypassPolicyLockoutSafetyCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KeyPolicyResult {
             bypass_policy_lockout_safety_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bypassPolicyLockoutSafetyCheck").unwrap(),
+                o.extract_field("bypassPolicyLockoutSafetyCheck"),
             ),
-            key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyId").unwrap(),
-            ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            key_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyId")),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
         }
     }
 }

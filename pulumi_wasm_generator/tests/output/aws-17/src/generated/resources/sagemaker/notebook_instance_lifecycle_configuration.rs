@@ -90,39 +90,16 @@ pub mod notebook_instance_lifecycle_configuration {
                     value: &on_start_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "onCreate".into(),
-                },
-                register_interface::ResultField {
-                    name: "onStart".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NotebookInstanceLifecycleConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             on_create: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onCreate").unwrap(),
+                o.extract_field("onCreate"),
             ),
             on_start: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onStart").unwrap(),
+                o.extract_field("onStart"),
             ),
         }
     }

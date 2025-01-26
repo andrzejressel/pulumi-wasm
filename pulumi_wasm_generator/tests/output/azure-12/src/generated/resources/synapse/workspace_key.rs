@@ -201,39 +201,18 @@ pub mod workspace_key {
                     value: &synapse_workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "active".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedKeyVersionlessId".into(),
-                },
-                register_interface::ResultField {
-                    name: "synapseWorkspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkspaceKeyResult {
-            active: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("active").unwrap(),
-            ),
+            active: pulumi_wasm_rust::__private::into_domain(o.extract_field("active")),
             customer_managed_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKeyName").unwrap(),
+                o.extract_field("customerManagedKeyName"),
             ),
             customer_managed_key_versionless_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKeyVersionlessId").unwrap(),
+                o.extract_field("customerManagedKeyVersionlessId"),
             ),
             synapse_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("synapseWorkspaceId").unwrap(),
+                o.extract_field("synapseWorkspaceId"),
             ),
         }
     }

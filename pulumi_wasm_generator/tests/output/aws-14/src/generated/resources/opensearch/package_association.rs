@@ -90,33 +90,17 @@ pub mod package_association {
                     value: &package_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "packageId".into(),
-                },
-                register_interface::ResultField {
-                    name: "referencePath".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PackageAssociationResult {
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             package_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packageId").unwrap(),
+                o.extract_field("packageId"),
             ),
             reference_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("referencePath").unwrap(),
+                o.extract_field("referencePath"),
             ),
         }
     }

@@ -98,33 +98,17 @@ pub mod account_static_website {
                     value: &storage_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "error404Document".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexDocument".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountStaticWebsiteResult {
             error404_document: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("error404Document").unwrap(),
+                o.extract_field("error404Document"),
             ),
             index_document: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexDocument").unwrap(),
+                o.extract_field("indexDocument"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
         }
     }

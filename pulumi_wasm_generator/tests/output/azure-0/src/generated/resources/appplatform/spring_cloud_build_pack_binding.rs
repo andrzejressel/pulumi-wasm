@@ -130,39 +130,16 @@ pub mod spring_cloud_build_pack_binding {
                     value: &spring_cloud_builder_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bindingType".into(),
-                },
-                register_interface::ResultField {
-                    name: "launch".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudBuilderId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudBuildPackBindingResult {
             binding_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bindingType").unwrap(),
+                o.extract_field("bindingType"),
             ),
-            launch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launch").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            launch: pulumi_wasm_rust::__private::into_domain(o.extract_field("launch")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             spring_cloud_builder_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudBuilderId").unwrap(),
+                o.extract_field("springCloudBuilderId"),
             ),
         }
     }

@@ -110,45 +110,21 @@ pub mod sharedflow_deployment {
                     value: &sharedflow_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "environment".into(),
-                },
-                register_interface::ResultField {
-                    name: "orgId".into(),
-                },
-                register_interface::ResultField {
-                    name: "revision".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedflowId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SharedflowDeploymentResult {
             environment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environment").unwrap(),
+                o.extract_field("environment"),
             ),
-            org_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orgId").unwrap(),
-            ),
+            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
             revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revision").unwrap(),
+                o.extract_field("revision"),
             ),
             service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccount").unwrap(),
+                o.extract_field("serviceAccount"),
             ),
             sharedflow_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedflowId").unwrap(),
+                o.extract_field("sharedflowId"),
             ),
         }
     }

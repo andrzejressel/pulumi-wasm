@@ -146,51 +146,24 @@ pub mod channel_facebook {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "botName".into(),
-                },
-                register_interface::ResultField {
-                    name: "facebookApplicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "facebookApplicationSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "pages".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ChannelFacebookResult {
             bot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botName").unwrap(),
+                o.extract_field("botName"),
             ),
             facebook_application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("facebookApplicationId").unwrap(),
+                o.extract_field("facebookApplicationId"),
             ),
             facebook_application_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("facebookApplicationSecret").unwrap(),
+                o.extract_field("facebookApplicationSecret"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            pages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pages").unwrap(),
-            ),
+            pages: pulumi_wasm_rust::__private::into_domain(o.extract_field("pages")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

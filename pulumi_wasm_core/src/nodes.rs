@@ -172,7 +172,6 @@ pub(crate) struct AbstractResourceNode {
     value: MaybeNodeValue,
     required_inputs: HashSet<FieldName>,
     inputs: HashMap<FieldName, NodeValue>,
-    outputs: HashSet<FieldName>,
     callbacks: Vec<Callback>,
     operation: ResourceRequestOperation,
     version: String,
@@ -184,7 +183,6 @@ impl AbstractResourceNode {
         operation: ResourceRequestOperation,
         required_inputs: HashSet<FieldName>,
         inputs: HashMap<FieldName, NodeValue>,
-        outputs: HashSet<FieldName>,
         callbacks: Vec<Callback>,
         version: String,
     ) -> Self {
@@ -193,7 +191,6 @@ impl AbstractResourceNode {
             operation,
             required_inputs,
             inputs,
-            outputs,
             callbacks,
             version,
         }
@@ -202,7 +199,6 @@ impl AbstractResourceNode {
     pub(crate) fn new(
         operation: ResourceRequestOperation,
         input_names: HashSet<FieldName>,
-        outputs: HashSet<FieldName>,
         version: String,
     ) -> Self {
         Self::create(
@@ -210,7 +206,6 @@ impl AbstractResourceNode {
             operation,
             input_names,
             HashMap::new(),
-            outputs,
             Vec::new(),
             version,
         )
@@ -277,7 +272,6 @@ impl AbstractResourceNode {
             operation: self.operation.clone(),
             object,
             version: self.version.clone(),
-            expected_results: self.outputs.clone(),
         }
     }
 
@@ -462,7 +456,6 @@ mod tests {
                     "name".into(),
                 )),
                 ["exists_nil".into(), "exists_int".into(), "not_exist".into()].into(),
-                HashSet::from(["output".into()]),
                 "1.0.0".into(),
             );
 
@@ -484,7 +477,6 @@ mod tests {
                     operation: ResourceRequestOperation::Register(
                         RegisterResourceRequestOperation::new("type".into(), "name".into())
                     ),
-                    expected_results: HashSet::from(["output".into()]),
                     version: "1.0.0".into()
                 })
             );
@@ -498,7 +490,6 @@ mod tests {
                     "name".into(),
                 )),
                 ["secret".into()].into(),
-                HashSet::from(["output".into()]),
                 "1.0.0".into(),
             );
 
@@ -516,7 +507,6 @@ mod tests {
                     operation: ResourceRequestOperation::Register(
                         RegisterResourceRequestOperation::new("type".into(), "name".into())
                     ),
-                    expected_results: HashSet::from(["output".into()]),
                     version: "1.0.0".into()
                 })
             );

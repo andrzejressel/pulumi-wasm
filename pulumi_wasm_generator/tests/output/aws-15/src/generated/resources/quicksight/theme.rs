@@ -182,99 +182,42 @@ pub mod theme {
                     value: &version_description_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "baseThemeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "configuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "themeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionNumber".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ThemeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             aws_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountId").unwrap(),
+                o.extract_field("awsAccountId"),
             ),
             base_theme_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baseThemeId").unwrap(),
+                o.extract_field("baseThemeId"),
             ),
             configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configuration").unwrap(),
+                o.extract_field("configuration"),
             ),
             created_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTime").unwrap(),
+                o.extract_field("createdTime"),
             ),
             last_updated_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedTime").unwrap(),
+                o.extract_field("lastUpdatedTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissions").unwrap(),
+                o.extract_field("permissions"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             theme_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("themeId").unwrap(),
+                o.extract_field("themeId"),
             ),
             version_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionDescription").unwrap(),
+                o.extract_field("versionDescription"),
             ),
             version_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionNumber").unwrap(),
+                o.extract_field("versionNumber"),
             ),
         }
     }

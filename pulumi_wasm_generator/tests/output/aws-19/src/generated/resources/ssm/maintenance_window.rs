@@ -189,93 +189,41 @@ pub mod maintenance_window {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowUnassociatedTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "cutoff".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "duration".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "endDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduleOffset".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduleTimezone".into(),
-                },
-                register_interface::ResultField {
-                    name: "startDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MaintenanceWindowResult {
             allow_unassociated_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowUnassociatedTargets").unwrap(),
+                o.extract_field("allowUnassociatedTargets"),
             ),
-            cutoff: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cutoff").unwrap(),
-            ),
+            cutoff: pulumi_wasm_rust::__private::into_domain(o.extract_field("cutoff")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("duration").unwrap(),
+                o.extract_field("duration"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             end_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endDate").unwrap(),
+                o.extract_field("endDate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedule").unwrap(),
+                o.extract_field("schedule"),
             ),
             schedule_offset: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduleOffset").unwrap(),
+                o.extract_field("scheduleOffset"),
             ),
             schedule_timezone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduleTimezone").unwrap(),
+                o.extract_field("scheduleTimezone"),
             ),
             start_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startDate").unwrap(),
+                o.extract_field("startDate"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

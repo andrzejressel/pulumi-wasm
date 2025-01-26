@@ -104,34 +104,14 @@ pub mod postgresql_coordinator_configuration {
                     value: &value_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "value".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PostgresqlCoordinatorConfigurationResult {
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("value").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

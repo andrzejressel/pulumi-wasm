@@ -70,73 +70,34 @@ pub mod get_virtual_machine_configuration_assignment {
                     value: &virtual_machine_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "assignmentHash".into(),
-                },
-                register_interface::ResultField {
-                    name: "complianceStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentHash".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastComplianceStatusChecked".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestReportId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVirtualMachineConfigurationAssignmentResult {
             assignment_hash: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assignmentHash").unwrap(),
+                o.extract_field("assignmentHash"),
             ),
             compliance_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("complianceStatus").unwrap(),
+                o.extract_field("complianceStatus"),
             ),
             content_hash: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentHash").unwrap(),
+                o.extract_field("contentHash"),
             ),
             content_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentUri").unwrap(),
+                o.extract_field("contentUri"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             last_compliance_status_checked: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastComplianceStatusChecked").unwrap(),
+                o.extract_field("lastComplianceStatusChecked"),
             ),
             latest_report_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestReportId").unwrap(),
+                o.extract_field("latestReportId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             virtual_machine_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineName").unwrap(),
+                o.extract_field("virtualMachineName"),
             ),
         }
     }

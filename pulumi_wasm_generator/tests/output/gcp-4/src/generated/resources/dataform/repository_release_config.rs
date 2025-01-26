@@ -221,69 +221,31 @@ pub mod repository_release_config {
                     value: &time_zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "codeCompilationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "cronSchedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "gitCommitish".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "recentScheduledReleaseRecords".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "repository".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeZone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RepositoryReleaseConfigResult {
             code_compilation_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("codeCompilationConfig").unwrap(),
+                o.extract_field("codeCompilationConfig"),
             ),
             cron_schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cronSchedule").unwrap(),
+                o.extract_field("cronSchedule"),
             ),
             git_commitish: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gitCommitish").unwrap(),
+                o.extract_field("gitCommitish"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             recent_scheduled_release_records: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recentScheduledReleaseRecords").unwrap(),
+                o.extract_field("recentScheduledReleaseRecords"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             repository: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repository").unwrap(),
+                o.extract_field("repository"),
             ),
             time_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeZone").unwrap(),
+                o.extract_field("timeZone"),
             ),
         }
     }

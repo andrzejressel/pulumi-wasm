@@ -258,129 +258,61 @@ pub mod custom_model {
                     value: &vpc_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "baseModelIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "customModelArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "customModelKmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "customModelName".into(),
-                },
-                register_interface::ResultField {
-                    name: "customizationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "hyperparameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobName".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputDataConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "trainingDataConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "trainingMetrics".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationDataConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationMetrics".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomModelResult {
             base_model_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baseModelIdentifier").unwrap(),
+                o.extract_field("baseModelIdentifier"),
             ),
             custom_model_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customModelArn").unwrap(),
+                o.extract_field("customModelArn"),
             ),
             custom_model_kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customModelKmsKeyId").unwrap(),
+                o.extract_field("customModelKmsKeyId"),
             ),
             custom_model_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customModelName").unwrap(),
+                o.extract_field("customModelName"),
             ),
             customization_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customizationType").unwrap(),
+                o.extract_field("customizationType"),
             ),
             hyperparameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hyperparameters").unwrap(),
+                o.extract_field("hyperparameters"),
             ),
-            job_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobArn").unwrap(),
-            ),
+            job_arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobArn")),
             job_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobName").unwrap(),
+                o.extract_field("jobName"),
             ),
             job_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobStatus").unwrap(),
+                o.extract_field("jobStatus"),
             ),
             output_data_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputDataConfig").unwrap(),
+                o.extract_field("outputDataConfig"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             training_data_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trainingDataConfig").unwrap(),
+                o.extract_field("trainingDataConfig"),
             ),
             training_metrics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trainingMetrics").unwrap(),
+                o.extract_field("trainingMetrics"),
             ),
             validation_data_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationDataConfig").unwrap(),
+                o.extract_field("validationDataConfig"),
             ),
             validation_metrics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationMetrics").unwrap(),
+                o.extract_field("validationMetrics"),
             ),
             vpc_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcConfig").unwrap(),
+                o.extract_field("vpcConfig"),
             ),
         }
     }

@@ -230,76 +230,35 @@ pub mod manged_ssl_certificate {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "expireTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "managed".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "subjectAlternativeNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MangedSslCertificateResult {
             certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateId").unwrap(),
+                o.extract_field("certificateId"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             expire_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expireTime").unwrap(),
+                o.extract_field("expireTime"),
             ),
             managed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managed").unwrap(),
+                o.extract_field("managed"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             subject_alternative_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subjectAlternativeNames").unwrap(),
+                o.extract_field("subjectAlternativeNames"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

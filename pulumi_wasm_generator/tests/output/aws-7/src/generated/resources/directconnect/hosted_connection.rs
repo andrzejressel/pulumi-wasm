@@ -118,106 +118,44 @@ pub mod hosted_connection {
                     value: &vlan_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "awsDevice".into(),
-                },
-                register_interface::ResultField {
-                    name: "bandwidth".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "hasLogicalRedundancy".into(),
-                },
-                register_interface::ResultField {
-                    name: "jumboFrameCapable".into(),
-                },
-                register_interface::ResultField {
-                    name: "lagId".into(),
-                },
-                register_interface::ResultField {
-                    name: "loaIssueTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "providerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "vlan".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HostedConnectionResult {
             aws_device: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsDevice").unwrap(),
+                o.extract_field("awsDevice"),
             ),
             bandwidth: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bandwidth").unwrap(),
+                o.extract_field("bandwidth"),
             ),
             connection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionId").unwrap(),
+                o.extract_field("connectionId"),
             ),
             has_logical_redundancy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hasLogicalRedundancy").unwrap(),
+                o.extract_field("hasLogicalRedundancy"),
             ),
             jumbo_frame_capable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jumboFrameCapable").unwrap(),
+                o.extract_field("jumboFrameCapable"),
             ),
-            lag_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lagId").unwrap(),
-            ),
+            lag_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("lagId")),
             loa_issue_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loaIssueTime").unwrap(),
+                o.extract_field("loaIssueTime"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             owner_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerAccountId").unwrap(),
+                o.extract_field("ownerAccountId"),
             ),
             partner_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerName").unwrap(),
+                o.extract_field("partnerName"),
             ),
             provider_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providerName").unwrap(),
+                o.extract_field("providerName"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            vlan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vlan").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            vlan: pulumi_wasm_rust::__private::into_domain(o.extract_field("vlan")),
         }
     }
 }

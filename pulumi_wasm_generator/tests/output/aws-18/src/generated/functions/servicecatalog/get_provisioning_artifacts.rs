@@ -54,37 +54,18 @@ pub mod get_provisioning_artifacts {
                     value: &product_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceptLanguage".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "productId".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisioningArtifactDetails".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetProvisioningArtifactsResult {
             accept_language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptLanguage").unwrap(),
+                o.extract_field("acceptLanguage"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             product_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productId").unwrap(),
+                o.extract_field("productId"),
             ),
             provisioning_artifact_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisioningArtifactDetails").unwrap(),
+                o.extract_field("provisioningArtifactDetails"),
             ),
         }
     }

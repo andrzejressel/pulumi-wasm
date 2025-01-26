@@ -323,117 +323,55 @@ pub mod job {
                     value: &workload_profile_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "containerAppEnvironmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventStreamEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventTriggerConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "manualTriggerConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "registries".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicaRetryLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicaTimeoutInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduleTriggerConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "secrets".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "template".into(),
-                },
-                register_interface::ResultField {
-                    name: "workloadProfileName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         JobResult {
             container_app_environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerAppEnvironmentId").unwrap(),
+                o.extract_field("containerAppEnvironmentId"),
             ),
             event_stream_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventStreamEndpoint").unwrap(),
+                o.extract_field("eventStreamEndpoint"),
             ),
             event_trigger_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventTriggerConfig").unwrap(),
+                o.extract_field("eventTriggerConfig"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             manual_trigger_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manualTriggerConfig").unwrap(),
+                o.extract_field("manualTriggerConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundIpAddresses").unwrap(),
+                o.extract_field("outboundIpAddresses"),
             ),
             registries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registries").unwrap(),
+                o.extract_field("registries"),
             ),
             replica_retry_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicaRetryLimit").unwrap(),
+                o.extract_field("replicaRetryLimit"),
             ),
             replica_timeout_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicaTimeoutInSeconds").unwrap(),
+                o.extract_field("replicaTimeoutInSeconds"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             schedule_trigger_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduleTriggerConfig").unwrap(),
+                o.extract_field("scheduleTriggerConfig"),
             ),
             secrets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secrets").unwrap(),
+                o.extract_field("secrets"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("template").unwrap(),
+                o.extract_field("template"),
             ),
             workload_profile_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workloadProfileName").unwrap(),
+                o.extract_field("workloadProfileName"),
             ),
         }
     }

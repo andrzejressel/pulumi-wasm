@@ -47,38 +47,17 @@ pub mod get_databases {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "databases".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instance".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDatabasesResult {
             databases: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databases").unwrap(),
+                o.extract_field("databases"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instance").unwrap(),
+                o.extract_field("instance"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

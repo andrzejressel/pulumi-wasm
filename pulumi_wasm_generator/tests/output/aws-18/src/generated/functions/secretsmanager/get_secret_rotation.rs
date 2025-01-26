@@ -43,43 +43,21 @@ pub mod get_secret_rotation {
                     value: &secret_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "rotationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "rotationLambdaArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "rotationRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSecretRotationResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             rotation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rotationEnabled").unwrap(),
+                o.extract_field("rotationEnabled"),
             ),
             rotation_lambda_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rotationLambdaArn").unwrap(),
+                o.extract_field("rotationLambdaArn"),
             ),
             rotation_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rotationRules").unwrap(),
+                o.extract_field("rotationRules"),
             ),
             secret_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretId").unwrap(),
+                o.extract_field("secretId"),
             ),
         }
     }

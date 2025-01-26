@@ -169,45 +169,23 @@ pub mod role_assignment {
                     value: &synapse_workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "principalId".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalType".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleName".into(),
-                },
-                register_interface::ResultField {
-                    name: "synapseSparkPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "synapseWorkspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RoleAssignmentResult {
             principal_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalId").unwrap(),
+                o.extract_field("principalId"),
             ),
             principal_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalType").unwrap(),
+                o.extract_field("principalType"),
             ),
             role_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleName").unwrap(),
+                o.extract_field("roleName"),
             ),
             synapse_spark_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("synapseSparkPoolId").unwrap(),
+                o.extract_field("synapseSparkPoolId"),
             ),
             synapse_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("synapseWorkspaceId").unwrap(),
+                o.extract_field("synapseWorkspaceId"),
             ),
         }
     }

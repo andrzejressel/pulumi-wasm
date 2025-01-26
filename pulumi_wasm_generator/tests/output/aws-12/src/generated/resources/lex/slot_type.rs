@@ -144,70 +144,32 @@ pub mod slot_type {
                     value: &value_selection_strategy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "checksum".into(),
-                },
-                register_interface::ResultField {
-                    name: "createVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enumerationValues".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "valueSelectionStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SlotTypeResult {
             checksum: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("checksum").unwrap(),
+                o.extract_field("checksum"),
             ),
             create_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createVersion").unwrap(),
+                o.extract_field("createVersion"),
             ),
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enumeration_values: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enumerationValues").unwrap(),
+                o.extract_field("enumerationValues"),
             ),
             last_updated_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedDate").unwrap(),
+                o.extract_field("lastUpdatedDate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             value_selection_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("valueSelectionStrategy").unwrap(),
+                o.extract_field("valueSelectionStrategy"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

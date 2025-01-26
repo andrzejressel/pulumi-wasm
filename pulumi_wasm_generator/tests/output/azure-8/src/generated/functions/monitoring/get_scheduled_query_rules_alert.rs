@@ -81,115 +81,51 @@ pub mod get_scheduled_query_rules_alert {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actions".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizedResourceIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "frequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "query".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "severity".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "throttling".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggers".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetScheduledQueryRulesAlertResult {
             actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actions").unwrap(),
+                o.extract_field("actions"),
             ),
             authorized_resource_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizedResourceIds").unwrap(),
+                o.extract_field("authorizedResourceIds"),
             ),
             data_source_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSourceId").unwrap(),
+                o.extract_field("dataSourceId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frequency").unwrap(),
+                o.extract_field("frequency"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            query: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("query").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            query: pulumi_wasm_rust::__private::into_domain(o.extract_field("query")),
             query_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryType").unwrap(),
+                o.extract_field("queryType"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             severity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("severity").unwrap(),
+                o.extract_field("severity"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             throttling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("throttling").unwrap(),
+                o.extract_field("throttling"),
             ),
             time_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeWindow").unwrap(),
+                o.extract_field("timeWindow"),
             ),
             triggers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggers").unwrap(),
+                o.extract_field("triggers"),
             ),
         }
     }

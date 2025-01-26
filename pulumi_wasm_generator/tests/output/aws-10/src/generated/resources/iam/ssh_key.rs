@@ -101,51 +101,24 @@ pub mod ssh_key {
                     value: &username_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "encoding".into(),
-                },
-                register_interface::ResultField {
-                    name: "fingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "sshPublicKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "username".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SshKeyResult {
             encoding: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encoding").unwrap(),
+                o.extract_field("encoding"),
             ),
             fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fingerprint").unwrap(),
+                o.extract_field("fingerprint"),
             ),
             public_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKey").unwrap(),
+                o.extract_field("publicKey"),
             ),
             ssh_public_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sshPublicKeyId").unwrap(),
+                o.extract_field("sshPublicKeyId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("username").unwrap(),
+                o.extract_field("username"),
             ),
         }
     }

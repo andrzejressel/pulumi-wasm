@@ -19,26 +19,11 @@ pub mod get_client_open_id_user_info {
                 .into(),
             version: super::super::super::get_version(),
             object: Vec::from([]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetClientOpenIdUserInfoResult {
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

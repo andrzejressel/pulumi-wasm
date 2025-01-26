@@ -48,73 +48,36 @@ pub mod get_model {
                     value: &model_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customizationsSupporteds".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "inferenceTypesSupporteds".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputModalities".into(),
-                },
-                register_interface::ResultField {
-                    name: "modelArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "modelId".into(),
-                },
-                register_interface::ResultField {
-                    name: "modelName".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputModalities".into(),
-                },
-                register_interface::ResultField {
-                    name: "providerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "responseStreamingSupported".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetModelResult {
             customizations_supporteds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customizationsSupporteds").unwrap(),
+                o.extract_field("customizationsSupporteds"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             inference_types_supporteds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inferenceTypesSupporteds").unwrap(),
+                o.extract_field("inferenceTypesSupporteds"),
             ),
             input_modalities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputModalities").unwrap(),
+                o.extract_field("inputModalities"),
             ),
             model_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modelArn").unwrap(),
+                o.extract_field("modelArn"),
             ),
             model_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modelId").unwrap(),
+                o.extract_field("modelId"),
             ),
             model_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modelName").unwrap(),
+                o.extract_field("modelName"),
             ),
             output_modalities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputModalities").unwrap(),
+                o.extract_field("outputModalities"),
             ),
             provider_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providerName").unwrap(),
+                o.extract_field("providerName"),
             ),
             response_streaming_supported: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("responseStreamingSupported").unwrap(),
+                o.extract_field("responseStreamingSupported"),
             ),
         }
     }

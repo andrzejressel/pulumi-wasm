@@ -89,56 +89,24 @@ pub mod get_listener_rule {
                     value: &priority_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actions".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "conditions".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "listenerArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetListenerRuleResult {
             actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actions").unwrap(),
+                o.extract_field("actions"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             conditions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("conditions").unwrap(),
+                o.extract_field("conditions"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             listener_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listenerArn").unwrap(),
+                o.extract_field("listenerArn"),
             ),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

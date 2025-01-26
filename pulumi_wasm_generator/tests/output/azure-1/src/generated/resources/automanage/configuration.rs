@@ -266,94 +266,42 @@ pub mod configuration {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "antimalware".into(),
-                },
-                register_interface::ResultField {
-                    name: "automationAccountEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "azureSecurityBaseline".into(),
-                },
-                register_interface::ResultField {
-                    name: "backup".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootDiagnosticsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "defenderForCloudEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "guestConfigurationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusChangeAlertEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConfigurationResult {
             antimalware: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("antimalware").unwrap(),
+                o.extract_field("antimalware"),
             ),
             automation_account_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automationAccountEnabled").unwrap(),
+                o.extract_field("automationAccountEnabled"),
             ),
             azure_security_baseline: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureSecurityBaseline").unwrap(),
+                o.extract_field("azureSecurityBaseline"),
             ),
-            backup: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backup").unwrap(),
-            ),
+            backup: pulumi_wasm_rust::__private::into_domain(o.extract_field("backup")),
             boot_diagnostics_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootDiagnosticsEnabled").unwrap(),
+                o.extract_field("bootDiagnosticsEnabled"),
             ),
             defender_for_cloud_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defenderForCloudEnabled").unwrap(),
+                o.extract_field("defenderForCloudEnabled"),
             ),
             guest_configuration_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guestConfigurationEnabled").unwrap(),
+                o.extract_field("guestConfigurationEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             log_analytics_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsEnabled").unwrap(),
+                o.extract_field("logAnalyticsEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             status_change_alert_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusChangeAlertEnabled").unwrap(),
+                o.extract_field("statusChangeAlertEnabled"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

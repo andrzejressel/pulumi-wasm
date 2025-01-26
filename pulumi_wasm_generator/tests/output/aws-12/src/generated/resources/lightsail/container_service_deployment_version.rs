@@ -123,52 +123,23 @@ pub mod container_service_deployment_version {
                     value: &service_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "containers".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ContainerServiceDeploymentVersionResult {
             containers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containers").unwrap(),
+                o.extract_field("containers"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             public_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicEndpoint").unwrap(),
+                o.extract_field("publicEndpoint"),
             ),
             service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceName").unwrap(),
+                o.extract_field("serviceName"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

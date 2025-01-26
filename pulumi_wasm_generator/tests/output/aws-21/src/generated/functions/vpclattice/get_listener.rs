@@ -82,98 +82,41 @@ pub mod get_listener {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "listenerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "listenerIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetListenerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             default_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultActions").unwrap(),
+                o.extract_field("defaultActions"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             last_updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedAt").unwrap(),
+                o.extract_field("lastUpdatedAt"),
             ),
             listener_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listenerId").unwrap(),
+                o.extract_field("listenerId"),
             ),
             listener_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listenerIdentifier").unwrap(),
+                o.extract_field("listenerIdentifier"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             service_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceArn").unwrap(),
+                o.extract_field("serviceArn"),
             ),
             service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceId").unwrap(),
+                o.extract_field("serviceId"),
             ),
             service_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceIdentifier").unwrap(),
+                o.extract_field("serviceIdentifier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

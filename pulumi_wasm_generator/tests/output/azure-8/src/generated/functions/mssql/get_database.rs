@@ -78,123 +78,56 @@ pub mod get_database {
                     value: &server_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "collation".into(),
-                },
-                register_interface::ResultField {
-                    name: "elasticPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "enclaveType".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxSizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "readReplicaCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "readScale".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverId".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "transparentDataEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "transparentDataEncryptionKeyAutomaticRotationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "transparentDataEncryptionKeyVaultKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneRedundant".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDatabaseResult {
             collation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("collation").unwrap(),
+                o.extract_field("collation"),
             ),
             elastic_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticPoolId").unwrap(),
+                o.extract_field("elasticPoolId"),
             ),
             enclave_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enclaveType").unwrap(),
+                o.extract_field("enclaveType"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             license_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseType").unwrap(),
+                o.extract_field("licenseType"),
             ),
             max_size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxSizeGb").unwrap(),
+                o.extract_field("maxSizeGb"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             read_replica_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readReplicaCount").unwrap(),
+                o.extract_field("readReplicaCount"),
             ),
             read_scale: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readScale").unwrap(),
+                o.extract_field("readScale"),
             ),
             server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverId").unwrap(),
+                o.extract_field("serverId"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             storage_account_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountType").unwrap(),
+                o.extract_field("storageAccountType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             transparent_data_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transparentDataEncryptionEnabled").unwrap(),
+                o.extract_field("transparentDataEncryptionEnabled"),
             ),
             transparent_data_encryption_key_automatic_rotation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap
-                    .remove("transparentDataEncryptionKeyAutomaticRotationEnabled")
-                    .unwrap(),
+                o.extract_field("transparentDataEncryptionKeyAutomaticRotationEnabled"),
             ),
             transparent_data_encryption_key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transparentDataEncryptionKeyVaultKeyId").unwrap(),
+                o.extract_field("transparentDataEncryptionKeyVaultKeyId"),
             ),
             zone_redundant: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneRedundant").unwrap(),
+                o.extract_field("zoneRedundant"),
             ),
         }
     }

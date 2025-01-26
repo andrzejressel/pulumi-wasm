@@ -163,51 +163,24 @@ pub mod delivery_channel {
                     value: &sns_topic_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3BucketName".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3KeyPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3KmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotDeliveryProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "snsTopicArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DeliveryChannelResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             s3_bucket_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3BucketName").unwrap(),
+                o.extract_field("s3BucketName"),
             ),
             s3_key_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3KeyPrefix").unwrap(),
+                o.extract_field("s3KeyPrefix"),
             ),
             s3_kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3KmsKeyArn").unwrap(),
+                o.extract_field("s3KmsKeyArn"),
             ),
             snapshot_delivery_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotDeliveryProperties").unwrap(),
+                o.extract_field("snapshotDeliveryProperties"),
             ),
             sns_topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snsTopicArn").unwrap(),
+                o.extract_field("snsTopicArn"),
             ),
         }
     }

@@ -93,40 +93,17 @@ pub mod zone_hold {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "hold".into(),
-                },
-                register_interface::ResultField {
-                    name: "holdAfter".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeSubdomains".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZoneHoldResult {
-            hold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hold").unwrap(),
-            ),
+            hold: pulumi_wasm_rust::__private::into_domain(o.extract_field("hold")),
             hold_after: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("holdAfter").unwrap(),
+                o.extract_field("holdAfter"),
             ),
             include_subdomains: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeSubdomains").unwrap(),
+                o.extract_field("includeSubdomains"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

@@ -98,64 +98,27 @@ pub mod template {
                     value: &value_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "globalQuota".into(),
-                },
-                register_interface::ResultField {
-                    name: "quotaCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "quotaName".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "unit".into(),
-                },
-                register_interface::ResultField {
-                    name: "value".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TemplateResult {
             global_quota: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalQuota").unwrap(),
+                o.extract_field("globalQuota"),
             ),
             quota_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quotaCode").unwrap(),
+                o.extract_field("quotaCode"),
             ),
             quota_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quotaName").unwrap(),
+                o.extract_field("quotaName"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             service_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceCode").unwrap(),
+                o.extract_field("serviceCode"),
             ),
             service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceName").unwrap(),
+                o.extract_field("serviceName"),
             ),
-            unit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("unit").unwrap(),
-            ),
-            value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("value").unwrap(),
-            ),
+            unit: pulumi_wasm_rust::__private::into_domain(o.extract_field("unit")),
+            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

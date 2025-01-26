@@ -89,27 +89,14 @@ pub mod instance_trust_provider_attachment {
                     value: &verifiedaccess_trust_provider_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "verifiedaccessInstanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "verifiedaccessTrustProviderId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceTrustProviderAttachmentResult {
             verifiedaccess_instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verifiedaccessInstanceId").unwrap(),
+                o.extract_field("verifiedaccessInstanceId"),
             ),
             verifiedaccess_trust_provider_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verifiedaccessTrustProviderId").unwrap(),
+                o.extract_field("verifiedaccessTrustProviderId"),
             ),
         }
     }

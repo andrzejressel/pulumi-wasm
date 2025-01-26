@@ -194,75 +194,30 @@ pub mod lifecycle_policy {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceSelection".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LifecyclePolicyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             execution_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionRole").unwrap(),
+                o.extract_field("executionRole"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             policy_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDetails").unwrap(),
+                o.extract_field("policyDetails"),
             ),
             resource_selection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceSelection").unwrap(),
+                o.extract_field("resourceSelection"),
             ),
             resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceType").unwrap(),
+                o.extract_field("resourceType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

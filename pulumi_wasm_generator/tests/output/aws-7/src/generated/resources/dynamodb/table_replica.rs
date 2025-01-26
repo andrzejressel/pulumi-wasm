@@ -152,63 +152,28 @@ pub mod table_replica {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtectionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalTableArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "pointInTimeRecovery".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableClassOverride".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TableReplicaResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             deletion_protection_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtectionEnabled").unwrap(),
+                o.extract_field("deletionProtectionEnabled"),
             ),
             global_table_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalTableArn").unwrap(),
+                o.extract_field("globalTableArn"),
             ),
             kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyArn").unwrap(),
+                o.extract_field("kmsKeyArn"),
             ),
             point_in_time_recovery: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pointInTimeRecovery").unwrap(),
+                o.extract_field("pointInTimeRecovery"),
             ),
             table_class_override: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableClassOverride").unwrap(),
+                o.extract_field("tableClassOverride"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

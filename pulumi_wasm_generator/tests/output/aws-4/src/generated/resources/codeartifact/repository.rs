@@ -215,75 +215,32 @@ pub mod repository {
                     value: &upstreams_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "administratorAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalConnections".into(),
-                },
-                register_interface::ResultField {
-                    name: "repository".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "upstreams".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RepositoryResult {
             administrator_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorAccount").unwrap(),
+                o.extract_field("administratorAccount"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             domain_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainOwner").unwrap(),
+                o.extract_field("domainOwner"),
             ),
             external_connections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalConnections").unwrap(),
+                o.extract_field("externalConnections"),
             ),
             repository: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repository").unwrap(),
+                o.extract_field("repository"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             upstreams: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("upstreams").unwrap(),
+                o.extract_field("upstreams"),
             ),
         }
     }

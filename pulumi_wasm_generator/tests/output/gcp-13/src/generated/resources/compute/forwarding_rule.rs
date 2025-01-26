@@ -1578,226 +1578,104 @@ pub mod forwarding_rule {
                     value: &target_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allPorts".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowGlobalAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowPscGlobalAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendService".into(),
-                },
-                register_interface::ResultField {
-                    name: "baseForwardingRule".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "forwardingRuleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipProtocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "isMirroringCollector".into(),
-                },
-                register_interface::ResultField {
-                    name: "labelFingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancingScheme".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "noAutomateDnsZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "portRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "ports".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pscConnectionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "pscConnectionStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "recreateClosedPsc".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceDirectoryRegistrations".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceLabel".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceIpRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "target".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ForwardingRuleResult {
             all_ports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allPorts").unwrap(),
+                o.extract_field("allPorts"),
             ),
             allow_global_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowGlobalAccess").unwrap(),
+                o.extract_field("allowGlobalAccess"),
             ),
             allow_psc_global_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowPscGlobalAccess").unwrap(),
+                o.extract_field("allowPscGlobalAccess"),
             ),
             backend_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendService").unwrap(),
+                o.extract_field("backendService"),
             ),
             base_forwarding_rule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baseForwardingRule").unwrap(),
+                o.extract_field("baseForwardingRule"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             forwarding_rule_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forwardingRuleId").unwrap(),
+                o.extract_field("forwardingRuleId"),
             ),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
             ip_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipProtocol").unwrap(),
+                o.extract_field("ipProtocol"),
             ),
             ip_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipVersion").unwrap(),
+                o.extract_field("ipVersion"),
             ),
             is_mirroring_collector: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isMirroringCollector").unwrap(),
+                o.extract_field("isMirroringCollector"),
             ),
             label_fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labelFingerprint").unwrap(),
+                o.extract_field("labelFingerprint"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             load_balancing_scheme: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancingScheme").unwrap(),
+                o.extract_field("loadBalancingScheme"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             network_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkTier").unwrap(),
+                o.extract_field("networkTier"),
             ),
             no_automate_dns_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("noAutomateDnsZone").unwrap(),
+                o.extract_field("noAutomateDnsZone"),
             ),
             port_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("portRange").unwrap(),
+                o.extract_field("portRange"),
             ),
-            ports: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ports").unwrap(),
-            ),
+            ports: pulumi_wasm_rust::__private::into_domain(o.extract_field("ports")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             psc_connection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pscConnectionId").unwrap(),
+                o.extract_field("pscConnectionId"),
             ),
             psc_connection_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pscConnectionStatus").unwrap(),
+                o.extract_field("pscConnectionStatus"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             recreate_closed_psc: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recreateClosedPsc").unwrap(),
+                o.extract_field("recreateClosedPsc"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             service_directory_registrations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceDirectoryRegistrations").unwrap(),
+                o.extract_field("serviceDirectoryRegistrations"),
             ),
             service_label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceLabel").unwrap(),
+                o.extract_field("serviceLabel"),
             ),
             service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceName").unwrap(),
+                o.extract_field("serviceName"),
             ),
             source_ip_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceIpRanges").unwrap(),
+                o.extract_field("sourceIpRanges"),
             ),
             subnetwork: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetwork").unwrap(),
+                o.extract_field("subnetwork"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("target").unwrap(),
-            ),
+            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
         }
     }
 }

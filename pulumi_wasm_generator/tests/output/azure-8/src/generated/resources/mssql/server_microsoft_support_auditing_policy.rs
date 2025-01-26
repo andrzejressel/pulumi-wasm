@@ -272,51 +272,26 @@ pub mod server_microsoft_support_auditing_policy {
                     value: &storage_account_subscription_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blobStorageEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "logMonitoringEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountSubscriptionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServerMicrosoftSupportAuditingPolicyResult {
             blob_storage_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blobStorageEndpoint").unwrap(),
+                o.extract_field("blobStorageEndpoint"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             log_monitoring_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logMonitoringEnabled").unwrap(),
+                o.extract_field("logMonitoringEnabled"),
             ),
             server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverId").unwrap(),
+                o.extract_field("serverId"),
             ),
             storage_account_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountAccessKey").unwrap(),
+                o.extract_field("storageAccountAccessKey"),
             ),
             storage_account_subscription_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountSubscriptionId").unwrap(),
+                o.extract_field("storageAccountSubscriptionId"),
             ),
         }
     }

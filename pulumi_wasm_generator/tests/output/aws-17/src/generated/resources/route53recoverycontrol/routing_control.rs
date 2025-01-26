@@ -113,46 +113,18 @@ pub mod routing_control {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "controlPanelArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RoutingControlResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cluster_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterArn").unwrap(),
+                o.extract_field("clusterArn"),
             ),
             control_panel_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlPanelArn").unwrap(),
+                o.extract_field("controlPanelArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

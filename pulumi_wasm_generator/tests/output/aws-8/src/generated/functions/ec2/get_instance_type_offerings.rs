@@ -52,49 +52,24 @@ pub mod get_instance_type_offerings {
                     value: &location_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "locations".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetInstanceTypeOfferingsResult {
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceTypes").unwrap(),
+                o.extract_field("instanceTypes"),
             ),
             location_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationType").unwrap(),
+                o.extract_field("locationType"),
             ),
             location_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationTypes").unwrap(),
+                o.extract_field("locationTypes"),
             ),
             locations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locations").unwrap(),
+                o.extract_field("locations"),
             ),
         }
     }

@@ -190,63 +190,30 @@ pub mod domain_trust {
                     value: &trust_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "selectiveAuthentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetDnsIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetDomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustDirection".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustHandshakeSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainTrustResult {
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             selective_authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selectiveAuthentication").unwrap(),
+                o.extract_field("selectiveAuthentication"),
             ),
             target_dns_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetDnsIpAddresses").unwrap(),
+                o.extract_field("targetDnsIpAddresses"),
             ),
             target_domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetDomainName").unwrap(),
+                o.extract_field("targetDomainName"),
             ),
             trust_direction: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustDirection").unwrap(),
+                o.extract_field("trustDirection"),
             ),
             trust_handshake_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustHandshakeSecret").unwrap(),
+                o.extract_field("trustHandshakeSecret"),
             ),
             trust_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustType").unwrap(),
+                o.extract_field("trustType"),
             ),
         }
     }

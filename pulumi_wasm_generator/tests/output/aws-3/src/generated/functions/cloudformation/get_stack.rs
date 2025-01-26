@@ -65,85 +65,38 @@ pub mod get_stack {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "capabilities".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableRollback".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputs".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateBody".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeoutInMinutes".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetStackResult {
             capabilities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capabilities").unwrap(),
+                o.extract_field("capabilities"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disable_rollback: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableRollback").unwrap(),
+                o.extract_field("disableRollback"),
             ),
             iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoleArn").unwrap(),
+                o.extract_field("iamRoleArn"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationArns").unwrap(),
+                o.extract_field("notificationArns"),
             ),
             outputs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputs").unwrap(),
+                o.extract_field("outputs"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             template_body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateBody").unwrap(),
+                o.extract_field("templateBody"),
             ),
             timeout_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeoutInMinutes").unwrap(),
+                o.extract_field("timeoutInMinutes"),
             ),
         }
     }

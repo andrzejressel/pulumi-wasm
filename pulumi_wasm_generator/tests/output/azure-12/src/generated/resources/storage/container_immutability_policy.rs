@@ -144,45 +144,21 @@ pub mod container_immutability_policy {
                     value: &storage_container_resource_manager_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "immutabilityPeriodInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "locked".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectedAppendWritesAllEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectedAppendWritesEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageContainerResourceManagerId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ContainerImmutabilityPolicyResult {
             immutability_period_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("immutabilityPeriodInDays").unwrap(),
+                o.extract_field("immutabilityPeriodInDays"),
             ),
-            locked: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locked").unwrap(),
-            ),
+            locked: pulumi_wasm_rust::__private::into_domain(o.extract_field("locked")),
             protected_append_writes_all_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectedAppendWritesAllEnabled").unwrap(),
+                o.extract_field("protectedAppendWritesAllEnabled"),
             ),
             protected_append_writes_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectedAppendWritesEnabled").unwrap(),
+                o.extract_field("protectedAppendWritesEnabled"),
             ),
             storage_container_resource_manager_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageContainerResourceManagerId").unwrap(),
+                o.extract_field("storageContainerResourceManagerId"),
             ),
         }
     }

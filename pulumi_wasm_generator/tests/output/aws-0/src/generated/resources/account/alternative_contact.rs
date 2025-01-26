@@ -125,52 +125,23 @@ pub mod alternative_contact {
                     value: &title_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "alternateContactType".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "phoneNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "title".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AlternativeContactResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             alternate_contact_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alternateContactType").unwrap(),
+                o.extract_field("alternateContactType"),
             ),
             email_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailAddress").unwrap(),
+                o.extract_field("emailAddress"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             phone_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("phoneNumber").unwrap(),
+                o.extract_field("phoneNumber"),
             ),
-            title: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("title").unwrap(),
-            ),
+            title: pulumi_wasm_rust::__private::into_domain(o.extract_field("title")),
         }
     }
 }

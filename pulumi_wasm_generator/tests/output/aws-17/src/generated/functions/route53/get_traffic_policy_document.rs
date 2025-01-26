@@ -101,62 +101,25 @@ pub mod get_traffic_policy_document {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "endpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "json".into(),
-                },
-                register_interface::ResultField {
-                    name: "recordType".into(),
-                },
-                register_interface::ResultField {
-                    name: "rules".into(),
-                },
-                register_interface::ResultField {
-                    name: "startEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "startRule".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTrafficPolicyDocumentResult {
             endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoints").unwrap(),
+                o.extract_field("endpoints"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("json").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            json: pulumi_wasm_rust::__private::into_domain(o.extract_field("json")),
             record_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recordType").unwrap(),
+                o.extract_field("recordType"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rules").unwrap(),
-            ),
+            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
             start_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startEndpoint").unwrap(),
+                o.extract_field("startEndpoint"),
             ),
             start_rule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startRule").unwrap(),
+                o.extract_field("startRule"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

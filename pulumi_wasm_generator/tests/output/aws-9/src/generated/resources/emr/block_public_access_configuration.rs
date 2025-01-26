@@ -164,27 +164,14 @@ pub mod block_public_access_configuration {
                     value: &permitted_public_security_group_rule_ranges_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blockPublicSecurityGroupRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "permittedPublicSecurityGroupRuleRanges".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BlockPublicAccessConfigurationResult {
             block_public_security_group_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockPublicSecurityGroupRules").unwrap(),
+                o.extract_field("blockPublicSecurityGroupRules"),
             ),
             permitted_public_security_group_rule_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permittedPublicSecurityGroupRuleRanges").unwrap(),
+                o.extract_field("permittedPublicSecurityGroupRuleRanges"),
             ),
         }
     }

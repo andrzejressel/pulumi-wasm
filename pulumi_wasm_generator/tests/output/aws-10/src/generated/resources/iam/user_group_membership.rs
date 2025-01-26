@@ -95,28 +95,11 @@ pub mod user_group_membership {
                     value: &user_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "groups".into(),
-                },
-                register_interface::ResultField {
-                    name: "user".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UserGroupMembershipResult {
-            groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groups").unwrap(),
-            ),
-            user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("user").unwrap(),
-            ),
+            groups: pulumi_wasm_rust::__private::into_domain(o.extract_field("groups")),
+            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
         }
     }
 }

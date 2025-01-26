@@ -72,27 +72,14 @@ pub mod egress_policy {
                     value: &resource_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "egressPolicyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resource".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EgressPolicyResult {
             egress_policy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("egressPolicyName").unwrap(),
+                o.extract_field("egressPolicyName"),
             ),
             resource: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resource").unwrap(),
+                o.extract_field("resource"),
             ),
         }
     }

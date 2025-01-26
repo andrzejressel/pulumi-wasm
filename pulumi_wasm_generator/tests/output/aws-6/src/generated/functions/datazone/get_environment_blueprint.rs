@@ -55,50 +55,23 @@ pub mod get_environment_blueprint {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blueprintProvider".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "managed".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetEnvironmentBlueprintResult {
             blueprint_provider: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blueprintProvider").unwrap(),
+                o.extract_field("blueprintProvider"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             domain_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainId").unwrap(),
+                o.extract_field("domainId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             managed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managed").unwrap(),
+                o.extract_field("managed"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

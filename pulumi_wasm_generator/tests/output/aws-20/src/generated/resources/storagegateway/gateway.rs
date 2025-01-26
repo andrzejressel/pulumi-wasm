@@ -420,159 +420,76 @@ pub mod gateway {
                     value: &tape_drive_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activationKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "averageDownloadRateLimitInBitsPerSec".into(),
-                },
-                register_interface::ResultField {
-                    name: "averageUploadRateLimitInBitsPerSec".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudwatchLogGroupArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ec2InstanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointType".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayNetworkInterfaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayTimezone".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayType".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayVpcEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostEnvironment".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceStartTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "mediumChangerType".into(),
-                },
-                register_interface::ResultField {
-                    name: "smbActiveDirectorySettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "smbFileShareVisibility".into(),
-                },
-                register_interface::ResultField {
-                    name: "smbGuestPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "smbSecurityStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tapeDriveType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GatewayResult {
             activation_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activationKey").unwrap(),
+                o.extract_field("activationKey"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             average_download_rate_limit_in_bits_per_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("averageDownloadRateLimitInBitsPerSec").unwrap(),
+                o.extract_field("averageDownloadRateLimitInBitsPerSec"),
             ),
             average_upload_rate_limit_in_bits_per_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("averageUploadRateLimitInBitsPerSec").unwrap(),
+                o.extract_field("averageUploadRateLimitInBitsPerSec"),
             ),
             cloudwatch_log_group_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudwatchLogGroupArn").unwrap(),
+                o.extract_field("cloudwatchLogGroupArn"),
             ),
             ec2_instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ec2InstanceId").unwrap(),
+                o.extract_field("ec2InstanceId"),
             ),
             endpoint_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointType").unwrap(),
+                o.extract_field("endpointType"),
             ),
             gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayId").unwrap(),
+                o.extract_field("gatewayId"),
             ),
             gateway_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayIpAddress").unwrap(),
+                o.extract_field("gatewayIpAddress"),
             ),
             gateway_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayName").unwrap(),
+                o.extract_field("gatewayName"),
             ),
             gateway_network_interfaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayNetworkInterfaces").unwrap(),
+                o.extract_field("gatewayNetworkInterfaces"),
             ),
             gateway_timezone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayTimezone").unwrap(),
+                o.extract_field("gatewayTimezone"),
             ),
             gateway_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayType").unwrap(),
+                o.extract_field("gatewayType"),
             ),
             gateway_vpc_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayVpcEndpoint").unwrap(),
+                o.extract_field("gatewayVpcEndpoint"),
             ),
             host_environment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostEnvironment").unwrap(),
+                o.extract_field("hostEnvironment"),
             ),
             maintenance_start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceStartTime").unwrap(),
+                o.extract_field("maintenanceStartTime"),
             ),
             medium_changer_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mediumChangerType").unwrap(),
+                o.extract_field("mediumChangerType"),
             ),
             smb_active_directory_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smbActiveDirectorySettings").unwrap(),
+                o.extract_field("smbActiveDirectorySettings"),
             ),
             smb_file_share_visibility: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smbFileShareVisibility").unwrap(),
+                o.extract_field("smbFileShareVisibility"),
             ),
             smb_guest_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smbGuestPassword").unwrap(),
+                o.extract_field("smbGuestPassword"),
             ),
             smb_security_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smbSecurityStrategy").unwrap(),
+                o.extract_field("smbSecurityStrategy"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             tape_drive_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tapeDriveType").unwrap(),
+                o.extract_field("tapeDriveType"),
             ),
         }
     }

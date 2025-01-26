@@ -234,81 +234,37 @@ pub mod data_exchange {
                     value: &sharing_environment_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dataExchangeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentation".into(),
-                },
-                register_interface::ResultField {
-                    name: "icon".into(),
-                },
-                register_interface::ResultField {
-                    name: "listingCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryContact".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharingEnvironmentConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataExchangeResult {
             data_exchange_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataExchangeId").unwrap(),
+                o.extract_field("dataExchangeId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             documentation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentation").unwrap(),
+                o.extract_field("documentation"),
             ),
-            icon: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("icon").unwrap(),
-            ),
+            icon: pulumi_wasm_rust::__private::into_domain(o.extract_field("icon")),
             listing_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listingCount").unwrap(),
+                o.extract_field("listingCount"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             primary_contact: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryContact").unwrap(),
+                o.extract_field("primaryContact"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             sharing_environment_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharingEnvironmentConfig").unwrap(),
+                o.extract_field("sharingEnvironmentConfig"),
             ),
         }
     }

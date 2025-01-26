@@ -162,69 +162,33 @@ pub mod trust_provider {
                     value: &user_trust_provider_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceTrustProviderType".into(),
-                },
-                register_interface::ResultField {
-                    name: "oidcOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyReferenceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustProviderType".into(),
-                },
-                register_interface::ResultField {
-                    name: "userTrustProviderType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TrustProviderResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             device_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceOptions").unwrap(),
+                o.extract_field("deviceOptions"),
             ),
             device_trust_provider_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceTrustProviderType").unwrap(),
+                o.extract_field("deviceTrustProviderType"),
             ),
             oidc_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("oidcOptions").unwrap(),
+                o.extract_field("oidcOptions"),
             ),
             policy_reference_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyReferenceName").unwrap(),
+                o.extract_field("policyReferenceName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             trust_provider_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustProviderType").unwrap(),
+                o.extract_field("trustProviderType"),
             ),
             user_trust_provider_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userTrustProviderType").unwrap(),
+                o.extract_field("userTrustProviderType"),
             ),
         }
     }

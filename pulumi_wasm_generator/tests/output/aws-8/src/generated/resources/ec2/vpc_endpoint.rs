@@ -344,154 +344,68 @@ pub mod vpc_endpoint {
                     value: &vpc_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoAccept".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrBlocks".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsEntries".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddressType".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefixListId".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "requesterManaged".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeTableIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcEndpointType".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcEndpointResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_accept: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoAccept").unwrap(),
+                o.extract_field("autoAccept"),
             ),
             cidr_blocks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlocks").unwrap(),
+                o.extract_field("cidrBlocks"),
             ),
             dns_entries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsEntries").unwrap(),
+                o.extract_field("dnsEntries"),
             ),
             dns_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsOptions").unwrap(),
+                o.extract_field("dnsOptions"),
             ),
             ip_address_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddressType").unwrap(),
+                o.extract_field("ipAddressType"),
             ),
             network_interface_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceIds").unwrap(),
+                o.extract_field("networkInterfaceIds"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             prefix_list_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefixListId").unwrap(),
+                o.extract_field("prefixListId"),
             ),
             private_dns_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsEnabled").unwrap(),
+                o.extract_field("privateDnsEnabled"),
             ),
             requester_managed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requesterManaged").unwrap(),
+                o.extract_field("requesterManaged"),
             ),
             route_table_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeTableIds").unwrap(),
+                o.extract_field("routeTableIds"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
             service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceName").unwrap(),
+                o.extract_field("serviceName"),
             ),
             service_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRegion").unwrap(),
+                o.extract_field("serviceRegion"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             subnet_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetConfigurations").unwrap(),
+                o.extract_field("subnetConfigurations"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vpc_endpoint_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcEndpointType").unwrap(),
+                o.extract_field("vpcEndpointType"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

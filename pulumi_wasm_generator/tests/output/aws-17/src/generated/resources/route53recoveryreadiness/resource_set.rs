@@ -122,51 +122,22 @@ pub mod resource_set {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceSetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceSetType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resources".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResourceSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             resource_set_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceSetName").unwrap(),
+                o.extract_field("resourceSetName"),
             ),
             resource_set_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceSetType").unwrap(),
+                o.extract_field("resourceSetType"),
             ),
             resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resources").unwrap(),
+                o.extract_field("resources"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

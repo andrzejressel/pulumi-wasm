@@ -124,52 +124,23 @@ pub mod zero_trust_device_posture_integration {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "configs".into(),
-                },
-                register_interface::ResultField {
-                    name: "identifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "interval".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZeroTrustDevicePostureIntegrationResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configs").unwrap(),
+                o.extract_field("configs"),
             ),
             identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identifier").unwrap(),
+                o.extract_field("identifier"),
             ),
             interval: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interval").unwrap(),
+                o.extract_field("interval"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

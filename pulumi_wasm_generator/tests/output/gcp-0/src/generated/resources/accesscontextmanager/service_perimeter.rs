@@ -376,75 +376,28 @@ pub mod service_perimeter {
                     value: &use_explicit_dry_run_spec_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "perimeterType".into(),
-                },
-                register_interface::ResultField {
-                    name: "spec".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "title".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "useExplicitDryRunSpec".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServicePerimeterResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             perimeter_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("perimeterType").unwrap(),
+                o.extract_field("perimeterType"),
             ),
-            spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spec").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            title: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("title").unwrap(),
-            ),
+            spec: pulumi_wasm_rust::__private::into_domain(o.extract_field("spec")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            title: pulumi_wasm_rust::__private::into_domain(o.extract_field("title")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             use_explicit_dry_run_spec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useExplicitDryRunSpec").unwrap(),
+                o.extract_field("useExplicitDryRunSpec"),
             ),
         }
     }

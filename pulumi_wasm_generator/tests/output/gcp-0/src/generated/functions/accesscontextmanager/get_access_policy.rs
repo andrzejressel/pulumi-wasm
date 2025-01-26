@@ -46,44 +46,14 @@ pub mod get_access_policy {
                     value: &scopes_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "scopes".into(),
-                },
-                register_interface::ResultField {
-                    name: "title".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAccessPolicyResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
-            scopes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scopes").unwrap(),
-            ),
-            title: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("title").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
+            scopes: pulumi_wasm_rust::__private::into_domain(o.extract_field("scopes")),
+            title: pulumi_wasm_rust::__private::into_domain(o.extract_field("title")),
         }
     }
 }

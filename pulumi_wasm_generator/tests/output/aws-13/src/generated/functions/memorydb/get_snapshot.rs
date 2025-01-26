@@ -58,62 +58,23 @@ pub mod get_snapshot {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSnapshotResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cluster_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterConfigurations").unwrap(),
+                o.extract_field("clusterConfigurations"),
             ),
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyArn").unwrap(),
+                o.extract_field("kmsKeyArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

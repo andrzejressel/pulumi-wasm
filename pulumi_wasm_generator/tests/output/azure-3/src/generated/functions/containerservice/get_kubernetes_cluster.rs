@@ -196,265 +196,126 @@ pub mod get_kubernetes_cluster {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aciConnectorLinuxes".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentPoolProfiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiServerAuthorizedIpRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "azureActiveDirectoryRoleBasedAccessControls".into(),
-                },
-                register_interface::ResultField {
-                    name: "azurePolicyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "currentKubernetesVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskEncryptionSetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpApplicationRoutingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpApplicationRoutingZoneName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingressApplicationGateways".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyManagementServices".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultSecretsProviders".into(),
-                },
-                register_interface::ResultField {
-                    name: "kubeAdminConfigRaw".into(),
-                },
-                register_interface::ResultField {
-                    name: "kubeAdminConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "kubeConfigRaw".into(),
-                },
-                register_interface::ResultField {
-                    name: "kubeConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "kubeletIdentities".into(),
-                },
-                register_interface::ResultField {
-                    name: "kubernetesVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "linuxProfiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "microsoftDefenders".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkProfiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeResourceGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeResourceGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "oidcIssuerEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "oidcIssuerUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "omsAgents".into(),
-                },
-                register_interface::ResultField {
-                    name: "openServiceMeshEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateClusterEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateFqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleBasedAccessControlEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceMeshProfiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicePrincipals".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageProfiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "windowsProfiles".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetKubernetesClusterResult {
             aci_connector_linuxes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aciConnectorLinuxes").unwrap(),
+                o.extract_field("aciConnectorLinuxes"),
             ),
             agent_pool_profiles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentPoolProfiles").unwrap(),
+                o.extract_field("agentPoolProfiles"),
             ),
             api_server_authorized_ip_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiServerAuthorizedIpRanges").unwrap(),
+                o.extract_field("apiServerAuthorizedIpRanges"),
             ),
             azure_active_directory_role_based_access_controls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureActiveDirectoryRoleBasedAccessControls").unwrap(),
+                o.extract_field("azureActiveDirectoryRoleBasedAccessControls"),
             ),
             azure_policy_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azurePolicyEnabled").unwrap(),
+                o.extract_field("azurePolicyEnabled"),
             ),
             current_kubernetes_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("currentKubernetesVersion").unwrap(),
+                o.extract_field("currentKubernetesVersion"),
             ),
             disk_encryption_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskEncryptionSetId").unwrap(),
+                o.extract_field("diskEncryptionSetId"),
             ),
             dns_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsPrefix").unwrap(),
+                o.extract_field("dnsPrefix"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
             http_application_routing_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpApplicationRoutingEnabled").unwrap(),
+                o.extract_field("httpApplicationRoutingEnabled"),
             ),
             http_application_routing_zone_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpApplicationRoutingZoneName").unwrap(),
+                o.extract_field("httpApplicationRoutingZoneName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             ingress_application_gateways: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingressApplicationGateways").unwrap(),
+                o.extract_field("ingressApplicationGateways"),
             ),
             key_management_services: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyManagementServices").unwrap(),
+                o.extract_field("keyManagementServices"),
             ),
             key_vault_secrets_providers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultSecretsProviders").unwrap(),
+                o.extract_field("keyVaultSecretsProviders"),
             ),
             kube_admin_config_raw: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kubeAdminConfigRaw").unwrap(),
+                o.extract_field("kubeAdminConfigRaw"),
             ),
             kube_admin_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kubeAdminConfigs").unwrap(),
+                o.extract_field("kubeAdminConfigs"),
             ),
             kube_config_raw: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kubeConfigRaw").unwrap(),
+                o.extract_field("kubeConfigRaw"),
             ),
             kube_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kubeConfigs").unwrap(),
+                o.extract_field("kubeConfigs"),
             ),
             kubelet_identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kubeletIdentities").unwrap(),
+                o.extract_field("kubeletIdentities"),
             ),
             kubernetes_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kubernetesVersion").unwrap(),
+                o.extract_field("kubernetesVersion"),
             ),
             linux_profiles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linuxProfiles").unwrap(),
+                o.extract_field("linuxProfiles"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             microsoft_defenders: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("microsoftDefenders").unwrap(),
+                o.extract_field("microsoftDefenders"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_profiles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkProfiles").unwrap(),
+                o.extract_field("networkProfiles"),
             ),
             node_resource_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeResourceGroup").unwrap(),
+                o.extract_field("nodeResourceGroup"),
             ),
             node_resource_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeResourceGroupId").unwrap(),
+                o.extract_field("nodeResourceGroupId"),
             ),
             oidc_issuer_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("oidcIssuerEnabled").unwrap(),
+                o.extract_field("oidcIssuerEnabled"),
             ),
             oidc_issuer_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("oidcIssuerUrl").unwrap(),
+                o.extract_field("oidcIssuerUrl"),
             ),
             oms_agents: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("omsAgents").unwrap(),
+                o.extract_field("omsAgents"),
             ),
             open_service_mesh_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("openServiceMeshEnabled").unwrap(),
+                o.extract_field("openServiceMeshEnabled"),
             ),
             private_cluster_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateClusterEnabled").unwrap(),
+                o.extract_field("privateClusterEnabled"),
             ),
             private_fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateFqdn").unwrap(),
+                o.extract_field("privateFqdn"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             role_based_access_control_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleBasedAccessControlEnabled").unwrap(),
+                o.extract_field("roleBasedAccessControlEnabled"),
             ),
             service_mesh_profiles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceMeshProfiles").unwrap(),
+                o.extract_field("serviceMeshProfiles"),
             ),
             service_principals: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicePrincipals").unwrap(),
+                o.extract_field("servicePrincipals"),
             ),
             storage_profiles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageProfiles").unwrap(),
+                o.extract_field("storageProfiles"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             windows_profiles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("windowsProfiles").unwrap(),
+                o.extract_field("windowsProfiles"),
             ),
         }
     }

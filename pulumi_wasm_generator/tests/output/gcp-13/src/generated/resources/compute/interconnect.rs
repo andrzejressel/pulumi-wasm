@@ -395,196 +395,91 @@ pub mod interconnect {
                     value: &requested_link_count_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adminEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "availableFeatures".into(),
-                },
-                register_interface::ResultField {
-                    name: "circuitInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "expectedOutages".into(),
-                },
-                register_interface::ResultField {
-                    name: "googleIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "googleReferenceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "interconnectAttachments".into(),
-                },
-                register_interface::ResultField {
-                    name: "interconnectType".into(),
-                },
-                register_interface::ResultField {
-                    name: "labelFingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkType".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "macsec".into(),
-                },
-                register_interface::ResultField {
-                    name: "macsecEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nocContactEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "operationalStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisionedLinkCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestedFeatures".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestedLinkCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "satisfiesPzs".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InterconnectResult {
             admin_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminEnabled").unwrap(),
+                o.extract_field("adminEnabled"),
             ),
             available_features: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availableFeatures").unwrap(),
+                o.extract_field("availableFeatures"),
             ),
             circuit_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("circuitInfos").unwrap(),
+                o.extract_field("circuitInfos"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             customer_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerName").unwrap(),
+                o.extract_field("customerName"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             expected_outages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expectedOutages").unwrap(),
+                o.extract_field("expectedOutages"),
             ),
             google_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("googleIpAddress").unwrap(),
+                o.extract_field("googleIpAddress"),
             ),
             google_reference_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("googleReferenceId").unwrap(),
+                o.extract_field("googleReferenceId"),
             ),
             interconnect_attachments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interconnectAttachments").unwrap(),
+                o.extract_field("interconnectAttachments"),
             ),
             interconnect_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interconnectType").unwrap(),
+                o.extract_field("interconnectType"),
             ),
             label_fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labelFingerprint").unwrap(),
+                o.extract_field("labelFingerprint"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             link_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkType").unwrap(),
+                o.extract_field("linkType"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            macsec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("macsec").unwrap(),
-            ),
+            macsec: pulumi_wasm_rust::__private::into_domain(o.extract_field("macsec")),
             macsec_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("macsecEnabled").unwrap(),
+                o.extract_field("macsecEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             noc_contact_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nocContactEmail").unwrap(),
+                o.extract_field("nocContactEmail"),
             ),
             operational_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operationalStatus").unwrap(),
+                o.extract_field("operationalStatus"),
             ),
             peer_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerIpAddress").unwrap(),
+                o.extract_field("peerIpAddress"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             provisioned_link_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisionedLinkCount").unwrap(),
+                o.extract_field("provisionedLinkCount"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             remote_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteLocation").unwrap(),
+                o.extract_field("remoteLocation"),
             ),
             requested_features: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestedFeatures").unwrap(),
+                o.extract_field("requestedFeatures"),
             ),
             requested_link_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestedLinkCount").unwrap(),
+                o.extract_field("requestedLinkCount"),
             ),
             satisfies_pzs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("satisfiesPzs").unwrap(),
+                o.extract_field("satisfiesPzs"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

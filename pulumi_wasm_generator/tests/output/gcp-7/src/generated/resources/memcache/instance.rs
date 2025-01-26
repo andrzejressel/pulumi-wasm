@@ -319,136 +319,61 @@ pub mod instance {
                     value: &zones_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authorizedNetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "discoveryEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenancePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceSchedules".into(),
-                },
-                register_interface::ResultField {
-                    name: "memcacheFullVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "memcacheNodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "memcacheParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "memcacheVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservedIpRangeIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceResult {
             authorized_network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizedNetwork").unwrap(),
+                o.extract_field("authorizedNetwork"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             discovery_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("discoveryEndpoint").unwrap(),
+                o.extract_field("discoveryEndpoint"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             maintenance_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenancePolicy").unwrap(),
+                o.extract_field("maintenancePolicy"),
             ),
             maintenance_schedules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceSchedules").unwrap(),
+                o.extract_field("maintenanceSchedules"),
             ),
             memcache_full_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memcacheFullVersion").unwrap(),
+                o.extract_field("memcacheFullVersion"),
             ),
             memcache_nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memcacheNodes").unwrap(),
+                o.extract_field("memcacheNodes"),
             ),
             memcache_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memcacheParameters").unwrap(),
+                o.extract_field("memcacheParameters"),
             ),
             memcache_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memcacheVersion").unwrap(),
+                o.extract_field("memcacheVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeConfig").unwrap(),
+                o.extract_field("nodeConfig"),
             ),
             node_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeCount").unwrap(),
+                o.extract_field("nodeCount"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             reserved_ip_range_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservedIpRangeIds").unwrap(),
+                o.extract_field("reservedIpRangeIds"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

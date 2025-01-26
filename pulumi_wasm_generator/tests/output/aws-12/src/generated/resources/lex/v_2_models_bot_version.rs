@@ -119,45 +119,21 @@ pub mod v_2_models_bot_version {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "botId".into(),
-                },
-                register_interface::ResultField {
-                    name: "botVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "localeSpecification".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         V2modelsBotVersionResult {
-            bot_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botId").unwrap(),
-            ),
+            bot_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("botId")),
             bot_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botVersion").unwrap(),
+                o.extract_field("botVersion"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             locale_specification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localeSpecification").unwrap(),
+                o.extract_field("localeSpecification"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

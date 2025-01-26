@@ -110,34 +110,16 @@ pub mod file_system_policy {
                     value: &policy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bypassPolicyLockoutSafetyCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemId".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FileSystemPolicyResult {
             bypass_policy_lockout_safety_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bypassPolicyLockoutSafetyCheck").unwrap(),
+                o.extract_field("bypassPolicyLockoutSafetyCheck"),
             ),
             file_system_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemId").unwrap(),
+                o.extract_field("fileSystemId"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
         }
     }
 }

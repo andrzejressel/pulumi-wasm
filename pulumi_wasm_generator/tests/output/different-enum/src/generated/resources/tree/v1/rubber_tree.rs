@@ -94,46 +94,18 @@ pub mod rubber_tree {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "container".into(),
-                },
-                register_interface::ResultField {
-                    name: "diameter".into(),
-                },
-                register_interface::ResultField {
-                    name: "farm".into(),
-                },
-                register_interface::ResultField {
-                    name: "size".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RubberTreeResult {
             container: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("container").unwrap(),
+                o.extract_field("container"),
             ),
             diameter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diameter").unwrap(),
+                o.extract_field("diameter"),
             ),
-            farm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("farm").unwrap(),
-            ),
-            size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("size").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            farm: pulumi_wasm_rust::__private::into_domain(o.extract_field("farm")),
+            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

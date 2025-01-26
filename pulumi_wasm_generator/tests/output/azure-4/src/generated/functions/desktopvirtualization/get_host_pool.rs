@@ -75,109 +75,48 @@ pub mod get_host_pool {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customRdpProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "friendlyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancerType".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumSessionsAllowed".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "personalDesktopAssignmentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredAppGroupType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduledAgentUpdates".into(),
-                },
-                register_interface::ResultField {
-                    name: "startVmOnConnect".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "validateEnvironment".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetHostPoolResult {
             custom_rdp_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customRdpProperties").unwrap(),
+                o.extract_field("customRdpProperties"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             friendly_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("friendlyName").unwrap(),
+                o.extract_field("friendlyName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             load_balancer_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerType").unwrap(),
+                o.extract_field("loadBalancerType"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maximum_sessions_allowed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumSessionsAllowed").unwrap(),
+                o.extract_field("maximumSessionsAllowed"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             personal_desktop_assignment_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("personalDesktopAssignmentType").unwrap(),
+                o.extract_field("personalDesktopAssignmentType"),
             ),
             preferred_app_group_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredAppGroupType").unwrap(),
+                o.extract_field("preferredAppGroupType"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             scheduled_agent_updates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduledAgentUpdates").unwrap(),
+                o.extract_field("scheduledAgentUpdates"),
             ),
             start_vm_on_connect: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startVmOnConnect").unwrap(),
+                o.extract_field("startVmOnConnect"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             validate_environment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validateEnvironment").unwrap(),
+                o.extract_field("validateEnvironment"),
             ),
         }
     }

@@ -70,62 +70,29 @@ pub mod get_backup_run {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instance".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mostRecent".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "startTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBackupRunResult {
             backup_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupId").unwrap(),
+                o.extract_field("backupId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instance").unwrap(),
+                o.extract_field("instance"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             most_recent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mostRecent").unwrap(),
+                o.extract_field("mostRecent"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startTime").unwrap(),
+                o.extract_field("startTime"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

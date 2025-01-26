@@ -129,45 +129,19 @@ pub mod connection_type {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automationAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "fields".into(),
-                },
-                register_interface::ResultField {
-                    name: "isGlobal".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConnectionTypeResult {
             automation_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automationAccountName").unwrap(),
+                o.extract_field("automationAccountName"),
             ),
-            fields: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fields").unwrap(),
-            ),
+            fields: pulumi_wasm_rust::__private::into_domain(o.extract_field("fields")),
             is_global: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isGlobal").unwrap(),
+                o.extract_field("isGlobal"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

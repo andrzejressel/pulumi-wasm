@@ -100,51 +100,24 @@ pub mod resource {
                     value: &type_version_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "desiredState".into(),
-                },
-                register_interface::ResultField {
-                    name: "properties".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "schema".into(),
-                },
-                register_interface::ResultField {
-                    name: "typeName".into(),
-                },
-                register_interface::ResultField {
-                    name: "typeVersionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResourceResult {
             desired_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredState").unwrap(),
+                o.extract_field("desiredState"),
             ),
             properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("properties").unwrap(),
+                o.extract_field("properties"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            schema: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schema").unwrap(),
-            ),
+            schema: pulumi_wasm_rust::__private::into_domain(o.extract_field("schema")),
             type_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("typeName").unwrap(),
+                o.extract_field("typeName"),
             ),
             type_version_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("typeVersionId").unwrap(),
+                o.extract_field("typeVersionId"),
             ),
         }
     }

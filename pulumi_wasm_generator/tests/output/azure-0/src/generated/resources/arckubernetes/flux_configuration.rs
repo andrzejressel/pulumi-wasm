@@ -196,70 +196,30 @@ pub mod flux_configuration {
                     value: &scope_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blobStorage".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "continuousReconciliationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "gitRepository".into(),
-                },
-                register_interface::ResultField {
-                    name: "kustomizations".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FluxConfigurationResult {
             blob_storage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blobStorage").unwrap(),
+                o.extract_field("blobStorage"),
             ),
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
             continuous_reconciliation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("continuousReconciliationEnabled").unwrap(),
+                o.extract_field("continuousReconciliationEnabled"),
             ),
             git_repository: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gitRepository").unwrap(),
+                o.extract_field("gitRepository"),
             ),
             kustomizations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kustomizations").unwrap(),
+                o.extract_field("kustomizations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespace").unwrap(),
+                o.extract_field("namespace"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
         }
     }
 }

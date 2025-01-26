@@ -210,87 +210,40 @@ pub mod feature_group {
                     value: &throughput_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventTimeFeatureName".into(),
-                },
-                register_interface::ResultField {
-                    name: "featureDefinitions".into(),
-                },
-                register_interface::ResultField {
-                    name: "featureGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "offlineStoreConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "onlineStoreConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "recordIdentifierFeatureName".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "throughputConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FeatureGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             event_time_feature_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventTimeFeatureName").unwrap(),
+                o.extract_field("eventTimeFeatureName"),
             ),
             feature_definitions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("featureDefinitions").unwrap(),
+                o.extract_field("featureDefinitions"),
             ),
             feature_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("featureGroupName").unwrap(),
+                o.extract_field("featureGroupName"),
             ),
             offline_store_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("offlineStoreConfig").unwrap(),
+                o.extract_field("offlineStoreConfig"),
             ),
             online_store_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onlineStoreConfig").unwrap(),
+                o.extract_field("onlineStoreConfig"),
             ),
             record_identifier_feature_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recordIdentifierFeatureName").unwrap(),
+                o.extract_field("recordIdentifierFeatureName"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             throughput_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("throughputConfig").unwrap(),
+                o.extract_field("throughputConfig"),
             ),
         }
     }

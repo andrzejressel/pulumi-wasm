@@ -40,31 +40,13 @@ pub mod get_policy {
                     value: &storage_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "rules".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPolicyResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rules").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
         }
     }

@@ -274,111 +274,50 @@ pub mod connector {
                     value: &worker_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectorConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "kafkaCluster".into(),
-                },
-                register_interface::ResultField {
-                    name: "kafkaClusterClientAuthentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "kafkaClusterEncryptionInTransit".into(),
-                },
-                register_interface::ResultField {
-                    name: "kafkaconnectVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "logDelivery".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "plugins".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceExecutionRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "workerConfiguration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConnectorResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacity").unwrap(),
+                o.extract_field("capacity"),
             ),
             connector_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectorConfiguration").unwrap(),
+                o.extract_field("connectorConfiguration"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             kafka_cluster: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kafkaCluster").unwrap(),
+                o.extract_field("kafkaCluster"),
             ),
             kafka_cluster_client_authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kafkaClusterClientAuthentication").unwrap(),
+                o.extract_field("kafkaClusterClientAuthentication"),
             ),
             kafka_cluster_encryption_in_transit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kafkaClusterEncryptionInTransit").unwrap(),
+                o.extract_field("kafkaClusterEncryptionInTransit"),
             ),
             kafkaconnect_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kafkaconnectVersion").unwrap(),
+                o.extract_field("kafkaconnectVersion"),
             ),
             log_delivery: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logDelivery").unwrap(),
+                o.extract_field("logDelivery"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             plugins: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plugins").unwrap(),
+                o.extract_field("plugins"),
             ),
             service_execution_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceExecutionRoleArn").unwrap(),
+                o.extract_field("serviceExecutionRoleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             worker_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workerConfiguration").unwrap(),
+                o.extract_field("workerConfiguration"),
             ),
         }
     }

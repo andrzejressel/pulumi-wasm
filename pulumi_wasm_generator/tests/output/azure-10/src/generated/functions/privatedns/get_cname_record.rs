@@ -63,67 +63,23 @@ pub mod get_cname_record {
                     value: &zone_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "record".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ttl".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCnameRecordResult {
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            record: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("record").unwrap(),
-            ),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            record: pulumi_wasm_rust::__private::into_domain(o.extract_field("record")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             target_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResourceId").unwrap(),
+                o.extract_field("targetResourceId"),
             ),
-            ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ttl").unwrap(),
-            ),
+            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
             zone_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneName").unwrap(),
+                o.extract_field("zoneName"),
             ),
         }
     }

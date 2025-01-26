@@ -57,61 +57,28 @@ pub mod get_dataset_blob_storage {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "containerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataShareId".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "filePath".into(),
-                },
-                register_interface::ResultField {
-                    name: "folderPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccounts".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDatasetBlobStorageResult {
             container_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerName").unwrap(),
+                o.extract_field("containerName"),
             ),
             data_share_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataShareId").unwrap(),
+                o.extract_field("dataShareId"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             file_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filePath").unwrap(),
+                o.extract_field("filePath"),
             ),
             folder_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folderPath").unwrap(),
+                o.extract_field("folderPath"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             storage_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccounts").unwrap(),
+                o.extract_field("storageAccounts"),
             ),
         }
     }

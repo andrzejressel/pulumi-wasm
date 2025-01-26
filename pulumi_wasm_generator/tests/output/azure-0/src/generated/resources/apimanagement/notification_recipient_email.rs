@@ -107,33 +107,15 @@ pub mod notification_recipient_email {
                     value: &notification_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementId".into(),
-                },
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NotificationRecipientEmailResult {
             api_management_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementId").unwrap(),
+                o.extract_field("apiManagementId"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
             notification_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationType").unwrap(),
+                o.extract_field("notificationType"),
             ),
         }
     }

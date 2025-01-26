@@ -17,26 +17,13 @@ pub mod get_account_alias {
             token: "aws:iam/getAccountAlias:getAccountAlias".into(),
             version: super::super::super::get_version(),
             object: Vec::from([]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAccountAliasResult {
             account_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountAlias").unwrap(),
+                o.extract_field("accountAlias"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

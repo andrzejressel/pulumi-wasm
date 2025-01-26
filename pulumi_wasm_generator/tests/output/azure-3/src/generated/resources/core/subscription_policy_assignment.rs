@@ -260,99 +260,48 @@ pub mod subscription_policy_assignment {
                     value: &subscription_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enforce".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nonComplianceMessages".into(),
-                },
-                register_interface::ResultField {
-                    name: "notScopes".into(),
-                },
-                register_interface::ResultField {
-                    name: "overrides".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyDefinitionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceSelectors".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SubscriptionPolicyAssignmentResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enforce: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enforce").unwrap(),
+                o.extract_field("enforce"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             non_compliance_messages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nonComplianceMessages").unwrap(),
+                o.extract_field("nonComplianceMessages"),
             ),
             not_scopes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notScopes").unwrap(),
+                o.extract_field("notScopes"),
             ),
             overrides: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("overrides").unwrap(),
+                o.extract_field("overrides"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             policy_definition_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDefinitionId").unwrap(),
+                o.extract_field("policyDefinitionId"),
             ),
             resource_selectors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceSelectors").unwrap(),
+                o.extract_field("resourceSelectors"),
             ),
             subscription_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionId").unwrap(),
+                o.extract_field("subscriptionId"),
             ),
         }
     }

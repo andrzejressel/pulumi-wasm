@@ -76,133 +76,62 @@ pub mod get_replication_group {
                     value: &replication_group_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authTokenEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "automaticFailoverEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationEndpointAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "logDeliveryConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "memberClusters".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiAzEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "numCacheClusters".into(),
-                },
-                register_interface::ResultField {
-                    name: "numNodeGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryEndpointAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "readerEndpointAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicasPerNodeGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotRetentionLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotWindow".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetReplicationGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auth_token_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authTokenEnabled").unwrap(),
+                o.extract_field("authTokenEnabled"),
             ),
             automatic_failover_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticFailoverEnabled").unwrap(),
+                o.extract_field("automaticFailoverEnabled"),
             ),
             cluster_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterMode").unwrap(),
+                o.extract_field("clusterMode"),
             ),
             configuration_endpoint_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationEndpointAddress").unwrap(),
+                o.extract_field("configurationEndpointAddress"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             log_delivery_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logDeliveryConfigurations").unwrap(),
+                o.extract_field("logDeliveryConfigurations"),
             ),
             member_clusters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memberClusters").unwrap(),
+                o.extract_field("memberClusters"),
             ),
             multi_az_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiAzEnabled").unwrap(),
+                o.extract_field("multiAzEnabled"),
             ),
             node_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeType").unwrap(),
+                o.extract_field("nodeType"),
             ),
             num_cache_clusters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numCacheClusters").unwrap(),
+                o.extract_field("numCacheClusters"),
             ),
             num_node_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numNodeGroups").unwrap(),
+                o.extract_field("numNodeGroups"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             primary_endpoint_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryEndpointAddress").unwrap(),
+                o.extract_field("primaryEndpointAddress"),
             ),
             reader_endpoint_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readerEndpointAddress").unwrap(),
+                o.extract_field("readerEndpointAddress"),
             ),
             replicas_per_node_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicasPerNodeGroup").unwrap(),
+                o.extract_field("replicasPerNodeGroup"),
             ),
             replication_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationGroupId").unwrap(),
+                o.extract_field("replicationGroupId"),
             ),
             snapshot_retention_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotRetentionLimit").unwrap(),
+                o.extract_field("snapshotRetentionLimit"),
             ),
             snapshot_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotWindow").unwrap(),
+                o.extract_field("snapshotWindow"),
             ),
         }
     }

@@ -220,123 +220,56 @@ pub mod image {
                     value: &workflows_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerRecipeArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "dateCreated".into(),
-                },
-                register_interface::ResultField {
-                    name: "distributionConfigurationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "enhancedImageMetadataEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageRecipeArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageScanningConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageTestsConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "infrastructureConfigurationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "osVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputResources".into(),
-                },
-                register_interface::ResultField {
-                    name: "platform".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "workflows".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ImageResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             container_recipe_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerRecipeArn").unwrap(),
+                o.extract_field("containerRecipeArn"),
             ),
             date_created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dateCreated").unwrap(),
+                o.extract_field("dateCreated"),
             ),
             distribution_configuration_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("distributionConfigurationArn").unwrap(),
+                o.extract_field("distributionConfigurationArn"),
             ),
             enhanced_image_metadata_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enhancedImageMetadataEnabled").unwrap(),
+                o.extract_field("enhancedImageMetadataEnabled"),
             ),
             execution_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionRole").unwrap(),
+                o.extract_field("executionRole"),
             ),
             image_recipe_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageRecipeArn").unwrap(),
+                o.extract_field("imageRecipeArn"),
             ),
             image_scanning_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageScanningConfiguration").unwrap(),
+                o.extract_field("imageScanningConfiguration"),
             ),
             image_tests_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageTestsConfiguration").unwrap(),
+                o.extract_field("imageTestsConfiguration"),
             ),
             infrastructure_configuration_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("infrastructureConfigurationArn").unwrap(),
+                o.extract_field("infrastructureConfigurationArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             os_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osVersion").unwrap(),
+                o.extract_field("osVersion"),
             ),
             output_resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputResources").unwrap(),
+                o.extract_field("outputResources"),
             ),
             platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platform").unwrap(),
+                o.extract_field("platform"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             workflows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workflows").unwrap(),
+                o.extract_field("workflows"),
             ),
         }
     }

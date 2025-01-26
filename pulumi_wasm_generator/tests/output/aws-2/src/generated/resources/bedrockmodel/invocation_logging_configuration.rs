@@ -117,21 +117,11 @@ pub mod invocation_logging_configuration {
                     value: &logging_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "loggingConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InvocationLoggingConfigurationResult {
             logging_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingConfig").unwrap(),
+                o.extract_field("loggingConfig"),
             ),
         }
     }

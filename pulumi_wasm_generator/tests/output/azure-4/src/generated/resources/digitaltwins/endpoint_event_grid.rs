@@ -154,52 +154,25 @@ pub mod endpoint_event_grid {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "deadLetterStorageSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "digitalTwinsId".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventgridTopicEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventgridTopicPrimaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventgridTopicSecondaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointEventGridResult {
             dead_letter_storage_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deadLetterStorageSecret").unwrap(),
+                o.extract_field("deadLetterStorageSecret"),
             ),
             digital_twins_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("digitalTwinsId").unwrap(),
+                o.extract_field("digitalTwinsId"),
             ),
             eventgrid_topic_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventgridTopicEndpoint").unwrap(),
+                o.extract_field("eventgridTopicEndpoint"),
             ),
             eventgrid_topic_primary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventgridTopicPrimaryAccessKey").unwrap(),
+                o.extract_field("eventgridTopicPrimaryAccessKey"),
             ),
             eventgrid_topic_secondary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventgridTopicSecondaryAccessKey").unwrap(),
+                o.extract_field("eventgridTopicSecondaryAccessKey"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

@@ -180,51 +180,22 @@ pub mod collector_policy {
                     value: &traffic_collector_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "ipfxEmission".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipfxIngestion".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficCollectorId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CollectorPolicyResult {
             ipfx_emission: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipfxEmission").unwrap(),
+                o.extract_field("ipfxEmission"),
             ),
             ipfx_ingestion: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipfxIngestion").unwrap(),
+                o.extract_field("ipfxIngestion"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             traffic_collector_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficCollectorId").unwrap(),
+                o.extract_field("trafficCollectorId"),
             ),
         }
     }

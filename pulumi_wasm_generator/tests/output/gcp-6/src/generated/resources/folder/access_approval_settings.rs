@@ -230,63 +230,30 @@ pub mod access_approval_settings {
                     value: &notification_emails_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activeKeyVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "ancestorHasActiveKeyVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "enrolledAncestor".into(),
-                },
-                register_interface::ResultField {
-                    name: "enrolledServices".into(),
-                },
-                register_interface::ResultField {
-                    name: "folderId".into(),
-                },
-                register_interface::ResultField {
-                    name: "invalidKeyVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationEmails".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccessApprovalSettingsResult {
             active_key_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activeKeyVersion").unwrap(),
+                o.extract_field("activeKeyVersion"),
             ),
             ancestor_has_active_key_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ancestorHasActiveKeyVersion").unwrap(),
+                o.extract_field("ancestorHasActiveKeyVersion"),
             ),
             enrolled_ancestor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enrolledAncestor").unwrap(),
+                o.extract_field("enrolledAncestor"),
             ),
             enrolled_services: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enrolledServices").unwrap(),
+                o.extract_field("enrolledServices"),
             ),
             folder_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folderId").unwrap(),
+                o.extract_field("folderId"),
             ),
             invalid_key_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invalidKeyVersion").unwrap(),
+                o.extract_field("invalidKeyVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_emails: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationEmails").unwrap(),
+                o.extract_field("notificationEmails"),
             ),
         }
     }

@@ -120,69 +120,31 @@ pub mod pages_project {
                     value: &source_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "buildConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "domains".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "productionBranch".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "subdomain".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PagesProjectResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             build_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("buildConfig").unwrap(),
+                o.extract_field("buildConfig"),
             ),
             created_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdOn").unwrap(),
+                o.extract_field("createdOn"),
             ),
             deployment_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentConfigs").unwrap(),
+                o.extract_field("deploymentConfigs"),
             ),
             domains: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domains").unwrap(),
+                o.extract_field("domains"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             production_branch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productionBranch").unwrap(),
+                o.extract_field("productionBranch"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
             subdomain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subdomain").unwrap(),
+                o.extract_field("subdomain"),
             ),
         }
     }

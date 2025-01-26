@@ -428,183 +428,86 @@ pub mod database {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applyImmediately".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupRetentionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "blueprintId".into(),
-                },
-                register_interface::ResultField {
-                    name: "bundleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "caCertificateIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpuCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "finalSnapshotName".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterDatabaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterEndpointAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterEndpointPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterUsername".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredBackupWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredMaintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "publiclyAccessible".into(),
-                },
-                register_interface::ResultField {
-                    name: "ramSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "relationalDatabaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAvailabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipFinalSnapshot".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DatabaseResult {
             apply_immediately: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applyImmediately").unwrap(),
+                o.extract_field("applyImmediately"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             backup_retention_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupRetentionEnabled").unwrap(),
+                o.extract_field("backupRetentionEnabled"),
             ),
             blueprint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blueprintId").unwrap(),
+                o.extract_field("blueprintId"),
             ),
             bundle_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bundleId").unwrap(),
+                o.extract_field("bundleId"),
             ),
             ca_certificate_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("caCertificateIdentifier").unwrap(),
+                o.extract_field("caCertificateIdentifier"),
             ),
             cpu_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpuCount").unwrap(),
+                o.extract_field("cpuCount"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             disk_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskSize").unwrap(),
+                o.extract_field("diskSize"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             final_snapshot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("finalSnapshotName").unwrap(),
+                o.extract_field("finalSnapshotName"),
             ),
             master_database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterDatabaseName").unwrap(),
+                o.extract_field("masterDatabaseName"),
             ),
             master_endpoint_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterEndpointAddress").unwrap(),
+                o.extract_field("masterEndpointAddress"),
             ),
             master_endpoint_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterEndpointPort").unwrap(),
+                o.extract_field("masterEndpointPort"),
             ),
             master_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterPassword").unwrap(),
+                o.extract_field("masterPassword"),
             ),
             master_username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterUsername").unwrap(),
+                o.extract_field("masterUsername"),
             ),
             preferred_backup_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredBackupWindow").unwrap(),
+                o.extract_field("preferredBackupWindow"),
             ),
             preferred_maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredMaintenanceWindow").unwrap(),
+                o.extract_field("preferredMaintenanceWindow"),
             ),
             publicly_accessible: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publiclyAccessible").unwrap(),
+                o.extract_field("publiclyAccessible"),
             ),
             ram_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ramSize").unwrap(),
+                o.extract_field("ramSize"),
             ),
             relational_database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("relationalDatabaseName").unwrap(),
+                o.extract_field("relationalDatabaseName"),
             ),
             secondary_availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAvailabilityZone").unwrap(),
+                o.extract_field("secondaryAvailabilityZone"),
             ),
             skip_final_snapshot: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipFinalSnapshot").unwrap(),
+                o.extract_field("skipFinalSnapshot"),
             ),
             support_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportCode").unwrap(),
+                o.extract_field("supportCode"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

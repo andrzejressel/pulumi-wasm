@@ -330,93 +330,47 @@ pub mod agent_agent_action_group {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actionGroupExecutor".into(),
-                },
-                register_interface::ResultField {
-                    name: "actionGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "actionGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "actionGroupState".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiSchema".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "functionSchema".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentActionGroupSignature".into(),
-                },
-                register_interface::ResultField {
-                    name: "prepareAgent".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipResourceInUseCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AgentAgentActionGroupResult {
             action_group_executor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actionGroupExecutor").unwrap(),
+                o.extract_field("actionGroupExecutor"),
             ),
             action_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actionGroupId").unwrap(),
+                o.extract_field("actionGroupId"),
             ),
             action_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actionGroupName").unwrap(),
+                o.extract_field("actionGroupName"),
             ),
             action_group_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actionGroupState").unwrap(),
+                o.extract_field("actionGroupState"),
             ),
             agent_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentId").unwrap(),
+                o.extract_field("agentId"),
             ),
             agent_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentVersion").unwrap(),
+                o.extract_field("agentVersion"),
             ),
             api_schema: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiSchema").unwrap(),
+                o.extract_field("apiSchema"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             function_schema: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("functionSchema").unwrap(),
+                o.extract_field("functionSchema"),
             ),
             parent_action_group_signature: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentActionGroupSignature").unwrap(),
+                o.extract_field("parentActionGroupSignature"),
             ),
             prepare_agent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prepareAgent").unwrap(),
+                o.extract_field("prepareAgent"),
             ),
             skip_resource_in_use_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipResourceInUseCheck").unwrap(),
+                o.extract_field("skipResourceInUseCheck"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

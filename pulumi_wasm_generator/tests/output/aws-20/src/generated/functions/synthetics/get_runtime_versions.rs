@@ -49,25 +49,12 @@ pub mod get_runtime_versions {
                     value: &runtime_versions_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimeVersions".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRuntimeVersionsResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             runtime_versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimeVersions").unwrap(),
+                o.extract_field("runtimeVersions"),
             ),
         }
     }

@@ -182,68 +182,32 @@ pub mod webhook {
                     value: &uri_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automationAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiryTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "runOnWorkerGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "runbookName".into(),
-                },
-                register_interface::ResultField {
-                    name: "uri".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WebhookResult {
             automation_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automationAccountName").unwrap(),
+                o.extract_field("automationAccountName"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             expiry_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiryTime").unwrap(),
+                o.extract_field("expiryTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             run_on_worker_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runOnWorkerGroup").unwrap(),
+                o.extract_field("runOnWorkerGroup"),
             ),
             runbook_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runbookName").unwrap(),
+                o.extract_field("runbookName"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uri").unwrap()),
+            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
         }
     }
 }

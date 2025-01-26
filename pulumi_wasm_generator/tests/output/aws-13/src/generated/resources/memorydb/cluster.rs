@@ -372,201 +372,89 @@ pub mod cluster {
                     value: &tls_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aclName".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoMinorVersionUpgrade".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataTiering".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "enginePatchVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "finalSnapshotName".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiRegionClusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "numReplicasPerShard".into(),
-                },
-                register_interface::ResultField {
-                    name: "numShards".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameterGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "shards".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotName".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotRetentionLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "snsTopicArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
             acl_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aclName").unwrap(),
+                o.extract_field("aclName"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_minor_version_upgrade: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoMinorVersionUpgrade").unwrap(),
+                o.extract_field("autoMinorVersionUpgrade"),
             ),
             cluster_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterEndpoints").unwrap(),
+                o.extract_field("clusterEndpoints"),
             ),
             data_tiering: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataTiering").unwrap(),
+                o.extract_field("dataTiering"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_patch_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enginePatchVersion").unwrap(),
+                o.extract_field("enginePatchVersion"),
             ),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             final_snapshot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("finalSnapshotName").unwrap(),
+                o.extract_field("finalSnapshotName"),
             ),
             kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyArn").unwrap(),
+                o.extract_field("kmsKeyArn"),
             ),
             maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceWindow").unwrap(),
+                o.extract_field("maintenanceWindow"),
             ),
             multi_region_cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiRegionClusterName").unwrap(),
+                o.extract_field("multiRegionClusterName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
             node_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeType").unwrap(),
+                o.extract_field("nodeType"),
             ),
             num_replicas_per_shard: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numReplicasPerShard").unwrap(),
+                o.extract_field("numReplicasPerShard"),
             ),
             num_shards: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numShards").unwrap(),
+                o.extract_field("numShards"),
             ),
             parameter_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameterGroupName").unwrap(),
+                o.extract_field("parameterGroupName"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
-            shards: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shards").unwrap(),
-            ),
+            shards: pulumi_wasm_rust::__private::into_domain(o.extract_field("shards")),
             snapshot_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotArns").unwrap(),
+                o.extract_field("snapshotArns"),
             ),
             snapshot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotName").unwrap(),
+                o.extract_field("snapshotName"),
             ),
             snapshot_retention_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotRetentionLimit").unwrap(),
+                o.extract_field("snapshotRetentionLimit"),
             ),
             snapshot_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotWindow").unwrap(),
+                o.extract_field("snapshotWindow"),
             ),
             sns_topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snsTopicArn").unwrap(),
+                o.extract_field("snsTopicArn"),
             ),
             subnet_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetGroupName").unwrap(),
+                o.extract_field("subnetGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             tls_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsEnabled").unwrap(),
+                o.extract_field("tlsEnabled"),
             ),
         }
     }

@@ -238,87 +238,32 @@ pub mod configuration_feature {
                     value: &timewindow_filters_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "configurationStoreId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "key".into(),
-                },
-                register_interface::ResultField {
-                    name: "label".into(),
-                },
-                register_interface::ResultField {
-                    name: "locked".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "percentageFilterValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetingFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "timewindowFilters".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConfigurationFeatureResult {
             configuration_store_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationStoreId").unwrap(),
+                o.extract_field("configurationStoreId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("key").unwrap(),
-            ),
-            label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("label").unwrap(),
-            ),
-            locked: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locked").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
+            label: pulumi_wasm_rust::__private::into_domain(o.extract_field("label")),
+            locked: pulumi_wasm_rust::__private::into_domain(o.extract_field("locked")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             percentage_filter_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("percentageFilterValue").unwrap(),
+                o.extract_field("percentageFilterValue"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             targeting_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetingFilters").unwrap(),
+                o.extract_field("targetingFilters"),
             ),
             timewindow_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timewindowFilters").unwrap(),
+                o.extract_field("timewindowFilters"),
             ),
         }
     }

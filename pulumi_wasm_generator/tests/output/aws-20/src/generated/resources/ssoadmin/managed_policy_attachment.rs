@@ -145,39 +145,20 @@ pub mod managed_policy_attachment {
                     value: &permission_set_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "instanceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedPolicyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedPolicyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissionSetArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedPolicyAttachmentResult {
             instance_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceArn").unwrap(),
+                o.extract_field("instanceArn"),
             ),
             managed_policy_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedPolicyArn").unwrap(),
+                o.extract_field("managedPolicyArn"),
             ),
             managed_policy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedPolicyName").unwrap(),
+                o.extract_field("managedPolicyName"),
             ),
             permission_set_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissionSetArn").unwrap(),
+                o.extract_field("permissionSetArn"),
             ),
         }
     }

@@ -265,75 +265,30 @@ pub mod data_flow {
                     value: &transformations_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFactoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "folder".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "script".into(),
-                },
-                register_interface::ResultField {
-                    name: "scriptLines".into(),
-                },
-                register_interface::ResultField {
-                    name: "sinks".into(),
-                },
-                register_interface::ResultField {
-                    name: "sources".into(),
-                },
-                register_interface::ResultField {
-                    name: "transformations".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataFlowResult {
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             data_factory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFactoryId").unwrap(),
+                o.extract_field("dataFactoryId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            folder: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folder").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            script: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("script").unwrap(),
-            ),
+            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            script: pulumi_wasm_rust::__private::into_domain(o.extract_field("script")),
             script_lines: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scriptLines").unwrap(),
+                o.extract_field("scriptLines"),
             ),
-            sinks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sinks").unwrap(),
-            ),
+            sinks: pulumi_wasm_rust::__private::into_domain(o.extract_field("sinks")),
             sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sources").unwrap(),
+                o.extract_field("sources"),
             ),
             transformations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transformations").unwrap(),
+                o.extract_field("transformations"),
             ),
         }
     }

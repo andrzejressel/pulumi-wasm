@@ -409,111 +409,52 @@ pub mod listing {
                     value: &restricted_export_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bigqueryDataset".into(),
-                },
-                register_interface::ResultField {
-                    name: "categories".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataExchangeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataProvider".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentation".into(),
-                },
-                register_interface::ResultField {
-                    name: "icon".into(),
-                },
-                register_interface::ResultField {
-                    name: "listingId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryContact".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "publisher".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "restrictedExportConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ListingResult {
             bigquery_dataset: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bigqueryDataset").unwrap(),
+                o.extract_field("bigqueryDataset"),
             ),
             categories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("categories").unwrap(),
+                o.extract_field("categories"),
             ),
             data_exchange_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataExchangeId").unwrap(),
+                o.extract_field("dataExchangeId"),
             ),
             data_provider: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataProvider").unwrap(),
+                o.extract_field("dataProvider"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             documentation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentation").unwrap(),
+                o.extract_field("documentation"),
             ),
-            icon: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("icon").unwrap(),
-            ),
+            icon: pulumi_wasm_rust::__private::into_domain(o.extract_field("icon")),
             listing_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listingId").unwrap(),
+                o.extract_field("listingId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             primary_contact: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryContact").unwrap(),
+                o.extract_field("primaryContact"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             publisher: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publisher").unwrap(),
+                o.extract_field("publisher"),
             ),
             request_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestAccess").unwrap(),
+                o.extract_field("requestAccess"),
             ),
             restricted_export_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restrictedExportConfig").unwrap(),
+                o.extract_field("restrictedExportConfig"),
             ),
         }
     }

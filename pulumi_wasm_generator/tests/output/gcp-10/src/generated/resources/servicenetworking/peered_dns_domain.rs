@@ -114,52 +114,21 @@ pub mod peered_dns_domain {
                     value: &service_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dnsSuffix".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "service".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PeeredDnsDomainResult {
             dns_suffix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsSuffix").unwrap(),
+                o.extract_field("dnsSuffix"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("service").unwrap(),
-            ),
+            service: pulumi_wasm_rust::__private::into_domain(o.extract_field("service")),
         }
     }
 }

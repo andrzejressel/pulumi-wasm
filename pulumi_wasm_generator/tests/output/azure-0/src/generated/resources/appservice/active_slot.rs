@@ -94,33 +94,17 @@ pub mod active_slot {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appServiceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "appServiceSlotName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ActiveSlotResult {
             app_service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServiceName").unwrap(),
+                o.extract_field("appServiceName"),
             ),
             app_service_slot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServiceSlotName").unwrap(),
+                o.extract_field("appServiceSlotName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

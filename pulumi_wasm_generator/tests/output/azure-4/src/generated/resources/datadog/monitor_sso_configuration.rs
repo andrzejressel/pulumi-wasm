@@ -121,45 +121,21 @@ pub mod monitor_sso_configuration {
                     value: &single_sign_on_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "datadogMonitorId".into(),
-                },
-                register_interface::ResultField {
-                    name: "enterpriseApplicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "loginUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "singleSignOnEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MonitorSsoConfigurationResult {
             datadog_monitor_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datadogMonitorId").unwrap(),
+                o.extract_field("datadogMonitorId"),
             ),
             enterprise_application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enterpriseApplicationId").unwrap(),
+                o.extract_field("enterpriseApplicationId"),
             ),
             login_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loginUrl").unwrap(),
+                o.extract_field("loginUrl"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             single_sign_on_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("singleSignOnEnabled").unwrap(),
+                o.extract_field("singleSignOnEnabled"),
             ),
         }
     }

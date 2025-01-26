@@ -63,49 +63,24 @@ pub mod get_script {
                     value: &language_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dagEdges".into(),
-                },
-                register_interface::ResultField {
-                    name: "dagNodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "language".into(),
-                },
-                register_interface::ResultField {
-                    name: "pythonScript".into(),
-                },
-                register_interface::ResultField {
-                    name: "scalaCode".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetScriptResult {
             dag_edges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dagEdges").unwrap(),
+                o.extract_field("dagEdges"),
             ),
             dag_nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dagNodes").unwrap(),
+                o.extract_field("dagNodes"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("language").unwrap(),
+                o.extract_field("language"),
             ),
             python_script: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pythonScript").unwrap(),
+                o.extract_field("pythonScript"),
             ),
             scala_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scalaCode").unwrap(),
+                o.extract_field("scalaCode"),
             ),
         }
     }

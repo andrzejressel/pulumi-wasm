@@ -89,157 +89,70 @@ pub mod get_user_pool {
                     value: &user_pool_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountRecoverySettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminCreateUserConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoVerifiedAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "estimatedNumberOfUsers".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lambdaConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "mfaConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "schemaAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "smsAuthenticationMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "smsConfigurationFailure".into(),
-                },
-                register_interface::ResultField {
-                    name: "smsVerificationMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPoolTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "usernameAttributes".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetUserPoolResult {
             account_recovery_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountRecoverySettings").unwrap(),
+                o.extract_field("accountRecoverySettings"),
             ),
             admin_create_user_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminCreateUserConfigs").unwrap(),
+                o.extract_field("adminCreateUserConfigs"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_verified_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoVerifiedAttributes").unwrap(),
+                o.extract_field("autoVerifiedAttributes"),
             ),
             creation_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationDate").unwrap(),
+                o.extract_field("creationDate"),
             ),
             custom_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomain").unwrap(),
+                o.extract_field("customDomain"),
             ),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
             device_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceConfigurations").unwrap(),
+                o.extract_field("deviceConfigurations"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             email_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailConfigurations").unwrap(),
+                o.extract_field("emailConfigurations"),
             ),
             estimated_number_of_users: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("estimatedNumberOfUsers").unwrap(),
+                o.extract_field("estimatedNumberOfUsers"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             lambda_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lambdaConfigs").unwrap(),
+                o.extract_field("lambdaConfigs"),
             ),
             last_modified_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedDate").unwrap(),
+                o.extract_field("lastModifiedDate"),
             ),
             mfa_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mfaConfiguration").unwrap(),
+                o.extract_field("mfaConfiguration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             schema_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schemaAttributes").unwrap(),
+                o.extract_field("schemaAttributes"),
             ),
             sms_authentication_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smsAuthenticationMessage").unwrap(),
+                o.extract_field("smsAuthenticationMessage"),
             ),
             sms_configuration_failure: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smsConfigurationFailure").unwrap(),
+                o.extract_field("smsConfigurationFailure"),
             ),
             sms_verification_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smsVerificationMessage").unwrap(),
+                o.extract_field("smsVerificationMessage"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             user_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPoolId").unwrap(),
+                o.extract_field("userPoolId"),
             ),
             user_pool_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPoolTags").unwrap(),
+                o.extract_field("userPoolTags"),
             ),
             username_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usernameAttributes").unwrap(),
+                o.extract_field("usernameAttributes"),
             ),
         }
     }

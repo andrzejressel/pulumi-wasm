@@ -237,129 +237,59 @@ pub mod matchmaking_configuration {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceptanceRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "acceptanceTimeoutSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "additionalPlayerCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "backfillMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "customEventData".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "flexMatchMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "gameProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "gameSessionData".into(),
-                },
-                register_interface::ResultField {
-                    name: "gameSessionQueueArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestTimeoutSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleSetArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleSetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MatchmakingConfigurationResult {
             acceptance_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptanceRequired").unwrap(),
+                o.extract_field("acceptanceRequired"),
             ),
             acceptance_timeout_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptanceTimeoutSeconds").unwrap(),
+                o.extract_field("acceptanceTimeoutSeconds"),
             ),
             additional_player_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalPlayerCount").unwrap(),
+                o.extract_field("additionalPlayerCount"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             backfill_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backfillMode").unwrap(),
+                o.extract_field("backfillMode"),
             ),
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             custom_event_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customEventData").unwrap(),
+                o.extract_field("customEventData"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             flex_match_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("flexMatchMode").unwrap(),
+                o.extract_field("flexMatchMode"),
             ),
             game_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gameProperties").unwrap(),
+                o.extract_field("gameProperties"),
             ),
             game_session_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gameSessionData").unwrap(),
+                o.extract_field("gameSessionData"),
             ),
             game_session_queue_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gameSessionQueueArns").unwrap(),
+                o.extract_field("gameSessionQueueArns"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationTarget").unwrap(),
+                o.extract_field("notificationTarget"),
             ),
             request_timeout_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestTimeoutSeconds").unwrap(),
+                o.extract_field("requestTimeoutSeconds"),
             ),
             rule_set_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleSetArn").unwrap(),
+                o.extract_field("ruleSetArn"),
             ),
             rule_set_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleSetName").unwrap(),
+                o.extract_field("ruleSetName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

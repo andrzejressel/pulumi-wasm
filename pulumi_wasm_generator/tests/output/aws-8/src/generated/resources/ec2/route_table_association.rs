@@ -105,33 +105,17 @@ pub mod route_table_association {
                     value: &subnet_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "gatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeTableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RouteTableAssociationResult {
             gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayId").unwrap(),
+                o.extract_field("gatewayId"),
             ),
             route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeTableId").unwrap(),
+                o.extract_field("routeTableId"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
         }
     }

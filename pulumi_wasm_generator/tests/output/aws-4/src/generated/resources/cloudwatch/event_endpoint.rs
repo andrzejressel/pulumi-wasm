@@ -161,63 +161,28 @@ pub mod event_endpoint {
                     value: &routing_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventBuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EventEndpointResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             endpoint_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointUrl").unwrap(),
+                o.extract_field("endpointUrl"),
             ),
             event_buses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventBuses").unwrap(),
+                o.extract_field("eventBuses"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             replication_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationConfig").unwrap(),
+                o.extract_field("replicationConfig"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             routing_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingConfig").unwrap(),
+                o.extract_field("routingConfig"),
             ),
         }
     }

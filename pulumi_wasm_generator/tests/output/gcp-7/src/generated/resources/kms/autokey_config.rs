@@ -180,27 +180,12 @@ pub mod autokey_config {
                     value: &key_project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "folder".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyProject".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AutokeyConfigResult {
-            folder: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folder").unwrap(),
-            ),
+            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
             key_project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyProject").unwrap(),
+                o.extract_field("keyProject"),
             ),
         }
     }

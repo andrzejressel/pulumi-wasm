@@ -272,99 +272,46 @@ pub mod platform_application {
                     value: &success_feedback_sample_rate_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applePlatformBundleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "applePlatformTeamId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventDeliveryFailureTopicArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventEndpointCreatedTopicArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventEndpointDeletedTopicArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventEndpointUpdatedTopicArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "failureFeedbackRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "platform".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformCredential".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformPrincipal".into(),
-                },
-                register_interface::ResultField {
-                    name: "successFeedbackRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "successFeedbackSampleRate".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PlatformApplicationResult {
             apple_platform_bundle_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applePlatformBundleId").unwrap(),
+                o.extract_field("applePlatformBundleId"),
             ),
             apple_platform_team_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applePlatformTeamId").unwrap(),
+                o.extract_field("applePlatformTeamId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             event_delivery_failure_topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventDeliveryFailureTopicArn").unwrap(),
+                o.extract_field("eventDeliveryFailureTopicArn"),
             ),
             event_endpoint_created_topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventEndpointCreatedTopicArn").unwrap(),
+                o.extract_field("eventEndpointCreatedTopicArn"),
             ),
             event_endpoint_deleted_topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventEndpointDeletedTopicArn").unwrap(),
+                o.extract_field("eventEndpointDeletedTopicArn"),
             ),
             event_endpoint_updated_topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventEndpointUpdatedTopicArn").unwrap(),
+                o.extract_field("eventEndpointUpdatedTopicArn"),
             ),
             failure_feedback_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failureFeedbackRoleArn").unwrap(),
+                o.extract_field("failureFeedbackRoleArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platform").unwrap(),
+                o.extract_field("platform"),
             ),
             platform_credential: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformCredential").unwrap(),
+                o.extract_field("platformCredential"),
             ),
             platform_principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformPrincipal").unwrap(),
+                o.extract_field("platformPrincipal"),
             ),
             success_feedback_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("successFeedbackRoleArn").unwrap(),
+                o.extract_field("successFeedbackRoleArn"),
             ),
             success_feedback_sample_rate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("successFeedbackSampleRate").unwrap(),
+                o.extract_field("successFeedbackSampleRate"),
             ),
         }
     }

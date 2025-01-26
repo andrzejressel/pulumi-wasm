@@ -228,45 +228,21 @@ pub mod data_collection_rule_association {
                     value: &target_resource_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dataCollectionEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataCollectionRuleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResourceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataCollectionRuleAssociationResult {
             data_collection_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataCollectionEndpointId").unwrap(),
+                o.extract_field("dataCollectionEndpointId"),
             ),
             data_collection_rule_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataCollectionRuleId").unwrap(),
+                o.extract_field("dataCollectionRuleId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             target_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResourceId").unwrap(),
+                o.extract_field("targetResourceId"),
             ),
         }
     }

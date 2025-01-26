@@ -112,39 +112,18 @@ pub mod flexible_server_database {
                     value: &server_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "charset".into(),
-                },
-                register_interface::ResultField {
-                    name: "collation".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FlexibleServerDatabaseResult {
             charset: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("charset").unwrap(),
+                o.extract_field("charset"),
             ),
             collation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("collation").unwrap(),
+                o.extract_field("collation"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverId").unwrap(),
+                o.extract_field("serverId"),
             ),
         }
     }

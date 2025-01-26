@@ -245,63 +245,24 @@ pub mod target_server {
                     value: &s_sl_info_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "envId".into(),
-                },
-                register_interface::ResultField {
-                    name: "host".into(),
-                },
-                register_interface::ResultField {
-                    name: "isEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "sSlInfo".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TargetServerResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            env_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("envId").unwrap(),
-            ),
-            host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("host").unwrap(),
-            ),
+            env_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("envId")),
+            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
             is_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isEnabled").unwrap(),
+                o.extract_field("isEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             s_sl_info: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sSlInfo").unwrap(),
+                o.extract_field("sSlInfo"),
             ),
         }
     }

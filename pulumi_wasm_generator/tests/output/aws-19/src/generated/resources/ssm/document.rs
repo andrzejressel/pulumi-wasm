@@ -221,153 +221,65 @@ pub mod document {
                     value: &version_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "attachmentsSources".into(),
-                },
-                register_interface::ResultField {
-                    name: "content".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "hash".into(),
-                },
-                register_interface::ResultField {
-                    name: "hashType".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "schemaVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetType".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DocumentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             attachments_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachmentsSources").unwrap(),
+                o.extract_field("attachmentsSources"),
             ),
             content: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("content").unwrap(),
+                o.extract_field("content"),
             ),
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
             default_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultVersion").unwrap(),
+                o.extract_field("defaultVersion"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             document_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentFormat").unwrap(),
+                o.extract_field("documentFormat"),
             ),
             document_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentType").unwrap(),
+                o.extract_field("documentType"),
             ),
             document_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentVersion").unwrap(),
+                o.extract_field("documentVersion"),
             ),
-            hash: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hash").unwrap(),
-            ),
+            hash: pulumi_wasm_rust::__private::into_domain(o.extract_field("hash")),
             hash_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hashType").unwrap(),
+                o.extract_field("hashType"),
             ),
             latest_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestVersion").unwrap(),
+                o.extract_field("latestVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissions").unwrap(),
+                o.extract_field("permissions"),
             ),
             platform_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformTypes").unwrap(),
+                o.extract_field("platformTypes"),
             ),
             schema_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schemaVersion").unwrap(),
+                o.extract_field("schemaVersion"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             target_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetType").unwrap(),
+                o.extract_field("targetType"),
             ),
             version_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionName").unwrap(),
+                o.extract_field("versionName"),
             ),
         }
     }

@@ -184,63 +184,30 @@ pub mod restore_testing_selection {
                     value: &validation_window_hours_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "iamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectedResourceArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectedResourceConditions".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectedResourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreMetadataOverrides".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreTestingPlanName".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationWindowHours".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RestoreTestingSelectionResult {
             iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoleArn").unwrap(),
+                o.extract_field("iamRoleArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             protected_resource_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectedResourceArns").unwrap(),
+                o.extract_field("protectedResourceArns"),
             ),
             protected_resource_conditions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectedResourceConditions").unwrap(),
+                o.extract_field("protectedResourceConditions"),
             ),
             protected_resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectedResourceType").unwrap(),
+                o.extract_field("protectedResourceType"),
             ),
             restore_metadata_overrides: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restoreMetadataOverrides").unwrap(),
+                o.extract_field("restoreMetadataOverrides"),
             ),
             restore_testing_plan_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restoreTestingPlanName").unwrap(),
+                o.extract_field("restoreTestingPlanName"),
             ),
             validation_window_hours: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationWindowHours").unwrap(),
+                o.extract_field("validationWindowHours"),
             ),
         }
     }

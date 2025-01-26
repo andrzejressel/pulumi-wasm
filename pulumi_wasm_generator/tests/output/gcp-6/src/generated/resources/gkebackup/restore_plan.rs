@@ -881,92 +881,40 @@ pub mod restore_plan {
                     value: &restore_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupPlan".into(),
-                },
-                register_interface::ResultField {
-                    name: "cluster".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RestorePlanResult {
             backup_plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupPlan").unwrap(),
+                o.extract_field("backupPlan"),
             ),
             cluster: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cluster").unwrap(),
+                o.extract_field("cluster"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             restore_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restoreConfig").unwrap(),
+                o.extract_field("restoreConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateReason").unwrap(),
+                o.extract_field("stateReason"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uid").unwrap()),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
         }
     }
 }

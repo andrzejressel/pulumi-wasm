@@ -153,51 +153,22 @@ pub mod zone_virtual_network_link {
                     value: &virtual_network_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsZoneName".into(),
-                },
-                register_interface::ResultField {
-                    name: "registrationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZoneVirtualNetworkLinkResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_dns_zone_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsZoneName").unwrap(),
+                o.extract_field("privateDnsZoneName"),
             ),
             registration_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registrationEnabled").unwrap(),
+                o.extract_field("registrationEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkId").unwrap(),
+                o.extract_field("virtualNetworkId"),
             ),
         }
     }

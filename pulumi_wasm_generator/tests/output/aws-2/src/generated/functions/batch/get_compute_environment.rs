@@ -66,79 +66,29 @@ pub mod get_compute_environment {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeEnvironmentName".into(),
-                },
-                register_interface::ResultField {
-                    name: "ecsClusterArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatePolicies".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetComputeEnvironmentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             compute_environment_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeEnvironmentName").unwrap(),
+                o.extract_field("computeEnvironmentName"),
             ),
             ecs_cluster_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ecsClusterArn").unwrap(),
+                o.extract_field("ecsClusterArn"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             service_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRole").unwrap(),
+                o.extract_field("serviceRole"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             status_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusReason").unwrap(),
+                o.extract_field("statusReason"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             update_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatePolicies").unwrap(),
+                o.extract_field("updatePolicies"),
             ),
         }
     }

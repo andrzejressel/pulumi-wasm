@@ -86,121 +86,54 @@ pub mod get_file_system {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZoneName".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "encrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecyclePolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecyclePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "performanceMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "protections".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisionedThroughputInMibps".into(),
-                },
-                register_interface::ResultField {
-                    name: "sizeInBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "throughputMode".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetFileSystemResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZoneId").unwrap(),
+                o.extract_field("availabilityZoneId"),
             ),
             availability_zone_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZoneName").unwrap(),
+                o.extract_field("availabilityZoneName"),
             ),
             creation_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationToken").unwrap(),
+                o.extract_field("creationToken"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encrypted").unwrap(),
+                o.extract_field("encrypted"),
             ),
             file_system_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemId").unwrap(),
+                o.extract_field("fileSystemId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             lifecycle_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecyclePolicies").unwrap(),
+                o.extract_field("lifecyclePolicies"),
             ),
             lifecycle_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecyclePolicy").unwrap(),
+                o.extract_field("lifecyclePolicy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             performance_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("performanceMode").unwrap(),
+                o.extract_field("performanceMode"),
             ),
             protections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protections").unwrap(),
+                o.extract_field("protections"),
             ),
             provisioned_throughput_in_mibps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisionedThroughputInMibps").unwrap(),
+                o.extract_field("provisionedThroughputInMibps"),
             ),
             size_in_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sizeInBytes").unwrap(),
+                o.extract_field("sizeInBytes"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             throughput_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("throughputMode").unwrap(),
+                o.extract_field("throughputMode"),
             ),
         }
     }

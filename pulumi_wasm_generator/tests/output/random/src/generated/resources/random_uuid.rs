@@ -65,28 +65,13 @@ pub mod random_uuid {
                     value: &keepers_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "keepers".into(),
-                },
-                register_interface::ResultField {
-                    name: "result".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RandomUuidResult {
             keepers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keepers").unwrap(),
+                o.extract_field("keepers"),
             ),
-            result: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("result").unwrap(),
-            ),
+            result: pulumi_wasm_rust::__private::into_domain(o.extract_field("result")),
         }
     }
 }

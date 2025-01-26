@@ -130,52 +130,23 @@ pub mod dev_box_definition {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "devCenterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageReferenceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DevBoxDefinitionResult {
             dev_center_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("devCenterId").unwrap(),
+                o.extract_field("devCenterId"),
             ),
             image_reference_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageReferenceId").unwrap(),
+                o.extract_field("imageReferenceId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

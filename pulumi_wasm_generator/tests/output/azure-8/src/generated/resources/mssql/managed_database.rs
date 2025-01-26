@@ -173,52 +173,23 @@ pub mod managed_database {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "longTermRetentionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedInstanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pointInTimeRestore".into(),
-                },
-                register_interface::ResultField {
-                    name: "shortTermRetentionDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedDatabaseResult {
             long_term_retention_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("longTermRetentionPolicy").unwrap(),
+                o.extract_field("longTermRetentionPolicy"),
             ),
             managed_instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedInstanceId").unwrap(),
+                o.extract_field("managedInstanceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             point_in_time_restore: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pointInTimeRestore").unwrap(),
+                o.extract_field("pointInTimeRestore"),
             ),
             short_term_retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shortTermRetentionDays").unwrap(),
+                o.extract_field("shortTermRetentionDays"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

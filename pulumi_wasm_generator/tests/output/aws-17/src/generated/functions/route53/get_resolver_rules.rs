@@ -76,55 +76,27 @@ pub mod get_resolver_rules {
                     value: &share_status_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "nameRegex".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resolverEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resolverRuleIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleType".into(),
-                },
-                register_interface::ResultField {
-                    name: "shareStatus".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetResolverRulesResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             name_regex: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nameRegex").unwrap(),
+                o.extract_field("nameRegex"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             resolver_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resolverEndpointId").unwrap(),
+                o.extract_field("resolverEndpointId"),
             ),
             resolver_rule_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resolverRuleIds").unwrap(),
+                o.extract_field("resolverRuleIds"),
             ),
             rule_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleType").unwrap(),
+                o.extract_field("ruleType"),
             ),
             share_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shareStatus").unwrap(),
+                o.extract_field("shareStatus"),
             ),
         }
     }

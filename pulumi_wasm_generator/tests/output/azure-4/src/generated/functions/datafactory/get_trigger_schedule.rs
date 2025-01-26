@@ -67,91 +67,43 @@ pub mod get_trigger_schedule {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activated".into(),
-                },
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFactoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "endTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "frequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "interval".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineName".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedules".into(),
-                },
-                register_interface::ResultField {
-                    name: "startTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeZone".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTriggerScheduleResult {
             activated: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activated").unwrap(),
+                o.extract_field("activated"),
             ),
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             data_factory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFactoryId").unwrap(),
+                o.extract_field("dataFactoryId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             end_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endTime").unwrap(),
+                o.extract_field("endTime"),
             ),
             frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frequency").unwrap(),
+                o.extract_field("frequency"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             interval: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interval").unwrap(),
+                o.extract_field("interval"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pipeline_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineName").unwrap(),
+                o.extract_field("pipelineName"),
             ),
             schedules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedules").unwrap(),
+                o.extract_field("schedules"),
             ),
             start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startTime").unwrap(),
+                o.extract_field("startTime"),
             ),
             time_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeZone").unwrap(),
+                o.extract_field("timeZone"),
             ),
         }
     }

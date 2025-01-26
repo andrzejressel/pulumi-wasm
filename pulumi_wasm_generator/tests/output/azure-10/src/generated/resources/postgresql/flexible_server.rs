@@ -513,178 +513,82 @@ pub mod flexible_server {
                     value: &zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "administratorLogin".into(),
-                },
-                register_interface::ResultField {
-                    name: "administratorPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "authentication".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoGrowEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupRetentionDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "createMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "delegatedSubnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "geoRedundantBackupEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "highAvailability".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pointInTimeRestoreTimeInUtc".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceServerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageMb".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FlexibleServerResult {
             administrator_login: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorLogin").unwrap(),
+                o.extract_field("administratorLogin"),
             ),
             administrator_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorPassword").unwrap(),
+                o.extract_field("administratorPassword"),
             ),
             authentication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authentication").unwrap(),
+                o.extract_field("authentication"),
             ),
             auto_grow_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoGrowEnabled").unwrap(),
+                o.extract_field("autoGrowEnabled"),
             ),
             backup_retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupRetentionDays").unwrap(),
+                o.extract_field("backupRetentionDays"),
             ),
             create_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createMode").unwrap(),
+                o.extract_field("createMode"),
             ),
             customer_managed_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKey").unwrap(),
+                o.extract_field("customerManagedKey"),
             ),
             delegated_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegatedSubnetId").unwrap(),
+                o.extract_field("delegatedSubnetId"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
             geo_redundant_backup_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("geoRedundantBackupEnabled").unwrap(),
+                o.extract_field("geoRedundantBackupEnabled"),
             ),
             high_availability: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("highAvailability").unwrap(),
+                o.extract_field("highAvailability"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceWindow").unwrap(),
+                o.extract_field("maintenanceWindow"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             point_in_time_restore_time_in_utc: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pointInTimeRestoreTimeInUtc").unwrap(),
+                o.extract_field("pointInTimeRestoreTimeInUtc"),
             ),
             private_dns_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsZoneId").unwrap(),
+                o.extract_field("privateDnsZoneId"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             replication_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationRole").unwrap(),
+                o.extract_field("replicationRole"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             source_server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceServerId").unwrap(),
+                o.extract_field("sourceServerId"),
             ),
             storage_mb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageMb").unwrap(),
+                o.extract_field("storageMb"),
             ),
             storage_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageTier").unwrap(),
+                o.extract_field("storageTier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

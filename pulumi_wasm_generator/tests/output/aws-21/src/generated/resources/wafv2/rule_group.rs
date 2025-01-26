@@ -141,87 +141,34 @@ pub mod rule_group {
                     value: &visibility_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "customResponseBodies".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "lockToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "rules".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "visibilityConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RuleGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacity").unwrap(),
+                o.extract_field("capacity"),
             ),
             custom_response_bodies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customResponseBodies").unwrap(),
+                o.extract_field("customResponseBodies"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             lock_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lockToken").unwrap(),
+                o.extract_field("lockToken"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rules").unwrap(),
-            ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             visibility_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("visibilityConfig").unwrap(),
+                o.extract_field("visibilityConfig"),
             ),
         }
     }

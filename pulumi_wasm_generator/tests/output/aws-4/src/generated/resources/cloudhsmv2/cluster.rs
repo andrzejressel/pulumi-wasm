@@ -115,82 +115,36 @@ pub mod cluster {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterCertificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterState".into(),
-                },
-                register_interface::ResultField {
-                    name: "hsmType".into(),
-                },
-                register_interface::ResultField {
-                    name: "mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceBackupIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
             cluster_certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterCertificates").unwrap(),
+                o.extract_field("clusterCertificates"),
             ),
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
             cluster_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterState").unwrap(),
+                o.extract_field("clusterState"),
             ),
             hsm_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hsmType").unwrap(),
+                o.extract_field("hsmType"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mode").unwrap(),
-            ),
+            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
             security_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupId").unwrap(),
+                o.extract_field("securityGroupId"),
             ),
             source_backup_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceBackupIdentifier").unwrap(),
+                o.extract_field("sourceBackupIdentifier"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

@@ -85,121 +85,54 @@ pub mod get_s_quota_info {
                     value: &service_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "containerType".into(),
-                },
-                register_interface::ResultField {
-                    name: "dimensions".into(),
-                },
-                register_interface::ResultField {
-                    name: "dimensionsInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "isConcurrent".into(),
-                },
-                register_interface::ResultField {
-                    name: "isFixed".into(),
-                },
-                register_interface::ResultField {
-                    name: "isPrecise".into(),
-                },
-                register_interface::ResultField {
-                    name: "metric".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricDisplayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricUnit".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "quotaDisplayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "quotaId".into(),
-                },
-                register_interface::ResultField {
-                    name: "quotaIncreaseEligibilities".into(),
-                },
-                register_interface::ResultField {
-                    name: "refreshInterval".into(),
-                },
-                register_interface::ResultField {
-                    name: "service".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRequestQuotaUri".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSQuotaInfoResult {
             container_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerType").unwrap(),
+                o.extract_field("containerType"),
             ),
             dimensions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dimensions").unwrap(),
+                o.extract_field("dimensions"),
             ),
             dimensions_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dimensionsInfos").unwrap(),
+                o.extract_field("dimensionsInfos"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             is_concurrent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isConcurrent").unwrap(),
+                o.extract_field("isConcurrent"),
             ),
             is_fixed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isFixed").unwrap(),
+                o.extract_field("isFixed"),
             ),
             is_precise: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isPrecise").unwrap(),
+                o.extract_field("isPrecise"),
             ),
-            metric: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metric").unwrap(),
-            ),
+            metric: pulumi_wasm_rust::__private::into_domain(o.extract_field("metric")),
             metric_display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricDisplayName").unwrap(),
+                o.extract_field("metricDisplayName"),
             ),
             metric_unit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricUnit").unwrap(),
+                o.extract_field("metricUnit"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             quota_display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quotaDisplayName").unwrap(),
+                o.extract_field("quotaDisplayName"),
             ),
             quota_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quotaId").unwrap(),
+                o.extract_field("quotaId"),
             ),
             quota_increase_eligibilities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quotaIncreaseEligibilities").unwrap(),
+                o.extract_field("quotaIncreaseEligibilities"),
             ),
             refresh_interval: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("refreshInterval").unwrap(),
+                o.extract_field("refreshInterval"),
             ),
             service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("service").unwrap(),
+                o.extract_field("service"),
             ),
             service_request_quota_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRequestQuotaUri").unwrap(),
+                o.extract_field("serviceRequestQuotaUri"),
             ),
         }
     }

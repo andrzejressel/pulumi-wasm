@@ -244,87 +244,40 @@ pub mod connected_registry {
                     value: &sync_window_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "auditLogEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientTokenIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerRegistryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "logLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notifications".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentRegistryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "syncMessageTtl".into(),
-                },
-                register_interface::ResultField {
-                    name: "syncSchedule".into(),
-                },
-                register_interface::ResultField {
-                    name: "syncTokenId".into(),
-                },
-                register_interface::ResultField {
-                    name: "syncWindow".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConnectedRegistryResult {
             audit_log_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("auditLogEnabled").unwrap(),
+                o.extract_field("auditLogEnabled"),
             ),
             client_token_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientTokenIds").unwrap(),
+                o.extract_field("clientTokenIds"),
             ),
             container_registry_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerRegistryId").unwrap(),
+                o.extract_field("containerRegistryId"),
             ),
             log_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logLevel").unwrap(),
+                o.extract_field("logLevel"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mode").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notifications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notifications").unwrap(),
+                o.extract_field("notifications"),
             ),
             parent_registry_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentRegistryId").unwrap(),
+                o.extract_field("parentRegistryId"),
             ),
             sync_message_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("syncMessageTtl").unwrap(),
+                o.extract_field("syncMessageTtl"),
             ),
             sync_schedule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("syncSchedule").unwrap(),
+                o.extract_field("syncSchedule"),
             ),
             sync_token_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("syncTokenId").unwrap(),
+                o.extract_field("syncTokenId"),
             ),
             sync_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("syncWindow").unwrap(),
+                o.extract_field("syncWindow"),
             ),
         }
     }

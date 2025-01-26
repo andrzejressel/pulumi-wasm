@@ -286,99 +286,44 @@ pub mod cx_intent {
                     value: &training_phrases_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "isDefaultNegativeIntent".into(),
-                },
-                register_interface::ResultField {
-                    name: "isDefaultWelcomeIntent".into(),
-                },
-                register_interface::ResultField {
-                    name: "isFallback".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "languageCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "trainingPhrases".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CxIntentResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             is_default_negative_intent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isDefaultNegativeIntent").unwrap(),
+                o.extract_field("isDefaultNegativeIntent"),
             ),
             is_default_welcome_intent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isDefaultWelcomeIntent").unwrap(),
+                o.extract_field("isDefaultWelcomeIntent"),
             ),
             is_fallback: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isFallback").unwrap(),
+                o.extract_field("isFallback"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             language_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("languageCode").unwrap(),
+                o.extract_field("languageCode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             training_phrases: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trainingPhrases").unwrap(),
+                o.extract_field("trainingPhrases"),
             ),
         }
     }

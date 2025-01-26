@@ -158,64 +158,27 @@ pub mod definition {
                     value: &scope_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authorizations".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "eligibleAuthorizations".into(),
-                },
-                register_interface::ResultField {
-                    name: "lighthouseDefinitionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "managingTenantId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "plan".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DefinitionResult {
             authorizations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizations").unwrap(),
+                o.extract_field("authorizations"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             eligible_authorizations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eligibleAuthorizations").unwrap(),
+                o.extract_field("eligibleAuthorizations"),
             ),
             lighthouse_definition_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lighthouseDefinitionId").unwrap(),
+                o.extract_field("lighthouseDefinitionId"),
             ),
             managing_tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managingTenantId").unwrap(),
+                o.extract_field("managingTenantId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plan").unwrap(),
-            ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
         }
     }
 }

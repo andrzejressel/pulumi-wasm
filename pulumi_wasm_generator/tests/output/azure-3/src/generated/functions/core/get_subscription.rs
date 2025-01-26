@@ -51,67 +51,29 @@ pub mod get_subscription {
                     value: &subscription_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationPlacementId".into(),
-                },
-                register_interface::ResultField {
-                    name: "quotaId".into(),
-                },
-                register_interface::ResultField {
-                    name: "spendingLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSubscriptionResult {
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location_placement_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationPlacementId").unwrap(),
+                o.extract_field("locationPlacementId"),
             ),
             quota_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quotaId").unwrap(),
+                o.extract_field("quotaId"),
             ),
             spending_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spendingLimit").unwrap(),
+                o.extract_field("spendingLimit"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             subscription_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionId").unwrap(),
+                o.extract_field("subscriptionId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
         }
     }

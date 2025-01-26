@@ -486,123 +486,56 @@ pub mod vpc_flow_logs_config {
                     value: &vpn_tunnel_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aggregationInterval".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "filterExpr".into(),
-                },
-                register_interface::ResultField {
-                    name: "flowSampling".into(),
-                },
-                register_interface::ResultField {
-                    name: "interconnectAttachment".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadataFields".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcFlowLogsConfigId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnTunnel".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcFlowLogsConfigResult {
             aggregation_interval: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aggregationInterval").unwrap(),
+                o.extract_field("aggregationInterval"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             filter_expr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filterExpr").unwrap(),
+                o.extract_field("filterExpr"),
             ),
             flow_sampling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("flowSampling").unwrap(),
+                o.extract_field("flowSampling"),
             ),
             interconnect_attachment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interconnectAttachment").unwrap(),
+                o.extract_field("interconnectAttachment"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
             metadata_fields: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadataFields").unwrap(),
+                o.extract_field("metadataFields"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             vpc_flow_logs_config_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcFlowLogsConfigId").unwrap(),
+                o.extract_field("vpcFlowLogsConfigId"),
             ),
             vpn_tunnel: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnTunnel").unwrap(),
+                o.extract_field("vpnTunnel"),
             ),
         }
     }

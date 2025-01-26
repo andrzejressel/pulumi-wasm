@@ -473,160 +473,71 @@ pub mod virtual_machine {
                     value: &zones_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalCapabilities".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilitySetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootDiagnostics".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteDataDisksOnTermination".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteOsDiskOnTermination".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "osProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "osProfileLinuxConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "osProfileSecrets".into(),
-                },
-                register_interface::ResultField {
-                    name: "osProfileWindowsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "plan".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryNetworkInterfaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "proximityPlacementGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageDataDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageImageReference".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageOsDisk".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VirtualMachineResult {
             additional_capabilities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalCapabilities").unwrap(),
+                o.extract_field("additionalCapabilities"),
             ),
             availability_set_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilitySetId").unwrap(),
+                o.extract_field("availabilitySetId"),
             ),
             boot_diagnostics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootDiagnostics").unwrap(),
+                o.extract_field("bootDiagnostics"),
             ),
             delete_data_disks_on_termination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteDataDisksOnTermination").unwrap(),
+                o.extract_field("deleteDataDisksOnTermination"),
             ),
             delete_os_disk_on_termination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteOsDiskOnTermination").unwrap(),
+                o.extract_field("deleteOsDiskOnTermination"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             license_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseType").unwrap(),
+                o.extract_field("licenseType"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_interface_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceIds").unwrap(),
+                o.extract_field("networkInterfaceIds"),
             ),
             os_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osProfile").unwrap(),
+                o.extract_field("osProfile"),
             ),
             os_profile_linux_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osProfileLinuxConfig").unwrap(),
+                o.extract_field("osProfileLinuxConfig"),
             ),
             os_profile_secrets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osProfileSecrets").unwrap(),
+                o.extract_field("osProfileSecrets"),
             ),
             os_profile_windows_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osProfileWindowsConfig").unwrap(),
+                o.extract_field("osProfileWindowsConfig"),
             ),
-            plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plan").unwrap(),
-            ),
+            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
             primary_network_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryNetworkInterfaceId").unwrap(),
+                o.extract_field("primaryNetworkInterfaceId"),
             ),
             proximity_placement_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proximityPlacementGroupId").unwrap(),
+                o.extract_field("proximityPlacementGroupId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             storage_data_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageDataDisks").unwrap(),
+                o.extract_field("storageDataDisks"),
             ),
             storage_image_reference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageImageReference").unwrap(),
+                o.extract_field("storageImageReference"),
             ),
             storage_os_disk: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageOsDisk").unwrap(),
+                o.extract_field("storageOsDisk"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            vm_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmSize").unwrap(),
-            ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            vm_size: pulumi_wasm_rust::__private::into_domain(o.extract_field("vmSize")),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

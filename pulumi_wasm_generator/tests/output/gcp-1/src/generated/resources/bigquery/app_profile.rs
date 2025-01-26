@@ -384,87 +384,42 @@ pub mod app_profile {
                     value: &standard_isolation_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataBoostIsolationReadOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "ignoreWarnings".into(),
-                },
-                register_interface::ResultField {
-                    name: "instance".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiClusterRoutingClusterIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiClusterRoutingUseAny".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "rowAffinity".into(),
-                },
-                register_interface::ResultField {
-                    name: "singleClusterRouting".into(),
-                },
-                register_interface::ResultField {
-                    name: "standardIsolation".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AppProfileResult {
             app_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appProfileId").unwrap(),
+                o.extract_field("appProfileId"),
             ),
             data_boost_isolation_read_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataBoostIsolationReadOnly").unwrap(),
+                o.extract_field("dataBoostIsolationReadOnly"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             ignore_warnings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ignoreWarnings").unwrap(),
+                o.extract_field("ignoreWarnings"),
             ),
             instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instance").unwrap(),
+                o.extract_field("instance"),
             ),
             multi_cluster_routing_cluster_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiClusterRoutingClusterIds").unwrap(),
+                o.extract_field("multiClusterRoutingClusterIds"),
             ),
             multi_cluster_routing_use_any: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiClusterRoutingUseAny").unwrap(),
+                o.extract_field("multiClusterRoutingUseAny"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             row_affinity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rowAffinity").unwrap(),
+                o.extract_field("rowAffinity"),
             ),
             single_cluster_routing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("singleClusterRouting").unwrap(),
+                o.extract_field("singleClusterRouting"),
             ),
             standard_isolation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("standardIsolation").unwrap(),
+                o.extract_field("standardIsolation"),
             ),
         }
     }

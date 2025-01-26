@@ -50,43 +50,21 @@ pub mod get_keys {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keySigningKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneSigningKeys".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetKeysResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             key_signing_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keySigningKeys").unwrap(),
+                o.extract_field("keySigningKeys"),
             ),
             managed_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedZone").unwrap(),
+                o.extract_field("managedZone"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             zone_signing_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneSigningKeys").unwrap(),
+                o.extract_field("zoneSigningKeys"),
             ),
         }
     }

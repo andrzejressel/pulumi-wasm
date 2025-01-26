@@ -89,45 +89,23 @@ pub mod namespace {
                     value: &table_bucket_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdBy".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableBucketArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NamespaceResult {
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             created_by: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdBy").unwrap(),
+                o.extract_field("createdBy"),
             ),
             namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespace").unwrap(),
+                o.extract_field("namespace"),
             ),
             owner_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerAccountId").unwrap(),
+                o.extract_field("ownerAccountId"),
             ),
             table_bucket_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableBucketArn").unwrap(),
+                o.extract_field("tableBucketArn"),
             ),
         }
     }

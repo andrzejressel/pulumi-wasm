@@ -210,81 +210,37 @@ pub mod enterprise_database {
                     value: &port_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clientProtocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusteringPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "evictionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkedDatabaseGroupNickname".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkedDatabaseIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "modules".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAccessKey".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnterpriseDatabaseResult {
             client_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientProtocol").unwrap(),
+                o.extract_field("clientProtocol"),
             ),
             cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterId").unwrap(),
+                o.extract_field("clusterId"),
             ),
             clustering_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusteringPolicy").unwrap(),
+                o.extract_field("clusteringPolicy"),
             ),
             eviction_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("evictionPolicy").unwrap(),
+                o.extract_field("evictionPolicy"),
             ),
             linked_database_group_nickname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedDatabaseGroupNickname").unwrap(),
+                o.extract_field("linkedDatabaseGroupNickname"),
             ),
             linked_database_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedDatabaseIds").unwrap(),
+                o.extract_field("linkedDatabaseIds"),
             ),
             modules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modules").unwrap(),
+                o.extract_field("modules"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             primary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryAccessKey").unwrap(),
+                o.extract_field("primaryAccessKey"),
             ),
             secondary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAccessKey").unwrap(),
+                o.extract_field("secondaryAccessKey"),
             ),
         }
     }

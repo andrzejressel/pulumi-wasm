@@ -245,93 +245,45 @@ pub mod pipeline {
                     value: &vpc_options_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bufferOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionAtRestOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingestEndpointUrls".into(),
-                },
-                register_interface::ResultField {
-                    name: "logPublishingOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxUnits".into(),
-                },
-                register_interface::ResultField {
-                    name: "minUnits".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineConfigurationBody".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcOptions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PipelineResult {
             buffer_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bufferOptions").unwrap(),
+                o.extract_field("bufferOptions"),
             ),
             encryption_at_rest_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionAtRestOptions").unwrap(),
+                o.extract_field("encryptionAtRestOptions"),
             ),
             ingest_endpoint_urls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingestEndpointUrls").unwrap(),
+                o.extract_field("ingestEndpointUrls"),
             ),
             log_publishing_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logPublishingOptions").unwrap(),
+                o.extract_field("logPublishingOptions"),
             ),
             max_units: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxUnits").unwrap(),
+                o.extract_field("maxUnits"),
             ),
             min_units: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minUnits").unwrap(),
+                o.extract_field("minUnits"),
             ),
             pipeline_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineArn").unwrap(),
+                o.extract_field("pipelineArn"),
             ),
             pipeline_configuration_body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineConfigurationBody").unwrap(),
+                o.extract_field("pipelineConfigurationBody"),
             ),
             pipeline_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineName").unwrap(),
+                o.extract_field("pipelineName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             vpc_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcOptions").unwrap(),
+                o.extract_field("vpcOptions"),
             ),
         }
     }

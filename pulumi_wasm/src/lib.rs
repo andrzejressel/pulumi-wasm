@@ -3,11 +3,12 @@ use std::cell::RefCell;
 use std::collections::{HashMap, HashSet};
 use std::rc::Rc;
 
-use crate::bindings::exports::component::pulumi_wasm::output_interface::{GuestOutput, Output};
+use crate::bindings::exports::component::pulumi_wasm::output_interface::{
+    GuestOutput, GuestRegisterOutput, Output, RegisterOutput,
+};
 use crate::bindings::exports::component::pulumi_wasm::pulumi_engine::EngineBorrow;
 use crate::bindings::exports::component::pulumi_wasm::register_interface::{
-    ObjectField, RegisterResourceRequest, RegisterResourceResult, RegisterResourceResultField,
-    ResourceInvokeRequest, ResourceInvokeResult, ResourceInvokeResultField, ResultField,
+    ObjectField, RegisterResourceRequest, ResourceInvokeRequest,
 };
 use crate::bindings::exports::component::pulumi_wasm::stack_interface::{
     FunctionInvocationRequest, FunctionInvocationResult, OutputBorrow,
@@ -15,8 +16,6 @@ use crate::bindings::exports::component::pulumi_wasm::stack_interface::{
 use crate::bindings::exports::component::pulumi_wasm::{
     output_interface, pulumi_engine, register_interface, stack_interface,
 };
-use crate::bindings::exports::component::pulumi_wasm_external::pulumi_settings;
-use std::sync::atomic::{AtomicBool, Ordering};
 
 bindings::export!(Component with_types_in bindings);
 
@@ -29,8 +28,9 @@ mod bindings;
 mod pulumi_connector_impl;
 
 pub(crate) struct CustomOutputId(OutputId, Rc<RefCell<Engine>>);
+pub(crate) struct CustomRegisterOutputId(OutputId, Rc<RefCell<Engine>>);
 
-struct LocalPulumiEngine(Rc<RefCell<Engine>>);
+struct LocalPulumiEngine(Rc<RefCell<Engine>>, bool);
 
 impl pulumi_engine::GuestEngine for LocalPulumiEngine {
     fn new(in_preview: bool) -> Self {
@@ -38,11 +38,22 @@ impl pulumi_engine::GuestEngine for LocalPulumiEngine {
             pulumi_connector_impl::PulumiConnectorImpl {},
             in_preview,
         ))));
-        LocalPulumiEngine(rc)
+        LocalPulumiEngine(rc, in_preview)
     }
 }
 
 struct Component;
+
+impl GuestRegisterOutput for CustomRegisterOutputId {
+    fn extract_field(&self, field_name: String) -> Output {
+        let refcell: &Rc<RefCell<Engine>> = &self.1.clone();
+        let field_name = field_name.into();
+        let output_id = refcell
+            .borrow_mut()
+            .create_extract_field(field_name, self.0);
+        Output::new::<CustomOutputId>(CustomOutputId(output_id, refcell.clone()))
+    }
+}
 
 impl pulumi_engine::Guest for Component {
     type Engine = LocalPulumiEngine;
@@ -94,16 +105,9 @@ impl stack_interface::Guest for Component {
     }
 }
 
-static GLOBAL_BOOL: AtomicBool = AtomicBool::new(false);
-
-impl pulumi_settings::Guest for Component {
-    fn set_in_preview(in_preview: bool) {
-        GLOBAL_BOOL.store(in_preview, Ordering::SeqCst);
-    }
-}
-
 impl output_interface::Guest for Component {
     type Output = CustomOutputId;
+    type RegisterOutput = CustomRegisterOutputId;
 
     fn combine(outputs: Vec<OutputBorrow>) -> Output {
         if outputs.is_empty() {
@@ -123,18 +127,9 @@ impl output_interface::Guest for Component {
 }
 
 impl register_interface::Guest for Component {
-    fn register(
-        engine: EngineBorrow<'_>,
-        request: RegisterResourceRequest<'_>,
-    ) -> RegisterResourceResult {
+    fn register(engine: EngineBorrow<'_>, request: RegisterResourceRequest<'_>) -> RegisterOutput {
         pulumi_wasm_common::setup_logger();
         let refcell: &RefCell<Engine> = &engine.get::<LocalPulumiEngine>().0;
-
-        let outputs = request
-            .results
-            .iter()
-            .map(|ResultField { name }| name.clone().into())
-            .collect::<HashSet<_>>();
 
         let object = request
             .object
@@ -144,41 +139,22 @@ impl register_interface::Guest for Component {
             })
             .collect::<HashMap<_, _>>();
 
-        let (_, field_outputs) = refcell.borrow_mut().create_register_resource_node(
+        let output_id = refcell.borrow_mut().create_register_resource_node(
             request.type_.to_string(),
             request.name.to_string(),
             object,
-            outputs,
-            GLOBAL_BOOL.load(Ordering::SeqCst),
             request.version.to_string(),
         );
 
-        RegisterResourceResult {
-            fields: field_outputs
-                .iter()
-                .map(|(field_name, output_id)| RegisterResourceResultField {
-                    name: field_name.as_string().clone(),
-                    output: Output::new(CustomOutputId(
-                        *output_id,
-                        engine.get::<LocalPulumiEngine>().0.clone(),
-                    )),
-                })
-                .collect(),
-        }
+        RegisterOutput::new(CustomRegisterOutputId(
+            output_id,
+            engine.get::<LocalPulumiEngine>().0.clone(),
+        ))
     }
 
-    fn invoke(
-        engine: EngineBorrow<'_>,
-        request: ResourceInvokeRequest<'_>,
-    ) -> ResourceInvokeResult {
+    fn invoke(engine: EngineBorrow<'_>, request: ResourceInvokeRequest<'_>) -> RegisterOutput {
         pulumi_wasm_common::setup_logger();
         let refcell: &RefCell<Engine> = &engine.get::<LocalPulumiEngine>().0;
-
-        let outputs = request
-            .results
-            .iter()
-            .map(|ResultField { name }| name.clone().into())
-            .collect::<HashSet<_>>();
 
         let object = request
             .object
@@ -188,26 +164,16 @@ impl register_interface::Guest for Component {
             })
             .collect::<HashMap<_, _>>();
 
-        let (_, field_outputs) = refcell.borrow_mut().create_resource_invoke_node(
+        let output_id = refcell.borrow_mut().create_resource_invoke_node(
             request.token,
             object,
-            outputs,
-            GLOBAL_BOOL.load(Ordering::SeqCst),
             request.version.to_string(),
         );
 
-        ResourceInvokeResult {
-            fields: field_outputs
-                .iter()
-                .map(|(field_name, output_id)| ResourceInvokeResultField {
-                    name: field_name.as_string().clone(),
-                    output: Output::new(CustomOutputId(
-                        *output_id,
-                        engine.get::<LocalPulumiEngine>().0.clone(),
-                    )),
-                })
-                .collect(),
-        }
+        RegisterOutput::new(CustomRegisterOutputId(
+            output_id,
+            engine.get::<LocalPulumiEngine>().0.clone(),
+        ))
     }
 }
 

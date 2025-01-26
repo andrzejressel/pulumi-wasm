@@ -217,69 +217,31 @@ pub mod integration {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalEncryptionContext".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IntegrationResult {
             additional_encryption_context: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalEncryptionContext").unwrap(),
+                o.extract_field("additionalEncryptionContext"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             integration_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationName").unwrap(),
+                o.extract_field("integrationName"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             source_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceArn").unwrap(),
+                o.extract_field("sourceArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             target_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetArn").unwrap(),
+                o.extract_field("targetArn"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

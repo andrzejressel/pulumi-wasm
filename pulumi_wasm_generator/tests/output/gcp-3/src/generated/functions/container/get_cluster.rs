@@ -233,511 +233,251 @@ pub mod get_cluster {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addonsConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowNetAdmin".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticatorGroupsConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "binaryAuthorizations".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterAutoscalings".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterIpv4Cidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterTelemetries".into(),
-                },
-                register_interface::ResultField {
-                    name: "confidentialNodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "controlPlaneEndpointsConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "costManagementConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseEncryptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "datapathProvider".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultMaxPodsPerNode".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultSnatStatuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableAutopilot".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableCiliumClusterwideNetworkPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableFqdnNetworkPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableIntranodeVisibility".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableK8sBetaApis".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableKubernetesAlpha".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableL4IlbSubsetting".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableLegacyAbac".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableMultiNetworking".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableShieldedNodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableTpu".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "enterpriseConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "fleets".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayApiConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityServiceConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "initialNodeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAllocationPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "labelFingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingService".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenancePolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterAuthorizedNetworksConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterAuths".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "meshCertificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "minMasterVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitoringConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitoringService".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkingMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeLocations".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodePoolAutoConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodePoolDefaults".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodePools".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "operation".into(),
-                },
-                register_interface::ResultField {
-                    name: "podSecurityPolicyConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateClusterConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpv6GoogleAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseChannels".into(),
-                },
-                register_interface::ResultField {
-                    name: "removeDefaultNodePool".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceUsageExportConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretManagerConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityPostureConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceExternalIpsConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicesIpv4Cidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "tpuConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "tpuIpv4CidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "userManagedKeysConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "verticalPodAutoscalings".into(),
-                },
-                register_interface::ResultField {
-                    name: "workloadAltsConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "workloadIdentityConfigs".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetClusterResult {
             addons_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addonsConfigs").unwrap(),
+                o.extract_field("addonsConfigs"),
             ),
             allow_net_admin: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowNetAdmin").unwrap(),
+                o.extract_field("allowNetAdmin"),
             ),
             authenticator_groups_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticatorGroupsConfigs").unwrap(),
+                o.extract_field("authenticatorGroupsConfigs"),
             ),
             binary_authorizations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("binaryAuthorizations").unwrap(),
+                o.extract_field("binaryAuthorizations"),
             ),
             cluster_autoscalings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterAutoscalings").unwrap(),
+                o.extract_field("clusterAutoscalings"),
             ),
             cluster_ipv4_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterIpv4Cidr").unwrap(),
+                o.extract_field("clusterIpv4Cidr"),
             ),
             cluster_telemetries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterTelemetries").unwrap(),
+                o.extract_field("clusterTelemetries"),
             ),
             confidential_nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("confidentialNodes").unwrap(),
+                o.extract_field("confidentialNodes"),
             ),
             control_plane_endpoints_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlPlaneEndpointsConfigs").unwrap(),
+                o.extract_field("controlPlaneEndpointsConfigs"),
             ),
             cost_management_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("costManagementConfigs").unwrap(),
+                o.extract_field("costManagementConfigs"),
             ),
             database_encryptions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseEncryptions").unwrap(),
+                o.extract_field("databaseEncryptions"),
             ),
             datapath_provider: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datapathProvider").unwrap(),
+                o.extract_field("datapathProvider"),
             ),
             default_max_pods_per_node: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultMaxPodsPerNode").unwrap(),
+                o.extract_field("defaultMaxPodsPerNode"),
             ),
             default_snat_statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultSnatStatuses").unwrap(),
+                o.extract_field("defaultSnatStatuses"),
             ),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dns_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsConfigs").unwrap(),
+                o.extract_field("dnsConfigs"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             enable_autopilot: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableAutopilot").unwrap(),
+                o.extract_field("enableAutopilot"),
             ),
             enable_cilium_clusterwide_network_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableCiliumClusterwideNetworkPolicy").unwrap(),
+                o.extract_field("enableCiliumClusterwideNetworkPolicy"),
             ),
             enable_fqdn_network_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableFqdnNetworkPolicy").unwrap(),
+                o.extract_field("enableFqdnNetworkPolicy"),
             ),
             enable_intranode_visibility: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableIntranodeVisibility").unwrap(),
+                o.extract_field("enableIntranodeVisibility"),
             ),
             enable_k8s_beta_apis: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableK8sBetaApis").unwrap(),
+                o.extract_field("enableK8sBetaApis"),
             ),
             enable_kubernetes_alpha: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableKubernetesAlpha").unwrap(),
+                o.extract_field("enableKubernetesAlpha"),
             ),
             enable_l4_ilb_subsetting: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableL4IlbSubsetting").unwrap(),
+                o.extract_field("enableL4IlbSubsetting"),
             ),
             enable_legacy_abac: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableLegacyAbac").unwrap(),
+                o.extract_field("enableLegacyAbac"),
             ),
             enable_multi_networking: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableMultiNetworking").unwrap(),
+                o.extract_field("enableMultiNetworking"),
             ),
             enable_shielded_nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableShieldedNodes").unwrap(),
+                o.extract_field("enableShieldedNodes"),
             ),
             enable_tpu: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableTpu").unwrap(),
+                o.extract_field("enableTpu"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             enterprise_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enterpriseConfigs").unwrap(),
+                o.extract_field("enterpriseConfigs"),
             ),
-            fleets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fleets").unwrap(),
-            ),
+            fleets: pulumi_wasm_rust::__private::into_domain(o.extract_field("fleets")),
             gateway_api_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayApiConfigs").unwrap(),
+                o.extract_field("gatewayApiConfigs"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identity_service_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityServiceConfigs").unwrap(),
+                o.extract_field("identityServiceConfigs"),
             ),
             initial_node_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initialNodeCount").unwrap(),
+                o.extract_field("initialNodeCount"),
             ),
             ip_allocation_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAllocationPolicies").unwrap(),
+                o.extract_field("ipAllocationPolicies"),
             ),
             label_fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labelFingerprint").unwrap(),
+                o.extract_field("labelFingerprint"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             logging_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingConfigs").unwrap(),
+                o.extract_field("loggingConfigs"),
             ),
             logging_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingService").unwrap(),
+                o.extract_field("loggingService"),
             ),
             maintenance_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenancePolicies").unwrap(),
+                o.extract_field("maintenancePolicies"),
             ),
             master_authorized_networks_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterAuthorizedNetworksConfigs").unwrap(),
+                o.extract_field("masterAuthorizedNetworksConfigs"),
             ),
             master_auths: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterAuths").unwrap(),
+                o.extract_field("masterAuths"),
             ),
             master_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterVersion").unwrap(),
+                o.extract_field("masterVersion"),
             ),
             mesh_certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("meshCertificates").unwrap(),
+                o.extract_field("meshCertificates"),
             ),
             min_master_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minMasterVersion").unwrap(),
+                o.extract_field("minMasterVersion"),
             ),
             monitoring_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitoringConfigs").unwrap(),
+                o.extract_field("monitoringConfigs"),
             ),
             monitoring_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitoringService").unwrap(),
+                o.extract_field("monitoringService"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             network_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkPolicies").unwrap(),
+                o.extract_field("networkPolicies"),
             ),
             networking_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkingMode").unwrap(),
+                o.extract_field("networkingMode"),
             ),
             node_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeConfigs").unwrap(),
+                o.extract_field("nodeConfigs"),
             ),
             node_locations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeLocations").unwrap(),
+                o.extract_field("nodeLocations"),
             ),
             node_pool_auto_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodePoolAutoConfigs").unwrap(),
+                o.extract_field("nodePoolAutoConfigs"),
             ),
             node_pool_defaults: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodePoolDefaults").unwrap(),
+                o.extract_field("nodePoolDefaults"),
             ),
             node_pools: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodePools").unwrap(),
+                o.extract_field("nodePools"),
             ),
             node_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeVersion").unwrap(),
+                o.extract_field("nodeVersion"),
             ),
             notification_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationConfigs").unwrap(),
+                o.extract_field("notificationConfigs"),
             ),
             operation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operation").unwrap(),
+                o.extract_field("operation"),
             ),
             pod_security_policy_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("podSecurityPolicyConfigs").unwrap(),
+                o.extract_field("podSecurityPolicyConfigs"),
             ),
             private_cluster_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateClusterConfigs").unwrap(),
+                o.extract_field("privateClusterConfigs"),
             ),
             private_ipv6_google_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpv6GoogleAccess").unwrap(),
+                o.extract_field("privateIpv6GoogleAccess"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             protect_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectConfigs").unwrap(),
+                o.extract_field("protectConfigs"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             release_channels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseChannels").unwrap(),
+                o.extract_field("releaseChannels"),
             ),
             remove_default_node_pool: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("removeDefaultNodePool").unwrap(),
+                o.extract_field("removeDefaultNodePool"),
             ),
             resource_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceLabels").unwrap(),
+                o.extract_field("resourceLabels"),
             ),
             resource_usage_export_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceUsageExportConfigs").unwrap(),
+                o.extract_field("resourceUsageExportConfigs"),
             ),
             secret_manager_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretManagerConfigs").unwrap(),
+                o.extract_field("secretManagerConfigs"),
             ),
             security_posture_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityPostureConfigs").unwrap(),
+                o.extract_field("securityPostureConfigs"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             service_external_ips_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceExternalIpsConfigs").unwrap(),
+                o.extract_field("serviceExternalIpsConfigs"),
             ),
             services_ipv4_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicesIpv4Cidr").unwrap(),
+                o.extract_field("servicesIpv4Cidr"),
             ),
             subnetwork: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetwork").unwrap(),
+                o.extract_field("subnetwork"),
             ),
             tpu_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tpuConfigs").unwrap(),
+                o.extract_field("tpuConfigs"),
             ),
             tpu_ipv4_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tpuIpv4CidrBlock").unwrap(),
+                o.extract_field("tpuIpv4CidrBlock"),
             ),
             user_managed_keys_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userManagedKeysConfigs").unwrap(),
+                o.extract_field("userManagedKeysConfigs"),
             ),
             vertical_pod_autoscalings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verticalPodAutoscalings").unwrap(),
+                o.extract_field("verticalPodAutoscalings"),
             ),
             workload_alts_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workloadAltsConfigs").unwrap(),
+                o.extract_field("workloadAltsConfigs"),
             ),
             workload_identity_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workloadIdentityConfigs").unwrap(),
+                o.extract_field("workloadIdentityConfigs"),
             ),
         }
     }

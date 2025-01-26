@@ -54,67 +54,27 @@ pub mod get_profiling_group {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "agentOrchestrationConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "computePlatform".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "profilingStatuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatedAt".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetProfilingGroupResult {
             agent_orchestration_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentOrchestrationConfigs").unwrap(),
+                o.extract_field("agentOrchestrationConfigs"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             compute_platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computePlatform").unwrap(),
+                o.extract_field("computePlatform"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             profiling_statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profilingStatuses").unwrap(),
+                o.extract_field("profilingStatuses"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatedAt").unwrap(),
+                o.extract_field("updatedAt"),
             ),
         }
     }

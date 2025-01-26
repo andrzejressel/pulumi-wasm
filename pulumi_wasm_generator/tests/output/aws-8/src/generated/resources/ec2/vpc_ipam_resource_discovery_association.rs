@@ -104,75 +104,30 @@ pub mod vpc_ipam_resource_discovery_association {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamResourceDiscoveryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "isDefault".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcIpamResourceDiscoveryAssociationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             ipam_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamArn").unwrap(),
+                o.extract_field("ipamArn"),
             ),
-            ipam_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamId").unwrap(),
-            ),
+            ipam_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("ipamId")),
             ipam_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamRegion").unwrap(),
+                o.extract_field("ipamRegion"),
             ),
             ipam_resource_discovery_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamResourceDiscoveryId").unwrap(),
+                o.extract_field("ipamResourceDiscoveryId"),
             ),
             is_default: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isDefault").unwrap(),
+                o.extract_field("isDefault"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -160,51 +160,24 @@ pub mod backend_address_pool_address {
                     value: &virtual_network_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backendAddressIpConfigurationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "backendAddressPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "inboundNatRulePortMappings".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BackendAddressPoolAddressResult {
             backend_address_ip_configuration_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendAddressIpConfigurationId").unwrap(),
+                o.extract_field("backendAddressIpConfigurationId"),
             ),
             backend_address_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendAddressPoolId").unwrap(),
+                o.extract_field("backendAddressPoolId"),
             ),
             inbound_nat_rule_port_mappings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inboundNatRulePortMappings").unwrap(),
+                o.extract_field("inboundNatRulePortMappings"),
             ),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkId").unwrap(),
+                o.extract_field("virtualNetworkId"),
             ),
         }
     }

@@ -121,57 +121,25 @@ pub mod user {
                     value: &user_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessString".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumEngineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "userName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UserResult {
             access_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessString").unwrap(),
+                o.extract_field("accessString"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             authentication_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationMode").unwrap(),
+                o.extract_field("authenticationMode"),
             ),
             minimum_engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumEngineVersion").unwrap(),
+                o.extract_field("minimumEngineVersion"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userName").unwrap(),
+                o.extract_field("userName"),
             ),
         }
     }

@@ -178,76 +178,31 @@ pub mod registry_webhook {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actions".into(),
-                },
-                register_interface::ResultField {
-                    name: "customHeaders".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "registryName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegistryWebhookResult {
             actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actions").unwrap(),
+                o.extract_field("actions"),
             ),
             custom_headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customHeaders").unwrap(),
+                o.extract_field("customHeaders"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             registry_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryName").unwrap(),
+                o.extract_field("registryName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
             service_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceUri").unwrap(),
+                o.extract_field("serviceUri"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

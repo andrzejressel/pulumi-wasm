@@ -84,40 +84,13 @@ pub mod tag_option {
                     value: &value_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "active".into(),
-                },
-                register_interface::ResultField {
-                    name: "key".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "value".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TagOptionResult {
-            active: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("active").unwrap(),
-            ),
-            key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("key").unwrap(),
-            ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
-            value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("value").unwrap(),
-            ),
+            active: pulumi_wasm_rust::__private::into_domain(o.extract_field("active")),
+            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
+            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

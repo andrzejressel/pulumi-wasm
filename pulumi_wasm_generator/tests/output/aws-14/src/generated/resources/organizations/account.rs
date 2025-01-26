@@ -170,99 +170,40 @@ pub mod account {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "closeOnDeletion".into(),
-                },
-                register_interface::ResultField {
-                    name: "createGovcloud".into(),
-                },
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "govcloudId".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamUserAccessToBilling".into(),
-                },
-                register_interface::ResultField {
-                    name: "joinedMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "joinedTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleName".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             close_on_deletion: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("closeOnDeletion").unwrap(),
+                o.extract_field("closeOnDeletion"),
             ),
             create_govcloud: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createGovcloud").unwrap(),
+                o.extract_field("createGovcloud"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
             govcloud_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("govcloudId").unwrap(),
+                o.extract_field("govcloudId"),
             ),
             iam_user_access_to_billing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamUserAccessToBilling").unwrap(),
+                o.extract_field("iamUserAccessToBilling"),
             ),
             joined_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("joinedMethod").unwrap(),
+                o.extract_field("joinedMethod"),
             ),
             joined_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("joinedTimestamp").unwrap(),
+                o.extract_field("joinedTimestamp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parent_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentId").unwrap(),
+                o.extract_field("parentId"),
             ),
             role_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleName").unwrap(),
+                o.extract_field("roleName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

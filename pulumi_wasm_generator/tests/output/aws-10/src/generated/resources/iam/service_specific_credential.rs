@@ -90,51 +90,24 @@ pub mod service_specific_credential {
                     value: &user_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "serviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicePassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceSpecificCredentialId".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceUserName".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "userName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceSpecificCredentialResult {
             service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceName").unwrap(),
+                o.extract_field("serviceName"),
             ),
             service_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicePassword").unwrap(),
+                o.extract_field("servicePassword"),
             ),
             service_specific_credential_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceSpecificCredentialId").unwrap(),
+                o.extract_field("serviceSpecificCredentialId"),
             ),
             service_user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceUserName").unwrap(),
+                o.extract_field("serviceUserName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userName").unwrap(),
+                o.extract_field("userName"),
             ),
         }
     }

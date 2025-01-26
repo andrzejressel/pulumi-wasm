@@ -302,87 +302,34 @@ pub mod config {
                     value: &sms_region_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authorizedDomains".into(),
-                },
-                register_interface::ResultField {
-                    name: "autodeleteAnonymousUsers".into(),
-                },
-                register_interface::ResultField {
-                    name: "blockingFunctions".into(),
-                },
-                register_interface::ResultField {
-                    name: "client".into(),
-                },
-                register_interface::ResultField {
-                    name: "mfa".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitoring".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiTenant".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "quota".into(),
-                },
-                register_interface::ResultField {
-                    name: "signIn".into(),
-                },
-                register_interface::ResultField {
-                    name: "smsRegionConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConfigResult {
             authorized_domains: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizedDomains").unwrap(),
+                o.extract_field("authorizedDomains"),
             ),
             autodelete_anonymous_users: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autodeleteAnonymousUsers").unwrap(),
+                o.extract_field("autodeleteAnonymousUsers"),
             ),
             blocking_functions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockingFunctions").unwrap(),
+                o.extract_field("blockingFunctions"),
             ),
-            client: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("client").unwrap(),
-            ),
-            mfa: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mfa").unwrap(),
-            ),
+            client: pulumi_wasm_rust::__private::into_domain(o.extract_field("client")),
+            mfa: pulumi_wasm_rust::__private::into_domain(o.extract_field("mfa")),
             monitoring: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitoring").unwrap(),
+                o.extract_field("monitoring"),
             ),
             multi_tenant: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiTenant").unwrap(),
+                o.extract_field("multiTenant"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            quota: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quota").unwrap(),
-            ),
-            sign_in: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signIn").unwrap(),
-            ),
+            quota: pulumi_wasm_rust::__private::into_domain(o.extract_field("quota")),
+            sign_in: pulumi_wasm_rust::__private::into_domain(o.extract_field("signIn")),
             sms_region_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smsRegionConfig").unwrap(),
+                o.extract_field("smsRegionConfig"),
             ),
         }
     }

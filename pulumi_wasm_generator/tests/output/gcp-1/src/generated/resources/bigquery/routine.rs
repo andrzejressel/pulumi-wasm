@@ -565,117 +565,59 @@ pub mod routine {
                     value: &spark_options_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arguments".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataGovernanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "datasetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "definitionBody".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "determinismLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "importedLibraries".into(),
-                },
-                register_interface::ResultField {
-                    name: "language".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteFunctionOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "returnTableType".into(),
-                },
-                register_interface::ResultField {
-                    name: "returnType".into(),
-                },
-                register_interface::ResultField {
-                    name: "routineId".into(),
-                },
-                register_interface::ResultField {
-                    name: "routineType".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparkOptions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RoutineResult {
             arguments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arguments").unwrap(),
+                o.extract_field("arguments"),
             ),
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             data_governance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataGovernanceType").unwrap(),
+                o.extract_field("dataGovernanceType"),
             ),
             dataset_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datasetId").unwrap(),
+                o.extract_field("datasetId"),
             ),
             definition_body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("definitionBody").unwrap(),
+                o.extract_field("definitionBody"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             determinism_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("determinismLevel").unwrap(),
+                o.extract_field("determinismLevel"),
             ),
             imported_libraries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importedLibraries").unwrap(),
+                o.extract_field("importedLibraries"),
             ),
             language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("language").unwrap(),
+                o.extract_field("language"),
             ),
             last_modified_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedTime").unwrap(),
+                o.extract_field("lastModifiedTime"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             remote_function_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteFunctionOptions").unwrap(),
+                o.extract_field("remoteFunctionOptions"),
             ),
             return_table_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("returnTableType").unwrap(),
+                o.extract_field("returnTableType"),
             ),
             return_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("returnType").unwrap(),
+                o.extract_field("returnType"),
             ),
             routine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routineId").unwrap(),
+                o.extract_field("routineId"),
             ),
             routine_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routineType").unwrap(),
+                o.extract_field("routineType"),
             ),
             spark_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparkOptions").unwrap(),
+                o.extract_field("sparkOptions"),
             ),
         }
     }

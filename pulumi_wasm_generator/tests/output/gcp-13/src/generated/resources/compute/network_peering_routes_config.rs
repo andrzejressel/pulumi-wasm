@@ -245,46 +245,22 @@ pub mod network_peering_routes_config {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "exportCustomRoutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "importCustomRoutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "peering".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkPeeringRoutesConfigResult {
             export_custom_routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportCustomRoutes").unwrap(),
+                o.extract_field("exportCustomRoutes"),
             ),
             import_custom_routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importCustomRoutes").unwrap(),
+                o.extract_field("importCustomRoutes"),
             ),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             peering: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peering").unwrap(),
+                o.extract_field("peering"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

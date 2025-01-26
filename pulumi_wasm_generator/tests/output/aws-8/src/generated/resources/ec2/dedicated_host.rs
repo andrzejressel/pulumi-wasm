@@ -150,81 +150,37 @@ pub mod dedicated_host {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "assetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoPlacement".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostRecovery".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceFamily".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "outpostArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DedicatedHostResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             asset_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assetId").unwrap(),
+                o.extract_field("assetId"),
             ),
             auto_placement: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoPlacement").unwrap(),
+                o.extract_field("autoPlacement"),
             ),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             host_recovery: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostRecovery").unwrap(),
+                o.extract_field("hostRecovery"),
             ),
             instance_family: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceFamily").unwrap(),
+                o.extract_field("instanceFamily"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             outpost_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outpostArn").unwrap(),
+                o.extract_field("outpostArn"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -50,37 +50,18 @@ pub mod get_vpc_ipam_pool_cidrs {
                     value: &ipam_pool_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamPoolCidrs".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamPoolId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVpcIpamPoolCidrsResult {
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ipam_pool_cidrs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamPoolCidrs").unwrap(),
+                o.extract_field("ipamPoolCidrs"),
             ),
             ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamPoolId").unwrap(),
+                o.extract_field("ipamPoolId"),
             ),
         }
     }

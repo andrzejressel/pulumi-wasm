@@ -35,32 +35,14 @@ pub mod get_node_groups {
                     value: &cluster_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "names".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNodeGroupsResult {
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("names").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            names: pulumi_wasm_rust::__private::into_domain(o.extract_field("names")),
         }
     }
 }

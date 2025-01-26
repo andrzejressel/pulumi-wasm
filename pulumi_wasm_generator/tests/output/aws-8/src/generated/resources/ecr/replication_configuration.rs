@@ -133,27 +133,14 @@ pub mod replication_configuration {
                     value: &replication_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "registryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationConfiguration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ReplicationConfigurationResult {
             registry_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryId").unwrap(),
+                o.extract_field("registryId"),
             ),
             replication_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationConfiguration").unwrap(),
+                o.extract_field("replicationConfiguration"),
             ),
         }
     }

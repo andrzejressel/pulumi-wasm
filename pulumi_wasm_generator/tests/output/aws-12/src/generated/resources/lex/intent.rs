@@ -328,118 +328,52 @@ pub mod intent {
                     value: &slots_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "checksum".into(),
-                },
-                register_interface::ResultField {
-                    name: "conclusionStatement".into(),
-                },
-                register_interface::ResultField {
-                    name: "confirmationPrompt".into(),
-                },
-                register_interface::ResultField {
-                    name: "createVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dialogCodeHook".into(),
-                },
-                register_interface::ResultField {
-                    name: "followUpPrompt".into(),
-                },
-                register_interface::ResultField {
-                    name: "fulfillmentActivity".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentIntentSignature".into(),
-                },
-                register_interface::ResultField {
-                    name: "rejectionStatement".into(),
-                },
-                register_interface::ResultField {
-                    name: "sampleUtterances".into(),
-                },
-                register_interface::ResultField {
-                    name: "slots".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IntentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             checksum: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("checksum").unwrap(),
+                o.extract_field("checksum"),
             ),
             conclusion_statement: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("conclusionStatement").unwrap(),
+                o.extract_field("conclusionStatement"),
             ),
             confirmation_prompt: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("confirmationPrompt").unwrap(),
+                o.extract_field("confirmationPrompt"),
             ),
             create_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createVersion").unwrap(),
+                o.extract_field("createVersion"),
             ),
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dialog_code_hook: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dialogCodeHook").unwrap(),
+                o.extract_field("dialogCodeHook"),
             ),
             follow_up_prompt: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("followUpPrompt").unwrap(),
+                o.extract_field("followUpPrompt"),
             ),
             fulfillment_activity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fulfillmentActivity").unwrap(),
+                o.extract_field("fulfillmentActivity"),
             ),
             last_updated_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedDate").unwrap(),
+                o.extract_field("lastUpdatedDate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parent_intent_signature: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentIntentSignature").unwrap(),
+                o.extract_field("parentIntentSignature"),
             ),
             rejection_statement: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rejectionStatement").unwrap(),
+                o.extract_field("rejectionStatement"),
             ),
             sample_utterances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sampleUtterances").unwrap(),
+                o.extract_field("sampleUtterances"),
             ),
-            slots: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("slots").unwrap(),
-            ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            slots: pulumi_wasm_rust::__private::into_domain(o.extract_field("slots")),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

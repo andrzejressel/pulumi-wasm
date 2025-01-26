@@ -75,21 +75,11 @@ pub mod default_auto_scaling_configuration_version {
                     value: &auto_scaling_configuration_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoScalingConfigurationArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DefaultAutoScalingConfigurationVersionResult {
             auto_scaling_configuration_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScalingConfigurationArn").unwrap(),
+                o.extract_field("autoScalingConfigurationArn"),
             ),
         }
     }

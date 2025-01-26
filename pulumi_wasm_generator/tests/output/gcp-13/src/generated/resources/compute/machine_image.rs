@@ -244,63 +244,30 @@ pub mod machine_image {
                     value: &source_instance_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "guestFlush".into(),
-                },
-                register_interface::ResultField {
-                    name: "machineImageEncryptionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceInstance".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageLocations".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MachineImageResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             guest_flush: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guestFlush").unwrap(),
+                o.extract_field("guestFlush"),
             ),
             machine_image_encryption_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("machineImageEncryptionKey").unwrap(),
+                o.extract_field("machineImageEncryptionKey"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             source_instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceInstance").unwrap(),
+                o.extract_field("sourceInstance"),
             ),
             storage_locations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageLocations").unwrap(),
+                o.extract_field("storageLocations"),
             ),
         }
     }

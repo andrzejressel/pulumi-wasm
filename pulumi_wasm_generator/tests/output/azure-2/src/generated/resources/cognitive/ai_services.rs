@@ -245,118 +245,54 @@ pub mod ai_services {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customSubdomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdns".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAuthenticationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkAcls".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundNetworkAccessRestricted".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storages".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AIServicesResult {
             custom_subdomain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customSubdomainName").unwrap(),
+                o.extract_field("customSubdomainName"),
             ),
             customer_managed_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedKey").unwrap(),
+                o.extract_field("customerManagedKey"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
-            fqdns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdns").unwrap(),
-            ),
+            fqdns: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdns")),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             local_authentication_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAuthenticationEnabled").unwrap(),
+                o.extract_field("localAuthenticationEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_acls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkAcls").unwrap(),
+                o.extract_field("networkAcls"),
             ),
             outbound_network_access_restricted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundNetworkAccessRestricted").unwrap(),
+                o.extract_field("outboundNetworkAccessRestricted"),
             ),
             primary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryAccessKey").unwrap(),
+                o.extract_field("primaryAccessKey"),
             ),
             public_network_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccess").unwrap(),
+                o.extract_field("publicNetworkAccess"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAccessKey").unwrap(),
+                o.extract_field("secondaryAccessKey"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             storages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storages").unwrap(),
+                o.extract_field("storages"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

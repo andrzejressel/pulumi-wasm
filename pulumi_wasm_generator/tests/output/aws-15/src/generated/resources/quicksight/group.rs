@@ -89,45 +89,21 @@ pub mod group {
                     value: &namespace_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespace".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             aws_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountId").unwrap(),
+                o.extract_field("awsAccountId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupName").unwrap(),
+                o.extract_field("groupName"),
             ),
             namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespace").unwrap(),
+                o.extract_field("namespace"),
             ),
         }
     }

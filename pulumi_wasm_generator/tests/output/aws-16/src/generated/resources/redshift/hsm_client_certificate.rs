@@ -84,45 +84,19 @@ pub mod hsm_client_certificate {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "hsmClientCertificateIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "hsmClientCertificatePublicKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HsmClientCertificateResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             hsm_client_certificate_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hsmClientCertificateIdentifier").unwrap(),
+                o.extract_field("hsmClientCertificateIdentifier"),
             ),
             hsm_client_certificate_public_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hsmClientCertificatePublicKey").unwrap(),
+                o.extract_field("hsmClientCertificatePublicKey"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -133,45 +133,21 @@ pub mod cluster_activity_stream {
                     value: &resource_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "engineNativeAuditFieldsIncluded".into(),
-                },
-                register_interface::ResultField {
-                    name: "kinesisStreamName".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterActivityStreamResult {
             engine_native_audit_fields_included: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineNativeAuditFieldsIncluded").unwrap(),
+                o.extract_field("engineNativeAuditFieldsIncluded"),
             ),
             kinesis_stream_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kinesisStreamName").unwrap(),
+                o.extract_field("kinesisStreamName"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mode").unwrap(),
-            ),
+            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
             resource_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceArn").unwrap(),
+                o.extract_field("resourceArn"),
             ),
         }
     }

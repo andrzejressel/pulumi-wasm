@@ -60,55 +60,23 @@ pub mod get_credentials {
                     value: &workgroup_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dbName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbUser".into(),
-                },
-                register_interface::ResultField {
-                    name: "durationSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiration".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "workgroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCredentialsResult {
-            db_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbName").unwrap(),
-            ),
+            db_name: pulumi_wasm_rust::__private::into_domain(o.extract_field("dbName")),
             db_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbPassword").unwrap(),
+                o.extract_field("dbPassword"),
             ),
-            db_user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbUser").unwrap(),
-            ),
+            db_user: pulumi_wasm_rust::__private::into_domain(o.extract_field("dbUser")),
             duration_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("durationSeconds").unwrap(),
+                o.extract_field("durationSeconds"),
             ),
             expiration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiration").unwrap(),
+                o.extract_field("expiration"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             workgroup_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workgroupName").unwrap(),
+                o.extract_field("workgroupName"),
             ),
         }
     }

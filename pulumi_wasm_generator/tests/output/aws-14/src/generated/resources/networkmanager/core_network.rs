@@ -265,93 +265,39 @@ pub mod core_network {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "basePolicyDocument".into(),
-                },
-                register_interface::ResultField {
-                    name: "basePolicyRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "basePolicyRegions".into(),
-                },
-                register_interface::ResultField {
-                    name: "createBasePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "edges".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "segments".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CoreNetworkResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             base_policy_document: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("basePolicyDocument").unwrap(),
+                o.extract_field("basePolicyDocument"),
             ),
             base_policy_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("basePolicyRegion").unwrap(),
+                o.extract_field("basePolicyRegion"),
             ),
             base_policy_regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("basePolicyRegions").unwrap(),
+                o.extract_field("basePolicyRegions"),
             ),
             create_base_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createBasePolicy").unwrap(),
+                o.extract_field("createBasePolicy"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            edges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edges").unwrap(),
-            ),
+            edges: pulumi_wasm_rust::__private::into_domain(o.extract_field("edges")),
             global_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalNetworkId").unwrap(),
+                o.extract_field("globalNetworkId"),
             ),
             segments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("segments").unwrap(),
+                o.extract_field("segments"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

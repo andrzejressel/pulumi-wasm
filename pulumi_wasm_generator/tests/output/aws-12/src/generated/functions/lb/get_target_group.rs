@@ -89,146 +89,63 @@ pub mod get_target_group {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "arnSuffix".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionTermination".into(),
-                },
-                register_interface::ResultField {
-                    name: "deregistrationDelay".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lambdaMultiValueHeadersEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancerArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancingAlgorithmType".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancingAnomalyMitigation".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancingCrossZoneEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "preserveClientIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocolVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "proxyProtocolV2".into(),
-                },
-                register_interface::ResultField {
-                    name: "slowStart".into(),
-                },
-                register_interface::ResultField {
-                    name: "stickiness".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetType".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTargetGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             arn_suffix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arnSuffix").unwrap(),
+                o.extract_field("arnSuffix"),
             ),
             connection_termination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionTermination").unwrap(),
+                o.extract_field("connectionTermination"),
             ),
             deregistration_delay: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deregistrationDelay").unwrap(),
+                o.extract_field("deregistrationDelay"),
             ),
             health_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheck").unwrap(),
+                o.extract_field("healthCheck"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             lambda_multi_value_headers_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lambdaMultiValueHeadersEnabled").unwrap(),
+                o.extract_field("lambdaMultiValueHeadersEnabled"),
             ),
             load_balancer_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerArns").unwrap(),
+                o.extract_field("loadBalancerArns"),
             ),
             load_balancing_algorithm_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancingAlgorithmType").unwrap(),
+                o.extract_field("loadBalancingAlgorithmType"),
             ),
             load_balancing_anomaly_mitigation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancingAnomalyMitigation").unwrap(),
+                o.extract_field("loadBalancingAnomalyMitigation"),
             ),
             load_balancing_cross_zone_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancingCrossZoneEnabled").unwrap(),
+                o.extract_field("loadBalancingCrossZoneEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             preserve_client_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preserveClientIp").unwrap(),
+                o.extract_field("preserveClientIp"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             protocol_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocolVersion").unwrap(),
+                o.extract_field("protocolVersion"),
             ),
             proxy_protocol_v2: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proxyProtocolV2").unwrap(),
+                o.extract_field("proxyProtocolV2"),
             ),
             slow_start: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("slowStart").unwrap(),
+                o.extract_field("slowStart"),
             ),
             stickiness: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stickiness").unwrap(),
+                o.extract_field("stickiness"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             target_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetType").unwrap(),
+                o.extract_field("targetType"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

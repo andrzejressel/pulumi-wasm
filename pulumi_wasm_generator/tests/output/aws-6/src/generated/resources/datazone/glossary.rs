@@ -180,46 +180,20 @@ pub mod glossary {
                     value: &status_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "owningProjectIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GlossaryResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             domain_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainIdentifier").unwrap(),
+                o.extract_field("domainIdentifier"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             owning_project_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owningProjectIdentifier").unwrap(),
+                o.extract_field("owningProjectIdentifier"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

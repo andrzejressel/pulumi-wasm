@@ -98,33 +98,17 @@ pub mod endpoint_service_private_dns_verification {
                     value: &wait_for_verification_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "serviceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForVerification".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointServicePrivateDnsVerificationResult {
             service_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceId").unwrap(),
+                o.extract_field("serviceId"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             wait_for_verification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForVerification").unwrap(),
+                o.extract_field("waitForVerification"),
             ),
         }
     }

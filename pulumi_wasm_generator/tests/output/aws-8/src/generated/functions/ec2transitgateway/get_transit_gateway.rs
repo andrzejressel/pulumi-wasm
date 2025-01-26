@@ -93,115 +93,53 @@ pub mod get_transit_gateway {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "amazonSideAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "associationDefaultRouteTableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoAcceptSharedAttachments".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultRouteTableAssociation".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultRouteTablePropagation".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "multicastSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "propagationDefaultRouteTableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupReferencingSupport".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayCidrBlocks".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnEcmpSupport".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTransitGatewayResult {
             amazon_side_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("amazonSideAsn").unwrap(),
+                o.extract_field("amazonSideAsn"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             association_default_route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associationDefaultRouteTableId").unwrap(),
+                o.extract_field("associationDefaultRouteTableId"),
             ),
             auto_accept_shared_attachments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoAcceptSharedAttachments").unwrap(),
+                o.extract_field("autoAcceptSharedAttachments"),
             ),
             default_route_table_association: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultRouteTableAssociation").unwrap(),
+                o.extract_field("defaultRouteTableAssociation"),
             ),
             default_route_table_propagation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultRouteTablePropagation").unwrap(),
+                o.extract_field("defaultRouteTablePropagation"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dns_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsSupport").unwrap(),
+                o.extract_field("dnsSupport"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             multicast_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multicastSupport").unwrap(),
+                o.extract_field("multicastSupport"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             propagation_default_route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("propagationDefaultRouteTableId").unwrap(),
+                o.extract_field("propagationDefaultRouteTableId"),
             ),
             security_group_referencing_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupReferencingSupport").unwrap(),
+                o.extract_field("securityGroupReferencingSupport"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             transit_gateway_cidr_blocks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayCidrBlocks").unwrap(),
+                o.extract_field("transitGatewayCidrBlocks"),
             ),
             vpn_ecmp_support: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnEcmpSupport").unwrap(),
+                o.extract_field("vpnEcmpSupport"),
             ),
         }
     }

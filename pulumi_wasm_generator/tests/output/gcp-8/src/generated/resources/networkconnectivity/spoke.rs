@@ -605,117 +605,51 @@ pub mod spoke {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "hub".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkedInterconnectAttachments".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkedProducerVpcNetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkedRouterApplianceInstances".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkedVpcNetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkedVpnTunnels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "uniqueId".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpokeResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            hub: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hub").unwrap(),
-            ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            hub: pulumi_wasm_rust::__private::into_domain(o.extract_field("hub")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             linked_interconnect_attachments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedInterconnectAttachments").unwrap(),
+                o.extract_field("linkedInterconnectAttachments"),
             ),
             linked_producer_vpc_network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedProducerVpcNetwork").unwrap(),
+                o.extract_field("linkedProducerVpcNetwork"),
             ),
             linked_router_appliance_instances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedRouterApplianceInstances").unwrap(),
+                o.extract_field("linkedRouterApplianceInstances"),
             ),
             linked_vpc_network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedVpcNetwork").unwrap(),
+                o.extract_field("linkedVpcNetwork"),
             ),
             linked_vpn_tunnels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedVpnTunnels").unwrap(),
+                o.extract_field("linkedVpnTunnels"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             unique_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uniqueId").unwrap(),
+                o.extract_field("uniqueId"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

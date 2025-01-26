@@ -240,123 +240,58 @@ pub mod stage {
                     value: &xray_tracing_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessLogSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheClusterEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheClusterSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "canarySettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientCertificateId".into(),
-                },
-                register_interface::ResultField {
-                    name: "deployment".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentationVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "invokeUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "restApi".into(),
-                },
-                register_interface::ResultField {
-                    name: "stageName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "variables".into(),
-                },
-                register_interface::ResultField {
-                    name: "webAclArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "xrayTracingEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StageResult {
             access_log_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessLogSettings").unwrap(),
+                o.extract_field("accessLogSettings"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cache_cluster_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheClusterEnabled").unwrap(),
+                o.extract_field("cacheClusterEnabled"),
             ),
             cache_cluster_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheClusterSize").unwrap(),
+                o.extract_field("cacheClusterSize"),
             ),
             canary_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("canarySettings").unwrap(),
+                o.extract_field("canarySettings"),
             ),
             client_certificate_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientCertificateId").unwrap(),
+                o.extract_field("clientCertificateId"),
             ),
             deployment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deployment").unwrap(),
+                o.extract_field("deployment"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             documentation_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentationVersion").unwrap(),
+                o.extract_field("documentationVersion"),
             ),
             execution_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionArn").unwrap(),
+                o.extract_field("executionArn"),
             ),
             invoke_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invokeUrl").unwrap(),
+                o.extract_field("invokeUrl"),
             ),
             rest_api: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restApi").unwrap(),
+                o.extract_field("restApi"),
             ),
             stage_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stageName").unwrap(),
+                o.extract_field("stageName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("variables").unwrap(),
+                o.extract_field("variables"),
             ),
             web_acl_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webAclArn").unwrap(),
+                o.extract_field("webAclArn"),
             ),
             xray_tracing_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("xrayTracingEnabled").unwrap(),
+                o.extract_field("xrayTracingEnabled"),
             ),
         }
     }

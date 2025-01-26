@@ -111,33 +111,17 @@ pub mod service_perimeter_ingress_policy {
                     value: &perimeter_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "ingressFrom".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingressTo".into(),
-                },
-                register_interface::ResultField {
-                    name: "perimeter".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServicePerimeterIngressPolicyResult {
             ingress_from: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingressFrom").unwrap(),
+                o.extract_field("ingressFrom"),
             ),
             ingress_to: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingressTo").unwrap(),
+                o.extract_field("ingressTo"),
             ),
             perimeter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("perimeter").unwrap(),
+                o.extract_field("perimeter"),
             ),
         }
     }

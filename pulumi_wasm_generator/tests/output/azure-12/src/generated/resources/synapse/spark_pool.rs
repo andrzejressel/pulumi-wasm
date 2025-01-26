@@ -317,130 +317,62 @@ pub mod spark_pool {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoPause".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoScale".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeIsolationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "dynamicExecutorAllocationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "libraryRequirement".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxExecutors".into(),
-                },
-                register_interface::ResultField {
-                    name: "minExecutors".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeSizeFamily".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionLevelPackagesEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparkConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparkEventsFolder".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparkLogFolder".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparkVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "synapseWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SparkPoolResult {
             auto_pause: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoPause").unwrap(),
+                o.extract_field("autoPause"),
             ),
             auto_scale: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScale").unwrap(),
+                o.extract_field("autoScale"),
             ),
             cache_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheSize").unwrap(),
+                o.extract_field("cacheSize"),
             ),
             compute_isolation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeIsolationEnabled").unwrap(),
+                o.extract_field("computeIsolationEnabled"),
             ),
             dynamic_executor_allocation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dynamicExecutorAllocationEnabled").unwrap(),
+                o.extract_field("dynamicExecutorAllocationEnabled"),
             ),
             library_requirement: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("libraryRequirement").unwrap(),
+                o.extract_field("libraryRequirement"),
             ),
             max_executors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxExecutors").unwrap(),
+                o.extract_field("maxExecutors"),
             ),
             min_executors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minExecutors").unwrap(),
+                o.extract_field("minExecutors"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeCount").unwrap(),
+                o.extract_field("nodeCount"),
             ),
             node_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeSize").unwrap(),
+                o.extract_field("nodeSize"),
             ),
             node_size_family: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeSizeFamily").unwrap(),
+                o.extract_field("nodeSizeFamily"),
             ),
             session_level_packages_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionLevelPackagesEnabled").unwrap(),
+                o.extract_field("sessionLevelPackagesEnabled"),
             ),
             spark_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparkConfig").unwrap(),
+                o.extract_field("sparkConfig"),
             ),
             spark_events_folder: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparkEventsFolder").unwrap(),
+                o.extract_field("sparkEventsFolder"),
             ),
             spark_log_folder: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparkLogFolder").unwrap(),
+                o.extract_field("sparkLogFolder"),
             ),
             spark_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparkVersion").unwrap(),
+                o.extract_field("sparkVersion"),
             ),
             synapse_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("synapseWorkspaceId").unwrap(),
+                o.extract_field("synapseWorkspaceId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

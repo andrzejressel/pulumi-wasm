@@ -63,43 +63,17 @@ pub mod get_token {
                     value: &verification_method_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "token".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "verificationMethod".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTokenResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identifier").unwrap(),
+                o.extract_field("identifier"),
             ),
-            token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("token").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            token: pulumi_wasm_rust::__private::into_domain(o.extract_field("token")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             verification_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("verificationMethod").unwrap(),
+                o.extract_field("verificationMethod"),
             ),
         }
     }

@@ -111,51 +111,22 @@ pub mod domain_name_access_association {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessAssociationSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "accessAssociationSourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainNameArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainNameAccessAssociationResult {
             access_association_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessAssociationSource").unwrap(),
+                o.extract_field("accessAssociationSource"),
             ),
             access_association_source_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessAssociationSourceType").unwrap(),
+                o.extract_field("accessAssociationSourceType"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             domain_name_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainNameArn").unwrap(),
+                o.extract_field("domainNameArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -245,50 +245,23 @@ pub mod api_key {
                     value: &restrictions_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyString".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "restrictions".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiKeyResult {
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             key_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyString").unwrap(),
+                o.extract_field("keyString"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             restrictions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restrictions").unwrap(),
+                o.extract_field("restrictions"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uid").unwrap()),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
         }
     }
 }

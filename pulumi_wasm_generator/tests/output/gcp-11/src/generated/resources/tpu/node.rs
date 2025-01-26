@@ -322,106 +322,48 @@ pub mod node {
                     value: &zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceleratorType".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedulingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "tensorflowVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "useServiceNetworking".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NodeResult {
             accelerator_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceleratorType").unwrap(),
+                o.extract_field("acceleratorType"),
             ),
             cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlock").unwrap(),
+                o.extract_field("cidrBlock"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             network_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkEndpoints").unwrap(),
+                o.extract_field("networkEndpoints"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             scheduling_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedulingConfig").unwrap(),
+                o.extract_field("schedulingConfig"),
             ),
             service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccount").unwrap(),
+                o.extract_field("serviceAccount"),
             ),
             tensorflow_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tensorflowVersion").unwrap(),
+                o.extract_field("tensorflowVersion"),
             ),
             use_service_networking: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useServiceNetworking").unwrap(),
+                o.extract_field("useServiceNetworking"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

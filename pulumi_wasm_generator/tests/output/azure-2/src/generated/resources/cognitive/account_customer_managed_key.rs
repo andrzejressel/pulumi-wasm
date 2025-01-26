@@ -200,33 +200,17 @@ pub mod account_customer_managed_key {
                     value: &key_vault_key_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cognitiveAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityClientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultKeyId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountCustomerManagedKeyResult {
             cognitive_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cognitiveAccountId").unwrap(),
+                o.extract_field("cognitiveAccountId"),
             ),
             identity_client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityClientId").unwrap(),
+                o.extract_field("identityClientId"),
             ),
             key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultKeyId").unwrap(),
+                o.extract_field("keyVaultKeyId"),
             ),
         }
     }

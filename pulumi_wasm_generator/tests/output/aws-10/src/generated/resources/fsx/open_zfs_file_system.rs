@@ -367,195 +367,92 @@ pub mod open_zfs_file_system {
                     value: &weekly_maintenance_start_time_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "automaticBackupRetentionDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "copyTagsToBackups".into(),
-                },
-                register_interface::ResultField {
-                    name: "copyTagsToVolumes".into(),
-                },
-                register_interface::ResultField {
-                    name: "dailyAutomaticBackupStartTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskIopsConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointIpAddressRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "finalBackupTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredSubnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootVolumeConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootVolumeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeTableIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipFinalBackup".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageType".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "throughputCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "weeklyMaintenanceStartTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OpenZfsFileSystemResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             automatic_backup_retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticBackupRetentionDays").unwrap(),
+                o.extract_field("automaticBackupRetentionDays"),
             ),
             backup_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupId").unwrap(),
+                o.extract_field("backupId"),
             ),
             copy_tags_to_backups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("copyTagsToBackups").unwrap(),
+                o.extract_field("copyTagsToBackups"),
             ),
             copy_tags_to_volumes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("copyTagsToVolumes").unwrap(),
+                o.extract_field("copyTagsToVolumes"),
             ),
             daily_automatic_backup_start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dailyAutomaticBackupStartTime").unwrap(),
+                o.extract_field("dailyAutomaticBackupStartTime"),
             ),
             delete_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteOptions").unwrap(),
+                o.extract_field("deleteOptions"),
             ),
             deployment_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentType").unwrap(),
+                o.extract_field("deploymentType"),
             ),
             disk_iops_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskIopsConfiguration").unwrap(),
+                o.extract_field("diskIopsConfiguration"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             endpoint_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointIpAddress").unwrap(),
+                o.extract_field("endpointIpAddress"),
             ),
             endpoint_ip_address_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointIpAddressRange").unwrap(),
+                o.extract_field("endpointIpAddressRange"),
             ),
             final_backup_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("finalBackupTags").unwrap(),
+                o.extract_field("finalBackupTags"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             network_interface_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceIds").unwrap(),
+                o.extract_field("networkInterfaceIds"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             preferred_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredSubnetId").unwrap(),
+                o.extract_field("preferredSubnetId"),
             ),
             root_volume_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootVolumeConfiguration").unwrap(),
+                o.extract_field("rootVolumeConfiguration"),
             ),
             root_volume_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootVolumeId").unwrap(),
+                o.extract_field("rootVolumeId"),
             ),
             route_table_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeTableIds").unwrap(),
+                o.extract_field("routeTableIds"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
             skip_final_backup: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipFinalBackup").unwrap(),
+                o.extract_field("skipFinalBackup"),
             ),
             storage_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageCapacity").unwrap(),
+                o.extract_field("storageCapacity"),
             ),
             storage_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageType").unwrap(),
+                o.extract_field("storageType"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             throughput_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("throughputCapacity").unwrap(),
+                o.extract_field("throughputCapacity"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
             weekly_maintenance_start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("weeklyMaintenanceStartTime").unwrap(),
+                o.extract_field("weeklyMaintenanceStartTime"),
             ),
         }
     }

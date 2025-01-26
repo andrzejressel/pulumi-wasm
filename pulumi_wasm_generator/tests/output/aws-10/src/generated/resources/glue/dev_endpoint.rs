@@ -268,165 +268,73 @@ pub mod dev_endpoint {
                     value: &worker_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arguments".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "extraJarsS3Path".into(),
-                },
-                register_interface::ResultField {
-                    name: "extraPythonLibsS3Path".into(),
-                },
-                register_interface::ResultField {
-                    name: "failureReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "glueVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberOfNodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberOfWorkers".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "workerType".into(),
-                },
-                register_interface::ResultField {
-                    name: "yarnEndpointAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "zeppelinRemoteSparkInterpreterPort".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DevEndpointResult {
             arguments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arguments").unwrap(),
+                o.extract_field("arguments"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             extra_jars_s3_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extraJarsS3Path").unwrap(),
+                o.extract_field("extraJarsS3Path"),
             ),
             extra_python_libs_s3_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extraPythonLibsS3Path").unwrap(),
+                o.extract_field("extraPythonLibsS3Path"),
             ),
             failure_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failureReason").unwrap(),
+                o.extract_field("failureReason"),
             ),
             glue_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("glueVersion").unwrap(),
+                o.extract_field("glueVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             number_of_nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberOfNodes").unwrap(),
+                o.extract_field("numberOfNodes"),
             ),
             number_of_workers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberOfWorkers").unwrap(),
+                o.extract_field("numberOfWorkers"),
             ),
             private_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateAddress").unwrap(),
+                o.extract_field("privateAddress"),
             ),
             public_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicAddress").unwrap(),
+                o.extract_field("publicAddress"),
             ),
             public_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKey").unwrap(),
+                o.extract_field("publicKey"),
             ),
             public_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKeys").unwrap(),
+                o.extract_field("publicKeys"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             security_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityConfiguration").unwrap(),
+                o.extract_field("securityConfiguration"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
             worker_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workerType").unwrap(),
+                o.extract_field("workerType"),
             ),
             yarn_endpoint_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("yarnEndpointAddress").unwrap(),
+                o.extract_field("yarnEndpointAddress"),
             ),
             zeppelin_remote_spark_interpreter_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zeppelinRemoteSparkInterpreterPort").unwrap(),
+                o.extract_field("zeppelinRemoteSparkInterpreterPort"),
             ),
         }
     }

@@ -158,39 +158,18 @@ pub mod resolver_virtual_network_link {
                     value: &virtual_network_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dnsForwardingRulesetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResolverVirtualNetworkLinkResult {
             dns_forwarding_ruleset_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsForwardingRulesetId").unwrap(),
+                o.extract_field("dnsForwardingRulesetId"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkId").unwrap(),
+                o.extract_field("virtualNetworkId"),
             ),
         }
     }

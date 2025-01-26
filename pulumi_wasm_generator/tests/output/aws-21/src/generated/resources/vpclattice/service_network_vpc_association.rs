@@ -116,63 +116,26 @@ pub mod service_network_vpc_association {
                     value: &vpc_identifier_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdBy".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceNetworkIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcIdentifier".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceNetworkVpcAssociationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_by: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdBy").unwrap(),
+                o.extract_field("createdBy"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
             service_network_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceNetworkIdentifier").unwrap(),
+                o.extract_field("serviceNetworkIdentifier"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             vpc_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcIdentifier").unwrap(),
+                o.extract_field("vpcIdentifier"),
             ),
         }
     }

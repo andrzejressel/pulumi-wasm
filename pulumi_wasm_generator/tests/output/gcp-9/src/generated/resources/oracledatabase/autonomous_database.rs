@@ -291,111 +291,50 @@ pub mod autonomous_database {
                     value: &properties_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adminPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "autonomousDatabaseId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "database".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "entitlementId".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "properties".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AutonomousDatabaseResult {
             admin_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminPassword").unwrap(),
+                o.extract_field("adminPassword"),
             ),
             autonomous_database_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autonomousDatabaseId").unwrap(),
+                o.extract_field("autonomousDatabaseId"),
             ),
-            cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidr").unwrap(),
-            ),
+            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             database: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("database").unwrap(),
+                o.extract_field("database"),
             ),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             entitlement_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entitlementId").unwrap(),
+                o.extract_field("entitlementId"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("properties").unwrap(),
+                o.extract_field("properties"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
         }
     }

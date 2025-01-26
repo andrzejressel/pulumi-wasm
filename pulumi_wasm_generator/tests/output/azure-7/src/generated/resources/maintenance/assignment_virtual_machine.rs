@@ -153,33 +153,17 @@ pub mod assignment_virtual_machine {
                     value: &virtual_machine_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceConfigurationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMachineId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AssignmentVirtualMachineResult {
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maintenance_configuration_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceConfigurationId").unwrap(),
+                o.extract_field("maintenanceConfigurationId"),
             ),
             virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMachineId").unwrap(),
+                o.extract_field("virtualMachineId"),
             ),
         }
     }

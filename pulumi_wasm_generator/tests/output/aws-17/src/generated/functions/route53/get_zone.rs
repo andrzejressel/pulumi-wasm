@@ -91,98 +91,39 @@ pub mod get_zone {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "callerReference".into(),
-                },
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkedServiceDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkedServicePrincipal".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nameServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryNameServer".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceRecordSetCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetZoneResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             caller_reference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("callerReference").unwrap(),
+                o.extract_field("callerReference"),
             ),
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             linked_service_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedServiceDescription").unwrap(),
+                o.extract_field("linkedServiceDescription"),
             ),
             linked_service_principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedServicePrincipal").unwrap(),
+                o.extract_field("linkedServicePrincipal"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nameServers").unwrap(),
+                o.extract_field("nameServers"),
             ),
             primary_name_server: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryNameServer").unwrap(),
+                o.extract_field("primaryNameServer"),
             ),
             private_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateZone").unwrap(),
+                o.extract_field("privateZone"),
             ),
             resource_record_set_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceRecordSetCount").unwrap(),
+                o.extract_field("resourceRecordSetCount"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

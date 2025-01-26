@@ -82,22 +82,10 @@ pub mod shared_vpc_host_project {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SharedVPCHostProjectResult {
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

@@ -92,39 +92,20 @@ pub mod byo_ip_prefix {
                     value: &prefix_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "advertisement".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefixId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ByoIpPrefixResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             advertisement: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advertisement").unwrap(),
+                o.extract_field("advertisement"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             prefix_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefixId").unwrap(),
+                o.extract_field("prefixId"),
             ),
         }
     }

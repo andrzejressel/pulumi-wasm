@@ -198,118 +198,44 @@ pub mod component {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "changeDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "data".into(),
-                },
-                register_interface::ResultField {
-                    name: "dateCreated".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "encrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "platform".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedOsVersions".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "uri".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ComponentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             change_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("changeDescription").unwrap(),
+                o.extract_field("changeDescription"),
             ),
-            data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("data").unwrap(),
-            ),
+            data: pulumi_wasm_rust::__private::into_domain(o.extract_field("data")),
             date_created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dateCreated").unwrap(),
+                o.extract_field("dateCreated"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encrypted").unwrap(),
+                o.extract_field("encrypted"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
             platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platform").unwrap(),
+                o.extract_field("platform"),
             ),
             skip_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipDestroy").unwrap(),
+                o.extract_field("skipDestroy"),
             ),
             supported_os_versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedOsVersions").unwrap(),
+                o.extract_field("supportedOsVersions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uri").unwrap(),
-            ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

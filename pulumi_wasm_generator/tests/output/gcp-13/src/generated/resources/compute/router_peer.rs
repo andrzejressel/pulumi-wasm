@@ -876,177 +876,79 @@ pub mod router_peer {
                     value: &router_appliance_instance_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "advertiseMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "advertisedGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "advertisedIpRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "advertisedRoutePriority".into(),
-                },
-                register_interface::ResultField {
-                    name: "bfd".into(),
-                },
-                register_interface::ResultField {
-                    name: "customLearnedIpRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "customLearnedRoutePriority".into(),
-                },
-                register_interface::ResultField {
-                    name: "enable".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableIpv4".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableIpv6".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "importPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "interface".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv4NexthopAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6NexthopAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "managementType".into(),
-                },
-                register_interface::ResultField {
-                    name: "md5AuthenticationKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerIpv4NexthopAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerIpv6NexthopAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "router".into(),
-                },
-                register_interface::ResultField {
-                    name: "routerApplianceInstance".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RouterPeerResult {
             advertise_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advertiseMode").unwrap(),
+                o.extract_field("advertiseMode"),
             ),
             advertised_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advertisedGroups").unwrap(),
+                o.extract_field("advertisedGroups"),
             ),
             advertised_ip_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advertisedIpRanges").unwrap(),
+                o.extract_field("advertisedIpRanges"),
             ),
             advertised_route_priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advertisedRoutePriority").unwrap(),
+                o.extract_field("advertisedRoutePriority"),
             ),
-            bfd: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bfd").unwrap(),
-            ),
+            bfd: pulumi_wasm_rust::__private::into_domain(o.extract_field("bfd")),
             custom_learned_ip_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customLearnedIpRanges").unwrap(),
+                o.extract_field("customLearnedIpRanges"),
             ),
             custom_learned_route_priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customLearnedRoutePriority").unwrap(),
+                o.extract_field("customLearnedRoutePriority"),
             ),
-            enable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enable").unwrap(),
-            ),
+            enable: pulumi_wasm_rust::__private::into_domain(o.extract_field("enable")),
             enable_ipv4: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableIpv4").unwrap(),
+                o.extract_field("enableIpv4"),
             ),
             enable_ipv6: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableIpv6").unwrap(),
+                o.extract_field("enableIpv6"),
             ),
             export_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportPolicies").unwrap(),
+                o.extract_field("exportPolicies"),
             ),
             import_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importPolicies").unwrap(),
+                o.extract_field("importPolicies"),
             ),
             interface: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("interface").unwrap(),
+                o.extract_field("interface"),
             ),
             ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddress").unwrap(),
+                o.extract_field("ipAddress"),
             ),
             ipv4_nexthop_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv4NexthopAddress").unwrap(),
+                o.extract_field("ipv4NexthopAddress"),
             ),
             ipv6_nexthop_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6NexthopAddress").unwrap(),
+                o.extract_field("ipv6NexthopAddress"),
             ),
             management_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managementType").unwrap(),
+                o.extract_field("managementType"),
             ),
             md5_authentication_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("md5AuthenticationKey").unwrap(),
+                o.extract_field("md5AuthenticationKey"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             peer_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerAsn").unwrap(),
+                o.extract_field("peerAsn"),
             ),
             peer_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerIpAddress").unwrap(),
+                o.extract_field("peerIpAddress"),
             ),
             peer_ipv4_nexthop_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerIpv4NexthopAddress").unwrap(),
+                o.extract_field("peerIpv4NexthopAddress"),
             ),
             peer_ipv6_nexthop_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerIpv6NexthopAddress").unwrap(),
+                o.extract_field("peerIpv6NexthopAddress"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
-            router: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("router").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            router: pulumi_wasm_rust::__private::into_domain(o.extract_field("router")),
             router_appliance_instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routerApplianceInstance").unwrap(),
+                o.extract_field("routerApplianceInstance"),
             ),
         }
     }

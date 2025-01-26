@@ -170,56 +170,24 @@ pub mod service_project_attachment {
                     value: &service_project_attachment_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceProject".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceProjectAttachmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceProjectAttachmentResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             service_project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceProject").unwrap(),
+                o.extract_field("serviceProject"),
             ),
             service_project_attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceProjectAttachmentId").unwrap(),
+                o.extract_field("serviceProjectAttachmentId"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            uid: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uid").unwrap()),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
         }
     }
 }

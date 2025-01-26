@@ -151,57 +151,29 @@ pub mod identity_provider_aad {
                     value: &signin_tenant_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowedTenants".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiManagementName".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientId".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientLibrary".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientSecret".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "signinTenant".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IdentityProviderAadResult {
             allowed_tenants: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedTenants").unwrap(),
+                o.extract_field("allowedTenants"),
             ),
             api_management_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementName").unwrap(),
+                o.extract_field("apiManagementName"),
             ),
             client_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientId").unwrap(),
+                o.extract_field("clientId"),
             ),
             client_library: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientLibrary").unwrap(),
+                o.extract_field("clientLibrary"),
             ),
             client_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientSecret").unwrap(),
+                o.extract_field("clientSecret"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             signin_tenant: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signinTenant").unwrap(),
+                o.extract_field("signinTenant"),
             ),
         }
     }

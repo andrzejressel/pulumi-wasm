@@ -53,27 +53,14 @@ pub mod user_policies_exclusive {
                     value: &user_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "policyNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "userName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UserPoliciesExclusiveResult {
             policy_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyNames").unwrap(),
+                o.extract_field("policyNames"),
             ),
             user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userName").unwrap(),
+                o.extract_field("userName"),
             ),
         }
     }

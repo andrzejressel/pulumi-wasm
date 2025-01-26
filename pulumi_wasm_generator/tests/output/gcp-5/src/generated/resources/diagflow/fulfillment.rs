@@ -152,52 +152,23 @@ pub mod fulfillment {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "features".into(),
-                },
-                register_interface::ResultField {
-                    name: "genericWebService".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FulfillmentResult {
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             features: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("features").unwrap(),
+                o.extract_field("features"),
             ),
             generic_web_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("genericWebService").unwrap(),
+                o.extract_field("genericWebService"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

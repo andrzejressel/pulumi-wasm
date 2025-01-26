@@ -87,27 +87,14 @@ pub mod transit_gateway_registration {
                     value: &transit_gateway_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "globalNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TransitGatewayRegistrationResult {
             global_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalNetworkId").unwrap(),
+                o.extract_field("globalNetworkId"),
             ),
             transit_gateway_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayArn").unwrap(),
+                o.extract_field("transitGatewayArn"),
             ),
         }
     }

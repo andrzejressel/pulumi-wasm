@@ -244,572 +244,282 @@ pub mod get_account {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "accountKind".into(),
-                },
-                register_interface::ResultField {
-                    name: "accountReplicationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "accountTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowNestedItemsToBePublic".into(),
-                },
-                register_interface::ResultField {
-                    name: "azureFilesAuthentications".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDomains".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsEndpointType".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsTrafficOnlyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "infrastructureEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "isHnsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "minTlsVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nfsv3Enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryBlobConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryBlobEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryBlobHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryBlobInternetEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryBlobInternetHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryBlobMicrosoftEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryBlobMicrosoftHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryDfsEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryDfsHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryDfsInternetEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryDfsInternetHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryDfsMicrosoftEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryDfsMicrosoftHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryFileEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryFileHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryFileInternetEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryFileInternetHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryFileMicrosoftEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryFileMicrosoftHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryQueueEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryQueueHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryQueueMicrosoftEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryQueueMicrosoftHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryTableEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryTableHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryTableMicrosoftEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryTableMicrosoftHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryWebEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryWebHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryWebInternetEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryWebInternetHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryWebMicrosoftEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryWebMicrosoftHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "queueEncryptionKeyType".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryBlobConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryBlobEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryBlobHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryBlobInternetEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryBlobInternetHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryBlobMicrosoftEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryBlobMicrosoftHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryDfsEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryDfsHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryDfsInternetEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryDfsInternetHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryDfsMicrosoftEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryDfsMicrosoftHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryFileEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryFileHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryFileInternetEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryFileInternetHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryFileMicrosoftEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryFileMicrosoftHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryQueueEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryQueueHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryQueueMicrosoftEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryQueueMicrosoftHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryTableEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryTableHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryTableMicrosoftEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryTableMicrosoftHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryWebEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryWebHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryWebInternetEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryWebInternetHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryWebMicrosoftEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryWebMicrosoftHost".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableEncryptionKeyType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAccountResult {
             access_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessTier").unwrap(),
+                o.extract_field("accessTier"),
             ),
             account_kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountKind").unwrap(),
+                o.extract_field("accountKind"),
             ),
             account_replication_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountReplicationType").unwrap(),
+                o.extract_field("accountReplicationType"),
             ),
             account_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountTier").unwrap(),
+                o.extract_field("accountTier"),
             ),
             allow_nested_items_to_be_public: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowNestedItemsToBePublic").unwrap(),
+                o.extract_field("allowNestedItemsToBePublic"),
             ),
             azure_files_authentications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureFilesAuthentications").unwrap(),
+                o.extract_field("azureFilesAuthentications"),
             ),
             custom_domains: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomains").unwrap(),
+                o.extract_field("customDomains"),
             ),
             dns_endpoint_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsEndpointType").unwrap(),
+                o.extract_field("dnsEndpointType"),
             ),
             https_traffic_only_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsTrafficOnlyEnabled").unwrap(),
+                o.extract_field("httpsTrafficOnlyEnabled"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
             infrastructure_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("infrastructureEncryptionEnabled").unwrap(),
+                o.extract_field("infrastructureEncryptionEnabled"),
             ),
             is_hns_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isHnsEnabled").unwrap(),
+                o.extract_field("isHnsEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             min_tls_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minTlsVersion").unwrap(),
+                o.extract_field("minTlsVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             nfsv3_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nfsv3Enabled").unwrap(),
+                o.extract_field("nfsv3Enabled"),
             ),
             primary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryAccessKey").unwrap(),
+                o.extract_field("primaryAccessKey"),
             ),
             primary_blob_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryBlobConnectionString").unwrap(),
+                o.extract_field("primaryBlobConnectionString"),
             ),
             primary_blob_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryBlobEndpoint").unwrap(),
+                o.extract_field("primaryBlobEndpoint"),
             ),
             primary_blob_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryBlobHost").unwrap(),
+                o.extract_field("primaryBlobHost"),
             ),
             primary_blob_internet_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryBlobInternetEndpoint").unwrap(),
+                o.extract_field("primaryBlobInternetEndpoint"),
             ),
             primary_blob_internet_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryBlobInternetHost").unwrap(),
+                o.extract_field("primaryBlobInternetHost"),
             ),
             primary_blob_microsoft_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryBlobMicrosoftEndpoint").unwrap(),
+                o.extract_field("primaryBlobMicrosoftEndpoint"),
             ),
             primary_blob_microsoft_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryBlobMicrosoftHost").unwrap(),
+                o.extract_field("primaryBlobMicrosoftHost"),
             ),
             primary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryConnectionString").unwrap(),
+                o.extract_field("primaryConnectionString"),
             ),
             primary_dfs_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryDfsEndpoint").unwrap(),
+                o.extract_field("primaryDfsEndpoint"),
             ),
             primary_dfs_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryDfsHost").unwrap(),
+                o.extract_field("primaryDfsHost"),
             ),
             primary_dfs_internet_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryDfsInternetEndpoint").unwrap(),
+                o.extract_field("primaryDfsInternetEndpoint"),
             ),
             primary_dfs_internet_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryDfsInternetHost").unwrap(),
+                o.extract_field("primaryDfsInternetHost"),
             ),
             primary_dfs_microsoft_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryDfsMicrosoftEndpoint").unwrap(),
+                o.extract_field("primaryDfsMicrosoftEndpoint"),
             ),
             primary_dfs_microsoft_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryDfsMicrosoftHost").unwrap(),
+                o.extract_field("primaryDfsMicrosoftHost"),
             ),
             primary_file_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryFileEndpoint").unwrap(),
+                o.extract_field("primaryFileEndpoint"),
             ),
             primary_file_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryFileHost").unwrap(),
+                o.extract_field("primaryFileHost"),
             ),
             primary_file_internet_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryFileInternetEndpoint").unwrap(),
+                o.extract_field("primaryFileInternetEndpoint"),
             ),
             primary_file_internet_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryFileInternetHost").unwrap(),
+                o.extract_field("primaryFileInternetHost"),
             ),
             primary_file_microsoft_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryFileMicrosoftEndpoint").unwrap(),
+                o.extract_field("primaryFileMicrosoftEndpoint"),
             ),
             primary_file_microsoft_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryFileMicrosoftHost").unwrap(),
+                o.extract_field("primaryFileMicrosoftHost"),
             ),
             primary_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryLocation").unwrap(),
+                o.extract_field("primaryLocation"),
             ),
             primary_queue_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryQueueEndpoint").unwrap(),
+                o.extract_field("primaryQueueEndpoint"),
             ),
             primary_queue_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryQueueHost").unwrap(),
+                o.extract_field("primaryQueueHost"),
             ),
             primary_queue_microsoft_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryQueueMicrosoftEndpoint").unwrap(),
+                o.extract_field("primaryQueueMicrosoftEndpoint"),
             ),
             primary_queue_microsoft_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryQueueMicrosoftHost").unwrap(),
+                o.extract_field("primaryQueueMicrosoftHost"),
             ),
             primary_table_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryTableEndpoint").unwrap(),
+                o.extract_field("primaryTableEndpoint"),
             ),
             primary_table_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryTableHost").unwrap(),
+                o.extract_field("primaryTableHost"),
             ),
             primary_table_microsoft_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryTableMicrosoftEndpoint").unwrap(),
+                o.extract_field("primaryTableMicrosoftEndpoint"),
             ),
             primary_table_microsoft_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryTableMicrosoftHost").unwrap(),
+                o.extract_field("primaryTableMicrosoftHost"),
             ),
             primary_web_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryWebEndpoint").unwrap(),
+                o.extract_field("primaryWebEndpoint"),
             ),
             primary_web_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryWebHost").unwrap(),
+                o.extract_field("primaryWebHost"),
             ),
             primary_web_internet_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryWebInternetEndpoint").unwrap(),
+                o.extract_field("primaryWebInternetEndpoint"),
             ),
             primary_web_internet_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryWebInternetHost").unwrap(),
+                o.extract_field("primaryWebInternetHost"),
             ),
             primary_web_microsoft_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryWebMicrosoftEndpoint").unwrap(),
+                o.extract_field("primaryWebMicrosoftEndpoint"),
             ),
             primary_web_microsoft_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryWebMicrosoftHost").unwrap(),
+                o.extract_field("primaryWebMicrosoftHost"),
             ),
             queue_encryption_key_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queueEncryptionKeyType").unwrap(),
+                o.extract_field("queueEncryptionKeyType"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAccessKey").unwrap(),
+                o.extract_field("secondaryAccessKey"),
             ),
             secondary_blob_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryBlobConnectionString").unwrap(),
+                o.extract_field("secondaryBlobConnectionString"),
             ),
             secondary_blob_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryBlobEndpoint").unwrap(),
+                o.extract_field("secondaryBlobEndpoint"),
             ),
             secondary_blob_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryBlobHost").unwrap(),
+                o.extract_field("secondaryBlobHost"),
             ),
             secondary_blob_internet_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryBlobInternetEndpoint").unwrap(),
+                o.extract_field("secondaryBlobInternetEndpoint"),
             ),
             secondary_blob_internet_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryBlobInternetHost").unwrap(),
+                o.extract_field("secondaryBlobInternetHost"),
             ),
             secondary_blob_microsoft_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryBlobMicrosoftEndpoint").unwrap(),
+                o.extract_field("secondaryBlobMicrosoftEndpoint"),
             ),
             secondary_blob_microsoft_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryBlobMicrosoftHost").unwrap(),
+                o.extract_field("secondaryBlobMicrosoftHost"),
             ),
             secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryConnectionString").unwrap(),
+                o.extract_field("secondaryConnectionString"),
             ),
             secondary_dfs_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryDfsEndpoint").unwrap(),
+                o.extract_field("secondaryDfsEndpoint"),
             ),
             secondary_dfs_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryDfsHost").unwrap(),
+                o.extract_field("secondaryDfsHost"),
             ),
             secondary_dfs_internet_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryDfsInternetEndpoint").unwrap(),
+                o.extract_field("secondaryDfsInternetEndpoint"),
             ),
             secondary_dfs_internet_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryDfsInternetHost").unwrap(),
+                o.extract_field("secondaryDfsInternetHost"),
             ),
             secondary_dfs_microsoft_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryDfsMicrosoftEndpoint").unwrap(),
+                o.extract_field("secondaryDfsMicrosoftEndpoint"),
             ),
             secondary_dfs_microsoft_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryDfsMicrosoftHost").unwrap(),
+                o.extract_field("secondaryDfsMicrosoftHost"),
             ),
             secondary_file_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryFileEndpoint").unwrap(),
+                o.extract_field("secondaryFileEndpoint"),
             ),
             secondary_file_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryFileHost").unwrap(),
+                o.extract_field("secondaryFileHost"),
             ),
             secondary_file_internet_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryFileInternetEndpoint").unwrap(),
+                o.extract_field("secondaryFileInternetEndpoint"),
             ),
             secondary_file_internet_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryFileInternetHost").unwrap(),
+                o.extract_field("secondaryFileInternetHost"),
             ),
             secondary_file_microsoft_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryFileMicrosoftEndpoint").unwrap(),
+                o.extract_field("secondaryFileMicrosoftEndpoint"),
             ),
             secondary_file_microsoft_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryFileMicrosoftHost").unwrap(),
+                o.extract_field("secondaryFileMicrosoftHost"),
             ),
             secondary_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryLocation").unwrap(),
+                o.extract_field("secondaryLocation"),
             ),
             secondary_queue_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryQueueEndpoint").unwrap(),
+                o.extract_field("secondaryQueueEndpoint"),
             ),
             secondary_queue_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryQueueHost").unwrap(),
+                o.extract_field("secondaryQueueHost"),
             ),
             secondary_queue_microsoft_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryQueueMicrosoftEndpoint").unwrap(),
+                o.extract_field("secondaryQueueMicrosoftEndpoint"),
             ),
             secondary_queue_microsoft_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryQueueMicrosoftHost").unwrap(),
+                o.extract_field("secondaryQueueMicrosoftHost"),
             ),
             secondary_table_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryTableEndpoint").unwrap(),
+                o.extract_field("secondaryTableEndpoint"),
             ),
             secondary_table_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryTableHost").unwrap(),
+                o.extract_field("secondaryTableHost"),
             ),
             secondary_table_microsoft_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryTableMicrosoftEndpoint").unwrap(),
+                o.extract_field("secondaryTableMicrosoftEndpoint"),
             ),
             secondary_table_microsoft_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryTableMicrosoftHost").unwrap(),
+                o.extract_field("secondaryTableMicrosoftHost"),
             ),
             secondary_web_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryWebEndpoint").unwrap(),
+                o.extract_field("secondaryWebEndpoint"),
             ),
             secondary_web_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryWebHost").unwrap(),
+                o.extract_field("secondaryWebHost"),
             ),
             secondary_web_internet_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryWebInternetEndpoint").unwrap(),
+                o.extract_field("secondaryWebInternetEndpoint"),
             ),
             secondary_web_internet_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryWebInternetHost").unwrap(),
+                o.extract_field("secondaryWebInternetHost"),
             ),
             secondary_web_microsoft_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryWebMicrosoftEndpoint").unwrap(),
+                o.extract_field("secondaryWebMicrosoftEndpoint"),
             ),
             secondary_web_microsoft_host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryWebMicrosoftHost").unwrap(),
+                o.extract_field("secondaryWebMicrosoftHost"),
             ),
             table_encryption_key_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableEncryptionKeyType").unwrap(),
+                o.extract_field("tableEncryptionKeyType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

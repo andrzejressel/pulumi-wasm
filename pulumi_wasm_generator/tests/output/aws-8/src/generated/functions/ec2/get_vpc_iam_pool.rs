@@ -110,134 +110,59 @@ pub mod get_vpc_iam_pool {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressFamily".into(),
-                },
-                register_interface::ResultField {
-                    name: "allocationDefaultNetmaskLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "allocationMaxNetmaskLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "allocationMinNetmaskLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "allocationResourceTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoImport".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsService".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamScopeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamScopeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "locale".into(),
-                },
-                register_interface::ResultField {
-                    name: "poolDepth".into(),
-                },
-                register_interface::ResultField {
-                    name: "publiclyAdvertisable".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceIpamPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVpcIamPoolResult {
             address_family: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressFamily").unwrap(),
+                o.extract_field("addressFamily"),
             ),
             allocation_default_netmask_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocationDefaultNetmaskLength").unwrap(),
+                o.extract_field("allocationDefaultNetmaskLength"),
             ),
             allocation_max_netmask_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocationMaxNetmaskLength").unwrap(),
+                o.extract_field("allocationMaxNetmaskLength"),
             ),
             allocation_min_netmask_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocationMinNetmaskLength").unwrap(),
+                o.extract_field("allocationMinNetmaskLength"),
             ),
             allocation_resource_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocationResourceTags").unwrap(),
+                o.extract_field("allocationResourceTags"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_import: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoImport").unwrap(),
+                o.extract_field("autoImport"),
             ),
             aws_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsService").unwrap(),
+                o.extract_field("awsService"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamPoolId").unwrap(),
+                o.extract_field("ipamPoolId"),
             ),
             ipam_scope_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamScopeId").unwrap(),
+                o.extract_field("ipamScopeId"),
             ),
             ipam_scope_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamScopeType").unwrap(),
+                o.extract_field("ipamScopeType"),
             ),
-            locale: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locale").unwrap(),
-            ),
+            locale: pulumi_wasm_rust::__private::into_domain(o.extract_field("locale")),
             pool_depth: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("poolDepth").unwrap(),
+                o.extract_field("poolDepth"),
             ),
             publicly_advertisable: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publiclyAdvertisable").unwrap(),
+                o.extract_field("publiclyAdvertisable"),
             ),
             source_ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceIpamPoolId").unwrap(),
+                o.extract_field("sourceIpamPoolId"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -90,92 +90,38 @@ pub mod get_ontap_storage_virtual_machine {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activeDirectoryConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemId".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecycleStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecycleTransitionReasons".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "subtype".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "uuid".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetOntapStorageVirtualMachineResult {
             active_directory_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activeDirectoryConfigurations").unwrap(),
+                o.extract_field("activeDirectoryConfigurations"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoints").unwrap(),
+                o.extract_field("endpoints"),
             ),
             file_system_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemId").unwrap(),
+                o.extract_field("fileSystemId"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             lifecycle_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecycleStatus").unwrap(),
+                o.extract_field("lifecycleStatus"),
             ),
             lifecycle_transition_reasons: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecycleTransitionReasons").unwrap(),
+                o.extract_field("lifecycleTransitionReasons"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             subtype: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subtype").unwrap(),
+                o.extract_field("subtype"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            uuid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uuid").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            uuid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uuid")),
         }
     }
 }

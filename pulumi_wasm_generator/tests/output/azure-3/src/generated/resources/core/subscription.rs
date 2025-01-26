@@ -195,57 +195,25 @@ pub mod subscription {
                     value: &workload_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alias".into(),
-                },
-                register_interface::ResultField {
-                    name: "billingScopeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-                register_interface::ResultField {
-                    name: "workload".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SubscriptionResult {
-            alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alias").unwrap(),
-            ),
+            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
             billing_scope_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingScopeId").unwrap(),
+                o.extract_field("billingScopeId"),
             ),
             subscription_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionId").unwrap(),
+                o.extract_field("subscriptionId"),
             ),
             subscription_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionName").unwrap(),
+                o.extract_field("subscriptionName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
             workload: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workload").unwrap(),
+                o.extract_field("workload"),
             ),
         }
     }

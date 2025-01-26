@@ -249,88 +249,39 @@ pub mod network_watcher_flow_log {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkSecurityGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkWatcherName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficAnalytics".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkWatcherFlowLogResult {
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_security_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkSecurityGroupId").unwrap(),
+                o.extract_field("networkSecurityGroupId"),
             ),
             network_watcher_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkWatcherName").unwrap(),
+                o.extract_field("networkWatcherName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             retention_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionPolicy").unwrap(),
+                o.extract_field("retentionPolicy"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             target_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResourceId").unwrap(),
+                o.extract_field("targetResourceId"),
             ),
             traffic_analytics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficAnalytics").unwrap(),
+                o.extract_field("trafficAnalytics"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

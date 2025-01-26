@@ -245,87 +245,42 @@ pub mod endpoint_cosmosdb_account {
                     value: &secondary_key_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authenticationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "containerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "iothubId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionKeyTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryKey".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointCosmosdbAccountResult {
             authentication_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationType").unwrap(),
+                o.extract_field("authenticationType"),
             ),
             container_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerName").unwrap(),
+                o.extract_field("containerName"),
             ),
             database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseName").unwrap(),
+                o.extract_field("databaseName"),
             ),
             endpoint_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointUri").unwrap(),
+                o.extract_field("endpointUri"),
             ),
             identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityId").unwrap(),
+                o.extract_field("identityId"),
             ),
             iothub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iothubId").unwrap(),
+                o.extract_field("iothubId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             partition_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionKeyName").unwrap(),
+                o.extract_field("partitionKeyName"),
             ),
             partition_key_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionKeyTemplate").unwrap(),
+                o.extract_field("partitionKeyTemplate"),
             ),
             primary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryKey").unwrap(),
+                o.extract_field("primaryKey"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryKey").unwrap(),
+                o.extract_field("secondaryKey"),
             ),
         }
     }

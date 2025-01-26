@@ -202,75 +202,32 @@ pub mod global_cluster {
                     value: &storage_encrypted_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalClusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalClusterMembers".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalClusterResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceDbClusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageEncrypted".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GlobalClusterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             global_cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalClusterIdentifier").unwrap(),
+                o.extract_field("globalClusterIdentifier"),
             ),
             global_cluster_members: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalClusterMembers").unwrap(),
+                o.extract_field("globalClusterMembers"),
             ),
             global_cluster_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalClusterResourceId").unwrap(),
+                o.extract_field("globalClusterResourceId"),
             ),
             source_db_cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceDbClusterIdentifier").unwrap(),
+                o.extract_field("sourceDbClusterIdentifier"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             storage_encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageEncrypted").unwrap(),
+                o.extract_field("storageEncrypted"),
             ),
         }
     }

@@ -265,123 +265,58 @@ pub mod environment {
                     value: &zone_redundancy_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customDomainVerificationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "daprApplicationInsightsConnectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "dockerBridgeCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "infrastructureResourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "infrastructureSubnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "internalLoadBalancerEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "mutualTlsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformReservedCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformReservedDnsIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "staticIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "workloadProfiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneRedundancyEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnvironmentResult {
             custom_domain_verification_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDomainVerificationId").unwrap(),
+                o.extract_field("customDomainVerificationId"),
             ),
             dapr_application_insights_connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("daprApplicationInsightsConnectionString").unwrap(),
+                o.extract_field("daprApplicationInsightsConnectionString"),
             ),
             default_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultDomain").unwrap(),
+                o.extract_field("defaultDomain"),
             ),
             docker_bridge_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dockerBridgeCidr").unwrap(),
+                o.extract_field("dockerBridgeCidr"),
             ),
             infrastructure_resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("infrastructureResourceGroupName").unwrap(),
+                o.extract_field("infrastructureResourceGroupName"),
             ),
             infrastructure_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("infrastructureSubnetId").unwrap(),
+                o.extract_field("infrastructureSubnetId"),
             ),
             internal_load_balancer_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internalLoadBalancerEnabled").unwrap(),
+                o.extract_field("internalLoadBalancerEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsWorkspaceId").unwrap(),
+                o.extract_field("logAnalyticsWorkspaceId"),
             ),
             mutual_tls_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mutualTlsEnabled").unwrap(),
+                o.extract_field("mutualTlsEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             platform_reserved_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformReservedCidr").unwrap(),
+                o.extract_field("platformReservedCidr"),
             ),
             platform_reserved_dns_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformReservedDnsIpAddress").unwrap(),
+                o.extract_field("platformReservedDnsIpAddress"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             static_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("staticIpAddress").unwrap(),
+                o.extract_field("staticIpAddress"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             workload_profiles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workloadProfiles").unwrap(),
+                o.extract_field("workloadProfiles"),
             ),
             zone_redundancy_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneRedundancyEnabled").unwrap(),
+                o.extract_field("zoneRedundancyEnabled"),
             ),
         }
     }

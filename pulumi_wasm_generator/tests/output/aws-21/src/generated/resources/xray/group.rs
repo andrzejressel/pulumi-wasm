@@ -116,51 +116,22 @@ pub mod group {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "filterExpression".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "insightsConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             filter_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filterExpression").unwrap(),
+                o.extract_field("filterExpression"),
             ),
             group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupName").unwrap(),
+                o.extract_field("groupName"),
             ),
             insights_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("insightsConfiguration").unwrap(),
+                o.extract_field("insightsConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

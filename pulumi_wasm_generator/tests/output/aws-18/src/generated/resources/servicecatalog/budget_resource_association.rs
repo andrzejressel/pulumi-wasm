@@ -75,27 +75,14 @@ pub mod budget_resource_association {
                     value: &resource_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "budgetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BudgetResourceAssociationResult {
             budget_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("budgetName").unwrap(),
+                o.extract_field("budgetName"),
             ),
             resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceId").unwrap(),
+                o.extract_field("resourceId"),
             ),
         }
     }

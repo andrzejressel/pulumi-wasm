@@ -223,76 +223,33 @@ pub mod engine_model {
                     value: &regions_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "defaultVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "onlinePredictionConsoleLogging".into(),
-                },
-                register_interface::ResultField {
-                    name: "onlinePredictionLogging".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "regions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EngineModelResult {
             default_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultVersion").unwrap(),
+                o.extract_field("defaultVersion"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             online_prediction_console_logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onlinePredictionConsoleLogging").unwrap(),
+                o.extract_field("onlinePredictionConsoleLogging"),
             ),
             online_prediction_logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onlinePredictionLogging").unwrap(),
+                o.extract_field("onlinePredictionLogging"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regions").unwrap(),
-            ),
+            regions: pulumi_wasm_rust::__private::into_domain(o.extract_field("regions")),
         }
     }
 }

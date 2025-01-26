@@ -153,88 +153,39 @@ pub mod probe {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressFamily".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "destination".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationPort".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitorName".into(),
-                },
-                register_interface::ResultField {
-                    name: "packetSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "probeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProbeResult {
             address_family: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressFamily").unwrap(),
+                o.extract_field("addressFamily"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destination").unwrap(),
+                o.extract_field("destination"),
             ),
             destination_port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationPort").unwrap(),
+                o.extract_field("destinationPort"),
             ),
             monitor_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitorName").unwrap(),
+                o.extract_field("monitorName"),
             ),
             packet_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packetSize").unwrap(),
+                o.extract_field("packetSize"),
             ),
             probe_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("probeId").unwrap(),
+                o.extract_field("probeId"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             source_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceArn").unwrap(),
+                o.extract_field("sourceArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

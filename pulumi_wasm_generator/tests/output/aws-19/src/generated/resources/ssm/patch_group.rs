@@ -69,27 +69,14 @@ pub mod patch_group {
                     value: &patch_group_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "baselineId".into(),
-                },
-                register_interface::ResultField {
-                    name: "patchGroup".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PatchGroupResult {
             baseline_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baselineId").unwrap(),
+                o.extract_field("baselineId"),
             ),
             patch_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("patchGroup").unwrap(),
+                o.extract_field("patchGroup"),
             ),
         }
     }

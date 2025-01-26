@@ -124,33 +124,17 @@ pub mod assignment_dedicated_host {
                     value: &maintenance_configuration_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dedicatedHostId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceConfigurationId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AssignmentDedicatedHostResult {
             dedicated_host_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dedicatedHostId").unwrap(),
+                o.extract_field("dedicatedHostId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maintenance_configuration_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceConfigurationId").unwrap(),
+                o.extract_field("maintenanceConfigurationId"),
             ),
         }
     }

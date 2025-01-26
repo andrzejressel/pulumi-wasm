@@ -142,51 +142,26 @@ pub mod custom_hostname_binding {
                     value: &thumbprint_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appServiceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslState".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualIp".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomHostnameBindingResult {
             app_service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServiceName").unwrap(),
+                o.extract_field("appServiceName"),
             ),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             ssl_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslState").unwrap(),
+                o.extract_field("sslState"),
             ),
             thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbprint").unwrap(),
+                o.extract_field("thumbprint"),
             ),
             virtual_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualIp").unwrap(),
+                o.extract_field("virtualIp"),
             ),
         }
     }

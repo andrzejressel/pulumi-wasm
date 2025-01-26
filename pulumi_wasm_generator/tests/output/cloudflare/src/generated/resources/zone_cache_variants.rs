@@ -172,88 +172,21 @@ pub mod zone_cache_variants {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "avifs".into(),
-                },
-                register_interface::ResultField {
-                    name: "bmps".into(),
-                },
-                register_interface::ResultField {
-                    name: "gifs".into(),
-                },
-                register_interface::ResultField {
-                    name: "jp2s".into(),
-                },
-                register_interface::ResultField {
-                    name: "jpegs".into(),
-                },
-                register_interface::ResultField {
-                    name: "jpg2s".into(),
-                },
-                register_interface::ResultField {
-                    name: "jpgs".into(),
-                },
-                register_interface::ResultField {
-                    name: "pngs".into(),
-                },
-                register_interface::ResultField {
-                    name: "tiffs".into(),
-                },
-                register_interface::ResultField {
-                    name: "tifs".into(),
-                },
-                register_interface::ResultField {
-                    name: "webps".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZoneCacheVariantsResult {
-            avifs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("avifs").unwrap(),
-            ),
-            bmps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bmps").unwrap(),
-            ),
-            gifs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gifs").unwrap(),
-            ),
-            jp2s: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jp2s").unwrap(),
-            ),
-            jpegs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jpegs").unwrap(),
-            ),
-            jpg2s: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jpg2s").unwrap(),
-            ),
-            jpgs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jpgs").unwrap(),
-            ),
-            pngs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pngs").unwrap(),
-            ),
-            tiffs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tiffs").unwrap(),
-            ),
-            tifs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tifs").unwrap(),
-            ),
-            webps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webps").unwrap(),
-            ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            avifs: pulumi_wasm_rust::__private::into_domain(o.extract_field("avifs")),
+            bmps: pulumi_wasm_rust::__private::into_domain(o.extract_field("bmps")),
+            gifs: pulumi_wasm_rust::__private::into_domain(o.extract_field("gifs")),
+            jp2s: pulumi_wasm_rust::__private::into_domain(o.extract_field("jp2s")),
+            jpegs: pulumi_wasm_rust::__private::into_domain(o.extract_field("jpegs")),
+            jpg2s: pulumi_wasm_rust::__private::into_domain(o.extract_field("jpg2s")),
+            jpgs: pulumi_wasm_rust::__private::into_domain(o.extract_field("jpgs")),
+            pngs: pulumi_wasm_rust::__private::into_domain(o.extract_field("pngs")),
+            tiffs: pulumi_wasm_rust::__private::into_domain(o.extract_field("tiffs")),
+            tifs: pulumi_wasm_rust::__private::into_domain(o.extract_field("tifs")),
+            webps: pulumi_wasm_rust::__private::into_domain(o.extract_field("webps")),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

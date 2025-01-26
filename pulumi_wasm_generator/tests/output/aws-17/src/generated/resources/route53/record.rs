@@ -430,118 +430,50 @@ pub mod record {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aliases".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowOverwrite".into(),
-                },
-                register_interface::ResultField {
-                    name: "cidrRoutingPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "failoverRoutingPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "geolocationRoutingPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "geoproximityRoutingPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckId".into(),
-                },
-                register_interface::ResultField {
-                    name: "latencyRoutingPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "multivalueAnswerRoutingPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "records".into(),
-                },
-                register_interface::ResultField {
-                    name: "setIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "ttl".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "weightedRoutingPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RecordResult {
             aliases: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aliases").unwrap(),
+                o.extract_field("aliases"),
             ),
             allow_overwrite: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowOverwrite").unwrap(),
+                o.extract_field("allowOverwrite"),
             ),
             cidr_routing_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrRoutingPolicy").unwrap(),
+                o.extract_field("cidrRoutingPolicy"),
             ),
             failover_routing_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failoverRoutingPolicies").unwrap(),
+                o.extract_field("failoverRoutingPolicies"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
             geolocation_routing_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("geolocationRoutingPolicies").unwrap(),
+                o.extract_field("geolocationRoutingPolicies"),
             ),
             geoproximity_routing_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("geoproximityRoutingPolicy").unwrap(),
+                o.extract_field("geoproximityRoutingPolicy"),
             ),
             health_check_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckId").unwrap(),
+                o.extract_field("healthCheckId"),
             ),
             latency_routing_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latencyRoutingPolicies").unwrap(),
+                o.extract_field("latencyRoutingPolicies"),
             ),
             multivalue_answer_routing_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multivalueAnswerRoutingPolicy").unwrap(),
+                o.extract_field("multivalueAnswerRoutingPolicy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             records: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("records").unwrap(),
+                o.extract_field("records"),
             ),
             set_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("setIdentifier").unwrap(),
+                o.extract_field("setIdentifier"),
             ),
-            ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ttl").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             weighted_routing_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("weightedRoutingPolicies").unwrap(),
+                o.extract_field("weightedRoutingPolicies"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

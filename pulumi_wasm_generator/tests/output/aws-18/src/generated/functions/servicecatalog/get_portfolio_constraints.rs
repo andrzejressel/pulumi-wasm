@@ -65,43 +65,21 @@ pub mod get_portfolio_constraints {
                     value: &product_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceptLanguage".into(),
-                },
-                register_interface::ResultField {
-                    name: "details".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "portfolioId".into(),
-                },
-                register_interface::ResultField {
-                    name: "productId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPortfolioConstraintsResult {
             accept_language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptLanguage").unwrap(),
+                o.extract_field("acceptLanguage"),
             ),
             details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("details").unwrap(),
+                o.extract_field("details"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             portfolio_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("portfolioId").unwrap(),
+                o.extract_field("portfolioId"),
             ),
             product_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productId").unwrap(),
+                o.extract_field("productId"),
             ),
         }
     }

@@ -94,97 +94,40 @@ pub mod get_availability_zone {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allAvailabilityZones".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nameSuffix".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkBorderGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "optInStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentZoneName".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneType".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAvailabilityZoneResult {
             all_availability_zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allAvailabilityZones").unwrap(),
+                o.extract_field("allAvailabilityZones"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
             group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupName").unwrap(),
+                o.extract_field("groupName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_suffix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nameSuffix").unwrap(),
+                o.extract_field("nameSuffix"),
             ),
             network_border_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkBorderGroup").unwrap(),
+                o.extract_field("networkBorderGroup"),
             ),
             opt_in_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("optInStatus").unwrap(),
+                o.extract_field("optInStatus"),
             ),
             parent_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentZoneId").unwrap(),
+                o.extract_field("parentZoneId"),
             ),
             parent_zone_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentZoneName").unwrap(),
+                o.extract_field("parentZoneName"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
             zone_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneType").unwrap(),
+                o.extract_field("zoneType"),
             ),
         }
     }

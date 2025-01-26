@@ -73,49 +73,24 @@ pub mod get_models {
                     value: &by_provider_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "byCustomizationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "byInferenceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "byOutputModality".into(),
-                },
-                register_interface::ResultField {
-                    name: "byProvider".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "modelSummaries".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetModelsResult {
             by_customization_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("byCustomizationType").unwrap(),
+                o.extract_field("byCustomizationType"),
             ),
             by_inference_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("byInferenceType").unwrap(),
+                o.extract_field("byInferenceType"),
             ),
             by_output_modality: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("byOutputModality").unwrap(),
+                o.extract_field("byOutputModality"),
             ),
             by_provider: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("byProvider").unwrap(),
+                o.extract_field("byProvider"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             model_summaries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modelSummaries").unwrap(),
+                o.extract_field("modelSummaries"),
             ),
         }
     }

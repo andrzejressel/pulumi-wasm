@@ -351,117 +351,55 @@ pub mod teams_account {
                     value: &url_browser_isolation_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "activityLogEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "antivirus".into(),
-                },
-                register_interface::ResultField {
-                    name: "blockPage".into(),
-                },
-                register_interface::ResultField {
-                    name: "bodyScanning".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "customCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "extendedEmailMatching".into(),
-                },
-                register_interface::ResultField {
-                    name: "fips".into(),
-                },
-                register_interface::ResultField {
-                    name: "logging".into(),
-                },
-                register_interface::ResultField {
-                    name: "nonIdentityBrowserIsolationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "payloadLog".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocolDetectionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "proxy".into(),
-                },
-                register_interface::ResultField {
-                    name: "sshSessionLog".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsDecryptEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "urlBrowserIsolationEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TeamsAccountResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             activity_log_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activityLogEnabled").unwrap(),
+                o.extract_field("activityLogEnabled"),
             ),
             antivirus: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("antivirus").unwrap(),
+                o.extract_field("antivirus"),
             ),
             block_page: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockPage").unwrap(),
+                o.extract_field("blockPage"),
             ),
             body_scanning: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bodyScanning").unwrap(),
+                o.extract_field("bodyScanning"),
             ),
             certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificate").unwrap(),
+                o.extract_field("certificate"),
             ),
             custom_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customCertificate").unwrap(),
+                o.extract_field("customCertificate"),
             ),
             extended_email_matching: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extendedEmailMatching").unwrap(),
+                o.extract_field("extendedEmailMatching"),
             ),
-            fips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fips").unwrap(),
-            ),
+            fips: pulumi_wasm_rust::__private::into_domain(o.extract_field("fips")),
             logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logging").unwrap(),
+                o.extract_field("logging"),
             ),
             non_identity_browser_isolation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nonIdentityBrowserIsolationEnabled").unwrap(),
+                o.extract_field("nonIdentityBrowserIsolationEnabled"),
             ),
             payload_log: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("payloadLog").unwrap(),
+                o.extract_field("payloadLog"),
             ),
             protocol_detection_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocolDetectionEnabled").unwrap(),
+                o.extract_field("protocolDetectionEnabled"),
             ),
-            proxy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proxy").unwrap(),
-            ),
+            proxy: pulumi_wasm_rust::__private::into_domain(o.extract_field("proxy")),
             ssh_session_log: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sshSessionLog").unwrap(),
+                o.extract_field("sshSessionLog"),
             ),
             tls_decrypt_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsDecryptEnabled").unwrap(),
+                o.extract_field("tlsDecryptEnabled"),
             ),
             url_browser_isolation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("urlBrowserIsolationEnabled").unwrap(),
+                o.extract_field("urlBrowserIsolationEnabled"),
             ),
         }
     }

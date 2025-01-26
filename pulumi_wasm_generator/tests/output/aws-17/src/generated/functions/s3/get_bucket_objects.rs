@@ -93,79 +93,31 @@ pub mod get_bucket_objects {
                     value: &start_after_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "commonPrefixes".into(),
-                },
-                register_interface::ResultField {
-                    name: "delimiter".into(),
-                },
-                register_interface::ResultField {
-                    name: "encodingType".into(),
-                },
-                register_interface::ResultField {
-                    name: "fetchOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keys".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "owners".into(),
-                },
-                register_interface::ResultField {
-                    name: "prefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "startAfter".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBucketObjectsResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             common_prefixes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("commonPrefixes").unwrap(),
+                o.extract_field("commonPrefixes"),
             ),
             delimiter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delimiter").unwrap(),
+                o.extract_field("delimiter"),
             ),
             encoding_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encodingType").unwrap(),
+                o.extract_field("encodingType"),
             ),
             fetch_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fetchOwner").unwrap(),
+                o.extract_field("fetchOwner"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keys").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            keys: pulumi_wasm_rust::__private::into_domain(o.extract_field("keys")),
             max_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxKeys").unwrap(),
+                o.extract_field("maxKeys"),
             ),
-            owners: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owners").unwrap(),
-            ),
-            prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prefix").unwrap(),
-            ),
+            owners: pulumi_wasm_rust::__private::into_domain(o.extract_field("owners")),
+            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
             start_after: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startAfter").unwrap(),
+                o.extract_field("startAfter"),
             ),
         }
     }

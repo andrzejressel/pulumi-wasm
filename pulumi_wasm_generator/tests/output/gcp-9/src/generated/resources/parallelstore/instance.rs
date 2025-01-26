@@ -342,129 +342,59 @@ pub mod instance {
                     value: &reserved_ip_range_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessPoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityGib".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "daosVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryStripeLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveReservedIpRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileStripeLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservedIpRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceResult {
             access_points: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessPoints").unwrap(),
+                o.extract_field("accessPoints"),
             ),
             capacity_gib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityGib").unwrap(),
+                o.extract_field("capacityGib"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             daos_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("daosVersion").unwrap(),
+                o.extract_field("daosVersion"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             directory_stripe_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryStripeLevel").unwrap(),
+                o.extract_field("directoryStripeLevel"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             effective_reserved_ip_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveReservedIpRange").unwrap(),
+                o.extract_field("effectiveReservedIpRange"),
             ),
             file_stripe_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileStripeLevel").unwrap(),
+                o.extract_field("fileStripeLevel"),
             ),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             reserved_ip_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservedIpRange").unwrap(),
+                o.extract_field("reservedIpRange"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

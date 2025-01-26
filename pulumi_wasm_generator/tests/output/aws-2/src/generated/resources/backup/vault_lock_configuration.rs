@@ -106,45 +106,23 @@ pub mod vault_lock_configuration {
                     value: &min_retention_days_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupVaultArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupVaultName".into(),
-                },
-                register_interface::ResultField {
-                    name: "changeableForDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxRetentionDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "minRetentionDays".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VaultLockConfigurationResult {
             backup_vault_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupVaultArn").unwrap(),
+                o.extract_field("backupVaultArn"),
             ),
             backup_vault_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupVaultName").unwrap(),
+                o.extract_field("backupVaultName"),
             ),
             changeable_for_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("changeableForDays").unwrap(),
+                o.extract_field("changeableForDays"),
             ),
             max_retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxRetentionDays").unwrap(),
+                o.extract_field("maxRetentionDays"),
             ),
             min_retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minRetentionDays").unwrap(),
+                o.extract_field("minRetentionDays"),
             ),
         }
     }

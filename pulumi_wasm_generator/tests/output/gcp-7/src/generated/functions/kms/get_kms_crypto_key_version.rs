@@ -55,62 +55,25 @@ pub mod get_kms_crypto_key_version {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "algorithm".into(),
-                },
-                register_interface::ResultField {
-                    name: "cryptoKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "protectionLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetKmsCryptoKeyVersionResult {
             algorithm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("algorithm").unwrap(),
+                o.extract_field("algorithm"),
             ),
             crypto_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cryptoKey").unwrap(),
+                o.extract_field("cryptoKey"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             protection_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protectionLevel").unwrap(),
+                o.extract_field("protectionLevel"),
             ),
             public_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKeys").unwrap(),
+                o.extract_field("publicKeys"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

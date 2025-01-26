@@ -87,27 +87,14 @@ pub mod invite_accepter {
                     value: &master_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "detectorId".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterAccountId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InviteAccepterResult {
             detector_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("detectorId").unwrap(),
+                o.extract_field("detectorId"),
             ),
             master_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterAccountId").unwrap(),
+                o.extract_field("masterAccountId"),
             ),
         }
     }

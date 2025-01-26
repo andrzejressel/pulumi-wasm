@@ -155,51 +155,26 @@ pub mod connection {
                     value: &update_on_creation_fail_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "deletionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "peering".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservedPeeringRanges".into(),
-                },
-                register_interface::ResultField {
-                    name: "service".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateOnCreationFail".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConnectionResult {
             deletion_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionPolicy").unwrap(),
+                o.extract_field("deletionPolicy"),
             ),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             peering: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peering").unwrap(),
+                o.extract_field("peering"),
             ),
             reserved_peering_ranges: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservedPeeringRanges").unwrap(),
+                o.extract_field("reservedPeeringRanges"),
             ),
             service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("service").unwrap(),
+                o.extract_field("service"),
             ),
             update_on_creation_fail: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateOnCreationFail").unwrap(),
+                o.extract_field("updateOnCreationFail"),
             ),
         }
     }

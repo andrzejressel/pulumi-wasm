@@ -188,63 +188,30 @@ pub mod endpoint_eventhub {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authenticationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "entityPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "iothubId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointEventhubResult {
             authentication_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationType").unwrap(),
+                o.extract_field("authenticationType"),
             ),
             connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionString").unwrap(),
+                o.extract_field("connectionString"),
             ),
             endpoint_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointUri").unwrap(),
+                o.extract_field("endpointUri"),
             ),
             entity_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entityPath").unwrap(),
+                o.extract_field("entityPath"),
             ),
             identity_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityId").unwrap(),
+                o.extract_field("identityId"),
             ),
             iothub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iothubId").unwrap(),
+                o.extract_field("iothubId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

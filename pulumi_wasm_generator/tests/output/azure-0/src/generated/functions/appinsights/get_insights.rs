@@ -61,79 +61,33 @@ pub mod get_insights {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appId".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionString".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instrumentationKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetInsightsResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appId").unwrap(),
-            ),
+            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
             application_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationType").unwrap(),
+                o.extract_field("applicationType"),
             ),
             connection_string: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionString").unwrap(),
+                o.extract_field("connectionString"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instrumentation_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instrumentationKey").unwrap(),
+                o.extract_field("instrumentationKey"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             retention_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionInDays").unwrap(),
+                o.extract_field("retentionInDays"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

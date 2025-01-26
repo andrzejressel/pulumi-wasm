@@ -245,75 +245,36 @@ pub mod subnet {
                     value: &virtual_network_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressPrefixes".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultOutboundAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "delegations".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateEndpointNetworkPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateLinkServiceNetworkPoliciesEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceEndpointPolicyIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SubnetResult {
             address_prefixes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressPrefixes").unwrap(),
+                o.extract_field("addressPrefixes"),
             ),
             default_outbound_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultOutboundAccessEnabled").unwrap(),
+                o.extract_field("defaultOutboundAccessEnabled"),
             ),
             delegations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegations").unwrap(),
+                o.extract_field("delegations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_endpoint_network_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateEndpointNetworkPolicies").unwrap(),
+                o.extract_field("privateEndpointNetworkPolicies"),
             ),
             private_link_service_network_policies_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateLinkServiceNetworkPoliciesEnabled").unwrap(),
+                o.extract_field("privateLinkServiceNetworkPoliciesEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             service_endpoint_policy_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceEndpointPolicyIds").unwrap(),
+                o.extract_field("serviceEndpointPolicyIds"),
             ),
             service_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceEndpoints").unwrap(),
+                o.extract_field("serviceEndpoints"),
             ),
             virtual_network_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkName").unwrap(),
+                o.extract_field("virtualNetworkName"),
             ),
         }
     }

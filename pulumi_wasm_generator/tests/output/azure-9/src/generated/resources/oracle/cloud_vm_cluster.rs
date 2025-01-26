@@ -371,196 +371,89 @@ pub mod cloud_vm_cluster {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupSubnetCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudExadataInfrastructureId".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpuCoreCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataCollectionOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataStoragePercentage".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataStorageSizeInTbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbNodeStorageSizeInGbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "giVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostnameActual".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "localBackupEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "memorySizeInGbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ocid".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scanListenerPortTcp".into(),
-                },
-                register_interface::ResultField {
-                    name: "scanListenerPortTcpSsl".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparseDiskgroupEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "sshPublicKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CloudVmClusterResult {
             backup_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupSubnetCidr").unwrap(),
+                o.extract_field("backupSubnetCidr"),
             ),
             cloud_exadata_infrastructure_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudExadataInfrastructureId").unwrap(),
+                o.extract_field("cloudExadataInfrastructureId"),
             ),
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
             cpu_core_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpuCoreCount").unwrap(),
+                o.extract_field("cpuCoreCount"),
             ),
             data_collection_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataCollectionOptions").unwrap(),
+                o.extract_field("dataCollectionOptions"),
             ),
             data_storage_percentage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataStoragePercentage").unwrap(),
+                o.extract_field("dataStoragePercentage"),
             ),
             data_storage_size_in_tbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataStorageSizeInTbs").unwrap(),
+                o.extract_field("dataStorageSizeInTbs"),
             ),
             db_node_storage_size_in_gbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbNodeStorageSizeInGbs").unwrap(),
+                o.extract_field("dbNodeStorageSizeInGbs"),
             ),
             db_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbServers").unwrap(),
+                o.extract_field("dbServers"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             gi_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("giVersion").unwrap(),
+                o.extract_field("giVersion"),
             ),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
             hostname_actual: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostnameActual").unwrap(),
+                o.extract_field("hostnameActual"),
             ),
             license_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseModel").unwrap(),
+                o.extract_field("licenseModel"),
             ),
             local_backup_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localBackupEnabled").unwrap(),
+                o.extract_field("localBackupEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             memory_size_in_gbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memorySizeInGbs").unwrap(),
+                o.extract_field("memorySizeInGbs"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            ocid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ocid").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            ocid: pulumi_wasm_rust::__private::into_domain(o.extract_field("ocid")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             scan_listener_port_tcp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scanListenerPortTcp").unwrap(),
+                o.extract_field("scanListenerPortTcp"),
             ),
             scan_listener_port_tcp_ssl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scanListenerPortTcpSsl").unwrap(),
+                o.extract_field("scanListenerPortTcpSsl"),
             ),
             sparse_diskgroup_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparseDiskgroupEnabled").unwrap(),
+                o.extract_field("sparseDiskgroupEnabled"),
             ),
             ssh_public_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sshPublicKeys").unwrap(),
+                o.extract_field("sshPublicKeys"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             time_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeZone").unwrap(),
+                o.extract_field("timeZone"),
             ),
             virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkId").unwrap(),
+                o.extract_field("virtualNetworkId"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

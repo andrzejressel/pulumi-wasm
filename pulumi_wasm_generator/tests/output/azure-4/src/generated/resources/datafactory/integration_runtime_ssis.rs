@@ -359,129 +359,61 @@ pub mod integration_runtime_ssis {
                     value: &vnet_integration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "catalogInfo".into(),
-                },
-                register_interface::ResultField {
-                    name: "copyComputeScale".into(),
-                },
-                register_interface::ResultField {
-                    name: "credentialName".into(),
-                },
-                register_interface::ResultField {
-                    name: "customSetupScript".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFactoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "edition".into(),
-                },
-                register_interface::ResultField {
-                    name: "expressCustomSetup".into(),
-                },
-                register_interface::ResultField {
-                    name: "expressVnetIntegration".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxParallelExecutionsPerNode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberOfNodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "packageStores".into(),
-                },
-                register_interface::ResultField {
-                    name: "pipelineExternalComputeScale".into(),
-                },
-                register_interface::ResultField {
-                    name: "proxy".into(),
-                },
-                register_interface::ResultField {
-                    name: "vnetIntegration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IntegrationRuntimeSsisResult {
             catalog_info: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("catalogInfo").unwrap(),
+                o.extract_field("catalogInfo"),
             ),
             copy_compute_scale: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("copyComputeScale").unwrap(),
+                o.extract_field("copyComputeScale"),
             ),
             credential_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("credentialName").unwrap(),
+                o.extract_field("credentialName"),
             ),
             custom_setup_script: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customSetupScript").unwrap(),
+                o.extract_field("customSetupScript"),
             ),
             data_factory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFactoryId").unwrap(),
+                o.extract_field("dataFactoryId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             edition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edition").unwrap(),
+                o.extract_field("edition"),
             ),
             express_custom_setup: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expressCustomSetup").unwrap(),
+                o.extract_field("expressCustomSetup"),
             ),
             express_vnet_integration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expressVnetIntegration").unwrap(),
+                o.extract_field("expressVnetIntegration"),
             ),
             license_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseType").unwrap(),
+                o.extract_field("licenseType"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             max_parallel_executions_per_node: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxParallelExecutionsPerNode").unwrap(),
+                o.extract_field("maxParallelExecutionsPerNode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeSize").unwrap(),
+                o.extract_field("nodeSize"),
             ),
             number_of_nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberOfNodes").unwrap(),
+                o.extract_field("numberOfNodes"),
             ),
             package_stores: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packageStores").unwrap(),
+                o.extract_field("packageStores"),
             ),
             pipeline_external_compute_scale: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pipelineExternalComputeScale").unwrap(),
+                o.extract_field("pipelineExternalComputeScale"),
             ),
-            proxy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proxy").unwrap(),
-            ),
+            proxy: pulumi_wasm_rust::__private::into_domain(o.extract_field("proxy")),
             vnet_integration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vnetIntegration").unwrap(),
+                o.extract_field("vnetIntegration"),
             ),
         }
     }

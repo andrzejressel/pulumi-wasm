@@ -139,70 +139,30 @@ pub mod experience {
                     value: &role_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "configuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "experienceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ExperienceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configuration").unwrap(),
+                o.extract_field("configuration"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoints").unwrap(),
+                o.extract_field("endpoints"),
             ),
             experience_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("experienceId").unwrap(),
+                o.extract_field("experienceId"),
             ),
             index_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexId").unwrap(),
+                o.extract_field("indexId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

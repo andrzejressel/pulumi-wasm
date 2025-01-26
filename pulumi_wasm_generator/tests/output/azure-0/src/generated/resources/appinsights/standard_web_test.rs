@@ -232,99 +232,46 @@ pub mod standard_web_test {
                     value: &validation_rules_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationInsightsId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "frequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "geoLocations".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "request".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retryEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "syntheticMonitorId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationRules".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StandardWebTestResult {
             application_insights_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationInsightsId").unwrap(),
+                o.extract_field("applicationInsightsId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frequency").unwrap(),
+                o.extract_field("frequency"),
             ),
             geo_locations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("geoLocations").unwrap(),
+                o.extract_field("geoLocations"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             request: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("request").unwrap(),
+                o.extract_field("request"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             retry_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retryEnabled").unwrap(),
+                o.extract_field("retryEnabled"),
             ),
             synthetic_monitor_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("syntheticMonitorId").unwrap(),
+                o.extract_field("syntheticMonitorId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeout").unwrap(),
+                o.extract_field("timeout"),
             ),
             validation_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationRules").unwrap(),
+                o.extract_field("validationRules"),
             ),
         }
     }

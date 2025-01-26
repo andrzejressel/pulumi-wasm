@@ -80,79 +80,37 @@ pub mod get_policy_set_definition {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "managementGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyDefinitionGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyDefinitionReferences".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyDefinitions".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyType".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPolicySetDefinitionResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             management_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managementGroupName").unwrap(),
+                o.extract_field("managementGroupName"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             policy_definition_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDefinitionGroups").unwrap(),
+                o.extract_field("policyDefinitionGroups"),
             ),
             policy_definition_references: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDefinitionReferences").unwrap(),
+                o.extract_field("policyDefinitionReferences"),
             ),
             policy_definitions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyDefinitions").unwrap(),
+                o.extract_field("policyDefinitions"),
             ),
             policy_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyType").unwrap(),
+                o.extract_field("policyType"),
             ),
         }
     }

@@ -74,49 +74,24 @@ pub mod get_router_configuration {
                     value: &virtual_interface_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customerRouterConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "routerTypeIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "routers".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualInterfaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualInterfaceName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRouterConfigurationResult {
             customer_router_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerRouterConfig").unwrap(),
+                o.extract_field("customerRouterConfig"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             router_type_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routerTypeIdentifier").unwrap(),
+                o.extract_field("routerTypeIdentifier"),
             ),
             routers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routers").unwrap(),
+                o.extract_field("routers"),
             ),
             virtual_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualInterfaceId").unwrap(),
+                o.extract_field("virtualInterfaceId"),
             ),
             virtual_interface_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualInterfaceName").unwrap(),
+                o.extract_field("virtualInterfaceName"),
             ),
         }
     }

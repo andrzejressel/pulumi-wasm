@@ -72,21 +72,11 @@ pub mod sdkvoice_global_settings {
                     value: &voice_connector_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "voiceConnector".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SdkvoiceGlobalSettingsResult {
             voice_connector: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("voiceConnector").unwrap(),
+                o.extract_field("voiceConnector"),
             ),
         }
     }

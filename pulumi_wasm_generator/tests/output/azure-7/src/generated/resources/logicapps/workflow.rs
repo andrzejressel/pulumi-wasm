@@ -245,123 +245,58 @@ pub mod workflow {
                     value: &workflow_version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessControl".into(),
-                },
-                register_interface::ResultField {
-                    name: "accessEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectorEndpointIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectorOutboundIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationServiceEnvironmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "logicAppIntegrationAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "workflowEndpointIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "workflowOutboundIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "workflowParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "workflowSchema".into(),
-                },
-                register_interface::ResultField {
-                    name: "workflowVersion".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkflowResult {
             access_control: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessControl").unwrap(),
+                o.extract_field("accessControl"),
             ),
             access_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessEndpoint").unwrap(),
+                o.extract_field("accessEndpoint"),
             ),
             connector_endpoint_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectorEndpointIpAddresses").unwrap(),
+                o.extract_field("connectorEndpointIpAddresses"),
             ),
             connector_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectorOutboundIpAddresses").unwrap(),
+                o.extract_field("connectorOutboundIpAddresses"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             integration_service_environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationServiceEnvironmentId").unwrap(),
+                o.extract_field("integrationServiceEnvironmentId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             logic_app_integration_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logicAppIntegrationAccountId").unwrap(),
+                o.extract_field("logicAppIntegrationAccountId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             workflow_endpoint_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workflowEndpointIpAddresses").unwrap(),
+                o.extract_field("workflowEndpointIpAddresses"),
             ),
             workflow_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workflowOutboundIpAddresses").unwrap(),
+                o.extract_field("workflowOutboundIpAddresses"),
             ),
             workflow_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workflowParameters").unwrap(),
+                o.extract_field("workflowParameters"),
             ),
             workflow_schema: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workflowSchema").unwrap(),
+                o.extract_field("workflowSchema"),
             ),
             workflow_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workflowVersion").unwrap(),
+                o.extract_field("workflowVersion"),
             ),
         }
     }

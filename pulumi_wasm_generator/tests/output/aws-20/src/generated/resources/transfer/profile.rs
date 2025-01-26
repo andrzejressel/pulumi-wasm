@@ -102,57 +102,23 @@ pub mod profile {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "as2Id".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProfileResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            as2_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("as2Id").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            as2_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("as2Id")),
             certificate_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateIds").unwrap(),
+                o.extract_field("certificateIds"),
             ),
             profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileId").unwrap(),
+                o.extract_field("profileId"),
             ),
             profile_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileType").unwrap(),
+                o.extract_field("profileType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

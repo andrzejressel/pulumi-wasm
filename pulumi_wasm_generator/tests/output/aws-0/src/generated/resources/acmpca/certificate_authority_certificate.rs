@@ -150,33 +150,17 @@ pub mod certificate_authority_certificate {
                     value: &certificate_chain_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateAuthorityArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateChain".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CertificateAuthorityCertificateResult {
             certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificate").unwrap(),
+                o.extract_field("certificate"),
             ),
             certificate_authority_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateAuthorityArn").unwrap(),
+                o.extract_field("certificateAuthorityArn"),
             ),
             certificate_chain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateChain").unwrap(),
+                o.extract_field("certificateChain"),
             ),
         }
     }

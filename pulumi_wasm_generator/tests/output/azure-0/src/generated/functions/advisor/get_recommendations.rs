@@ -54,37 +54,18 @@ pub mod get_recommendations {
                     value: &filter_by_resource_groups_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filterByCategories".into(),
-                },
-                register_interface::ResultField {
-                    name: "filterByResourceGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "recommendations".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRecommendationsResult {
             filter_by_categories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filterByCategories").unwrap(),
+                o.extract_field("filterByCategories"),
             ),
             filter_by_resource_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filterByResourceGroups").unwrap(),
+                o.extract_field("filterByResourceGroups"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             recommendations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recommendations").unwrap(),
+                o.extract_field("recommendations"),
             ),
         }
     }

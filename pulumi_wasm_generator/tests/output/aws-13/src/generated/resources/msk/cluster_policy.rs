@@ -89,34 +89,16 @@ pub mod cluster_policy {
                     value: &policy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "clusterArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "currentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterPolicyResult {
             cluster_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterArn").unwrap(),
+                o.extract_field("clusterArn"),
             ),
             current_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("currentVersion").unwrap(),
+                o.extract_field("currentVersion"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
         }
     }
 }

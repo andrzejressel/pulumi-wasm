@@ -538,100 +538,43 @@ pub mod connection {
                     value: &spark_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aws".into(),
-                },
-                register_interface::ResultField {
-                    name: "azure".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudResource".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudSpanner".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudSql".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "friendlyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "hasCredential".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "spark".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConnectionResult {
-            aws: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aws").unwrap(),
-            ),
-            azure: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azure").unwrap(),
-            ),
+            aws: pulumi_wasm_rust::__private::into_domain(o.extract_field("aws")),
+            azure: pulumi_wasm_rust::__private::into_domain(o.extract_field("azure")),
             cloud_resource: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudResource").unwrap(),
+                o.extract_field("cloudResource"),
             ),
             cloud_spanner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudSpanner").unwrap(),
+                o.extract_field("cloudSpanner"),
             ),
             cloud_sql: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudSql").unwrap(),
+                o.extract_field("cloudSql"),
             ),
             connection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionId").unwrap(),
+                o.extract_field("connectionId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             friendly_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("friendlyName").unwrap(),
+                o.extract_field("friendlyName"),
             ),
             has_credential: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hasCredential").unwrap(),
+                o.extract_field("hasCredential"),
             ),
             kms_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyName").unwrap(),
+                o.extract_field("kmsKeyName"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            spark: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spark").unwrap(),
-            ),
+            spark: pulumi_wasm_rust::__private::into_domain(o.extract_field("spark")),
         }
     }
 }

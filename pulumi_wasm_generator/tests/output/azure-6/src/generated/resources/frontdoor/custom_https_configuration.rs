@@ -160,33 +160,17 @@ pub mod custom_https_configuration {
                     value: &frontend_endpoint_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "customHttpsConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "customHttpsProvisioningEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "frontendEndpointId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomHttpsConfigurationResult {
             custom_https_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customHttpsConfiguration").unwrap(),
+                o.extract_field("customHttpsConfiguration"),
             ),
             custom_https_provisioning_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customHttpsProvisioningEnabled").unwrap(),
+                o.extract_field("customHttpsProvisioningEnabled"),
             ),
             frontend_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frontendEndpointId").unwrap(),
+                o.extract_field("frontendEndpointId"),
             ),
         }
     }

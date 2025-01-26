@@ -60,86 +60,37 @@ pub mod get_authorizer {
                     value: &rest_api_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizerCredentials".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizerResultTtlInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizerUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identitySource".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityValidationExpression".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "providerArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "restApiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAuthorizerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             authorizer_credentials: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizerCredentials").unwrap(),
+                o.extract_field("authorizerCredentials"),
             ),
             authorizer_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizerId").unwrap(),
+                o.extract_field("authorizerId"),
             ),
             authorizer_result_ttl_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizerResultTtlInSeconds").unwrap(),
+                o.extract_field("authorizerResultTtlInSeconds"),
             ),
             authorizer_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizerUri").unwrap(),
+                o.extract_field("authorizerUri"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identity_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identitySource").unwrap(),
+                o.extract_field("identitySource"),
             ),
             identity_validation_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityValidationExpression").unwrap(),
+                o.extract_field("identityValidationExpression"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             provider_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providerArns").unwrap(),
+                o.extract_field("providerArns"),
             ),
             rest_api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restApiId").unwrap(),
+                o.extract_field("restApiId"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

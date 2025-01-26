@@ -180,93 +180,39 @@ pub mod prevention_discovery_config {
                     value: &targets_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actions".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "errors".into(),
-                },
-                register_interface::ResultField {
-                    name: "inspectTemplates".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastRunTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "orgConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "targets".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PreventionDiscoveryConfigResult {
             actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actions").unwrap(),
+                o.extract_field("actions"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            errors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errors").unwrap(),
-            ),
+            errors: pulumi_wasm_rust::__private::into_domain(o.extract_field("errors")),
             inspect_templates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inspectTemplates").unwrap(),
+                o.extract_field("inspectTemplates"),
             ),
             last_run_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastRunTime").unwrap(),
+                o.extract_field("lastRunTime"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             org_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orgConfig").unwrap(),
+                o.extract_field("orgConfig"),
             ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targets").unwrap(),
+                o.extract_field("targets"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

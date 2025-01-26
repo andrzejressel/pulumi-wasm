@@ -93,27 +93,14 @@ pub mod certificate_validation {
                     value: &validation_record_fqdns_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationRecordFqdns".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CertificateValidationResult {
             certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateArn").unwrap(),
+                o.extract_field("certificateArn"),
             ),
             validation_record_fqdns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationRecordFqdns").unwrap(),
+                o.extract_field("validationRecordFqdns"),
             ),
         }
     }

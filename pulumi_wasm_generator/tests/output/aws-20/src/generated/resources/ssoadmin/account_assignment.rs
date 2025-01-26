@@ -180,51 +180,26 @@ pub mod account_assignment {
                     value: &target_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "instanceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissionSetArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalId".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalType".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountAssignmentResult {
             instance_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceArn").unwrap(),
+                o.extract_field("instanceArn"),
             ),
             permission_set_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissionSetArn").unwrap(),
+                o.extract_field("permissionSetArn"),
             ),
             principal_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalId").unwrap(),
+                o.extract_field("principalId"),
             ),
             principal_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalType").unwrap(),
+                o.extract_field("principalType"),
             ),
             target_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetId").unwrap(),
+                o.extract_field("targetId"),
             ),
             target_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetType").unwrap(),
+                o.extract_field("targetType"),
             ),
         }
     }

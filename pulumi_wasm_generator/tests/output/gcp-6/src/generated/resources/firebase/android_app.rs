@@ -226,75 +226,32 @@ pub mod android_app {
                     value: &sha256_hashes_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "appId".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "packageName".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "sha1Hashes".into(),
-                },
-                register_interface::ResultField {
-                    name: "sha256Hashes".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AndroidAppResult {
             api_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiKeyId").unwrap(),
+                o.extract_field("apiKeyId"),
             ),
-            app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appId").unwrap(),
-            ),
+            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
             deletion_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionPolicy").unwrap(),
+                o.extract_field("deletionPolicy"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             package_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packageName").unwrap(),
+                o.extract_field("packageName"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             sha1_hashes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sha1Hashes").unwrap(),
+                o.extract_field("sha1Hashes"),
             ),
             sha256_hashes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sha256Hashes").unwrap(),
+                o.extract_field("sha256Hashes"),
             ),
         }
     }

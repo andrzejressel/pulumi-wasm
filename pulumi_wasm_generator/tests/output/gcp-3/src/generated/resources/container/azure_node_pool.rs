@@ -303,130 +303,54 @@ pub mod azure_node_pool {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoscaling".into(),
-                },
-                register_interface::ResultField {
-                    name: "azureAvailabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "cluster".into(),
-                },
-                register_interface::ResultField {
-                    name: "config".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveAnnotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "management".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxPodsConstraint".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "reconciling".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AzureNodePoolResult {
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             autoscaling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscaling").unwrap(),
+                o.extract_field("autoscaling"),
             ),
             azure_availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureAvailabilityZone").unwrap(),
+                o.extract_field("azureAvailabilityZone"),
             ),
             cluster: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cluster").unwrap(),
+                o.extract_field("cluster"),
             ),
-            config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("config").unwrap(),
-            ),
+            config: pulumi_wasm_rust::__private::into_domain(o.extract_field("config")),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             effective_annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveAnnotations").unwrap(),
+                o.extract_field("effectiveAnnotations"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             management: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("management").unwrap(),
+                o.extract_field("management"),
             ),
             max_pods_constraint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxPodsConstraint").unwrap(),
+                o.extract_field("maxPodsConstraint"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             reconciling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reconciling").unwrap(),
+                o.extract_field("reconciling"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

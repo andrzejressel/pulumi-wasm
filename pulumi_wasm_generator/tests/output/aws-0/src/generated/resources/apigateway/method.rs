@@ -248,81 +248,41 @@ pub mod method {
                     value: &rest_api_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiKeyRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorization".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizationScopes".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "operationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestModels".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestParameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestValidatorId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "restApi".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MethodResult {
             api_key_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiKeyRequired").unwrap(),
+                o.extract_field("apiKeyRequired"),
             ),
             authorization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorization").unwrap(),
+                o.extract_field("authorization"),
             ),
             authorization_scopes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationScopes").unwrap(),
+                o.extract_field("authorizationScopes"),
             ),
             authorizer_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizerId").unwrap(),
+                o.extract_field("authorizerId"),
             ),
             http_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpMethod").unwrap(),
+                o.extract_field("httpMethod"),
             ),
             operation_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operationName").unwrap(),
+                o.extract_field("operationName"),
             ),
             request_models: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestModels").unwrap(),
+                o.extract_field("requestModels"),
             ),
             request_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestParameters").unwrap(),
+                o.extract_field("requestParameters"),
             ),
             request_validator_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestValidatorId").unwrap(),
+                o.extract_field("requestValidatorId"),
             ),
             resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceId").unwrap(),
+                o.extract_field("resourceId"),
             ),
             rest_api: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restApi").unwrap(),
+                o.extract_field("restApi"),
             ),
         }
     }

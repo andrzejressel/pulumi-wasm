@@ -76,73 +76,34 @@ pub mod get_engine_version {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportableLogTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameterGroupFamily".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredVersions".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportsLogExportsToCloudwatch".into(),
-                },
-                register_interface::ResultField {
-                    name: "validUpgradeTargets".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionDescription".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetEngineVersionResult {
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineDescription").unwrap(),
+                o.extract_field("engineDescription"),
             ),
             exportable_log_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportableLogTypes").unwrap(),
+                o.extract_field("exportableLogTypes"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             parameter_group_family: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameterGroupFamily").unwrap(),
+                o.extract_field("parameterGroupFamily"),
             ),
             preferred_versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredVersions").unwrap(),
+                o.extract_field("preferredVersions"),
             ),
             supports_log_exports_to_cloudwatch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportsLogExportsToCloudwatch").unwrap(),
+                o.extract_field("supportsLogExportsToCloudwatch"),
             ),
             valid_upgrade_targets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validUpgradeTargets").unwrap(),
+                o.extract_field("validUpgradeTargets"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             version_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionDescription").unwrap(),
+                o.extract_field("versionDescription"),
             ),
         }
     }

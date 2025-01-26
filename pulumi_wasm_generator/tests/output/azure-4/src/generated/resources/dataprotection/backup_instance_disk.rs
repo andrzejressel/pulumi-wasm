@@ -163,51 +163,22 @@ pub mod backup_instance_disk {
                     value: &vault_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backupPolicyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapshotResourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "vaultId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BackupInstanceDiskResult {
             backup_policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupPolicyId").unwrap(),
+                o.extract_field("backupPolicyId"),
             ),
-            disk_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskId").unwrap(),
-            ),
+            disk_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("diskId")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             snapshot_resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapshotResourceGroupName").unwrap(),
+                o.extract_field("snapshotResourceGroupName"),
             ),
             vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vaultId").unwrap(),
+                o.extract_field("vaultId"),
             ),
         }
     }

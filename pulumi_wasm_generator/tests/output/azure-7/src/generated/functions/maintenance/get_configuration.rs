@@ -67,80 +67,32 @@ pub mod get_configuration {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "inGuestUserPatchMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "installPatches".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "properties".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "visibility".into(),
-                },
-                register_interface::ResultField {
-                    name: "windows".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetConfigurationResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             in_guest_user_patch_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inGuestUserPatchMode").unwrap(),
+                o.extract_field("inGuestUserPatchMode"),
             ),
             install_patches: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("installPatches").unwrap(),
+                o.extract_field("installPatches"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("properties").unwrap(),
+                o.extract_field("properties"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             visibility: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("visibility").unwrap(),
+                o.extract_field("visibility"),
             ),
-            windows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("windows").unwrap(),
-            ),
+            windows: pulumi_wasm_rust::__private::into_domain(o.extract_field("windows")),
         }
     }
 }

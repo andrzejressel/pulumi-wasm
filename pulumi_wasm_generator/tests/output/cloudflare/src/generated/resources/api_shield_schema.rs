@@ -98,46 +98,16 @@ pub mod api_shield_schema {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "source".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiShieldSchemaResult {
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("source").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
             validation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationEnabled").unwrap(),
+                o.extract_field("validationEnabled"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

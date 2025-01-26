@@ -381,141 +381,61 @@ pub mod queue {
                     value: &visibility_timeout_seconds_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentBasedDeduplication".into(),
-                },
-                register_interface::ResultField {
-                    name: "deduplicationScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "delaySeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "fifoQueue".into(),
-                },
-                register_interface::ResultField {
-                    name: "fifoThroughputLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsDataKeyReusePeriodSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsMasterKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxMessageSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "messageRetentionSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "receiveWaitTimeSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "redriveAllowPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "redrivePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqsManagedSseEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-                register_interface::ResultField {
-                    name: "visibilityTimeoutSeconds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         QueueResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             content_based_deduplication: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentBasedDeduplication").unwrap(),
+                o.extract_field("contentBasedDeduplication"),
             ),
             deduplication_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deduplicationScope").unwrap(),
+                o.extract_field("deduplicationScope"),
             ),
             delay_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delaySeconds").unwrap(),
+                o.extract_field("delaySeconds"),
             ),
             fifo_queue: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fifoQueue").unwrap(),
+                o.extract_field("fifoQueue"),
             ),
             fifo_throughput_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fifoThroughputLimit").unwrap(),
+                o.extract_field("fifoThroughputLimit"),
             ),
             kms_data_key_reuse_period_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsDataKeyReusePeriodSeconds").unwrap(),
+                o.extract_field("kmsDataKeyReusePeriodSeconds"),
             ),
             kms_master_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsMasterKeyId").unwrap(),
+                o.extract_field("kmsMasterKeyId"),
             ),
             max_message_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxMessageSize").unwrap(),
+                o.extract_field("maxMessageSize"),
             ),
             message_retention_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("messageRetentionSeconds").unwrap(),
+                o.extract_field("messageRetentionSeconds"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policy").unwrap(),
-            ),
+            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
             receive_wait_time_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("receiveWaitTimeSeconds").unwrap(),
+                o.extract_field("receiveWaitTimeSeconds"),
             ),
             redrive_allow_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redriveAllowPolicy").unwrap(),
+                o.extract_field("redriveAllowPolicy"),
             ),
             redrive_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redrivePolicy").unwrap(),
+                o.extract_field("redrivePolicy"),
             ),
             sqs_managed_sse_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqsManagedSseEnabled").unwrap(),
+                o.extract_field("sqsManagedSseEnabled"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("url").unwrap(),
-            ),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
             visibility_timeout_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("visibilityTimeoutSeconds").unwrap(),
+                o.extract_field("visibilityTimeoutSeconds"),
             ),
         }
     }

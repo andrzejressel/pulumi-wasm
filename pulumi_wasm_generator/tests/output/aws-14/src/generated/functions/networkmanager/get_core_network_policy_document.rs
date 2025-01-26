@@ -144,62 +144,27 @@ pub mod get_core_network_policy_document {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attachmentPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "coreNetworkConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "json".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkFunctionGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "segmentActions".into(),
-                },
-                register_interface::ResultField {
-                    name: "segments".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCoreNetworkPolicyDocumentResult {
             attachment_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachmentPolicies").unwrap(),
+                o.extract_field("attachmentPolicies"),
             ),
             core_network_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreNetworkConfigurations").unwrap(),
+                o.extract_field("coreNetworkConfigurations"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("json").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            json: pulumi_wasm_rust::__private::into_domain(o.extract_field("json")),
             network_function_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkFunctionGroups").unwrap(),
+                o.extract_field("networkFunctionGroups"),
             ),
             segment_actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("segmentActions").unwrap(),
+                o.extract_field("segmentActions"),
             ),
             segments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("segments").unwrap(),
+                o.extract_field("segments"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

@@ -196,88 +196,39 @@ pub mod capacity_commitment {
                     value: &slot_count_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "capacityCommitmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "commitmentEndTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "commitmentStartTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "edition".into(),
-                },
-                register_interface::ResultField {
-                    name: "enforceSingleAdminProjectPerOrg".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "plan".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "renewalPlan".into(),
-                },
-                register_interface::ResultField {
-                    name: "slotCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CapacityCommitmentResult {
             capacity_commitment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityCommitmentId").unwrap(),
+                o.extract_field("capacityCommitmentId"),
             ),
             commitment_end_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("commitmentEndTime").unwrap(),
+                o.extract_field("commitmentEndTime"),
             ),
             commitment_start_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("commitmentStartTime").unwrap(),
+                o.extract_field("commitmentStartTime"),
             ),
             edition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edition").unwrap(),
+                o.extract_field("edition"),
             ),
             enforce_single_admin_project_per_org: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enforceSingleAdminProjectPerOrg").unwrap(),
+                o.extract_field("enforceSingleAdminProjectPerOrg"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plan").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             renewal_plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("renewalPlan").unwrap(),
+                o.extract_field("renewalPlan"),
             ),
             slot_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("slotCount").unwrap(),
+                o.extract_field("slotCount"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

@@ -123,104 +123,42 @@ pub mod get_dev_environment {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alias".into(),
-                },
-                register_interface::ResultField {
-                    name: "creatorId".into(),
-                },
-                register_interface::ResultField {
-                    name: "envId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ides".into(),
-                },
-                register_interface::ResultField {
-                    name: "inactivityTimeoutMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "persistentStorages".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectName".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositories".into(),
-                },
-                register_interface::ResultField {
-                    name: "spaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDevEnvironmentResult {
-            alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alias").unwrap(),
-            ),
+            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
             creator_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creatorId").unwrap(),
+                o.extract_field("creatorId"),
             ),
-            env_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("envId").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            ides: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ides").unwrap(),
-            ),
+            env_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("envId")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            ides: pulumi_wasm_rust::__private::into_domain(o.extract_field("ides")),
             inactivity_timeout_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inactivityTimeoutMinutes").unwrap(),
+                o.extract_field("inactivityTimeoutMinutes"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             last_updated_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedTime").unwrap(),
+                o.extract_field("lastUpdatedTime"),
             ),
             persistent_storages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("persistentStorages").unwrap(),
+                o.extract_field("persistentStorages"),
             ),
             project_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectName").unwrap(),
+                o.extract_field("projectName"),
             ),
             repositories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositories").unwrap(),
+                o.extract_field("repositories"),
             ),
             space_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spaceName").unwrap(),
+                o.extract_field("spaceName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             status_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusReason").unwrap(),
+                o.extract_field("statusReason"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

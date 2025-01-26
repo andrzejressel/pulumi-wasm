@@ -170,75 +170,30 @@ pub mod configuration {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "data".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineType".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestRevision".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             authentication_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationStrategy").unwrap(),
+                o.extract_field("authenticationStrategy"),
             ),
-            data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("data").unwrap(),
-            ),
+            data: pulumi_wasm_rust::__private::into_domain(o.extract_field("data")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             engine_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineType").unwrap(),
+                o.extract_field("engineType"),
             ),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             latest_revision: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestRevision").unwrap(),
+                o.extract_field("latestRevision"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

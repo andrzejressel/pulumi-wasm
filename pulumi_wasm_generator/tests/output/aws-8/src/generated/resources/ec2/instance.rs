@@ -880,363 +880,174 @@ pub mod instance {
                     value: &vpc_security_group_ids_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "ami".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "associatePublicIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityReservationSpecification".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpuCoreCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpuOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpuThreadsPerCore".into(),
-                },
-                register_interface::ResultField {
-                    name: "creditSpecification".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableApiStop".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableApiTermination".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsBlockDevices".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsOptimized".into(),
-                },
-                register_interface::ResultField {
-                    name: "enablePrimaryIpv6".into(),
-                },
-                register_interface::ResultField {
-                    name: "enclaveOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "ephemeralBlockDevices".into(),
-                },
-                register_interface::ResultField {
-                    name: "getPasswordData".into(),
-                },
-                register_interface::ResultField {
-                    name: "hibernation".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostId".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostResourceGroupArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamInstanceProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceInitiatedShutdownBehavior".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceLifecycle".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceMarketOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceState".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6AddressCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6Addresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadataOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitoring".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "outpostArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "passwordData".into(),
-                },
-                register_interface::ResultField {
-                    name: "placementGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "placementPartitionNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryNetworkInterfaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDns".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsNameOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicDns".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootBlockDevice".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryPrivateIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceDestCheck".into(),
-                },
-                register_interface::ResultField {
-                    name: "spotInstanceRequestId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenancy".into(),
-                },
-                register_interface::ResultField {
-                    name: "userData".into(),
-                },
-                register_interface::ResultField {
-                    name: "userDataBase64".into(),
-                },
-                register_interface::ResultField {
-                    name: "userDataReplaceOnChange".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSecurityGroupIds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceResult {
-            ami: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ami").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            ami: pulumi_wasm_rust::__private::into_domain(o.extract_field("ami")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             associate_public_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associatePublicIpAddress").unwrap(),
+                o.extract_field("associatePublicIpAddress"),
             ),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             capacity_reservation_specification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityReservationSpecification").unwrap(),
+                o.extract_field("capacityReservationSpecification"),
             ),
             cpu_core_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpuCoreCount").unwrap(),
+                o.extract_field("cpuCoreCount"),
             ),
             cpu_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpuOptions").unwrap(),
+                o.extract_field("cpuOptions"),
             ),
             cpu_threads_per_core: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpuThreadsPerCore").unwrap(),
+                o.extract_field("cpuThreadsPerCore"),
             ),
             credit_specification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creditSpecification").unwrap(),
+                o.extract_field("creditSpecification"),
             ),
             disable_api_stop: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableApiStop").unwrap(),
+                o.extract_field("disableApiStop"),
             ),
             disable_api_termination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableApiTermination").unwrap(),
+                o.extract_field("disableApiTermination"),
             ),
             ebs_block_devices: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsBlockDevices").unwrap(),
+                o.extract_field("ebsBlockDevices"),
             ),
             ebs_optimized: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsOptimized").unwrap(),
+                o.extract_field("ebsOptimized"),
             ),
             enable_primary_ipv6: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enablePrimaryIpv6").unwrap(),
+                o.extract_field("enablePrimaryIpv6"),
             ),
             enclave_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enclaveOptions").unwrap(),
+                o.extract_field("enclaveOptions"),
             ),
             ephemeral_block_devices: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ephemeralBlockDevices").unwrap(),
+                o.extract_field("ephemeralBlockDevices"),
             ),
             get_password_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("getPasswordData").unwrap(),
+                o.extract_field("getPasswordData"),
             ),
             hibernation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hibernation").unwrap(),
+                o.extract_field("hibernation"),
             ),
-            host_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostId").unwrap(),
-            ),
+            host_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("hostId")),
             host_resource_group_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostResourceGroupArn").unwrap(),
+                o.extract_field("hostResourceGroupArn"),
             ),
             iam_instance_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamInstanceProfile").unwrap(),
+                o.extract_field("iamInstanceProfile"),
             ),
             instance_initiated_shutdown_behavior: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceInitiatedShutdownBehavior").unwrap(),
+                o.extract_field("instanceInitiatedShutdownBehavior"),
             ),
             instance_lifecycle: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceLifecycle").unwrap(),
+                o.extract_field("instanceLifecycle"),
             ),
             instance_market_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceMarketOptions").unwrap(),
+                o.extract_field("instanceMarketOptions"),
             ),
             instance_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceState").unwrap(),
+                o.extract_field("instanceState"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             ipv6_address_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6AddressCount").unwrap(),
+                o.extract_field("ipv6AddressCount"),
             ),
             ipv6_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6Addresses").unwrap(),
+                o.extract_field("ipv6Addresses"),
             ),
             key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyName").unwrap(),
+                o.extract_field("keyName"),
             ),
             launch_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchTemplate").unwrap(),
+                o.extract_field("launchTemplate"),
             ),
             maintenance_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceOptions").unwrap(),
+                o.extract_field("maintenanceOptions"),
             ),
             metadata_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadataOptions").unwrap(),
+                o.extract_field("metadataOptions"),
             ),
             monitoring: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitoring").unwrap(),
+                o.extract_field("monitoring"),
             ),
             network_interfaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaces").unwrap(),
+                o.extract_field("networkInterfaces"),
             ),
             outpost_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outpostArn").unwrap(),
+                o.extract_field("outpostArn"),
             ),
             password_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("passwordData").unwrap(),
+                o.extract_field("passwordData"),
             ),
             placement_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placementGroup").unwrap(),
+                o.extract_field("placementGroup"),
             ),
             placement_partition_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placementPartitionNumber").unwrap(),
+                o.extract_field("placementPartitionNumber"),
             ),
             primary_network_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryNetworkInterfaceId").unwrap(),
+                o.extract_field("primaryNetworkInterfaceId"),
             ),
             private_dns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDns").unwrap(),
+                o.extract_field("privateDns"),
             ),
             private_dns_name_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsNameOptions").unwrap(),
+                o.extract_field("privateDnsNameOptions"),
             ),
             private_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIp").unwrap(),
+                o.extract_field("privateIp"),
             ),
             public_dns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicDns").unwrap(),
+                o.extract_field("publicDns"),
             ),
             public_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIp").unwrap(),
+                o.extract_field("publicIp"),
             ),
             root_block_device: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootBlockDevice").unwrap(),
+                o.extract_field("rootBlockDevice"),
             ),
             secondary_private_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryPrivateIps").unwrap(),
+                o.extract_field("secondaryPrivateIps"),
             ),
             security_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroups").unwrap(),
+                o.extract_field("securityGroups"),
             ),
             source_dest_check: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceDestCheck").unwrap(),
+                o.extract_field("sourceDestCheck"),
             ),
             spot_instance_request_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("spotInstanceRequestId").unwrap(),
+                o.extract_field("spotInstanceRequestId"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             tenancy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenancy").unwrap(),
+                o.extract_field("tenancy"),
             ),
             user_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userData").unwrap(),
+                o.extract_field("userData"),
             ),
             user_data_base64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userDataBase64").unwrap(),
+                o.extract_field("userDataBase64"),
             ),
             user_data_replace_on_change: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userDataReplaceOnChange").unwrap(),
+                o.extract_field("userDataReplaceOnChange"),
             ),
             volume_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeTags").unwrap(),
+                o.extract_field("volumeTags"),
             ),
             vpc_security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSecurityGroupIds").unwrap(),
+                o.extract_field("vpcSecurityGroupIds"),
             ),
         }
     }

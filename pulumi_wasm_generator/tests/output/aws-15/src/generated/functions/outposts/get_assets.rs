@@ -59,43 +59,19 @@ pub mod get_assets {
                     value: &status_id_filters_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "assetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostIdFilters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusIdFilters".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAssetsResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             asset_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assetIds").unwrap(),
+                o.extract_field("assetIds"),
             ),
             host_id_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostIdFilters").unwrap(),
+                o.extract_field("hostIdFilters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             status_id_filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusIdFilters").unwrap(),
+                o.extract_field("statusIdFilters"),
             ),
         }
     }

@@ -189,94 +189,38 @@ pub mod random_string {
                     value: &upper_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "keepers".into(),
-                },
-                register_interface::ResultField {
-                    name: "length".into(),
-                },
-                register_interface::ResultField {
-                    name: "lower".into(),
-                },
-                register_interface::ResultField {
-                    name: "minLower".into(),
-                },
-                register_interface::ResultField {
-                    name: "minNumeric".into(),
-                },
-                register_interface::ResultField {
-                    name: "minSpecial".into(),
-                },
-                register_interface::ResultField {
-                    name: "minUpper".into(),
-                },
-                register_interface::ResultField {
-                    name: "number".into(),
-                },
-                register_interface::ResultField {
-                    name: "numeric".into(),
-                },
-                register_interface::ResultField {
-                    name: "overrideSpecial".into(),
-                },
-                register_interface::ResultField {
-                    name: "result".into(),
-                },
-                register_interface::ResultField {
-                    name: "special".into(),
-                },
-                register_interface::ResultField {
-                    name: "upper".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RandomStringResult {
             keepers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keepers").unwrap(),
+                o.extract_field("keepers"),
             ),
-            length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("length").unwrap(),
-            ),
-            lower: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lower").unwrap(),
-            ),
+            length: pulumi_wasm_rust::__private::into_domain(o.extract_field("length")),
+            lower: pulumi_wasm_rust::__private::into_domain(o.extract_field("lower")),
             min_lower: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minLower").unwrap(),
+                o.extract_field("minLower"),
             ),
             min_numeric: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minNumeric").unwrap(),
+                o.extract_field("minNumeric"),
             ),
             min_special: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minSpecial").unwrap(),
+                o.extract_field("minSpecial"),
             ),
             min_upper: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minUpper").unwrap(),
+                o.extract_field("minUpper"),
             ),
-            number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("number").unwrap(),
-            ),
+            number: pulumi_wasm_rust::__private::into_domain(o.extract_field("number")),
             numeric: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numeric").unwrap(),
+                o.extract_field("numeric"),
             ),
             override_special: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("overrideSpecial").unwrap(),
+                o.extract_field("overrideSpecial"),
             ),
-            result: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("result").unwrap(),
-            ),
+            result: pulumi_wasm_rust::__private::into_domain(o.extract_field("result")),
             special: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("special").unwrap(),
+                o.extract_field("special"),
             ),
-            upper: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("upper").unwrap(),
-            ),
+            upper: pulumi_wasm_rust::__private::into_domain(o.extract_field("upper")),
         }
     }
 }

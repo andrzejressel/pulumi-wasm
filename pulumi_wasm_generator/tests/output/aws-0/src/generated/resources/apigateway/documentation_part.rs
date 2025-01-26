@@ -89,39 +89,20 @@ pub mod documentation_part {
                     value: &rest_api_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "documentationPartId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "properties".into(),
-                },
-                register_interface::ResultField {
-                    name: "restApiId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DocumentationPartResult {
             documentation_part_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentationPartId").unwrap(),
+                o.extract_field("documentationPartId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("properties").unwrap(),
+                o.extract_field("properties"),
             ),
             rest_api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restApiId").unwrap(),
+                o.extract_field("restApiId"),
             ),
         }
     }

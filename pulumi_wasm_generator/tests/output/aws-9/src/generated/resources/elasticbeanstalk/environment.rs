@@ -311,159 +311,68 @@ pub mod environment {
                     value: &wait_for_ready_timeout_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "application".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoscalingGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "cname".into(),
-                },
-                register_interface::ResultField {
-                    name: "cnamePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "instances".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancers".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "pollInterval".into(),
-                },
-                register_interface::ResultField {
-                    name: "queues".into(),
-                },
-                register_interface::ResultField {
-                    name: "settings".into(),
-                },
-                register_interface::ResultField {
-                    name: "solutionStackName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tier".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggers".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForReadyTimeout".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnvironmentResult {
             all_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allSettings").unwrap(),
+                o.extract_field("allSettings"),
             ),
             application: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("application").unwrap(),
+                o.extract_field("application"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             autoscaling_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscalingGroups").unwrap(),
+                o.extract_field("autoscalingGroups"),
             ),
-            cname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cname").unwrap(),
-            ),
+            cname: pulumi_wasm_rust::__private::into_domain(o.extract_field("cname")),
             cname_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cnamePrefix").unwrap(),
+                o.extract_field("cnamePrefix"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             endpoint_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointUrl").unwrap(),
+                o.extract_field("endpointUrl"),
             ),
             instances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instances").unwrap(),
+                o.extract_field("instances"),
             ),
             launch_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchConfigurations").unwrap(),
+                o.extract_field("launchConfigurations"),
             ),
             load_balancers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancers").unwrap(),
+                o.extract_field("loadBalancers"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             platform_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformArn").unwrap(),
+                o.extract_field("platformArn"),
             ),
             poll_interval: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pollInterval").unwrap(),
+                o.extract_field("pollInterval"),
             ),
-            queues: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queues").unwrap(),
-            ),
+            queues: pulumi_wasm_rust::__private::into_domain(o.extract_field("queues")),
             settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("settings").unwrap(),
+                o.extract_field("settings"),
             ),
             solution_stack_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("solutionStackName").unwrap(),
+                o.extract_field("solutionStackName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             template_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateName").unwrap(),
+                o.extract_field("templateName"),
             ),
-            tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tier").unwrap(),
-            ),
+            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
             triggers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggers").unwrap(),
+                o.extract_field("triggers"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             wait_for_ready_timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForReadyTimeout").unwrap(),
+                o.extract_field("waitForReadyTimeout"),
             ),
         }
     }

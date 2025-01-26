@@ -90,44 +90,20 @@ pub mod api_key {
                     value: &expires_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "expires".into(),
-                },
-                register_interface::ResultField {
-                    name: "key".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiKeyResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiId").unwrap(),
-            ),
+            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
             api_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiKeyId").unwrap(),
+                o.extract_field("apiKeyId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             expires: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expires").unwrap(),
+                o.extract_field("expires"),
             ),
-            key: pulumi_wasm_rust::__private::into_domain(hashmap.remove("key").unwrap()),
+            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
         }
     }
 }

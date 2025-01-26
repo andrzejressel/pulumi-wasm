@@ -69,61 +69,28 @@ pub mod get_virtual_hub_connection {
                     value: &virtual_hub_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "internetSecurityEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteVirtualNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "routings".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualHubId".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualHubName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVirtualHubConnectionResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             internet_security_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internetSecurityEnabled").unwrap(),
+                o.extract_field("internetSecurityEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             remote_virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteVirtualNetworkId").unwrap(),
+                o.extract_field("remoteVirtualNetworkId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             routings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routings").unwrap(),
+                o.extract_field("routings"),
             ),
             virtual_hub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualHubId").unwrap(),
+                o.extract_field("virtualHubId"),
             ),
             virtual_hub_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualHubName").unwrap(),
+                o.extract_field("virtualHubName"),
             ),
         }
     }

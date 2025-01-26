@@ -457,117 +457,51 @@ pub mod regional_secret {
                     value: &version_destroy_ttl_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerManagedEncryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveAnnotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "expireTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "rotation".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretId".into(),
-                },
-                register_interface::ResultField {
-                    name: "topics".into(),
-                },
-                register_interface::ResultField {
-                    name: "ttl".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionAliases".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionDestroyTtl".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegionalSecretResult {
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             customer_managed_encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerManagedEncryption").unwrap(),
+                o.extract_field("customerManagedEncryption"),
             ),
             effective_annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveAnnotations").unwrap(),
+                o.extract_field("effectiveAnnotations"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             expire_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expireTime").unwrap(),
+                o.extract_field("expireTime"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             rotation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rotation").unwrap(),
+                o.extract_field("rotation"),
             ),
             secret_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretId").unwrap(),
+                o.extract_field("secretId"),
             ),
-            topics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topics").unwrap(),
-            ),
-            ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ttl").unwrap(),
-            ),
+            topics: pulumi_wasm_rust::__private::into_domain(o.extract_field("topics")),
+            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
             version_aliases: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionAliases").unwrap(),
+                o.extract_field("versionAliases"),
             ),
             version_destroy_ttl: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionDestroyTtl").unwrap(),
+                o.extract_field("versionDestroyTtl"),
             ),
         }
     }

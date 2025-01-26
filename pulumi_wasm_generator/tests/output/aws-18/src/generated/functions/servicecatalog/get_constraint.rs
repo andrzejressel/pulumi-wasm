@@ -67,68 +67,28 @@ pub mod get_constraint {
                     value: &id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceptLanguage".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "owner".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "portfolioId".into(),
-                },
-                register_interface::ResultField {
-                    name: "productId".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetConstraintResult {
             accept_language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptLanguage").unwrap(),
+                o.extract_field("acceptLanguage"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owner").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             portfolio_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("portfolioId").unwrap(),
+                o.extract_field("portfolioId"),
             ),
             product_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productId").unwrap(),
+                o.extract_field("productId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

@@ -430,75 +430,32 @@ pub mod connection {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "catalogId".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "matchCriterias".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "physicalConnectionRequirements".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConnectionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             catalog_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("catalogId").unwrap(),
+                o.extract_field("catalogId"),
             ),
             connection_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionProperties").unwrap(),
+                o.extract_field("connectionProperties"),
             ),
             connection_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionType").unwrap(),
+                o.extract_field("connectionType"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             match_criterias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("matchCriterias").unwrap(),
+                o.extract_field("matchCriterias"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             physical_connection_requirements: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("physicalConnectionRequirements").unwrap(),
+                o.extract_field("physicalConnectionRequirements"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

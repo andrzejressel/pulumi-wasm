@@ -148,75 +148,32 @@ pub mod repository {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDelete".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageScanningConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageTagMutability".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "registryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "repositoryUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RepositoryResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             encryption_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionConfigurations").unwrap(),
+                o.extract_field("encryptionConfigurations"),
             ),
             force_delete: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDelete").unwrap(),
+                o.extract_field("forceDelete"),
             ),
             image_scanning_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageScanningConfiguration").unwrap(),
+                o.extract_field("imageScanningConfiguration"),
             ),
             image_tag_mutability: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageTagMutability").unwrap(),
+                o.extract_field("imageTagMutability"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             registry_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryId").unwrap(),
+                o.extract_field("registryId"),
             ),
             repository_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repositoryUrl").unwrap(),
+                o.extract_field("repositoryUrl"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

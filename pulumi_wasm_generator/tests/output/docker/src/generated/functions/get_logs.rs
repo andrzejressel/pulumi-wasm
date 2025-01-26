@@ -126,92 +126,36 @@ pub mod get_logs {
                     value: &until_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "details".into(),
-                },
-                register_interface::ResultField {
-                    name: "discardHeaders".into(),
-                },
-                register_interface::ResultField {
-                    name: "follow".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "logsListStringEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "logsListStrings".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "showStderr".into(),
-                },
-                register_interface::ResultField {
-                    name: "showStdout".into(),
-                },
-                register_interface::ResultField {
-                    name: "since".into(),
-                },
-                register_interface::ResultField {
-                    name: "tail".into(),
-                },
-                register_interface::ResultField {
-                    name: "timestamps".into(),
-                },
-                register_interface::ResultField {
-                    name: "until".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetLogsResult {
             details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("details").unwrap(),
+                o.extract_field("details"),
             ),
             discard_headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("discardHeaders").unwrap(),
+                o.extract_field("discardHeaders"),
             ),
-            follow: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("follow").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            follow: pulumi_wasm_rust::__private::into_domain(o.extract_field("follow")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             logs_list_string_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logsListStringEnabled").unwrap(),
+                o.extract_field("logsListStringEnabled"),
             ),
             logs_list_strings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logsListStrings").unwrap(),
+                o.extract_field("logsListStrings"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             show_stderr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("showStderr").unwrap(),
+                o.extract_field("showStderr"),
             ),
             show_stdout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("showStdout").unwrap(),
+                o.extract_field("showStdout"),
             ),
-            since: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("since").unwrap(),
-            ),
-            tail: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tail").unwrap(),
-            ),
+            since: pulumi_wasm_rust::__private::into_domain(o.extract_field("since")),
+            tail: pulumi_wasm_rust::__private::into_domain(o.extract_field("tail")),
             timestamps: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timestamps").unwrap(),
+                o.extract_field("timestamps"),
             ),
-            until: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("until").unwrap(),
-            ),
+            until: pulumi_wasm_rust::__private::into_domain(o.extract_field("until")),
         }
     }
 }

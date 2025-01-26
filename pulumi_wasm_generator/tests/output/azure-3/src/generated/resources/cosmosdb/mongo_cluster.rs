@@ -290,112 +290,51 @@ pub mod mongo_cluster {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "administratorPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "administratorUsername".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "createMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "highAvailabilityMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "previewFeatures".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "shardCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceServerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageSizeInGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MongoClusterResult {
             administrator_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorPassword").unwrap(),
+                o.extract_field("administratorPassword"),
             ),
             administrator_username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("administratorUsername").unwrap(),
+                o.extract_field("administratorUsername"),
             ),
             compute_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeTier").unwrap(),
+                o.extract_field("computeTier"),
             ),
             create_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createMode").unwrap(),
+                o.extract_field("createMode"),
             ),
             high_availability_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("highAvailabilityMode").unwrap(),
+                o.extract_field("highAvailabilityMode"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             preview_features: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("previewFeatures").unwrap(),
+                o.extract_field("previewFeatures"),
             ),
             public_network_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccess").unwrap(),
+                o.extract_field("publicNetworkAccess"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             shard_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shardCount").unwrap(),
+                o.extract_field("shardCount"),
             ),
             source_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceLocation").unwrap(),
+                o.extract_field("sourceLocation"),
             ),
             source_server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceServerId").unwrap(),
+                o.extract_field("sourceServerId"),
             ),
             storage_size_in_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageSizeInGb").unwrap(),
+                o.extract_field("storageSizeInGb"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

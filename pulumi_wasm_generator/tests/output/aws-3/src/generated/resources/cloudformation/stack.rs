@@ -224,105 +224,49 @@ pub mod stack {
                     value: &timeout_in_minutes_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "capabilities".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableRollback".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "onFailure".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputs".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyBody".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateBody".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeoutInMinutes".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StackResult {
             capabilities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capabilities").unwrap(),
+                o.extract_field("capabilities"),
             ),
             disable_rollback: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableRollback").unwrap(),
+                o.extract_field("disableRollback"),
             ),
             iam_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRoleArn").unwrap(),
+                o.extract_field("iamRoleArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationArns").unwrap(),
+                o.extract_field("notificationArns"),
             ),
             on_failure: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onFailure").unwrap(),
+                o.extract_field("onFailure"),
             ),
             outputs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputs").unwrap(),
+                o.extract_field("outputs"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             policy_body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyBody").unwrap(),
+                o.extract_field("policyBody"),
             ),
             policy_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyUrl").unwrap(),
+                o.extract_field("policyUrl"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             template_body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateBody").unwrap(),
+                o.extract_field("templateBody"),
             ),
             template_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateUrl").unwrap(),
+                o.extract_field("templateUrl"),
             ),
             timeout_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeoutInMinutes").unwrap(),
+                o.extract_field("timeoutInMinutes"),
             ),
         }
     }

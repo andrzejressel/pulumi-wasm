@@ -63,27 +63,12 @@ pub mod retention_configuration {
                     value: &retention_period_in_days_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionPeriodInDays".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RetentionConfigurationResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             retention_period_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionPeriodInDays").unwrap(),
+                o.extract_field("retentionPeriodInDays"),
             ),
         }
     }

@@ -422,93 +422,41 @@ pub mod tls_inspection_configuration {
                     value: &tls_inspection_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateAuthorities".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificates".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberOfAssociations".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsInspectionConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsInspectionConfigurationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateToken".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TlsInspectionConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             certificate_authorities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateAuthorities").unwrap(),
+                o.extract_field("certificateAuthorities"),
             ),
             certificates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificates").unwrap(),
+                o.extract_field("certificates"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             encryption_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionConfigurations").unwrap(),
+                o.extract_field("encryptionConfigurations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             number_of_associations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberOfAssociations").unwrap(),
+                o.extract_field("numberOfAssociations"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
             tls_inspection_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsInspectionConfiguration").unwrap(),
+                o.extract_field("tlsInspectionConfiguration"),
             ),
             tls_inspection_configuration_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsInspectionConfigurationId").unwrap(),
+                o.extract_field("tlsInspectionConfigurationId"),
             ),
             update_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateToken").unwrap(),
+                o.extract_field("updateToken"),
             ),
         }
     }

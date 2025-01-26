@@ -104,104 +104,46 @@ pub mod get_nat_gateway {
                     value: &vpc_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allocationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "associationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectivityType".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAllocationIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryPrivateIpAddressCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryPrivateIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetNatGatewayResult {
             allocation_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocationId").unwrap(),
+                o.extract_field("allocationId"),
             ),
             association_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associationId").unwrap(),
+                o.extract_field("associationId"),
             ),
             connectivity_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectivityType").unwrap(),
+                o.extract_field("connectivityType"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             network_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceId").unwrap(),
+                o.extract_field("networkInterfaceId"),
             ),
             private_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIp").unwrap(),
+                o.extract_field("privateIp"),
             ),
             public_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIp").unwrap(),
+                o.extract_field("publicIp"),
             ),
             secondary_allocation_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAllocationIds").unwrap(),
+                o.extract_field("secondaryAllocationIds"),
             ),
             secondary_private_ip_address_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryPrivateIpAddressCount").unwrap(),
+                o.extract_field("secondaryPrivateIpAddressCount"),
             ),
             secondary_private_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryPrivateIpAddresses").unwrap(),
+                o.extract_field("secondaryPrivateIpAddresses"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

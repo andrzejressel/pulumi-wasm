@@ -586,255 +586,122 @@ pub mod launch_template {
                     value: &vpc_security_group_ids_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "blockDeviceMappings".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityReservationSpecification".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpuOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "creditSpecification".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableApiStop".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableApiTermination".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsOptimized".into(),
-                },
-                register_interface::ResultField {
-                    name: "elasticGpuSpecifications".into(),
-                },
-                register_interface::ResultField {
-                    name: "elasticInferenceAccelerator".into(),
-                },
-                register_interface::ResultField {
-                    name: "enclaveOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "hibernationOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamInstanceProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageId".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceInitiatedShutdownBehavior".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceMarketOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceRequirements".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "kernelId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "latestVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseSpecifications".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadataOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitoring".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "placement".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDnsNameOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "ramDiskId".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagSpecifications".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateDefaultVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "userData".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSecurityGroupIds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LaunchTemplateResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             block_device_mappings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blockDeviceMappings").unwrap(),
+                o.extract_field("blockDeviceMappings"),
             ),
             capacity_reservation_specification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityReservationSpecification").unwrap(),
+                o.extract_field("capacityReservationSpecification"),
             ),
             cpu_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpuOptions").unwrap(),
+                o.extract_field("cpuOptions"),
             ),
             credit_specification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creditSpecification").unwrap(),
+                o.extract_field("creditSpecification"),
             ),
             default_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultVersion").unwrap(),
+                o.extract_field("defaultVersion"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disable_api_stop: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableApiStop").unwrap(),
+                o.extract_field("disableApiStop"),
             ),
             disable_api_termination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableApiTermination").unwrap(),
+                o.extract_field("disableApiTermination"),
             ),
             ebs_optimized: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsOptimized").unwrap(),
+                o.extract_field("ebsOptimized"),
             ),
             elastic_gpu_specifications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticGpuSpecifications").unwrap(),
+                o.extract_field("elasticGpuSpecifications"),
             ),
             elastic_inference_accelerator: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticInferenceAccelerator").unwrap(),
+                o.extract_field("elasticInferenceAccelerator"),
             ),
             enclave_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enclaveOptions").unwrap(),
+                o.extract_field("enclaveOptions"),
             ),
             hibernation_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hibernationOptions").unwrap(),
+                o.extract_field("hibernationOptions"),
             ),
             iam_instance_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamInstanceProfile").unwrap(),
+                o.extract_field("iamInstanceProfile"),
             ),
             image_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageId").unwrap(),
+                o.extract_field("imageId"),
             ),
             instance_initiated_shutdown_behavior: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceInitiatedShutdownBehavior").unwrap(),
+                o.extract_field("instanceInitiatedShutdownBehavior"),
             ),
             instance_market_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceMarketOptions").unwrap(),
+                o.extract_field("instanceMarketOptions"),
             ),
             instance_requirements: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceRequirements").unwrap(),
+                o.extract_field("instanceRequirements"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             kernel_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kernelId").unwrap(),
+                o.extract_field("kernelId"),
             ),
             key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyName").unwrap(),
+                o.extract_field("keyName"),
             ),
             latest_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latestVersion").unwrap(),
+                o.extract_field("latestVersion"),
             ),
             license_specifications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseSpecifications").unwrap(),
+                o.extract_field("licenseSpecifications"),
             ),
             maintenance_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceOptions").unwrap(),
+                o.extract_field("maintenanceOptions"),
             ),
             metadata_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadataOptions").unwrap(),
+                o.extract_field("metadataOptions"),
             ),
             monitoring: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitoring").unwrap(),
+                o.extract_field("monitoring"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
             network_interfaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaces").unwrap(),
+                o.extract_field("networkInterfaces"),
             ),
             placement: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placement").unwrap(),
+                o.extract_field("placement"),
             ),
             private_dns_name_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDnsNameOptions").unwrap(),
+                o.extract_field("privateDnsNameOptions"),
             ),
             ram_disk_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ramDiskId").unwrap(),
+                o.extract_field("ramDiskId"),
             ),
             security_group_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupNames").unwrap(),
+                o.extract_field("securityGroupNames"),
             ),
             tag_specifications: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagSpecifications").unwrap(),
+                o.extract_field("tagSpecifications"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             update_default_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateDefaultVersion").unwrap(),
+                o.extract_field("updateDefaultVersion"),
             ),
             user_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userData").unwrap(),
+                o.extract_field("userData"),
             ),
             vpc_security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSecurityGroupIds").unwrap(),
+                o.extract_field("vpcSecurityGroupIds"),
             ),
         }
     }

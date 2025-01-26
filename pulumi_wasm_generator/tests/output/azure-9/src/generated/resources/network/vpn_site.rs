@@ -194,75 +194,32 @@ pub mod vpn_site {
                     value: &virtual_wan_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressCidrs".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceVendor".into(),
-                },
-                register_interface::ResultField {
-                    name: "links".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "o365Policy".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualWanId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpnSiteResult {
             address_cidrs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressCidrs").unwrap(),
+                o.extract_field("addressCidrs"),
             ),
             device_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceModel").unwrap(),
+                o.extract_field("deviceModel"),
             ),
             device_vendor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceVendor").unwrap(),
+                o.extract_field("deviceVendor"),
             ),
-            links: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("links").unwrap(),
-            ),
+            links: pulumi_wasm_rust::__private::into_domain(o.extract_field("links")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             o365_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("o365Policy").unwrap(),
+                o.extract_field("o365Policy"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_wan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualWanId").unwrap(),
+                o.extract_field("virtualWanId"),
             ),
         }
     }

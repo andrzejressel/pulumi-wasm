@@ -108,39 +108,18 @@ pub mod table_item {
                     value: &table_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "hashKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "item".into(),
-                },
-                register_interface::ResultField {
-                    name: "rangeKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TableItemResult {
             hash_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hashKey").unwrap(),
+                o.extract_field("hashKey"),
             ),
-            item: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("item").unwrap(),
-            ),
+            item: pulumi_wasm_rust::__private::into_domain(o.extract_field("item")),
             range_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rangeKey").unwrap(),
+                o.extract_field("rangeKey"),
             ),
             table_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableName").unwrap(),
+                o.extract_field("tableName"),
             ),
         }
     }

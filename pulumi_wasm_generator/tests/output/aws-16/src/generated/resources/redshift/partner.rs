@@ -93,51 +93,24 @@ pub mod partner {
                     value: &partner_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusMessage".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PartnerResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             cluster_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterIdentifier").unwrap(),
+                o.extract_field("clusterIdentifier"),
             ),
             database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseName").unwrap(),
+                o.extract_field("databaseName"),
             ),
             partner_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerName").unwrap(),
+                o.extract_field("partnerName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             status_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusMessage").unwrap(),
+                o.extract_field("statusMessage"),
             ),
         }
     }

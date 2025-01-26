@@ -149,63 +149,30 @@ pub mod portfolio_share {
                     value: &wait_for_acceptance_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "acceptLanguage".into(),
-                },
-                register_interface::ResultField {
-                    name: "accepted".into(),
-                },
-                register_interface::ResultField {
-                    name: "portfolioId".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharePrincipals".into(),
-                },
-                register_interface::ResultField {
-                    name: "shareTagOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForAcceptance".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PortfolioShareResult {
             accept_language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("acceptLanguage").unwrap(),
+                o.extract_field("acceptLanguage"),
             ),
             accepted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accepted").unwrap(),
+                o.extract_field("accepted"),
             ),
             portfolio_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("portfolioId").unwrap(),
+                o.extract_field("portfolioId"),
             ),
             principal_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalId").unwrap(),
+                o.extract_field("principalId"),
             ),
             share_principals: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharePrincipals").unwrap(),
+                o.extract_field("sharePrincipals"),
             ),
             share_tag_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shareTagOptions").unwrap(),
+                o.extract_field("shareTagOptions"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             wait_for_acceptance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForAcceptance").unwrap(),
+                o.extract_field("waitForAcceptance"),
             ),
         }
     }

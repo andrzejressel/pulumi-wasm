@@ -72,80 +72,34 @@ pub mod get_security_policy {
                     value: &self_link_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adaptiveProtectionConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "advancedOptionsConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "fingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "recaptchaOptionsConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "rules".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSecurityPolicyResult {
             adaptive_protection_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adaptiveProtectionConfigs").unwrap(),
+                o.extract_field("adaptiveProtectionConfigs"),
             ),
             advanced_options_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("advancedOptionsConfigs").unwrap(),
+                o.extract_field("advancedOptionsConfigs"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fingerprint").unwrap(),
+                o.extract_field("fingerprint"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             recaptcha_options_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recaptchaOptionsConfigs").unwrap(),
+                o.extract_field("recaptchaOptionsConfigs"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rules").unwrap(),
-            ),
+            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

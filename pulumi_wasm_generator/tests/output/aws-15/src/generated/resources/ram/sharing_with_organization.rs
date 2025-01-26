@@ -36,7 +36,6 @@ pub mod sharing_with_organization {
             name: name.to_string(),
             version: super::super::get_version(),
             object: Vec::from([]),
-            results: Vec::from([]),
         };
         register_interface::register(context.get_inner(), &request);
     }

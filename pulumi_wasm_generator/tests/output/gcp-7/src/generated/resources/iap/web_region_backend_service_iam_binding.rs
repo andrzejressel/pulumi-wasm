@@ -477,57 +477,23 @@ pub mod web_region_backend_service_iam_binding {
                     value: &web_region_backend_service_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "condition".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "members".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-                register_interface::ResultField {
-                    name: "webRegionBackendService".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WebRegionBackendServiceIamBindingResult {
             condition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("condition").unwrap(),
+                o.extract_field("condition"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             members: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("members").unwrap(),
+                o.extract_field("members"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
             web_region_backend_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webRegionBackendService").unwrap(),
+                o.extract_field("webRegionBackendService"),
             ),
         }
     }

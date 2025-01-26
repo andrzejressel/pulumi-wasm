@@ -709,279 +709,126 @@ pub mod function {
                     value: &vpc_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "architectures".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "code".into(),
-                },
-                register_interface::ResultField {
-                    name: "codeSha256".into(),
-                },
-                register_interface::ResultField {
-                    name: "codeSigningConfigArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "deadLetterConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "environment".into(),
-                },
-                register_interface::ResultField {
-                    name: "ephemeralStorage".into(),
-                },
-                register_interface::ResultField {
-                    name: "fileSystemConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "handler".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "invokeArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModified".into(),
-                },
-                register_interface::ResultField {
-                    name: "layers".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "memorySize".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "packageType".into(),
-                },
-                register_interface::ResultField {
-                    name: "publish".into(),
-                },
-                register_interface::ResultField {
-                    name: "qualifiedArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "qualifiedInvokeArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "replaceSecurityGroupsOnDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "replacementSecurityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "reservedConcurrentExecutions".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtime".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Key".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3ObjectVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "signingJobArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "signingProfileVersionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "snapStart".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceCodeHash".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceCodeSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "tracingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FunctionResult {
             architectures: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("architectures").unwrap(),
+                o.extract_field("architectures"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("code").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            code: pulumi_wasm_rust::__private::into_domain(o.extract_field("code")),
             code_sha256: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("codeSha256").unwrap(),
+                o.extract_field("codeSha256"),
             ),
             code_signing_config_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("codeSigningConfigArn").unwrap(),
+                o.extract_field("codeSigningConfigArn"),
             ),
             dead_letter_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deadLetterConfig").unwrap(),
+                o.extract_field("deadLetterConfig"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             environment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environment").unwrap(),
+                o.extract_field("environment"),
             ),
             ephemeral_storage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ephemeralStorage").unwrap(),
+                o.extract_field("ephemeralStorage"),
             ),
             file_system_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileSystemConfig").unwrap(),
+                o.extract_field("fileSystemConfig"),
             ),
             handler: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("handler").unwrap(),
+                o.extract_field("handler"),
             ),
             image_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageConfig").unwrap(),
+                o.extract_field("imageConfig"),
             ),
             image_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageUri").unwrap(),
+                o.extract_field("imageUri"),
             ),
             invoke_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invokeArn").unwrap(),
+                o.extract_field("invokeArn"),
             ),
             kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyArn").unwrap(),
+                o.extract_field("kmsKeyArn"),
             ),
             last_modified: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModified").unwrap(),
+                o.extract_field("lastModified"),
             ),
-            layers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("layers").unwrap(),
-            ),
+            layers: pulumi_wasm_rust::__private::into_domain(o.extract_field("layers")),
             logging_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingConfig").unwrap(),
+                o.extract_field("loggingConfig"),
             ),
             memory_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memorySize").unwrap(),
+                o.extract_field("memorySize"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             package_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packageType").unwrap(),
+                o.extract_field("packageType"),
             ),
             publish: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publish").unwrap(),
+                o.extract_field("publish"),
             ),
             qualified_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("qualifiedArn").unwrap(),
+                o.extract_field("qualifiedArn"),
             ),
             qualified_invoke_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("qualifiedInvokeArn").unwrap(),
+                o.extract_field("qualifiedInvokeArn"),
             ),
             replace_security_groups_on_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replaceSecurityGroupsOnDestroy").unwrap(),
+                o.extract_field("replaceSecurityGroupsOnDestroy"),
             ),
             replacement_security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replacementSecurityGroupIds").unwrap(),
+                o.extract_field("replacementSecurityGroupIds"),
             ),
             reserved_concurrent_executions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reservedConcurrentExecutions").unwrap(),
+                o.extract_field("reservedConcurrentExecutions"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
             runtime: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtime").unwrap(),
+                o.extract_field("runtime"),
             ),
             s3_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Bucket").unwrap(),
+                o.extract_field("s3Bucket"),
             ),
-            s3_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Key").unwrap(),
-            ),
+            s3_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("s3Key")),
             s3_object_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3ObjectVersion").unwrap(),
+                o.extract_field("s3ObjectVersion"),
             ),
             signing_job_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signingJobArn").unwrap(),
+                o.extract_field("signingJobArn"),
             ),
             signing_profile_version_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signingProfileVersionArn").unwrap(),
+                o.extract_field("signingProfileVersionArn"),
             ),
             skip_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipDestroy").unwrap(),
+                o.extract_field("skipDestroy"),
             ),
             snap_start: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snapStart").unwrap(),
+                o.extract_field("snapStart"),
             ),
             source_code_hash: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceCodeHash").unwrap(),
+                o.extract_field("sourceCodeHash"),
             ),
             source_code_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceCodeSize").unwrap(),
+                o.extract_field("sourceCodeSize"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeout").unwrap(),
+                o.extract_field("timeout"),
             ),
             tracing_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tracingConfig").unwrap(),
+                o.extract_field("tracingConfig"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
             vpc_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcConfig").unwrap(),
+                o.extract_field("vpcConfig"),
             ),
         }
     }

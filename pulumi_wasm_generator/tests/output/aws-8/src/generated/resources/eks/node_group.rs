@@ -342,154 +342,66 @@ pub mod node_group {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "amiType".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityType".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceUpdateVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeGroupNamePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "resources".into(),
-                },
-                register_interface::ResultField {
-                    name: "scalingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "taints".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NodeGroupResult {
             ami_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("amiType").unwrap(),
+                o.extract_field("amiType"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             capacity_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityType").unwrap(),
+                o.extract_field("capacityType"),
             ),
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
             disk_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskSize").unwrap(),
+                o.extract_field("diskSize"),
             ),
             force_update_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceUpdateVersion").unwrap(),
+                o.extract_field("forceUpdateVersion"),
             ),
             instance_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceTypes").unwrap(),
+                o.extract_field("instanceTypes"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             launch_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchTemplate").unwrap(),
+                o.extract_field("launchTemplate"),
             ),
             node_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeGroupName").unwrap(),
+                o.extract_field("nodeGroupName"),
             ),
             node_group_name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeGroupNamePrefix").unwrap(),
+                o.extract_field("nodeGroupNamePrefix"),
             ),
             node_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeRoleArn").unwrap(),
+                o.extract_field("nodeRoleArn"),
             ),
             release_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseVersion").unwrap(),
+                o.extract_field("releaseVersion"),
             ),
             remote_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteAccess").unwrap(),
+                o.extract_field("remoteAccess"),
             ),
             resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resources").unwrap(),
+                o.extract_field("resources"),
             ),
             scaling_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scalingConfig").unwrap(),
+                o.extract_field("scalingConfig"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            taints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taints").unwrap(),
-            ),
+            taints: pulumi_wasm_rust::__private::into_domain(o.extract_field("taints")),
             update_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateConfig").unwrap(),
+                o.extract_field("updateConfig"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

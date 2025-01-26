@@ -390,177 +390,85 @@ pub mod endpoint {
                     value: &username_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseName".into(),
-                },
-                register_interface::ResultField {
-                    name: "elasticsearchSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointType".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineName".into(),
-                },
-                register_interface::ResultField {
-                    name: "extraConnectionAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "kafkaSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "kinesisSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "mongodbSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "pauseReplicationTasks".into(),
-                },
-                register_interface::ResultField {
-                    name: "port".into(),
-                },
-                register_interface::ResultField {
-                    name: "postgresSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "redisSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "redshiftSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3Settings".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretsManagerAccessRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "secretsManagerArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccessRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "username".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointResult {
             certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateArn").unwrap(),
+                o.extract_field("certificateArn"),
             ),
             database_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseName").unwrap(),
+                o.extract_field("databaseName"),
             ),
             elasticsearch_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticsearchSettings").unwrap(),
+                o.extract_field("elasticsearchSettings"),
             ),
             endpoint_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointArn").unwrap(),
+                o.extract_field("endpointArn"),
             ),
             endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointId").unwrap(),
+                o.extract_field("endpointId"),
             ),
             endpoint_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointType").unwrap(),
+                o.extract_field("endpointType"),
             ),
             engine_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineName").unwrap(),
+                o.extract_field("engineName"),
             ),
             extra_connection_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extraConnectionAttributes").unwrap(),
+                o.extract_field("extraConnectionAttributes"),
             ),
             kafka_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kafkaSettings").unwrap(),
+                o.extract_field("kafkaSettings"),
             ),
             kinesis_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kinesisSettings").unwrap(),
+                o.extract_field("kinesisSettings"),
             ),
             kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyArn").unwrap(),
+                o.extract_field("kmsKeyArn"),
             ),
             mongodb_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mongodbSettings").unwrap(),
+                o.extract_field("mongodbSettings"),
             ),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             pause_replication_tasks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pauseReplicationTasks").unwrap(),
+                o.extract_field("pauseReplicationTasks"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("port").unwrap(),
-            ),
+            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
             postgres_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("postgresSettings").unwrap(),
+                o.extract_field("postgresSettings"),
             ),
             redis_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redisSettings").unwrap(),
+                o.extract_field("redisSettings"),
             ),
             redshift_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redshiftSettings").unwrap(),
+                o.extract_field("redshiftSettings"),
             ),
             s3_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3Settings").unwrap(),
+                o.extract_field("s3Settings"),
             ),
             secrets_manager_access_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretsManagerAccessRoleArn").unwrap(),
+                o.extract_field("secretsManagerAccessRoleArn"),
             ),
             secrets_manager_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secretsManagerArn").unwrap(),
+                o.extract_field("secretsManagerArn"),
             ),
             server_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverName").unwrap(),
+                o.extract_field("serverName"),
             ),
             service_access_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccessRole").unwrap(),
+                o.extract_field("serviceAccessRole"),
             ),
             ssl_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslMode").unwrap(),
+                o.extract_field("sslMode"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("username").unwrap(),
+                o.extract_field("username"),
             ),
         }
     }

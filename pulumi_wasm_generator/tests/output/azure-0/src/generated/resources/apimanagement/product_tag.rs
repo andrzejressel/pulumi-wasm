@@ -139,39 +139,18 @@ pub mod product_tag {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementName".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiManagementProductId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProductTagResult {
             api_management_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementName").unwrap(),
+                o.extract_field("apiManagementName"),
             ),
             api_management_product_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementProductId").unwrap(),
+                o.extract_field("apiManagementProductId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
         }
     }

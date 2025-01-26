@@ -572,213 +572,97 @@ pub mod v_mware_cluster {
                     value: &vm_tracking_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adminClusterMembership".into(),
-                },
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "antiAffinityGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorization".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoRepairConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "controlPlaneNode".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataplaneV2".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableBundledIngress".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveAnnotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableControlPlaneV2".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "fleets".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancer".into(),
-                },
-                register_interface::ResultField {
-                    name: "localName".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "onPremVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "reconciling".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "statuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "storage".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "upgradePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationChecks".into(),
-                },
-                register_interface::ResultField {
-                    name: "vcenter".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmTrackingEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VMwareClusterResult {
             admin_cluster_membership: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminClusterMembership").unwrap(),
+                o.extract_field("adminClusterMembership"),
             ),
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             anti_affinity_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("antiAffinityGroups").unwrap(),
+                o.extract_field("antiAffinityGroups"),
             ),
             authorization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorization").unwrap(),
+                o.extract_field("authorization"),
             ),
             auto_repair_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoRepairConfig").unwrap(),
+                o.extract_field("autoRepairConfig"),
             ),
             control_plane_node: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlPlaneNode").unwrap(),
+                o.extract_field("controlPlaneNode"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             dataplane_v2: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataplaneV2").unwrap(),
+                o.extract_field("dataplaneV2"),
             ),
             delete_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteTime").unwrap(),
+                o.extract_field("deleteTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disable_bundled_ingress: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableBundledIngress").unwrap(),
+                o.extract_field("disableBundledIngress"),
             ),
             effective_annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveAnnotations").unwrap(),
+                o.extract_field("effectiveAnnotations"),
             ),
             enable_control_plane_v2: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableControlPlaneV2").unwrap(),
+                o.extract_field("enableControlPlaneV2"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            fleets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fleets").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            fleets: pulumi_wasm_rust::__private::into_domain(o.extract_field("fleets")),
             load_balancer: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancer").unwrap(),
+                o.extract_field("loadBalancer"),
             ),
             local_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localName").unwrap(),
+                o.extract_field("localName"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfig").unwrap(),
+                o.extract_field("networkConfig"),
             ),
             on_prem_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onPremVersion").unwrap(),
+                o.extract_field("onPremVersion"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             reconciling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reconciling").unwrap(),
+                o.extract_field("reconciling"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statuses").unwrap(),
+                o.extract_field("statuses"),
             ),
             storage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storage").unwrap(),
+                o.extract_field("storage"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             upgrade_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("upgradePolicy").unwrap(),
+                o.extract_field("upgradePolicy"),
             ),
             validation_checks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationChecks").unwrap(),
+                o.extract_field("validationChecks"),
             ),
             vcenter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vcenter").unwrap(),
+                o.extract_field("vcenter"),
             ),
             vm_tracking_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmTrackingEnabled").unwrap(),
+                o.extract_field("vmTrackingEnabled"),
             ),
         }
     }

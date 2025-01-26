@@ -209,69 +209,31 @@ pub mod file_system_association {
                     value: &username_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "auditDestinationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheAttributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "username".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FileSystemAssociationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             audit_destination_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("auditDestinationArn").unwrap(),
+                o.extract_field("auditDestinationArn"),
             ),
             cache_attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheAttributes").unwrap(),
+                o.extract_field("cacheAttributes"),
             ),
             gateway_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayArn").unwrap(),
+                o.extract_field("gatewayArn"),
             ),
             location_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationArn").unwrap(),
+                o.extract_field("locationArn"),
             ),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("username").unwrap(),
+                o.extract_field("username"),
             ),
         }
     }

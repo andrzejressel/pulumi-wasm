@@ -38,37 +38,18 @@ pub mod get_partition {
                     value: &id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dnsSuffix".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "partition".into(),
-                },
-                register_interface::ResultField {
-                    name: "reverseDnsPrefix".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetPartitionResult {
             dns_suffix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsSuffix").unwrap(),
+                o.extract_field("dnsSuffix"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             partition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partition").unwrap(),
+                o.extract_field("partition"),
             ),
             reverse_dns_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reverseDnsPrefix").unwrap(),
+                o.extract_field("reverseDnsPrefix"),
             ),
         }
     }

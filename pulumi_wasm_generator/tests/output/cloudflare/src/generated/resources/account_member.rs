@@ -95,40 +95,19 @@ pub mod account_member {
                     value: &status_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "emailAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountMemberResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             email_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("emailAddress").unwrap(),
+                o.extract_field("emailAddress"),
             ),
             role_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleIds").unwrap(),
+                o.extract_field("roleIds"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

@@ -107,63 +107,26 @@ pub mod lb_certificate {
                     value: &subject_alternative_names_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainValidationRecords".into(),
-                },
-                register_interface::ResultField {
-                    name: "lbName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "subjectAlternativeNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportCode".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LbCertificateResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             domain_validation_records: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainValidationRecords").unwrap(),
+                o.extract_field("domainValidationRecords"),
             ),
-            lb_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lbName").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            lb_name: pulumi_wasm_rust::__private::into_domain(o.extract_field("lbName")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             subject_alternative_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subjectAlternativeNames").unwrap(),
+                o.extract_field("subjectAlternativeNames"),
             ),
             support_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportCode").unwrap(),
+                o.extract_field("supportCode"),
             ),
         }
     }

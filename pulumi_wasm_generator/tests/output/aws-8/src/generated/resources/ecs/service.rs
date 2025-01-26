@@ -618,213 +618,101 @@ pub mod service {
                     value: &wait_for_steady_state_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alarms".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZoneRebalancing".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityProviderStrategies".into(),
-                },
-                register_interface::ResultField {
-                    name: "cluster".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentCircuitBreaker".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentController".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentMaximumPercent".into(),
-                },
-                register_interface::ResultField {
-                    name: "deploymentMinimumHealthyPercent".into(),
-                },
-                register_interface::ResultField {
-                    name: "desiredCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableEcsManagedTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableExecuteCommand".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDelete".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceNewDeployment".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthCheckGracePeriodSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "launchType".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancers".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "orderedPlacementStrategies".into(),
-                },
-                register_interface::ResultField {
-                    name: "placementConstraints".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "propagateTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "schedulingStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceConnectConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRegistries".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "taskDefinition".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggers".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcLatticeConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForSteadyState".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceResult {
-            alarms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alarms").unwrap(),
-            ),
+            alarms: pulumi_wasm_rust::__private::into_domain(o.extract_field("alarms")),
             availability_zone_rebalancing: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZoneRebalancing").unwrap(),
+                o.extract_field("availabilityZoneRebalancing"),
             ),
             capacity_provider_strategies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityProviderStrategies").unwrap(),
+                o.extract_field("capacityProviderStrategies"),
             ),
             cluster: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cluster").unwrap(),
+                o.extract_field("cluster"),
             ),
             deployment_circuit_breaker: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentCircuitBreaker").unwrap(),
+                o.extract_field("deploymentCircuitBreaker"),
             ),
             deployment_controller: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentController").unwrap(),
+                o.extract_field("deploymentController"),
             ),
             deployment_maximum_percent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentMaximumPercent").unwrap(),
+                o.extract_field("deploymentMaximumPercent"),
             ),
             deployment_minimum_healthy_percent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentMinimumHealthyPercent").unwrap(),
+                o.extract_field("deploymentMinimumHealthyPercent"),
             ),
             desired_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredCount").unwrap(),
+                o.extract_field("desiredCount"),
             ),
             enable_ecs_managed_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableEcsManagedTags").unwrap(),
+                o.extract_field("enableEcsManagedTags"),
             ),
             enable_execute_command: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableExecuteCommand").unwrap(),
+                o.extract_field("enableExecuteCommand"),
             ),
             force_delete: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDelete").unwrap(),
+                o.extract_field("forceDelete"),
             ),
             force_new_deployment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceNewDeployment").unwrap(),
+                o.extract_field("forceNewDeployment"),
             ),
             health_check_grace_period_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthCheckGracePeriodSeconds").unwrap(),
+                o.extract_field("healthCheckGracePeriodSeconds"),
             ),
             iam_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamRole").unwrap(),
+                o.extract_field("iamRole"),
             ),
             launch_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("launchType").unwrap(),
+                o.extract_field("launchType"),
             ),
             load_balancers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancers").unwrap(),
+                o.extract_field("loadBalancers"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfiguration").unwrap(),
+                o.extract_field("networkConfiguration"),
             ),
             ordered_placement_strategies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orderedPlacementStrategies").unwrap(),
+                o.extract_field("orderedPlacementStrategies"),
             ),
             placement_constraints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placementConstraints").unwrap(),
+                o.extract_field("placementConstraints"),
             ),
             platform_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformVersion").unwrap(),
+                o.extract_field("platformVersion"),
             ),
             propagate_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("propagateTags").unwrap(),
+                o.extract_field("propagateTags"),
             ),
             scheduling_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schedulingStrategy").unwrap(),
+                o.extract_field("schedulingStrategy"),
             ),
             service_connect_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceConnectConfiguration").unwrap(),
+                o.extract_field("serviceConnectConfiguration"),
             ),
             service_registries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRegistries").unwrap(),
+                o.extract_field("serviceRegistries"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             task_definition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("taskDefinition").unwrap(),
+                o.extract_field("taskDefinition"),
             ),
             triggers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggers").unwrap(),
+                o.extract_field("triggers"),
             ),
             volume_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeConfiguration").unwrap(),
+                o.extract_field("volumeConfiguration"),
             ),
             vpc_lattice_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcLatticeConfigurations").unwrap(),
+                o.extract_field("vpcLatticeConfigurations"),
             ),
             wait_for_steady_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForSteadyState").unwrap(),
+                o.extract_field("waitForSteadyState"),
             ),
         }
     }

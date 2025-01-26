@@ -158,76 +158,33 @@ pub mod certificate_pack {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificateAuthority".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudflareBranding".into(),
-                },
-                register_interface::ResultField {
-                    name: "hosts".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationErrors".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationMethod".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationRecords".into(),
-                },
-                register_interface::ResultField {
-                    name: "validityDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "waitForActiveStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CertificatePackResult {
             certificate_authority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateAuthority").unwrap(),
+                o.extract_field("certificateAuthority"),
             ),
             cloudflare_branding: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudflareBranding").unwrap(),
+                o.extract_field("cloudflareBranding"),
             ),
-            hosts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hosts").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            hosts: pulumi_wasm_rust::__private::into_domain(o.extract_field("hosts")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             validation_errors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationErrors").unwrap(),
+                o.extract_field("validationErrors"),
             ),
             validation_method: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationMethod").unwrap(),
+                o.extract_field("validationMethod"),
             ),
             validation_records: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationRecords").unwrap(),
+                o.extract_field("validationRecords"),
             ),
             validity_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validityDays").unwrap(),
+                o.extract_field("validityDays"),
             ),
             wait_for_active_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("waitForActiveStatus").unwrap(),
+                o.extract_field("waitForActiveStatus"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

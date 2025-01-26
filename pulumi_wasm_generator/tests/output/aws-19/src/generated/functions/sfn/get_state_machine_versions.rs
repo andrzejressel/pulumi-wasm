@@ -38,31 +38,15 @@ pub mod get_state_machine_versions {
                     value: &statemachine_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "statemachineArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "statemachineVersions".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetStateMachineVersionsResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             statemachine_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statemachineArn").unwrap(),
+                o.extract_field("statemachineArn"),
             ),
             statemachine_versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statemachineVersions").unwrap(),
+                o.extract_field("statemachineVersions"),
             ),
         }
     }

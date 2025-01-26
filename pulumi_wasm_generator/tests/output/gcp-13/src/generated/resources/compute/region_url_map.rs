@@ -845,100 +845,43 @@ pub mod region_url_map {
                     value: &tests_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultRouteAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultService".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultUrlRedirect".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "fingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "mapId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pathMatchers".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "tests".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegionUrlMapResult {
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             default_route_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultRouteAction").unwrap(),
+                o.extract_field("defaultRouteAction"),
             ),
             default_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultService").unwrap(),
+                o.extract_field("defaultService"),
             ),
             default_url_redirect: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultUrlRedirect").unwrap(),
+                o.extract_field("defaultUrlRedirect"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fingerprint").unwrap(),
+                o.extract_field("fingerprint"),
             ),
             host_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostRules").unwrap(),
+                o.extract_field("hostRules"),
             ),
-            map_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mapId").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            map_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("mapId")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             path_matchers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pathMatchers").unwrap(),
+                o.extract_field("pathMatchers"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
-            tests: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tests").unwrap(),
-            ),
+            tests: pulumi_wasm_rust::__private::into_domain(o.extract_field("tests")),
         }
     }
 }

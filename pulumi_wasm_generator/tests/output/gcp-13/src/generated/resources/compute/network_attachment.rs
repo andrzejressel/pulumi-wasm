@@ -303,105 +303,47 @@ pub mod network_attachment {
                     value: &subnetworks_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "connectionEndpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionPreference".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "fingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "producerAcceptLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "producerRejectLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLinkWithId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetworks".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkAttachmentResult {
             connection_endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionEndpoints").unwrap(),
+                o.extract_field("connectionEndpoints"),
             ),
             connection_preference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionPreference").unwrap(),
+                o.extract_field("connectionPreference"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fingerprint").unwrap(),
+                o.extract_field("fingerprint"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             producer_accept_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("producerAcceptLists").unwrap(),
+                o.extract_field("producerAcceptLists"),
             ),
             producer_reject_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("producerRejectLists").unwrap(),
+                o.extract_field("producerRejectLists"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             self_link_with_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLinkWithId").unwrap(),
+                o.extract_field("selfLinkWithId"),
             ),
             subnetworks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetworks").unwrap(),
+                o.extract_field("subnetworks"),
             ),
         }
     }

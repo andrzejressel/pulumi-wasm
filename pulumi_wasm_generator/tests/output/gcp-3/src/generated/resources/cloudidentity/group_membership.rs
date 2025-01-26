@@ -179,63 +179,24 @@ pub mod group_membership {
                     value: &roles_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "group".into(),
-                },
-                register_interface::ResultField {
-                    name: "memberKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredMemberKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "roles".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GroupMembershipResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
-            group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("group").unwrap(),
-            ),
+            group: pulumi_wasm_rust::__private::into_domain(o.extract_field("group")),
             member_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memberKey").unwrap(),
+                o.extract_field("memberKey"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             preferred_member_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredMemberKey").unwrap(),
+                o.extract_field("preferredMemberKey"),
             ),
-            roles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roles").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            roles: pulumi_wasm_rust::__private::into_domain(o.extract_field("roles")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

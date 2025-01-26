@@ -57,43 +57,19 @@ pub mod get_crypto_key_versions {
                     value: &filter_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cryptoKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKeys".into(),
-                },
-                register_interface::ResultField {
-                    name: "versions".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCryptoKeyVersionsResult {
             crypto_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cryptoKey").unwrap(),
+                o.extract_field("cryptoKey"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             public_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKeys").unwrap(),
+                o.extract_field("publicKeys"),
             ),
             versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versions").unwrap(),
+                o.extract_field("versions"),
             ),
         }
     }

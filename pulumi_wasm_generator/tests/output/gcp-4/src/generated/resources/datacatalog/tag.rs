@@ -336,51 +336,18 @@ pub mod tag {
                     value: &template_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "column".into(),
-                },
-                register_interface::ResultField {
-                    name: "fields".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "template".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateDisplayname".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TagResult {
-            column: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("column").unwrap(),
-            ),
-            fields: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fields").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            column: pulumi_wasm_rust::__private::into_domain(o.extract_field("column")),
+            fields: pulumi_wasm_rust::__private::into_domain(o.extract_field("fields")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("template").unwrap(),
+                o.extract_field("template"),
             ),
             template_displayname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateDisplayname").unwrap(),
+                o.extract_field("templateDisplayname"),
             ),
         }
     }

@@ -140,51 +140,26 @@ pub mod channel_sms {
                     value: &sms_channel_auth_token_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "botName".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "phoneNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "smsChannelAccountSecurityId".into(),
-                },
-                register_interface::ResultField {
-                    name: "smsChannelAuthToken".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ChannelSmsResult {
             bot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botName").unwrap(),
+                o.extract_field("botName"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             phone_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("phoneNumber").unwrap(),
+                o.extract_field("phoneNumber"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sms_channel_account_security_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smsChannelAccountSecurityId").unwrap(),
+                o.extract_field("smsChannelAccountSecurityId"),
             ),
             sms_channel_auth_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("smsChannelAuthToken").unwrap(),
+                o.extract_field("smsChannelAuthToken"),
             ),
         }
     }

@@ -167,69 +167,31 @@ pub mod policy {
                     value: &threshold_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "evaluatorType".into(),
-                },
-                register_interface::ResultField {
-                    name: "factData".into(),
-                },
-                register_interface::ResultField {
-                    name: "labName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "policySetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "threshold".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PolicyResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             evaluator_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("evaluatorType").unwrap(),
+                o.extract_field("evaluatorType"),
             ),
             fact_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("factData").unwrap(),
+                o.extract_field("factData"),
             ),
             lab_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labName").unwrap(),
+                o.extract_field("labName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             policy_set_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policySetName").unwrap(),
+                o.extract_field("policySetName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             threshold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("threshold").unwrap(),
+                o.extract_field("threshold"),
             ),
         }
     }

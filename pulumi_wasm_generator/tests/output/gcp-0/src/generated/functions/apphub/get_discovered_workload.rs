@@ -66,55 +66,25 @@ pub mod get_discovered_workload {
                     value: &workload_uri_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "workloadProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "workloadReferences".into(),
-                },
-                register_interface::ResultField {
-                    name: "workloadUri".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDiscoveredWorkloadResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             workload_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workloadProperties").unwrap(),
+                o.extract_field("workloadProperties"),
             ),
             workload_references: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workloadReferences").unwrap(),
+                o.extract_field("workloadReferences"),
             ),
             workload_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workloadUri").unwrap(),
+                o.extract_field("workloadUri"),
             ),
         }
     }

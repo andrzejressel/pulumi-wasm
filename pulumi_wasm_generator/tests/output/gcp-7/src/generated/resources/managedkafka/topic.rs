@@ -178,63 +178,30 @@ pub mod topic {
                     value: &topic_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cluster".into(),
-                },
-                register_interface::ResultField {
-                    name: "configs".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "partitionCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationFactor".into(),
-                },
-                register_interface::ResultField {
-                    name: "topicId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TopicResult {
             cluster: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cluster").unwrap(),
+                o.extract_field("cluster"),
             ),
             configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configs").unwrap(),
+                o.extract_field("configs"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             partition_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partitionCount").unwrap(),
+                o.extract_field("partitionCount"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             replication_factor: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationFactor").unwrap(),
+                o.extract_field("replicationFactor"),
             ),
             topic_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topicId").unwrap(),
+                o.extract_field("topicId"),
             ),
         }
     }

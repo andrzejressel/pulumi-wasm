@@ -105,62 +105,25 @@ pub mod upload {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "category".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UploadResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             category: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("category").unwrap(),
+                o.extract_field("category"),
             ),
             content_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentType").unwrap(),
+                o.extract_field("contentType"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectArn").unwrap(),
+                o.extract_field("projectArn"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            url: pulumi_wasm_rust::__private::into_domain(hashmap.remove("url").unwrap()),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

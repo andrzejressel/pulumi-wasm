@@ -53,27 +53,14 @@ pub mod bucket_resource_access {
                     value: &resource_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucketName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketResourceAccessResult {
             bucket_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketName").unwrap(),
+                o.extract_field("bucketName"),
             ),
             resource_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceName").unwrap(),
+                o.extract_field("resourceName"),
             ),
         }
     }

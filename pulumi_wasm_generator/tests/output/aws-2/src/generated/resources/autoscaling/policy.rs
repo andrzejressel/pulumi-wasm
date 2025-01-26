@@ -519,99 +519,46 @@ pub mod policy {
                     value: &target_tracking_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "adjustmentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoscalingGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cooldown".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "estimatedInstanceWarmup".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricAggregationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "minAdjustmentMagnitude".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyType".into(),
-                },
-                register_interface::ResultField {
-                    name: "predictiveScalingConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "scalingAdjustment".into(),
-                },
-                register_interface::ResultField {
-                    name: "stepAdjustments".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetTrackingConfiguration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PolicyResult {
             adjustment_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adjustmentType").unwrap(),
+                o.extract_field("adjustmentType"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             autoscaling_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscalingGroupName").unwrap(),
+                o.extract_field("autoscalingGroupName"),
             ),
             cooldown: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cooldown").unwrap(),
+                o.extract_field("cooldown"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             estimated_instance_warmup: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("estimatedInstanceWarmup").unwrap(),
+                o.extract_field("estimatedInstanceWarmup"),
             ),
             metric_aggregation_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricAggregationType").unwrap(),
+                o.extract_field("metricAggregationType"),
             ),
             min_adjustment_magnitude: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minAdjustmentMagnitude").unwrap(),
+                o.extract_field("minAdjustmentMagnitude"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             policy_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyType").unwrap(),
+                o.extract_field("policyType"),
             ),
             predictive_scaling_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("predictiveScalingConfiguration").unwrap(),
+                o.extract_field("predictiveScalingConfiguration"),
             ),
             scaling_adjustment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scalingAdjustment").unwrap(),
+                o.extract_field("scalingAdjustment"),
             ),
             step_adjustments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stepAdjustments").unwrap(),
+                o.extract_field("stepAdjustments"),
             ),
             target_tracking_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetTrackingConfiguration").unwrap(),
+                o.extract_field("targetTrackingConfiguration"),
             ),
         }
     }

@@ -660,227 +660,107 @@ pub mod database {
                     value: &zone_redundant_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoPauseDelayInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "collation".into(),
-                },
-                register_interface::ResultField {
-                    name: "createMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationSourceDatabaseId".into(),
-                },
-                register_interface::ResultField {
-                    name: "elasticPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "enclaveType".into(),
-                },
-                register_interface::ResultField {
-                    name: "geoBackupEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "import".into(),
-                },
-                register_interface::ResultField {
-                    name: "ledgerEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "longTermRetentionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceConfigurationName".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxSizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "minCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "readReplicaCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "readScale".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoverDatabaseId".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryPointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreDroppedDatabaseId".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreLongTermRetentionBackupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "restorePointInTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "sampleName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryType".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverId".into(),
-                },
-                register_interface::ResultField {
-                    name: "shortTermRetentionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "threatDetectionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "transparentDataEncryptionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "transparentDataEncryptionKeyAutomaticRotationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "transparentDataEncryptionKeyVaultKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneRedundant".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DatabaseResult {
             auto_pause_delay_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoPauseDelayInMinutes").unwrap(),
+                o.extract_field("autoPauseDelayInMinutes"),
             ),
             collation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("collation").unwrap(),
+                o.extract_field("collation"),
             ),
             create_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createMode").unwrap(),
+                o.extract_field("createMode"),
             ),
             creation_source_database_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationSourceDatabaseId").unwrap(),
+                o.extract_field("creationSourceDatabaseId"),
             ),
             elastic_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticPoolId").unwrap(),
+                o.extract_field("elasticPoolId"),
             ),
             enclave_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enclaveType").unwrap(),
+                o.extract_field("enclaveType"),
             ),
             geo_backup_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("geoBackupEnabled").unwrap(),
+                o.extract_field("geoBackupEnabled"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
-            import: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("import").unwrap(),
-            ),
+            import: pulumi_wasm_rust::__private::into_domain(o.extract_field("import")),
             ledger_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ledgerEnabled").unwrap(),
+                o.extract_field("ledgerEnabled"),
             ),
             license_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseType").unwrap(),
+                o.extract_field("licenseType"),
             ),
             long_term_retention_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("longTermRetentionPolicy").unwrap(),
+                o.extract_field("longTermRetentionPolicy"),
             ),
             maintenance_configuration_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceConfigurationName").unwrap(),
+                o.extract_field("maintenanceConfigurationName"),
             ),
             max_size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxSizeGb").unwrap(),
+                o.extract_field("maxSizeGb"),
             ),
             min_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minCapacity").unwrap(),
+                o.extract_field("minCapacity"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             read_replica_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readReplicaCount").unwrap(),
+                o.extract_field("readReplicaCount"),
             ),
             read_scale: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readScale").unwrap(),
+                o.extract_field("readScale"),
             ),
             recover_database_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoverDatabaseId").unwrap(),
+                o.extract_field("recoverDatabaseId"),
             ),
             recovery_point_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryPointId").unwrap(),
+                o.extract_field("recoveryPointId"),
             ),
             restore_dropped_database_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restoreDroppedDatabaseId").unwrap(),
+                o.extract_field("restoreDroppedDatabaseId"),
             ),
             restore_long_term_retention_backup_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restoreLongTermRetentionBackupId").unwrap(),
+                o.extract_field("restoreLongTermRetentionBackupId"),
             ),
             restore_point_in_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restorePointInTime").unwrap(),
+                o.extract_field("restorePointInTime"),
             ),
             sample_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sampleName").unwrap(),
+                o.extract_field("sampleName"),
             ),
             secondary_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryType").unwrap(),
+                o.extract_field("secondaryType"),
             ),
             server_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverId").unwrap(),
+                o.extract_field("serverId"),
             ),
             short_term_retention_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shortTermRetentionPolicy").unwrap(),
+                o.extract_field("shortTermRetentionPolicy"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             storage_account_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountType").unwrap(),
+                o.extract_field("storageAccountType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             threat_detection_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("threatDetectionPolicy").unwrap(),
+                o.extract_field("threatDetectionPolicy"),
             ),
             transparent_data_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transparentDataEncryptionEnabled").unwrap(),
+                o.extract_field("transparentDataEncryptionEnabled"),
             ),
             transparent_data_encryption_key_automatic_rotation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap
-                    .remove("transparentDataEncryptionKeyAutomaticRotationEnabled")
-                    .unwrap(),
+                o.extract_field("transparentDataEncryptionKeyAutomaticRotationEnabled"),
             ),
             transparent_data_encryption_key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transparentDataEncryptionKeyVaultKeyId").unwrap(),
+                o.extract_field("transparentDataEncryptionKeyVaultKeyId"),
             ),
             zone_redundant: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneRedundant").unwrap(),
+                o.extract_field("zoneRedundant"),
             ),
         }
     }

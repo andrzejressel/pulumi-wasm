@@ -40,43 +40,19 @@ pub mod get_origin_access_identities {
                     value: &comments_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "comments".into(),
-                },
-                register_interface::ResultField {
-                    name: "iamArns".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ids".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3CanonicalUserIds".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetOriginAccessIdentitiesResult {
             comments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comments").unwrap(),
+                o.extract_field("comments"),
             ),
             iam_arns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iamArns").unwrap(),
+                o.extract_field("iamArns"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ids").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            ids: pulumi_wasm_rust::__private::into_domain(o.extract_field("ids")),
             s3_canonical_user_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3CanonicalUserIds").unwrap(),
+                o.extract_field("s3CanonicalUserIds"),
             ),
         }
     }

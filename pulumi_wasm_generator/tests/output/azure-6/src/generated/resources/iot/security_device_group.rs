@@ -130,39 +130,18 @@ pub mod security_device_group {
                     value: &range_rules_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowRule".into(),
-                },
-                register_interface::ResultField {
-                    name: "iothubId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "rangeRules".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SecurityDeviceGroupResult {
             allow_rule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowRule").unwrap(),
+                o.extract_field("allowRule"),
             ),
             iothub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iothubId").unwrap(),
+                o.extract_field("iothubId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             range_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rangeRules").unwrap(),
+                o.extract_field("rangeRules"),
             ),
         }
     }

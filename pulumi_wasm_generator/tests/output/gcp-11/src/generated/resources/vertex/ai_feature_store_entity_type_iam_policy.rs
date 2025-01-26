@@ -95,39 +95,18 @@ pub mod ai_feature_store_entity_type_iam_policy {
                     value: &policy_data_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "entitytype".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "featurestore".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyData".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AiFeatureStoreEntityTypeIamPolicyResult {
             entitytype: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entitytype").unwrap(),
+                o.extract_field("entitytype"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             featurestore: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("featurestore").unwrap(),
+                o.extract_field("featurestore"),
             ),
             policy_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyData").unwrap(),
+                o.extract_field("policyData"),
             ),
         }
     }

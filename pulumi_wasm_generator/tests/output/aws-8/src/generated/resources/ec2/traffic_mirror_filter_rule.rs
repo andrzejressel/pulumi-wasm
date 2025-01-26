@@ -222,81 +222,39 @@ pub mod traffic_mirror_filter_rule {
                     value: &traffic_mirror_filter_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationCidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationPortRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceCidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourcePortRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficDirection".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficMirrorFilterId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TrafficMirrorFilterRuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             destination_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationCidrBlock").unwrap(),
+                o.extract_field("destinationCidrBlock"),
             ),
             destination_port_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationPortRange").unwrap(),
+                o.extract_field("destinationPortRange"),
             ),
             protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocol").unwrap(),
+                o.extract_field("protocol"),
             ),
             rule_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleAction").unwrap(),
+                o.extract_field("ruleAction"),
             ),
             rule_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleNumber").unwrap(),
+                o.extract_field("ruleNumber"),
             ),
             source_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceCidrBlock").unwrap(),
+                o.extract_field("sourceCidrBlock"),
             ),
             source_port_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourcePortRange").unwrap(),
+                o.extract_field("sourcePortRange"),
             ),
             traffic_direction: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficDirection").unwrap(),
+                o.extract_field("trafficDirection"),
             ),
             traffic_mirror_filter_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficMirrorFilterId").unwrap(),
+                o.extract_field("trafficMirrorFilterId"),
             ),
         }
     }

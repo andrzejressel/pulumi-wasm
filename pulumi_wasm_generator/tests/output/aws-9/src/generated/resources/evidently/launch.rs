@@ -352,112 +352,45 @@ pub mod launch {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "executions".into(),
-                },
-                register_interface::ResultField {
-                    name: "groups".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastUpdatedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "metricMonitors".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "randomizationSalt".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduledSplitsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LaunchResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             created_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTime").unwrap(),
+                o.extract_field("createdTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             executions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executions").unwrap(),
+                o.extract_field("executions"),
             ),
-            groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groups").unwrap(),
-            ),
+            groups: pulumi_wasm_rust::__private::into_domain(o.extract_field("groups")),
             last_updated_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastUpdatedTime").unwrap(),
+                o.extract_field("lastUpdatedTime"),
             ),
             metric_monitors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metricMonitors").unwrap(),
+                o.extract_field("metricMonitors"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             randomization_salt: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("randomizationSalt").unwrap(),
+                o.extract_field("randomizationSalt"),
             ),
             scheduled_splits_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduledSplitsConfig").unwrap(),
+                o.extract_field("scheduledSplitsConfig"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             status_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusReason").unwrap(),
+                o.extract_field("statusReason"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

@@ -182,103 +182,51 @@ pub mod get_route {
                     value: &vpc_peering_connection_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "carrierGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "coreNetworkArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationCidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationIpv6CidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationPrefixListId".into(),
-                },
-                register_interface::ResultField {
-                    name: "egressOnlyGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "localGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "natGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "routeTableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcPeeringConnectionId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetRouteResult {
             carrier_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("carrierGatewayId").unwrap(),
+                o.extract_field("carrierGatewayId"),
             ),
             core_network_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("coreNetworkArn").unwrap(),
+                o.extract_field("coreNetworkArn"),
             ),
             destination_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationCidrBlock").unwrap(),
+                o.extract_field("destinationCidrBlock"),
             ),
             destination_ipv6_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationIpv6CidrBlock").unwrap(),
+                o.extract_field("destinationIpv6CidrBlock"),
             ),
             destination_prefix_list_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationPrefixListId").unwrap(),
+                o.extract_field("destinationPrefixListId"),
             ),
             egress_only_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("egressOnlyGatewayId").unwrap(),
+                o.extract_field("egressOnlyGatewayId"),
             ),
             gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayId").unwrap(),
+                o.extract_field("gatewayId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
             local_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localGatewayId").unwrap(),
+                o.extract_field("localGatewayId"),
             ),
             nat_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("natGatewayId").unwrap(),
+                o.extract_field("natGatewayId"),
             ),
             network_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceId").unwrap(),
+                o.extract_field("networkInterfaceId"),
             ),
             route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routeTableId").unwrap(),
+                o.extract_field("routeTableId"),
             ),
             transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayId").unwrap(),
+                o.extract_field("transitGatewayId"),
             ),
             vpc_peering_connection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcPeeringConnectionId").unwrap(),
+                o.extract_field("vpcPeeringConnectionId"),
             ),
         }
     }

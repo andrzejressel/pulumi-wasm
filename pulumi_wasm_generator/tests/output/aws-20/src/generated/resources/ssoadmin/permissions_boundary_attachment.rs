@@ -141,33 +141,17 @@ pub mod permissions_boundary_attachment {
                     value: &permissions_boundary_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "instanceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissionSetArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissionsBoundary".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PermissionsBoundaryAttachmentResult {
             instance_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceArn").unwrap(),
+                o.extract_field("instanceArn"),
             ),
             permission_set_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissionSetArn").unwrap(),
+                o.extract_field("permissionSetArn"),
             ),
             permissions_boundary: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissionsBoundary").unwrap(),
+                o.extract_field("permissionsBoundary"),
             ),
         }
     }

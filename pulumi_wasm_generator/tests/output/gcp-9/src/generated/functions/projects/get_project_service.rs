@@ -48,50 +48,23 @@ pub mod get_project_service {
                     value: &service_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "checkIfServiceHasUsageOnDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableDependentServices".into(),
-                },
-                register_interface::ResultField {
-                    name: "disableOnDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "service".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetProjectServiceResult {
             check_if_service_has_usage_on_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("checkIfServiceHasUsageOnDestroy").unwrap(),
+                o.extract_field("checkIfServiceHasUsageOnDestroy"),
             ),
             disable_dependent_services: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableDependentServices").unwrap(),
+                o.extract_field("disableDependentServices"),
             ),
             disable_on_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disableOnDestroy").unwrap(),
+                o.extract_field("disableOnDestroy"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("service").unwrap(),
-            ),
+            service: pulumi_wasm_rust::__private::into_domain(o.extract_field("service")),
         }
     }
 }

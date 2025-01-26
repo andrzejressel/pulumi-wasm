@@ -515,214 +515,98 @@ pub mod table {
                     value: &view_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "biglakeConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterings".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "datasetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalDataConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "friendlyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "materializedView".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxStaleness".into(),
-                },
-                register_interface::ResultField {
-                    name: "numBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "numLongTermBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "numRows".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "rangePartitioning".into(),
-                },
-                register_interface::ResultField {
-                    name: "requirePartitionFilter".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "schema".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableConstraints".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tableReplicationInfo".into(),
-                },
-                register_interface::ResultField {
-                    name: "timePartitioning".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "view".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TableResult {
             biglake_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("biglakeConfiguration").unwrap(),
+                o.extract_field("biglakeConfiguration"),
             ),
             clusterings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterings").unwrap(),
+                o.extract_field("clusterings"),
             ),
             creation_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTime").unwrap(),
+                o.extract_field("creationTime"),
             ),
             dataset_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datasetId").unwrap(),
+                o.extract_field("datasetId"),
             ),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             encryption_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionConfiguration").unwrap(),
+                o.extract_field("encryptionConfiguration"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             expiration_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationTime").unwrap(),
+                o.extract_field("expirationTime"),
             ),
             external_data_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalDataConfiguration").unwrap(),
+                o.extract_field("externalDataConfiguration"),
             ),
             friendly_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("friendlyName").unwrap(),
+                o.extract_field("friendlyName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             last_modified_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedTime").unwrap(),
+                o.extract_field("lastModifiedTime"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             materialized_view: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("materializedView").unwrap(),
+                o.extract_field("materializedView"),
             ),
             max_staleness: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxStaleness").unwrap(),
+                o.extract_field("maxStaleness"),
             ),
             num_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numBytes").unwrap(),
+                o.extract_field("numBytes"),
             ),
             num_long_term_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numLongTermBytes").unwrap(),
+                o.extract_field("numLongTermBytes"),
             ),
             num_rows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numRows").unwrap(),
+                o.extract_field("numRows"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             range_partitioning: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rangePartitioning").unwrap(),
+                o.extract_field("rangePartitioning"),
             ),
             require_partition_filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requirePartitionFilter").unwrap(),
+                o.extract_field("requirePartitionFilter"),
             ),
             resource_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTags").unwrap(),
+                o.extract_field("resourceTags"),
             ),
-            schema: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schema").unwrap(),
-            ),
+            schema: pulumi_wasm_rust::__private::into_domain(o.extract_field("schema")),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             table_constraints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableConstraints").unwrap(),
+                o.extract_field("tableConstraints"),
             ),
             table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableId").unwrap(),
+                o.extract_field("tableId"),
             ),
             table_replication_info: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tableReplicationInfo").unwrap(),
+                o.extract_field("tableReplicationInfo"),
             ),
             time_partitioning: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timePartitioning").unwrap(),
+                o.extract_field("timePartitioning"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
-            view: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("view").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            view: pulumi_wasm_rust::__private::into_domain(o.extract_field("view")),
         }
     }
 }

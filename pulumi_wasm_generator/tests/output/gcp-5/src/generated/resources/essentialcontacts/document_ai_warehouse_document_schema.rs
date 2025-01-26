@@ -155,51 +155,24 @@ pub mod document_ai_warehouse_document_schema {
                     value: &property_definitions_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentIsFolder".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "propertyDefinitions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DocumentAiWarehouseDocumentSchemaResult {
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             document_is_folder: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentIsFolder").unwrap(),
+                o.extract_field("documentIsFolder"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectNumber").unwrap(),
+                o.extract_field("projectNumber"),
             ),
             property_definitions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("propertyDefinitions").unwrap(),
+                o.extract_field("propertyDefinitions"),
             ),
         }
     }

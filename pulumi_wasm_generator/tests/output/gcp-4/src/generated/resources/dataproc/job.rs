@@ -298,129 +298,61 @@ pub mod job {
                     value: &sparksql_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "driverControlsFilesUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "driverOutputResourceUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDelete".into(),
-                },
-                register_interface::ResultField {
-                    name: "hadoopConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "hiveConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "pigConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "placement".into(),
-                },
-                register_interface::ResultField {
-                    name: "prestoConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "pysparkConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "reference".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "scheduling".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparkConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparksqlConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "statuses".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         JobResult {
             driver_controls_files_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("driverControlsFilesUri").unwrap(),
+                o.extract_field("driverControlsFilesUri"),
             ),
             driver_output_resource_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("driverOutputResourceUri").unwrap(),
+                o.extract_field("driverOutputResourceUri"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             force_delete: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDelete").unwrap(),
+                o.extract_field("forceDelete"),
             ),
             hadoop_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hadoopConfig").unwrap(),
+                o.extract_field("hadoopConfig"),
             ),
             hive_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hiveConfig").unwrap(),
+                o.extract_field("hiveConfig"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             pig_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pigConfig").unwrap(),
+                o.extract_field("pigConfig"),
             ),
             placement: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placement").unwrap(),
+                o.extract_field("placement"),
             ),
             presto_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("prestoConfig").unwrap(),
+                o.extract_field("prestoConfig"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             pyspark_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pysparkConfig").unwrap(),
+                o.extract_field("pysparkConfig"),
             ),
             reference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reference").unwrap(),
+                o.extract_field("reference"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             scheduling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scheduling").unwrap(),
+                o.extract_field("scheduling"),
             ),
             spark_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparkConfig").unwrap(),
+                o.extract_field("sparkConfig"),
             ),
             sparksql_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparksqlConfig").unwrap(),
+                o.extract_field("sparksqlConfig"),
             ),
             statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statuses").unwrap(),
+                o.extract_field("statuses"),
             ),
         }
     }

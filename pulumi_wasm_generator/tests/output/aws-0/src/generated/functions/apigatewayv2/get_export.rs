@@ -83,61 +83,26 @@ pub mod get_export {
                     value: &stage_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "body".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeExtensions".into(),
-                },
-                register_interface::ResultField {
-                    name: "outputType".into(),
-                },
-                register_interface::ResultField {
-                    name: "specification".into(),
-                },
-                register_interface::ResultField {
-                    name: "stageName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetExportResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiId").unwrap(),
-            ),
-            body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("body").unwrap(),
-            ),
+            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
+            body: pulumi_wasm_rust::__private::into_domain(o.extract_field("body")),
             export_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportVersion").unwrap(),
+                o.extract_field("exportVersion"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             include_extensions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeExtensions").unwrap(),
+                o.extract_field("includeExtensions"),
             ),
             output_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outputType").unwrap(),
+                o.extract_field("outputType"),
             ),
             specification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("specification").unwrap(),
+                o.extract_field("specification"),
             ),
             stage_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stageName").unwrap(),
+                o.extract_field("stageName"),
             ),
         }
     }

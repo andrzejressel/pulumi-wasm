@@ -75,85 +75,34 @@ pub mod get_configuration_profile {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurationProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationUri".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "retrievalRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "validators".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetConfigurationProfileResult {
             application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationId").unwrap(),
+                o.extract_field("applicationId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             configuration_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurationProfileId").unwrap(),
+                o.extract_field("configurationProfileId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             kms_key_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyIdentifier").unwrap(),
+                o.extract_field("kmsKeyIdentifier"),
             ),
             location_uri: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationUri").unwrap(),
+                o.extract_field("locationUri"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             retrieval_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retrievalRoleArn").unwrap(),
+                o.extract_field("retrievalRoleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             validators: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validators").unwrap(),
+                o.extract_field("validators"),
             ),
         }
     }

@@ -88,39 +88,20 @@ pub mod website_certificate_authority_association {
                     value: &fleet_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "certificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "fleetArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "websiteCaId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WebsiteCertificateAuthorityAssociationResult {
             certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificate").unwrap(),
+                o.extract_field("certificate"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             fleet_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fleetArn").unwrap(),
+                o.extract_field("fleetArn"),
             ),
             website_ca_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("websiteCaId").unwrap(),
+                o.extract_field("websiteCaId"),
             ),
         }
     }

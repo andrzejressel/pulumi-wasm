@@ -228,99 +228,44 @@ pub mod api_config {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "api".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiConfigId".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiConfigIdPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "grpcServices".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedServiceConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "openapiDocuments".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceConfigId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiConfigResult {
-            api: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("api").unwrap(),
-            ),
+            api: pulumi_wasm_rust::__private::into_domain(o.extract_field("api")),
             api_config_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiConfigId").unwrap(),
+                o.extract_field("apiConfigId"),
             ),
             api_config_id_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiConfigIdPrefix").unwrap(),
+                o.extract_field("apiConfigIdPrefix"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             gateway_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayConfig").unwrap(),
+                o.extract_field("gatewayConfig"),
             ),
             grpc_services: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grpcServices").unwrap(),
+                o.extract_field("grpcServices"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             managed_service_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedServiceConfigs").unwrap(),
+                o.extract_field("managedServiceConfigs"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             openapi_documents: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("openapiDocuments").unwrap(),
+                o.extract_field("openapiDocuments"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             service_config_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceConfigId").unwrap(),
+                o.extract_field("serviceConfigId"),
             ),
         }
     }

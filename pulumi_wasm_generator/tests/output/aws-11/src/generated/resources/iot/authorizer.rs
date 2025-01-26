@@ -162,75 +162,30 @@ pub mod authorizer {
                     value: &token_signing_public_keys_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizerFunctionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableCachingForHttp".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "signingDisabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tokenKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tokenSigningPublicKeys".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AuthorizerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             authorizer_function_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizerFunctionArn").unwrap(),
+                o.extract_field("authorizerFunctionArn"),
             ),
             enable_caching_for_http: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableCachingForHttp").unwrap(),
+                o.extract_field("enableCachingForHttp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             signing_disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signingDisabled").unwrap(),
+                o.extract_field("signingDisabled"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             token_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tokenKeyName").unwrap(),
+                o.extract_field("tokenKeyName"),
             ),
             token_signing_public_keys: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tokenSigningPublicKeys").unwrap(),
+                o.extract_field("tokenSigningPublicKeys"),
             ),
         }
     }

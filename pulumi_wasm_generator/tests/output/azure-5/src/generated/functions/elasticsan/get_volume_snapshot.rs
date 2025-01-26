@@ -51,49 +51,22 @@ pub mod get_volume_snapshot {
                     value: &volume_group_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceVolumeSizeInGib".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVolumeSnapshotResult {
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             source_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceId").unwrap(),
+                o.extract_field("sourceId"),
             ),
             source_volume_size_in_gib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceVolumeSizeInGib").unwrap(),
+                o.extract_field("sourceVolumeSizeInGib"),
             ),
             volume_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeGroupId").unwrap(),
+                o.extract_field("volumeGroupId"),
             ),
             volume_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeName").unwrap(),
+                o.extract_field("volumeName"),
             ),
         }
     }

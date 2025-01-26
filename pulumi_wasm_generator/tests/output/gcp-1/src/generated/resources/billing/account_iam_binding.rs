@@ -241,46 +241,20 @@ pub mod account_iam_binding {
                     value: &role_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "billingAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "condition".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "members".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountIamBindingResult {
             billing_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingAccountId").unwrap(),
+                o.extract_field("billingAccountId"),
             ),
             condition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("condition").unwrap(),
+                o.extract_field("condition"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             members: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("members").unwrap(),
+                o.extract_field("members"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

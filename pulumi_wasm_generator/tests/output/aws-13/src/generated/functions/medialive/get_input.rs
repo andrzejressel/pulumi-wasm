@@ -68,110 +68,45 @@ pub mod get_input {
                     value: &id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "attachedChannels".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinations".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputDevices".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputPartnerIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputSourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "mediaConnectFlows".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "sources".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetInputResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             attached_channels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachedChannels").unwrap(),
+                o.extract_field("attachedChannels"),
             ),
             destinations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinations").unwrap(),
+                o.extract_field("destinations"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             input_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputClass").unwrap(),
+                o.extract_field("inputClass"),
             ),
             input_devices: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputDevices").unwrap(),
+                o.extract_field("inputDevices"),
             ),
             input_partner_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputPartnerIds").unwrap(),
+                o.extract_field("inputPartnerIds"),
             ),
             input_source_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputSourceType").unwrap(),
+                o.extract_field("inputSourceType"),
             ),
             media_connect_flows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mediaConnectFlows").unwrap(),
+                o.extract_field("mediaConnectFlows"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             security_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroups").unwrap(),
+                o.extract_field("securityGroups"),
             ),
             sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sources").unwrap(),
+                o.extract_field("sources"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

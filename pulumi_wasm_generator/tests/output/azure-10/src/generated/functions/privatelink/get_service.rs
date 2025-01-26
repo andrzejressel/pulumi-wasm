@@ -66,79 +66,33 @@ pub mod get_service {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alias".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoApprovalSubscriptionIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableProxyProtocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancerFrontendIpConfigurationIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "natIpConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "visibilitySubscriptionIds".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetServiceResult {
-            alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alias").unwrap(),
-            ),
+            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
             auto_approval_subscription_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoApprovalSubscriptionIds").unwrap(),
+                o.extract_field("autoApprovalSubscriptionIds"),
             ),
             enable_proxy_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableProxyProtocol").unwrap(),
+                o.extract_field("enableProxyProtocol"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             load_balancer_frontend_ip_configuration_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancerFrontendIpConfigurationIds").unwrap(),
+                o.extract_field("loadBalancerFrontendIpConfigurationIds"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             nat_ip_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("natIpConfigurations").unwrap(),
+                o.extract_field("natIpConfigurations"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             visibility_subscription_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("visibilitySubscriptionIds").unwrap(),
+                o.extract_field("visibilitySubscriptionIds"),
             ),
         }
     }

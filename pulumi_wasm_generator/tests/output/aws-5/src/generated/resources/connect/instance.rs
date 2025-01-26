@@ -248,111 +248,50 @@ pub mod instance {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoResolveBestVoicesEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "contactFlowLogsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "contactLensEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "earlyMediaEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityManagementType".into(),
-                },
-                register_interface::ResultField {
-                    name: "inboundCallsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "multiPartyConferenceEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "outboundCallsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_resolve_best_voices_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoResolveBestVoicesEnabled").unwrap(),
+                o.extract_field("autoResolveBestVoicesEnabled"),
             ),
             contact_flow_logs_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contactFlowLogsEnabled").unwrap(),
+                o.extract_field("contactFlowLogsEnabled"),
             ),
             contact_lens_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contactLensEnabled").unwrap(),
+                o.extract_field("contactLensEnabled"),
             ),
             created_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTime").unwrap(),
+                o.extract_field("createdTime"),
             ),
             directory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryId").unwrap(),
+                o.extract_field("directoryId"),
             ),
             early_media_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("earlyMediaEnabled").unwrap(),
+                o.extract_field("earlyMediaEnabled"),
             ),
             identity_management_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityManagementType").unwrap(),
+                o.extract_field("identityManagementType"),
             ),
             inbound_calls_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inboundCallsEnabled").unwrap(),
+                o.extract_field("inboundCallsEnabled"),
             ),
             instance_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceAlias").unwrap(),
+                o.extract_field("instanceAlias"),
             ),
             multi_party_conference_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("multiPartyConferenceEnabled").unwrap(),
+                o.extract_field("multiPartyConferenceEnabled"),
             ),
             outbound_calls_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outboundCallsEnabled").unwrap(),
+                o.extract_field("outboundCallsEnabled"),
             ),
             service_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRole").unwrap(),
+                o.extract_field("serviceRole"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

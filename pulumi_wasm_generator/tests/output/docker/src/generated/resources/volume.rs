@@ -121,46 +121,18 @@ pub mod volume {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "driver".into(),
-                },
-                register_interface::ResultField {
-                    name: "driverOpts".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "mountpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VolumeResult {
-            driver: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("driver").unwrap(),
-            ),
+            driver: pulumi_wasm_rust::__private::into_domain(o.extract_field("driver")),
             driver_opts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("driverOpts").unwrap(),
+                o.extract_field("driverOpts"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             mountpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mountpoint").unwrap(),
+                o.extract_field("mountpoint"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

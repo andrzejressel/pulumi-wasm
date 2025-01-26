@@ -209,112 +209,51 @@ pub mod capacity_reservation {
                     value: &tenancy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "ebsOptimized".into(),
-                },
-                register_interface::ResultField {
-                    name: "endDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "endDateType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ephemeralStorage".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceMatchCriteria".into(),
-                },
-                register_interface::ResultField {
-                    name: "instancePlatform".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "outpostArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "placementGroupArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenancy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CapacityReservationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             ebs_optimized: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ebsOptimized").unwrap(),
+                o.extract_field("ebsOptimized"),
             ),
             end_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endDate").unwrap(),
+                o.extract_field("endDate"),
             ),
             end_date_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endDateType").unwrap(),
+                o.extract_field("endDateType"),
             ),
             ephemeral_storage: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ephemeralStorage").unwrap(),
+                o.extract_field("ephemeralStorage"),
             ),
             instance_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceCount").unwrap(),
+                o.extract_field("instanceCount"),
             ),
             instance_match_criteria: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceMatchCriteria").unwrap(),
+                o.extract_field("instanceMatchCriteria"),
             ),
             instance_platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instancePlatform").unwrap(),
+                o.extract_field("instancePlatform"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             outpost_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outpostArn").unwrap(),
+                o.extract_field("outpostArn"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             placement_group_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("placementGroupArn").unwrap(),
+                o.extract_field("placementGroupArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            tenancy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenancy").unwrap(),
-            ),
+            tenancy: pulumi_wasm_rust::__private::into_domain(o.extract_field("tenancy")),
         }
     }
 }

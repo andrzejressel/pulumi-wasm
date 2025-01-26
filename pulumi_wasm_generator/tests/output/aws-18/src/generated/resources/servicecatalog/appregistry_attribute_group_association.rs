@@ -85,27 +85,14 @@ pub mod appregistry_attribute_group_association {
                     value: &attribute_group_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "attributeGroupId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AppregistryAttributeGroupAssociationResult {
             application_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationId").unwrap(),
+                o.extract_field("applicationId"),
             ),
             attribute_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attributeGroupId").unwrap(),
+                o.extract_field("attributeGroupId"),
             ),
         }
     }

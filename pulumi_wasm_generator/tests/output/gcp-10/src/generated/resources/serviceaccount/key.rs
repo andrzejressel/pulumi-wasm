@@ -212,81 +212,39 @@ pub mod key {
                     value: &service_account_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "keepers".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyAlgorithm".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateKeyType".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKeyData".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicKeyType".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "validAfter".into(),
-                },
-                register_interface::ResultField {
-                    name: "validBefore".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KeyResult {
             keepers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keepers").unwrap(),
+                o.extract_field("keepers"),
             ),
             key_algorithm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyAlgorithm").unwrap(),
+                o.extract_field("keyAlgorithm"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateKey").unwrap(),
+                o.extract_field("privateKey"),
             ),
             private_key_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateKeyType").unwrap(),
+                o.extract_field("privateKeyType"),
             ),
             public_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKey").unwrap(),
+                o.extract_field("publicKey"),
             ),
             public_key_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKeyData").unwrap(),
+                o.extract_field("publicKeyData"),
             ),
             public_key_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicKeyType").unwrap(),
+                o.extract_field("publicKeyType"),
             ),
             service_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccountId").unwrap(),
+                o.extract_field("serviceAccountId"),
             ),
             valid_after: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validAfter").unwrap(),
+                o.extract_field("validAfter"),
             ),
             valid_before: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validBefore").unwrap(),
+                o.extract_field("validBefore"),
             ),
         }
     }

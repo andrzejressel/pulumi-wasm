@@ -154,93 +154,43 @@ pub mod cluster {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "agentPublicKeyCertificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "agentVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "distribution".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "infrastructure".into(),
-                },
-                register_interface::ResultField {
-                    name: "kubernetesVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "offering".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalCoreCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalNodeCount".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
             agent_public_key_certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentPublicKeyCertificate").unwrap(),
+                o.extract_field("agentPublicKeyCertificate"),
             ),
             agent_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("agentVersion").unwrap(),
+                o.extract_field("agentVersion"),
             ),
             distribution: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("distribution").unwrap(),
+                o.extract_field("distribution"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             infrastructure: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("infrastructure").unwrap(),
+                o.extract_field("infrastructure"),
             ),
             kubernetes_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kubernetesVersion").unwrap(),
+                o.extract_field("kubernetesVersion"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             offering: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("offering").unwrap(),
+                o.extract_field("offering"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             total_core_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalCoreCount").unwrap(),
+                o.extract_field("totalCoreCount"),
             ),
             total_node_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalNodeCount").unwrap(),
+                o.extract_field("totalNodeCount"),
             ),
         }
     }

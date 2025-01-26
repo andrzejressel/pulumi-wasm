@@ -119,63 +119,28 @@ pub mod code_signing_config {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowedPublishers".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "configId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModified".into(),
-                },
-                register_interface::ResultField {
-                    name: "policies".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CodeSigningConfigResult {
             allowed_publishers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedPublishers").unwrap(),
+                o.extract_field("allowedPublishers"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             config_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configId").unwrap(),
+                o.extract_field("configId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             last_modified: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModified").unwrap(),
+                o.extract_field("lastModified"),
             ),
             policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policies").unwrap(),
+                o.extract_field("policies"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

@@ -163,45 +163,19 @@ pub mod bgp_connection {
                     value: &virtual_network_connection_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualHubId".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkConnectionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BgpConnectionResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             peer_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerAsn").unwrap(),
+                o.extract_field("peerAsn"),
             ),
-            peer_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerIp").unwrap(),
-            ),
+            peer_ip: pulumi_wasm_rust::__private::into_domain(o.extract_field("peerIp")),
             virtual_hub_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualHubId").unwrap(),
+                o.extract_field("virtualHubId"),
             ),
             virtual_network_connection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkConnectionId").unwrap(),
+                o.extract_field("virtualNetworkConnectionId"),
             ),
         }
     }

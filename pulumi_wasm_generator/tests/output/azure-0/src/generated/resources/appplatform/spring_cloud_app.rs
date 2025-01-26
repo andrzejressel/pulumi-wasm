@@ -220,98 +220,45 @@ pub mod spring_cloud_app {
                     value: &tls_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addonJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "customPersistentDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsOnly".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingressSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "isPublic".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "persistentDisk".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicEndpointEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tlsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudAppResult {
             addon_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addonJson").unwrap(),
+                o.extract_field("addonJson"),
             ),
             custom_persistent_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customPersistentDisks").unwrap(),
+                o.extract_field("customPersistentDisks"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
             https_only: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsOnly").unwrap(),
+                o.extract_field("httpsOnly"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             ingress_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingressSettings").unwrap(),
+                o.extract_field("ingressSettings"),
             ),
             is_public: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isPublic").unwrap(),
+                o.extract_field("isPublic"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             persistent_disk: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("persistentDisk").unwrap(),
+                o.extract_field("persistentDisk"),
             ),
             public_endpoint_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicEndpointEnabled").unwrap(),
+                o.extract_field("publicEndpointEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceName").unwrap(),
+                o.extract_field("serviceName"),
             ),
             tls_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tlsEnabled").unwrap(),
+                o.extract_field("tlsEnabled"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(hashmap.remove("url").unwrap()),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

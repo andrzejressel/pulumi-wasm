@@ -249,100 +249,45 @@ pub mod vault {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "classicVmwareReplicationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "crossRegionRestoreEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "immutability".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitoring".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "softDeleteEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageModeType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VaultResult {
             classic_vmware_replication_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("classicVmwareReplicationEnabled").unwrap(),
+                o.extract_field("classicVmwareReplicationEnabled"),
             ),
             cross_region_restore_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("crossRegionRestoreEnabled").unwrap(),
+                o.extract_field("crossRegionRestoreEnabled"),
             ),
             encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryption").unwrap(),
+                o.extract_field("encryption"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             immutability: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("immutability").unwrap(),
+                o.extract_field("immutability"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             monitoring: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitoring").unwrap(),
+                o.extract_field("monitoring"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
             soft_delete_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("softDeleteEnabled").unwrap(),
+                o.extract_field("softDeleteEnabled"),
             ),
             storage_mode_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageModeType").unwrap(),
+                o.extract_field("storageModeType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

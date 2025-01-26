@@ -93,115 +93,51 @@ pub mod get_infrastructure_configuration {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "dateCreated".into(),
-                },
-                register_interface::ResultField {
-                    name: "dateUpdated".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceMetadataOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceProfileName".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyPair".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggings".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceTags".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "snsTopicArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "terminateInstanceOnFailure".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetInfrastructureConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             date_created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dateCreated").unwrap(),
+                o.extract_field("dateCreated"),
             ),
             date_updated: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dateUpdated").unwrap(),
+                o.extract_field("dateUpdated"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance_metadata_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceMetadataOptions").unwrap(),
+                o.extract_field("instanceMetadataOptions"),
             ),
             instance_profile_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceProfileName").unwrap(),
+                o.extract_field("instanceProfileName"),
             ),
             instance_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceTypes").unwrap(),
+                o.extract_field("instanceTypes"),
             ),
             key_pair: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyPair").unwrap(),
+                o.extract_field("keyPair"),
             ),
             loggings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggings").unwrap(),
+                o.extract_field("loggings"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceTags").unwrap(),
+                o.extract_field("resourceTags"),
             ),
             security_group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupIds").unwrap(),
+                o.extract_field("securityGroupIds"),
             ),
             sns_topic_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snsTopicArn").unwrap(),
+                o.extract_field("snsTopicArn"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             terminate_instance_on_failure: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("terminateInstanceOnFailure").unwrap(),
+                o.extract_field("terminateInstanceOnFailure"),
             ),
         }
     }

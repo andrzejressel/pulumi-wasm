@@ -177,75 +177,34 @@ pub mod network_peering {
                     value: &stack_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "exportCustomRoutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "exportSubnetRoutesWithPublicIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "importCustomRoutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "importSubnetRoutesWithPublicIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerNetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackType".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateDetails".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkPeeringResult {
             export_custom_routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportCustomRoutes").unwrap(),
+                o.extract_field("exportCustomRoutes"),
             ),
             export_subnet_routes_with_public_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("exportSubnetRoutesWithPublicIp").unwrap(),
+                o.extract_field("exportSubnetRoutesWithPublicIp"),
             ),
             import_custom_routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importCustomRoutes").unwrap(),
+                o.extract_field("importCustomRoutes"),
             ),
             import_subnet_routes_with_public_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("importSubnetRoutesWithPublicIp").unwrap(),
+                o.extract_field("importSubnetRoutesWithPublicIp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             peer_network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerNetwork").unwrap(),
+                o.extract_field("peerNetwork"),
             ),
             stack_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackType").unwrap(),
+                o.extract_field("stackType"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateDetails").unwrap(),
+                o.extract_field("stateDetails"),
             ),
         }
     }

@@ -209,123 +209,52 @@ pub mod web_acl {
                     value: &visibility_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationIntegrationUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "associationConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "captchaConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "challengeConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "customResponseBodies".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "lockToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "rules".into(),
-                },
-                register_interface::ResultField {
-                    name: "scope".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tokenDomains".into(),
-                },
-                register_interface::ResultField {
-                    name: "visibilityConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WebAclResult {
             application_integration_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationIntegrationUrl").unwrap(),
+                o.extract_field("applicationIntegrationUrl"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             association_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associationConfig").unwrap(),
+                o.extract_field("associationConfig"),
             ),
             capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacity").unwrap(),
+                o.extract_field("capacity"),
             ),
             captcha_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("captchaConfig").unwrap(),
+                o.extract_field("captchaConfig"),
             ),
             challenge_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("challengeConfig").unwrap(),
+                o.extract_field("challengeConfig"),
             ),
             custom_response_bodies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customResponseBodies").unwrap(),
+                o.extract_field("customResponseBodies"),
             ),
             default_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultAction").unwrap(),
+                o.extract_field("defaultAction"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             lock_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lockToken").unwrap(),
+                o.extract_field("lockToken"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             rule_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleJson").unwrap(),
+                o.extract_field("ruleJson"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rules").unwrap(),
-            ),
-            scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scope").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
+            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             token_domains: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tokenDomains").unwrap(),
+                o.extract_field("tokenDomains"),
             ),
             visibility_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("visibilityConfig").unwrap(),
+                o.extract_field("visibilityConfig"),
             ),
         }
     }

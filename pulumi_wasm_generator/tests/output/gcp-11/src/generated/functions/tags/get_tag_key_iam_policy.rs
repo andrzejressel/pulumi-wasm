@@ -38,38 +38,15 @@ pub mod get_tag_key_iam_policy {
                     value: &tag_key_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyData".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagKey".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetTagKeyIamPolicyResult {
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             policy_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyData").unwrap(),
+                o.extract_field("policyData"),
             ),
-            tag_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagKey").unwrap(),
-            ),
+            tag_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("tagKey")),
         }
     }
 }

@@ -479,184 +479,81 @@ pub mod bucket {
                     value: &website_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoclass".into(),
-                },
-                register_interface::ResultField {
-                    name: "cors".into(),
-                },
-                register_interface::ResultField {
-                    name: "customPlacementConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultEventBasedHold".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableObjectRetention".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "hierarchicalNamespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecycleRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "logging".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectNumber".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicAccessPrevention".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "requesterPays".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "rpo".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "softDeletePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "uniformBucketLevelAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-                register_interface::ResultField {
-                    name: "versioning".into(),
-                },
-                register_interface::ResultField {
-                    name: "website".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketResult {
             autoclass: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoclass").unwrap(),
+                o.extract_field("autoclass"),
             ),
-            cors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cors").unwrap(),
-            ),
+            cors: pulumi_wasm_rust::__private::into_domain(o.extract_field("cors")),
             custom_placement_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customPlacementConfig").unwrap(),
+                o.extract_field("customPlacementConfig"),
             ),
             default_event_based_hold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultEventBasedHold").unwrap(),
+                o.extract_field("defaultEventBasedHold"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             enable_object_retention: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableObjectRetention").unwrap(),
+                o.extract_field("enableObjectRetention"),
             ),
             encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryption").unwrap(),
+                o.extract_field("encryption"),
             ),
             force_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDestroy").unwrap(),
+                o.extract_field("forceDestroy"),
             ),
             hierarchical_namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hierarchicalNamespace").unwrap(),
+                o.extract_field("hierarchicalNamespace"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             lifecycle_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecycleRules").unwrap(),
+                o.extract_field("lifecycleRules"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logging").unwrap(),
+                o.extract_field("logging"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             project_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectNumber").unwrap(),
+                o.extract_field("projectNumber"),
             ),
             public_access_prevention: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicAccessPrevention").unwrap(),
+                o.extract_field("publicAccessPrevention"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             requester_pays: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requesterPays").unwrap(),
+                o.extract_field("requesterPays"),
             ),
             retention_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionPolicy").unwrap(),
+                o.extract_field("retentionPolicy"),
             ),
-            rpo: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rpo").unwrap(),
-            ),
+            rpo: pulumi_wasm_rust::__private::into_domain(o.extract_field("rpo")),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             soft_delete_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("softDeletePolicy").unwrap(),
+                o.extract_field("softDeletePolicy"),
             ),
             storage_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageClass").unwrap(),
+                o.extract_field("storageClass"),
             ),
             uniform_bucket_level_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uniformBucketLevelAccess").unwrap(),
+                o.extract_field("uniformBucketLevelAccess"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("url").unwrap(),
-            ),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
             versioning: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versioning").unwrap(),
+                o.extract_field("versioning"),
             ),
-            website: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("website").unwrap(),
-            ),
+            website: pulumi_wasm_rust::__private::into_domain(o.extract_field("website")),
         }
     }
 }

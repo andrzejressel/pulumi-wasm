@@ -40,32 +40,16 @@ pub mod get_db_nodes {
                     value: &cloud_vm_cluster_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cloudVmClusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbNodes".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetDbNodesResult {
             cloud_vm_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudVmClusterId").unwrap(),
+                o.extract_field("cloudVmClusterId"),
             ),
             db_nodes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbNodes").unwrap(),
+                o.extract_field("dbNodes"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

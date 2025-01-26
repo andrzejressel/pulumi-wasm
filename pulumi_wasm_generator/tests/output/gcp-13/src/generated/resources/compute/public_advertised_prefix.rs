@@ -154,57 +154,27 @@ pub mod public_advertised_prefix {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsVerificationIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipCidrRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedSecret".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PublicAdvertisedPrefixResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dns_verification_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsVerificationIp").unwrap(),
+                o.extract_field("dnsVerificationIp"),
             ),
             ip_cidr_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipCidrRange").unwrap(),
+                o.extract_field("ipCidrRange"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             shared_secret: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedSecret").unwrap(),
+                o.extract_field("sharedSecret"),
             ),
         }
     }

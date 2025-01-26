@@ -131,45 +131,19 @@ pub mod workspace_table {
                     value: &workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "plan".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "totalRetentionInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkspaceTableResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plan").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
             retention_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionInDays").unwrap(),
+                o.extract_field("retentionInDays"),
             ),
             total_retention_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("totalRetentionInDays").unwrap(),
+                o.extract_field("totalRetentionInDays"),
             ),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

@@ -186,75 +186,32 @@ pub mod endpoint_configuration {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "asyncInferenceConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataCaptureConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "productionVariants".into(),
-                },
-                register_interface::ResultField {
-                    name: "shadowProductionVariants".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EndpointConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             async_inference_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("asyncInferenceConfig").unwrap(),
+                o.extract_field("asyncInferenceConfig"),
             ),
             data_capture_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataCaptureConfig").unwrap(),
+                o.extract_field("dataCaptureConfig"),
             ),
             kms_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyArn").unwrap(),
+                o.extract_field("kmsKeyArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
             production_variants: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productionVariants").unwrap(),
+                o.extract_field("productionVariants"),
             ),
             shadow_production_variants: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shadowProductionVariants").unwrap(),
+                o.extract_field("shadowProductionVariants"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

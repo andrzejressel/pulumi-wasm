@@ -27,7 +27,6 @@ pub mod func_with_empty_outputs {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([]),
         };
         register_interface::invoke(context.get_inner(), &request);
     }

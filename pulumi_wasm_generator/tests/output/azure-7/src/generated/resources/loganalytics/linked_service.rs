@@ -123,45 +123,21 @@ pub mod linked_service {
                     value: &write_access_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "readAccessId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "writeAccessId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LinkedServiceResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             read_access_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("readAccessId").unwrap(),
+                o.extract_field("readAccessId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
             write_access_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("writeAccessId").unwrap(),
+                o.extract_field("writeAccessId"),
             ),
         }
     }

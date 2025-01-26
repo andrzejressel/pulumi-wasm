@@ -137,28 +137,13 @@ pub mod project_cloud_armor_tier {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cloudArmorTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProjectCloudArmorTierResult {
             cloud_armor_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudArmorTier").unwrap(),
+                o.extract_field("cloudArmorTier"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

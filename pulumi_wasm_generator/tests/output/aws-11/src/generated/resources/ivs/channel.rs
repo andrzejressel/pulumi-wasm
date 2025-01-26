@@ -126,76 +126,31 @@ pub mod channel {
                     value: &type__binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorized".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingestEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "latencyMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "playbackUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "recordingConfigurationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ChannelResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             authorized: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorized").unwrap(),
+                o.extract_field("authorized"),
             ),
             ingest_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingestEndpoint").unwrap(),
+                o.extract_field("ingestEndpoint"),
             ),
             latency_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("latencyMode").unwrap(),
+                o.extract_field("latencyMode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             playback_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("playbackUrl").unwrap(),
+                o.extract_field("playbackUrl"),
             ),
             recording_configuration_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recordingConfigurationArn").unwrap(),
+                o.extract_field("recordingConfigurationArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

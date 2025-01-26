@@ -126,46 +126,18 @@ pub mod user_agent_blocking_rule {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "configuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "paused".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         UserAgentBlockingRuleResult {
             configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configuration").unwrap(),
+                o.extract_field("configuration"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mode").unwrap(),
-            ),
-            paused: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("paused").unwrap(),
-            ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
+            paused: pulumi_wasm_rust::__private::into_domain(o.extract_field("paused")),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

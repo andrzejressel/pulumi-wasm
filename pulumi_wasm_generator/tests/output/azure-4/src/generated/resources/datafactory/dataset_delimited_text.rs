@@ -372,141 +372,67 @@ pub mod dataset_delimited_text {
                     value: &schema_columns_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalProperties".into(),
-                },
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "azureBlobFsLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "azureBlobStorageLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "columnDelimiter".into(),
-                },
-                register_interface::ResultField {
-                    name: "compressionCodec".into(),
-                },
-                register_interface::ResultField {
-                    name: "compressionLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFactoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "encoding".into(),
-                },
-                register_interface::ResultField {
-                    name: "escapeCharacter".into(),
-                },
-                register_interface::ResultField {
-                    name: "firstRowAsHeader".into(),
-                },
-                register_interface::ResultField {
-                    name: "folder".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpServerLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkedServiceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nullValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "parameters".into(),
-                },
-                register_interface::ResultField {
-                    name: "quoteCharacter".into(),
-                },
-                register_interface::ResultField {
-                    name: "rowDelimiter".into(),
-                },
-                register_interface::ResultField {
-                    name: "schemaColumns".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DatasetDelimitedTextResult {
             additional_properties: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalProperties").unwrap(),
+                o.extract_field("additionalProperties"),
             ),
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             azure_blob_fs_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureBlobFsLocation").unwrap(),
+                o.extract_field("azureBlobFsLocation"),
             ),
             azure_blob_storage_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azureBlobStorageLocation").unwrap(),
+                o.extract_field("azureBlobStorageLocation"),
             ),
             column_delimiter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("columnDelimiter").unwrap(),
+                o.extract_field("columnDelimiter"),
             ),
             compression_codec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compressionCodec").unwrap(),
+                o.extract_field("compressionCodec"),
             ),
             compression_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compressionLevel").unwrap(),
+                o.extract_field("compressionLevel"),
             ),
             data_factory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFactoryId").unwrap(),
+                o.extract_field("dataFactoryId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             encoding: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encoding").unwrap(),
+                o.extract_field("encoding"),
             ),
             escape_character: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("escapeCharacter").unwrap(),
+                o.extract_field("escapeCharacter"),
             ),
             first_row_as_header: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firstRowAsHeader").unwrap(),
+                o.extract_field("firstRowAsHeader"),
             ),
-            folder: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folder").unwrap(),
-            ),
+            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
             http_server_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpServerLocation").unwrap(),
+                o.extract_field("httpServerLocation"),
             ),
             linked_service_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkedServiceName").unwrap(),
+                o.extract_field("linkedServiceName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             null_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nullValue").unwrap(),
+                o.extract_field("nullValue"),
             ),
             parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parameters").unwrap(),
+                o.extract_field("parameters"),
             ),
             quote_character: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quoteCharacter").unwrap(),
+                o.extract_field("quoteCharacter"),
             ),
             row_delimiter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rowDelimiter").unwrap(),
+                o.extract_field("rowDelimiter"),
             ),
             schema_columns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schemaColumns").unwrap(),
+                o.extract_field("schemaColumns"),
             ),
         }
     }

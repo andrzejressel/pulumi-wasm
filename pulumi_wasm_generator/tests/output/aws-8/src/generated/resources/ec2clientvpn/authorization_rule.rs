@@ -123,45 +123,23 @@ pub mod authorization_rule {
                     value: &target_network_cidr_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorizeAllGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientVpnEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetNetworkCidr".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AuthorizationRuleResult {
             access_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessGroupId").unwrap(),
+                o.extract_field("accessGroupId"),
             ),
             authorize_all_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizeAllGroups").unwrap(),
+                o.extract_field("authorizeAllGroups"),
             ),
             client_vpn_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientVpnEndpointId").unwrap(),
+                o.extract_field("clientVpnEndpointId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             target_network_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetNetworkCidr").unwrap(),
+                o.extract_field("targetNetworkCidr"),
             ),
         }
     }

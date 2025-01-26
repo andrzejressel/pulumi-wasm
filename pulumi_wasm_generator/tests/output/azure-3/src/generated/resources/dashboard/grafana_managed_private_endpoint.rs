@@ -173,64 +173,29 @@ pub mod grafana_managed_private_endpoint {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "grafanaId".into(),
-                },
-                register_interface::ResultField {
-                    name: "groupIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateLinkResourceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateLinkResourceRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "requestMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GrafanaManagedPrivateEndpointResult {
             grafana_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grafanaId").unwrap(),
+                o.extract_field("grafanaId"),
             ),
             group_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("groupIds").unwrap(),
+                o.extract_field("groupIds"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_link_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateLinkResourceId").unwrap(),
+                o.extract_field("privateLinkResourceId"),
             ),
             private_link_resource_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateLinkResourceRegion").unwrap(),
+                o.extract_field("privateLinkResourceRegion"),
             ),
             request_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requestMessage").unwrap(),
+                o.extract_field("requestMessage"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

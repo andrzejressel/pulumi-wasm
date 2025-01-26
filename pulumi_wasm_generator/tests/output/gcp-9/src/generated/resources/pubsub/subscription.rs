@@ -832,124 +832,55 @@ pub mod subscription {
                     value: &topic_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "ackDeadlineSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "bigqueryConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "cloudStorageConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "deadLetterPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableExactlyOnceDelivery".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableMessageOrdering".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "messageRetentionDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "pushConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "retainAckedMessages".into(),
-                },
-                register_interface::ResultField {
-                    name: "retryPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "topic".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SubscriptionResult {
             ack_deadline_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ackDeadlineSeconds").unwrap(),
+                o.extract_field("ackDeadlineSeconds"),
             ),
             bigquery_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bigqueryConfig").unwrap(),
+                o.extract_field("bigqueryConfig"),
             ),
             cloud_storage_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cloudStorageConfig").unwrap(),
+                o.extract_field("cloudStorageConfig"),
             ),
             dead_letter_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deadLetterPolicy").unwrap(),
+                o.extract_field("deadLetterPolicy"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             enable_exactly_once_delivery: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableExactlyOnceDelivery").unwrap(),
+                o.extract_field("enableExactlyOnceDelivery"),
             ),
             enable_message_ordering: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableMessageOrdering").unwrap(),
+                o.extract_field("enableMessageOrdering"),
             ),
             expiration_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationPolicy").unwrap(),
+                o.extract_field("expirationPolicy"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             message_retention_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("messageRetentionDuration").unwrap(),
+                o.extract_field("messageRetentionDuration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             push_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pushConfig").unwrap(),
+                o.extract_field("pushConfig"),
             ),
             retain_acked_messages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retainAckedMessages").unwrap(),
+                o.extract_field("retainAckedMessages"),
             ),
             retry_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retryPolicy").unwrap(),
+                o.extract_field("retryPolicy"),
             ),
-            topic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topic").unwrap(),
-            ),
+            topic: pulumi_wasm_rust::__private::into_domain(o.extract_field("topic")),
         }
     }
 }

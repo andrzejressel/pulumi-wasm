@@ -63,74 +63,31 @@ pub mod get_cluster {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "pendingTasksCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "registeredContainerInstancesCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "runningTasksCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceConnectDefaults".into(),
-                },
-                register_interface::ResultField {
-                    name: "settings".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetClusterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             pending_tasks_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pendingTasksCount").unwrap(),
+                o.extract_field("pendingTasksCount"),
             ),
             registered_container_instances_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registeredContainerInstancesCount").unwrap(),
+                o.extract_field("registeredContainerInstancesCount"),
             ),
             running_tasks_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runningTasksCount").unwrap(),
+                o.extract_field("runningTasksCount"),
             ),
             service_connect_defaults: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceConnectDefaults").unwrap(),
+                o.extract_field("serviceConnectDefaults"),
             ),
             settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("settings").unwrap(),
+                o.extract_field("settings"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

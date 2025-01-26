@@ -113,33 +113,17 @@ pub mod sql_dedicated_gateway {
                     value: &instance_size_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cosmosdbAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceSize".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SqlDedicatedGatewayResult {
             cosmosdb_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cosmosdbAccountId").unwrap(),
+                o.extract_field("cosmosdbAccountId"),
             ),
             instance_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceCount").unwrap(),
+                o.extract_field("instanceCount"),
             ),
             instance_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceSize").unwrap(),
+                o.extract_field("instanceSize"),
             ),
         }
     }

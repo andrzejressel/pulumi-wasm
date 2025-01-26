@@ -197,94 +197,42 @@ pub mod data_collection_rule {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dataCollectionEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFlows".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataSources".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinations".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "immutableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamDeclarations".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataCollectionRuleResult {
             data_collection_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataCollectionEndpointId").unwrap(),
+                o.extract_field("dataCollectionEndpointId"),
             ),
             data_flows: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFlows").unwrap(),
+                o.extract_field("dataFlows"),
             ),
             data_sources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataSources").unwrap(),
+                o.extract_field("dataSources"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             destinations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinations").unwrap(),
+                o.extract_field("destinations"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             immutable_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("immutableId").unwrap(),
+                o.extract_field("immutableId"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             stream_declarations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamDeclarations").unwrap(),
+                o.extract_field("streamDeclarations"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

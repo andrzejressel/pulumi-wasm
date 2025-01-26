@@ -199,93 +199,41 @@ pub mod s_quota_preference {
                     value: &service_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "contactEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "dimensions".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "ignoreSafetyChecks".into(),
-                },
-                register_interface::ResultField {
-                    name: "justification".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parent".into(),
-                },
-                register_interface::ResultField {
-                    name: "quotaConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "quotaId".into(),
-                },
-                register_interface::ResultField {
-                    name: "reconciling".into(),
-                },
-                register_interface::ResultField {
-                    name: "service".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SQuotaPreferenceResult {
             contact_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contactEmail").unwrap(),
+                o.extract_field("contactEmail"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             dimensions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dimensions").unwrap(),
+                o.extract_field("dimensions"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             ignore_safety_checks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ignoreSafetyChecks").unwrap(),
+                o.extract_field("ignoreSafetyChecks"),
             ),
             justification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("justification").unwrap(),
+                o.extract_field("justification"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parent").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
             quota_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quotaConfig").unwrap(),
+                o.extract_field("quotaConfig"),
             ),
             quota_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quotaId").unwrap(),
+                o.extract_field("quotaId"),
             ),
             reconciling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reconciling").unwrap(),
+                o.extract_field("reconciling"),
             ),
             service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("service").unwrap(),
+                o.extract_field("service"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

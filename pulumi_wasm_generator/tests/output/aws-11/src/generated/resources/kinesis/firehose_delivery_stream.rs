@@ -1023,129 +1023,59 @@ pub mod firehose_delivery_stream {
                     value: &version_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "destination".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "elasticsearchConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "extendedS3Configuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpEndpointConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "icebergConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "kinesisSourceConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "mskSourceConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "opensearchConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "opensearchserverlessConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "redshiftConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverSideEncryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "snowflakeConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "splunkConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FirehoseDeliveryStreamResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             destination: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destination").unwrap(),
+                o.extract_field("destination"),
             ),
             destination_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationId").unwrap(),
+                o.extract_field("destinationId"),
             ),
             elasticsearch_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("elasticsearchConfiguration").unwrap(),
+                o.extract_field("elasticsearchConfiguration"),
             ),
             extended_s3_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extendedS3Configuration").unwrap(),
+                o.extract_field("extendedS3Configuration"),
             ),
             http_endpoint_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpEndpointConfiguration").unwrap(),
+                o.extract_field("httpEndpointConfiguration"),
             ),
             iceberg_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("icebergConfiguration").unwrap(),
+                o.extract_field("icebergConfiguration"),
             ),
             kinesis_source_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kinesisSourceConfiguration").unwrap(),
+                o.extract_field("kinesisSourceConfiguration"),
             ),
             msk_source_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mskSourceConfiguration").unwrap(),
+                o.extract_field("mskSourceConfiguration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             opensearch_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("opensearchConfiguration").unwrap(),
+                o.extract_field("opensearchConfiguration"),
             ),
             opensearchserverless_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("opensearchserverlessConfiguration").unwrap(),
+                o.extract_field("opensearchserverlessConfiguration"),
             ),
             redshift_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("redshiftConfiguration").unwrap(),
+                o.extract_field("redshiftConfiguration"),
             ),
             server_side_encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverSideEncryption").unwrap(),
+                o.extract_field("serverSideEncryption"),
             ),
             snowflake_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("snowflakeConfiguration").unwrap(),
+                o.extract_field("snowflakeConfiguration"),
             ),
             splunk_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("splunkConfiguration").unwrap(),
+                o.extract_field("splunkConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             version_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionId").unwrap(),
+                o.extract_field("versionId"),
             ),
         }
     }

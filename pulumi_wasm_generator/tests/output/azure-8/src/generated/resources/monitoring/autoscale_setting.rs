@@ -490,69 +490,31 @@ pub mod autoscale_setting {
                     value: &target_resource_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notification".into(),
-                },
-                register_interface::ResultField {
-                    name: "predictive".into(),
-                },
-                register_interface::ResultField {
-                    name: "profiles".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResourceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AutoscaleSettingResult {
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             notification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notification").unwrap(),
+                o.extract_field("notification"),
             ),
             predictive: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("predictive").unwrap(),
+                o.extract_field("predictive"),
             ),
             profiles: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profiles").unwrap(),
+                o.extract_field("profiles"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             target_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResourceId").unwrap(),
+                o.extract_field("targetResourceId"),
             ),
         }
     }

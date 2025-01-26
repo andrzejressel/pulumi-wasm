@@ -20,16 +20,12 @@ enum RequestType {
 }
 
 struct Result {
-    fields: HashSet<FieldName>,
     request_type: RequestType,
 }
 
 impl Result {
-    fn new(fields: HashSet<FieldName>, request_type: RequestType) -> Result {
-        Result {
-            fields,
-            request_type,
-        }
+    fn new(request_type: RequestType) -> Result {
+        Result { request_type }
     }
 }
 
@@ -82,10 +78,9 @@ impl PulumiService for PulumiServiceImpl {
         match request.operation {
             ResourceRequestOperation::Register(register) => {
                 {
-                    self.expected_results.borrow_mut().insert(
-                        output_id,
-                        Result::new(request.expected_results.clone(), Register),
-                    );
+                    self.expected_results
+                        .borrow_mut()
+                        .insert(output_id, Result::new(Register));
                 }
 
                 let object = Self::create_protobuf_struct(request.object);
@@ -131,10 +126,9 @@ impl PulumiService for PulumiServiceImpl {
             }
             ResourceRequestOperation::Invoke(invoke) => {
                 {
-                    self.expected_results.borrow_mut().insert(
-                        output_id,
-                        Result::new(request.expected_results.clone(), Invoke),
-                    );
+                    self.expected_results
+                        .borrow_mut()
+                        .insert(output_id, Result::new(Invoke));
                 }
 
                 let object = Self::create_protobuf_struct(request.object);
@@ -181,7 +175,7 @@ impl PulumiService for PulumiServiceImpl {
                 }
             };
 
-            let result = Self::protoc_object_to_json_map(object, expected_results.fields.clone());
+            let result = Self::protoc_object_to_json_map(object);
 
             map.insert(output_id, RegisterResourceResponse { outputs: result });
         }
@@ -193,21 +187,12 @@ impl PulumiService for PulumiServiceImpl {
 const UNKNOWN_VALUE: &str = "04da6b54-80e4-46f7-96ec-b56ff0331ba9";
 
 impl PulumiServiceImpl {
-    fn protoc_object_to_json_map(
-        o: Struct,
-        schema: HashSet<FieldName>,
-    ) -> HashMap<FieldName, Value> {
+    fn protoc_object_to_json_map(o: Struct) -> HashMap<FieldName, Value> {
         o.fields
             .iter()
-            .flat_map(|(k, v)| match schema.get(&k.into()) {
-                None => {
-                    warn!("Schema for field [{k}] not found");
-                    None
-                }
-                Some(_) => {
-                    let v = Self::protobuf_to_json(v);
-                    Some((k.into(), v))
-                }
+            .flat_map(|(k, v)| {
+                let v = Self::protobuf_to_json(v);
+                Some((k.into(), v))
             })
             .collect::<HashMap<_, _>>()
     }
@@ -305,7 +290,7 @@ mod tests {
     use crate::pulumi::service_impl::PulumiServiceImpl;
 
     #[test]
-    fn protoc_object_to_messagepack_map_ignored_fields_without_schema() {
+    fn protoc_object_to_messagepack() {
         let s = Struct {
             fields: BTreeMap::from([
                 (
@@ -323,10 +308,12 @@ mod tests {
             ]),
         };
 
-        let schema = ["field1".into()].into();
-        let result = PulumiServiceImpl::protoc_object_to_json_map(s, schema);
+        let result = PulumiServiceImpl::protoc_object_to_json_map(s);
 
-        assert_eq!(result, HashMap::from([("field1".into(), 1.5.into())]))
+        assert_eq!(
+            result,
+            HashMap::from([("field1".into(), 1.5.into()), ("field2".into(), 2.5.into())])
+        );
     }
 
     mod register_resource {}

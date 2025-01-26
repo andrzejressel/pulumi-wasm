@@ -292,129 +292,57 @@ pub mod custom_db_engine_version {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseInstallationFilesS3BucketName".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseInstallationFilesS3Prefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbParameterGroupFamily".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "engine".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "filename".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageId".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "majorEngineVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "manifest".into(),
-                },
-                register_interface::ResultField {
-                    name: "manifestComputed".into(),
-                },
-                register_interface::ResultField {
-                    name: "manifestHash".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceImageId".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomDbEngineVersionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             database_installation_files_s3_bucket_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseInstallationFilesS3BucketName").unwrap(),
+                o.extract_field("databaseInstallationFilesS3BucketName"),
             ),
             database_installation_files_s3_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseInstallationFilesS3Prefix").unwrap(),
+                o.extract_field("databaseInstallationFilesS3Prefix"),
             ),
             db_parameter_group_family: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbParameterGroupFamily").unwrap(),
+                o.extract_field("dbParameterGroupFamily"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engine").unwrap(),
-            ),
+            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
             engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineVersion").unwrap(),
+                o.extract_field("engineVersion"),
             ),
             filename: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filename").unwrap(),
+                o.extract_field("filename"),
             ),
             image_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageId").unwrap(),
+                o.extract_field("imageId"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             major_engine_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("majorEngineVersion").unwrap(),
+                o.extract_field("majorEngineVersion"),
             ),
             manifest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manifest").unwrap(),
+                o.extract_field("manifest"),
             ),
             manifest_computed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manifestComputed").unwrap(),
+                o.extract_field("manifestComputed"),
             ),
             manifest_hash: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("manifestHash").unwrap(),
+                o.extract_field("manifestHash"),
             ),
             source_image_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceImageId").unwrap(),
+                o.extract_field("sourceImageId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

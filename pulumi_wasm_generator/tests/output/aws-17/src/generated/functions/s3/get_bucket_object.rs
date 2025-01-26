@@ -115,175 +115,73 @@ pub mod get_bucket_object {
                     value: &version_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "body".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "bucketKeyEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheControl".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentDisposition".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentEncoding".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentLanguage".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentType".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "expiration".into(),
-                },
-                register_interface::ResultField {
-                    name: "expires".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "key".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModified".into(),
-                },
-                register_interface::ResultField {
-                    name: "metadata".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectLockLegalHoldStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectLockMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectLockRetainUntilDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "range".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverSideEncryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "sseKmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "websiteRedirectLocation".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetBucketObjectResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("body").unwrap(),
-            ),
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            body: pulumi_wasm_rust::__private::into_domain(o.extract_field("body")),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             bucket_key_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketKeyEnabled").unwrap(),
+                o.extract_field("bucketKeyEnabled"),
             ),
             cache_control: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheControl").unwrap(),
+                o.extract_field("cacheControl"),
             ),
             content_disposition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentDisposition").unwrap(),
+                o.extract_field("contentDisposition"),
             ),
             content_encoding: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentEncoding").unwrap(),
+                o.extract_field("contentEncoding"),
             ),
             content_language: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentLanguage").unwrap(),
+                o.extract_field("contentLanguage"),
             ),
             content_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentLength").unwrap(),
+                o.extract_field("contentLength"),
             ),
             content_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentType").unwrap(),
+                o.extract_field("contentType"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             expiration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expiration").unwrap(),
+                o.extract_field("expiration"),
             ),
             expires: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expires").unwrap(),
+                o.extract_field("expires"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("key").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
             last_modified: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModified").unwrap(),
+                o.extract_field("lastModified"),
             ),
             metadata: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metadata").unwrap(),
+                o.extract_field("metadata"),
             ),
             object_lock_legal_hold_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectLockLegalHoldStatus").unwrap(),
+                o.extract_field("objectLockLegalHoldStatus"),
             ),
             object_lock_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectLockMode").unwrap(),
+                o.extract_field("objectLockMode"),
             ),
             object_lock_retain_until_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectLockRetainUntilDate").unwrap(),
+                o.extract_field("objectLockRetainUntilDate"),
             ),
-            range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("range").unwrap(),
-            ),
+            range: pulumi_wasm_rust::__private::into_domain(o.extract_field("range")),
             server_side_encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverSideEncryption").unwrap(),
+                o.extract_field("serverSideEncryption"),
             ),
             sse_kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sseKmsKeyId").unwrap(),
+                o.extract_field("sseKmsKeyId"),
             ),
             storage_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageClass").unwrap(),
+                o.extract_field("storageClass"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             version_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionId").unwrap(),
+                o.extract_field("versionId"),
             ),
             website_redirect_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("websiteRedirectLocation").unwrap(),
+                o.extract_field("websiteRedirectLocation"),
             ),
         }
     }

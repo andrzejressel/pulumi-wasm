@@ -137,45 +137,21 @@ pub mod hyper_v_replication_policy {
                     value: &replication_interval_in_seconds_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationConsistentSnapshotFrequencyInHours".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryPointRetentionInHours".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicationIntervalInSeconds".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HyperVReplicationPolicyResult {
             application_consistent_snapshot_frequency_in_hours: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationConsistentSnapshotFrequencyInHours").unwrap(),
+                o.extract_field("applicationConsistentSnapshotFrequencyInHours"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             recovery_point_retention_in_hours: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryPointRetentionInHours").unwrap(),
+                o.extract_field("recoveryPointRetentionInHours"),
             ),
             recovery_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryVaultId").unwrap(),
+                o.extract_field("recoveryVaultId"),
             ),
             replication_interval_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicationIntervalInSeconds").unwrap(),
+                o.extract_field("replicationIntervalInSeconds"),
             ),
         }
     }

@@ -179,69 +179,31 @@ pub mod backup_policy {
                     value: &weekly_backups_to_keep_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "dailyBackupsToKeep".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "monthlyBackupsToKeep".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "weeklyBackupsToKeep".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BackupPolicyResult {
             account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountName").unwrap(),
+                o.extract_field("accountName"),
             ),
             daily_backups_to_keep: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dailyBackupsToKeep").unwrap(),
+                o.extract_field("dailyBackupsToKeep"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             monthly_backups_to_keep: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monthlyBackupsToKeep").unwrap(),
+                o.extract_field("monthlyBackupsToKeep"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             weekly_backups_to_keep: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("weeklyBackupsToKeep").unwrap(),
+                o.extract_field("weeklyBackupsToKeep"),
             ),
         }
     }

@@ -167,57 +167,25 @@ pub mod data_lake {
                     value: &timeouts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "configuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "metaStoreManagerRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3BucketArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeouts".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataLakeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configuration").unwrap(),
+                o.extract_field("configuration"),
             ),
             meta_store_manager_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metaStoreManagerRoleArn").unwrap(),
+                o.extract_field("metaStoreManagerRoleArn"),
             ),
             s3_bucket_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3BucketArn").unwrap(),
+                o.extract_field("s3BucketArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeouts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeouts").unwrap(),
+                o.extract_field("timeouts"),
             ),
         }
     }

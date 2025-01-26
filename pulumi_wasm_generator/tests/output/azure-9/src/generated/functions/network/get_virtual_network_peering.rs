@@ -60,73 +60,34 @@ pub mod get_virtual_network_peering {
                     value: &virtual_network_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowForwardedTraffic".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowGatewayTransit".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowVirtualNetworkAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "onlyIpv6PeeringEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerCompleteVirtualNetworksEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteVirtualNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "useRemoteGateways".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetVirtualNetworkPeeringResult {
             allow_forwarded_traffic: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowForwardedTraffic").unwrap(),
+                o.extract_field("allowForwardedTraffic"),
             ),
             allow_gateway_transit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowGatewayTransit").unwrap(),
+                o.extract_field("allowGatewayTransit"),
             ),
             allow_virtual_network_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowVirtualNetworkAccess").unwrap(),
+                o.extract_field("allowVirtualNetworkAccess"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             only_ipv6_peering_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("onlyIpv6PeeringEnabled").unwrap(),
+                o.extract_field("onlyIpv6PeeringEnabled"),
             ),
             peer_complete_virtual_networks_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerCompleteVirtualNetworksEnabled").unwrap(),
+                o.extract_field("peerCompleteVirtualNetworksEnabled"),
             ),
             remote_virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteVirtualNetworkId").unwrap(),
+                o.extract_field("remoteVirtualNetworkId"),
             ),
             use_remote_gateways: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("useRemoteGateways").unwrap(),
+                o.extract_field("useRemoteGateways"),
             ),
             virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkId").unwrap(),
+                o.extract_field("virtualNetworkId"),
             ),
         }
     }

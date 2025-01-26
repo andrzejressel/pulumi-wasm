@@ -91,80 +91,30 @@ pub mod get_certificate {
                     value: &types_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateChain".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyTypes".into(),
-                },
-                register_interface::ResultField {
-                    name: "mostRecent".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "statuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "types".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCertificateResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificate").unwrap(),
+                o.extract_field("certificate"),
             ),
             certificate_chain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateChain").unwrap(),
+                o.extract_field("certificateChain"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             key_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyTypes").unwrap(),
+                o.extract_field("keyTypes"),
             ),
             most_recent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mostRecent").unwrap(),
+                o.extract_field("mostRecent"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statuses").unwrap(),
+                o.extract_field("statuses"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("types").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            types: pulumi_wasm_rust::__private::into_domain(o.extract_field("types")),
         }
     }
 }

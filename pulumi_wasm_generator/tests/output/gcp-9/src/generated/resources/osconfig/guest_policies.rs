@@ -314,81 +314,37 @@ pub mod guest_policies {
                     value: &recipes_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "assignment".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "guestPolicyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "packageRepositories".into(),
-                },
-                register_interface::ResultField {
-                    name: "packages".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "recipes".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GuestPoliciesResult {
             assignment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("assignment").unwrap(),
+                o.extract_field("assignment"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             guest_policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("guestPolicyId").unwrap(),
+                o.extract_field("guestPolicyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             package_repositories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packageRepositories").unwrap(),
+                o.extract_field("packageRepositories"),
             ),
             packages: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("packages").unwrap(),
+                o.extract_field("packages"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             recipes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recipes").unwrap(),
+                o.extract_field("recipes"),
             ),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
         }
     }

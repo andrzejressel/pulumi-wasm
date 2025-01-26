@@ -440,46 +440,18 @@ pub mod bucket_notification {
                     value: &topics_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventbridge".into(),
-                },
-                register_interface::ResultField {
-                    name: "lambdaFunctions".into(),
-                },
-                register_interface::ResultField {
-                    name: "queues".into(),
-                },
-                register_interface::ResultField {
-                    name: "topics".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketNotificationResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             eventbridge: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventbridge").unwrap(),
+                o.extract_field("eventbridge"),
             ),
             lambda_functions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lambdaFunctions").unwrap(),
+                o.extract_field("lambdaFunctions"),
             ),
-            queues: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queues").unwrap(),
-            ),
-            topics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topics").unwrap(),
-            ),
+            queues: pulumi_wasm_rust::__private::into_domain(o.extract_field("queues")),
+            topics: pulumi_wasm_rust::__private::into_domain(o.extract_field("topics")),
         }
     }
 }

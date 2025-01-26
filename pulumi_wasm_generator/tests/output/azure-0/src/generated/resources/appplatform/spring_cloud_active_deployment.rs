@@ -108,27 +108,14 @@ pub mod spring_cloud_active_deployment {
                     value: &spring_cloud_app_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "deploymentName".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudAppId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudActiveDeploymentResult {
             deployment_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deploymentName").unwrap(),
+                o.extract_field("deploymentName"),
             ),
             spring_cloud_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudAppId").unwrap(),
+                o.extract_field("springCloudAppId"),
             ),
         }
     }

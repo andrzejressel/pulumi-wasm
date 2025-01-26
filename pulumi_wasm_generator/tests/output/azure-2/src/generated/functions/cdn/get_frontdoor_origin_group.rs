@@ -69,69 +69,31 @@ pub mod get_frontdoor_origin_group {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cdnFrontdoorProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthProbes".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "loadBalancings".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "profileName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreTrafficTimeToHealedOrNewEndpointInMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionAffinityEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetFrontdoorOriginGroupResult {
             cdn_frontdoor_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnFrontdoorProfileId").unwrap(),
+                o.extract_field("cdnFrontdoorProfileId"),
             ),
             health_probes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthProbes").unwrap(),
+                o.extract_field("healthProbes"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             load_balancings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loadBalancings").unwrap(),
+                o.extract_field("loadBalancings"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             profile_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("profileName").unwrap(),
+                o.extract_field("profileName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap
-                    .remove("restoreTrafficTimeToHealedOrNewEndpointInMinutes")
-                    .unwrap(),
+                o.extract_field("restoreTrafficTimeToHealedOrNewEndpointInMinutes"),
             ),
             session_affinity_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionAffinityEnabled").unwrap(),
+                o.extract_field("sessionAffinityEnabled"),
             ),
         }
     }

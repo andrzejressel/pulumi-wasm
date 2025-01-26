@@ -159,75 +159,34 @@ pub mod automation_rule {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actions".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "criteria".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "isTerminal".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleName".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleOrder".into(),
-                },
-                register_interface::ResultField {
-                    name: "ruleStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AutomationRuleResult {
             actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actions").unwrap(),
+                o.extract_field("actions"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             criteria: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("criteria").unwrap(),
+                o.extract_field("criteria"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             is_terminal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isTerminal").unwrap(),
+                o.extract_field("isTerminal"),
             ),
             rule_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleName").unwrap(),
+                o.extract_field("ruleName"),
             ),
             rule_order: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleOrder").unwrap(),
+                o.extract_field("ruleOrder"),
             ),
             rule_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ruleStatus").unwrap(),
+                o.extract_field("ruleStatus"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

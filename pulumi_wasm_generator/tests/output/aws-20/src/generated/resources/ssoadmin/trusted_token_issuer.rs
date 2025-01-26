@@ -147,63 +147,26 @@ pub mod trusted_token_issuer {
                     value: &trusted_token_issuer_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "clientToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedTokenIssuerConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "trustedTokenIssuerType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TrustedTokenIssuerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             client_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clientToken").unwrap(),
+                o.extract_field("clientToken"),
             ),
             instance_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceArn").unwrap(),
+                o.extract_field("instanceArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             trusted_token_issuer_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedTokenIssuerConfiguration").unwrap(),
+                o.extract_field("trustedTokenIssuerConfiguration"),
             ),
             trusted_token_issuer_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trustedTokenIssuerType").unwrap(),
+                o.extract_field("trustedTokenIssuerType"),
             ),
         }
     }

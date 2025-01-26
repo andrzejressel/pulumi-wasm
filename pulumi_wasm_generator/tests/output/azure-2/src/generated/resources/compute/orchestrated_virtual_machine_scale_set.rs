@@ -633,232 +633,107 @@ pub mod orchestrated_virtual_machine_scale_set {
                     value: &zones_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalCapabilities".into(),
-                },
-                register_interface::ResultField {
-                    name: "automaticInstanceRepair".into(),
-                },
-                register_interface::ResultField {
-                    name: "bootDiagnostics".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityReservationGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataDisks".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionAtHostEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "evictionPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "extensionOperationsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "extensions".into(),
-                },
-                register_interface::ResultField {
-                    name: "extensionsTimeBudget".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "instances".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxBidPrice".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "osDisk".into(),
-                },
-                register_interface::ResultField {
-                    name: "osProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "plan".into(),
-                },
-                register_interface::ResultField {
-                    name: "platformFaultDomainCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "priorityMix".into(),
-                },
-                register_interface::ResultField {
-                    name: "proximityPlacementGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "singlePlacementGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceImageId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceImageReference".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "terminationNotification".into(),
-                },
-                register_interface::ResultField {
-                    name: "uniqueId".into(),
-                },
-                register_interface::ResultField {
-                    name: "userDataBase64".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneBalance".into(),
-                },
-                register_interface::ResultField {
-                    name: "zones".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OrchestratedVirtualMachineScaleSetResult {
             additional_capabilities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalCapabilities").unwrap(),
+                o.extract_field("additionalCapabilities"),
             ),
             automatic_instance_repair: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticInstanceRepair").unwrap(),
+                o.extract_field("automaticInstanceRepair"),
             ),
             boot_diagnostics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bootDiagnostics").unwrap(),
+                o.extract_field("bootDiagnostics"),
             ),
             capacity_reservation_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityReservationGroupId").unwrap(),
+                o.extract_field("capacityReservationGroupId"),
             ),
             data_disks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataDisks").unwrap(),
+                o.extract_field("dataDisks"),
             ),
             encryption_at_host_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionAtHostEnabled").unwrap(),
+                o.extract_field("encryptionAtHostEnabled"),
             ),
             eviction_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("evictionPolicy").unwrap(),
+                o.extract_field("evictionPolicy"),
             ),
             extension_operations_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extensionOperationsEnabled").unwrap(),
+                o.extract_field("extensionOperationsEnabled"),
             ),
             extensions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extensions").unwrap(),
+                o.extract_field("extensions"),
             ),
             extensions_time_budget: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("extensionsTimeBudget").unwrap(),
+                o.extract_field("extensionsTimeBudget"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             instances: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instances").unwrap(),
+                o.extract_field("instances"),
             ),
             license_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseType").unwrap(),
+                o.extract_field("licenseType"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             max_bid_price: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxBidPrice").unwrap(),
+                o.extract_field("maxBidPrice"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_interfaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaces").unwrap(),
+                o.extract_field("networkInterfaces"),
             ),
-            os_disk: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osDisk").unwrap(),
-            ),
+            os_disk: pulumi_wasm_rust::__private::into_domain(o.extract_field("osDisk")),
             os_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osProfile").unwrap(),
+                o.extract_field("osProfile"),
             ),
-            plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plan").unwrap(),
-            ),
+            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
             platform_fault_domain_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platformFaultDomainCount").unwrap(),
+                o.extract_field("platformFaultDomainCount"),
             ),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             priority_mix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priorityMix").unwrap(),
+                o.extract_field("priorityMix"),
             ),
             proximity_placement_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proximityPlacementGroupId").unwrap(),
+                o.extract_field("proximityPlacementGroupId"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             single_placement_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("singlePlacementGroup").unwrap(),
+                o.extract_field("singlePlacementGroup"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             sku_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuProfile").unwrap(),
+                o.extract_field("skuProfile"),
             ),
             source_image_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceImageId").unwrap(),
+                o.extract_field("sourceImageId"),
             ),
             source_image_reference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceImageReference").unwrap(),
+                o.extract_field("sourceImageReference"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             termination_notification: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("terminationNotification").unwrap(),
+                o.extract_field("terminationNotification"),
             ),
             unique_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uniqueId").unwrap(),
+                o.extract_field("uniqueId"),
             ),
             user_data_base64: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userDataBase64").unwrap(),
+                o.extract_field("userDataBase64"),
             ),
             zone_balance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneBalance").unwrap(),
+                o.extract_field("zoneBalance"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zones").unwrap(),
-            ),
+            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

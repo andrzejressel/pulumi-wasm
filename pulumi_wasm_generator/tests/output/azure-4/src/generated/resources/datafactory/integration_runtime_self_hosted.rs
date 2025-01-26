@@ -146,57 +146,27 @@ pub mod integration_runtime_self_hosted {
                     value: &self_contained_interactive_authoring_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dataFactoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryAuthorizationKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "rbacAuthorizations".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAuthorizationKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfContainedInteractiveAuthoringEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IntegrationRuntimeSelfHostedResult {
             data_factory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFactoryId").unwrap(),
+                o.extract_field("dataFactoryId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             primary_authorization_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryAuthorizationKey").unwrap(),
+                o.extract_field("primaryAuthorizationKey"),
             ),
             rbac_authorizations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rbacAuthorizations").unwrap(),
+                o.extract_field("rbacAuthorizations"),
             ),
             secondary_authorization_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAuthorizationKey").unwrap(),
+                o.extract_field("secondaryAuthorizationKey"),
             ),
             self_contained_interactive_authoring_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfContainedInteractiveAuthoringEnabled").unwrap(),
+                o.extract_field("selfContainedInteractiveAuthoringEnabled"),
             ),
         }
     }

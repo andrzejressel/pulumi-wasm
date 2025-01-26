@@ -317,124 +317,55 @@ pub mod cache {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "automaticallyRotateKeyToLatestEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheSizeInGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultAccessPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryActiveDirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryFlatFile".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryLdap".into(),
-                },
-                register_interface::ResultField {
-                    name: "dns".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mountAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "mtu".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ntpServer".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CacheResult {
             automatically_rotate_key_to_latest_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("automaticallyRotateKeyToLatestEnabled").unwrap(),
+                o.extract_field("automaticallyRotateKeyToLatestEnabled"),
             ),
             cache_size_in_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheSizeInGb").unwrap(),
+                o.extract_field("cacheSizeInGb"),
             ),
             default_access_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultAccessPolicy").unwrap(),
+                o.extract_field("defaultAccessPolicy"),
             ),
             directory_active_directory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryActiveDirectory").unwrap(),
+                o.extract_field("directoryActiveDirectory"),
             ),
             directory_flat_file: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryFlatFile").unwrap(),
+                o.extract_field("directoryFlatFile"),
             ),
             directory_ldap: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryLdap").unwrap(),
+                o.extract_field("directoryLdap"),
             ),
-            dns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dns").unwrap(),
-            ),
+            dns: pulumi_wasm_rust::__private::into_domain(o.extract_field("dns")),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultKeyId").unwrap(),
+                o.extract_field("keyVaultKeyId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             mount_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mountAddresses").unwrap(),
+                o.extract_field("mountAddresses"),
             ),
-            mtu: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mtu").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            mtu: pulumi_wasm_rust::__private::into_domain(o.extract_field("mtu")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             ntp_server: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ntpServer").unwrap(),
+                o.extract_field("ntpServer"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

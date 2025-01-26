@@ -197,57 +197,27 @@ pub mod credential_service_principal {
                     value: &tenant_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataFactoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicePrincipalId".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicePrincipalKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CredentialServicePrincipalResult {
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             data_factory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataFactoryId").unwrap(),
+                o.extract_field("dataFactoryId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             service_principal_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicePrincipalId").unwrap(),
+                o.extract_field("servicePrincipalId"),
             ),
             service_principal_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicePrincipalKey").unwrap(),
+                o.extract_field("servicePrincipalKey"),
             ),
             tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantId").unwrap(),
+                o.extract_field("tenantId"),
             ),
         }
     }

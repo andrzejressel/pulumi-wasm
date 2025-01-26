@@ -95,45 +95,23 @@ pub mod data_share_authorization {
                     value: &data_share_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowWrites".into(),
-                },
-                register_interface::ResultField {
-                    name: "consumerIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataShareArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedBy".into(),
-                },
-                register_interface::ResultField {
-                    name: "producerArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DataShareAuthorizationResult {
             allow_writes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowWrites").unwrap(),
+                o.extract_field("allowWrites"),
             ),
             consumer_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consumerIdentifier").unwrap(),
+                o.extract_field("consumerIdentifier"),
             ),
             data_share_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataShareArn").unwrap(),
+                o.extract_field("dataShareArn"),
             ),
             managed_by: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedBy").unwrap(),
+                o.extract_field("managedBy"),
             ),
             producer_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("producerArn").unwrap(),
+                o.extract_field("producerArn"),
             ),
         }
     }

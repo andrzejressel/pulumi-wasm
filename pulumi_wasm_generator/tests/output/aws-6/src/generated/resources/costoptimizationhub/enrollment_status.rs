@@ -79,28 +79,13 @@ pub mod enrollment_status {
                     value: &include_member_accounts_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "includeMemberAccounts".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnrollmentStatusResult {
             include_member_accounts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeMemberAccounts").unwrap(),
+                o.extract_field("includeMemberAccounts"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

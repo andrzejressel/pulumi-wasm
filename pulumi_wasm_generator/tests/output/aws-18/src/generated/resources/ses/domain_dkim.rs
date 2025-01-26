@@ -55,28 +55,13 @@ pub mod domain_dkim {
                     value: &domain_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dkimTokens".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainDkimResult {
             dkim_tokens: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dkimTokens").unwrap(),
+                o.extract_field("dkimTokens"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
         }
     }
 }

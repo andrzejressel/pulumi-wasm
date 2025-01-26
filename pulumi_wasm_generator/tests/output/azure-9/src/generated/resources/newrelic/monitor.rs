@@ -235,88 +235,37 @@ pub mod monitor {
                     value: &user_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountCreationSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingestionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "orgCreationSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "plan".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "user".into(),
-                },
-                register_interface::ResultField {
-                    name: "userId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MonitorResult {
             account_creation_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountCreationSource").unwrap(),
+                o.extract_field("accountCreationSource"),
             ),
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             ingestion_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingestionKey").unwrap(),
+                o.extract_field("ingestionKey"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             org_creation_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orgCreationSource").unwrap(),
+                o.extract_field("orgCreationSource"),
             ),
             organization_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationId").unwrap(),
+                o.extract_field("organizationId"),
             ),
-            plan: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("plan").unwrap(),
-            ),
+            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("user").unwrap(),
-            ),
-            user_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userId").unwrap(),
-            ),
+            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
+            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
         }
     }
 }

@@ -185,123 +185,58 @@ pub mod snapshot_copy {
                     value: &temporary_restore_days_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "completionDurationMinutes".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataEncryptionKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "encrypted".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "outpostArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerAlias".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "permanentRestore".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceSnapshotId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageTier".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "temporaryRestoreDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeSize".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SnapshotCopyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             completion_duration_minutes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("completionDurationMinutes").unwrap(),
+                o.extract_field("completionDurationMinutes"),
             ),
             data_encryption_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataEncryptionKeyId").unwrap(),
+                o.extract_field("dataEncryptionKeyId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             encrypted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encrypted").unwrap(),
+                o.extract_field("encrypted"),
             ),
             kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKeyId").unwrap(),
+                o.extract_field("kmsKeyId"),
             ),
             outpost_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("outpostArn").unwrap(),
+                o.extract_field("outpostArn"),
             ),
             owner_alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerAlias").unwrap(),
+                o.extract_field("ownerAlias"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
             permanent_restore: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permanentRestore").unwrap(),
+                o.extract_field("permanentRestore"),
             ),
             source_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceRegion").unwrap(),
+                o.extract_field("sourceRegion"),
             ),
             source_snapshot_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceSnapshotId").unwrap(),
+                o.extract_field("sourceSnapshotId"),
             ),
             storage_tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageTier").unwrap(),
+                o.extract_field("storageTier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             temporary_restore_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("temporaryRestoreDays").unwrap(),
+                o.extract_field("temporaryRestoreDays"),
             ),
             volume_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeId").unwrap(),
+                o.extract_field("volumeId"),
             ),
             volume_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeSize").unwrap(),
+                o.extract_field("volumeSize"),
             ),
         }
     }

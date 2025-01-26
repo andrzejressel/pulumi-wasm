@@ -86,39 +86,18 @@ pub mod scaling_plan {
                     value: &scaling_instructions_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "applicationSource".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "scalingInstructions".into(),
-                },
-                register_interface::ResultField {
-                    name: "scalingPlanVersion".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ScalingPlanResult {
             application_source: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationSource").unwrap(),
+                o.extract_field("applicationSource"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             scaling_instructions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scalingInstructions").unwrap(),
+                o.extract_field("scalingInstructions"),
             ),
             scaling_plan_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scalingPlanVersion").unwrap(),
+                o.extract_field("scalingPlanVersion"),
             ),
         }
     }

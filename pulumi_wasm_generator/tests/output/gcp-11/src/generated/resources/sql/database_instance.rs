@@ -561,171 +561,80 @@ pub mod database_instance {
                     value: &settings_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "availableMaintenanceVersions".into(),
-                },
-                register_interface::ResultField {
-                    name: "clone".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "deletionProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionKeyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "firstIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "masterInstanceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pscServiceAttachmentLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicaConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicaNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "restoreBackupContext".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "serverCaCerts".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccountEmailAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "settings".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DatabaseInstanceResult {
             available_maintenance_versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availableMaintenanceVersions").unwrap(),
+                o.extract_field("availableMaintenanceVersions"),
             ),
-            clone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clone").unwrap(),
-            ),
+            clone: pulumi_wasm_rust::__private::into_domain(o.extract_field("clone")),
             connection_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionName").unwrap(),
+                o.extract_field("connectionName"),
             ),
             database_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseVersion").unwrap(),
+                o.extract_field("databaseVersion"),
             ),
             deletion_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deletionProtection").unwrap(),
+                o.extract_field("deletionProtection"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             encryption_key_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionKeyName").unwrap(),
+                o.extract_field("encryptionKeyName"),
             ),
             first_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firstIpAddress").unwrap(),
+                o.extract_field("firstIpAddress"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddresses").unwrap(),
+                o.extract_field("ipAddresses"),
             ),
             maintenance_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceVersion").unwrap(),
+                o.extract_field("maintenanceVersion"),
             ),
             master_instance_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("masterInstanceName").unwrap(),
+                o.extract_field("masterInstanceName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpAddress").unwrap(),
+                o.extract_field("privateIpAddress"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             psc_service_attachment_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pscServiceAttachmentLink").unwrap(),
+                o.extract_field("pscServiceAttachmentLink"),
             ),
             public_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIpAddress").unwrap(),
+                o.extract_field("publicIpAddress"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             replica_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicaConfiguration").unwrap(),
+                o.extract_field("replicaConfiguration"),
             ),
             replica_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicaNames").unwrap(),
+                o.extract_field("replicaNames"),
             ),
             restore_backup_context: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restoreBackupContext").unwrap(),
+                o.extract_field("restoreBackupContext"),
             ),
             root_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootPassword").unwrap(),
+                o.extract_field("rootPassword"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             server_ca_certs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serverCaCerts").unwrap(),
+                o.extract_field("serverCaCerts"),
             ),
             service_account_email_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccountEmailAddress").unwrap(),
+                o.extract_field("serviceAccountEmailAddress"),
             ),
             settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("settings").unwrap(),
+                o.extract_field("settings"),
             ),
         }
     }

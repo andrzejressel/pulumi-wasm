@@ -183,99 +183,44 @@ pub mod application {
                     value: &serving_status_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appId".into(),
-                },
-                register_interface::ResultField {
-                    name: "authDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "codeBucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultBucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultHostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "featureSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "gcrDomain".into(),
-                },
-                register_interface::ResultField {
-                    name: "iap".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "servingStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "urlDispatchRules".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApplicationResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appId").unwrap(),
-            ),
+            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
             auth_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authDomain").unwrap(),
+                o.extract_field("authDomain"),
             ),
             code_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("codeBucket").unwrap(),
+                o.extract_field("codeBucket"),
             ),
             database_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseType").unwrap(),
+                o.extract_field("databaseType"),
             ),
             default_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultBucket").unwrap(),
+                o.extract_field("defaultBucket"),
             ),
             default_hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultHostname").unwrap(),
+                o.extract_field("defaultHostname"),
             ),
             feature_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("featureSettings").unwrap(),
+                o.extract_field("featureSettings"),
             ),
             gcr_domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gcrDomain").unwrap(),
+                o.extract_field("gcrDomain"),
             ),
-            iap: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("iap").unwrap(),
-            ),
+            iap: pulumi_wasm_rust::__private::into_domain(o.extract_field("iap")),
             location_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationId").unwrap(),
+                o.extract_field("locationId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             serving_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servingStatus").unwrap(),
+                o.extract_field("servingStatus"),
             ),
             url_dispatch_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("urlDispatchRules").unwrap(),
+                o.extract_field("urlDispatchRules"),
             ),
         }
     }

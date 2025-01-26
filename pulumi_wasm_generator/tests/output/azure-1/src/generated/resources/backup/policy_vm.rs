@@ -280,93 +280,43 @@ pub mod policy_vm {
                     value: &timezone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backup".into(),
-                },
-                register_interface::ResultField {
-                    name: "instantRestoreResourceGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "instantRestoreRetentionDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyType".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryVaultName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionDaily".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionMonthly".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionWeekly".into(),
-                },
-                register_interface::ResultField {
-                    name: "retentionYearly".into(),
-                },
-                register_interface::ResultField {
-                    name: "tieringPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "timezone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PolicyVMResult {
-            backup: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backup").unwrap(),
-            ),
+            backup: pulumi_wasm_rust::__private::into_domain(o.extract_field("backup")),
             instant_restore_resource_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instantRestoreResourceGroup").unwrap(),
+                o.extract_field("instantRestoreResourceGroup"),
             ),
             instant_restore_retention_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instantRestoreRetentionDays").unwrap(),
+                o.extract_field("instantRestoreRetentionDays"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             policy_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyType").unwrap(),
+                o.extract_field("policyType"),
             ),
             recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryVaultName").unwrap(),
+                o.extract_field("recoveryVaultName"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             retention_daily: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionDaily").unwrap(),
+                o.extract_field("retentionDaily"),
             ),
             retention_monthly: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionMonthly").unwrap(),
+                o.extract_field("retentionMonthly"),
             ),
             retention_weekly: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionWeekly").unwrap(),
+                o.extract_field("retentionWeekly"),
             ),
             retention_yearly: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retentionYearly").unwrap(),
+                o.extract_field("retentionYearly"),
             ),
             tiering_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tieringPolicy").unwrap(),
+                o.extract_field("tieringPolicy"),
             ),
             timezone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timezone").unwrap(),
+                o.extract_field("timezone"),
             ),
         }
     }

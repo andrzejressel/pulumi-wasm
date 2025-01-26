@@ -144,63 +144,28 @@ pub mod traffic_mirror_target {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayLoadBalancerEndpointId".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkLoadBalancerArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TrafficMirrorTargetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             gateway_load_balancer_endpoint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayLoadBalancerEndpointId").unwrap(),
+                o.extract_field("gatewayLoadBalancerEndpointId"),
             ),
             network_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceId").unwrap(),
+                o.extract_field("networkInterfaceId"),
             ),
             network_load_balancer_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkLoadBalancerArn").unwrap(),
+                o.extract_field("networkLoadBalancerArn"),
             ),
             owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownerId").unwrap(),
+                o.extract_field("ownerId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

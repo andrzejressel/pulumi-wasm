@@ -43,49 +43,22 @@ pub mod get_session_context {
                     value: &arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "issuerArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "issuerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "issuerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sessionName".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetSessionContextResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             issuer_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issuerArn").unwrap(),
+                o.extract_field("issuerArn"),
             ),
             issuer_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issuerId").unwrap(),
+                o.extract_field("issuerId"),
             ),
             issuer_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issuerName").unwrap(),
+                o.extract_field("issuerName"),
             ),
             session_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sessionName").unwrap(),
+                o.extract_field("sessionName"),
             ),
         }
     }

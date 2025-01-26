@@ -204,75 +204,36 @@ pub mod stream_input_blob {
                     value: &time_format_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dateFormat".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pathPattern".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serialization".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageContainerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamAnalyticsJobName".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeFormat".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StreamInputBlobResult {
             date_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dateFormat").unwrap(),
+                o.extract_field("dateFormat"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             path_pattern: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pathPattern").unwrap(),
+                o.extract_field("pathPattern"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             serialization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serialization").unwrap(),
+                o.extract_field("serialization"),
             ),
             storage_account_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountKey").unwrap(),
+                o.extract_field("storageAccountKey"),
             ),
             storage_account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountName").unwrap(),
+                o.extract_field("storageAccountName"),
             ),
             storage_container_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageContainerName").unwrap(),
+                o.extract_field("storageContainerName"),
             ),
             stream_analytics_job_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamAnalyticsJobName").unwrap(),
+                o.extract_field("streamAnalyticsJobName"),
             ),
             time_format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeFormat").unwrap(),
+                o.extract_field("timeFormat"),
             ),
         }
     }

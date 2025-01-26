@@ -297,130 +297,60 @@ pub mod storage_pool {
                     value: &zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activeDirectory".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowAutoTiering".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityGib".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryptionType".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "ldapEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "replicaZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceLevel".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeCapacityGib".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StoragePoolResult {
             active_directory: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activeDirectory").unwrap(),
+                o.extract_field("activeDirectory"),
             ),
             allow_auto_tiering: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowAutoTiering").unwrap(),
+                o.extract_field("allowAutoTiering"),
             ),
             capacity_gib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityGib").unwrap(),
+                o.extract_field("capacityGib"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             encryption_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryptionType").unwrap(),
+                o.extract_field("encryptionType"),
             ),
             kms_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsConfig").unwrap(),
+                o.extract_field("kmsConfig"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             ldap_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ldapEnabled").unwrap(),
+                o.extract_field("ldapEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             replica_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("replicaZone").unwrap(),
+                o.extract_field("replicaZone"),
             ),
             service_level: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceLevel").unwrap(),
+                o.extract_field("serviceLevel"),
             ),
             volume_capacity_gib: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeCapacityGib").unwrap(),
+                o.extract_field("volumeCapacityGib"),
             ),
             volume_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeCount").unwrap(),
+                o.extract_field("volumeCount"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

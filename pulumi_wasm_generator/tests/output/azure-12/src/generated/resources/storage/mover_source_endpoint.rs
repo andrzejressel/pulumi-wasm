@@ -132,51 +132,20 @@ pub mod mover_source_endpoint {
                     value: &storage_mover_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "export".into(),
-                },
-                register_interface::ResultField {
-                    name: "host".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nfsVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageMoverId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MoverSourceEndpointResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            export: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("export").unwrap(),
-            ),
-            host: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("host").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            export: pulumi_wasm_rust::__private::into_domain(o.extract_field("export")),
+            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             nfs_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nfsVersion").unwrap(),
+                o.extract_field("nfsVersion"),
             ),
             storage_mover_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageMoverId").unwrap(),
+                o.extract_field("storageMoverId"),
             ),
         }
     }

@@ -102,45 +102,23 @@ pub mod license_association {
                     value: &workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "freeTrialExpiration".into(),
-                },
-                register_interface::ResultField {
-                    name: "grafanaToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseExpiration".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LicenseAssociationResult {
             free_trial_expiration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("freeTrialExpiration").unwrap(),
+                o.extract_field("freeTrialExpiration"),
             ),
             grafana_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grafanaToken").unwrap(),
+                o.extract_field("grafanaToken"),
             ),
             license_expiration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseExpiration").unwrap(),
+                o.extract_field("licenseExpiration"),
             ),
             license_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenseType").unwrap(),
+                o.extract_field("licenseType"),
             ),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

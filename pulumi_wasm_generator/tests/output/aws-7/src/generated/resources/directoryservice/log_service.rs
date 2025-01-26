@@ -92,27 +92,14 @@ pub mod log_service {
                     value: &log_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "directoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "logGroupName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LogServiceResult {
             directory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryId").unwrap(),
+                o.extract_field("directoryId"),
             ),
             log_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logGroupName").unwrap(),
+                o.extract_field("logGroupName"),
             ),
         }
     }

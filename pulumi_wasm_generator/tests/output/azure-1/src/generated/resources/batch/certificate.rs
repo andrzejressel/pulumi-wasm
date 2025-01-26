@@ -162,69 +162,31 @@ pub mod certificate {
                     value: &thumbprint_algorithm_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountName".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "format".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicData".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbprintAlgorithm".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CertificateResult {
             account_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountName").unwrap(),
+                o.extract_field("accountName"),
             ),
             certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificate").unwrap(),
+                o.extract_field("certificate"),
             ),
-            format: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("format").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            format: pulumi_wasm_rust::__private::into_domain(o.extract_field("format")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             public_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicData").unwrap(),
+                o.extract_field("publicData"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbprint").unwrap(),
+                o.extract_field("thumbprint"),
             ),
             thumbprint_algorithm: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbprintAlgorithm").unwrap(),
+                o.extract_field("thumbprintAlgorithm"),
             ),
         }
     }

@@ -248,87 +248,38 @@ pub mod entity_recognizer {
                     value: &vpc_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataAccessRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputDataConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "languageCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "modelKmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionName".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionNamePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "volumeKmsKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EntityRecognizerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             data_access_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataAccessRoleArn").unwrap(),
+                o.extract_field("dataAccessRoleArn"),
             ),
             input_data_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputDataConfig").unwrap(),
+                o.extract_field("inputDataConfig"),
             ),
             language_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("languageCode").unwrap(),
+                o.extract_field("languageCode"),
             ),
             model_kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modelKmsKeyId").unwrap(),
+                o.extract_field("modelKmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             version_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionName").unwrap(),
+                o.extract_field("versionName"),
             ),
             version_name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionNamePrefix").unwrap(),
+                o.extract_field("versionNamePrefix"),
             ),
             volume_kms_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("volumeKmsKeyId").unwrap(),
+                o.extract_field("volumeKmsKeyId"),
             ),
             vpc_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcConfig").unwrap(),
+                o.extract_field("vpcConfig"),
             ),
         }
     }

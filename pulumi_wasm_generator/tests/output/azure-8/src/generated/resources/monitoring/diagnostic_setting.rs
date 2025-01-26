@@ -251,75 +251,36 @@ pub mod diagnostic_setting {
                     value: &target_resource_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "enabledLogs".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubAuthorizationRuleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubName".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsDestinationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "metrics".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerSolutionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResourceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DiagnosticSettingResult {
             enabled_logs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabledLogs").unwrap(),
+                o.extract_field("enabledLogs"),
             ),
             eventhub_authorization_rule_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubAuthorizationRuleId").unwrap(),
+                o.extract_field("eventhubAuthorizationRuleId"),
             ),
             eventhub_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubName").unwrap(),
+                o.extract_field("eventhubName"),
             ),
             log_analytics_destination_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsDestinationType").unwrap(),
+                o.extract_field("logAnalyticsDestinationType"),
             ),
             log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsWorkspaceId").unwrap(),
+                o.extract_field("logAnalyticsWorkspaceId"),
             ),
             metrics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metrics").unwrap(),
+                o.extract_field("metrics"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             partner_solution_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerSolutionId").unwrap(),
+                o.extract_field("partnerSolutionId"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
             target_resource_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResourceId").unwrap(),
+                o.extract_field("targetResourceId"),
             ),
         }
     }

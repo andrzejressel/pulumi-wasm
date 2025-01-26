@@ -240,129 +240,57 @@ pub mod instance {
                     value: &user_data_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "blueprintId".into(),
-                },
-                register_interface::ResultField {
-                    name: "bundleId".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpuCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddressType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6Addresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "isStaticIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyPairName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "ramSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "userData".into(),
-                },
-                register_interface::ResultField {
-                    name: "username".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceResult {
-            add_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addOn").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            add_on: pulumi_wasm_rust::__private::into_domain(o.extract_field("addOn")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             blueprint_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blueprintId").unwrap(),
+                o.extract_field("blueprintId"),
             ),
             bundle_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bundleId").unwrap(),
+                o.extract_field("bundleId"),
             ),
             cpu_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpuCount").unwrap(),
+                o.extract_field("cpuCount"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             ip_address_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddressType").unwrap(),
+                o.extract_field("ipAddressType"),
             ),
             ipv6_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6Addresses").unwrap(),
+                o.extract_field("ipv6Addresses"),
             ),
             is_static_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isStaticIp").unwrap(),
+                o.extract_field("isStaticIp"),
             ),
             key_pair_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyPairName").unwrap(),
+                o.extract_field("keyPairName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             private_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpAddress").unwrap(),
+                o.extract_field("privateIpAddress"),
             ),
             public_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIpAddress").unwrap(),
+                o.extract_field("publicIpAddress"),
             ),
             ram_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ramSize").unwrap(),
+                o.extract_field("ramSize"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             user_data: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userData").unwrap(),
+                o.extract_field("userData"),
             ),
             username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("username").unwrap(),
+                o.extract_field("username"),
             ),
         }
     }

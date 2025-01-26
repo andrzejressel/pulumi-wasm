@@ -121,43 +121,21 @@ pub mod zero_trust_infrastructure_access_target {
                     value: &ip_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostname".into(),
-                },
-                register_interface::ResultField {
-                    name: "ip".into(),
-                },
-                register_interface::ResultField {
-                    name: "modifiedAt".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZeroTrustInfrastructureAccessTargetResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             hostname: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostname").unwrap(),
+                o.extract_field("hostname"),
             ),
-            ip: pulumi_wasm_rust::__private::into_domain(hashmap.remove("ip").unwrap()),
+            ip: pulumi_wasm_rust::__private::into_domain(o.extract_field("ip")),
             modified_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("modifiedAt").unwrap(),
+                o.extract_field("modifiedAt"),
             ),
         }
     }

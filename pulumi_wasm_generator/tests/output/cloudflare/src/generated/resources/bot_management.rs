@@ -198,88 +198,43 @@ pub mod bot_management {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "aiBotsProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoUpdateModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableJs".into(),
-                },
-                register_interface::ResultField {
-                    name: "fightMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "optimizeWordpress".into(),
-                },
-                register_interface::ResultField {
-                    name: "sbfmDefinitelyAutomated".into(),
-                },
-                register_interface::ResultField {
-                    name: "sbfmLikelyAutomated".into(),
-                },
-                register_interface::ResultField {
-                    name: "sbfmStaticResourceProtection".into(),
-                },
-                register_interface::ResultField {
-                    name: "sbfmVerifiedBots".into(),
-                },
-                register_interface::ResultField {
-                    name: "suppressSessionScore".into(),
-                },
-                register_interface::ResultField {
-                    name: "usingLatestModel".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BotManagementResult {
             ai_bots_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("aiBotsProtection").unwrap(),
+                o.extract_field("aiBotsProtection"),
             ),
             auto_update_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoUpdateModel").unwrap(),
+                o.extract_field("autoUpdateModel"),
             ),
             enable_js: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableJs").unwrap(),
+                o.extract_field("enableJs"),
             ),
             fight_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fightMode").unwrap(),
+                o.extract_field("fightMode"),
             ),
             optimize_wordpress: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("optimizeWordpress").unwrap(),
+                o.extract_field("optimizeWordpress"),
             ),
             sbfm_definitely_automated: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sbfmDefinitelyAutomated").unwrap(),
+                o.extract_field("sbfmDefinitelyAutomated"),
             ),
             sbfm_likely_automated: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sbfmLikelyAutomated").unwrap(),
+                o.extract_field("sbfmLikelyAutomated"),
             ),
             sbfm_static_resource_protection: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sbfmStaticResourceProtection").unwrap(),
+                o.extract_field("sbfmStaticResourceProtection"),
             ),
             sbfm_verified_bots: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sbfmVerifiedBots").unwrap(),
+                o.extract_field("sbfmVerifiedBots"),
             ),
             suppress_session_score: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("suppressSessionScore").unwrap(),
+                o.extract_field("suppressSessionScore"),
             ),
             using_latest_model: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usingLatestModel").unwrap(),
+                o.extract_field("usingLatestModel"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

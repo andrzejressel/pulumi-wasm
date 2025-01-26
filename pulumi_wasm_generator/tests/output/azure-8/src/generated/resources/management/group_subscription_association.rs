@@ -86,27 +86,14 @@ pub mod group_subscription_association {
                     value: &subscription_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "managementGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GroupSubscriptionAssociationResult {
             management_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managementGroupId").unwrap(),
+                o.extract_field("managementGroupId"),
             ),
             subscription_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionId").unwrap(),
+                o.extract_field("subscriptionId"),
             ),
         }
     }

@@ -88,40 +88,19 @@ pub mod hci_deployment_setting {
                     value: &version_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arcResourceIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "scaleUnits".into(),
-                },
-                register_interface::ResultField {
-                    name: "stackHciClusterId".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HciDeploymentSettingResult {
             arc_resource_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arcResourceIds").unwrap(),
+                o.extract_field("arcResourceIds"),
             ),
             scale_units: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scaleUnits").unwrap(),
+                o.extract_field("scaleUnits"),
             ),
             stack_hci_cluster_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stackHciClusterId").unwrap(),
+                o.extract_field("stackHciClusterId"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
-            ),
+            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
         }
     }
 }

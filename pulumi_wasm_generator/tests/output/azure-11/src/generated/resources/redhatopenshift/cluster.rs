@@ -320,87 +320,40 @@ pub mod cluster {
                     value: &worker_profile_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiServerProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "consoleUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingressProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "mainProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicePrincipal".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "workerProfile".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterResult {
             api_server_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiServerProfile").unwrap(),
+                o.extract_field("apiServerProfile"),
             ),
             cluster_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterProfile").unwrap(),
+                o.extract_field("clusterProfile"),
             ),
             console_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("consoleUrl").unwrap(),
+                o.extract_field("consoleUrl"),
             ),
             ingress_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingressProfile").unwrap(),
+                o.extract_field("ingressProfile"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             main_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mainProfile").unwrap(),
+                o.extract_field("mainProfile"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkProfile").unwrap(),
+                o.extract_field("networkProfile"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             service_principal: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicePrincipal").unwrap(),
+                o.extract_field("servicePrincipal"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             worker_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workerProfile").unwrap(),
+                o.extract_field("workerProfile"),
             ),
         }
     }

@@ -126,40 +126,17 @@ pub mod backend_bucket_signed_url_key {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backendBucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyValue".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BackendBucketSignedUrlKeyResult {
             backend_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendBucket").unwrap(),
+                o.extract_field("backendBucket"),
             ),
             key_value: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyValue").unwrap(),
+                o.extract_field("keyValue"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
         }
     }
 }

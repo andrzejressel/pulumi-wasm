@@ -283,82 +283,34 @@ pub mod keystores_aliases_self_signed_cert {
                     value: &subject_alternative_dns_names_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alias".into(),
-                },
-                register_interface::ResultField {
-                    name: "certValidityInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "certsInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "environment".into(),
-                },
-                register_interface::ResultField {
-                    name: "keySize".into(),
-                },
-                register_interface::ResultField {
-                    name: "keystore".into(),
-                },
-                register_interface::ResultField {
-                    name: "orgId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sigAlg".into(),
-                },
-                register_interface::ResultField {
-                    name: "subject".into(),
-                },
-                register_interface::ResultField {
-                    name: "subjectAlternativeDnsNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KeystoresAliasesSelfSignedCertResult {
-            alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alias").unwrap(),
-            ),
+            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
             cert_validity_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certValidityInDays").unwrap(),
+                o.extract_field("certValidityInDays"),
             ),
             certs_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certsInfos").unwrap(),
+                o.extract_field("certsInfos"),
             ),
             environment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environment").unwrap(),
+                o.extract_field("environment"),
             ),
             key_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keySize").unwrap(),
+                o.extract_field("keySize"),
             ),
             keystore: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keystore").unwrap(),
+                o.extract_field("keystore"),
             ),
-            org_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("orgId").unwrap(),
-            ),
-            sig_alg: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sigAlg").unwrap(),
-            ),
+            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
+            sig_alg: pulumi_wasm_rust::__private::into_domain(o.extract_field("sigAlg")),
             subject: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subject").unwrap(),
+                o.extract_field("subject"),
             ),
             subject_alternative_dns_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subjectAlternativeDnsNames").unwrap(),
+                o.extract_field("subjectAlternativeDnsNames"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

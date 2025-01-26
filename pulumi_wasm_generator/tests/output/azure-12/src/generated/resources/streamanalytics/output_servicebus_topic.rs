@@ -232,81 +232,39 @@ pub mod output_servicebus_topic {
                     value: &topic_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authenticationMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "propertyColumns".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serialization".into(),
-                },
-                register_interface::ResultField {
-                    name: "servicebusNamespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedAccessPolicyKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedAccessPolicyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "streamAnalyticsJobName".into(),
-                },
-                register_interface::ResultField {
-                    name: "systemPropertyColumns".into(),
-                },
-                register_interface::ResultField {
-                    name: "topicName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OutputServicebusTopicResult {
             authentication_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationMode").unwrap(),
+                o.extract_field("authenticationMode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             property_columns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("propertyColumns").unwrap(),
+                o.extract_field("propertyColumns"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             serialization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serialization").unwrap(),
+                o.extract_field("serialization"),
             ),
             servicebus_namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("servicebusNamespace").unwrap(),
+                o.extract_field("servicebusNamespace"),
             ),
             shared_access_policy_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedAccessPolicyKey").unwrap(),
+                o.extract_field("sharedAccessPolicyKey"),
             ),
             shared_access_policy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedAccessPolicyName").unwrap(),
+                o.extract_field("sharedAccessPolicyName"),
             ),
             stream_analytics_job_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("streamAnalyticsJobName").unwrap(),
+                o.extract_field("streamAnalyticsJobName"),
             ),
             system_property_columns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("systemPropertyColumns").unwrap(),
+                o.extract_field("systemPropertyColumns"),
             ),
             topic_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("topicName").unwrap(),
+                o.extract_field("topicName"),
             ),
         }
     }

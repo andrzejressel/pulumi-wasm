@@ -54,61 +54,28 @@ pub mod get_medtech_service {
                     value: &workspace_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "deviceMappingJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubConsumerGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubName".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventhubNamespaceName".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identities".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetMedtechServiceResult {
             device_mapping_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceMappingJson").unwrap(),
+                o.extract_field("deviceMappingJson"),
             ),
             eventhub_consumer_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubConsumerGroupName").unwrap(),
+                o.extract_field("eventhubConsumerGroupName"),
             ),
             eventhub_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubName").unwrap(),
+                o.extract_field("eventhubName"),
             ),
             eventhub_namespace_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventhubNamespaceName").unwrap(),
+                o.extract_field("eventhubNamespaceName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identities: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identities").unwrap(),
+                o.extract_field("identities"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceId").unwrap(),
+                o.extract_field("workspaceId"),
             ),
         }
     }

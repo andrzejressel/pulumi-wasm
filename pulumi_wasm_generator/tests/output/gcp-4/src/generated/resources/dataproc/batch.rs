@@ -512,148 +512,67 @@ pub mod batch {
                     value: &spark_sql_batch_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "batchId".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "creator".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "operation".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "pysparkBatch".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimeConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "runtimeInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparkBatch".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparkRBatch".into(),
-                },
-                register_interface::ResultField {
-                    name: "sparkSqlBatch".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateHistories".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "uuid".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BatchResult {
             batch_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("batchId").unwrap(),
+                o.extract_field("batchId"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             creator: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creator").unwrap(),
+                o.extract_field("creator"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             environment_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentConfig").unwrap(),
+                o.extract_field("environmentConfig"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             operation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operation").unwrap(),
+                o.extract_field("operation"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             pyspark_batch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pysparkBatch").unwrap(),
+                o.extract_field("pysparkBatch"),
             ),
             runtime_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimeConfig").unwrap(),
+                o.extract_field("runtimeConfig"),
             ),
             runtime_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("runtimeInfos").unwrap(),
+                o.extract_field("runtimeInfos"),
             ),
             spark_batch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparkBatch").unwrap(),
+                o.extract_field("sparkBatch"),
             ),
             spark_r_batch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparkRBatch").unwrap(),
+                o.extract_field("sparkRBatch"),
             ),
             spark_sql_batch: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sparkSqlBatch").unwrap(),
+                o.extract_field("sparkSqlBatch"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_histories: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateHistories").unwrap(),
+                o.extract_field("stateHistories"),
             ),
             state_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateMessage").unwrap(),
+                o.extract_field("stateMessage"),
             ),
             state_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateTime").unwrap(),
+                o.extract_field("stateTime"),
             ),
-            uuid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uuid").unwrap(),
-            ),
+            uuid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uuid")),
         }
     }
 }

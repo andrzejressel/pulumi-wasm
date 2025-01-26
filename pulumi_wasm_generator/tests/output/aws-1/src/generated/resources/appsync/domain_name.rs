@@ -87,45 +87,23 @@ pub mod domain_name {
                     value: &domain_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appsyncDomainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificateArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostedZoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DomainNameResult {
             appsync_domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appsyncDomainName").unwrap(),
+                o.extract_field("appsyncDomainName"),
             ),
             certificate_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificateArn").unwrap(),
+                o.extract_field("certificateArn"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             hosted_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostedZoneId").unwrap(),
+                o.extract_field("hostedZoneId"),
             ),
         }
     }

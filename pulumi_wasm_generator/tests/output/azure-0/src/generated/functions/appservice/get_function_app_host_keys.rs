@@ -61,79 +61,37 @@ pub mod get_function_app_host_keys {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "blobsExtensionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultFunctionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "durabletaskExtensionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventGridExtensionConfigKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventGridExtensionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "signalrExtensionKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "webpubsubExtensionKey".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetFunctionAppHostKeysResult {
             blobs_extension_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("blobsExtensionKey").unwrap(),
+                o.extract_field("blobsExtensionKey"),
             ),
             default_function_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultFunctionKey").unwrap(),
+                o.extract_field("defaultFunctionKey"),
             ),
             durabletask_extension_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("durabletaskExtensionKey").unwrap(),
+                o.extract_field("durabletaskExtensionKey"),
             ),
             event_grid_extension_config_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventGridExtensionConfigKey").unwrap(),
+                o.extract_field("eventGridExtensionConfigKey"),
             ),
             event_grid_extension_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventGridExtensionKey").unwrap(),
+                o.extract_field("eventGridExtensionKey"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             primary_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryKey").unwrap(),
+                o.extract_field("primaryKey"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             signalr_extension_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signalrExtensionKey").unwrap(),
+                o.extract_field("signalrExtensionKey"),
             ),
             webpubsub_extension_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webpubsubExtensionKey").unwrap(),
+                o.extract_field("webpubsubExtensionKey"),
             ),
         }
     }

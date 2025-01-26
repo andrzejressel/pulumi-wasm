@@ -134,34 +134,16 @@ pub mod service_network_settings {
                     value: &service_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "networkSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "service".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServiceNetworkSettingsResult {
             network_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkSettings").unwrap(),
+                o.extract_field("networkSettings"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("service").unwrap(),
-            ),
+            service: pulumi_wasm_rust::__private::into_domain(o.extract_field("service")),
         }
     }
 }

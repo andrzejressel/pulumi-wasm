@@ -159,64 +159,29 @@ pub mod local_network_gateway {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressSpaces".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayFqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LocalNetworkGatewayResult {
             address_spaces: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressSpaces").unwrap(),
+                o.extract_field("addressSpaces"),
             ),
             bgp_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpSettings").unwrap(),
+                o.extract_field("bgpSettings"),
             ),
             gateway_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayAddress").unwrap(),
+                o.extract_field("gatewayAddress"),
             ),
             gateway_fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayFqdn").unwrap(),
+                o.extract_field("gatewayFqdn"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

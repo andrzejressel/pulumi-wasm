@@ -278,135 +278,58 @@ pub mod graph_ql_api {
                     value: &xray_enabled_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "additionalAuthenticationProviders".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiType".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authenticationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "enhancedMetricsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "introspectionConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "lambdaAuthorizerConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "logConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "mergedApiExecutionRoleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "openidConnectConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryDepthLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "resolverCountLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "schema".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "uris".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPoolConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "visibility".into(),
-                },
-                register_interface::ResultField {
-                    name: "xrayEnabled".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GraphQLApiResult {
             additional_authentication_providers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("additionalAuthenticationProviders").unwrap(),
+                o.extract_field("additionalAuthenticationProviders"),
             ),
             api_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiType").unwrap(),
+                o.extract_field("apiType"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             authentication_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authenticationType").unwrap(),
+                o.extract_field("authenticationType"),
             ),
             enhanced_metrics_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enhancedMetricsConfig").unwrap(),
+                o.extract_field("enhancedMetricsConfig"),
             ),
             introspection_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("introspectionConfig").unwrap(),
+                o.extract_field("introspectionConfig"),
             ),
             lambda_authorizer_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lambdaAuthorizerConfig").unwrap(),
+                o.extract_field("lambdaAuthorizerConfig"),
             ),
             log_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logConfig").unwrap(),
+                o.extract_field("logConfig"),
             ),
             merged_api_execution_role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mergedApiExecutionRoleArn").unwrap(),
+                o.extract_field("mergedApiExecutionRoleArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             openid_connect_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("openidConnectConfig").unwrap(),
+                o.extract_field("openidConnectConfig"),
             ),
             query_depth_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryDepthLimit").unwrap(),
+                o.extract_field("queryDepthLimit"),
             ),
             resolver_count_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resolverCountLimit").unwrap(),
+                o.extract_field("resolverCountLimit"),
             ),
-            schema: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("schema").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            schema: pulumi_wasm_rust::__private::into_domain(o.extract_field("schema")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            uris: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uris").unwrap(),
-            ),
+            uris: pulumi_wasm_rust::__private::into_domain(o.extract_field("uris")),
             user_pool_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPoolConfig").unwrap(),
+                o.extract_field("userPoolConfig"),
             ),
             visibility: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("visibility").unwrap(),
+                o.extract_field("visibility"),
             ),
             xray_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("xrayEnabled").unwrap(),
+                o.extract_field("xrayEnabled"),
             ),
         }
     }

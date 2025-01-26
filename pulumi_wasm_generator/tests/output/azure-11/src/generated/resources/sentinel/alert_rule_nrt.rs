@@ -322,129 +322,61 @@ pub mod alert_rule_nrt {
                     value: &techniques_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "alertDetailsOverrides".into(),
-                },
-                register_interface::ResultField {
-                    name: "alertRuleTemplateGuid".into(),
-                },
-                register_interface::ResultField {
-                    name: "alertRuleTemplateVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "customDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "entityMappings".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventGrouping".into(),
-                },
-                register_interface::ResultField {
-                    name: "incident".into(),
-                },
-                register_interface::ResultField {
-                    name: "logAnalyticsWorkspaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "query".into(),
-                },
-                register_interface::ResultField {
-                    name: "sentinelEntityMappings".into(),
-                },
-                register_interface::ResultField {
-                    name: "severity".into(),
-                },
-                register_interface::ResultField {
-                    name: "suppressionDuration".into(),
-                },
-                register_interface::ResultField {
-                    name: "suppressionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "tactics".into(),
-                },
-                register_interface::ResultField {
-                    name: "techniques".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AlertRuleNrtResult {
             alert_details_overrides: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alertDetailsOverrides").unwrap(),
+                o.extract_field("alertDetailsOverrides"),
             ),
             alert_rule_template_guid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alertRuleTemplateGuid").unwrap(),
+                o.extract_field("alertRuleTemplateGuid"),
             ),
             alert_rule_template_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alertRuleTemplateVersion").unwrap(),
+                o.extract_field("alertRuleTemplateVersion"),
             ),
             custom_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customDetails").unwrap(),
+                o.extract_field("customDetails"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             entity_mappings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entityMappings").unwrap(),
+                o.extract_field("entityMappings"),
             ),
             event_grouping: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventGrouping").unwrap(),
+                o.extract_field("eventGrouping"),
             ),
             incident: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("incident").unwrap(),
+                o.extract_field("incident"),
             ),
             log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logAnalyticsWorkspaceId").unwrap(),
+                o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            query: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("query").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            query: pulumi_wasm_rust::__private::into_domain(o.extract_field("query")),
             sentinel_entity_mappings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sentinelEntityMappings").unwrap(),
+                o.extract_field("sentinelEntityMappings"),
             ),
             severity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("severity").unwrap(),
+                o.extract_field("severity"),
             ),
             suppression_duration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("suppressionDuration").unwrap(),
+                o.extract_field("suppressionDuration"),
             ),
             suppression_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("suppressionEnabled").unwrap(),
+                o.extract_field("suppressionEnabled"),
             ),
             tactics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tactics").unwrap(),
+                o.extract_field("tactics"),
             ),
             techniques: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("techniques").unwrap(),
+                o.extract_field("techniques"),
             ),
         }
     }

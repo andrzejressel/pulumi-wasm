@@ -158,367 +158,175 @@ pub mod get_autonomous_database {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actualUsedDataStorageSizeInTbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "allocatedStorageSizeInTbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowedIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoScalingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoScalingForStorageEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "autonomousDatabaseId".into(),
-                },
-                register_interface::ResultField {
-                    name: "availableUpgradeVersions".into(),
-                },
-                register_interface::ResultField {
-                    name: "backupRetentionPeriodInDays".into(),
-                },
-                register_interface::ResultField {
-                    name: "characterSet".into(),
-                },
-                register_interface::ResultField {
-                    name: "computeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "cpuCoreCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataStorageSizeInGbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataStorageSizeInTbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbNodeStorageSizeInGbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "dbVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "failedDataRecoveryInSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "inMemoryAreaInGbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "lifecycleDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAdgAutoFailoverMaxDataLossLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "localDataGuardEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "memoryPerOracleComputeUnitInGbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "mtlsConnectionRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nationalCharacterSet".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextLongTermBackupTimeStamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "ociUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "ocid".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerDbId".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerDbIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "preview".into(),
-                },
-                register_interface::ResultField {
-                    name: "previewVersionWithServiceTermsAccepted".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateEndpointIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateEndpointLabel".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisionableCpuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteDataGuardEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceConsoleUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "sqlWebDeveloperUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetId".into(),
-                },
-                register_interface::ResultField {
-                    name: "supportedRegionsToCloneTos".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeCreated".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeDataGuardRoleChanged".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeDeletionOfFreeAutonomousDatabase".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeLocalDataGuardEnabledOn".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeMaintenanceBegin".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeMaintenanceEnd".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeOfLastFailover".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeOfLastRefresh".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeOfLastRefreshPoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeOfLastSwitchover".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeReclamationOfFreeAutonomousDatabase".into(),
-                },
-                register_interface::ResultField {
-                    name: "usedDataStorageSizeInGbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "usedDataStorageSizeInTbs".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAutonomousDatabaseResult {
             actual_used_data_storage_size_in_tbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actualUsedDataStorageSizeInTbs").unwrap(),
+                o.extract_field("actualUsedDataStorageSizeInTbs"),
             ),
             allocated_storage_size_in_tbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allocatedStorageSizeInTbs").unwrap(),
+                o.extract_field("allocatedStorageSizeInTbs"),
             ),
             allowed_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedIps").unwrap(),
+                o.extract_field("allowedIps"),
             ),
             auto_scaling_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScalingEnabled").unwrap(),
+                o.extract_field("autoScalingEnabled"),
             ),
             auto_scaling_for_storage_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScalingForStorageEnabled").unwrap(),
+                o.extract_field("autoScalingForStorageEnabled"),
             ),
             autonomous_database_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autonomousDatabaseId").unwrap(),
+                o.extract_field("autonomousDatabaseId"),
             ),
             available_upgrade_versions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availableUpgradeVersions").unwrap(),
+                o.extract_field("availableUpgradeVersions"),
             ),
             backup_retention_period_in_days: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backupRetentionPeriodInDays").unwrap(),
+                o.extract_field("backupRetentionPeriodInDays"),
             ),
             character_set: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("characterSet").unwrap(),
+                o.extract_field("characterSet"),
             ),
             compute_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("computeCount").unwrap(),
+                o.extract_field("computeCount"),
             ),
             cpu_core_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cpuCoreCount").unwrap(),
+                o.extract_field("cpuCoreCount"),
             ),
             data_storage_size_in_gbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataStorageSizeInGbs").unwrap(),
+                o.extract_field("dataStorageSizeInGbs"),
             ),
             data_storage_size_in_tbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataStorageSizeInTbs").unwrap(),
+                o.extract_field("dataStorageSizeInTbs"),
             ),
             db_node_storage_size_in_gbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbNodeStorageSizeInGbs").unwrap(),
+                o.extract_field("dbNodeStorageSizeInGbs"),
             ),
             db_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dbVersion").unwrap(),
+                o.extract_field("dbVersion"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             failed_data_recovery_in_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("failedDataRecoveryInSeconds").unwrap(),
+                o.extract_field("failedDataRecoveryInSeconds"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             in_memory_area_in_gbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inMemoryAreaInGbs").unwrap(),
+                o.extract_field("inMemoryAreaInGbs"),
             ),
             lifecycle_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lifecycleDetails").unwrap(),
+                o.extract_field("lifecycleDetails"),
             ),
             local_adg_auto_failover_max_data_loss_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAdgAutoFailoverMaxDataLossLimit").unwrap(),
+                o.extract_field("localAdgAutoFailoverMaxDataLossLimit"),
             ),
             local_data_guard_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localDataGuardEnabled").unwrap(),
+                o.extract_field("localDataGuardEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             memory_per_oracle_compute_unit_in_gbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memoryPerOracleComputeUnitInGbs").unwrap(),
+                o.extract_field("memoryPerOracleComputeUnitInGbs"),
             ),
             mtls_connection_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mtlsConnectionRequired").unwrap(),
+                o.extract_field("mtlsConnectionRequired"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             national_character_set: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nationalCharacterSet").unwrap(),
+                o.extract_field("nationalCharacterSet"),
             ),
             next_long_term_backup_time_stamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextLongTermBackupTimeStamp").unwrap(),
+                o.extract_field("nextLongTermBackupTimeStamp"),
             ),
-            oci_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ociUrl").unwrap(),
-            ),
-            ocid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ocid").unwrap(),
-            ),
+            oci_url: pulumi_wasm_rust::__private::into_domain(o.extract_field("ociUrl")),
+            ocid: pulumi_wasm_rust::__private::into_domain(o.extract_field("ocid")),
             peer_db_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerDbId").unwrap(),
+                o.extract_field("peerDbId"),
             ),
             peer_db_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerDbIds").unwrap(),
+                o.extract_field("peerDbIds"),
             ),
             preview: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preview").unwrap(),
+                o.extract_field("preview"),
             ),
             preview_version_with_service_terms_accepted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("previewVersionWithServiceTermsAccepted").unwrap(),
+                o.extract_field("previewVersionWithServiceTermsAccepted"),
             ),
             private_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateEndpoint").unwrap(),
+                o.extract_field("privateEndpoint"),
             ),
             private_endpoint_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateEndpointIp").unwrap(),
+                o.extract_field("privateEndpointIp"),
             ),
             private_endpoint_label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateEndpointLabel").unwrap(),
+                o.extract_field("privateEndpointLabel"),
             ),
             provisionable_cpuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisionableCpuses").unwrap(),
+                o.extract_field("provisionableCpuses"),
             ),
             remote_data_guard_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteDataGuardEnabled").unwrap(),
+                o.extract_field("remoteDataGuardEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             service_console_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceConsoleUrl").unwrap(),
+                o.extract_field("serviceConsoleUrl"),
             ),
             sql_web_developer_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sqlWebDeveloperUrl").unwrap(),
+                o.extract_field("sqlWebDeveloperUrl"),
             ),
             subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetId").unwrap(),
+                o.extract_field("subnetId"),
             ),
             supported_regions_to_clone_tos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("supportedRegionsToCloneTos").unwrap(),
+                o.extract_field("supportedRegionsToCloneTos"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             time_created: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeCreated").unwrap(),
+                o.extract_field("timeCreated"),
             ),
             time_data_guard_role_changed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeDataGuardRoleChanged").unwrap(),
+                o.extract_field("timeDataGuardRoleChanged"),
             ),
             time_deletion_of_free_autonomous_database: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeDeletionOfFreeAutonomousDatabase").unwrap(),
+                o.extract_field("timeDeletionOfFreeAutonomousDatabase"),
             ),
             time_local_data_guard_enabled_on: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeLocalDataGuardEnabledOn").unwrap(),
+                o.extract_field("timeLocalDataGuardEnabledOn"),
             ),
             time_maintenance_begin: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeMaintenanceBegin").unwrap(),
+                o.extract_field("timeMaintenanceBegin"),
             ),
             time_maintenance_end: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeMaintenanceEnd").unwrap(),
+                o.extract_field("timeMaintenanceEnd"),
             ),
             time_of_last_failover: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeOfLastFailover").unwrap(),
+                o.extract_field("timeOfLastFailover"),
             ),
             time_of_last_refresh: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeOfLastRefresh").unwrap(),
+                o.extract_field("timeOfLastRefresh"),
             ),
             time_of_last_refresh_point: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeOfLastRefreshPoint").unwrap(),
+                o.extract_field("timeOfLastRefreshPoint"),
             ),
             time_of_last_switchover: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeOfLastSwitchover").unwrap(),
+                o.extract_field("timeOfLastSwitchover"),
             ),
             time_reclamation_of_free_autonomous_database: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeReclamationOfFreeAutonomousDatabase").unwrap(),
+                o.extract_field("timeReclamationOfFreeAutonomousDatabase"),
             ),
             used_data_storage_size_in_gbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usedDataStorageSizeInGbs").unwrap(),
+                o.extract_field("usedDataStorageSizeInGbs"),
             ),
             used_data_storage_size_in_tbs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usedDataStorageSizeInTbs").unwrap(),
+                o.extract_field("usedDataStorageSizeInTbs"),
             ),
             virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkId").unwrap(),
+                o.extract_field("virtualNetworkId"),
             ),
         }
     }

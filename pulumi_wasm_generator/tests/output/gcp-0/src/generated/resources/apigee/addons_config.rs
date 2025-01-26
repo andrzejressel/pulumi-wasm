@@ -196,26 +196,13 @@ pub mod addons_config {
                     value: &org_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addonsConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "org".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AddonsConfigResult {
             addons_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addonsConfig").unwrap(),
+                o.extract_field("addonsConfig"),
             ),
-            org: pulumi_wasm_rust::__private::into_domain(hashmap.remove("org").unwrap()),
+            org: pulumi_wasm_rust::__private::into_domain(o.extract_field("org")),
         }
     }
 }

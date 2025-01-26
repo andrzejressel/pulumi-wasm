@@ -322,113 +322,50 @@ pub mod metric_alert {
                     value: &window_size_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "actions".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationInsightsWebTestLocationAvailabilityCriteria".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoMitigate".into(),
-                },
-                register_interface::ResultField {
-                    name: "criterias".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "dynamicCriteria".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "frequency".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "scopes".into(),
-                },
-                register_interface::ResultField {
-                    name: "severity".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResourceLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetResourceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "windowSize".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MetricAlertResult {
             actions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("actions").unwrap(),
+                o.extract_field("actions"),
             ),
             application_insights_web_test_location_availability_criteria: pulumi_wasm_rust::__private::into_domain(
-                hashmap
-                    .remove("applicationInsightsWebTestLocationAvailabilityCriteria")
-                    .unwrap(),
+                o.extract_field("applicationInsightsWebTestLocationAvailabilityCriteria"),
             ),
             auto_mitigate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoMitigate").unwrap(),
+                o.extract_field("autoMitigate"),
             ),
             criterias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("criterias").unwrap(),
+                o.extract_field("criterias"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dynamic_criteria: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dynamicCriteria").unwrap(),
+                o.extract_field("dynamicCriteria"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             frequency: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("frequency").unwrap(),
+                o.extract_field("frequency"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            scopes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scopes").unwrap(),
-            ),
+            scopes: pulumi_wasm_rust::__private::into_domain(o.extract_field("scopes")),
             severity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("severity").unwrap(),
+                o.extract_field("severity"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             target_resource_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResourceLocation").unwrap(),
+                o.extract_field("targetResourceLocation"),
             ),
             target_resource_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetResourceType").unwrap(),
+                o.extract_field("targetResourceType"),
             ),
             window_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("windowSize").unwrap(),
+                o.extract_field("windowSize"),
             ),
         }
     }

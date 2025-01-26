@@ -288,69 +288,31 @@ pub mod region_per_instance_config {
                     value: &remove_instance_state_on_destroy_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "minimalAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "mostDisruptiveAllowedAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "preservedState".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "regionInstanceGroupManager".into(),
-                },
-                register_interface::ResultField {
-                    name: "removeInstanceOnDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "removeInstanceStateOnDestroy".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegionPerInstanceConfigResult {
             minimal_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimalAction").unwrap(),
+                o.extract_field("minimalAction"),
             ),
             most_disruptive_allowed_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mostDisruptiveAllowedAction").unwrap(),
+                o.extract_field("mostDisruptiveAllowedAction"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             preserved_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preservedState").unwrap(),
+                o.extract_field("preservedState"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             region_instance_group_manager: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regionInstanceGroupManager").unwrap(),
+                o.extract_field("regionInstanceGroupManager"),
             ),
             remove_instance_on_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("removeInstanceOnDestroy").unwrap(),
+                o.extract_field("removeInstanceOnDestroy"),
             ),
             remove_instance_state_on_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("removeInstanceStateOnDestroy").unwrap(),
+                o.extract_field("removeInstanceStateOnDestroy"),
             ),
         }
     }

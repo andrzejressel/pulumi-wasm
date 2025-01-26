@@ -106,39 +106,18 @@ pub mod prepared_statement {
                     value: &workgroup_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryStatement".into(),
-                },
-                register_interface::ResultField {
-                    name: "workgroup".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PreparedStatementResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             query_statement: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryStatement").unwrap(),
+                o.extract_field("queryStatement"),
             ),
             workgroup: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workgroup").unwrap(),
+                o.extract_field("workgroup"),
             ),
         }
     }

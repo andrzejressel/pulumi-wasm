@@ -69,97 +69,40 @@ pub mod get_app_service_plan {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appServiceEnvironmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "isXenon".into(),
-                },
-                register_interface::ResultField {
-                    name: "kind".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumElasticWorkerCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "maximumNumberOfWorkers".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "perSiteScaling".into(),
-                },
-                register_interface::ResultField {
-                    name: "reserved".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneRedundant".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAppServicePlanResult {
             app_service_environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServiceEnvironmentId").unwrap(),
+                o.extract_field("appServiceEnvironmentId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             is_xenon: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isXenon").unwrap(),
+                o.extract_field("isXenon"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kind").unwrap(),
-            ),
+            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             maximum_elastic_worker_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumElasticWorkerCount").unwrap(),
+                o.extract_field("maximumElasticWorkerCount"),
             ),
             maximum_number_of_workers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maximumNumberOfWorkers").unwrap(),
+                o.extract_field("maximumNumberOfWorkers"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             per_site_scaling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("perSiteScaling").unwrap(),
+                o.extract_field("perSiteScaling"),
             ),
             reserved: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reserved").unwrap(),
+                o.extract_field("reserved"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             zone_redundant: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneRedundant").unwrap(),
+                o.extract_field("zoneRedundant"),
             ),
         }
     }

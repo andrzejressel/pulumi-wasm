@@ -61,21 +61,11 @@ pub mod global_settings {
                     value: &global_settings_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "globalSettings".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GlobalSettingsResult {
             global_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalSettings").unwrap(),
+                o.extract_field("globalSettings"),
             ),
         }
     }

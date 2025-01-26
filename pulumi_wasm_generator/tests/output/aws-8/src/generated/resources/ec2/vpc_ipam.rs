@@ -147,94 +147,42 @@ pub mod vpc_ipam {
                     value: &tier_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "cascade".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultResourceDiscoveryAssociationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultResourceDiscoveryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "enablePrivateGua".into(),
-                },
-                register_interface::ResultField {
-                    name: "operatingRegions".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDefaultScopeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicDefaultScopeId".into(),
-                },
-                register_interface::ResultField {
-                    name: "scopeCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tier".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VpcIpamResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             cascade: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cascade").unwrap(),
+                o.extract_field("cascade"),
             ),
             default_resource_discovery_association_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultResourceDiscoveryAssociationId").unwrap(),
+                o.extract_field("defaultResourceDiscoveryAssociationId"),
             ),
             default_resource_discovery_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultResourceDiscoveryId").unwrap(),
+                o.extract_field("defaultResourceDiscoveryId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             enable_private_gua: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enablePrivateGua").unwrap(),
+                o.extract_field("enablePrivateGua"),
             ),
             operating_regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("operatingRegions").unwrap(),
+                o.extract_field("operatingRegions"),
             ),
             private_default_scope_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDefaultScopeId").unwrap(),
+                o.extract_field("privateDefaultScopeId"),
             ),
             public_default_scope_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicDefaultScopeId").unwrap(),
+                o.extract_field("publicDefaultScopeId"),
             ),
             scope_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scopeCount").unwrap(),
+                o.extract_field("scopeCount"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tier").unwrap(),
-            ),
+            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
         }
     }
 }

@@ -103,34 +103,14 @@ pub mod instance_state {
                     value: &state_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "force".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceStateResult {
-            force: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("force").unwrap(),
-            ),
+            force: pulumi_wasm_rust::__private::into_domain(o.extract_field("force")),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

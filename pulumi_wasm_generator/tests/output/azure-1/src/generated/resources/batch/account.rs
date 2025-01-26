@@ -287,118 +287,56 @@ pub mod account {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "allowedAuthenticationModes".into(),
-                },
-                register_interface::ResultField {
-                    name: "encryption".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultReference".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkProfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "poolAllocationMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "primaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicNetworkAccessEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "secondaryAccessKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountAuthenticationMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountNodeIdentity".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountResult {
             account_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountEndpoint").unwrap(),
+                o.extract_field("accountEndpoint"),
             ),
             allowed_authentication_modes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowedAuthenticationModes").unwrap(),
+                o.extract_field("allowedAuthenticationModes"),
             ),
             encryption: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("encryption").unwrap(),
+                o.extract_field("encryption"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             key_vault_reference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultReference").unwrap(),
+                o.extract_field("keyVaultReference"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_profile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkProfile").unwrap(),
+                o.extract_field("networkProfile"),
             ),
             pool_allocation_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("poolAllocationMode").unwrap(),
+                o.extract_field("poolAllocationMode"),
             ),
             primary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("primaryAccessKey").unwrap(),
+                o.extract_field("primaryAccessKey"),
             ),
             public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicNetworkAccessEnabled").unwrap(),
+                o.extract_field("publicNetworkAccessEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             secondary_access_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("secondaryAccessKey").unwrap(),
+                o.extract_field("secondaryAccessKey"),
             ),
             storage_account_authentication_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountAuthenticationMode").unwrap(),
+                o.extract_field("storageAccountAuthenticationMode"),
             ),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
             storage_account_node_identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountNodeIdentity").unwrap(),
+                o.extract_field("storageAccountNodeIdentity"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -70,40 +70,17 @@ pub mod zero_trust_split_tunnel {
                     value: &tunnels_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "mode".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tunnels".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZeroTrustSplitTunnelResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mode").unwrap(),
-            ),
+            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
             policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyId").unwrap(),
+                o.extract_field("policyId"),
             ),
-            tunnels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tunnels").unwrap(),
-            ),
+            tunnels: pulumi_wasm_rust::__private::into_domain(o.extract_field("tunnels")),
         }
     }
 }

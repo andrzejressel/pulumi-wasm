@@ -176,75 +176,38 @@ pub mod account_password_policy {
                     value: &require_uppercase_characters_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowUsersToChangePassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirePasswords".into(),
-                },
-                register_interface::ResultField {
-                    name: "hardExpiry".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxPasswordAge".into(),
-                },
-                register_interface::ResultField {
-                    name: "minimumPasswordLength".into(),
-                },
-                register_interface::ResultField {
-                    name: "passwordReusePrevention".into(),
-                },
-                register_interface::ResultField {
-                    name: "requireLowercaseCharacters".into(),
-                },
-                register_interface::ResultField {
-                    name: "requireNumbers".into(),
-                },
-                register_interface::ResultField {
-                    name: "requireSymbols".into(),
-                },
-                register_interface::ResultField {
-                    name: "requireUppercaseCharacters".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AccountPasswordPolicyResult {
             allow_users_to_change_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowUsersToChangePassword").unwrap(),
+                o.extract_field("allowUsersToChangePassword"),
             ),
             expire_passwords: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirePasswords").unwrap(),
+                o.extract_field("expirePasswords"),
             ),
             hard_expiry: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hardExpiry").unwrap(),
+                o.extract_field("hardExpiry"),
             ),
             max_password_age: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxPasswordAge").unwrap(),
+                o.extract_field("maxPasswordAge"),
             ),
             minimum_password_length: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("minimumPasswordLength").unwrap(),
+                o.extract_field("minimumPasswordLength"),
             ),
             password_reuse_prevention: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("passwordReusePrevention").unwrap(),
+                o.extract_field("passwordReusePrevention"),
             ),
             require_lowercase_characters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requireLowercaseCharacters").unwrap(),
+                o.extract_field("requireLowercaseCharacters"),
             ),
             require_numbers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requireNumbers").unwrap(),
+                o.extract_field("requireNumbers"),
             ),
             require_symbols: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requireSymbols").unwrap(),
+                o.extract_field("requireSymbols"),
             ),
             require_uppercase_characters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("requireUppercaseCharacters").unwrap(),
+                o.extract_field("requireUppercaseCharacters"),
             ),
         }
     }

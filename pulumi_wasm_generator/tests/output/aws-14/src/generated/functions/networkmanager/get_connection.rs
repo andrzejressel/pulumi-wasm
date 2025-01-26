@@ -69,74 +69,31 @@ pub mod get_connection {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectedDeviceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectedLinkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "deviceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "globalNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "linkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetConnectionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             connected_device_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectedDeviceId").unwrap(),
+                o.extract_field("connectedDeviceId"),
             ),
             connected_link_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectedLinkId").unwrap(),
+                o.extract_field("connectedLinkId"),
             ),
             connection_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionId").unwrap(),
+                o.extract_field("connectionId"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             device_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deviceId").unwrap(),
+                o.extract_field("deviceId"),
             ),
             global_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("globalNetworkId").unwrap(),
+                o.extract_field("globalNetworkId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            link_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("linkId").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            link_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("linkId")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

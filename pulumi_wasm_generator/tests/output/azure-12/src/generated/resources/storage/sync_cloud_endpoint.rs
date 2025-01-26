@@ -164,45 +164,21 @@ pub mod sync_cloud_endpoint {
                     value: &storage_sync_group_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "fileShareName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageAccountTenantId".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageSyncGroupId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SyncCloudEndpointResult {
             file_share_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fileShareName").unwrap(),
+                o.extract_field("fileShareName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             storage_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountId").unwrap(),
+                o.extract_field("storageAccountId"),
             ),
             storage_account_tenant_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageAccountTenantId").unwrap(),
+                o.extract_field("storageAccountTenantId"),
             ),
             storage_sync_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageSyncGroupId").unwrap(),
+                o.extract_field("storageSyncGroupId"),
             ),
         }
     }

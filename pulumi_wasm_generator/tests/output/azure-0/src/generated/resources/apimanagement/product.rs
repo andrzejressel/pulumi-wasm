@@ -197,76 +197,37 @@ pub mod product {
                     value: &terms_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiManagementName".into(),
-                },
-                register_interface::ResultField {
-                    name: "approvalRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "productId".into(),
-                },
-                register_interface::ResultField {
-                    name: "published".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionRequired".into(),
-                },
-                register_interface::ResultField {
-                    name: "subscriptionsLimit".into(),
-                },
-                register_interface::ResultField {
-                    name: "terms".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ProductResult {
             api_management_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiManagementName").unwrap(),
+                o.extract_field("apiManagementName"),
             ),
             approval_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("approvalRequired").unwrap(),
+                o.extract_field("approvalRequired"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             product_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("productId").unwrap(),
+                o.extract_field("productId"),
             ),
             published: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("published").unwrap(),
+                o.extract_field("published"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             subscription_required: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionRequired").unwrap(),
+                o.extract_field("subscriptionRequired"),
             ),
             subscriptions_limit: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subscriptionsLimit").unwrap(),
+                o.extract_field("subscriptionsLimit"),
             ),
-            terms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("terms").unwrap(),
-            ),
+            terms: pulumi_wasm_rust::__private::into_domain(o.extract_field("terms")),
         }
     }
 }

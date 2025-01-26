@@ -383,171 +383,72 @@ pub mod kx_cluster {
                     value: &vpc_configuration_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoScalingConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "availabilityZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "azMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "cacheStorageConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "code".into(),
-                },
-                register_interface::ResultField {
-                    name: "commandLineArguments".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "databases".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentId".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "initializationScript".into(),
-                },
-                register_interface::ResultField {
-                    name: "lastModifiedTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "releaseLabel".into(),
-                },
-                register_interface::ResultField {
-                    name: "savedownStorageConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "scalingGroupConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusReason".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "tickerplantLogConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcConfiguration".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         KxClusterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auto_scaling_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoScalingConfiguration").unwrap(),
+                o.extract_field("autoScalingConfiguration"),
             ),
             availability_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZoneId").unwrap(),
+                o.extract_field("availabilityZoneId"),
             ),
-            az_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("azMode").unwrap(),
-            ),
+            az_mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("azMode")),
             cache_storage_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cacheStorageConfigurations").unwrap(),
+                o.extract_field("cacheStorageConfigurations"),
             ),
             capacity_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityConfiguration").unwrap(),
+                o.extract_field("capacityConfiguration"),
             ),
-            code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("code").unwrap(),
-            ),
+            code: pulumi_wasm_rust::__private::into_domain(o.extract_field("code")),
             command_line_arguments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("commandLineArguments").unwrap(),
+                o.extract_field("commandLineArguments"),
             ),
             created_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdTimestamp").unwrap(),
+                o.extract_field("createdTimestamp"),
             ),
             databases: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databases").unwrap(),
+                o.extract_field("databases"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             environment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentId").unwrap(),
+                o.extract_field("environmentId"),
             ),
             execution_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionRole").unwrap(),
+                o.extract_field("executionRole"),
             ),
             initialization_script: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initializationScript").unwrap(),
+                o.extract_field("initializationScript"),
             ),
             last_modified_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("lastModifiedTimestamp").unwrap(),
+                o.extract_field("lastModifiedTimestamp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             release_label: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("releaseLabel").unwrap(),
+                o.extract_field("releaseLabel"),
             ),
             savedown_storage_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("savedownStorageConfiguration").unwrap(),
+                o.extract_field("savedownStorageConfiguration"),
             ),
             scaling_group_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scalingGroupConfiguration").unwrap(),
+                o.extract_field("scalingGroupConfiguration"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             status_reason: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusReason").unwrap(),
+                o.extract_field("statusReason"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             tickerplant_log_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tickerplantLogConfigurations").unwrap(),
+                o.extract_field("tickerplantLogConfigurations"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             vpc_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcConfiguration").unwrap(),
+                o.extract_field("vpcConfiguration"),
             ),
         }
     }

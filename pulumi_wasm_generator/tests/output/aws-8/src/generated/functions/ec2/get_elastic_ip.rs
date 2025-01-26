@@ -96,128 +96,58 @@ pub mod get_elastic_ip {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "associationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "carrierIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerOwnedIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "customerOwnedIpv4Pool".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipamPoolId".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkInterfaceOwnerId".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateDns".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "ptrRecord".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicDns".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "publicIpv4Pool".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetElasticIpResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             association_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("associationId").unwrap(),
+                o.extract_field("associationId"),
             ),
             carrier_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("carrierIp").unwrap(),
+                o.extract_field("carrierIp"),
             ),
             customer_owned_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerOwnedIp").unwrap(),
+                o.extract_field("customerOwnedIp"),
             ),
             customer_owned_ipv4_pool: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customerOwnedIpv4Pool").unwrap(),
+                o.extract_field("customerOwnedIpv4Pool"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceId").unwrap(),
+                o.extract_field("instanceId"),
             ),
             ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipamPoolId").unwrap(),
+                o.extract_field("ipamPoolId"),
             ),
             network_interface_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceId").unwrap(),
+                o.extract_field("networkInterfaceId"),
             ),
             network_interface_owner_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkInterfaceOwnerId").unwrap(),
+                o.extract_field("networkInterfaceOwnerId"),
             ),
             private_dns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateDns").unwrap(),
+                o.extract_field("privateDns"),
             ),
             private_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIp").unwrap(),
+                o.extract_field("privateIp"),
             ),
             ptr_record: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ptrRecord").unwrap(),
+                o.extract_field("ptrRecord"),
             ),
             public_dns: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicDns").unwrap(),
+                o.extract_field("publicDns"),
             ),
             public_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIp").unwrap(),
+                o.extract_field("publicIp"),
             ),
             public_ipv4_pool: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("publicIpv4Pool").unwrap(),
+                o.extract_field("publicIpv4Pool"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

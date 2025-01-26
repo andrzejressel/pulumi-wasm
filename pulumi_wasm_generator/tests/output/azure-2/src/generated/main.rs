@@ -651,24 +651,19 @@ interface output-interface {
         map: func(function-name: string) -> output;
     }
     combine: func(outputs: list<borrow<output>>) -> output;
+
+    resource register-output {
+        extract-field: func(field-name: string) -> output;
+    }
 }
 
 interface register-interface {
     use pulumi-engine.{engine};
-    use output-interface.{output};
+    use output-interface.{output, register-output};
 
     record object-field {
         name: string,
         value: borrow<output>
-    }
-
-    record result-field {
-        name: string
-    }
-
-    record register-resource-result-field {
-        name: string,
-        output: output
     }
 
     record register-resource-request {
@@ -676,32 +671,17 @@ interface register-interface {
         name: string,
         version: string,
         object: list<object-field>,
-        results: list<result-field>
     }
 
-    record register-resource-result {
-        fields: list<register-resource-result-field>
-    }
-
-    register: func(engine: borrow<engine>, request: register-resource-request) -> register-resource-result;
-
-    record resource-invoke-result-field {
-        name: string,
-        output: output
-    }
+    register: func(engine: borrow<engine>, request: register-resource-request) -> register-output;
 
     record resource-invoke-request {
         token: string,
         version: string,
         object: list<object-field>,
-        results: list<result-field>
     }
 
-    record resource-invoke-result {
-        fields: list<resource-invoke-result-field>
-    }
-
-    invoke: func(engine: borrow<engine>, request: resource-invoke-request) -> resource-invoke-result;
+    invoke: func(engine: borrow<engine>, request: resource-invoke-request) -> register-output;
 }",
         with : { "component:pulumi-wasm/output-interface@0.0.0-DEV" :
         pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface

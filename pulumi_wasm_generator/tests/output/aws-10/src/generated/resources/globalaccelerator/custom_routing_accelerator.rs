@@ -149,75 +149,32 @@ pub mod custom_routing_accelerator {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attributes".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsName".into(),
-                },
-                register_interface::ResultField {
-                    name: "enabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostedZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddressType".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipSets".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomRoutingAcceleratorResult {
             attributes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attributes").unwrap(),
+                o.extract_field("attributes"),
             ),
             dns_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsName").unwrap(),
+                o.extract_field("dnsName"),
             ),
             enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enabled").unwrap(),
+                o.extract_field("enabled"),
             ),
             hosted_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostedZoneId").unwrap(),
+                o.extract_field("hostedZoneId"),
             ),
             ip_address_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddressType").unwrap(),
+                o.extract_field("ipAddressType"),
             ),
             ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipAddresses").unwrap(),
+                o.extract_field("ipAddresses"),
             ),
-            ip_sets: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipSets").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            ip_sets: pulumi_wasm_rust::__private::into_domain(o.extract_field("ipSets")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
         }
     }

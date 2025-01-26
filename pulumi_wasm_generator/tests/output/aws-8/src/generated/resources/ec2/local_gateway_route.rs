@@ -94,33 +94,17 @@ pub mod local_gateway_route {
                     value: &local_gateway_virtual_interface_group_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "destinationCidrBlock".into(),
-                },
-                register_interface::ResultField {
-                    name: "localGatewayRouteTableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "localGatewayVirtualInterfaceGroupId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         LocalGatewayRouteResult {
             destination_cidr_block: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationCidrBlock").unwrap(),
+                o.extract_field("destinationCidrBlock"),
             ),
             local_gateway_route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localGatewayRouteTableId").unwrap(),
+                o.extract_field("localGatewayRouteTableId"),
             ),
             local_gateway_virtual_interface_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localGatewayVirtualInterfaceGroupId").unwrap(),
+                o.extract_field("localGatewayVirtualInterfaceGroupId"),
             ),
         }
     }

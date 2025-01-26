@@ -375,165 +375,79 @@ pub mod workload {
                     value: &workload_options_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "billingAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "complianceRegime".into(),
-                },
-                register_interface::ResultField {
-                    name: "complianceStatuses".into(),
-                },
-                register_interface::ResultField {
-                    name: "compliantButDisallowedServices".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "ekmProvisioningResponses".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableSovereignControls".into(),
-                },
-                register_interface::ResultField {
-                    name: "kajEnrollmentState".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "organization".into(),
-                },
-                register_interface::ResultField {
-                    name: "partner".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerPermissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "partnerServicesBillingAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisionedResourcesParent".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "resources".into(),
-                },
-                register_interface::ResultField {
-                    name: "saaEnrollmentResponses".into(),
-                },
-                register_interface::ResultField {
-                    name: "violationNotificationsEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "workloadOptions".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WorkloadResult {
             billing_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingAccount").unwrap(),
+                o.extract_field("billingAccount"),
             ),
             compliance_regime: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("complianceRegime").unwrap(),
+                o.extract_field("complianceRegime"),
             ),
             compliance_statuses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("complianceStatuses").unwrap(),
+                o.extract_field("complianceStatuses"),
             ),
             compliant_but_disallowed_services: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compliantButDisallowedServices").unwrap(),
+                o.extract_field("compliantButDisallowedServices"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             ekm_provisioning_responses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ekmProvisioningResponses").unwrap(),
+                o.extract_field("ekmProvisioningResponses"),
             ),
             enable_sovereign_controls: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableSovereignControls").unwrap(),
+                o.extract_field("enableSovereignControls"),
             ),
             kaj_enrollment_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kajEnrollmentState").unwrap(),
+                o.extract_field("kajEnrollmentState"),
             ),
             kms_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsSettings").unwrap(),
+                o.extract_field("kmsSettings"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             organization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organization").unwrap(),
+                o.extract_field("organization"),
             ),
             partner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partner").unwrap(),
+                o.extract_field("partner"),
             ),
             partner_permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerPermissions").unwrap(),
+                o.extract_field("partnerPermissions"),
             ),
             partner_services_billing_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("partnerServicesBillingAccount").unwrap(),
+                o.extract_field("partnerServicesBillingAccount"),
             ),
             provisioned_resources_parent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisionedResourcesParent").unwrap(),
+                o.extract_field("provisionedResourcesParent"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             resource_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceSettings").unwrap(),
+                o.extract_field("resourceSettings"),
             ),
             resources: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resources").unwrap(),
+                o.extract_field("resources"),
             ),
             saa_enrollment_responses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("saaEnrollmentResponses").unwrap(),
+                o.extract_field("saaEnrollmentResponses"),
             ),
             violation_notifications_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("violationNotificationsEnabled").unwrap(),
+                o.extract_field("violationNotificationsEnabled"),
             ),
             workload_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workloadOptions").unwrap(),
+                o.extract_field("workloadOptions"),
             ),
         }
     }

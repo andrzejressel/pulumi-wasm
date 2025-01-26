@@ -136,51 +136,26 @@ pub mod identity_provider {
                     value: &user_pool_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attributeMapping".into(),
-                },
-                register_interface::ResultField {
-                    name: "idpIdentifiers".into(),
-                },
-                register_interface::ResultField {
-                    name: "providerDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "providerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "providerType".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPoolId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IdentityProviderResult {
             attribute_mapping: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attributeMapping").unwrap(),
+                o.extract_field("attributeMapping"),
             ),
             idp_identifiers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idpIdentifiers").unwrap(),
+                o.extract_field("idpIdentifiers"),
             ),
             provider_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providerDetails").unwrap(),
+                o.extract_field("providerDetails"),
             ),
             provider_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providerName").unwrap(),
+                o.extract_field("providerName"),
             ),
             provider_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("providerType").unwrap(),
+                o.extract_field("providerType"),
             ),
             user_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPoolId").unwrap(),
+                o.extract_field("userPoolId"),
             ),
         }
     }

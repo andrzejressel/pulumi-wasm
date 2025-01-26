@@ -68,49 +68,24 @@ pub mod get_account_id_token {
                     value: &target_service_account_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "delegates".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "idToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetAudience".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetServiceAccount".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAccountIdTokenResult {
             delegates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("delegates").unwrap(),
+                o.extract_field("delegates"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             id_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idToken").unwrap(),
+                o.extract_field("idToken"),
             ),
             include_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeEmail").unwrap(),
+                o.extract_field("includeEmail"),
             ),
             target_audience: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetAudience").unwrap(),
+                o.extract_field("targetAudience"),
             ),
             target_service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetServiceAccount").unwrap(),
+                o.extract_field("targetServiceAccount"),
             ),
         }
     }

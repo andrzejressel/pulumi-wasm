@@ -132,51 +132,24 @@ pub mod integration_response {
                     value: &template_selection_expression_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "apiId".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentHandlingStrategy".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationId".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationResponseKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "responseTemplates".into(),
-                },
-                register_interface::ResultField {
-                    name: "templateSelectionExpression".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IntegrationResponseResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiId").unwrap(),
-            ),
+            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
             content_handling_strategy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentHandlingStrategy").unwrap(),
+                o.extract_field("contentHandlingStrategy"),
             ),
             integration_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationId").unwrap(),
+                o.extract_field("integrationId"),
             ),
             integration_response_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationResponseKey").unwrap(),
+                o.extract_field("integrationResponseKey"),
             ),
             response_templates: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("responseTemplates").unwrap(),
+                o.extract_field("responseTemplates"),
             ),
             template_selection_expression: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("templateSelectionExpression").unwrap(),
+                o.extract_field("templateSelectionExpression"),
             ),
         }
     }

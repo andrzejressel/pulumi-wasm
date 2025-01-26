@@ -85,79 +85,39 @@ pub mod get_capacity_block_offering {
                     value: &start_date_range_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "availabilityZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityBlockOfferingId".into(),
-                },
-                register_interface::ResultField {
-                    name: "capacityDurationHours".into(),
-                },
-                register_interface::ResultField {
-                    name: "currencyCode".into(),
-                },
-                register_interface::ResultField {
-                    name: "endDateRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "startDateRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenancy".into(),
-                },
-                register_interface::ResultField {
-                    name: "upfrontFee".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetCapacityBlockOfferingResult {
             availability_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("availabilityZone").unwrap(),
+                o.extract_field("availabilityZone"),
             ),
             capacity_block_offering_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityBlockOfferingId").unwrap(),
+                o.extract_field("capacityBlockOfferingId"),
             ),
             capacity_duration_hours: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityDurationHours").unwrap(),
+                o.extract_field("capacityDurationHours"),
             ),
             currency_code: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("currencyCode").unwrap(),
+                o.extract_field("currencyCode"),
             ),
             end_date_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endDateRange").unwrap(),
+                o.extract_field("endDateRange"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceCount").unwrap(),
+                o.extract_field("instanceCount"),
             ),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             start_date_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("startDateRange").unwrap(),
+                o.extract_field("startDateRange"),
             ),
             tenancy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenancy").unwrap(),
+                o.extract_field("tenancy"),
             ),
             upfront_fee: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("upfrontFee").unwrap(),
+                o.extract_field("upfrontFee"),
             ),
         }
     }

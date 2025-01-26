@@ -30,48 +30,19 @@ pub mod get_api_token_permission_groups {
                 .into(),
             version: super::super::get_version(),
             object: Vec::from([]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "account".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "permissions".into(),
-                },
-                register_interface::ResultField {
-                    name: "r2".into(),
-                },
-                register_interface::ResultField {
-                    name: "user".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetApiTokenPermissionGroupsResult {
             account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("account").unwrap(),
+                o.extract_field("account"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             permissions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("permissions").unwrap(),
+                o.extract_field("permissions"),
             ),
-            r2: pulumi_wasm_rust::__private::into_domain(hashmap.remove("r2").unwrap()),
-            user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("user").unwrap(),
-            ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            r2: pulumi_wasm_rust::__private::into_domain(o.extract_field("r2")),
+            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

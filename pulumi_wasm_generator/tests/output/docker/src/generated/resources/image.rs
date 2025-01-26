@@ -226,57 +226,29 @@ pub mod image {
                     value: &skip_push_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "baseImageName".into(),
-                },
-                register_interface::ResultField {
-                    name: "context".into(),
-                },
-                register_interface::ResultField {
-                    name: "dockerfile".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageName".into(),
-                },
-                register_interface::ResultField {
-                    name: "platform".into(),
-                },
-                register_interface::ResultField {
-                    name: "registryServer".into(),
-                },
-                register_interface::ResultField {
-                    name: "repoDigest".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ImageResult {
             base_image_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baseImageName").unwrap(),
+                o.extract_field("baseImageName"),
             ),
             context: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("context").unwrap(),
+                o.extract_field("context"),
             ),
             dockerfile: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dockerfile").unwrap(),
+                o.extract_field("dockerfile"),
             ),
             image_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageName").unwrap(),
+                o.extract_field("imageName"),
             ),
             platform: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("platform").unwrap(),
+                o.extract_field("platform"),
             ),
             registry_server: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registryServer").unwrap(),
+                o.extract_field("registryServer"),
             ),
             repo_digest: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("repoDigest").unwrap(),
+                o.extract_field("repoDigest"),
             ),
         }
     }

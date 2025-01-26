@@ -81,51 +81,24 @@ pub mod zero_trust_risk_score_integration {
                     value: &tenant_url_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "active".into(),
-                },
-                register_interface::ResultField {
-                    name: "integrationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "referenceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "wellKnownUrl".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ZeroTrustRiskScoreIntegrationResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
-            active: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("active").unwrap(),
-            ),
+            active: pulumi_wasm_rust::__private::into_domain(o.extract_field("active")),
             integration_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("integrationType").unwrap(),
+                o.extract_field("integrationType"),
             ),
             reference_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("referenceId").unwrap(),
+                o.extract_field("referenceId"),
             ),
             tenant_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantUrl").unwrap(),
+                o.extract_field("tenantUrl"),
             ),
             well_known_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("wellKnownUrl").unwrap(),
+                o.extract_field("wellKnownUrl"),
             ),
         }
     }

@@ -413,147 +413,68 @@ pub mod job {
                     value: &worker_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "command".into(),
-                },
-                register_interface::ResultField {
-                    name: "connections".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultArguments".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionClass".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionProperty".into(),
-                },
-                register_interface::ResultField {
-                    name: "glueVersion".into(),
-                },
-                register_interface::ResultField {
-                    name: "jobRunQueuingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "maxRetries".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nonOverridableArguments".into(),
-                },
-                register_interface::ResultField {
-                    name: "notificationProperty".into(),
-                },
-                register_interface::ResultField {
-                    name: "numberOfWorkers".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeout".into(),
-                },
-                register_interface::ResultField {
-                    name: "workerType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         JobResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             command: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("command").unwrap(),
+                o.extract_field("command"),
             ),
             connections: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connections").unwrap(),
+                o.extract_field("connections"),
             ),
             default_arguments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultArguments").unwrap(),
+                o.extract_field("defaultArguments"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             execution_class: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionClass").unwrap(),
+                o.extract_field("executionClass"),
             ),
             execution_property: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionProperty").unwrap(),
+                o.extract_field("executionProperty"),
             ),
             glue_version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("glueVersion").unwrap(),
+                o.extract_field("glueVersion"),
             ),
             job_run_queuing_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("jobRunQueuingEnabled").unwrap(),
+                o.extract_field("jobRunQueuingEnabled"),
             ),
             maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceWindow").unwrap(),
+                o.extract_field("maintenanceWindow"),
             ),
             max_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxCapacity").unwrap(),
+                o.extract_field("maxCapacity"),
             ),
             max_retries: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maxRetries").unwrap(),
+                o.extract_field("maxRetries"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             non_overridable_arguments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nonOverridableArguments").unwrap(),
+                o.extract_field("nonOverridableArguments"),
             ),
             notification_property: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notificationProperty").unwrap(),
+                o.extract_field("notificationProperty"),
             ),
             number_of_workers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("numberOfWorkers").unwrap(),
+                o.extract_field("numberOfWorkers"),
             ),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
             security_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityConfiguration").unwrap(),
+                o.extract_field("securityConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             timeout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeout").unwrap(),
+                o.extract_field("timeout"),
             ),
             worker_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workerType").unwrap(),
+                o.extract_field("workerType"),
             ),
         }
     }

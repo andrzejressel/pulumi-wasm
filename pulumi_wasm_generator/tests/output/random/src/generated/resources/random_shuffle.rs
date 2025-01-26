@@ -92,46 +92,20 @@ pub mod random_shuffle {
                     value: &seed_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "inputs".into(),
-                },
-                register_interface::ResultField {
-                    name: "keepers".into(),
-                },
-                register_interface::ResultField {
-                    name: "resultCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "results".into(),
-                },
-                register_interface::ResultField {
-                    name: "seed".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RandomShuffleResult {
-            inputs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputs").unwrap(),
-            ),
+            inputs: pulumi_wasm_rust::__private::into_domain(o.extract_field("inputs")),
             keepers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keepers").unwrap(),
+                o.extract_field("keepers"),
             ),
             result_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resultCount").unwrap(),
+                o.extract_field("resultCount"),
             ),
             results: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("results").unwrap(),
+                o.extract_field("results"),
             ),
-            seed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("seed").unwrap(),
-            ),
+            seed: pulumi_wasm_rust::__private::into_domain(o.extract_field("seed")),
         }
     }
 }

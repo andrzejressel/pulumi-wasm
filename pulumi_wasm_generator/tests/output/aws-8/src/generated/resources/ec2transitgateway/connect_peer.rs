@@ -141,75 +141,32 @@ pub mod connect_peer {
                     value: &transit_gateway_attachment_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpPeerAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpTransitGatewayAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "insideCidrBlocks".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "transitGatewayAttachmentId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ConnectPeerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            bgp_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpAsn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            bgp_asn: pulumi_wasm_rust::__private::into_domain(o.extract_field("bgpAsn")),
             bgp_peer_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpPeerAddress").unwrap(),
+                o.extract_field("bgpPeerAddress"),
             ),
             bgp_transit_gateway_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpTransitGatewayAddresses").unwrap(),
+                o.extract_field("bgpTransitGatewayAddresses"),
             ),
             inside_cidr_blocks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("insideCidrBlocks").unwrap(),
+                o.extract_field("insideCidrBlocks"),
             ),
             peer_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerAddress").unwrap(),
+                o.extract_field("peerAddress"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             transit_gateway_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayAddress").unwrap(),
+                o.extract_field("transitGatewayAddress"),
             ),
             transit_gateway_attachment_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transitGatewayAttachmentId").unwrap(),
+                o.extract_field("transitGatewayAttachmentId"),
             ),
         }
     }

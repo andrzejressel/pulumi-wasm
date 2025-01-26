@@ -173,51 +173,22 @@ pub mod region_network_firewall_policy_association {
                     value: &region_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "attachmentTarget".into(),
-                },
-                register_interface::ResultField {
-                    name: "firewallPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "shortName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegionNetworkFirewallPolicyAssociationResult {
             attachment_target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("attachmentTarget").unwrap(),
+                o.extract_field("attachmentTarget"),
             ),
             firewall_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("firewallPolicy").unwrap(),
+                o.extract_field("firewallPolicy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             short_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shortName").unwrap(),
+                o.extract_field("shortName"),
             ),
         }
     }

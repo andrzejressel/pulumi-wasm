@@ -244,159 +244,78 @@ pub mod registered_domain {
                     value: &transfer_lock_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "abuseContactEmail".into(),
-                },
-                register_interface::ResultField {
-                    name: "abuseContactPhone".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminContact".into(),
-                },
-                register_interface::ResultField {
-                    name: "adminPrivacy".into(),
-                },
-                register_interface::ResultField {
-                    name: "autoRenew".into(),
-                },
-                register_interface::ResultField {
-                    name: "billingContact".into(),
-                },
-                register_interface::ResultField {
-                    name: "billingPrivacy".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainName".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "nameServers".into(),
-                },
-                register_interface::ResultField {
-                    name: "registrantContact".into(),
-                },
-                register_interface::ResultField {
-                    name: "registrantPrivacy".into(),
-                },
-                register_interface::ResultField {
-                    name: "registrarName".into(),
-                },
-                register_interface::ResultField {
-                    name: "registrarUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "reseller".into(),
-                },
-                register_interface::ResultField {
-                    name: "statusLists".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "techContact".into(),
-                },
-                register_interface::ResultField {
-                    name: "techPrivacy".into(),
-                },
-                register_interface::ResultField {
-                    name: "transferLock".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatedDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "whoisServer".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegisteredDomainResult {
             abuse_contact_email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("abuseContactEmail").unwrap(),
+                o.extract_field("abuseContactEmail"),
             ),
             abuse_contact_phone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("abuseContactPhone").unwrap(),
+                o.extract_field("abuseContactPhone"),
             ),
             admin_contact: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminContact").unwrap(),
+                o.extract_field("adminContact"),
             ),
             admin_privacy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("adminPrivacy").unwrap(),
+                o.extract_field("adminPrivacy"),
             ),
             auto_renew: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoRenew").unwrap(),
+                o.extract_field("autoRenew"),
             ),
             billing_contact: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingContact").unwrap(),
+                o.extract_field("billingContact"),
             ),
             billing_privacy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingPrivacy").unwrap(),
+                o.extract_field("billingPrivacy"),
             ),
             creation_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationDate").unwrap(),
+                o.extract_field("creationDate"),
             ),
             domain_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainName").unwrap(),
+                o.extract_field("domainName"),
             ),
             expiration_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationDate").unwrap(),
+                o.extract_field("expirationDate"),
             ),
             name_servers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nameServers").unwrap(),
+                o.extract_field("nameServers"),
             ),
             registrant_contact: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registrantContact").unwrap(),
+                o.extract_field("registrantContact"),
             ),
             registrant_privacy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registrantPrivacy").unwrap(),
+                o.extract_field("registrantPrivacy"),
             ),
             registrar_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registrarName").unwrap(),
+                o.extract_field("registrarName"),
             ),
             registrar_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("registrarUrl").unwrap(),
+                o.extract_field("registrarUrl"),
             ),
             reseller: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reseller").unwrap(),
+                o.extract_field("reseller"),
             ),
             status_lists: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("statusLists").unwrap(),
+                o.extract_field("statusLists"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             tech_contact: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("techContact").unwrap(),
+                o.extract_field("techContact"),
             ),
             tech_privacy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("techPrivacy").unwrap(),
+                o.extract_field("techPrivacy"),
             ),
             transfer_lock: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("transferLock").unwrap(),
+                o.extract_field("transferLock"),
             ),
             updated_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatedDate").unwrap(),
+                o.extract_field("updatedDate"),
             ),
             whois_server: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("whoisServer").unwrap(),
+                o.extract_field("whoisServer"),
             ),
         }
     }

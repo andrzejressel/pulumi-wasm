@@ -188,117 +188,53 @@ pub mod certificate {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appServicePlanId".into(),
-                },
-                register_interface::ResultField {
-                    name: "expirationDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "friendlyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostingEnvironmentProfileId".into(),
-                },
-                register_interface::ResultField {
-                    name: "issueDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "issuer".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultSecretId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "pfxBlob".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "subjectName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "thumbprint".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CertificateResult {
             app_service_plan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appServicePlanId").unwrap(),
+                o.extract_field("appServicePlanId"),
             ),
             expiration_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expirationDate").unwrap(),
+                o.extract_field("expirationDate"),
             ),
             friendly_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("friendlyName").unwrap(),
+                o.extract_field("friendlyName"),
             ),
             host_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostNames").unwrap(),
+                o.extract_field("hostNames"),
             ),
             hosting_environment_profile_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostingEnvironmentProfileId").unwrap(),
+                o.extract_field("hostingEnvironmentProfileId"),
             ),
             issue_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issueDate").unwrap(),
+                o.extract_field("issueDate"),
             ),
-            issuer: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("issuer").unwrap(),
-            ),
+            issuer: pulumi_wasm_rust::__private::into_domain(o.extract_field("issuer")),
             key_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultId").unwrap(),
+                o.extract_field("keyVaultId"),
             ),
             key_vault_secret_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultSecretId").unwrap(),
+                o.extract_field("keyVaultSecretId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             pfx_blob: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pfxBlob").unwrap(),
+                o.extract_field("pfxBlob"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             subject_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subjectName").unwrap(),
+                o.extract_field("subjectName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thumbprint").unwrap(),
+                o.extract_field("thumbprint"),
             ),
         }
     }

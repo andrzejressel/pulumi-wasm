@@ -97,39 +97,20 @@ pub mod folder_membership {
                     value: &member_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "awsAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "folderId".into(),
-                },
-                register_interface::ResultField {
-                    name: "memberId".into(),
-                },
-                register_interface::ResultField {
-                    name: "memberType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FolderMembershipResult {
             aws_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountId").unwrap(),
+                o.extract_field("awsAccountId"),
             ),
             folder_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("folderId").unwrap(),
+                o.extract_field("folderId"),
             ),
             member_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memberId").unwrap(),
+                o.extract_field("memberId"),
             ),
             member_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("memberType").unwrap(),
+                o.extract_field("memberType"),
             ),
         }
     }

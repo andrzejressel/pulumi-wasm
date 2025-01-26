@@ -118,27 +118,14 @@ pub mod hosted_zone_dns_sec {
                     value: &signing_status_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "hostedZoneId".into(),
-                },
-                register_interface::ResultField {
-                    name: "signingStatus".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HostedZoneDnsSecResult {
             hosted_zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostedZoneId").unwrap(),
+                o.extract_field("hostedZoneId"),
             ),
             signing_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("signingStatus").unwrap(),
+                o.extract_field("signingStatus"),
             ),
         }
     }

@@ -336,100 +336,45 @@ pub mod node_group {
                     value: &zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoscalingPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "initialSize".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceInterval".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenancePolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "maintenanceWindow".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "nodeTemplate".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "shareSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "size".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NodeGroupResult {
             autoscaling_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoscalingPolicy").unwrap(),
+                o.extract_field("autoscalingPolicy"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             initial_size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("initialSize").unwrap(),
+                o.extract_field("initialSize"),
             ),
             maintenance_interval: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceInterval").unwrap(),
+                o.extract_field("maintenanceInterval"),
             ),
             maintenance_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenancePolicy").unwrap(),
+                o.extract_field("maintenancePolicy"),
             ),
             maintenance_window: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("maintenanceWindow").unwrap(),
+                o.extract_field("maintenanceWindow"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             node_template: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nodeTemplate").unwrap(),
+                o.extract_field("nodeTemplate"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             share_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shareSettings").unwrap(),
+                o.extract_field("shareSettings"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("size").unwrap(),
-            ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

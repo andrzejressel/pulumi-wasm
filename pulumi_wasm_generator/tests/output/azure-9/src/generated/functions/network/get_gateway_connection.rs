@@ -108,163 +108,75 @@ pub mod get_gateway_connection {
                     value: &resource_group_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "authorizationKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectionProtocol".into(),
-                },
-                register_interface::ResultField {
-                    name: "dpdTimeoutSeconds".into(),
-                },
-                register_interface::ResultField {
-                    name: "egressBytesTransferred".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableBgp".into(),
-                },
-                register_interface::ResultField {
-                    name: "expressRouteCircuitId".into(),
-                },
-                register_interface::ResultField {
-                    name: "expressRouteGatewayBypass".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ingressBytesTransferred".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipsecPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "localAzureIpAddressEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "localNetworkGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "peerVirtualNetworkGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateLinkFastPathEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGuid".into(),
-                },
-                register_interface::ResultField {
-                    name: "routingWeight".into(),
-                },
-                register_interface::ResultField {
-                    name: "sharedKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "trafficSelectorPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "usePolicyBasedTrafficSelectors".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkGatewayId".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetGatewayConnectionResult {
             authorization_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorizationKey").unwrap(),
+                o.extract_field("authorizationKey"),
             ),
             connection_protocol: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectionProtocol").unwrap(),
+                o.extract_field("connectionProtocol"),
             ),
             dpd_timeout_seconds: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dpdTimeoutSeconds").unwrap(),
+                o.extract_field("dpdTimeoutSeconds"),
             ),
             egress_bytes_transferred: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("egressBytesTransferred").unwrap(),
+                o.extract_field("egressBytesTransferred"),
             ),
             enable_bgp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableBgp").unwrap(),
+                o.extract_field("enableBgp"),
             ),
             express_route_circuit_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expressRouteCircuitId").unwrap(),
+                o.extract_field("expressRouteCircuitId"),
             ),
             express_route_gateway_bypass: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expressRouteGatewayBypass").unwrap(),
+                o.extract_field("expressRouteGatewayBypass"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ingress_bytes_transferred: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ingressBytesTransferred").unwrap(),
+                o.extract_field("ingressBytesTransferred"),
             ),
             ipsec_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipsecPolicies").unwrap(),
+                o.extract_field("ipsecPolicies"),
             ),
             local_azure_ip_address_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localAzureIpAddressEnabled").unwrap(),
+                o.extract_field("localAzureIpAddressEnabled"),
             ),
             local_network_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("localNetworkGatewayId").unwrap(),
+                o.extract_field("localNetworkGatewayId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             peer_virtual_network_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("peerVirtualNetworkGatewayId").unwrap(),
+                o.extract_field("peerVirtualNetworkGatewayId"),
             ),
             private_link_fast_path_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateLinkFastPathEnabled").unwrap(),
+                o.extract_field("privateLinkFastPathEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             resource_guid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGuid").unwrap(),
+                o.extract_field("resourceGuid"),
             ),
             routing_weight: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routingWeight").unwrap(),
+                o.extract_field("routingWeight"),
             ),
             shared_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sharedKey").unwrap(),
+                o.extract_field("sharedKey"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             traffic_selector_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("trafficSelectorPolicies").unwrap(),
+                o.extract_field("trafficSelectorPolicies"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             use_policy_based_traffic_selectors: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("usePolicyBasedTrafficSelectors").unwrap(),
+                o.extract_field("usePolicyBasedTrafficSelectors"),
             ),
             virtual_network_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkGatewayId").unwrap(),
+                o.extract_field("virtualNetworkGatewayId"),
             ),
         }
     }

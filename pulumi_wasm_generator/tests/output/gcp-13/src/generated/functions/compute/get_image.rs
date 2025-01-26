@@ -114,140 +114,60 @@ pub mod get_image {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "archiveSizeBytes".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskSizeGb".into(),
-                },
-                register_interface::ResultField {
-                    name: "family".into(),
-                },
-                register_interface::ResultField {
-                    name: "filter".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageEncryptionKeySha256".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageId".into(),
-                },
-                register_interface::ResultField {
-                    name: "labelFingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "licenses".into(),
-                },
-                register_interface::ResultField {
-                    name: "mostRecent".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceDisk".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceDiskEncryptionKeySha256".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceDiskId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceImageId".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetImageResult {
             archive_size_bytes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("archiveSizeBytes").unwrap(),
+                o.extract_field("archiveSizeBytes"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             disk_size_gb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskSizeGb").unwrap(),
+                o.extract_field("diskSizeGb"),
             ),
-            family: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("family").unwrap(),
-            ),
-            filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filter").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            family: pulumi_wasm_rust::__private::into_domain(o.extract_field("family")),
+            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             image_encryption_key_sha256: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageEncryptionKeySha256").unwrap(),
+                o.extract_field("imageEncryptionKeySha256"),
             ),
             image_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageId").unwrap(),
+                o.extract_field("imageId"),
             ),
             label_fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labelFingerprint").unwrap(),
+                o.extract_field("labelFingerprint"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
             licenses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("licenses").unwrap(),
+                o.extract_field("licenses"),
             ),
             most_recent: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mostRecent").unwrap(),
+                o.extract_field("mostRecent"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             source_disk: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceDisk").unwrap(),
+                o.extract_field("sourceDisk"),
             ),
             source_disk_encryption_key_sha256: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceDiskEncryptionKeySha256").unwrap(),
+                o.extract_field("sourceDiskEncryptionKeySha256"),
             ),
             source_disk_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceDiskId").unwrap(),
+                o.extract_field("sourceDiskId"),
             ),
             source_image_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceImageId").unwrap(),
+                o.extract_field("sourceImageId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
         }
     }
 }

@@ -216,111 +216,46 @@ pub mod studio {
                     value: &workspace_security_group_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "authMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultS3Location".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "engineSecurityGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "idpAuthUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "idpRelayStateParameterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "subnetIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-                register_interface::ResultField {
-                    name: "userRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcId".into(),
-                },
-                register_interface::ResultField {
-                    name: "workspaceSecurityGroupId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         StudioResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             auth_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authMode").unwrap(),
+                o.extract_field("authMode"),
             ),
             default_s3_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultS3Location").unwrap(),
+                o.extract_field("defaultS3Location"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             engine_security_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("engineSecurityGroupId").unwrap(),
+                o.extract_field("engineSecurityGroupId"),
             ),
             idp_auth_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idpAuthUrl").unwrap(),
+                o.extract_field("idpAuthUrl"),
             ),
             idp_relay_state_parameter_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("idpRelayStateParameterName").unwrap(),
+                o.extract_field("idpRelayStateParameterName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             service_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceRole").unwrap(),
+                o.extract_field("serviceRole"),
             ),
             subnet_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("subnetIds").unwrap(),
+                o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("url").unwrap(),
-            ),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
             user_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userRole").unwrap(),
+                o.extract_field("userRole"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcId").unwrap(),
-            ),
+            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
             workspace_security_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workspaceSecurityGroupId").unwrap(),
+                o.extract_field("workspaceSecurityGroupId"),
             ),
         }
     }

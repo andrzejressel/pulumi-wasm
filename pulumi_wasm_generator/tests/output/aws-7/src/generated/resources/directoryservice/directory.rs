@@ -315,117 +315,49 @@ pub mod directory {
                     value: &vpc_settings_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "alias".into(),
-                },
-                register_interface::ResultField {
-                    name: "connectSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "desiredNumberOfDomainControllers".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsIpAddresses".into(),
-                },
-                register_interface::ResultField {
-                    name: "edition".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableSso".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityGroupId".into(),
-                },
-                register_interface::ResultField {
-                    name: "shortName".into(),
-                },
-                register_interface::ResultField {
-                    name: "size".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpcSettings".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DirectoryResult {
             access_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessUrl").unwrap(),
+                o.extract_field("accessUrl"),
             ),
-            alias: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("alias").unwrap(),
-            ),
+            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
             connect_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("connectSettings").unwrap(),
+                o.extract_field("connectSettings"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             desired_number_of_domain_controllers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("desiredNumberOfDomainControllers").unwrap(),
+                o.extract_field("desiredNumberOfDomainControllers"),
             ),
             dns_ip_addresses: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsIpAddresses").unwrap(),
+                o.extract_field("dnsIpAddresses"),
             ),
             edition: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edition").unwrap(),
+                o.extract_field("edition"),
             ),
             enable_sso: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableSso").unwrap(),
+                o.extract_field("enableSso"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             security_group_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityGroupId").unwrap(),
+                o.extract_field("securityGroupId"),
             ),
             short_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("shortName").unwrap(),
+                o.extract_field("shortName"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("size").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             vpc_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpcSettings").unwrap(),
+                o.extract_field("vpcSettings"),
             ),
         }
     }

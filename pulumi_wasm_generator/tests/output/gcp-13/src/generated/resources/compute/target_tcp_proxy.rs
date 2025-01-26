@@ -187,69 +187,33 @@ pub mod target_tcp_proxy {
                     value: &proxy_header_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "backendService".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "proxyBind".into(),
-                },
-                register_interface::ResultField {
-                    name: "proxyHeader".into(),
-                },
-                register_interface::ResultField {
-                    name: "proxyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TargetTCPProxyResult {
             backend_service: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("backendService").unwrap(),
+                o.extract_field("backendService"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             proxy_bind: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proxyBind").unwrap(),
+                o.extract_field("proxyBind"),
             ),
             proxy_header: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proxyHeader").unwrap(),
+                o.extract_field("proxyHeader"),
             ),
             proxy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("proxyId").unwrap(),
+                o.extract_field("proxyId"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
         }
     }

@@ -75,60 +75,29 @@ pub mod get_ip_ranges {
                     value: &url_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "cidrBlocks".into(),
-                },
-                register_interface::ResultField {
-                    name: "createDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipv6CidrBlocks".into(),
-                },
-                register_interface::ResultField {
-                    name: "regions".into(),
-                },
-                register_interface::ResultField {
-                    name: "services".into(),
-                },
-                register_interface::ResultField {
-                    name: "syncToken".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetIpRangesResult {
             cidr_blocks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cidrBlocks").unwrap(),
+                o.extract_field("cidrBlocks"),
             ),
             create_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createDate").unwrap(),
+                o.extract_field("createDate"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             ipv6_cidr_blocks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipv6CidrBlocks").unwrap(),
+                o.extract_field("ipv6CidrBlocks"),
             ),
             regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("regions").unwrap(),
+                o.extract_field("regions"),
             ),
             services: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("services").unwrap(),
+                o.extract_field("services"),
             ),
             sync_token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("syncToken").unwrap(),
+                o.extract_field("syncToken"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(hashmap.remove("url").unwrap()),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

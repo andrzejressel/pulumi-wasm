@@ -110,33 +110,17 @@ pub mod cluster_capacity_providers {
                     value: &default_capacity_provider_strategies_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "capacityProviders".into(),
-                },
-                register_interface::ResultField {
-                    name: "clusterName".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultCapacityProviderStrategies".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ClusterCapacityProvidersResult {
             capacity_providers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("capacityProviders").unwrap(),
+                o.extract_field("capacityProviders"),
             ),
             cluster_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("clusterName").unwrap(),
+                o.extract_field("clusterName"),
             ),
             default_capacity_provider_strategies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultCapacityProviderStrategies").unwrap(),
+                o.extract_field("defaultCapacityProviderStrategies"),
             ),
         }
     }

@@ -188,68 +188,28 @@ pub mod hosting_channel {
                     value: &ttl_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "channelId".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "expireTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "retainedReleaseCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteId".into(),
-                },
-                register_interface::ResultField {
-                    name: "ttl".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HostingChannelResult {
             channel_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("channelId").unwrap(),
+                o.extract_field("channelId"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             expire_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expireTime").unwrap(),
+                o.extract_field("expireTime"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
             retained_release_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("retainedReleaseCount").unwrap(),
+                o.extract_field("retainedReleaseCount"),
             ),
-            site_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteId").unwrap(),
-            ),
-            ttl: pulumi_wasm_rust::__private::into_domain(hashmap.remove("ttl").unwrap()),
+            site_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("siteId")),
+            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
         }
     }
 }

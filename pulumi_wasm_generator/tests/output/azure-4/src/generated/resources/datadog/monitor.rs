@@ -204,76 +204,33 @@ pub mod monitor {
                     value: &user_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "datadogOrganization".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "marketplaceSubscriptionStatus".into(),
-                },
-                register_interface::ResultField {
-                    name: "monitoringEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "user".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MonitorResult {
             datadog_organization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datadogOrganization").unwrap(),
+                o.extract_field("datadogOrganization"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             marketplace_subscription_status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("marketplaceSubscriptionStatus").unwrap(),
+                o.extract_field("marketplaceSubscriptionStatus"),
             ),
             monitoring_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("monitoringEnabled").unwrap(),
+                o.extract_field("monitoringEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("user").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
         }
     }
 }

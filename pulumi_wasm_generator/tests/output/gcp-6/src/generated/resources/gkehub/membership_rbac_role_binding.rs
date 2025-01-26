@@ -183,88 +183,35 @@ pub mod membership_rbac_role_binding {
                     value: &user_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleteTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "membershipId".into(),
-                },
-                register_interface::ResultField {
-                    name: "membershipRbacRoleBindingId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-                register_interface::ResultField {
-                    name: "states".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "user".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MembershipRbacRoleBindingResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             delete_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleteTime").unwrap(),
+                o.extract_field("deleteTime"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             membership_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("membershipId").unwrap(),
+                o.extract_field("membershipId"),
             ),
             membership_rbac_role_binding_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("membershipRbacRoleBindingId").unwrap(),
+                o.extract_field("membershipRbacRoleBindingId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
-            states: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("states").unwrap(),
-            ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
+            states: pulumi_wasm_rust::__private::into_domain(o.extract_field("states")),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
-            user: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("user").unwrap(),
-            ),
+            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
         }
     }
 }

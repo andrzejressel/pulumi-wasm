@@ -141,45 +141,21 @@ pub mod ami_launch_permission {
                     value: &organizational_unit_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "group".into(),
-                },
-                register_interface::ResultField {
-                    name: "imageId".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "organizationalUnitArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AmiLaunchPermissionResult {
             account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accountId").unwrap(),
+                o.extract_field("accountId"),
             ),
-            group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("group").unwrap(),
-            ),
+            group: pulumi_wasm_rust::__private::into_domain(o.extract_field("group")),
             image_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("imageId").unwrap(),
+                o.extract_field("imageId"),
             ),
             organization_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationArn").unwrap(),
+                o.extract_field("organizationArn"),
             ),
             organizational_unit_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("organizationalUnitArn").unwrap(),
+                o.extract_field("organizationalUnitArn"),
             ),
         }
     }

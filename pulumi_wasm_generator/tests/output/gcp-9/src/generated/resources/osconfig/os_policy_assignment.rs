@@ -264,110 +264,51 @@ pub mod os_policy_assignment {
                     value: &skip_await_rollout_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "baseline".into(),
-                },
-                register_interface::ResultField {
-                    name: "deleted".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceFilter".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "osPolicies".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "reconciling".into(),
-                },
-                register_interface::ResultField {
-                    name: "revisionCreateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "revisionId".into(),
-                },
-                register_interface::ResultField {
-                    name: "rollout".into(),
-                },
-                register_interface::ResultField {
-                    name: "rolloutState".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipAwaitRollout".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         OsPolicyAssignmentResult {
             baseline: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("baseline").unwrap(),
+                o.extract_field("baseline"),
             ),
             deleted: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("deleted").unwrap(),
+                o.extract_field("deleted"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             instance_filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceFilter").unwrap(),
+                o.extract_field("instanceFilter"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             os_policies: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("osPolicies").unwrap(),
+                o.extract_field("osPolicies"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             reconciling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reconciling").unwrap(),
+                o.extract_field("reconciling"),
             ),
             revision_create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revisionCreateTime").unwrap(),
+                o.extract_field("revisionCreateTime"),
             ),
             revision_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("revisionId").unwrap(),
+                o.extract_field("revisionId"),
             ),
             rollout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rollout").unwrap(),
+                o.extract_field("rollout"),
             ),
             rollout_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rolloutState").unwrap(),
+                o.extract_field("rolloutState"),
             ),
             skip_await_rollout: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipAwaitRollout").unwrap(),
+                o.extract_field("skipAwaitRollout"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(hashmap.remove("uid").unwrap()),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
         }
     }
 }

@@ -86,34 +86,16 @@ pub mod api_shield_schema_validation_settings {
                     value: &zone_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "validationDefaultMitigationAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "validationOverrideMitigationAction".into(),
-                },
-                register_interface::ResultField {
-                    name: "zoneId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ApiShieldSchemaValidationSettingsResult {
             validation_default_mitigation_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationDefaultMitigationAction").unwrap(),
+                o.extract_field("validationDefaultMitigationAction"),
             ),
             validation_override_mitigation_action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("validationOverrideMitigationAction").unwrap(),
+                o.extract_field("validationOverrideMitigationAction"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zoneId").unwrap(),
-            ),
+            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
         }
     }
 }

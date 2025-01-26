@@ -478,124 +478,59 @@ pub mod route {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "destRange".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "network".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextHopGateway".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextHopIlb".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextHopInstance".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextHopInstanceZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextHopInterRegionCost".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextHopIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextHopMed".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextHopNetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextHopOrigin".into(),
-                },
-                register_interface::ResultField {
-                    name: "nextHopVpnTunnel".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RouteResult {
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             dest_range: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destRange").unwrap(),
+                o.extract_field("destRange"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("network").unwrap(),
+                o.extract_field("network"),
             ),
             next_hop_gateway: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextHopGateway").unwrap(),
+                o.extract_field("nextHopGateway"),
             ),
             next_hop_ilb: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextHopIlb").unwrap(),
+                o.extract_field("nextHopIlb"),
             ),
             next_hop_instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextHopInstance").unwrap(),
+                o.extract_field("nextHopInstance"),
             ),
             next_hop_instance_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextHopInstanceZone").unwrap(),
+                o.extract_field("nextHopInstanceZone"),
             ),
             next_hop_inter_region_cost: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextHopInterRegionCost").unwrap(),
+                o.extract_field("nextHopInterRegionCost"),
             ),
             next_hop_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextHopIp").unwrap(),
+                o.extract_field("nextHopIp"),
             ),
             next_hop_med: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextHopMed").unwrap(),
+                o.extract_field("nextHopMed"),
             ),
             next_hop_network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextHopNetwork").unwrap(),
+                o.extract_field("nextHopNetwork"),
             ),
             next_hop_origin: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextHopOrigin").unwrap(),
+                o.extract_field("nextHopOrigin"),
             ),
             next_hop_vpn_tunnel: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nextHopVpnTunnel").unwrap(),
+                o.extract_field("nextHopVpnTunnel"),
             ),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

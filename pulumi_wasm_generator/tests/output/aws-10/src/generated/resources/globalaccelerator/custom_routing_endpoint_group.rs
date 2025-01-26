@@ -133,45 +133,21 @@ pub mod custom_routing_endpoint_group {
                     value: &listener_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "destinationConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointGroupRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "listenerArn".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         CustomRoutingEndpointGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             destination_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("destinationConfigurations").unwrap(),
+                o.extract_field("destinationConfigurations"),
             ),
             endpoint_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointConfigurations").unwrap(),
+                o.extract_field("endpointConfigurations"),
             ),
             endpoint_group_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointGroupRegion").unwrap(),
+                o.extract_field("endpointGroupRegion"),
             ),
             listener_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("listenerArn").unwrap(),
+                o.extract_field("listenerArn"),
             ),
         }
     }

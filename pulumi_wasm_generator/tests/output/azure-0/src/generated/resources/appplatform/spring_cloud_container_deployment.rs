@@ -224,87 +224,36 @@ pub mod spring_cloud_container_deployment {
                     value: &spring_cloud_app_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addonJson".into(),
-                },
-                register_interface::ResultField {
-                    name: "applicationPerformanceMonitoringIds".into(),
-                },
-                register_interface::ResultField {
-                    name: "arguments".into(),
-                },
-                register_interface::ResultField {
-                    name: "commands".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentVariables".into(),
-                },
-                register_interface::ResultField {
-                    name: "image".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "languageFramework".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "quota".into(),
-                },
-                register_interface::ResultField {
-                    name: "server".into(),
-                },
-                register_interface::ResultField {
-                    name: "springCloudAppId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SpringCloudContainerDeploymentResult {
             addon_json: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addonJson").unwrap(),
+                o.extract_field("addonJson"),
             ),
             application_performance_monitoring_ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("applicationPerformanceMonitoringIds").unwrap(),
+                o.extract_field("applicationPerformanceMonitoringIds"),
             ),
             arguments: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arguments").unwrap(),
+                o.extract_field("arguments"),
             ),
             commands: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("commands").unwrap(),
+                o.extract_field("commands"),
             ),
             environment_variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentVariables").unwrap(),
+                o.extract_field("environmentVariables"),
             ),
-            image: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("image").unwrap(),
-            ),
+            image: pulumi_wasm_rust::__private::into_domain(o.extract_field("image")),
             instance_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceCount").unwrap(),
+                o.extract_field("instanceCount"),
             ),
             language_framework: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("languageFramework").unwrap(),
+                o.extract_field("languageFramework"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            quota: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("quota").unwrap(),
-            ),
-            server: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("server").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            quota: pulumi_wasm_rust::__private::into_domain(o.extract_field("quota")),
+            server: pulumi_wasm_rust::__private::into_domain(o.extract_field("server")),
             spring_cloud_app_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("springCloudAppId").unwrap(),
+                o.extract_field("springCloudAppId"),
             ),
         }
     }

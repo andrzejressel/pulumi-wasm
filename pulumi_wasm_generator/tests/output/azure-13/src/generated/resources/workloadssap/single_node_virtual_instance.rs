@@ -168,82 +168,38 @@ pub mod single_node_virtual_instance {
                     value: &tags_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "appLocation".into(),
-                },
-                register_interface::ResultField {
-                    name: "environment".into(),
-                },
-                register_interface::ResultField {
-                    name: "identity".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedResourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sapFqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "sapProduct".into(),
-                },
-                register_interface::ResultField {
-                    name: "singleServerConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         SingleNodeVirtualInstanceResult {
             app_location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("appLocation").unwrap(),
+                o.extract_field("appLocation"),
             ),
             environment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environment").unwrap(),
+                o.extract_field("environment"),
             ),
             identity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identity").unwrap(),
+                o.extract_field("identity"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             managed_resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedResourceGroupName").unwrap(),
+                o.extract_field("managedResourceGroupName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sap_fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sapFqdn").unwrap(),
+                o.extract_field("sapFqdn"),
             ),
             sap_product: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sapProduct").unwrap(),
+                o.extract_field("sapProduct"),
             ),
             single_server_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("singleServerConfiguration").unwrap(),
+                o.extract_field("singleServerConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -525,171 +525,78 @@ pub mod server {
                     value: &workflow_details_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "certificate".into(),
-                },
-                register_interface::ResultField {
-                    name: "directoryId".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpointType".into(),
-                },
-                register_interface::ResultField {
-                    name: "forceDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "function".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "hostKeyFingerprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityProviderType".into(),
-                },
-                register_interface::ResultField {
-                    name: "invocationRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "postAuthenticationLoginBanner".into(),
-                },
-                register_interface::ResultField {
-                    name: "preAuthenticationLoginBanner".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocolDetails".into(),
-                },
-                register_interface::ResultField {
-                    name: "protocols".into(),
-                },
-                register_interface::ResultField {
-                    name: "s3StorageOptions".into(),
-                },
-                register_interface::ResultField {
-                    name: "securityPolicyName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sftpAuthenticationMethods".into(),
-                },
-                register_interface::ResultField {
-                    name: "structuredLogDestinations".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "url".into(),
-                },
-                register_interface::ResultField {
-                    name: "workflowDetails".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ServerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             certificate: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("certificate").unwrap(),
+                o.extract_field("certificate"),
             ),
             directory_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("directoryId").unwrap(),
+                o.extract_field("directoryId"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
             endpoint_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointDetails").unwrap(),
+                o.extract_field("endpointDetails"),
             ),
             endpoint_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpointType").unwrap(),
+                o.extract_field("endpointType"),
             ),
             force_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("forceDestroy").unwrap(),
+                o.extract_field("forceDestroy"),
             ),
             function: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("function").unwrap(),
+                o.extract_field("function"),
             ),
             host_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostKey").unwrap(),
+                o.extract_field("hostKey"),
             ),
             host_key_fingerprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hostKeyFingerprint").unwrap(),
+                o.extract_field("hostKeyFingerprint"),
             ),
             identity_provider_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityProviderType").unwrap(),
+                o.extract_field("identityProviderType"),
             ),
             invocation_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invocationRole").unwrap(),
+                o.extract_field("invocationRole"),
             ),
             logging_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingRole").unwrap(),
+                o.extract_field("loggingRole"),
             ),
             post_authentication_login_banner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("postAuthenticationLoginBanner").unwrap(),
+                o.extract_field("postAuthenticationLoginBanner"),
             ),
             pre_authentication_login_banner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preAuthenticationLoginBanner").unwrap(),
+                o.extract_field("preAuthenticationLoginBanner"),
             ),
             protocol_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocolDetails").unwrap(),
+                o.extract_field("protocolDetails"),
             ),
             protocols: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("protocols").unwrap(),
+                o.extract_field("protocols"),
             ),
             s3_storage_options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("s3StorageOptions").unwrap(),
+                o.extract_field("s3StorageOptions"),
             ),
             security_policy_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("securityPolicyName").unwrap(),
+                o.extract_field("securityPolicyName"),
             ),
             sftp_authentication_methods: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sftpAuthenticationMethods").unwrap(),
+                o.extract_field("sftpAuthenticationMethods"),
             ),
             structured_log_destinations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("structuredLogDestinations").unwrap(),
+                o.extract_field("structuredLogDestinations"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("url").unwrap(),
-            ),
+            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
             workflow_details: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workflowDetails").unwrap(),
+                o.extract_field("workflowDetails"),
             ),
         }
     }

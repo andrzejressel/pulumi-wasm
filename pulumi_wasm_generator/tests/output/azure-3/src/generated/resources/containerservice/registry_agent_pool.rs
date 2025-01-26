@@ -162,63 +162,26 @@ pub mod registry_agent_pool {
                     value: &virtual_network_subnet_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "containerRegistryName".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceCount".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tier".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualNetworkSubnetId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         RegistryAgentPoolResult {
             container_registry_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("containerRegistryName").unwrap(),
+                o.extract_field("containerRegistryName"),
             ),
             instance_count: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceCount").unwrap(),
+                o.extract_field("instanceCount"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            tier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tier").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
             virtual_network_subnet_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualNetworkSubnetId").unwrap(),
+                o.extract_field("virtualNetworkSubnetId"),
             ),
         }
     }

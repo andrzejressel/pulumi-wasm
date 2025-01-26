@@ -149,51 +149,24 @@ pub mod document_ai_warehouse_location {
                     value: &project_number_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accessControlMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "databaseType".into(),
-                },
-                register_interface::ResultField {
-                    name: "documentCreatorDefaultRole".into(),
-                },
-                register_interface::ResultField {
-                    name: "kmsKey".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectNumber".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DocumentAiWarehouseLocationResult {
             access_control_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accessControlMode").unwrap(),
+                o.extract_field("accessControlMode"),
             ),
             database_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("databaseType").unwrap(),
+                o.extract_field("databaseType"),
             ),
             document_creator_default_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("documentCreatorDefaultRole").unwrap(),
+                o.extract_field("documentCreatorDefaultRole"),
             ),
-            kms_key: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("kmsKey").unwrap(),
-            ),
+            kms_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsKey")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             project_number: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectNumber").unwrap(),
+                o.extract_field("projectNumber"),
             ),
         }
     }

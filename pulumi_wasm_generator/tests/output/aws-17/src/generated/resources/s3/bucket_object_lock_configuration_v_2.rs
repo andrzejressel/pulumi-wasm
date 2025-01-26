@@ -150,46 +150,18 @@ pub mod bucket_object_lock_configuration_v_2 {
                     value: &token_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "expectedBucketOwner".into(),
-                },
-                register_interface::ResultField {
-                    name: "objectLockEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "rule".into(),
-                },
-                register_interface::ResultField {
-                    name: "token".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketObjectLockConfigurationV2Result {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
             expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("expectedBucketOwner").unwrap(),
+                o.extract_field("expectedBucketOwner"),
             ),
             object_lock_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("objectLockEnabled").unwrap(),
+                o.extract_field("objectLockEnabled"),
             ),
-            rule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rule").unwrap(),
-            ),
-            token: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("token").unwrap(),
-            ),
+            rule: pulumi_wasm_rust::__private::into_domain(o.extract_field("rule")),
+            token: pulumi_wasm_rust::__private::into_domain(o.extract_field("token")),
         }
     }
 }

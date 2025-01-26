@@ -155,46 +155,14 @@ pub mod bucket_access_control {
                     value: &role_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "domain".into(),
-                },
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "entity".into(),
-                },
-                register_interface::ResultField {
-                    name: "role".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BucketAccessControlResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucket").unwrap(),
-            ),
-            domain: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domain").unwrap(),
-            ),
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
-            entity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("entity").unwrap(),
-            ),
-            role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("role").unwrap(),
-            ),
+            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
+            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
+            entity: pulumi_wasm_rust::__private::into_domain(o.extract_field("entity")),
+            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

@@ -216,129 +216,61 @@ pub mod private_cloud {
                     value: &vcenter_password_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "circuits".into(),
-                },
-                register_interface::ResultField {
-                    name: "hcxCloudManagerEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "internetConnectionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "managementCluster".into(),
-                },
-                register_interface::ResultField {
-                    name: "managementSubnetCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkSubnetCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "nsxtCertificateThumbprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "nsxtManagerEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "nsxtPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "provisioningSubnetCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "skuName".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "vcenterCertificateThumbprint".into(),
-                },
-                register_interface::ResultField {
-                    name: "vcenterPassword".into(),
-                },
-                register_interface::ResultField {
-                    name: "vcsaEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmotionSubnetCidr".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PrivateCloudResult {
             circuits: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("circuits").unwrap(),
+                o.extract_field("circuits"),
             ),
             hcx_cloud_manager_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hcxCloudManagerEndpoint").unwrap(),
+                o.extract_field("hcxCloudManagerEndpoint"),
             ),
             internet_connection_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internetConnectionEnabled").unwrap(),
+                o.extract_field("internetConnectionEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             management_cluster: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managementCluster").unwrap(),
+                o.extract_field("managementCluster"),
             ),
             management_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managementSubnetCidr").unwrap(),
+                o.extract_field("managementSubnetCidr"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkSubnetCidr").unwrap(),
+                o.extract_field("networkSubnetCidr"),
             ),
             nsxt_certificate_thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nsxtCertificateThumbprint").unwrap(),
+                o.extract_field("nsxtCertificateThumbprint"),
             ),
             nsxt_manager_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nsxtManagerEndpoint").unwrap(),
+                o.extract_field("nsxtManagerEndpoint"),
             ),
             nsxt_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nsxtPassword").unwrap(),
+                o.extract_field("nsxtPassword"),
             ),
             provisioning_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("provisioningSubnetCidr").unwrap(),
+                o.extract_field("provisioningSubnetCidr"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
             sku_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skuName").unwrap(),
+                o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             vcenter_certificate_thumbprint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vcenterCertificateThumbprint").unwrap(),
+                o.extract_field("vcenterCertificateThumbprint"),
             ),
             vcenter_password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vcenterPassword").unwrap(),
+                o.extract_field("vcenterPassword"),
             ),
             vcsa_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vcsaEndpoint").unwrap(),
+                o.extract_field("vcsaEndpoint"),
             ),
             vmotion_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmotionSubnetCidr").unwrap(),
+                o.extract_field("vmotionSubnetCidr"),
             ),
         }
     }

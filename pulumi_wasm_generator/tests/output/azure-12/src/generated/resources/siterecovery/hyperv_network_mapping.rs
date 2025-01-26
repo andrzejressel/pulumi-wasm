@@ -135,45 +135,21 @@ pub mod hyperv_network_mapping {
                     value: &target_network_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "recoveryVaultId".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceNetworkName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceSystemCenterVirtualMachineManagerName".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetNetworkId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HypervNetworkMappingResult {
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             recovery_vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("recoveryVaultId").unwrap(),
+                o.extract_field("recoveryVaultId"),
             ),
             source_network_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceNetworkName").unwrap(),
+                o.extract_field("sourceNetworkName"),
             ),
             source_system_center_virtual_machine_manager_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceSystemCenterVirtualMachineManagerName").unwrap(),
+                o.extract_field("sourceSystemCenterVirtualMachineManagerName"),
             ),
             target_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetNetworkId").unwrap(),
+                o.extract_field("targetNetworkId"),
             ),
         }
     }

@@ -53,44 +53,20 @@ pub mod get_local_disk {
                     value: &gateway_arn_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "diskId".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskNode".into(),
-                },
-                register_interface::ResultField {
-                    name: "diskPath".into(),
-                },
-                register_interface::ResultField {
-                    name: "gatewayArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetLocalDiskResult {
-            disk_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskId").unwrap(),
-            ),
+            disk_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("diskId")),
             disk_node: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskNode").unwrap(),
+                o.extract_field("diskNode"),
             ),
             disk_path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("diskPath").unwrap(),
+                o.extract_field("diskPath"),
             ),
             gateway_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gatewayArn").unwrap(),
+                o.extract_field("gatewayArn"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

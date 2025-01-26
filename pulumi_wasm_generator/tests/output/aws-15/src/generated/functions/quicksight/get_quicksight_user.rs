@@ -68,73 +68,30 @@ pub mod get_quicksight_user {
                     value: &user_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "active".into(),
-                },
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "email".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "identityType".into(),
-                },
-                register_interface::ResultField {
-                    name: "namespace".into(),
-                },
-                register_interface::ResultField {
-                    name: "principalId".into(),
-                },
-                register_interface::ResultField {
-                    name: "userName".into(),
-                },
-                register_interface::ResultField {
-                    name: "userRole".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetQuicksightUserResult {
-            active: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("active").unwrap(),
-            ),
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            active: pulumi_wasm_rust::__private::into_domain(o.extract_field("active")),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             aws_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountId").unwrap(),
+                o.extract_field("awsAccountId"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("email").unwrap(),
-            ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             identity_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identityType").unwrap(),
+                o.extract_field("identityType"),
             ),
             namespace: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namespace").unwrap(),
+                o.extract_field("namespace"),
             ),
             principal_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("principalId").unwrap(),
+                o.extract_field("principalId"),
             ),
             user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userName").unwrap(),
+                o.extract_field("userName"),
             ),
             user_role: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userRole").unwrap(),
+                o.extract_field("userRole"),
             ),
         }
     }

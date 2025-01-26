@@ -239,87 +239,40 @@ pub mod network_policy {
                     value: &vmware_engine_network_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeServicesCidr".into(),
-                },
-                register_interface::ResultField {
-                    name: "externalIp".into(),
-                },
-                register_interface::ResultField {
-                    name: "internetAccess".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmwareEngineNetwork".into(),
-                },
-                register_interface::ResultField {
-                    name: "vmwareEngineNetworkCanonical".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         NetworkPolicyResult {
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             edge_services_cidr: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeServicesCidr").unwrap(),
+                o.extract_field("edgeServicesCidr"),
             ),
             external_ip: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("externalIp").unwrap(),
+                o.extract_field("externalIp"),
             ),
             internet_access: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("internetAccess").unwrap(),
+                o.extract_field("internetAccess"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             vmware_engine_network: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmwareEngineNetwork").unwrap(),
+                o.extract_field("vmwareEngineNetwork"),
             ),
             vmware_engine_network_canonical: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vmwareEngineNetworkCanonical").unwrap(),
+                o.extract_field("vmwareEngineNetworkCanonical"),
             ),
         }
     }

@@ -320,81 +320,39 @@ pub mod backend_bucket {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "bucketName".into(),
-                },
-                register_interface::ResultField {
-                    name: "cdnPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "compressionMode".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "customResponseHeaders".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeSecurityPolicy".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableCdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BackendBucketResult {
             bucket_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bucketName").unwrap(),
+                o.extract_field("bucketName"),
             ),
             cdn_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cdnPolicy").unwrap(),
+                o.extract_field("cdnPolicy"),
             ),
             compression_mode: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("compressionMode").unwrap(),
+                o.extract_field("compressionMode"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             custom_response_headers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customResponseHeaders").unwrap(),
+                o.extract_field("customResponseHeaders"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             edge_security_policy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeSecurityPolicy").unwrap(),
+                o.extract_field("edgeSecurityPolicy"),
             ),
             enable_cdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableCdn").unwrap(),
+                o.extract_field("enableCdn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
         }
     }

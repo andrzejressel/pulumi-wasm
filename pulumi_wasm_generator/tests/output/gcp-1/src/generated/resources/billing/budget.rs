@@ -383,63 +383,28 @@ pub mod budget {
                     value: &threshold_rules_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allUpdatesRule".into(),
-                },
-                register_interface::ResultField {
-                    name: "amount".into(),
-                },
-                register_interface::ResultField {
-                    name: "billingAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "budgetFilter".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "ownershipScope".into(),
-                },
-                register_interface::ResultField {
-                    name: "thresholdRules".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         BudgetResult {
             all_updates_rule: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allUpdatesRule").unwrap(),
+                o.extract_field("allUpdatesRule"),
             ),
-            amount: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("amount").unwrap(),
-            ),
+            amount: pulumi_wasm_rust::__private::into_domain(o.extract_field("amount")),
             billing_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("billingAccount").unwrap(),
+                o.extract_field("billingAccount"),
             ),
             budget_filter: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("budgetFilter").unwrap(),
+                o.extract_field("budgetFilter"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             ownership_scope: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ownershipScope").unwrap(),
+                o.extract_field("ownershipScope"),
             ),
             threshold_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thresholdRules").unwrap(),
+                o.extract_field("thresholdRules"),
             ),
         }
     }

@@ -62,43 +62,21 @@ pub mod get_instance_type_offering {
                     value: &preferred_instance_types_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "instanceType".into(),
-                },
-                register_interface::ResultField {
-                    name: "locationType".into(),
-                },
-                register_interface::ResultField {
-                    name: "preferredInstanceTypes".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetInstanceTypeOfferingResult {
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             instance_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("instanceType").unwrap(),
+                o.extract_field("instanceType"),
             ),
             location_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("locationType").unwrap(),
+                o.extract_field("locationType"),
             ),
             preferred_instance_types: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("preferredInstanceTypes").unwrap(),
+                o.extract_field("preferredInstanceTypes"),
             ),
         }
     }

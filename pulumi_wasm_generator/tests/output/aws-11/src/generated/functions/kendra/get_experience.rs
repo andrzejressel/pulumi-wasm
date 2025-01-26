@@ -66,91 +66,39 @@ pub mod get_experience {
                     value: &index_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "configurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoints".into(),
-                },
-                register_interface::ResultField {
-                    name: "errorMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "experienceId".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "indexId".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "roleArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "status".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatedAt".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetExperienceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("configurations").unwrap(),
+                o.extract_field("configurations"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             endpoints: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoints").unwrap(),
+                o.extract_field("endpoints"),
             ),
             error_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("errorMessage").unwrap(),
+                o.extract_field("errorMessage"),
             ),
             experience_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("experienceId").unwrap(),
+                o.extract_field("experienceId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             index_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("indexId").unwrap(),
+                o.extract_field("indexId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             role_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("roleArn").unwrap(),
+                o.extract_field("roleArn"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("status").unwrap(),
-            ),
+            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
             updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatedAt").unwrap(),
+                o.extract_field("updatedAt"),
             ),
         }
     }

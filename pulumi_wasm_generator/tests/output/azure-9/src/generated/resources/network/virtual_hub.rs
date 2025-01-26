@@ -196,93 +196,39 @@ pub mod virtual_hub {
                     value: &virtual_wan_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "addressPrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultRouteTableId".into(),
-                },
-                register_interface::ResultField {
-                    name: "hubRoutingPreference".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "routes".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualRouterAsn".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualRouterAutoScaleMinCapacity".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualRouterIps".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualWanId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VirtualHubResult {
             address_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("addressPrefix").unwrap(),
+                o.extract_field("addressPrefix"),
             ),
             default_route_table_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultRouteTableId").unwrap(),
+                o.extract_field("defaultRouteTableId"),
             ),
             hub_routing_preference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("hubRoutingPreference").unwrap(),
+                o.extract_field("hubRoutingPreference"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            routes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("routes").unwrap(),
-            ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            routes: pulumi_wasm_rust::__private::into_domain(o.extract_field("routes")),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             virtual_router_asn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualRouterAsn").unwrap(),
+                o.extract_field("virtualRouterAsn"),
             ),
             virtual_router_auto_scale_min_capacity: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualRouterAutoScaleMinCapacity").unwrap(),
+                o.extract_field("virtualRouterAutoScaleMinCapacity"),
             ),
             virtual_router_ips: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualRouterIps").unwrap(),
+                o.extract_field("virtualRouterIps"),
             ),
             virtual_wan_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualWanId").unwrap(),
+                o.extract_field("virtualWanId"),
             ),
         }
     }

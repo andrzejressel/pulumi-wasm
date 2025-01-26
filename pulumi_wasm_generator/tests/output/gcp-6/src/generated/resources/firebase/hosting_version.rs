@@ -339,39 +339,14 @@ pub mod hosting_version {
                     value: &site_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "config".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "siteId".into(),
-                },
-                register_interface::ResultField {
-                    name: "versionId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         HostingVersionResult {
-            config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("config").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            site_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("siteId").unwrap(),
-            ),
+            config: pulumi_wasm_rust::__private::into_domain(o.extract_field("config")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            site_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("siteId")),
             version_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("versionId").unwrap(),
+                o.extract_field("versionId"),
             ),
         }
     }

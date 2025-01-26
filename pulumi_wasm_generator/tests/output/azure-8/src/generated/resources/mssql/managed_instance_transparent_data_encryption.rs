@@ -248,33 +248,17 @@ pub mod managed_instance_transparent_data_encryption {
                     value: &managed_instance_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "autoRotationEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "keyVaultKeyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "managedInstanceId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ManagedInstanceTransparentDataEncryptionResult {
             auto_rotation_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("autoRotationEnabled").unwrap(),
+                o.extract_field("autoRotationEnabled"),
             ),
             key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("keyVaultKeyId").unwrap(),
+                o.extract_field("keyVaultKeyId"),
             ),
             managed_instance_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("managedInstanceId").unwrap(),
+                o.extract_field("managedInstanceId"),
             ),
         }
     }

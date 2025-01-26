@@ -244,81 +244,39 @@ pub mod environment_profile {
                     value: &user_parameters_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "awsAccountId".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsAccountRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdBy".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "domainIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "environmentBlueprintIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "projectIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "updatedAt".into(),
-                },
-                register_interface::ResultField {
-                    name: "userParameters".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         EnvironmentProfileResult {
             aws_account_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountId").unwrap(),
+                o.extract_field("awsAccountId"),
             ),
             aws_account_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsAccountRegion").unwrap(),
+                o.extract_field("awsAccountRegion"),
             ),
             created_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdAt").unwrap(),
+                o.extract_field("createdAt"),
             ),
             created_by: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdBy").unwrap(),
+                o.extract_field("createdBy"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             domain_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("domainIdentifier").unwrap(),
+                o.extract_field("domainIdentifier"),
             ),
             environment_blueprint_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("environmentBlueprintIdentifier").unwrap(),
+                o.extract_field("environmentBlueprintIdentifier"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("projectIdentifier").unwrap(),
+                o.extract_field("projectIdentifier"),
             ),
             updated_at: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updatedAt").unwrap(),
+                o.extract_field("updatedAt"),
             ),
             user_parameters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userParameters").unwrap(),
+                o.extract_field("userParameters"),
             ),
         }
     }

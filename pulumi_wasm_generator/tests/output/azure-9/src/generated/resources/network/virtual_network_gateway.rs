@@ -433,153 +433,69 @@ pub mod virtual_network_gateway {
                     value: &vpn_type_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "activeActive".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpRouteTranslationForNatEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "bgpSettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "customRoute".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultLocalNetworkGatewayId".into(),
-                },
-                register_interface::ResultField {
-                    name: "dnsForwardingEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "edgeZone".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableBgp".into(),
-                },
-                register_interface::ResultField {
-                    name: "generation".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipConfigurations".into(),
-                },
-                register_interface::ResultField {
-                    name: "ipSecReplayProtectionEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "policyGroups".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateIpAddressEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "remoteVnetTrafficEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sku".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualWanTrafficEnabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnClientConfiguration".into(),
-                },
-                register_interface::ResultField {
-                    name: "vpnType".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VirtualNetworkGatewayResult {
             active_active: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("activeActive").unwrap(),
+                o.extract_field("activeActive"),
             ),
             bgp_route_translation_for_nat_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpRouteTranslationForNatEnabled").unwrap(),
+                o.extract_field("bgpRouteTranslationForNatEnabled"),
             ),
             bgp_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("bgpSettings").unwrap(),
+                o.extract_field("bgpSettings"),
             ),
             custom_route: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("customRoute").unwrap(),
+                o.extract_field("customRoute"),
             ),
             default_local_network_gateway_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultLocalNetworkGatewayId").unwrap(),
+                o.extract_field("defaultLocalNetworkGatewayId"),
             ),
             dns_forwarding_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dnsForwardingEnabled").unwrap(),
+                o.extract_field("dnsForwardingEnabled"),
             ),
             edge_zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("edgeZone").unwrap(),
+                o.extract_field("edgeZone"),
             ),
             enable_bgp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableBgp").unwrap(),
+                o.extract_field("enableBgp"),
             ),
             generation: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("generation").unwrap(),
+                o.extract_field("generation"),
             ),
             ip_configurations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipConfigurations").unwrap(),
+                o.extract_field("ipConfigurations"),
             ),
             ip_sec_replay_protection_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ipSecReplayProtectionEnabled").unwrap(),
+                o.extract_field("ipSecReplayProtectionEnabled"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             policy_groups: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyGroups").unwrap(),
+                o.extract_field("policyGroups"),
             ),
             private_ip_address_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateIpAddressEnabled").unwrap(),
+                o.extract_field("privateIpAddressEnabled"),
             ),
             remote_vnet_traffic_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("remoteVnetTrafficEnabled").unwrap(),
+                o.extract_field("remoteVnetTrafficEnabled"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sku").unwrap(),
-            ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             virtual_wan_traffic_enabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualWanTrafficEnabled").unwrap(),
+                o.extract_field("virtualWanTrafficEnabled"),
             ),
             vpn_client_configuration: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnClientConfiguration").unwrap(),
+                o.extract_field("vpnClientConfiguration"),
             ),
             vpn_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vpnType").unwrap(),
+                o.extract_field("vpnType"),
             ),
         }
     }

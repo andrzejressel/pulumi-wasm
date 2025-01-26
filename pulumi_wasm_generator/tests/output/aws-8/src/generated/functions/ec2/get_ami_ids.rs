@@ -98,61 +98,26 @@ pub mod get_ami_ids {
                     value: &sort_ascending_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "executableUsers".into(),
-                },
-                register_interface::ResultField {
-                    name: "filters".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "ids".into(),
-                },
-                register_interface::ResultField {
-                    name: "includeDeprecated".into(),
-                },
-                register_interface::ResultField {
-                    name: "nameRegex".into(),
-                },
-                register_interface::ResultField {
-                    name: "owners".into(),
-                },
-                register_interface::ResultField {
-                    name: "sortAscending".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetAmiIdsResult {
             executable_users: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executableUsers").unwrap(),
+                o.extract_field("executableUsers"),
             ),
             filters: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("filters").unwrap(),
+                o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
-            ids: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("ids").unwrap(),
-            ),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            ids: pulumi_wasm_rust::__private::into_domain(o.extract_field("ids")),
             include_deprecated: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("includeDeprecated").unwrap(),
+                o.extract_field("includeDeprecated"),
             ),
             name_regex: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("nameRegex").unwrap(),
+                o.extract_field("nameRegex"),
             ),
-            owners: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("owners").unwrap(),
-            ),
+            owners: pulumi_wasm_rust::__private::into_domain(o.extract_field("owners")),
             sort_ascending: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sortAscending").unwrap(),
+                o.extract_field("sortAscending"),
             ),
         }
     }

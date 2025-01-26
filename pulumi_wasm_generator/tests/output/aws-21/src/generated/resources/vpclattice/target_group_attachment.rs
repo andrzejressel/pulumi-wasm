@@ -76,27 +76,12 @@ pub mod target_group_attachment {
                     value: &target_group_identifier_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "target".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetGroupIdentifier".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         TargetGroupAttachmentResult {
-            target: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("target").unwrap(),
-            ),
+            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
             target_group_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetGroupIdentifier").unwrap(),
+                o.extract_field("targetGroupIdentifier"),
             ),
         }
     }

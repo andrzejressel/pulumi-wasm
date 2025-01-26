@@ -132,45 +132,19 @@ pub mod resource_server {
                     value: &user_pool_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "identifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "scopeIdentifiers".into(),
-                },
-                register_interface::ResultField {
-                    name: "scopes".into(),
-                },
-                register_interface::ResultField {
-                    name: "userPoolId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ResourceServerResult {
             identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("identifier").unwrap(),
+                o.extract_field("identifier"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             scope_identifiers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scopeIdentifiers").unwrap(),
+                o.extract_field("scopeIdentifiers"),
             ),
-            scopes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("scopes").unwrap(),
-            ),
+            scopes: pulumi_wasm_rust::__private::into_domain(o.extract_field("scopes")),
             user_pool_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userPoolId").unwrap(),
+                o.extract_field("userPoolId"),
             ),
         }
     }

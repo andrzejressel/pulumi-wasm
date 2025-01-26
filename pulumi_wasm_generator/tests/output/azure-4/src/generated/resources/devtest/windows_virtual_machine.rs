@@ -290,123 +290,52 @@ pub mod windows_virtual_machine {
                     value: &username_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "allowClaim".into(),
-                },
-                register_interface::ResultField {
-                    name: "disallowPublicIpAddress".into(),
-                },
-                register_interface::ResultField {
-                    name: "fqdn".into(),
-                },
-                register_interface::ResultField {
-                    name: "galleryImageReference".into(),
-                },
-                register_interface::ResultField {
-                    name: "inboundNatRules".into(),
-                },
-                register_interface::ResultField {
-                    name: "labName".into(),
-                },
-                register_interface::ResultField {
-                    name: "labSubnetName".into(),
-                },
-                register_interface::ResultField {
-                    name: "labVirtualNetworkId".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "notes".into(),
-                },
-                register_interface::ResultField {
-                    name: "password".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "size".into(),
-                },
-                register_interface::ResultField {
-                    name: "storageType".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "uniqueIdentifier".into(),
-                },
-                register_interface::ResultField {
-                    name: "username".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         WindowsVirtualMachineResult {
             allow_claim: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("allowClaim").unwrap(),
+                o.extract_field("allowClaim"),
             ),
             disallow_public_ip_address: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("disallowPublicIpAddress").unwrap(),
+                o.extract_field("disallowPublicIpAddress"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fqdn").unwrap(),
-            ),
+            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
             gallery_image_reference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("galleryImageReference").unwrap(),
+                o.extract_field("galleryImageReference"),
             ),
             inbound_nat_rules: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inboundNatRules").unwrap(),
+                o.extract_field("inboundNatRules"),
             ),
             lab_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labName").unwrap(),
+                o.extract_field("labName"),
             ),
             lab_subnet_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labSubnetName").unwrap(),
+                o.extract_field("labSubnetName"),
             ),
             lab_virtual_network_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labVirtualNetworkId").unwrap(),
+                o.extract_field("labVirtualNetworkId"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
-            notes: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("notes").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            notes: pulumi_wasm_rust::__private::into_domain(o.extract_field("notes")),
             password: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("password").unwrap(),
+                o.extract_field("password"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("size").unwrap(),
-            ),
+            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
             storage_type: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("storageType").unwrap(),
+                o.extract_field("storageType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             unique_identifier: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uniqueIdentifier").unwrap(),
+                o.extract_field("uniqueIdentifier"),
             ),
             username: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("username").unwrap(),
+                o.extract_field("username"),
             ),
         }
     }

@@ -154,75 +154,38 @@ pub mod deployment {
                     value: &variables_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "canarySettings".into(),
-                },
-                register_interface::ResultField {
-                    name: "createdDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "executionArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "invokeUrl".into(),
-                },
-                register_interface::ResultField {
-                    name: "restApi".into(),
-                },
-                register_interface::ResultField {
-                    name: "stageDescription".into(),
-                },
-                register_interface::ResultField {
-                    name: "stageName".into(),
-                },
-                register_interface::ResultField {
-                    name: "triggers".into(),
-                },
-                register_interface::ResultField {
-                    name: "variables".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DeploymentResult {
             canary_settings: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("canarySettings").unwrap(),
+                o.extract_field("canarySettings"),
             ),
             created_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createdDate").unwrap(),
+                o.extract_field("createdDate"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             execution_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("executionArn").unwrap(),
+                o.extract_field("executionArn"),
             ),
             invoke_url: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("invokeUrl").unwrap(),
+                o.extract_field("invokeUrl"),
             ),
             rest_api: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("restApi").unwrap(),
+                o.extract_field("restApi"),
             ),
             stage_description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stageDescription").unwrap(),
+                o.extract_field("stageDescription"),
             ),
             stage_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stageName").unwrap(),
+                o.extract_field("stageName"),
             ),
             triggers: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("triggers").unwrap(),
+                o.extract_field("triggers"),
             ),
             variables: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("variables").unwrap(),
+                o.extract_field("variables"),
             ),
         }
     }

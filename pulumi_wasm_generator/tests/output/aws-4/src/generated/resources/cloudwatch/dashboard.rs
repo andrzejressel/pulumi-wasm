@@ -90,33 +90,17 @@ pub mod dashboard {
                     value: &dashboard_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "dashboardArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "dashboardBody".into(),
-                },
-                register_interface::ResultField {
-                    name: "dashboardName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         DashboardResult {
             dashboard_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dashboardArn").unwrap(),
+                o.extract_field("dashboardArn"),
             ),
             dashboard_body: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dashboardBody").unwrap(),
+                o.extract_field("dashboardBody"),
             ),
             dashboard_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dashboardName").unwrap(),
+                o.extract_field("dashboardName"),
             ),
         }
     }

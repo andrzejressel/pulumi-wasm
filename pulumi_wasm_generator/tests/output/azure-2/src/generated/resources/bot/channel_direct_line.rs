@@ -116,40 +116,19 @@ pub mod channel_direct_line {
                     value: &sites_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "botName".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "resourceGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "sites".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ChannelDirectLineResult {
             bot_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("botName").unwrap(),
+                o.extract_field("botName"),
             ),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             resource_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGroupName").unwrap(),
+                o.extract_field("resourceGroupName"),
             ),
-            sites: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sites").unwrap(),
-            ),
+            sites: pulumi_wasm_rust::__private::into_domain(o.extract_field("sites")),
         }
     }
 }

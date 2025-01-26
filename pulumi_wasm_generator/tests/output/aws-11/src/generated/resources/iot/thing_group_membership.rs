@@ -87,33 +87,17 @@ pub mod thing_group_membership {
                     value: &thing_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "overrideDynamicGroup".into(),
-                },
-                register_interface::ResultField {
-                    name: "thingGroupName".into(),
-                },
-                register_interface::ResultField {
-                    name: "thingName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         ThingGroupMembershipResult {
             override_dynamic_group: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("overrideDynamicGroup").unwrap(),
+                o.extract_field("overrideDynamicGroup"),
             ),
             thing_group_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thingGroupName").unwrap(),
+                o.extract_field("thingGroupName"),
             ),
             thing_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("thingName").unwrap(),
+                o.extract_field("thingName"),
             ),
         }
     }

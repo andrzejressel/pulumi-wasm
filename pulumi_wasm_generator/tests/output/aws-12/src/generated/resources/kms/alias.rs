@@ -89,45 +89,19 @@ pub mod alias {
                     value: &target_key_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "namePrefix".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetKeyArn".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetKeyId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AliasResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             name_prefix: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("namePrefix").unwrap(),
+                o.extract_field("namePrefix"),
             ),
             target_key_arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetKeyArn").unwrap(),
+                o.extract_field("targetKeyArn"),
             ),
             target_key_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetKeyId").unwrap(),
+                o.extract_field("targetKeyId"),
             ),
         }
     }

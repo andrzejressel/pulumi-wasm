@@ -441,141 +441,61 @@ pub mod aws_cluster {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "annotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "authorization".into(),
-                },
-                register_interface::ResultField {
-                    name: "awsRegion".into(),
-                },
-                register_interface::ResultField {
-                    name: "binaryAuthorization".into(),
-                },
-                register_interface::ResultField {
-                    name: "controlPlane".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveAnnotations".into(),
-                },
-                register_interface::ResultField {
-                    name: "endpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "fleet".into(),
-                },
-                register_interface::ResultField {
-                    name: "location".into(),
-                },
-                register_interface::ResultField {
-                    name: "loggingConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networking".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "reconciling".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "uid".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "workloadIdentityConfigs".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         AwsClusterResult {
             annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("annotations").unwrap(),
+                o.extract_field("annotations"),
             ),
             authorization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("authorization").unwrap(),
+                o.extract_field("authorization"),
             ),
             aws_region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("awsRegion").unwrap(),
+                o.extract_field("awsRegion"),
             ),
             binary_authorization: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("binaryAuthorization").unwrap(),
+                o.extract_field("binaryAuthorization"),
             ),
             control_plane: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("controlPlane").unwrap(),
+                o.extract_field("controlPlane"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             effective_annotations: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveAnnotations").unwrap(),
+                o.extract_field("effectiveAnnotations"),
             ),
             endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("endpoint").unwrap(),
+                o.extract_field("endpoint"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
-            fleet: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("fleet").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
+            fleet: pulumi_wasm_rust::__private::into_domain(o.extract_field("fleet")),
             location: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("location").unwrap(),
+                o.extract_field("location"),
             ),
             logging_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("loggingConfig").unwrap(),
+                o.extract_field("loggingConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             networking: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networking").unwrap(),
+                o.extract_field("networking"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             reconciling: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("reconciling").unwrap(),
+                o.extract_field("reconciling"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
-            uid: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("uid").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             workload_identity_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("workloadIdentityConfigs").unwrap(),
+                o.extract_field("workloadIdentityConfigs"),
             ),
         }
     }

@@ -130,45 +130,21 @@ pub mod field_level_encryption_config {
                     value: &query_arg_profile_config_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "callerReference".into(),
-                },
-                register_interface::ResultField {
-                    name: "comment".into(),
-                },
-                register_interface::ResultField {
-                    name: "contentTypeProfileConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "etag".into(),
-                },
-                register_interface::ResultField {
-                    name: "queryArgProfileConfig".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         FieldLevelEncryptionConfigResult {
             caller_reference: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("callerReference").unwrap(),
+                o.extract_field("callerReference"),
             ),
             comment: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("comment").unwrap(),
+                o.extract_field("comment"),
             ),
             content_type_profile_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("contentTypeProfileConfig").unwrap(),
+                o.extract_field("contentTypeProfileConfig"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("etag").unwrap(),
-            ),
+            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
             query_arg_profile_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("queryArgProfileConfig").unwrap(),
+                o.extract_field("queryArgProfileConfig"),
             ),
         }
     }

@@ -822,13 +822,11 @@ impl Engine {
         &mut self,
         token: String,
         inputs: HashMap<FieldName, OutputId>,
-        outputs: HashSet<FieldName>,
-        in_preview: bool,
         version: String,
-    ) -> (OutputId, HashMap<FieldName, OutputId>) {
+    ) -> OutputId {
         let operation =
             ResourceRequestOperation::Invoke(ResourceInvokeRequestOperation::new(token));
-        self.create_register_or_read_resource_node(operation, inputs, outputs, in_preview, version)
+        self.create_register_or_read_resource_node(operation, inputs, version)
     }
 
     pub fn create_register_resource_node(
@@ -836,30 +834,21 @@ impl Engine {
         r#type: String,
         name: String,
         inputs: HashMap<FieldName, OutputId>,
-        outputs: HashSet<FieldName>,
-        in_preview: bool,
         version: String,
-    ) -> (OutputId, HashMap<FieldName, OutputId>) {
+    ) -> OutputId {
         let operation =
             ResourceRequestOperation::Register(RegisterResourceRequestOperation::new(r#type, name));
-        self.create_register_or_read_resource_node(operation, inputs, outputs, in_preview, version)
+        self.create_register_or_read_resource_node(operation, inputs, version)
     }
 
     fn create_register_or_read_resource_node(
         &mut self,
         operation: ResourceRequestOperation,
         inputs: HashMap<FieldName, OutputId>,
-        outputs: HashSet<FieldName>,
-        in_preview: bool,
         version: String,
-    ) -> (OutputId, HashMap<FieldName, OutputId>) {
+    ) -> OutputId {
         let output_id = Uuid::now_v7().into();
-        let node = AbstractResourceNode::new(
-            operation,
-            inputs.keys().cloned().collect(),
-            outputs.clone(),
-            version,
-        );
+        let node = AbstractResourceNode::new(operation, inputs.keys().cloned().collect(), version);
         self.nodes
             .insert(output_id, EngineNode::RegisterResource(node).into());
 
@@ -868,22 +857,15 @@ impl Engine {
             self.add_callback(*source_output_id, callback);
         });
 
-        let mut output_nodes = HashMap::new();
-        outputs.iter().for_each(|field_name| {
-            let extract_field_output =
-                self.create_extract_field(field_name.clone(), output_id, in_preview);
-            output_nodes.insert(field_name.clone(), extract_field_output);
-        });
-
-        (output_id, output_nodes)
+        output_id
     }
 
     pub fn create_extract_field(
         &mut self,
         field_name: FieldName,
         source_output_id: OutputId,
-        in_preview: bool,
     ) -> OutputId {
+        let in_preview = self.pulumi.is_in_preview();
         let output_id = Uuid::now_v7().into();
         let node = ExtractFieldNode::new(field_name, in_preview);
         let callback = Callback::extract_field(output_id);
@@ -1072,11 +1054,13 @@ mod tests {
 
         #[test]
         fn extract_field_extract_field_from_map() {
-            let mut engine = Engine::new(MockPulumiService::new());
+            let mut mock = MockPulumiService::new();
+            mock.expect_is_in_preview().times(1).returning(|| true);
+            let mut engine = Engine::new(mock);
             let value = Value::Object([("key".into(), 1.into())].into_iter().collect());
             let done_node_output_id = engine.create_done_node(value.clone(), false);
             let extract_field_node_output_id =
-                engine.create_extract_field("key".into(), done_node_output_id, true);
+                engine.create_extract_field("key".into(), done_node_output_id);
             let native_function_node_output_id =
                 engine.create_native_function_node("func".into(), extract_field_node_output_id);
 
@@ -1113,8 +1097,6 @@ mod tests {
         use std::ops::Deref;
         use std::sync::{Arc, OnceLock};
 
-        use mockall::predicate::{eq, function};
-
         use crate::engine::Engine;
         use crate::model::MaybeNodeValue;
         use crate::model::MaybeNodeValue::NotYetCalculated;
@@ -1125,22 +1107,20 @@ mod tests {
         use crate::pulumi::service::{
             MockPulumiService, PerformResourceRequest, RegisterResourceResponse,
         };
+        use mockall::predicate::{eq, function};
+        use serde_json::json;
 
         #[test]
-        fn should_create_required_nodes_during_preview() {
+        fn should_create_required_nodes() {
             let mut engine = Engine::new(MockPulumiService::new());
             let done_node_output_id = engine.create_done_node(1.into(), false);
-            let (register_resource_node_output_id, output_fields) = engine
-                .create_register_resource_node(
-                    "type".into(),
-                    "name".into(),
-                    HashMap::from([("input".into(), done_node_output_id)]),
-                    ["output".into()].into(),
-                    true,
-                    "1.0.0".into(),
-                );
+            let register_resource_node_output_id = engine.create_register_resource_node(
+                "type".into(),
+                "name".into(),
+                HashMap::from([("input".into(), done_node_output_id)]),
+                "1.0.0".into(),
+            );
 
-            assert_eq!(output_fields.len(), 1);
             assert_eq!(
                 engine.get_done(done_node_output_id).deref(),
                 &DoneNode::create(
@@ -1164,71 +1144,9 @@ mod tests {
                     )),
                     HashSet::from(["input".into()]),
                     HashMap::new(),
-                    HashSet::from(["output".into()]),
-                    vec![Callback::extract_field(
-                        *output_fields.get(&"output".into()).unwrap()
-                    )],
+                    vec![],
                     "1.0.0".into()
                 )
-            );
-            assert_eq!(
-                engine
-                    .get_extract_field(*output_fields.get(&"output".into()).unwrap())
-                    .deref(),
-                &ExtractFieldNode::create(NotYetCalculated, "output".into(), vec![], true)
-            );
-        }
-
-        #[test]
-        fn should_create_required_nodes_during_execution() {
-            let mut engine = Engine::new(MockPulumiService::new());
-            let done_node_output_id = engine.create_done_node(1.into(), false);
-            let (register_resource_node_output_id, output_fields) = engine
-                .create_register_resource_node(
-                    "type".into(),
-                    "name".into(),
-                    HashMap::from([("input".into(), done_node_output_id)]),
-                    ["output".into()].into(),
-                    false,
-                    "1.0.0".into(),
-                );
-
-            assert_eq!(output_fields.len(), 1);
-            assert_eq!(
-                engine.get_done(done_node_output_id).deref(),
-                &DoneNode::create(
-                    1.into(),
-                    false,
-                    vec![Callback::create_resource(
-                        register_resource_node_output_id,
-                        "input".into(),
-                    )],
-                )
-            );
-            assert_eq!(
-                engine
-                    .get_create_resource(register_resource_node_output_id)
-                    .deref(),
-                &AbstractResourceNode::create(
-                    NotYetCalculated,
-                    ResourceRequestOperation::Register(RegisterResourceRequestOperation::new(
-                        "type".into(),
-                        "name".into()
-                    )),
-                    HashSet::from(["input".into()]),
-                    HashMap::new(),
-                    HashSet::from(["output".into()]),
-                    vec![Callback::extract_field(
-                        *output_fields.get(&"output".into()).unwrap()
-                    )],
-                    "1.0.0".into()
-                )
-            );
-            assert_eq!(
-                engine
-                    .get_extract_field(*output_fields.get(&"output".into()).unwrap())
-                    .deref(),
-                &ExtractFieldNode::create(NotYetCalculated, "output".into(), vec![], false)
             );
         }
 
@@ -1255,7 +1173,6 @@ mod tests {
                             RegisterResourceRequestOperation::new("type".into(), "name".into()),
                         ),
                         object: HashMap::from([("input".into(), Some(1.into()))]),
-                        expected_results: HashSet::from(["output".into()]),
                         version: "1.0.0".into(),
                     }),
                 )
@@ -1286,12 +1203,10 @@ mod tests {
 
             let mut engine = Engine::new(mock);
             let done_node_output_id = engine.create_done_node(1.into(), false);
-            let (register_resource_node_output_id, outputs) = engine.create_register_resource_node(
+            let register_resource_node_output_id = engine.create_register_resource_node(
                 "type".into(),
                 "name".into(),
                 HashMap::from([("input".into(), done_node_output_id)]),
-                ["output".into()].into(),
-                true,
                 "1.0.0".into(),
             );
             register_resource_node_output_id_once_cell
@@ -1300,10 +1215,10 @@ mod tests {
             let result = engine.run(HashMap::new());
             assert_eq!(result, None);
 
-            let output_node = engine.get_extract_field(*outputs.get(&"output".into()).unwrap());
+            let output_node = engine.get_create_resource(register_resource_node_output_id);
             assert_eq!(
                 output_node.get_value(),
-                &MaybeNodeValue::set_value(true.into(), false)
+                &MaybeNodeValue::set_value(json!({ "output": true }), false)
             );
         }
     }
@@ -1311,8 +1226,6 @@ mod tests {
         use std::collections::{HashMap, HashSet};
         use std::ops::Deref;
         use std::sync::{Arc, OnceLock};
-
-        use mockall::predicate::{eq, function};
 
         use crate::engine::Engine;
         use crate::model::MaybeNodeValue;
@@ -1324,21 +1237,19 @@ mod tests {
         use crate::pulumi::service::{
             MockPulumiService, PerformResourceRequest, RegisterResourceResponse,
         };
+        use mockall::predicate::{eq, function};
+        use serde_json::json;
 
         #[test]
-        fn should_create_required_nodes_during_preview() {
+        fn should_create_required_nodes() {
             let mut engine = Engine::new(MockPulumiService::new());
             let done_node_output_id = engine.create_done_node(1.into(), false);
-            let (invoke_resource_node_output_id, output_fields) = engine
-                .create_resource_invoke_node(
-                    "token".into(),
-                    HashMap::from([("input".into(), done_node_output_id)]),
-                    ["output".into()].into(),
-                    true,
-                    "1.0.0".into(),
-                );
+            let invoke_resource_node_output_id = engine.create_resource_invoke_node(
+                "token".into(),
+                HashMap::from([("input".into(), done_node_output_id)]),
+                "1.0.0".into(),
+            );
 
-            assert_eq!(output_fields.len(), 1);
             assert_eq!(
                 engine.get_done(done_node_output_id).deref(),
                 &DoneNode::create(
@@ -1361,69 +1272,9 @@ mod tests {
                     )),
                     HashSet::from(["input".into()]),
                     HashMap::new(),
-                    HashSet::from(["output".into()]),
-                    vec![Callback::extract_field(
-                        *output_fields.get(&"output".into()).unwrap()
-                    )],
+                    vec![],
                     "1.0.0".into()
                 )
-            );
-            assert_eq!(
-                engine
-                    .get_extract_field(*output_fields.get(&"output".into()).unwrap())
-                    .deref(),
-                &ExtractFieldNode::create(NotYetCalculated, "output".into(), vec![], true)
-            );
-        }
-
-        #[test]
-        fn should_create_required_nodes_during_execution() {
-            let mut engine = Engine::new(MockPulumiService::new());
-            let done_node_output_id = engine.create_done_node(1.into(), false);
-            let (invoke_resource_node_output_id, output_fields) = engine
-                .create_resource_invoke_node(
-                    "token".into(),
-                    HashMap::from([("input".into(), done_node_output_id)]),
-                    ["output".into()].into(),
-                    false,
-                    "1.0.0".into(),
-                );
-
-            assert_eq!(output_fields.len(), 1);
-            assert_eq!(
-                engine.get_done(done_node_output_id).deref(),
-                &DoneNode::create(
-                    1.into(),
-                    false,
-                    vec![Callback::create_resource(
-                        invoke_resource_node_output_id,
-                        "input".into(),
-                    )],
-                )
-            );
-            assert_eq!(
-                engine
-                    .get_create_resource(invoke_resource_node_output_id)
-                    .deref(),
-                &AbstractResourceNode::create(
-                    NotYetCalculated,
-                    ResourceRequestOperation::Invoke(ResourceInvokeRequestOperation::new(
-                        "token".into(),
-                    )),
-                    HashSet::from(["input".into()]),
-                    HashMap::new(),
-                    HashSet::from(["output".into()]),
-                    vec![Callback::extract_field(
-                        *output_fields.get(&"output".into()).unwrap()
-                    )],
-                    "1.0.0".into()
-                )
-            );
-            assert_eq!(
-                engine
-                    .get_extract_field(*output_fields.get(&"output".into()).unwrap())
-                    .deref(),
-                &ExtractFieldNode::create(NotYetCalculated, "output".into(), vec![], false)
             );
         }
 
@@ -1450,7 +1301,6 @@ mod tests {
                             ResourceInvokeRequestOperation::new("token".into()),
                         ),
                         object: HashMap::from([("input".into(), Some(1.into()))]),
-                        expected_results: HashSet::from(["output".into()]),
                         version: "1.0.0".into(),
                     }),
                 )
@@ -1481,11 +1331,9 @@ mod tests {
 
             let mut engine = Engine::new(mock);
             let done_node_output_id = engine.create_done_node(1.into(), false);
-            let (invoke_resource_node_output_id, outputs) = engine.create_resource_invoke_node(
+            let invoke_resource_node_output_id = engine.create_resource_invoke_node(
                 "token".into(),
                 HashMap::from([("input".into(), done_node_output_id)]),
-                ["output".into()].into(),
-                true,
                 "1.0.0".into(),
             );
             invoke_resource_node_output_id_once_cell
@@ -1494,10 +1342,10 @@ mod tests {
             let result = engine.run(HashMap::new());
             assert_eq!(result, None);
 
-            let output_node = engine.get_extract_field(*outputs.get(&"output".into()).unwrap());
+            let output_node = engine.get_create_resource(invoke_resource_node_output_id);
             assert_eq!(
                 output_node.get_value(),
-                &MaybeNodeValue::set_value(true.into(), false)
+                &MaybeNodeValue::set_value(json!({ "output": true }), false)
             );
         }
     }

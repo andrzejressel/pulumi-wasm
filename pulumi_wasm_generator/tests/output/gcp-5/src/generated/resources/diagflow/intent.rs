@@ -323,105 +323,47 @@ pub mod intent {
                     value: &webhook_state_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "action".into(),
-                },
-                register_interface::ResultField {
-                    name: "defaultResponsePlatforms".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "events".into(),
-                },
-                register_interface::ResultField {
-                    name: "followupIntentInfos".into(),
-                },
-                register_interface::ResultField {
-                    name: "inputContextNames".into(),
-                },
-                register_interface::ResultField {
-                    name: "isFallback".into(),
-                },
-                register_interface::ResultField {
-                    name: "mlDisabled".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "parentFollowupIntentName".into(),
-                },
-                register_interface::ResultField {
-                    name: "priority".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "resetContexts".into(),
-                },
-                register_interface::ResultField {
-                    name: "rootFollowupIntentName".into(),
-                },
-                register_interface::ResultField {
-                    name: "webhookState".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         IntentResult {
-            action: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("action").unwrap(),
-            ),
+            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
             default_response_platforms: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("defaultResponsePlatforms").unwrap(),
+                o.extract_field("defaultResponsePlatforms"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
-            events: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("events").unwrap(),
-            ),
+            events: pulumi_wasm_rust::__private::into_domain(o.extract_field("events")),
             followup_intent_infos: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("followupIntentInfos").unwrap(),
+                o.extract_field("followupIntentInfos"),
             ),
             input_context_names: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("inputContextNames").unwrap(),
+                o.extract_field("inputContextNames"),
             ),
             is_fallback: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("isFallback").unwrap(),
+                o.extract_field("isFallback"),
             ),
             ml_disabled: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("mlDisabled").unwrap(),
+                o.extract_field("mlDisabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             parent_followup_intent_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("parentFollowupIntentName").unwrap(),
+                o.extract_field("parentFollowupIntentName"),
             ),
             priority: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("priority").unwrap(),
+                o.extract_field("priority"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             reset_contexts: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resetContexts").unwrap(),
+                o.extract_field("resetContexts"),
             ),
             root_followup_intent_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("rootFollowupIntentName").unwrap(),
+                o.extract_field("rootFollowupIntentName"),
             ),
             webhook_state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("webhookState").unwrap(),
+                o.extract_field("webhookState"),
             ),
         }
     }

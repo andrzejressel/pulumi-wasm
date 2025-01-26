@@ -118,33 +118,17 @@ pub mod policy_attachment {
                     value: &target_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "policyId".into(),
-                },
-                register_interface::ResultField {
-                    name: "skipDestroy".into(),
-                },
-                register_interface::ResultField {
-                    name: "targetId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         PolicyAttachmentResult {
             policy_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("policyId").unwrap(),
+                o.extract_field("policyId"),
             ),
             skip_destroy: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("skipDestroy").unwrap(),
+                o.extract_field("skipDestroy"),
             ),
             target_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("targetId").unwrap(),
+                o.extract_field("targetId"),
             ),
         }
     }

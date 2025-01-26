@@ -75,127 +75,59 @@ pub mod get_health_check {
                     value: &project_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "checkIntervalSec".into(),
-                },
-                register_interface::ResultField {
-                    name: "creationTimestamp".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "grpcHealthChecks".into(),
-                },
-                register_interface::ResultField {
-                    name: "healthyThreshold".into(),
-                },
-                register_interface::ResultField {
-                    name: "http2HealthChecks".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpHealthChecks".into(),
-                },
-                register_interface::ResultField {
-                    name: "httpsHealthChecks".into(),
-                },
-                register_interface::ResultField {
-                    name: "id".into(),
-                },
-                register_interface::ResultField {
-                    name: "logConfigs".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "selfLink".into(),
-                },
-                register_interface::ResultField {
-                    name: "sourceRegions".into(),
-                },
-                register_interface::ResultField {
-                    name: "sslHealthChecks".into(),
-                },
-                register_interface::ResultField {
-                    name: "tcpHealthChecks".into(),
-                },
-                register_interface::ResultField {
-                    name: "timeoutSec".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "unhealthyThreshold".into(),
-                },
-            ]),
         };
         let o = register_interface::invoke(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         GetHealthCheckResult {
             check_interval_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("checkIntervalSec").unwrap(),
+                o.extract_field("checkIntervalSec"),
             ),
             creation_timestamp: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("creationTimestamp").unwrap(),
+                o.extract_field("creationTimestamp"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             grpc_health_checks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("grpcHealthChecks").unwrap(),
+                o.extract_field("grpcHealthChecks"),
             ),
             healthy_threshold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("healthyThreshold").unwrap(),
+                o.extract_field("healthyThreshold"),
             ),
             http2_health_checks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("http2HealthChecks").unwrap(),
+                o.extract_field("http2HealthChecks"),
             ),
             http_health_checks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpHealthChecks").unwrap(),
+                o.extract_field("httpHealthChecks"),
             ),
             https_health_checks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("httpsHealthChecks").unwrap(),
+                o.extract_field("httpsHealthChecks"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(hashmap.remove("id").unwrap()),
+            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
             log_configs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logConfigs").unwrap(),
+                o.extract_field("logConfigs"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             self_link: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("selfLink").unwrap(),
+                o.extract_field("selfLink"),
             ),
             source_regions: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sourceRegions").unwrap(),
+                o.extract_field("sourceRegions"),
             ),
             ssl_health_checks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("sslHealthChecks").unwrap(),
+                o.extract_field("sslHealthChecks"),
             ),
             tcp_health_checks: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tcpHealthChecks").unwrap(),
+                o.extract_field("tcpHealthChecks"),
             ),
             timeout_sec: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("timeoutSec").unwrap(),
+                o.extract_field("timeoutSec"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             unhealthy_threshold: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("unhealthyThreshold").unwrap(),
+                o.extract_field("unhealthyThreshold"),
             ),
         }
     }

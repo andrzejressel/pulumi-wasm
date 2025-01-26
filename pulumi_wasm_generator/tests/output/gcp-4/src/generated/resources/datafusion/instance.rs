@@ -608,202 +608,90 @@ pub mod instance {
                     value: &zone_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "accelerators".into(),
-                },
-                register_interface::ResultField {
-                    name: "apiEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "createTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "cryptoKeyConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "dataprocServiceAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "description".into(),
-                },
-                register_interface::ResultField {
-                    name: "displayName".into(),
-                },
-                register_interface::ResultField {
-                    name: "effectiveLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableRbac".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableStackdriverLogging".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableStackdriverMonitoring".into(),
-                },
-                register_interface::ResultField {
-                    name: "eventPublishConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "gcsBucket".into(),
-                },
-                register_interface::ResultField {
-                    name: "labels".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-                register_interface::ResultField {
-                    name: "networkConfig".into(),
-                },
-                register_interface::ResultField {
-                    name: "options".into(),
-                },
-                register_interface::ResultField {
-                    name: "p4ServiceAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "privateInstance".into(),
-                },
-                register_interface::ResultField {
-                    name: "project".into(),
-                },
-                register_interface::ResultField {
-                    name: "pulumiLabels".into(),
-                },
-                register_interface::ResultField {
-                    name: "region".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceAccount".into(),
-                },
-                register_interface::ResultField {
-                    name: "serviceEndpoint".into(),
-                },
-                register_interface::ResultField {
-                    name: "state".into(),
-                },
-                register_interface::ResultField {
-                    name: "stateMessage".into(),
-                },
-                register_interface::ResultField {
-                    name: "tenantProjectId".into(),
-                },
-                register_interface::ResultField {
-                    name: "type".into(),
-                },
-                register_interface::ResultField {
-                    name: "updateTime".into(),
-                },
-                register_interface::ResultField {
-                    name: "version".into(),
-                },
-                register_interface::ResultField {
-                    name: "zone".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         InstanceResult {
             accelerators: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("accelerators").unwrap(),
+                o.extract_field("accelerators"),
             ),
             api_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("apiEndpoint").unwrap(),
+                o.extract_field("apiEndpoint"),
             ),
             create_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("createTime").unwrap(),
+                o.extract_field("createTime"),
             ),
             crypto_key_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("cryptoKeyConfig").unwrap(),
+                o.extract_field("cryptoKeyConfig"),
             ),
             dataproc_service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("dataprocServiceAccount").unwrap(),
+                o.extract_field("dataprocServiceAccount"),
             ),
             description: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("description").unwrap(),
+                o.extract_field("description"),
             ),
             display_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("displayName").unwrap(),
+                o.extract_field("displayName"),
             ),
             effective_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("effectiveLabels").unwrap(),
+                o.extract_field("effectiveLabels"),
             ),
             enable_rbac: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableRbac").unwrap(),
+                o.extract_field("enableRbac"),
             ),
             enable_stackdriver_logging: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableStackdriverLogging").unwrap(),
+                o.extract_field("enableStackdriverLogging"),
             ),
             enable_stackdriver_monitoring: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableStackdriverMonitoring").unwrap(),
+                o.extract_field("enableStackdriverMonitoring"),
             ),
             event_publish_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("eventPublishConfig").unwrap(),
+                o.extract_field("eventPublishConfig"),
             ),
             gcs_bucket: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("gcsBucket").unwrap(),
+                o.extract_field("gcsBucket"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("labels").unwrap(),
-            ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
             network_config: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("networkConfig").unwrap(),
+                o.extract_field("networkConfig"),
             ),
             options: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("options").unwrap(),
+                o.extract_field("options"),
             ),
             p4_service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("p4ServiceAccount").unwrap(),
+                o.extract_field("p4ServiceAccount"),
             ),
             private_instance: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("privateInstance").unwrap(),
+                o.extract_field("privateInstance"),
             ),
             project: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("project").unwrap(),
+                o.extract_field("project"),
             ),
             pulumi_labels: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("pulumiLabels").unwrap(),
+                o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("region").unwrap(),
-            ),
+            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
             service_account: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceAccount").unwrap(),
+                o.extract_field("serviceAccount"),
             ),
             service_endpoint: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("serviceEndpoint").unwrap(),
+                o.extract_field("serviceEndpoint"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("state").unwrap(),
-            ),
+            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
             state_message: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("stateMessage").unwrap(),
+                o.extract_field("stateMessage"),
             ),
             tenant_project_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tenantProjectId").unwrap(),
+                o.extract_field("tenantProjectId"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("type").unwrap(),
-            ),
+            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
             update_time: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("updateTime").unwrap(),
+                o.extract_field("updateTime"),
             ),
             version: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("version").unwrap(),
+                o.extract_field("version"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("zone").unwrap(),
-            ),
+            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

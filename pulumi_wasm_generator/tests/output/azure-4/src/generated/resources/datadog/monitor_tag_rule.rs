@@ -125,40 +125,17 @@ pub mod monitor_tag_rule {
                     value: &name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "datadogMonitorId".into(),
-                },
-                register_interface::ResultField {
-                    name: "logs".into(),
-                },
-                register_interface::ResultField {
-                    name: "metrics".into(),
-                },
-                register_interface::ResultField {
-                    name: "name".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         MonitorTagRuleResult {
             datadog_monitor_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("datadogMonitorId").unwrap(),
+                o.extract_field("datadogMonitorId"),
             ),
-            logs: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("logs").unwrap(),
-            ),
+            logs: pulumi_wasm_rust::__private::into_domain(o.extract_field("logs")),
             metrics: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("metrics").unwrap(),
+                o.extract_field("metrics"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("name").unwrap(),
-            ),
+            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

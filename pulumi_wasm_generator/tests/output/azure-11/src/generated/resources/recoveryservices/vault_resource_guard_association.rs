@@ -100,27 +100,14 @@ pub mod vault_resource_guard_association {
                     value: &vault_id_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "resourceGuardId".into(),
-                },
-                register_interface::ResultField {
-                    name: "vaultId".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VaultResourceGuardAssociationResult {
             resource_guard_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("resourceGuardId").unwrap(),
+                o.extract_field("resourceGuardId"),
             ),
             vault_id: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("vaultId").unwrap(),
+                o.extract_field("vaultId"),
             ),
         }
     }

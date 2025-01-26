@@ -105,69 +105,29 @@ pub mod virtual_mfa_device {
                     value: &virtual_mfa_device_name_binding,
                 },
             ]),
-            results: Vec::from([
-                register_interface::ResultField {
-                    name: "arn".into(),
-                },
-                register_interface::ResultField {
-                    name: "base32StringSeed".into(),
-                },
-                register_interface::ResultField {
-                    name: "enableDate".into(),
-                },
-                register_interface::ResultField {
-                    name: "path".into(),
-                },
-                register_interface::ResultField {
-                    name: "qrCodePng".into(),
-                },
-                register_interface::ResultField {
-                    name: "tags".into(),
-                },
-                register_interface::ResultField {
-                    name: "tagsAll".into(),
-                },
-                register_interface::ResultField {
-                    name: "userName".into(),
-                },
-                register_interface::ResultField {
-                    name: "virtualMfaDeviceName".into(),
-                },
-            ]),
         };
         let o = register_interface::register(context.get_inner(), &request);
-        let mut hashmap: HashMap<String, _> = o
-            .fields
-            .into_iter()
-            .map(|f| (f.name, f.output))
-            .collect();
         VirtualMfaDeviceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("arn").unwrap(),
-            ),
+            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
             base32_string_seed: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("base32StringSeed").unwrap(),
+                o.extract_field("base32StringSeed"),
             ),
             enable_date: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("enableDate").unwrap(),
+                o.extract_field("enableDate"),
             ),
-            path: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("path").unwrap(),
-            ),
+            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
             qr_code_png: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("qrCodePng").unwrap(),
+                o.extract_field("qrCodePng"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tags").unwrap(),
-            ),
+            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
             tags_all: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("tagsAll").unwrap(),
+                o.extract_field("tagsAll"),
             ),
             user_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("userName").unwrap(),
+                o.extract_field("userName"),
             ),
             virtual_mfa_device_name: pulumi_wasm_rust::__private::into_domain(
-                hashmap.remove("virtualMfaDeviceName").unwrap(),
+                o.extract_field("virtualMfaDeviceName"),
             ),
         }
     }
