@@ -1,13 +1,15 @@
 use std::cell::RefCell;
 use std::collections::HashMap;
 use std::ffi::{c_char, CStr};
+use std::ops::Deref;
 use std::rc::Rc;
-use pulumi_wasm_core::{Engine, OutputId};
+use pulumi_wasm_core::{Engine, FieldName, OutputId};
 
 pub struct CustomOutputId {
     output_id: OutputId,
     engine: Rc<RefCell<Engine>>,
 }
+
 pub struct CustomRegisterOutputId{
     output_id: OutputId,
     engine: Rc<RefCell<Engine>>,
@@ -20,11 +22,11 @@ pub struct PulumiEngine {
 }
 
 pub struct Output {
-    native: pulumi_wasm_core::OutputId
+    native: OutputId
 }
 
 pub struct RegisterOutput {
-    native: pulumi_wasm_core::OutputId
+    native: OutputId
 }
 
 #[repr(C)]
@@ -50,9 +52,7 @@ pub struct RegisterResourceRequest {
     name: *const c_char,
     version: *const c_char,
     object: *const ObjectField,
-    object_len: usize,
-    results: *const ResultField,
-    results_len: usize,
+    object_len: usize
 }
 
 #[repr(C)]
@@ -63,17 +63,21 @@ pub struct RegisterResourceResult {
 
 #[no_mangle]
 pub extern "C" fn create_engine() -> *mut PulumiEngine {
-    let engine = get_engine();
-    let preview = false; //FIXME: get from env
-    let t = PulumiEngine { engine, outputs: Vec::new() };
+    let engine = Rc::new(RefCell::new(get_engine()));
+    let in_preview = match std::env::var("PULUMI_DRY_RUN") {
+        Ok(preview) if preview == "true" => true,
+        Ok(preview) if preview == "false" => false,
+        _ => false,
+    };
+    let t = PulumiEngine { engine, outputs: Vec::new(), in_preview };
     Box::into_raw(Box::new(t))
 }
 
 #[no_mangle]
 pub extern "C" fn free_engine(t: *mut PulumiEngine) {
     unsafe {
-        let _ = Box::from_raw(t);
-        for output in (*t).outputs.iter() {
+        let b = Box::from_raw(t);
+        for output in b.outputs.iter() {
             let _ = Box::from_raw(*output);
         }
     }
@@ -88,7 +92,7 @@ pub extern "C" fn create_output(pulumi_engine: *mut PulumiEngine, value: *const 
         &mut *pulumi_engine
     };
     let value = serde_json::from_str(&value).unwrap();
-    let output_id = pulumi_engine.engine.create_done_node(value, secret);
+    let output_id = pulumi_engine.engine.deref().borrow_mut().create_done_node(value, secret);
     let output = Output { native: output_id };
     let raw = Box::into_raw(Box::new(output));
     pulumi_engine.outputs.push(raw);
@@ -97,7 +101,17 @@ pub extern "C" fn create_output(pulumi_engine: *mut PulumiEngine, value: *const 
 
 #[no_mangle]
 pub extern "C" fn add_export(pulumi_engine: *mut PulumiEngine, name: *const c_char, value: *const Output) {
-    // Implement the function logic here
+    let name = unsafe {
+        CStr::from_ptr(name)
+    }.to_str().unwrap().to_string();
+    let value = unsafe {
+        &*value
+    };
+    let pulumi_engine = unsafe {
+        &mut *pulumi_engine
+    };
+    let output_id = value.native.clone();
+    pulumi_engine.engine.deref().borrow_mut().add_output(name.into(), output_id);
 }
 
 #[no_mangle]
@@ -109,7 +123,7 @@ fn get_engine() -> Engine {
 }
 
 #[no_mangle]
-pub extern "C" fn register(pulumi_engine: *mut PulumiEngine, request: *const RegisterResourceRequest) -> RegisterResourceResult {
+pub extern "C" fn register(pulumi_engine: *mut PulumiEngine, request: *const RegisterResourceRequest) -> *mut CustomRegisterOutputId {
     let pulumi_engine = unsafe {
         &mut *pulumi_engine
     };
@@ -138,15 +152,15 @@ pub extern "C" fn register(pulumi_engine: *mut PulumiEngine, request: *const Reg
         });
     }
 
-    let output_id = pulumi_engine.engine.create_register_resource_node(
+    let output_id = pulumi_engine.engine.deref().borrow_mut().create_register_resource_node(
         type_,
         name,
         inputs,
         version,
     );
 
-    RegisterResourceResult {
-        fields: std::ptr::null(),
-        fields_len: 0,
-    }
+    let register_output_id = CustomRegisterOutputId {
+        output_id, engine: Rc::clone(&pulumi_engine.engine)
+    };
+    Box::into_raw(Box::new(register_output_id))
 }

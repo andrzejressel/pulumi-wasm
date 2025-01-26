@@ -6,28 +6,16 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+typedef struct CustomRegisterOutputId CustomRegisterOutputId;
+
 typedef struct Output Output;
 
 typedef struct PulumiEngine PulumiEngine;
-
-typedef struct RegisterResourceResultField {
-  const char *name;
-  const struct Output *output;
-} RegisterResourceResultField;
-
-typedef struct RegisterResourceResult {
-  const struct RegisterResourceResultField *fields;
-  uintptr_t fields_len;
-} RegisterResourceResult;
 
 typedef struct ObjectField {
   const char *name;
   const struct Output *value;
 } ObjectField;
-
-typedef struct ResultField {
-  const char *name;
-} ResultField;
 
 typedef struct RegisterResourceRequest {
   const char *type_;
@@ -35,8 +23,6 @@ typedef struct RegisterResourceRequest {
   const char *version;
   const struct ObjectField *object;
   uintptr_t object_len;
-  const struct ResultField *results;
-  uintptr_t results_len;
 } RegisterResourceRequest;
 
 #ifdef __cplusplus
@@ -53,8 +39,8 @@ void add_export(struct PulumiEngine *pulumi_engine, const char *name, const stru
 
 void finish(struct PulumiEngine *pulumi_engine);
 
-struct RegisterResourceResult register(struct PulumiEngine *pulumi_engine,
-                                       const struct RegisterResourceRequest *request);
+struct CustomRegisterOutputId *register(struct PulumiEngine *pulumi_engine,
+                                        const struct RegisterResourceRequest *request);
 
 #ifdef __cplusplus
 }  // extern "C"
