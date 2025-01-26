@@ -1,7 +1,7 @@
 use std::cell::RefCell;
 use std::collections::{BTreeMap, HashMap, HashSet};
 
-use log::{error, warn};
+use log::error;
 use prost::Message;
 use prost_types::value::Kind;
 use prost_types::{ListValue, Struct};

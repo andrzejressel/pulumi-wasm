@@ -446,7 +446,6 @@ mod tests {
         use crate::nodes::{RegisterResourceRequestOperation, ResourceRequestOperation};
         use crate::pulumi::service::PerformResourceRequest;
         use serde_json::json;
-        use std::collections::HashSet;
 
         #[test]
         fn set_input_passes_it_to_pulumi() {

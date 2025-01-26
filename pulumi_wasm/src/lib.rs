@@ -1,6 +1,6 @@
 use pulumi_wasm_core::{Engine, OutputId, PulumiServiceImpl};
 use std::cell::RefCell;
-use std::collections::{HashMap, HashSet};
+use std::collections::HashMap;
 use std::rc::Rc;
 
 use crate::bindings::exports::component::pulumi_wasm::output_interface::{

@@ -1101,8 +1101,8 @@ mod tests {
         use crate::model::MaybeNodeValue;
         use crate::model::MaybeNodeValue::NotYetCalculated;
         use crate::nodes::{
-            AbstractResourceNode, Callback, DoneNode, ExtractFieldNode,
-            RegisterResourceRequestOperation, ResourceRequestOperation,
+            AbstractResourceNode, Callback, DoneNode, RegisterResourceRequestOperation,
+            ResourceRequestOperation,
         };
         use crate::pulumi::service::{
             MockPulumiService, PerformResourceRequest, RegisterResourceResponse,
@@ -1231,8 +1231,8 @@ mod tests {
         use crate::model::MaybeNodeValue;
         use crate::model::MaybeNodeValue::NotYetCalculated;
         use crate::nodes::{
-            AbstractResourceNode, Callback, DoneNode, ExtractFieldNode,
-            ResourceInvokeRequestOperation, ResourceRequestOperation,
+            AbstractResourceNode, Callback, DoneNode, ResourceInvokeRequestOperation,
+            ResourceRequestOperation,
         };
         use crate::pulumi::service::{
             MockPulumiService, PerformResourceRequest, RegisterResourceResponse,
